@@ -1,0 +1,100 @@
+# DSGS与spec.kit整合项目
+
+## 项目概述
+
+本项目旨在将DSGS (Dynamic Specification Growth System) 技能系统与GitHub spec.kit工具包进行深度整合，创建一个既具备专业技能又支持多平台的AI辅助开发系统。
+
+## 功能特性
+
+- **专业技能系统**: 集成DSGS的架构设计、智能体创建等专业技能
+- **跨平台支持**: 支持Claude CLI、Gemini CLI、Qwen CLI等多种AI工具
+- **统一接口**: 提供统一的斜杠命令接口(/speckit.dsgs.*)
+- **智能匹配**: 保持DSGS智能匹配和Hook系统的独特优势
+
+## 安装要求
+
+- Python 3.8+
+- uv工具包管理器
+- Git版本控制系统
+
+## 安装步骤
+
+```bash
+# 安装uv工具
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# 安装specify-cli
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+
+# 安装本项目
+pip install -e .
+```
+
+## 使用方法
+
+### 命令行使用
+
+```bash
+# 使用斜杠命令调用技能
+/speckit.dsgs.architect "设计一个电商系统架构"
+/speckit.dsgs.agent-creator "创建订单处理智能体"
+```
+
+### 作为库使用
+
+```python
+from dsgs_spec_kit_integration import SkillManager
+
+# 初始化技能管理器
+manager = SkillManager()
+
+# 调用技能
+result = manager.execute_skill("dsgs-architect", "设计一个电商系统架构")
+```
+
+## 开发指南
+
+### 运行测试
+
+```bash
+# 运行单元测试
+pytest tests/unit
+
+# 运行集成测试
+pytest tests/integration
+
+# 生成测试覆盖率报告
+pytest --cov=src
+```
+
+### 代码格式化
+
+```bash
+# 格式化代码
+black src tests
+
+# 代码检查
+flake8 src tests
+```
+
+## 项目结构
+
+```
+.
+├── src/
+│   └── dsgs_spec_kit_integration/
+│       ├── adapters/          # 平台适配器
+│       ├── core/              # 核心模块
+│       ├── config/            # 配置管理
+│       ├── utils/             # 工具函数
+│       └── skills/            # 技能实现
+├── tests/
+│   ├── unit/                 # 单元测试
+│   └── integration/          # 集成测试
+├── pyproject.toml            # 项目配置
+└── README.md                 # 项目说明
+```
+
+## 许可证
+
+MIT License

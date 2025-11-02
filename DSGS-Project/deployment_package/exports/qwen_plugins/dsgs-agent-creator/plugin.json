@@ -1,0 +1,41 @@
+{
+  "name": "dsgs-agent-creator",
+  "description": "DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档。当用户提到创建智能体、配置agent、多智能体系统、智能体角色定义、模块智能化、agentic或具身认知时使用此技能。不要在讨论一般系统架构时使用。",
+  "version": "1.0.0",
+  "author": "DSGS System",
+  "license": "MIT",
+  "tools": [
+    {
+      "name": "dsgs-agent-creator_tool",
+      "description": "用于执行dsgs-agent-creator功能的工具",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "request": {
+            "type": "string",
+            "description": "用户请求的具体内容"
+          }
+        },
+        "required": [
+          "request"
+        ]
+      }
+    }
+  ],
+  "instructions": "当用户请求与DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档。当用户提到创建智能体、配置agent、多智能体系统、智能体角色定义、模块智能化、agentic或具身认知时使用此技能。不要在讨论一般系统架构时使用。相关的内容时，使用此插件。",
+  "keywords": [
+    "模块智能化",
+    "根据项目需求创建和配置智能体",
+    "多智能体系统",
+    "定义智能体角色和行为",
+    "生成智能体规范文档",
+    "agent",
+    "或具身认知",
+    "agentic",
+    "创建智能体",
+    "当用户提到创建智能体",
+    "dsgs",
+    "智能体角色定义",
+    "配置"
+  ]
+}

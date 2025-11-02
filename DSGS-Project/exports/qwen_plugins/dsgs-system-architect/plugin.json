@@ -1,0 +1,35 @@
+{
+  "name": "dsgs-system-architect",
+  "description": "DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义。当用户提到系统架构设计、技术栈选择、模块划分或接口定义时使用此技能。不要在讨论具体编码实现时使用。",
+  "version": "1.0.0",
+  "author": "DSGS System",
+  "license": "MIT",
+  "tools": [
+    {
+      "name": "dsgs-system-architect_tool",
+      "description": "用于执行dsgs-system-architect功能的工具",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "request": {
+            "type": "string",
+            "description": "用户请求的具体内容"
+          }
+        },
+        "required": [
+          "request"
+        ]
+      }
+    }
+  ],
+  "instructions": "当用户请求与DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义。当用户提到系统架构设计、技术栈选择、模块划分或接口定义时使用此技能。不要在讨论具体编码实现时使用。相关的内容时，使用此插件。",
+  "keywords": [
+    "当用户提到系统架构设计",
+    "技术栈选择",
+    "模块划分或接口定义",
+    "复杂项目的系统架构设计",
+    "dsgs",
+    "模块划分和接口定义",
+    "系统架构设计"
+  ]
+}

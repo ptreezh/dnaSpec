@@ -1,0 +1,70 @@
+{
+  'name': 'Contract Management',
+  'on': {
+    'push': {
+      'branches': [
+        'main',
+        'develop'
+      ],
+      'paths': [
+        'src/**/*'
+      ]
+    },
+    'pull_request': {
+      'branches': [
+        'main',
+        'develop'
+      ]
+    }
+  },
+  'jobs': {
+    'contract-management': {
+      'runs-on': 'ubuntu-latest',
+      'steps': [
+        {
+          'name': 'Checkout code',
+          'uses': 'actions/checkout@v3'
+        },
+        {
+          'name': 'Setup Node.js',
+          'uses': 'actions/setup-node@v3',
+          'with': {
+            'node-version': '18'
+          }
+        },
+        {
+          'name': 'Install dependencies',
+          'run': 'npm ci'
+        },
+        {
+          'name': 'Generate contract',
+          'run': 'npm run contract:generate'
+        },
+        {
+          'name': 'Validate contract',
+          'run': 'npm run contract:validate'
+        },
+        {
+          'name': 'Generate documentation',
+          'run': 'npm run contract:docs'
+        },
+        {
+          'name': 'Upload contract artifacts',
+          'uses': 'actions/upload-artifact@v3',
+          'with': {
+            'name': 'contract',
+            'path': 'dist/contract.yaml'
+          }
+        },
+        {
+          'name': 'Upload documentation artifacts',
+          'uses': 'actions/upload-artifact@v3',
+          'with': {
+            'name': 'docs',
+            'path': 'docs/contract'
+          }
+        }
+      ]
+    }
+  }
+}

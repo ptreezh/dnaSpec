@@ -1,0 +1,46 @@
+{
+  "name": "dsgs-gemini-extensions",
+  "version": "1.0.0",
+  "description": "DSGS智能架构师系统 - 为Gemini CLI提供专业技能支持",
+  "author": "DSGS System",
+  "license": "MIT",
+  "main": "dsgs_gemini_cli.py",
+  "scripts": {
+    "test": "python dsgs_gemini_cli.py --test",
+    "start": "python dsgs_gemini_cli.py"
+  },
+  "dependencies": {
+    "python": ">=3.8"
+  },
+  "gemini": {
+    "hooks": [
+      {
+        "name": "dsgs-pre-request",
+        "type": "intercept",
+        "target": "gemini_hook_handler.process_gemini_request",
+        "priority": 100
+      }
+    ],
+    "features": [
+      "智能技能匹配",
+      "自动技能调用",
+      "多维度分析",
+      "专业架构建议"
+    ]
+  },
+  "dsgs": {
+    "skills": [
+      "dsgs-agent-creator",
+      "dsgs-task-decomposer", 
+      "dsgs-dapi-checker",
+      "dsgs-modulizer",
+      "dsgs-architect",
+      "dsgs-constraint-generator"
+    ],
+    "integration": {
+      "hook_handler": "gemini_hook_handler",
+      "matcher": "gemini_intelligent_matcher",
+      "skill_manager": "gemini_skills_core"
+    }
+  }
+}

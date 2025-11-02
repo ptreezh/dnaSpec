@@ -1,0 +1,5 @@
+{"timestamp": "2025-11-02T08:54:53.625089", "skill_name": "dsgs-agent-creator", "user_message": "创建智能agent", "confidence": 0.37, "matched_keywords": ["agent"], "success": true}
+{"timestamp": "2025-11-02T08:54:53.626124", "skill_name": "dsgs-task-decomposer", "user_message": "分解原子化任务", "confidence": 0.25, "matched_keywords": ["task"], "success": true}
+{"timestamp": "2025-11-02T08:54:53.626642", "skill_name": "dsgs-dapi-checker", "user_message": "检查接口一致性", "confidence": 0.42, "matched_keywords": ["interface", "check"], "success": true}
+{"timestamp": "2025-11-02T08:54:53.626642", "skill_name": "dsgs-modulizer", "user_message": "模块化检查", "confidence": 0.38, "matched_keywords": ["module", "check"], "success": true}
+{"timestamp": "2025-11-02T08:54:53.627148", "skill_name": "dsgs-constraint-generator", "user_message": "生成系统约束", "confidence": 0.31, "matched_keywords": ["constraint", "generate"], "success": true}
