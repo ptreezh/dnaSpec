@@ -1,0 +1,63 @@
+{
+  "name": "dsgs-spec-kit",
+  "version": "1.0.0",
+  "description": "DSGS Skills for spec.kit integration - Professional AI skills for architecture design, agent creation, and more, with seamless integration across multiple AI CLI platforms",
+  "main": "lib/index.js",
+  "bin": {
+    "dsgs-spec-kit": "./bin/cli.js",
+    "dsgs": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest --testMatch=\"**/test/**/*.test.js\"",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "build": "echo \"Build completed\"",
+    "start": "node ./bin/cli.js",
+    "init": "node ./bin/init.js"
+  },
+  "keywords": [
+    "dsgs",
+    "spec.kit",
+    "ai",
+    "skills",
+    "cli",
+    "integration",
+    "architecture",
+    "agent",
+    "development"
+  ],
+  "author": "ptreezh <contact@agentpsy.com>",
+  "license": "MIT",
+  "homepage": "https://agentpsy.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ptreezh/dnaSpec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ptreezh/dnaSpec/issues"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^9.5.0",
+    "cross-spawn": "^7.0.6",
+    "fs-extra": "^11.3.2",
+    "inquirer": "^8.2.7",
+    "js-yaml": "^4.1.0",
+    "python-shell": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "docs/",
+    "README.md",
+    "LICENSE"
+  ]
+}

@@ -8,7 +8,7 @@ version = "0.2.0"
 description = "DSGS与spec.kit整合项目 - 专业的AI技能系统与跨平台开发工具包的集成"
 readme = "README.md"
 authors = [
-    {name = "DSGS Team", email = "dsgs-team@example.com"}
+    {name = "ptreezh", email = "contact@agentpsy.com"}
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -42,9 +42,9 @@ test = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/dsgs-project/spec-kit-integration"
-Repository = "https://github.com/dsgs-project/spec-kit-integration.git"
-Documentation = "https://github.com/dsgs-project/spec-kit-integration/blob/main/README.md"
+Homepage = "https://agentpsy.com"
+Repository = "https://github.com/ptreezh/dnaSpec.git"
+Documentation = "https://agentpsy.com"
 
 [tool.setuptools.packages.find]
 where = ["src"]

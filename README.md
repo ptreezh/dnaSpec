@@ -95,6 +95,21 @@ flake8 src tests
 └── README.md                 # 项目说明
 ```
 
+## 作者信息
+
+**项目维护者**: ptreezh  
+**个人主页**: [agentpsy.com](https://agentpsy.com)  
+**联系邮箱**: [contact@agentpsy.com](mailto:contact@agentpsy.com)  
+**GitHub**: [ptreezh](https://github.com/ptreezh)
+
+### 关于作者
+
+ptreezh是一位专注于AI辅助开发工具和智能系统架构的开发者。作为DSGS (Dynamic Specification Growth System) 项目的核心贡献者，致力于打造专业的AI技能系统，帮助开发者提升编码效率和软件质量。
+
+### 项目愿景
+
+我们相信未来的软件开发将更加智能化和自动化。通过将专业的AI技能与易用的工具包相结合，我们希望为开发者提供强大的智能助手，让复杂的系统设计和开发任务变得更加简单和高效。
+
 ## 许可证
 
 MIT License
