@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dsgs-spec-kit-integration"
-version = "0.1.0"
+version = "0.2.0"
 description = "DSGS与spec.kit整合项目 - 专业的AI技能系统与跨平台开发工具包的集成"
 readme = "README.md"
 authors = [

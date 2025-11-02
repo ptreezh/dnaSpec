@@ -5,7 +5,7 @@
 # METADATA
 # Basic information about this context template
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   description: "Minimal viable context for general purpose LLM interactions"
   author: "Context Engineering Contributors"
   token_budget: 800  # Target maximum tokens for the entire context
