@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "total_checks": 11,
+    "passed_checks": 10,
+    "pass_rate": 90.9090909090909,
+    "deployment_ready": true
+  },
+  "detailed_results": {
+    "dependencies": {
+      "required_missing": [],
+      "dev_missing": [],
+      "all_required_installed": true,
+      "all_dev_installed": true
+    },
+    "structure": {
+      "missing_paths": [],
+      "existing_paths": [
+        "src/dsgs_spec_kit_integration",
+        "src/dsgs_spec_kit_integration/core",
+        "src/dsgs_spec_kit_integration/skills",
+        "src/dsgs_spec_kit_integration/adapters",
+        "tests/unit"
+      ],
+      "all_paths_exist": true
+    },
+    "spec_kit": {
+      "missing_adapters": [],
+      "existing_adapters": [
+        "src/dsgs_spec_kit_integration/adapters/spec_kit_adapter.py",
+        "src/dsgs_spec_kit_integration/adapters/concrete_spec_kit_adapter.py"
+      ],
+      "all_adapters_exist": true,
+      "supported_agents": [
+        "claude",
+        "gemini",
+        "qwen",
+        "copilot",
+        "cursor",
+        "windsurf",
+        "opencode",
+        "codex"
+      ]
+    },
+    "adaptation": {
+      "uv_tool": true,
+      "specify_cli": false,
+      "git_repo": true,
+      "local_config": true
+    }
+  },
+  "system_info": {
+    "python_version": "3.12.0",
+    "python_ok": true,
+    "commands": {
+      "git": {
+        "available": true,
+        "path": "E:\\PortableGit\\bin\\git.EXE"
+      },
+      "python": {
+        "available": true,
+        "path": "E:\\Python312\\python.EXE"
+      },
+      "pip": {
+        "available": true,
+        "path": "E:\\Python312\\Scripts\\pip.EXE"
+      }
+    },
+    "os": {
+      "system": "Windows",
+      "release": "11",
+      "machine": "AMD64"
+    }
+  }
+}

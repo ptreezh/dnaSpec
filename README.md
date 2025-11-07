@@ -7,9 +7,34 @@
 ## 功能特性
 
 - **专业技能系统**: 集成DSGS的架构设计、智能体创建等专业技能
+- **上下文工程增强**: 新增上下文分析、优化和认知模板应用技能
 - **跨平台支持**: 支持Claude CLI、Gemini CLI、Qwen CLI等多种AI工具
 - **统一接口**: 提供统一的斜杠命令接口(/speckit.dsgs.*)
 - **智能匹配**: 保持DSGS智能匹配和Hook系统的独特优势
+
+## 新增的上下文工程技能
+
+本项目现已集成完整的上下文工程技能集，用于优化项目分解和AI Agentic架构系统的上下文管理：
+
+1. **Context Analysis Skill** (`dsgs-context-analysis`)
+   - 分析上下文的有效性
+   - 评估各项指标（清晰度、相关性、完整性等）
+   - 提供优化建议
+
+2. **Context Optimization Skill** (`dsgs-context-optimization`) 
+   - 基于分析结果优化上下文质量
+   - 改进清晰度、相关性、完整性和简洁性
+
+3. **Cognitive Template Skill** (`dsgs-cognitive-template`)
+   - 应用认知模板到上下文工程任务
+   - 提供思维链、少示例学习等框架
+
+4. **Context Engineering Manager** (`dsgs-context-engineering-manager`)
+   - 统一管理上下文工程技能
+
+5. **Context Engineering System** (`dsgs-context-engineering-system`)
+   - 完整的上下文工程解决方案
+   - 支持项目分解和AI Agentic架构上下文管理
 
 ## 安装要求
 
@@ -38,78 +63,19 @@ pip install -e .
 # 使用斜杠命令调用技能
 /speckit.dsgs.architect "设计一个电商系统架构"
 /speckit.dsgs.agent-creator "创建订单处理智能体"
+/speckit.dsgs.context-analysis "分析系统设计文档的质量"
+/speckit.dsgs.context-optimization "优化需求描述的清晰度"
 ```
 
 ### 作为库使用
 
 ```python
-from dsgs_spec_kit_integration import SkillManager
+from dsgs_spec_kit_integration import ContextAnalysisSkill
 
-# 初始化技能管理器
-manager = SkillManager()
+# 初始化上下文分析技能
+skill = ContextAnalysisSkill()
 
-# 调用技能
-result = manager.execute_skill("dsgs-architect", "设计一个电商系统架构")
+# 分析上下文
+result = skill.process_request("系统需要高性能和高可用性", {})
+print(result.result)
 ```
-
-## 开发指南
-
-### 运行测试
-
-```bash
-# 运行单元测试
-pytest tests/unit
-
-# 运行集成测试
-pytest tests/integration
-
-# 生成测试覆盖率报告
-pytest --cov=src
-```
-
-### 代码格式化
-
-```bash
-# 格式化代码
-black src tests
-
-# 代码检查
-flake8 src tests
-```
-
-## 项目结构
-
-```
-.
-├── src/
-│   └── dsgs_spec_kit_integration/
-│       ├── adapters/          # 平台适配器
-│       ├── core/              # 核心模块
-│       ├── config/            # 配置管理
-│       ├── utils/             # 工具函数
-│       └── skills/            # 技能实现
-├── tests/
-│   ├── unit/                 # 单元测试
-│   └── integration/          # 集成测试
-├── pyproject.toml            # 项目配置
-└── README.md                 # 项目说明
-```
-
-## 作者信息
-
-**项目维护者**: ptreezh  
-**个人主页**: [agentpsy.com](https://agentpsy.com)  
-**联系邮箱**: [contact@agentpsy.com](mailto:contact@agentpsy.com)  
-**GitHub**: [ptreezh](https://github.com/ptreezh)
-
-### 关于作者
-
-ptreezh是一位专注于AI辅助开发工具和智能系统架构的开发者。作为DSGS (Dynamic Specification Growth System) 项目的核心贡献者，致力于打造专业的AI技能系统，帮助开发者提升编码效率和软件质量。
-
-### 项目愿景
-
-我们相信未来的软件开发将更加智能化和自动化。通过将专业的AI技能与易用的工具包相结合，我们希望为开发者提供强大的智能助手，让复杂的系统设计和开发任务变得更加简单和高效。
-
-## 许可证
-
-MIT License
