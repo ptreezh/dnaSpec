@@ -1,49 +1,43 @@
-# DSGS Context Engineering Skills - 快速安装和使用指南
+# DSGS Context Engineering Skills - 安装和使用指南
 
 ## 概述
 
-DSGS Context Engineering Skills 是一个为AI CLI平台设计的上下文工程增强工具集，它利用AI模型的原生智能，通过标准化指令模板，实现上下文分析、优化和结构化功能。
+DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，提供专业的上下文工程增强工具集。系统基于AI原生设计理念，通过标准化指令模板，实现上下文分析、优化和结构化功能，包含完整的上下文工程技能、Git操作技能和临时工作区管理系统，专门设计用于安全的AI辅助开发流程。
 
-## 安装
+本项目实现了一套独立的技能系统，专注于上下文工程领域，而非依赖外部的spec.kit系统。
 
-### 1. 克隆项目
+## 安装要求
+
+- Python 3.8+
+- Git版本控制系统
+
+## 安装步骤
+
 ```bash
-git clone https://your-git-server/dsgs-context-engineering.git
-cd dsgs-context-engineering
-```
+# 克隆项目
+git clone https://github.com/ptreezh/dnaSpec.git
+cd dnaSpec
 
-### 2. 创建虚拟环境
-```bash
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-# 或
-venv\Scripts\activate  # Windows
-```
-
-### 3. 安装依赖
-```bash
+# 安装本项目
 pip install -e .
 ```
 
-## 配置AI模型API
+## 配置
 
-### 1. Anthropic Claude
+### 1. API密钥配置（可选）
+如果需要使用AI模型API：
+
 ```bash
+# Anthropic Claude
 export ANTHROPIC_API_KEY=your-anthropic-api-key
-```
 
-### 2. Google Gemini  
-```bash
+# Google Gemini  
 export GOOGLE_API_KEY=your-google-api-key
-```
 
-### 3. OpenAI GPT
-```bash
+# OpenAI GPT
 export OPENAI_API_KEY=your-openai-api-key
-```
 
-### 4. 阿里云通义千问
-```bash
+# 阿里云通义千问
 export DASHSCOPE_API_KEY=your-dashscope-api-key
 ```
 
@@ -52,118 +46,161 @@ export DASHSCOPE_API_KEY=your-dashscope-api-key
 ### 1. 在Python代码中使用
 
 ```python
-from dsgs_context_engineering import analyze_context, optimize_context, apply_cognitive_template
-
-# 设置API密钥
-API_KEY = "your-api-key-here"
-
-# 1. 分析上下文质量
-context = "设计一个电商平台，支持用户注册、商品浏览、购物车、订单处理等功能。"
-analysis = analyze_context(context, api_key=API_KEY, provider="anthropic")
-print(analysis)
-
-# 2. 优化上下文内容
-optimized = optimize_context(
-    context, 
-    goals=['clarity', 'completeness'], 
-    api_key=API_KEY, 
-    provider="anthropic"
+from clean_skills import (
+    context_analysis_execute,
+    git_execute,
+    temp_workspace_execute
 )
-print(optimized)
 
-# 3. 应用认知模板
-result = apply_cognitive_template(
-    "如何提高系统性能？", 
-    template="chain_of_thought",
-    api_key=API_KEY, 
-    provider="anthropic"
-)
+# 1. 上下文分析（标准模式）
+result = context_analysis_execute({
+    'context': '设计一个电商平台，支持用户注册、商品浏览、购物车、订单处理等功能。',
+    'mode': 'standard'
+})
 print(result)
+
+# 2. 上下文分析（增强模式）
+result = context_analysis_execute({
+    'context': '设计一个电商平台，支持用户注册、商品浏览、购物车、订单处理等功能。',
+    'mode': 'enhanced'
+})
+print(result)
+
+# 3. Git操作示例
+result = git_execute({
+    'operation': 'status'
+})
+print(result)
+
+# 4. AI安全工作流示例
+# 创建临时工作区
+result = temp_workspace_execute({'operation': 'create-workspace'})
+print(result)
+
+# 添加AI生成的文件
+result = temp_workspace_execute({
+    'operation': 'add-file',
+    'file_path': 'feature.py',
+    'file_content': '# AI生成的代码内容'
+})
+print("文件添加成功")
+
+# 确认文件
+result = temp_workspace_execute({
+    'operation': 'confirm-file', 
+    'confirm_file': 'feature.py'
+})
+print("文件确认成功")
+
+# 清理临时工作区
+result = temp_workspace_execute({'operation': 'clean-workspace'})
+print("临时工作区已清理")
 ```
 
-### 2. 使用技能系统
-
-```python
-from dsgs_context_engineering import create_context_engineering_system
-
-# 创建系统实例
-system = create_context_engineering_system("anthropic", "your-api-key")
-
-# 使用技能管理器
-result = system.skills_manager.execute_skill(
-    'context-analysis',
-    "需要开发一个任务管理系统", 
-    {}
-)
-print(result)
-```
-
-### 3. 在AI CLI中使用
+### 2. 命令行使用
 
 ```bash
-# 假设AI CLI支持DSL风格的技能调用
-claude messages stream --model claude-3-haiku -s "使用DSGS上下文分析技能分析：设计一个电商系统，需要支持用户认证、商品管理、订单处理功能"
+# 使用斜杠命令调用技能
+/speckit.dsgs.context-analysis "分析系统设计文档的质量"
+/speckit.dsgs.context-optimization "优化需求描述的清晰度"
+/speckit.dsgs.cognitive-template "如何提高性能 template=verification"
+/speckit.dsgs.git-skill "operation=status"
+/speckit.dsgs.temp-workspace "operation=create-workspace"
 ```
 
 ## 核心功能
 
-### 1. Context Analysis Skill
-- **功能**：分析上下文的5个维度质量
-  - 清晰度 (Clarity)
-  - 相关性 (Relevance) 
-  - 完整性 (Completeness)
-  - 一致性 (Consistency)
-  - 效率 (Efficiency)
-- **使用**：评估任何上下文的质量并获得优化建议
+### 1. 上下文工程技能
+- **Context Analysis Skill** (`dsgs-context-analysis`): 分析上下文的5个维度质量
+- **Context Optimization Skill** (`dsgs-context-optimization`): 基于分析结果优化上下文
+- **Cognitive Template Skill** (`dsgs-cognitive-template`): 应用认知模板到任务
 
-### 2. Context Optimization Skill  
-- **功能**：基于分析结果优化上下文
-  - 清晰度优化
-  - 完整性补全
-  - 相关性加强
-  - 简洁性改进
-- **使用**：改进上下文质量以获得更好的AI响应
+### 2. Git操作技能
+- **Git Skill** (`dsgs-git-skill`): 完整的Git操作支持
+  - 基本操作：status, add, commit, push, pull
+  - 分支管理：create, switch, merge
+  - 高级功能：worktree管理, stash, diff, log
+  - CI/CD集成：支持自动化提交流程
 
-### 3. Cognitive Template Skill
-- **功能**：应用认知模板到任务
-  - 思维链 (Chain of Thought)
-  - 少示例学习 (Few-shot Learning)
-  - 验证检查 (Verification Check)
-  - 角色扮演 (Role Playing)
-  - 理解框架 (Understanding Framework)
-- **使用**：结构化复杂任务，提升推理质量
+### 3. 临时工作区管理技能
+- **Temporary Workspace Skill** (`dsgs-temp-workspace-skill`): AI安全工作流管理
+  - AI文件隔离：AI生成的文件首先存放在临时工作区
+  - 自动整理：当临时文件超过20个时触发整理提醒
+  - 确认机制：文件经过验证后才能移到确认区域
+  - Git集成：确认文件可直接同步到Git仓库
+  - 自动清理：完成工作后自动清理临时工作区
+
+## AI安全开发工作流
+
+AI生成内容遵循以下安全流程，防止项目被临时文件污染：
+
+1. **生成阶段**：AI输出首先存入临时工作区
+2. **整理阶段**：当临时文件超过20个时自动提醒
+3. **确认阶段**：人工验证后文件移至确认区域
+4. **提交阶段**：确认文件可安全提交到Git仓库
+5. **清理阶段**：自动清理临时工作区
+
+### 安全工作流示例
+
+```python
+from clean_skills.temp_workspace_skill import execute as temp_workspace_execute
+from clean_skills.git_skill import execute as git_execute
+
+def safe_ai_workflow(requirement):
+    # 1. 创建临时工作区
+    temp_workspace_execute({'operation': 'create-workspace'})
+    
+    try:
+        # 2. AI生成内容到临时区
+        # ... AI生成过程 ...
+        
+        # 3. 监控临时文件数量
+        result = temp_workspace_execute({'operation': 'auto-manage'})
+        
+        # 4. 验证后确认文件
+        # ... 验证和确认过程 ...
+        
+        # 5. 提交到Git
+        git_execute({
+            'operation': 'add-commit', 
+            'message': 'Add AI generated feature', 
+            'files': 'confirmed_file.py'
+        })
+    
+    finally:
+        # 6. 清理临时工作区
+        temp_workspace_execute({'operation': 'clean-workspace'})
+```
 
 ## 系统集成
 
 ### 与AI CLI平台集成
 技能系统设计为可以与各种AI CLI平台集成：
 
-- Claude CLI: 通过指令模板集成
-- Gemini CLI: 通过Google API集成  
-- 通义CLI: 通过DashScope API集成
-- 其他平台: 通过通用API适配器集成
+- Claude CLI: 通过 `/speckit.dsgs.*` 指令集成
+- Gemini CLI: 通过自定义指令集成  
+- 通义CLI: 通过自定义指令集成
+- 其他平台: 通过统一接口集成
 
 ### 工作流程
-1. 用户提供上下文
-2. 选择适当技能
-3. 系统构造AI指令模板
-4. 发送到AI模型
-5. 解析结构化响应
-6. 返回结构化结果
+1. 用户发出技能请求
+2. 系统选择适当技能
+3. 根据参数执行标准或增强模式
+4. 返回结构化结果
 
 ## 性能指标
 
-- **响应时间**: 通常在AI模型响应时间范围内（2-10秒）
-- **准确性**: 依赖于底层AI模型的智能水平
-- **兼容性**: 支持所有主流AI模型API
-- **可扩展性**: 支持新的认知模板和优化策略
+- **响应时间**: 本地操作即时响应，AI相关操作依赖模型响应时间
+- **兼容性**: 支持所有主流AI CLI平台
+- **安全性**: 临时工作区有效防止项目污染
+- **可扩展性**: 支持新的技能和功能扩展
 
 ## 故障排除
 
 ### 常见问题
-- **API密钥错误**: 确认环境变量正确设置
-- **网络连接问题**: 检查网络连接和API服务状态
-- **上下文过长**: 超过模型限制时会截断或报错
+- **模块导入错误**: 确认安装路径正确
+- **Git操作失败**: 检查是否有Git仓库和权限
+- **临时工作区错误**: 确认创建了临时工作区后再执行其他操作
 
 ### 错误处理
 系统提供详细的错误信息和状态码，便于调试集成问题。
