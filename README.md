@@ -2,9 +2,9 @@
 
 ## 项目概述
 
-本项目是DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，提供专业的上下文工程增强工具集。系统基于AI原生设计理念，通过标准化指令模板，实现上下文分析、优化和结构化功能。
+本项目是DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，提供专业的上下文工程增强工具集。系统基于AI原生设计理念，通过标准化指令模板，实现上下文分析、优化和结构化功能，包含完整的上下文工程技能、Git操作技能和临时工作区管理系统，专门设计用于安全的AI辅助开发流程。
 
-本项目实现了一套独立的技能系统，专注于上下文工程领域，并提供安全的AI辅助开发工作流，而非依赖外部的spec.kit系统。
+本项目实现了一套独立的技能系统，专注于上下文工程领域，而非依赖外部的spec.kit系统。
 
 ## 功能特性
 
@@ -69,6 +69,15 @@ AI生成内容遵循以下安全流程，防止项目被临时文件污染：
 4. **提交阶段**：确认文件可安全提交到Git仓库
 5. **清理阶段**：自动清理临时工作区
 
+## 作者信息
+
+- **作者**: pTree Dr.Zhang
+- **机构**: AI Persona Lab 2025 (人工智能人格实验室2025)
+- **联系邮箱**: 3061176@qq.com
+- **官方网站**: https://AgentPsy.com
+- **开源协议**: MIT License
+- **版本**: v1.0.1
+
 ## 安装要求
 
 - Python 3.8+
@@ -78,8 +87,8 @@ AI生成内容遵循以下安全流程，防止项目被临时文件污染：
 
 ```bash
 # 克隆项目
-git clone https://github.com/ptreezh/dnaSpec.git
-cd dnaSpec
+git clone https://github.com/AgentPsy/dsgs-context-engineering.git
+cd dsgs-context-engineering
 
 # 安装本项目
 pip install -e .
@@ -149,3 +158,22 @@ result = temp_workspace_execute({'operation': 'confirm-file', 'confirm_file': 'g
 # 清理临时工作区
 result = temp_workspace_execute({'operation': 'clean-workspace'})
 ```
+
+## 贡献
+
+欢迎贡献！请遵循以下指南：
+1. Fork项目并Clone到本地
+2. 创建功能分支
+3. 提交更改
+4. 推送到分支
+5. 开启Pull Request
+
+## 支持
+
+- 问题报告: https://github.com/AgentPsy/dsgs-context-engineering/issues
+- 联系邮箱: 3061176@qq.com
+- 官方网站: https://AgentPsy.com
+
+---
+DSGS Context Engineering Skills - 专业的AI辅助开发工具套件  
+© 2025 AI Persona Lab. Released under MIT License.
