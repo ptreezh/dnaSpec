@@ -1,0 +1,66 @@
+{
+  "name": "DSGS Context Engineering Skills",
+  "version": "1.0.1",
+  "description": "Professional AI-assisted development toolkit for context engineering with unified skill architecture and AI safety workflow",
+  "author": "pTree Dr.Zhang",
+  "organization": "AI Persona Lab 2025",
+  "contact": "3061176@qq.com",
+  "website": "https://AgentPsy.com",
+  "repository": "https://github.com/AgentPsy/dsgs-context-engineering",
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "context-engineering", 
+    "skills",
+    "claude",
+    "qwen",
+    "gemini",
+    "development",
+    "assistant",
+    "spec-kit",
+    "open-source"
+  ],
+  "features": [
+    "Unified Skill Architecture",
+    "AI Safety Workflow", 
+    "Flat Directory Structure",
+    "Context Analysis",
+    "Cognitive Templates",
+    "Git Integration",
+    "Temporary Workspace Management",
+    "Cross-Platform Support"
+  ],
+  "supported_platforms": [
+    "Claude CLI",
+    "Qwen CLI", 
+    "Gemini CLI",
+    "Other AI CLI Platforms"
+  ],
+  "languages": [
+    "Chinese",
+    "English", 
+    "Russian",
+    "Spanish",
+    "French",
+    "Japanese",
+    "Korean"
+  ],
+  "documentation": [
+    {
+      "name": "Installation Guide",
+      "path": "INSTALL_GUIDE.md"
+    },
+    {
+      "name": "Quick Start Guide",
+      "path": "QUICK_START_GUIDE.md" 
+    },
+    {
+      "name": "AI Safety Guidelines",
+      "path": "AI_SAFETY_GUIDELINES.md"
+    },
+    {
+      "name": "API Documentation",
+      "path": "README.md"
+    }
+  ]
+}
