@@ -1,0 +1,41 @@
+{
+  "name": "dsgs-context-engineering",
+  "version": "1.0.1",
+  "description": "DSGS Context Engineering Skills - Professional AI-assisted development toolkit with unified skill structure and AI safety workflow",
+  "homepage": "https://github.com/AgentPsy/dsgs-context-engineering",
+  "author": "pTree Dr.Zhang (AI Persona Lab 2025)",
+  "maintainers": [
+    {
+      "name": "pTree",
+      "email": "3061176@qq.com",
+      "url": "https://AgentPsy.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AgentPsy/dsgs-context-engineering.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AgentPsy/dsgs-context-engineering/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "context-engineering", 
+    "skills",
+    "claude",
+    "qwen",
+    "gemini",
+    "spec-kit",
+    "development",
+    "assistant"
+  ],
+  "scripts": {
+    "install": "pip install -e .",
+    "test": "python -m pytest tests/",
+    "lint": "python -m flake8 src/"
+  },
+  "engines": {
+    "python": ">=3.8"
+  }
+}
