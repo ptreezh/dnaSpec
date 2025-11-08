@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spec.kit - 规格驱动开发工具包</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        .section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+        }
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .usage-item {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid #2196f3;
+        }
+        .contact-info {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        button:hover {
+            background: #5a6fd8;
+        }
+        code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-switch">
+            <button onclick="switchLanguage('zh')">中文</button>
+            <button onclick="switchLanguage('en')">English</button>
+        </div>
+
+        <header>
+            <h1>spec.kit</h1>
+            <div class="subtitle">规格驱动开发工具包 - 将规格转化为可执行实现的AI助手</div>
+        </header>
+
+        <div class="section">
+            <h2>项目概述</h2>
+            <p>spec.kit是一个全面的"规格驱动开发"(Spec-Driven Development)工具包，它让规格成为开发的主要驱动力，而不是代码。该工具包标准化了规格、规划、任务分解和实施过程，并将它们集成到AI代理(如Claude Code、GitHub Copilot等)中，通过可执行的斜杠命令。</p>
+            
+            <div class="btn-group">
+                <a href="https://github.com/ptreezh/spec-kit" class="btn" target="_blank">访问GitHub仓库</a>
+                <a href="#quick-start" class="btn">快速开始</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>🚀 规格驱动</h3>
+                <p>将规格作为开发的主要驱动力，而不是代码。专注于"什么"和"为什么"，而不是"如何"实现。</p>
+            </div>
+            <div class="feature-card">
+                <h3>🤖 AI增强</h3>
+                <p>通过AI助手增强开发流程，自动化规格创建、任务分解和实施指导。</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔄 渐进式展开</h3>
+                <p>从原子技能到复合工作流的层次架构，遵循渐进式展开和组合原则。</p>
+            </div>
+        </div>
+
+        <div class="section" id="quick-start">
+            <h2>快速开始</h2>
+            <div class="usage-grid">
+                <div class="usage-item">
+                    <strong>项目宪法</strong><br>
+                    <code>/speckit.constitution</code><br>
+                    建立项目原则和开发标准
+                </div>
+                <div class="usage-item">
+                    <strong>规格创建</strong><br>
+                    <code>/speckit.specify</code><br>
+                    创建项目规格文档
+                </div>
+                <div class="usage-item">
+                    <strong>技术规划</strong><br>
+                    <code>/speckit.plan</code><br>
+                    制定技术实现计划
+                </div>
+                <div class="usage-item">
+                    <strong>任务分解</strong><br>
+                    <code>/speckit.tasks</code><br>
+                    分解为可执行任务
+                </div>
+            </div>
+            
+            <h3>示例工作流</h3>
+            <pre><code># 1. 建立项目宪法
+/speckit.constitution Web应用开发
+
+# 2. 创建规格
+/speckit.specify 用户需要能够注册、登录、浏览商品
+
+# 3. 技术规划
+/speckit.plan 电商网站技术实现
+
+# 4. 任务分解
+/speckit.tasks 电商网站开发任务</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>核心功能</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>核心规格功能</h3>
+                    <ul>
+                        <li>规格创建 - 转换需求为详细规格</li>
+                        <li>技术规划 - 制定技术实现计划</li>
+                        <li>任务分解 - 拆分为可执行任务</li>
+                        <li>实施指导 - 提供实施建议</li>
+                        <li>项目宪法 - 建立开发规范</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>上下文工程功能</h3>
+                    <ul>
+                        <li>上下文分析 - 质量多维度评估</li>
+                        <li>上下文优化 - 基于目标优化</li>
+                        <li>认知模板 - 结构化思维应用</li>
+                        <li>增强版本 - 高级分析优化</li>
+                        <li>完整工作流 - 分析-优化-增强</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>DSGS智能架构师</h3>
+                    <ul>
+                        <li>架构设计 - 复复杂系统设计</li>
+                        <li>智能体创建 - 创建AI代理</li>
+                        <li>约束生成 - 系统约束定义</li>
+                        <li>任务分解 - 需求分解</li>
+                        <li>接口检查 - 一致性验证</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>技术特点</h2>
+            <ul>
+                <li><strong>多平台兼容</strong> - 支持Claude Skills及其它AI CLI环境</li>
+                <li><strong>Python脚本增强</strong> - 9个技能具有Python脚本支持</li>
+                <li><strong>上下文工程集成</strong> - Token预算管理、记忆集成</li>
+                <li><strong>渐进式展开</strong> - 从原子技能到复合工作流</li>
+                <li><strong>模块化设计</strong> - 清晰的技能分离和职责划分</li>
+            </ul>
+        </div>
+
+        <div class="contact-info">
+            <h3>联系我们</h3>
+            <p><strong>作者:</strong> ptreezh</p>
+            <p><strong>邮箱:</strong> 3061176@qq.com</p>
+            <p><strong>机构:</strong> AI人格实验室 (AI Persona Lab)</p>
+            <p><strong>网站:</strong> https://Agentpsy.com</p>
+            <p><strong>开源许可证:</strong> Apache 2.0</p>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            if (lang === 'en') {
+                document.querySelector('html').setAttribute('lang', 'en');
+                document.querySelector('h1').textContent = 'spec.kit';
+                document.querySelector('.subtitle').textContent = 'Spec-Driven Development Toolkit - Transform specifications into executable implementations with AI assistance';
+                
+                // Update sections
+                document.querySelectorAll('h2')[0].textContent = 'Project Overview';
+                document.querySelectorAll('h2')[1].textContent = 'Quick Start';
+                document.querySelectorAll('h2')[2].textContent = 'Core Features';
+                document.querySelectorAll('h2')[3].textContent = 'Technical Features';
+                
+                document.querySelector('.btn-group').innerHTML = `
+                    <a href="https://github.com/ptreezh/spec-kit" class="btn" target="_blank">Visit GitHub Repository</a>
+                    <a href="#quick-start" class="btn">Get Started</a>
+                `;
+                
+                // Update feature cards
+                document.querySelectorAll('.feature-card h3')[0].textContent = '🚀 Spec-Driven';
+                document.querySelectorAll('.feature-card p')[0].textContent = 'Make specifications the primary driver of development, not code. Focus on "what" and "why" rather than "how" to implement.';
+                
+                document.querySelectorAll('.feature-card h3')[1].textContent = '🤖 AI-Enhanced';
+                document.querySelectorAll('.feature-card p')[1].textContent = 'Enhance development processes through AI assistants, automating specification creation, task decomposition, and implementation guidance.';
+                
+                document.querySelectorAll('.feature-card h3')[2].textContent = '🔄 Progressive Disclosure';
+                document.querySelectorAll('.feature-card p')[2].textContent = 'Hierarchical architecture from atomic skills to composite workflows, following progressive disclosure and combination principles.';
+            } else {
+                // Switch back to Chinese
+                document.querySelector('html').setAttribute('lang', 'zh-CN');
+                document.querySelector('h1').textContent = 'spec.kit';
+                document.querySelector('.subtitle').textContent = '规格驱动开发工具包 - 将规格转化为可执行实现的AI助手';
+                
+                document.querySelectorAll('h2')[0].textContent = '项目概述';
+                document.querySelectorAll('h2')[1].textContent = '快速开始';
+                document.querySelectorAll('h2')[2].textContent = '核心功能';
+                document.querySelectorAll('h2')[3].textContent = '技术特点';
+                
+                document.querySelector('.btn-group').innerHTML = `
+                    <a href="https://github.com/ptreezh/spec-kit" class="btn" target="_blank">访问GitHub仓库</a>
+                    <a href="#quick-start" class="btn">快速开始</a>
+                `;
+                
+                document.querySelectorAll('.feature-card h3')[0].textContent = '🚀 规格驱动';
+                document.querySelectorAll('.feature-card p')[0].textContent = '将规格作为开发的主要驱动力，而不是代码。专注于"什么"和"为什么"，而不是"如何"实现。';
+                
+                document.querySelectorAll('.feature-card h3')[1].textContent = '🤖 AI增强';
+                document.querySelectorAll('.feature-card p')[1].textContent = '通过AI助手增强开发流程，自动化规格创建、任务分解和实施指导。';
+                
+                document.querySelectorAll('.feature-card h3')[2].textContent = '🔄 渐进式展开';
+                document.querySelectorAll('.feature-card p')[2].textContent = '从原子技能到复合工作流的层次架构，遵循渐进式展开和组合原则。';
+            }
+        }
+    </script>
+</body>
+</html>
