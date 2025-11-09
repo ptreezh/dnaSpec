@@ -26,7 +26,7 @@ DSGS (Dynamic Specification Growth System) コンテキスト工学スキルは�
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/AgentPsy/dsgs-context-engineering.git
+git clone https://github.com/ptreezh/dnaSpec.git
 cd dsgs-context-engineering
 
 # インストール

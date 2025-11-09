@@ -17,17 +17,15 @@ def check_files(directory, file_pattern="*.md"):
                     with open(filepath, 'r', encoding='utf-8') as f:
                         content = f.read()
                     
-                    # 检查URL - 应该是正确的仓库地址
-                    if 'github.com/AgentPsy/dsgs-context-engineering' in content:
-                        print(f"  ⚠️  Found incorrect URL in {filepath}")
-                    elif 'github.com/ptreezh/dnaSpec' in content:
-                        print(f"  ✓ Correct URL in {filepath}")
-                    else:
-                        # 检查是否有其他不正确的URL
-                        urls = re.findall(r'https://github\.com/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+', content)
-                        for url in urls:
-                            if 'github.com/' in url and 'ptreezh/dnaSpec' not in url:
-                                print(f"  ⚠️  Potentially incorrect URL in {filepath}: {url}")
+                    # 检查URL - 确保使用正确的仓库地址
+                    urls = re.findall(r'https://github\.com/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+', content)
+                    for url in urls:
+                        if 'github.com/ptreezh/dnaSpec' in url:
+                            print(f"  ⚠️  Found incorrect URL in {filepath}: {url}")
+                        elif 'github.com/ptreezh/dnaSpec' in url:
+                            print(f"  ✓ Correct URL in {filepath}: {url}")
+                        else:
+                            print(f"  ⚠️  Potentially incorrect URL in {filepath}: {url}")
                 
                     # 检查版权
                     if 'AI Personality Lab' in content or 'agentpsy.com' in content:

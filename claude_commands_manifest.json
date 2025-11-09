@@ -4,7 +4,7 @@
   "display_name": "DSGS Context Engineering Skills",
   "description": "Professional context engineering skills for AI-assisted development, including context analysis, optimization, and cognitive template application",
   "author": "DSGS Team",
-  "website": "https://github.com/dsgs/context-engineering",
+  "website": "https://github.com/ptreezh/dnaSpec",
   "commands": [
     {
       "name": "/dsgs-analyze",

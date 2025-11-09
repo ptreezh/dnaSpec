@@ -1,6 +1,6 @@
 [project]
 name = "dsgs-context-engineering-skills"
-version = "1.0.1"
+version = "1.0.2"
 description = "DSGS Context Engineering Skills - AI CLI平台的上下文工程增强工具集"
 readme = "README.md"
 requires-python = ">=3.8"

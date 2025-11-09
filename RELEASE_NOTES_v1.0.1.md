@@ -40,7 +40,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills v1.0.1 - P
 
 ```bash
 # Clone the repository
-git clone https://github.com/AgentPsy/dsgs-context-engineering.git
+git clone https://github.com/ptreezh/dnaSpec.git
 cd dsgs-context-engineering
 
 # Install the package
@@ -115,8 +115,8 @@ result = context_analysis_execute({
 
 ## Support
 
-- **Repository**: https://github.com/AgentPsy/dsgs-context-engineering
-- **Issues**: https://github.com/AgentPsy/dsgs-context-engineering/issues
+- **Repository**: https://github.com/ptreezh/dnaSpec
+- **Issues**: https://github.com/ptreezh/dnaSpec/issues
 - **Author**: pTree Dr.Zhang (AI Persona Lab 2025)
 - **Contact**: 3061176@qq.com
 - **Website**: https://AgentPsy.com

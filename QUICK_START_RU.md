@@ -26,7 +26,7 @@
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/AgentPsy/dsgs-context-engineering.git
+git clone https://github.com/ptreezh/dnaSpec.git
 cd dsgs-context-engineering
 
 # Установить

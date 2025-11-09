@@ -2,7 +2,7 @@
 
 ## 项目信息
 - **名称**: DSGS Context Engineering Skills
-- **官方仓库**: https://github.com/ptreezh/dnaSpec.git
+- **官方仓库**: https://github.com/ptreezh/dnaSpec
 - **作者**: pTree Dr.Zhang  
 - **机构**: AI Persona Lab 2025
 - **联系邮箱**: 3061176@qq.com
@@ -52,7 +52,7 @@ pip install -e .
 ```
 
 ## 版本信息
-- **当前版本**: 1.0.1
+- **当前版本**: 1.0.2
 - **发布日期**: 2025年11月7日
 - **版本类型**: 开源发布版
 

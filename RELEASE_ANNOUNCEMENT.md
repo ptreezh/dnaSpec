@@ -6,7 +6,7 @@ AI 페르소나 랩 2025에서 발표합니다: **DSGS (Dynamic Specification Gr
 
 ### 📋 프로젝트 정보
 - **릴리스 버전**: v1.0.1
-- **공식 레포지토리**: https://github.com/AgentPsy/dsgs-context-engineering
+- **공식 레포지토리**: https://github.com/ptreezh/dnaSpec
 - **라이센스**: MIT 라이센스
 - **작성자**: pTree Dr.Zhang (AI 페르소나 랩 2025)
 - **연락처**: 3061176@qq.com
@@ -40,7 +40,7 @@ AI 페르소나 랩 2025에서 발표합니다: **DSGS (Dynamic Specification Gr
 
 ```bash
 # 레포지토리 클론
-git clone https://github.com/AgentPsy/dsgs-context-engineering.git
+git clone https://github.com/ptreezh/dnaSpec.git
 cd dsgs-context-engineering
 
 # 패키지 설치
@@ -133,7 +133,7 @@ dsgs-context-engineering/
 
 ## 📞 지원 정보
 
-- **이슈 제출**: https://github.com/AgentPsy/dsgs-context-engineering/issues
+- **이슈 제출**: https://github.com/ptreezh/dnaSpec/issues
 - **이메일 문의**: 3061176@qq.com
 - **제품 웹사이트**: https://AgentPsy.com
 

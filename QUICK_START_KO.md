@@ -26,7 +26,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills는 AI CLI 
 
 ```bash
 # 리포지토리 클론
-git clone https://github.com/AgentPsy/dsgs-context-engineering.git
+git clone https://github.com/ptreezh/dnaSpec.git
 cd dsgs-context-engineering
 
 # 설치

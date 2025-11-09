@@ -1,6 +1,6 @@
 {
   "openSource": true,
-  "repository": "https://github.com/AgentPsy/dsgs-context-engineering",
+  "repository": "https://github.com/ptreezh/dnaSpec",
   "license": "MIT",
   "author": {
     "name": "pTree Dr.Zhang",
@@ -9,7 +9,7 @@
     "contact": "3061176@qq.com"
   },
   "versions": {
-    "current": "1.0.1",
+    "current": "1.0.2",
     "released": "2025-01-07"
   },
   "compatibility": [

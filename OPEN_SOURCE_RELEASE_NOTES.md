@@ -2,7 +2,7 @@
 
 ## Repository Information
 
-**Official Repository**: https://github.com/AgentPsy/dsgs-context-engineering  
+**Official Repository**: https://github.com/ptreezh/dnaSpec  
 **Author**: pTree Dr.Zhang  
 **Organization**: AI Persona Lab 2025  
 **Contact**: 3061176@qq.com  
@@ -25,7 +25,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills is a profe
 ## Installation
 
 ```bash
-git clone https://github.com/AgentPsy/dsgs-context-engineering.git
+git clone https://github.com/ptreezh/dnaSpec.git
 cd dsgs-context-engineering
 pip install -e .
 ```
@@ -79,5 +79,5 @@ We welcome contributions! Please see our CONTRIBUTING.md file for guidelines.
 
 ## Support
 
-- Issues: https://github.com/AgentPsy/dsgs-context-engineering/issues
+- Issues: https://github.com/ptreezh/dnaSpec/issues
 - Contact: 3061176@qq.com

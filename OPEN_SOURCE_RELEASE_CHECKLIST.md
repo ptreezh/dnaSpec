@@ -2,7 +2,7 @@
 
 ## 项目信息
 - **项目名称**: DSGS Context Engineering Skills (dsgs-context-engineering)
-- **官方仓库**: https://github.com/AgentPsy/dsgs-context-engineering
+- **官方仓库**: https://github.com/ptreezh/dnaSpec
 - **作者**: pTree Dr.Zhang
 - **机构**: AI Persona Lab 2025
 - **网站**: https://AgentPsy.com
@@ -18,7 +18,7 @@
 - [x] **多语言支持**: 中/英/俄/西/法/日/韩七种语言文档
 - [x] **Git集成**: 完整Git工作流支持
 - [x] **CLI兼容性**: Claude/Qwen/Gemini CLI平台兼容
-- [x] **真实仓库地址**: https://github.com/AgentPsy/dsgs-context-engineering
+- [x] **真实仓库地址**: https://github.com/ptreezh/dnaSpec
 - [x] **作者信息**: AgentPsy.com, 3061176@qq.com, pTree Dr.Zhang
 - [x] **许可证**: MIT开源许可证
 - [x] **完整文档**: 安装、使用、API文档
@@ -77,7 +77,7 @@ dsgs-context-engineering/
 - [x] 多语言文档完整准确
 - [x] Git操作完整支持
 - [x] 临时工作区有效防污染
-- [x] 版本号更新至1.0.1
+- [x] 版本号更新至1.0.2
 
 ### 🚀 开源发布状态
 - [x] 代码已更新版本号
@@ -102,7 +102,7 @@ dsgs-context-engineering/
 ## 部署使用方法
 ```bash
 # 克隆官方仓库
-git clone https://github.com/AgentPsy/dsgs-context-engineering.git
+git clone https://github.com/ptreezh/dnaSpec.git
 cd dsgs-context-engineering
 
 # 安装

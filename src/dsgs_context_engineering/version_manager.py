@@ -76,7 +76,7 @@ class DSGSVersionManager:
         
         # 在实际实现中，这里会检查远程仓库或API
         # 模拟检查更新
-        latest_version = "1.0.1"  # 假设的最新版本
+        latest_version = "1.0.2"  # 假设的最新版本
         has_update = latest_version != current_version
         
         return {

@@ -1,12 +1,12 @@
 {
   "name": "DSGS Context Engineering Skills",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Professional AI-assisted development toolkit for context engineering with unified skill architecture and AI safety workflow",
   "author": "pTree Dr.Zhang",
   "organization": "AI Persona Lab 2025",
   "contact": "3061176@qq.com",
   "website": "https://AgentPsy.com",
-  "repository": "https://github.com/AgentPsy/dsgs-context-engineering",
+  "repository": "https://github.com/ptreezh/dnaSpec",
   "license": "MIT",
   "keywords": [
     "ai",

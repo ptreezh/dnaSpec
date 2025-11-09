@@ -1,8 +1,8 @@
 {
-  "name": "dsgs-context-engineering",
-  "version": "1.0.1",
+  "name": "dnaSpec",
+  "version": "1.0.2",
   "description": "DSGS Context Engineering Skills - Professional AI-assisted development toolkit with unified skill structure and AI safety workflow",
-  "homepage": "https://github.com/AgentPsy/dsgs-context-engineering",
+  "homepage": "https://github.com/ptreezh/dnaSpec",
   "author": "pTree Dr.Zhang (AI Persona Lab 2025)",
   "maintainers": [
     {
@@ -13,10 +13,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/AgentPsy/dsgs-context-engineering.git"
+    "url": "https://github.com/ptreezh/dnaSpec.git"
   },
   "bugs": {
-    "url": "https://github.com/AgentPsy/dsgs-context-engineering/issues"
+    "url": "https://github.com/ptreezh/dnaSpec/issues"
   },
   "license": "MIT",
   "keywords": [
