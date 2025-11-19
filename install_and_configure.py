@@ -96,22 +96,27 @@ def install_dsgs():
 def run_auto_config():
     """运行自动配置"""
     print("\n🚀 运行自动配置...")
-    
+
+    # 设置环境变量以避免编码问题
+    import os
+    os.environ.setdefault('PYTHONIOENCODING', 'utf-8')
+    os.environ.setdefault('LANG', 'en_US.UTF-8')
+
     # 导入并运行自动配置器
     try:
         from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
-        
+
         print("   初始化自动配置器...")
         auto_config = AutoConfigurator()
-        
+
         print("   开始自动配置流程...")
         result = auto_config.quick_configure()
-        
+
         if result['success']:
             print("✅ 自动配置成功完成！")
             print(f"   配置文件位置: {result['configPath']}")
             print(f"   验证报告位置: {result['reportPath']}")
-            
+
             # 显示检测到的平台
             detected_count = len(result.get('validation', {}))
             if detected_count > 0:
@@ -120,16 +125,16 @@ def run_auto_config():
                     print(f"     • {platform_name}")
             else:
                 print("   未检测到已安装的CLI工具，但配置已生成")
-            
+
             return True
         else:
             print(f"❌ 自动配置失败: {result.get('error', '未知错误')}")
             return False
-            
+
     except ImportError as e:
         print(f"❌ 无法导入自动配置器: {e}")
         print("   尝试直接运行配置脚本...")
-        
+
         # 备用方案：直接运行配置脚本
         result = run_command("python run_auto_config.py", "运行自动配置", check=False)
         return result is not None and result.returncode == 0

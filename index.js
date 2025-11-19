@@ -123,7 +123,12 @@ function installAndConfigure() {
 
     const configProcess = spawn('python', ['run_auto_config.py'], {
         stdio: 'inherit',
-        cwd: projectDir // 确保在项目目录中运行
+        cwd: projectDir, // 确保在项目目录中运行
+        env: {
+            ...process.env,
+            PYTHONIOENCODING: 'utf-8',  // 设置Python编码为UTF-8以避免GBK错误
+            LANG: 'en_US.UTF-8'         // 设置语言环境
+        }
     });
 
     configProcess.on('close', (code) => {
