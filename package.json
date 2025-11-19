@@ -1,7 +1,7 @@
 {
-  "name": "dnaSpec",
+  "name": "dsgs-cli",
   "version": "1.0.2",
-  "description": "DSGS Context Engineering Skills - Professional AI-assisted development toolkit with unified skill structure and AI safety workflow",
+  "description": "DSGS Context Engineering Skills - AI-assisted development toolkit installer",
   "homepage": "https://github.com/ptreezh/dnaSpec",
   "author": "pTree Dr.Zhang (AI Persona Lab 2025)",
   "maintainers": [
@@ -21,21 +21,39 @@
   "license": "MIT",
   "keywords": [
     "ai",
-    "context-engineering", 
+    "context-engineering",
     "skills",
     "claude",
     "qwen",
     "gemini",
     "spec-kit",
     "development",
-    "assistant"
+    "assistant",
+    "installer"
   ],
+  "bin": {
+    "dsgs": "./index.js",
+    "dsgs-install": "./index.js"
+  },
   "scripts": {
-    "install": "pip install -e .",
-    "test": "python -m pytest tests/",
-    "lint": "python -m flake8 src/"
+    "install": "node index.js",
+    "setup": "node index.js",
+    "dsgs": "node index.js"
   },
   "engines": {
-    "python": ">=3.8"
-  }
+    "node": ">=14.0.0",
+    "python": ">=3.8",
+    "git": ">=2.0.0"
+  },
+  "preferGlobal": true,
+  "files": [
+    "index.js",
+    "package.json",
+    "README.md",
+    "launch_dsgs.bat",
+    "launch_dsgs.sh",
+    "src/**/*",
+    "pyproject.toml",
+    "*.md"
+  ]
 }

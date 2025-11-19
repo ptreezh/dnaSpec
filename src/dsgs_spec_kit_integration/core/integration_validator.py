@@ -3,6 +3,7 @@
 验证DSGS技能与AI CLI工具的集成状态
 """
 import time
+import os
 from typing import Dict, Any, List
 from .skill_executor import SkillExecutor
 from .python_bridge import PythonBridge

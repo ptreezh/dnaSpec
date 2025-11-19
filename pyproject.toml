@@ -28,6 +28,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+include = ["dsgs_spec_kit_integration", "dsgs_spec_kit_integration.*", "dsgs_context_engineering", "dsgs_context_engineering.*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -50,6 +51,9 @@ omit = [
     "*/venv/*",
     "*/env/*"
 ]
+
+[project.scripts]
+dsgs-spec-kit = "dsgs_spec_kit_integration.cli:main"
 
 [tool.coverage.report]
 exclude_lines = [

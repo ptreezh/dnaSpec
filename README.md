@@ -69,8 +69,76 @@ AI生成内容遵循以下安全流程，防止项目被临时文件污染：
 - Python 3.8+
 - Git版本控制系统
 
-## 安装步骤
+## 快速安装（推荐）
 
+### npm方式（最简单）
+```bash
+# 从GitHub仓库直接安装（需要先安装Git）
+npm install -g ptreezh/dnaSpec
+
+# 然后运行短命令
+dsgs
+```
+
+### 或者下载后本地安装
+```bash
+git clone https://github.com/ptreezh/dnaSpec.git
+cd dnaSpec
+
+# 本地安装为全局命令（提供短命令 dsgs）
+npm install -g .
+
+# 然后运行短命令
+dsgs
+```
+
+### 或运行脚本（一行命令完成）
+```bash
+# 直接运行安装脚本（自动完成所有步骤）
+git clone https://github.com/ptreezh/dnaSpec.git && cd dnaSpec && node index.js
+```
+
+注意：运行安装命令后，系统会：
+1. 自动检测Python和Git环境
+2. 克隆或使用项目代码
+3. 安装Python依赖包
+4. 自动检测已安装的AI CLI工具
+5. 生成相应配置文件
+
+一旦发布到npm官方仓库，安装命令将简化为：
+```bash
+npm install -g dsgs-cli
+dsgs
+```
+
+### Windows系统
+```bash
+# 方式一：运行一键安装脚本
+curl -O https://raw.githubusercontent.com/ptreezh/dnaSpec/main/install_and_configure.bat
+install_and_configure.bat
+
+# 方式二：使用短命令启动（需要先安装Node.js）
+npm install -g ptreezh/dnaSpec
+dsgs
+```
+
+### Linux/Mac系统
+```bash
+# 方式一：运行一键安装脚本
+curl -O https://raw.githubusercontent.com/ptreezh/dnaSpec/main/install_and_configure.sh
+chmod +x install_and_configure.sh
+./install_and_configure.sh
+
+# 方式二：使用短命令启动（需要先安装Node.js）
+npm install -g ptreezh/dnaSpec
+dsgs
+```
+
+## 手动安装
+
+如果需要手动安装：
+
+### 方式一：完整安装
 ```bash
 # 克隆项目
 git clone https://github.com/ptreezh/dnaSpec.git
@@ -78,9 +146,47 @@ cd dnaSpec
 
 # 安装本项目
 pip install -e .
+
+# 运行自动配置
+python run_auto_config.py
 ```
 
+### 方式二：短命令安装（推荐）
+```bash
+# 克隆项目
+git clone https://github.com/ptreezh/dnaSpec.git
+cd dnaSpec
+
+# 本地安装为全局命令（提供短命令 dsgs）
+npm install -g .
+
+# 或运行安装脚本（自动完成所有步骤）
+./index.js
+# 或
+node index.js
+```
+
+使用方式二，您可以直接运行 `dsgs` 命令来进行安装和配置。
+
+### 方式三：使用启动脚本（Windows用户）
+下载并使用启动脚本，可从任何位置运行：
+```bash
+# 下载启动脚本
+curl -O https://raw.githubusercontent.com/ptreezh/dnaSpec/main/launch_dsgs.bat
+
+# 运行安装配置
+launch_dsgs.bat
+```
+
+将 `launch_dsgs.bat` 文件放在系统PATH中的目录中，即可从任何位置运行 `launch_dsgs.bat` 命令。
+
 ## 使用方法
+
+### 自动配置（推荐）
+```bash
+# 首次安装后运行自动配置，检测并配置本地AI CLI工具
+python run_auto_config.py
+```
 
 ### 命令行使用
 ```bash
@@ -88,8 +194,24 @@ pip install -e .
 /speckit.dsgs.context-analysis "分析这段需求文档的质量"
 /speckit.dsgs.context-optimization "优化这段需求的清晰度"
 /speckit.dsgs.cognitive-template "如何提高性能 template=verification"
+/speckit.dsgs.architect "设计电商系统架构"
+/speckit.dsgs.agent-creator "创建AI智能体"
+/speckit.dsgs.task-decomposer "分解复杂任务"
+/speckit.dsgs.constraint-generator "生成系统约束"
+/speckit.dsgs.dapi-checker "检查API接口"
+/speckit.dsgs.modulizer "模块化系统设计"
 /speckit.dsgs.git-skill "operation=status"
 /speckit.dsgs.temp-workspace "operation=create-workspace"
+```
+
+### Python API使用
+```python
+from src.dsgs_context_engineering.skills_system_clean import ContextAnalysisSkill
+
+# 使用上下文分析技能
+skill = ContextAnalysisSkill()
+result = skill.execute_with_ai("设计一个用户认证系统", {})
+print(result)
 ```
 
 ### 作为库使用
@@ -157,6 +279,16 @@ result = temp_workspace_execute({'operation': 'clean-workspace'})
 - 联系邮箱: 3061176@qq.com
 - 官方网站: https://AgentPsy.com
 
+## 一键安装配置特性
+
+本项目实现了"一次安装，自动识别本地的各种CLI编程工具，自动配置完整"的目标：
+
+✅ **环境依赖自动安装** - 通过 `pip install -e .` 自动处理所有Python依赖
+✅ **CLI工具自动检测** - 自动扫描系统中安装的AI CLI工具（Claude, Qwen, Gemini, Copilot, Cursor等）
+✅ **自动配置生成** - 根据检测结果自动生成配置文件
+✅ **一键运行脚本** - 提供 `install_and_configure.py` 一键完成安装和配置
+✅ **跨平台支持** - Windows, Linux, Mac 全平台支持
+
 ---
-DSGS Context Engineering Skills - 专业的AI辅助开发工具套件 
+DSGS Context Engineering Skills - 专业的AI辅助开发工具套件
 © 2025 AI Persona Lab. Released under MIT License.

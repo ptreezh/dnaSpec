@@ -73,12 +73,38 @@ class DSGSVersionManager:
     def check_for_updates(self) -> Dict[str, Any]:
         """检查更新"""
         current_version = self.get_current_version()
-        
-        # 在实际实现中，这里会检查远程仓库或API
-        # 模拟检查更新
-        latest_version = "1.0.2"  # 假设的最新版本
+
+        # 从Git获取最新的标签版本
+        latest_version = current_version  # 默认为当前版本
+        if self.git_enabled:
+            try:
+                # 获取所有标签并找到最新的版本标签
+                result = subprocess.run(
+                    ["git", "tag", "-l", "v*"],
+                    capture_output=True,
+                    text=True,
+                    cwd=self.project_root
+                )
+                if result.returncode == 0:
+                    tags = result.stdout.strip().split('\n')
+                    if tags:
+                        # 按版本号排序，获取最新的标签
+                        import re
+                        def version_key(tag):
+                            # 提取版本号部分并转换为可比较的元组
+                            version_part = re.search(r'v?(\d+)\.(\d+)\.(\d+)', tag)
+                            if version_part:
+                                return tuple(map(int, version_part.groups()))
+                            return (0, 0, 0)
+
+                        tags.sort(key=version_key, reverse=True)
+                        latest_version = tags[0] if tags[0] else current_version
+            except Exception as e:
+                print(f"获取最新版本时出错: {e}")
+                latest_version = current_version
+
         has_update = latest_version != current_version
-        
+
         return {
             "current_version": current_version,
             "latest_version": latest_version,
