@@ -1,0 +1,61 @@
+{
+  "name": "dnaspec",
+  "version": "1.0.4",
+  "description": "Dynamic Specification Growth System - Context Engineering Skills for AI-assisted development",
+  "homepage": "https://github.com/ptreezh/dnaSpec",
+  "author": "pTree Dr.Zhang (AI Persona Lab 2025)",
+  "maintainers": [
+    {
+      "name": "pTree",
+      "email": "3061176@qq.com",
+      "url": "https://AgentPsy.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ptreezh/dnaSpec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ptreezh/dnaSpec/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "context-engineering",
+    "specification",
+    "skills",
+    "claude",
+    "qwen",
+    "gemini",
+    "spec-kit",
+    "development",
+    "assistant",
+    "installer",
+    "dnaspec",
+    "dynamic-specification"
+  ],
+  "bin": {
+    "dnaspec": "index.js"
+  },
+  "scripts": {
+    "install": "node index.js",
+    "setup": "node index.js",
+    "dsgs": "node index.js"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.8",
+    "git": ">=2.0.0"
+  },
+  "preferGlobal": true,
+  "files": [
+    "index.js",
+    "package.json",
+    "README.md",
+    "launch_dnaspec.bat",
+    "launch_dnaspec.sh",
+    "src/**/*",
+    "pyproject.toml",
+    "*.md"
+  ]
+}
