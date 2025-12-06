@@ -26,22 +26,24 @@ class CliDetector:
     def detect_claude(self) -> Dict[str, Any]:
         """
         检测Claude CLI是否安装
-        
+
         Returns:
             检测结果字典
         """
         try:
+            # 在Windows上，使用shell=True来处理npm创建的脚本
             result = subprocess.run(
-                ['claude', '--version'], 
-                capture_output=True, 
-                text=True, 
-                timeout=10
+                ['claude', '--version'],
+                capture_output=True,
+                text=True,
+                timeout=10,
+                shell=(platform.system() == 'Windows')
             )
-            
+
             if result.returncode == 0:
                 version = result.stdout.strip()
                 install_path = self._get_install_path('claude')
-                
+
                 return {
                     'installed': True,
                     'version': version,
@@ -67,22 +69,24 @@ class CliDetector:
     def detect_gemini(self) -> Dict[str, Any]:
         """
         检测Gemini CLI是否安装
-        
+
         Returns:
             检测结果字典
         """
         try:
+            # 在Windows上，使用shell=True来处理npm创建的脚本
             result = subprocess.run(
-                ['gemini', '--version'], 
-                capture_output=True, 
-                text=True, 
-                timeout=10
+                ['gemini', '--version'],
+                capture_output=True,
+                text=True,
+                timeout=10,
+                shell=(platform.system() == 'Windows')
             )
-            
+
             if result.returncode == 0:
                 version = result.stdout.strip()
                 install_path = self._get_install_path('gemini')
-                
+
                 return {
                     'installed': True,
                     'version': version,
@@ -108,22 +112,24 @@ class CliDetector:
     def detect_qwen(self) -> Dict[str, Any]:
         """
         检测Qwen CLI是否安装
-        
+
         Returns:
             检测结果字典
         """
         try:
+            # 在Windows上，使用shell=True来处理npm创建的脚本
             result = subprocess.run(
-                ['qwen', '--version'], 
-                capture_output=True, 
-                text=True, 
-                timeout=10
+                ['qwen', '--version'],
+                capture_output=True,
+                text=True,
+                timeout=10,
+                shell=(platform.system() == 'Windows')
             )
-            
+
             if result.returncode == 0:
                 version = result.stdout.strip()
                 install_path = self._get_install_path('qwen')
-                
+
                 return {
                     'installed': True,
                     'version': version,
@@ -149,22 +155,24 @@ class CliDetector:
     def detect_copilot(self) -> Dict[str, Any]:
         """
         检测Copilot CLI是否安装
-        
+
         Returns:
             检测结果字典
         """
         try:
+            # 在Windows上，使用shell=True来处理npm创建的脚本
             result = subprocess.run(
-                ['gh', 'copilot', '--version'], 
-                capture_output=True, 
-                text=True, 
-                timeout=10
+                ['gh', 'copilot', '--version'],
+                capture_output=True,
+                text=True,
+                timeout=10,
+                shell=(platform.system() == 'Windows')
             )
-            
+
             if result.returncode == 0:
                 version = result.stdout.strip()
                 install_path = self._get_install_path('gh')
-                
+
                 return {
                     'installed': True,
                     'version': version,
@@ -190,23 +198,25 @@ class CliDetector:
     def detect_cursor(self) -> Dict[str, Any]:
         """
         检测Cursor CLI是否安装
-        
+
         Returns:
             检测结果字典
         """
         try:
             # Cursor通常没有命令行版本，这里检查是否有相关命令
+            # 在Windows上，使用shell=True来处理npm创建的脚本
             result = subprocess.run(
-                ['cursor', '--version'], 
-                capture_output=True, 
-                text=True, 
-                timeout=10
+                ['cursor', '--version'],
+                capture_output=True,
+                text=True,
+                timeout=10,
+                shell=(platform.system() == 'Windows')
             )
-            
+
             if result.returncode == 0:
                 version = result.stdout.strip()
                 install_path = self._get_install_path('cursor')
-                
+
                 return {
                     'installed': True,
                     'version': version,
@@ -218,10 +228,11 @@ class CliDetector:
                 for cmd in ['cursor', 'cursor-cli']:
                     try:
                         result = subprocess.run(
-                            [cmd, '--help'], 
-                            capture_output=True, 
-                            text=True, 
-                            timeout=5
+                            [cmd, '--help'],
+                            capture_output=True,
+                            text=True,
+                            timeout=5,
+                            shell=(platform.system() == 'Windows')
                         )
                         if result.returncode == 0:
                             install_path = self._get_install_path(cmd)
@@ -233,7 +244,7 @@ class CliDetector:
                             }
                     except FileNotFoundError:
                         continue
-                
+
                 return {
                     'installed': False,
                     'error': result.stderr.strip() if result.stderr else 'Unknown error'
