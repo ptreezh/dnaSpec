@@ -1,5 +1,33 @@
-createdAt: '2025-12-06T21:48:19.224612'
-platforms: []
+createdAt: '2025-12-06T21:57:05.437740'
+platforms:
+- configPath: C:\Users\Zhang\.config\claude\skills
+  enabled: true
+  installPath: C:\npm_global\claude
+  name: claude
+  skills:
+    skillPath: skills/
+    template: claude-skill-template.json
+  version: 2.0.60 (Claude Code)
+- configPath: C:\Users\Zhang\.qwen\plugins
+  enabled: true
+  installPath: C:\npm_global\qwen
+  name: qwen
+  skills:
+    skillPath: plugins/
+    template: qwen-plugin-template.json
+  version: 0.4.0
+- configPath: C:\Users\Zhang\.cursor
+  enabled: true
+  installPath: E:\cursor\resources\app\bin\cursor
+  name: cursor
+  skills:
+    skillPath: cursor-extensions/
+    template: cursor-extension-template.json
+  version: '2.0.77
+
+    ba90f2f88e4911312761abab9492c42442117cf0
+
+    x64'
 settings:
   autoUpdate: true
   maxRetries: 3
