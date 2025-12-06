@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * DSGS Context Engineering Skills - npm安装入口点
+ * Dynamic Specification Growth System (dnaspec) - npm安装入口点
  * 提供基于npm的一键安装和自动配置功能
  */
 
@@ -53,7 +53,7 @@ function checkDependencies() {
 }
 
 function installAndConfigure() {
-    console.log('🚀 开始DSGS Context Engineering Skills安装和配置...\n');
+    console.log('🚀 开始Dynamic Specification Growth System (dnaspec)安装和配置...\n');
 
     // 检查依赖
     if (!checkDependencies()) {
@@ -119,9 +119,12 @@ function installAndConfigure() {
 
     // 运行自动配置
     console.log('⚙️  运行自动配置...');
-    console.log('   执行: python run_auto_config.py');
 
-    const configProcess = spawn('python', ['run_auto_config.py'], {
+    // 确定配置脚本的完整路径
+    const configScriptPath = path.join(projectDir, 'run_auto_config.py');
+    console.log(`   执行: python ${configScriptPath}`);
+
+    const configProcess = spawn('python', [configScriptPath], {
         stdio: 'inherit',
         cwd: projectDir, // 确保在项目目录中运行
         env: {
@@ -149,7 +152,7 @@ function installAndConfigure() {
             console.log('  /speckit.dsgs.cognitive-template [任务] - 应用认知模板');
             console.log('  /speckit.dsgs.architect [需求] - 系统架构设计');
             console.log('  ...以及其他DSGS专业技能');
-            console.log('\n欢迎使用 dsgs-cli 工具！可以通过命令 `dsgs` 重新运行配置。');
+            console.log('\n欢迎使用 dnaspec 工具！可以通过命令 `dnaspec` 重新运行配置。');
         } else {
             console.error(`\n❌ 配置过程失败，退出码: ${code}`);
             process.exit(1);
