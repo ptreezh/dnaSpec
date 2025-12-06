@@ -292,6 +292,7 @@ result = temp_workspace_execute({'operation': 'clean-workspace'})
 ✅ **自动配置生成** - 根据检测结果自动生成配置文件
 ✅ **一键运行脚本** - 提供 `install_and_configure.py` 一键完成安装和配置
 ✅ **跨平台支持** - Windows, Linux, Mac 全平台支持
+✅ **修复配置路径问题** - 解决npm安装过程中找不到配置脚本的路径问题 (v1.0.3)
 
 ---
 DSGS Context Engineering Skills - 专业的AI辅助开发工具套件

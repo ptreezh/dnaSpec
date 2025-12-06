@@ -1,119 +1,106 @@
-# dnaspec npm包发布指南
+# DSGS Context Engineering Skills - NPM发布指南
 
-## 包信息
-- **包名**: `dnaspec`
-- **版本**: 1.0.2
-- **描述**: Dynamic Specification Growth System - Context Engineering Skills for AI-assisted development
-- **作者**: pTree Dr.Zhang (AI Persona Lab 2025)
-- **命令行工具**: `dnaspec` (不再提供`dsgs`别名)
+## 发布前准备
 
-## 发布前检查
+### 1. 确认修改
+- [x] 修复了npm配置脚本路径问题
+- [x] 所有修改已提交到git
+- [x] 版本号已更新到1.0.3
 
-### 1. 确认package.json信息
-- [x] 包名 `dnaspec` 尚未被占用
-- [x] 版本号正确 (`1.0.2`)
-- [x] 描述信息准确
-- [x] 所有依赖项已正确声明
-- [x] `files` 字段包含了必要的文件
-
-### 2. 验证功能
+### 2. 检查项目状态
 ```bash
-# 本地安装测试
-npm install -g .
-dsgs
-# 或
-dnaspec
+# 检查git状态（应显示干净）
+git status
+
+# 检查版本号
+npm version
 ```
 
-### 3. 检查文件
+## 发布选项
+
+### 选项1：发布到原包（需要权限）
+如果您有`dnaspec`包的发布权限：
+
 ```bash
-npm pack --dry-run
-```
-
-## 发布流程
-
-### 1. 注册npm账户
-如果还没有npm账户，请先在 https://www.npmjs.com/signup 注册。
-
-### 2. 登录npm
-```bash
+# 1. 登录npm账户
 npm login
-# 按提示输入用户名、密码和邮箱
-```
 
-### 3. 发布包
-```bash
-npm publish --access public
-```
+# 2. 验证包内容
+npm pack  # 会生成一个.tgz文件供检查
 
-## 发布后验证
-
-### 1. 检查npmjs.com网站
-访问 https://www.npmjs.com/package/dnaspec 确认包已发布成功
-
-### 2. 测试安装
-```bash
-# 创建测试目录
-mkdir test-dnaspec
-cd test-dnaspec
-npm install -g dnaspec
-dsgs
-```
-
-## 后续版本更新
-
-### 1. 版本更新
-```bash
-# 修复bug使用patch
-npm version patch
-
-# 新功能使用minor
-npm version minor
-
-# 重大更新使用major
-npm version major
-```
-
-### 2. 重新发布
-```bash
+# 3. 发布
 npm publish
 ```
 
-## 注意事项
+### 选项2：发布为新包（推荐）
+如果您没有原包的权限或希望发布自己的版本：
 
-1. 包名`dnaspec`必须是唯一的
-2. 包发布的版本号不能重复，每次更新必须增加版本号
-3. 确保所有敏感信息都已从代码中移除
-4. 所有文件都已正确包含在`files`字段中
-5. 发布前进行全面测试
-
-## 依赖要求
-
-用户安装此包需要：
-- Node.js >= 14.0.0
-- Python >= 3.8
-- Git >= 2.0.0
-
-## 包含的文件
-
-根据package.json的files字段，以下文件将被包含在发布的包中：
-- index.js
-- package.json
-- README.md
-- launch_dnaspec.bat
-- launch_dnaspec.sh
-- src/**/* (所有src目录下的文件)
-- pyproject.toml
-- 所有.md文档文件
-
-## 回滚策略
-
-如果发布有问题的版本，可以：
-```bash
-# 取消发布（24小时内）
-npm unpublish dnaspec@<version>
-
-# 或发布修复版本
-npm version patch
-npm publish
+1. 修改package.json中的包名：
+```json
+{
+  "name": "my-dnaspec",  // 或其他未被占用的名称
+  "version": "1.0.3",
+  // ... 其他配置
+}
 ```
+
+2. 按照上述步骤发布
+
+### 选项3：发布到自己的作用域
+```json
+{
+  "name": "@yourusername/dnaspec",  // 例如 @myuser/dnaspec
+  "version": "1.0.3",
+  // ... 其他配置
+}
+```
+
+## 验证发布
+
+发布后，可以通过以下方式验证：
+
+```bash
+# 1. 从npm安装
+npm install -g dnaspec  # 或您发布的包名
+
+# 2. 测试功能
+dnaspec
+
+# 3. 验证修复是否生效
+# 尝试安装并确认配置脚本路径问题已解决
+```
+
+## Git标签管理
+
+npm version命令已自动创建git标签：
+```bash
+git tag  # 查看所有标签
+git push origin main --tags  # 推送标签到远程仓库
+```
+
+## 重要提醒
+
+1. **权限问题**：您可能无法发布到现有的`dnaspec`包，因为它属于原作者
+2. **版本控制**：每次发布前必须更新版本号
+3. **测试**：发布前请确保在本地测试所有功能
+4. **文档**：更新README.md以反映新版本的特性和修复
+
+## 恢复操作
+
+如果需要撤销版本更新：
+```bash
+git tag -d v1.0.3  # 删除本地标签
+git push --delete origin v1.0.3  # 删除远程标签（如果已推送）
+git reset --hard HEAD~1  # 回到上一个提交（谨慎使用）
+```
+
+## 最新修复说明
+
+**修复内容**：
+- 修复了npm安装过程中`run_auto_config.py`脚本路径错误的问题
+- 问题：`spawn`函数使用相对路径`run_auto_config.py`，在npm全局安装时无法找到文件
+- 解决：使用`path.join(projectDir, 'run_auto_config.py')`构建绝对路径
+
+**影响**：
+- 修复前：npm安装后自动配置失败
+- 修复后：npm安装后自动配置正常工作
