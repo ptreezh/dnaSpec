@@ -1,7 +1,7 @@
 {
-  "name": "dsgs-cli",
+  "name": "dnaspec",
   "version": "1.0.2",
-  "description": "DSGS Context Engineering Skills - AI-assisted development toolkit installer",
+  "description": "Dynamic Specification Growth System - Context Engineering Skills for AI-assisted development",
   "homepage": "https://github.com/ptreezh/dnaSpec",
   "author": "pTree Dr.Zhang (AI Persona Lab 2025)",
   "maintainers": [
@@ -22,6 +22,7 @@
   "keywords": [
     "ai",
     "context-engineering",
+    "specification",
     "skills",
     "claude",
     "qwen",
@@ -29,11 +30,12 @@
     "spec-kit",
     "development",
     "assistant",
-    "installer"
+    "installer",
+    "dnaspec",
+    "dynamic-specification"
   ],
   "bin": {
-    "dsgs": "./index.js",
-    "dsgs-install": "./index.js"
+    "dnaspec": "index.js"
   },
   "scripts": {
     "install": "node index.js",
@@ -50,8 +52,8 @@
     "index.js",
     "package.json",
     "README.md",
-    "launch_dsgs.bat",
-    "launch_dsgs.sh",
+    "launch_dnaspec.bat",
+    "launch_dnaspec.sh",
     "src/**/*",
     "pyproject.toml",
     "*.md"

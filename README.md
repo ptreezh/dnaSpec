@@ -73,11 +73,14 @@ AI生成内容遵循以下安全流程，防止项目被临时文件污染：
 
 ### npm方式（最简单）
 ```bash
-# 从GitHub仓库直接安装（需要先安装Git）
+# 从npm安装（推荐）
+npm install -g dnaspec
+
+# 或从GitHub仓库直接安装（需要先安装Git）
 npm install -g ptreezh/dnaSpec
 
 # 然后运行短命令
-dsgs
+dnaspec
 ```
 
 ### 或者下载后本地安装
@@ -85,11 +88,11 @@ dsgs
 git clone https://github.com/ptreezh/dnaSpec.git
 cd dnaSpec
 
-# 本地安装为全局命令（提供短命令 dsgs）
+# 本地安装为全局命令（提供短命令 dnaspec）
 npm install -g .
 
 # 然后运行短命令
-dsgs
+dnaspec
 ```
 
 ### 或运行脚本（一行命令完成）
@@ -105,10 +108,11 @@ git clone https://github.com/ptreezh/dnaSpec.git && cd dnaSpec && node index.js
 4. 自动检测已安装的AI CLI工具
 5. 生成相应配置文件
 
-一旦发布到npm官方仓库，安装命令将简化为：
+安装命令：
 ```bash
-npm install -g dsgs-cli
-dsgs
+# 推荐安装方式
+npm install -g dnaspec
+dnaspec
 ```
 
 ### Windows系统

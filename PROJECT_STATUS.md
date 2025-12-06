@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - 状态报告
+# Dynamic Specification Growth System (dnaspec) - 状态报告
 
 **更新日期**: 2025年11月7日
 

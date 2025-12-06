@@ -17,13 +17,13 @@ def main():
     CLI主函数
     """
     parser = argparse.ArgumentParser(
-        description='DSGS Skills for spec.kit integration',
-        prog='dsgs-spec-kit'
+        description='Dynamic Specification Growth System (dnaspec) - Context Engineering Skills',
+        prog='dnaspec'
     )
     parser.add_argument(
-        '--version', 
-        action='version', 
-        version='DSGS spec.kit Integration 0.2.0'
+        '--version',
+        action='version',
+        version='Dynamic Specification Growth System (dnaspec) 1.0.2'
     )
     
     subparsers = parser.add_subparsers(dest='command', help='Available commands')

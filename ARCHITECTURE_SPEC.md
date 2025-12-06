@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - 正确架构规范文档
+# Dynamic Specification Growth System (dnaspec) - 正确架构规范文档
 
 ## 1. 系统架构重定义
 
