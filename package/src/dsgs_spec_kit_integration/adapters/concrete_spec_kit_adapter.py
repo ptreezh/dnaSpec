@@ -1,26 +1,102 @@
 """
-spec.kit适配器具体实现示例
-用于演示和测试完整功能
+spec.kit适配器具体实现
+集成DSGS Context Engineering Skills
 """
 from src.dsgs_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
 from typing import Dict, Any
+from src.dsgs_context_engineering.skills_system_final import (
+    ContextAnalysisSkill,
+    ContextOptimizationSkill,
+    CognitiveTemplateSkill
+)
 
 
 class ConcreteSpecKitAdapter(SpecKitAdapter):
     """具体的SpecKitAdapter实现"""
-    
+
     def __init__(self):
         super().__init__()
-        # 预注册一些测试技能
-        self._test_skills = {
-            'dsgs-architect': self._architect_skill,
-            'dsgs-agent-creator': self._agent_creator_skill,
-            'dsgs-task-decomposer': self._task_decomposer_skill
-        }
-        
-        # 注册测试技能
-        for skill_name, skill_func in self._test_skills.items():
-            self.register_skill(skill_name, skill_func)
+
+        # 注册DSGS核心技能
+        self._register_dsgs_skills()
+
+        # 保留原有的测试技能
+        self._register_legacy_skills()
+
+    def _register_dsgs_skills(self):
+        """注册DSGS核心上下文工程技能"""
+        # 创建技能实例
+        self._context_analysis_skill = ContextAnalysisSkill()
+        self._context_optimization_skill = ContextOptimizationSkill()
+        self._cognitive_template_skill = CognitiveTemplateSkill()
+
+        # 注册核心DSGS技能
+        self.register_skill('dsgs-context-analysis', self._context_analysis_wrapper)
+        self.register_skill('dsgs-context-optimization', self._context_optimization_wrapper)
+        self.register_skill('dsgs-cognitive-template', self._cognitive_template_wrapper)
+
+    def _register_legacy_skills(self):
+        """注册原有的测试技能"""
+        self.register_skill('dsgs-architect', self._architect_skill)
+        self.register_skill('dsgs-agent-creator', self._agent_creator_skill)
+        self.register_skill('dsgs-task-decomposer', self._task_decomposer_skill)
+
+    def _context_analysis_wrapper(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """上下文分析技能包装器"""
+        try:
+            result = self._context_analysis_skill.process_request(
+                params.get("params", ""),
+                params
+            )
+            return {
+                'skill': 'context-analysis',
+                'result': result,
+                'success': result.status.name == 'COMPLETED'
+            }
+        except Exception as e:
+            return {
+                'skill': 'context-analysis',
+                'error': str(e),
+                'success': False
+            }
+
+    def _context_optimization_wrapper(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """上下文优化技能包装器"""
+        try:
+            result = self._context_optimization_skill.process_request(
+                params.get("params", ""),
+                params
+            )
+            return {
+                'skill': 'context-optimization',
+                'result': result,
+                'success': result.status.name == 'COMPLETED'
+            }
+        except Exception as e:
+            return {
+                'skill': 'context-optimization',
+                'error': str(e),
+                'success': False
+            }
+
+    def _cognitive_template_wrapper(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """认知模板技能包装器"""
+        try:
+            result = self._cognitive_template_skill.process_request(
+                params.get("params", ""),
+                params
+            )
+            return {
+                'skill': 'cognitive-template',
+                'result': result,
+                'success': result.status.name == 'COMPLETED'
+            }
+        except Exception as e:
+            return {
+                'skill': 'cognitive-template',
+                'error': str(e),
+                'success': False
+            }
     
     def execute_skill(self, skill_name: str, params: Dict[str, Any]) -> Dict[str, Any]:
         """执行映射的DSGS技能"""

@@ -1,8 +1,12 @@
 # DSGS Integration Validation Report
 
-Generated at: 2025-12-06T22:00:48.869435
+Generated at: 2025-12-06T22:58:10.950766
 
 ## CLAUDE Integration
+❌ Status: Invalid
+📝 Error: Unknown error
+
+## GEMINI Integration
 ❌ Status: Invalid
 📝 Error: Unknown error
 

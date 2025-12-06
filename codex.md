@@ -1,8 +1,8 @@
-# QwenCode CLI Configuration
+# OpenAI Codex CLI Configuration
 
 ## Basic Information
-- **Name**: qwen
-- **Display Name**: QwenCode CLI
+- **Name**: codex
+- **Display Name**: OpenAI Codex CLI
 - **Status**: Installed
 - **Required**: No
 
@@ -10,8 +10,8 @@
 This tool has been configured to participate in the cross-AI tool collaboration system.
 
 ## Collaboration Command Examples
-- Chinese: "请用qwen帮我{任务}"
-- English: "use qwen to {task}"
+- Chinese: "请用codex帮我{任务}"
+- English: "use codex to {task}"
 
 ---
-Generated at: 2025-12-06T14:24:18.571Z
+Generated at: 2025-12-06T14:24:18.575Z
