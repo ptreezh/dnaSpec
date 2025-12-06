@@ -50,34 +50,33 @@ class IntegrationValidator:
                 'platform': platform_name
             }
         
-        # 验证配置路径是否存在
+        # 验证配置路径是否存在（非必须验证）
         config_path = platform.get('configPath')
+        config_path_exists = False
         if config_path:
             try:
                 import os
                 config_path_exists = os.path.exists(config_path)
-                if not config_path_exists:
-                    return {
-                        'valid': False,
-                        'error': f'Config path does not exist: {config_path}',
-                        'platform': platform_name
-                    }
             except Exception:
                 # 如果无法检查路径，继续验证其他部分
-                pass
+                config_path_exists = False
+
+        # 注意：配置路径不存在不应导致验证失败，
+        # 因为工具可能已安装但尚未创建配置目录
         
         # 验证技能是否可用
         skills_valid = self._validate_skills(platform)
         if not skills_valid['valid']:
             return skills_valid
-        
+
         # 执行基本技能测试
         skill_test = self._test_basic_skill()
-        
+
         return {
-            'valid': skill_test['success'],
+            'valid': skill_test['success'],  # 验证成功主要取决于技能是否可执行
             'platform': platform_name,
             'configPath': config_path,
+            'configPathExists': config_path_exists,  # 添加配置路径是否存在的信息
             'skills': skills_valid.get('skills', []),
             'testResult': skill_test,
             'timestamp': self._get_timestamp()
