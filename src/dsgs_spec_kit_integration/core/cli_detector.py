@@ -4,6 +4,7 @@ CLI检测器模块
 """
 import subprocess
 import os
+import shutil
 from typing import Dict, Any, Optional
 import platform
 
@@ -31,18 +32,26 @@ class CliDetector:
             检测结果字典
         """
         try:
-            # 在Windows上，使用shell=True来处理npm创建的脚本
+            # 首先使用shutil.which找到完整路径，避免PATH解析问题
+            exe_path = shutil.which('claude')
+            if not exe_path:
+                return {
+                    'installed': False,
+                    'error': 'Claude CLI not found in system PATH'
+                }
+
+            # 使用完整路径执行命令
             result = subprocess.run(
-                ['claude', '--version'],
+                [exe_path, '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
+                timeout=15,  # 增加超时时间以防万一
                 shell=(platform.system() == 'Windows')
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('claude')
+                install_path = exe_path
 
                 return {
                     'installed': True,
@@ -74,18 +83,26 @@ class CliDetector:
             检测结果字典
         """
         try:
-            # 在Windows上，使用shell=True来处理npm创建的脚本
+            # 首先使用shutil.which找到完整路径，避免PATH解析问题
+            exe_path = shutil.which('gemini')
+            if not exe_path:
+                return {
+                    'installed': False,
+                    'error': 'Gemini CLI not found in system PATH'
+                }
+
+            # 使用完整路径执行命令
             result = subprocess.run(
-                ['gemini', '--version'],
+                [exe_path, '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
+                timeout=15,  # 增加超时时间以防万一
                 shell=(platform.system() == 'Windows')
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('gemini')
+                install_path = exe_path
 
                 return {
                     'installed': True,
@@ -117,18 +134,26 @@ class CliDetector:
             检测结果字典
         """
         try:
-            # 在Windows上，使用shell=True来处理npm创建的脚本
+            # 首先使用shutil.which找到完整路径，避免PATH解析问题
+            exe_path = shutil.which('qwen')
+            if not exe_path:
+                return {
+                    'installed': False,
+                    'error': 'Qwen CLI not found in system PATH'
+                }
+
+            # 使用完整路径执行命令
             result = subprocess.run(
-                ['qwen', '--version'],
+                [exe_path, '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
+                timeout=15,  # 增加超时时间以防万一
                 shell=(platform.system() == 'Windows')
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('qwen')
+                install_path = exe_path
 
                 return {
                     'installed': True,
@@ -160,18 +185,26 @@ class CliDetector:
             检测结果字典
         """
         try:
-            # 在Windows上，使用shell=True来处理npm创建的脚本
+            # 首先使用shutil.which找到完整路径，避免PATH解析问题
+            exe_path = shutil.which('gh')
+            if not exe_path:
+                return {
+                    'installed': False,
+                    'error': 'GitHub CLI with Copilot extension not found'
+                }
+
+            # 使用完整路径执行命令，检查copilot扩展
             result = subprocess.run(
-                ['gh', 'copilot', '--version'],
+                [exe_path, 'copilot', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
+                timeout=15,  # 增加超时时间以防万一
                 shell=(platform.system() == 'Windows')
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('gh')
+                install_path = exe_path
 
                 return {
                     'installed': True,
@@ -180,10 +213,28 @@ class CliDetector:
                     'configPath': self._get_copilot_config_path()
                 }
             else:
-                return {
-                    'installed': False,
-                    'error': result.stderr.strip() if result.stderr else 'Unknown error'
-                }
+                # 检查copilot扩展是否已安装
+                check_result = subprocess.run(
+                    [exe_path, 'extension', 'list'],
+                    capture_output=True,
+                    text=True,
+                    timeout=10,
+                    shell=(platform.system() == 'Windows')
+                )
+
+                if 'copilot' in check_result.stdout.lower():
+                    # copilot扩展已安装但版本命令可能不工作
+                    return {
+                        'installed': True,
+                        'version': 'copilot extension detected',
+                        'installPath': exe_path,
+                        'configPath': self._get_copilot_config_path()
+                    }
+                else:
+                    return {
+                        'installed': False,
+                        'error': 'Copilot extension not installed for GitHub CLI'
+                    }
         except (subprocess.TimeoutExpired, FileNotFoundError):
             return {
                 'installed': False,
@@ -203,19 +254,32 @@ class CliDetector:
             检测结果字典
         """
         try:
-            # Cursor通常没有命令行版本，这里检查是否有相关命令
-            # 在Windows上，使用shell=True来处理npm创建的脚本
+            # 首先使用shutil.which找到完整路径，避免PATH解析问题
+            # Cursor可能在不同路径下，需要尝试多个可能的名称
+            exe_path = None
+            for cmd_name in ['cursor', 'cursor-cli', 'cursor.exe']:
+                exe_path = shutil.which(cmd_name)
+                if exe_path:
+                    break
+
+            if not exe_path:
+                return {
+                    'installed': False,
+                    'error': 'Cursor CLI not found in system PATH'
+                }
+
+            # 尝试执行版本命令或帮助命令
             result = subprocess.run(
-                ['cursor', '--version'],
+                [exe_path, '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
+                timeout=15,  # 增加超时时间以防万一
                 shell=(platform.system() == 'Windows')
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('cursor')
+                install_path = exe_path
 
                 return {
                     'installed': True,
@@ -224,31 +288,29 @@ class CliDetector:
                     'configPath': self._get_cursor_config_path()
                 }
             else:
-                # 尝试其他可能的命令
-                for cmd in ['cursor', 'cursor-cli']:
-                    try:
-                        result = subprocess.run(
-                            [cmd, '--help'],
-                            capture_output=True,
-                            text=True,
-                            timeout=5,
-                            shell=(platform.system() == 'Windows')
-                        )
-                        if result.returncode == 0:
-                            install_path = self._get_install_path(cmd)
-                            return {
-                                'installed': True,
-                                'version': 'Unknown',
-                                'installPath': install_path,
-                                'configPath': self._get_cursor_config_path()
-                            }
-                    except FileNotFoundError:
-                        continue
-
-                return {
-                    'installed': False,
-                    'error': result.stderr.strip() if result.stderr else 'Unknown error'
-                }
+                # 尝试--help命令作为备选
+                help_result = subprocess.run(
+                    [exe_path, '--help'],
+                    capture_output=True,
+                    text=True,
+                    timeout=10,
+                    shell=(platform.system() == 'Windows')
+                )
+                if help_result.returncode == 0:
+                    return {
+                        'installed': True,
+                        'version': 'available (version check failed)',
+                        'installPath': exe_path,
+                        'configPath': self._get_cursor_config_path()
+                    }
+                else:
+                    return {
+                        'installed': True,  # 可执行文件存在，但版本命令可能不支持
+                        'version': 'executable found but no version info',
+                        'installPath': exe_path,
+                        'configPath': self._get_cursor_config_path(),
+                        'note': 'Cursor executable exists but may not support --version flag'
+                    }
         except (subprocess.TimeoutExpired, FileNotFoundError):
             return {
                 'installed': False,
