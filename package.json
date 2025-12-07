@@ -40,7 +40,13 @@
   "scripts": {
     "install": "node index.js",
     "setup": "node index.js",
-    "dsgs": "node index.js"
+    "dsgs": "node index.js",
+    "verify": "node post_install_guide.js",
+    "guide": "node post_install_guide.js"
+  },
+  "bin": {
+    "dnaspec": "index.js",
+    "dnaspec-guide": "post_install_guide.js"
   },
   "engines": {
     "node": ">=14.0.0",

@@ -147,16 +147,48 @@ function installAndConfigure() {
         }
 
         if (code === 0) {
-            console.log('\n🎉 安装和配置成功完成！');
-            console.log('\n现在您可以在AI CLI工具中使用以下命令：');
-            console.log('  /speckit.dsgs.context-analysis [上下文] - 分析上下文质量');
-            console.log('  /speckit.dsgs.context-optimization [上下文] - 优化上下文');
-            console.log('  /speckit.dsgs.cognitive-template [任务] - 应用认知模板');
-            console.log('  /speckit.dsgs.architect [需求] - 系统架构设计');
-            console.log('  ...以及其他DSGS专业技能');
-            console.log('\n欢迎使用 dnaspec 工具！可以通过命令 `dnaspec` 重新运行配置。');
+            console.log('\n🎉 Installation and configuration completed successfully!');
+
+            // Show detailed usage guide
+            console.log('\nDSGS Context Engineering Skills - Usage Guide');
+            console.log('=' * 70);
+            console.log('');
+            console.log('Congratulations! DSGS has been successfully installed and configured.');
+            console.log('');
+            console.log('Available Commands in AI CLI Tools:');
+            console.log('  /speckit.dsgs.context-analysis [context]    # Analyze context quality');
+            console.log('  /speckit.dsgs.context-optimization [context] # Optimize context');
+            console.log('  /speckit.dsgs.cognitive-template [task]      # Apply cognitive template');
+            console.log('  /speckit.dsgs.architect [requirements]       # System architecture design');
+            console.log('  /speckit.dsgs.agent-creator [spec]           # Create AI agent');
+            console.log('  /speckit.dsgs.task-decomposer [task]         # Decompose complex tasks');
+            console.log('  /speckit.dsgs.constraint-generator [reqs]    # Generate system constraints');
+            console.log('  /speckit.dsgs.modulizer [system]             # System modularization');
+            console.log('  /speckit.dsgs.dapi-checker [api]             # API interface validation');
+            console.log('');
+            console.log('Quick Start Examples:');
+            console.log('  1. Context Analysis:');
+            console.log('     /speckit.dsgs.context-analysis "Design a user authentication system"');
+            console.log('');
+            console.log('  2. Context Optimization:');
+            console.log('     /speckit.dsgs.context-optimization "Create a web app"');
+            console.log('');
+            console.log('  3. Cognitive Template:');
+            console.log('     /speckit.dsgs.cognitive-template "How to optimize performance" template=verification');
+            console.log('');
+            console.log('Advanced Features:');
+            console.log('  - Context Engineering: Five-dimensional quality assessment');
+            console.log('  - Cognitive Templates: Chain-of-Thought, Verification, etc.');
+            console.log('  - Agentic Design: Professional AI agent creation');
+            console.log('  - Safety Workflows: Secure AI interaction with temporary workspaces');
+            console.log('');
+            console.log('Post-Installation Verification:');
+            console.log('  Run: dnaspec --verify or dnaspec guide');
+            console.log('  This will verify installation and provide detailed usage instructions');
+            console.log('');
+            console.log('Need help? Visit: https://github.com/ptreezh/dnaSpec');
         } else {
-            console.error(`\n❌ 配置过程失败，退出码: ${code}`);
+            console.error(`\n❌ Configuration process failed, exit code: ${code}`);
             process.exit(1);
         }
     });
