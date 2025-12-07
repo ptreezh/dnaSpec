@@ -42,8 +42,14 @@ def main():
     # validate命令：验证配置
     validate_parser = subparsers.add_parser('validate', help='Validate DSGS integration')
 
-    # integrate命令：将技能集成到AI CLI工具
-    integrate_parser = subparsers.add_parser('integrate', help='Integrate DSGS skills to AI CLI tools')
+    # deploy命令：将技能部署到AI CLI工具
+    deploy_parser = subparsers.add_parser('deploy', help='Deploy DSGS skills to AI CLI tools')
+    deploy_parser.add_argument('--platform', help='Target platform for deployment')
+    deploy_parser.add_argument('--list', action='store_true', help='List available platforms')
+    deploy_parser.add_argument('--force', action='store_true', help='Force redeployment if already deployed')
+
+    # integrate命令：集成和验证
+    integrate_parser = subparsers.add_parser('integrate', help='Integrate and validate DSGS skills')
     integrate_parser.add_argument('--platform', help='Target platform for integration')
     integrate_parser.add_argument('--list', action='store_true', help='List available platforms')
     
@@ -86,21 +92,64 @@ def main():
         print('✓ Command handler: Working')
         print('All components are properly integrated.')
 
-    elif args.command == 'integrate':
-        # 集成技能到AI CLI工具
-        print('🚀 Starting DSGS Skills Integration to AI CLI Platforms...')
-        from src.dsgs_spec_kit_integration.core.skill_integrator import SkillIntegrator
+    elif args.command == 'deploy':
+        # 部署技能到AI CLI工具
+        print('🚀 Starting DSGS Skills Deployment to AI CLI Platforms...')
+        from src.dsgs_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
 
-        integrator = SkillIntegrator()
+        deployer = RealSkillDeployer()
 
         if args.list:
             print('Available AI CLI Platforms:')
-            for platform, path in integrator.extension_paths.items():
+            for platform, path in deployer.extension_paths.items():
+                exists = '✅' if os.path.exists(path) else '❌'
+                print(f'  {exists} {platform}: {path}')
+        elif args.platform:
+            print(f'Deploying DSGS skills to {args.platform}...')
+            from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+            detector = CliDetector()
+            detected_tools = detector.detect_all()
+            tool_info = detected_tools.get(args.platform, {})
+
+            result = deployer.deploy_skills_to_platform(args.platform, tool_info)
+            if result['success']:
+                print(f'✅ Successfully deployed to {args.platform}')
+                print(f'Message: {result.get("message", "Deployment completed")}')
+                if result.get('deployed_skills'):
+                    print(f'Deployed skills: {result["deployed_skills"]}')
+            else:
+                print(f'❌ Failed to deploy to {args.platform}')
+                print(f'Error: {result.get("error", "Unknown error")}')
+        else:
+            print('Deploying DSGS skills to all detected AI CLI platforms...')
+            results = deployer.deploy_skills_to_all_platforms()
+            print(f'✅ Deployment completed!')
+            print(f'Successfully deployed to {results["successful_deployments"]}/{results["total_installed_platforms"]} platforms')
+            for platform, result in results['deployment_results'].items():
+                status = '✅' if result.get('success', False) else '❌'
+                message = result.get('message', result.get('error', 'Unknown'))
+                print(f'  {status} {platform}: {message}')
+
+    elif args.command == 'integrate':
+        # 集成和验证
+        print('🚀 Starting DSGS Skills Integration and Validation...')
+        from src.dsgs_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
+
+        deployer = RealSkillDeployer()
+
+        if args.list:
+            print('Available AI CLI Platforms:')
+            for platform, path in deployer.extension_paths.items():
                 exists = '✅' if os.path.exists(path) else '❌'
                 print(f'  {exists} {platform}: {path}')
         elif args.platform:
             print(f'Integrating DSGS skills to {args.platform}...')
-            result = integrator.install_skills_to_platform(args.platform, {})
+            from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+            detector = CliDetector()
+            detected_tools = detector.detect_all()
+            tool_info = detected_tools.get(args.platform, {})
+
+            result = deployer.deploy_skills_to_platform(args.platform, tool_info)
             if result['success']:
                 print(f'✅ Successfully integrated to {args.platform}')
                 print(f'Message: {result.get("message", "Integration completed")}')
@@ -109,10 +158,10 @@ def main():
                 print(f'Error: {result.get("error", "Unknown error")}')
         else:
             print('Integrating DSGS skills to all detected AI CLI platforms...')
-            results = integrator.install_skills_to_all_platforms()
-            print(f'✅ Installation completed!')
-            print(f'Successfully installed to {results["installed_count"]}/{results["target_count"]} platforms')
-            for platform, result in results['installation_results'].items():
+            results = deployer.deploy_skills_to_all_platforms()
+            print(f'✅ Integration completed!')
+            print(f'Successfully integrated to {results["successful_deployments"]}/{results["total_installed_platforms"]} platforms')
+            for platform, result in results['deployment_results'].items():
                 status = '✅' if result.get('success', False) else '❌'
                 print(f'  {status} {platform}')
         
