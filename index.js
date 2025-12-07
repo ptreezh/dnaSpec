@@ -52,8 +52,49 @@ function checkDependencies() {
     return true;
 }
 
+function determineCommand() {
+    // 分析命令行参数
+    const args = process.argv.slice(2);
+    if (args.length > 0) {
+        return args[0].toLowerCase();
+    }
+    return 'init'; // 默认命令
+}
+
 function installAndConfigure() {
-    console.log('🚀 开始Dynamic Specification Growth System (dnaspec)安装和配置...\n');
+    const command = determineCommand();
+
+    // 根据命令决定执行的Python脚本
+    let pythonScript;
+    let description;
+
+    switch(command) {
+        case 'init':
+        case 'install':
+            pythonScript = 'run_auto_config.py';
+            description = '安装和配置';
+            break;
+        case 'deploy':
+            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+            description = '部署技能';
+            break;
+        case 'integrate':
+            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+            description = '集成验证';
+            break;
+        case 'list':
+        case 'validate':
+        case '--list':
+        case '--version':
+            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+            description = '执行命令';
+            break;
+        default:
+            pythonScript = 'run_auto_config.py';
+            description = '安装和配置';
+    }
+
+    console.log(`🚀 开始Dynamic Specification Growth System (dnaspec)${description}...\n`);
 
     // 检查依赖
     if (!checkDependencies()) {
@@ -117,16 +158,24 @@ function installAndConfigure() {
         }
     }
 
-    // 运行自动配置
-    console.log('⚙️  运行自动配置...');
+    // 运行相应脚本
+    console.log(`⚙️  运行${description}...`);
 
-    // 确定配置脚本的完整路径
-    const configScriptPath = path.join(projectDir, 'run_auto_config.py');
-    console.log(`   执行: python ${configScriptPath}`);
+    // 确定Python脚本的完整路径
+    const scriptPath = path.join(projectDir, pythonScript);
 
-    // 创建独立的Python环境，避免本地代码干扰
-    // 使用run_auto_config.py的独立路径执行
-    const configProcess = spawn('python', [configScriptPath], {
+    // 构建Python命令参数
+    let pythonArgs = [scriptPath];
+    if (command !== 'init' && command !== 'install' && !command.startsWith('-')) {
+        pythonArgs.push(command);
+        // 添加其他参数
+        const additionalArgs = process.argv.slice(3);
+        pythonArgs = pythonArgs.concat(additionalArgs);
+    }
+
+    console.log(`   执行: python ${pythonArgs.join(' ')}`);
+
+    const commandProcess = spawn('python', pythonArgs, {
         stdio: 'inherit',
         cwd: projectDir, // 确保在项目目录中运行
         env: {
@@ -136,7 +185,7 @@ function installAndConfigure() {
         }
     });
 
-    configProcess.on('close', (code) => {
+    commandProcess.on('close', (code) => {
         if (!isProjectDir) {
             // 如果不是原始项目目录，清理临时目录
             process.chdir(initialDir);
@@ -147,53 +196,68 @@ function installAndConfigure() {
         }
 
         if (code === 0) {
-            console.log('\n🎉 Installation and configuration completed successfully!');
+            // 根据命令显示不同信息
+            if (command === 'deploy') {
+                console.log('\n🎉 DSGS Skills deployment completed successfully!');
+                console.log('\nNow you can use DSGS skills in your AI CLI tools:');
+                console.log('  /speckit.dsgs.context-analysis [context] - Analyze context quality');
+                console.log('  /speckit.dsgs.context-optimization [context] - Optimize context');
+                console.log('  /speckit.dsgs.cognitive-template [task] - Apply cognitive template');
+            } else if (command === 'integrate') {
+                console.log('\n🎉 DSGS Integration completed successfully!');
+            } else if (command === 'list' || command === '--list') {
+                console.log('\n🎉 DSGS Command listing completed successfully!');
+            } else if (command === 'validate' || command === '--version') {
+                console.log('\n🎉 DSGS Validation completed successfully!');
+            } else {
+                console.log('\n🎉 Installation and configuration completed successfully!');
 
-            // Show detailed usage guide
-            console.log('\nDSGS Context Engineering Skills - Usage Guide');
-            console.log('='.repeat(70));
-            console.log('');
-            console.log('Congratulations! DSGS has been successfully installed and configured.');
-            console.log('');
-            console.log('Available Commands in AI CLI Tools:');
-            console.log('  /speckit.dsgs.context-analysis [context]    # Analyze context quality');
-            console.log('  /speckit.dsgs.context-optimization [context] # Optimize context');
-            console.log('  /speckit.dsgs.cognitive-template [task]      # Apply cognitive template');
-            console.log('  /speckit.dsgs.architect [requirements]       # System architecture design');
-            console.log('  /speckit.dsgs.agent-creator [spec]           # Create AI agent');
-            console.log('  /speckit.dsgs.task-decomposer [task]         # Decompose complex tasks');
-            console.log('  /speckit.dsgs.constraint-generator [reqs]    # Generate system constraints');
-            console.log('  /speckit.dsgs.modulizer [system]             # System modularization');
-            console.log('  /speckit.dsgs.dapi-checker [api]             # API interface validation');
-            console.log('');
-            console.log('Quick Start Examples:');
-            console.log('  1. Context Analysis:');
-            console.log('     /speckit.dsgs.context-analysis "Design a user authentication system"');
-            console.log('');
-            console.log('  2. Context Optimization:');
-            console.log('     /speckit.dsgs.context-optimization "Create a web app"');
-            console.log('');
-            console.log('  3. Cognitive Template:');
-            console.log('     /speckit.dsgs.cognitive-template "How to optimize performance" template=verification');
-            console.log('');
-            console.log('Advanced Features:');
-            console.log('  - Context Engineering: Five-dimensional quality assessment');
-            console.log('  - Cognitive Templates: Chain-of-Thought, Verification, etc.');
-            console.log('  - Agentic Design: Professional AI agent creation');
-            console.log('  - Safety Workflows: Secure AI interaction with temporary workspaces');
-            console.log('');
-            console.log('Post-Installation Verification:');
-            console.log('  Run: dnaspec --verify or dnaspec guide');
-            console.log('  This will verify installation and provide detailed usage instructions');
-            console.log('');
-            console.log('Need help? Visit: https://github.com/ptreezh/dnaSpec');
+                // Show detailed usage guide
+                console.log('\nDSGS Context Engineering Skills - Usage Guide');
+                console.log('='.repeat(70));
+                console.log('');
+                console.log('Congratulations! DSGS has been successfully installed and configured.');
+                console.log('');
+                console.log('Available Commands in AI CLI Tools:');
+                console.log('  /speckit.dsgs.context-analysis [context]    # Analyze context quality');
+                console.log('  /speckit.dsgs.context-optimization [context] # Optimize context');
+                console.log('  /speckit.dsgs.cognitive-template [task]      # Apply cognitive template');
+                console.log('  /speckit.dsgs.architect [requirements]       # System architecture design');
+                console.log('  /speckit.dsgs.agent-creator [spec]           # Create AI agent');
+                console.log('  /speckit.dsgs.task-decomposer [task]         # Decompose complex tasks');
+                console.log('  /speckit.dsgs.constraint-generator [reqs]    # Generate system constraints');
+                console.log('  /speckit.dsgs.modulizer [system]             # System modularization');
+                console.log('  /speckit.dsgs.dapi-checker [api]             # API interface validation');
+                console.log('');
+                console.log('Quick Start Examples:');
+                console.log('  1. Context Analysis:');
+                console.log('     /speckit.dsgs.context-analysis "Design a user authentication system"');
+                console.log('');
+                console.log('  2. Context Optimization:');
+                console.log('     /speckit.dsgs.context-optimization "Create a web app"');
+                console.log('');
+                console.log('  3. Cognitive Template:');
+                console.log('     /speckit.dsgs.cognitive-template "How to optimize performance" template=verification');
+                console.log('');
+                console.log('Advanced Features:');
+                console.log('  - Context Engineering: Five-dimensional quality assessment');
+                console.log('  - Cognitive Templates: Chain-of-Thought, Verification, etc.');
+                console.log('  - Agentic Design: Professional AI agent creation');
+                console.log('  - Safety Workflows: Secure AI interaction with temporary workspaces');
+                console.log('');
+                console.log('Post-Installation Verification:');
+                console.log('  Run: dnaspec --verify or dnaspec guide');
+                console.log('  This will verify installation and provide detailed usage instructions');
+                console.log('');
+                console.log('Need help? Visit: https://github.com/ptreezh/dnaSpec');
+            }
         } else {
-            console.error(`\n❌ Configuration process failed, exit code: ${code}`);
+            console.error(`\n❌ ${description} process failed, exit code: ${code}`);
             process.exit(1);
         }
     });
 
-    configProcess.on('error', (err) => {
+    commandProcess.on('error', (err) => {
         if (!isProjectDir) {
             // 如果不是原始项目目录，清理临时目录
             process.chdir(initialDir);
@@ -203,7 +267,7 @@ function installAndConfigure() {
             }
         }
 
-        console.error(`\n❌ 运行配置时出错: ${err.message}`);
+        console.error(`\n❌ Error running ${description}: ${err.message}`);
         process.exit(1);
     });
 }
