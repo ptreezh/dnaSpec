@@ -16,15 +16,15 @@ class SkillIntegrator:
     技能集成器
     将DSGS技能安装到AI CLI工具的扩展系统中
     """
-    
+
     def __init__(self):
         self.home_dir = Path.home()
         self.os_type = platform.system().lower()
-        
+
         # 定义各AI工具的扩展/插件目录路径
         self.extension_paths = {
             'claude': self._get_claude_extension_path(),
-            'gemini': self._get_gemini_extension_path(), 
+            'gemini': self._get_gemini_extension_path(),
             'qwen': self._get_qwen_plugin_path(),
             'copilot': self._get_copilot_extension_path(),
             'cursor': self._get_cursor_extension_path()
