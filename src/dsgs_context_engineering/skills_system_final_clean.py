@@ -178,13 +178,13 @@ class ContextOptimizationSkill(DSGSSkill):
                 'error': '上下文不能为空',
                 'result': {}
             }
-        
+
         # 获取优化目标
         params = context or {}
         goals = params.get('optimization_goals', ['clarity', 'completeness'])
         if isinstance(goals, str):
             goals = [g.strip() for g in goals.split(',') if g.strip()]
-        
+
         optimization_instruction = f"""
 根据以下目标优化上下文:
 
@@ -194,12 +194,12 @@ class ContextOptimizationSkill(DSGSSkill):
 
 请返回优化后的内容和应用的优化措施，以JSON格式。
 """
-        
+
         try:
             # 使用模拟AI完成度函数
             simulation_result = simulate_ai_completion(optimization_instruction)
             parsed_result = json.loads(simulation_result)
-            
+
             return {
                 'success': True,
                 'result': parsed_result
@@ -210,7 +210,7 @@ class ContextOptimizationSkill(DSGSSkill):
                 'error': f'AI优化失败: {str(e)}',
                 'result': {}
             }
-    
+
     def _calculate_confidence(self, request: str) -> float:
         """计算置信度"""
         if len(request) < 5:
@@ -219,7 +219,7 @@ class ContextOptimizationSkill(DSGSSkill):
             return 0.75
 
 
-class CognitiveTemplateSkill(DSGSSkill):
+class CognitiveTemplateSkill:
     """认知模板技能 - 利用AI模型原生智能应用认知模板"""
     
     def __init__(self):

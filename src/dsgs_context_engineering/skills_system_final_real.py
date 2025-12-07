@@ -12,23 +12,23 @@ def simulate_ai_completion(instruction: str) -> str:
     """
     模拟AI模型完成度函数（真实实现中会调用AI API）
     """
+    import re
     # 在实际实现中，这里会调用AI模型API
     # 目前返回基于指令内容的模拟结果
-    
-    if "分析" in instruction or "评估" in instruction:
+
+    if "分析" in instruction or "评估" in instruction or "质量" in instruction:
         # 模拟分析结果
-        import re
         # 提取上下文长度信息（从指令中提取原上下文）
         context_match = re.search(r'"([^"]+)"', instruction)
         context_text = context_match.group(1) if context_match else "测试上下文内容"
-        
+
         # 计算指标
         clarity = min(1.0, max(0.0, 0.5 + len(context_text) * 0.0001))
-        relevance = min(1.0, max(0.0, 0.7 + (0.1 if any(kw in context_text for kw in ['系统', '功能', '任务']) else 0)))
-        completeness = min(1.0, max(0.0, 0.3 + (0.3 if any(kw in context_text for kw in ['约束', '要求', '目标']) else 0)))
-        consistency = min(1.0, max(0.0, 0.8 - (0.2 if any(kw in context_text for kw in ['但是', '然而']) else 0)))
+        relevance = min(1.0, max(0.0, 0.7 + (0.1 if any(kw in context_text.lower() for kw in ['system', 'function', 'task', '系统', '功能', '任务']) else 0)))
+        completeness = min(1.0, max(0.0, 0.3 + (0.3 if any(kw in context_text.lower() for kw in ['constraint', 'requirement', 'goal', '约束', '要求', '目标']) else 0)))
+        consistency = min(1.0, max(0.0, 0.8 - (0.2 if any(kw in context_text.lower() for kw in ['but', 'however', '但是', '然而']) else 0)))
         efficiency = min(1.0, max(0.0, 1.0 - len(context_text) * 0.00005))
-        
+
         result_data = {
             "context_length": len(context_text),
             "token_count_estimate": max(1, len(context_text) // 4),
@@ -44,55 +44,56 @@ def simulate_ai_completion(instruction: str) -> str:
                 "补充约束条件和具体要求",
                 "提高表述清晰度"
             ],
-            "issues": [
-                "缺少明确的约束条件" if completeness < 0.6 else "",
-                "部分表述可以更精确" if clarity < 0.7 else ""
-            ],
             "issues": [i for i in [
                 "缺少明确的约束条件" if completeness < 0.6 else "",
                 "部分表述可以更精确" if clarity < 0.7 else ""
             ] if i],  # 过滤空问题
             "confidence": 0.85
         }
-        
+
         return json.dumps(result_data, ensure_ascii=False, indent=2)
-    
-    elif "优化" in instruction or "改进" in instruction:
+
+    elif "优化" in instruction or "改进" in instruction or "提升" in instruction:
         # 模拟优化结果
-        original_match = re.search(r'原始上下文:\s*["\']([^"\']+)["\']', instruction)
-        original_context = original_match.group(1) if original_match else "待优化内容"
-        
-        goals_match = re.search(r'优化目标:\s*([^\n]+)', instruction) or re.search(r'目标:\s*([^\n]+)', instruction)
-        goals_text = goals_match.group(1) if goals_match else "clarity,completeness"
-        
+        # 提取原始上下文
+        context_extracted = instruction.split('"')[1] if '"' in instruction else "待优化内容"
+        original_context = context_extracted
+
+        # 提取优化目标
+        goals_text = "clarity,completeness"
+        for line in instruction.split('\n'):
+            if '目标:' in line or '优化目标:' in line:
+                goals_text = line.split(':')[-1].strip()
+                break
+
         goals = [g.strip() for g in goals_text.split(',') if g.strip()]
-        
+
         optimized_context = original_context
         applied_optimizations = []
-        
-        if any(goal in goals_text for goal in ['clarity', '清晰度']):
+
+        if any(goal in goals_text.lower() for goal in ['clarity', '清晰度']):
             optimized_context += "\n\n请明确具体的目标和约束条件。"
             applied_optimizations.append("提升表述清晰度")
-        
-        if any(goal in goals_text for goal in ['completeness', '完整性']):
+
+        if any(goal in goals_text.lower() for goal in ['completeness', '完整性']):
             optimized_context += "\n\n约束条件: 需在指定时间内完成\n明确目标: 实现预期功能\n前提假设: 有必要的资源支持"
             applied_optimizations.append("补充完整性要素")
-        
+
         result_data = {
             "original_context": original_context,
             "optimized_context": optimized_context,
             "applied_optimizations": applied_optimizations,
             "improvement_metrics": {
-                "clarity": 0.2 if any(goal in goals_text for goal in ['clarity', '清晰度']) else 0.0,
-                "relevance": 0.1 if any(goal in goals_text for goal in ['relevance', '相关性']) else 0.0,
-                "completeness": 0.3 if any(goal in goals_text for goal in ['completeness', '完整性']) else 0.0,
-                "conciseness": -0.05 if any(goal in goals_text for goal in ['conciseness', '简洁性']) else 0.0
+                "clarity": 0.2 if any(goal in goals_text.lower() for goal in ['clarity', '清晰度']) else 0.0,
+                "relevance": 0.15 if any(goal in goals_text.lower() for goal in ['relevance', '相关性']) else 0.0,
+                "completeness": 0.3 if any(goal in goals_text.lower() for goal in ['completeness', '完整性']) else 0.0,
+                "conciseness": -0.1 if any(goal in goals_text.lower() for goal in ['conciseness', '简洁性']) else 0.0
             },
             "optimization_summary": f"根据目标 {', '.join(goals)} 完成优化"
         }
-        
+
         return json.dumps(result_data, ensure_ascii=False, indent=2)
-    
+
     else:
         # 默认返回
         result_data = {

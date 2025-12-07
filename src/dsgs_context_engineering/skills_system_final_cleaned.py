@@ -1,24 +1,25 @@
 """
-DSGS Context Engineering Skills - 完整实现版本
+DSGS Context Engineering Skills - 最终实现版本
 基于AI模型原生智能的上下文工程技能系统
 """
 import json
 import re
 from typing import Dict, Any
+from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
 
 
 def simulate_ai_completion(instruction: str) -> str:
     """
     模拟AI模型完成度函数（真实实现中会调用AI API）
     """
-    # 提取上下文内容
-    context_match = re.search(r'["\']([^"\']+)["\']', instruction)
-    if context_match:
-        context_text = context_match.group(1)
-    else:
-        context_text = "测试上下文内容"
+    import json
+    import re
 
     if "分析" in instruction or "评估" in instruction or "质量" in instruction:
+        # 提取上下文
+        context_match = re.search(r'"([^"]+)"', instruction)
+        context_text = context_match.group(1) if context_match else "测试上下文内容"
+
         # 计算指标
         clarity = min(1.0, max(0.0, 0.5 + len(context_text) * 0.0001))
         relevance = min(1.0, max(0.0, 0.7 + (0.1 if any(kw in context_text.lower() for kw in ['系统', '功能', '任务', 'system', 'function', 'task']) else 0)))
@@ -48,45 +49,47 @@ def simulate_ai_completion(instruction: str) -> str:
             "confidence": 0.85
         }
 
-        return json.dumps(result_data, ensure_ascii=False)
+        return json.dumps(result_data, ensure_ascii=False, indent=2)
 
     elif "优化" in instruction or "改进" in instruction or "提升" in instruction:
+        # 提取原始上下文
+        context_extracted = instruction.split('"')[1] if '"' in instruction else "待优化内容"
+        original_context = context_extracted
+
         # 提取优化目标
         goals_text = "clarity,completeness"
         for line in instruction.split('\n'):
             if '目标:' in line or '优化目标:' in line:
-                goals_match = re.search(r'[:：]\s*(.+)', line)
-                if goals_match:
-                    goals_text = goals_match.group(1).strip()
+                goals_text = line.split(':')[-1].strip()
                 break
 
         goals = [g.strip() for g in goals_text.split(',') if g.strip()]
 
-        optimized_context = context_text
+        optimized_context = original_context
         applied_optimizations = []
 
-        if any(goal in goals_text.lower() for goal in ['clarity', '清晰度']):
+        if any(goal in goals for goal in ['clarity', '清晰度']):
             optimized_context += "\n\n请明确具体的目标和约束条件。"
             applied_optimizations.append("提升表述清晰度")
 
-        if any(goal in goals_text.lower() for goal in ['completeness', '完整性']):
+        if any(goal in goals for goal in ['completeness', '完整性']):
             optimized_context += "\n\n约束条件: 需在指定时间内完成\n明确目标: 实现预期功能\n前提假设: 有必要的资源支持"
             applied_optimizations.append("补充完整性要素")
 
         result_data = {
-            "original_context": context_text,
+            "original_context": original_context,
             "optimized_context": optimized_context,
             "applied_optimizations": applied_optimizations,
             "improvement_metrics": {
-                "clarity": 0.2 if any(goal in goals_text.lower() for goal in ['clarity', '清晰度']) else 0.0,
-                "relevance": 0.15 if any(goal in goals_text.lower() for goal in ['relevance', '相关性']) else 0.0,
-                "completeness": 0.3 if any(goal in goals_text.lower() for goal in ['completeness', '完整性']) else 0.0,
-                "conciseness": -0.1 if any(goal in goals_text.lower() for goal in ['conciseness', '简洁性']) else 0.0
+                "clarity": 0.2 if any(goal in goals for goal in ['clarity', '清晰度']) else 0.0,
+                "relevance": 0.15 if any(goal in goals for goal in ['relevance', '相关性']) else 0.0,
+                "completeness": 0.3 if any(goal in goals for goal in ['completeness', '完整性']) else 0.0,
+                "conciseness": -0.1 if any(goal in goals for goal in ['conciseness', '简洁性']) else 0.0
             },
             "optimization_summary": f"根据目标 {', '.join(goals)} 完成优化"
         }
 
-        return json.dumps(result_data, ensure_ascii=False)
+        return json.dumps(result_data, ensure_ascii=False, indent=2)
 
     else:
         # 默认返回
@@ -94,25 +97,7 @@ def simulate_ai_completion(instruction: str) -> str:
             "enhanced_content": f"AI处理了指令: {instruction[:50]}...",
             "success": True
         }
-        return json.dumps(result_data, ensure_ascii=False)
-
-
-class DSGSSkill:
-    """DSGS技能基类"""
-    
-    def __init__(self, name: str, description: str):
-        self.name = name
-        self.description = description
-    
-    def process_request(self, request: str, params: Dict[str, Any] = None) -> Any:
-        """处理请求"""
-        result = self._execute_skill_logic(request, params or {})
-        result['skill_name'] = self.name
-        return result
-    
-    def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
-        """执行技能逻辑 - 子类需要实现"""
-        raise NotImplementedError("_execute_skill_logic must be implemented by subclass")
+        return json.dumps(result_data, ensure_ascii=False, indent=2)
 
 
 class ContextAnalysisSkill(DSGSSkill):
@@ -354,6 +339,9 @@ def execute(args: Dict[str, Any]) -> str:
     """
     执行函数 - 与AI CLI平台集成的接口
     """
+    import json
+    from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+    
     skill_name = args.get('skill', 'context-analysis')
     context_input = args.get('context', '') or args.get('request', '')
     params = args.get('params', {})
@@ -366,8 +354,12 @@ def execute(args: Dict[str, Any]) -> str:
             skill = ContextAnalysisSkill()
             result = skill.process_request(context_input, params)
 
-            if result['success']:
-                analysis_data = result['result']
+            if result.status.name == 'COMPLETED':
+                analysis = result.result
+                if 'result' in analysis:
+                    analysis_data = analysis['result']
+                else:
+                    analysis_data = analysis
 
                 output_lines = []
                 output_lines.append("上下文质量分析结果:")
@@ -397,14 +389,18 @@ def execute(args: Dict[str, Any]) -> str:
 
                 return "\n".join(output_lines)
             else:
-                return f"错误: {result.get('error', '未知错误')}"
+                return f"错误: {result.error_message}"
 
         elif skill_name == 'context-optimization':
             skill = ContextOptimizationSkill()
             result = skill.process_request(context_input, params)
 
-            if result['success']:
-                optimization_data = result['result']
+            if result.status.name == 'COMPLETED':
+                optimization = result.result
+                if 'result' in optimization:
+                    optimization_data = optimization['result']
+                else:
+                    optimization_data = optimization
 
                 output_lines = []
                 output_lines.append("上下文优化结果:")
@@ -427,14 +423,18 @@ def execute(args: Dict[str, Any]) -> str:
 
                 return "\n".join(output_lines)
             else:
-                return f"错误: {result.get('error', '未知错误')}"
+                return f"错误: {result.error_message}"
 
         elif skill_name == 'cognitive-template':
             skill = CognitiveTemplateSkill()
             result = skill.process_request(context_input, params)
 
-            if result['success']:
-                template_data = result['result']
+            if result.status.name == 'COMPLETED':
+                template_result = result.result
+                if 'result' in template_result:
+                    template_data = template_result['result']
+                else:
+                    template_data = template_result
 
                 if template_data.get('success', True):
                     output_lines = []
@@ -449,8 +449,7 @@ def execute(args: Dict[str, Any]) -> str:
                     error_msg = template_data.get('error', '模板应用失败')
                     return f"错误: {error_msg}"
             else:
-                error_msg = result.get('error', '模板应用失败')
-                return f"错误: {error_msg}"
+                return f"错误: {result.error_message}"
 
         else:
             available_skills = ['context-analysis', 'context-optimization', 'cognitive-template']
@@ -467,116 +466,3 @@ def get_available_skills() -> Dict[str, str]:
         'context-optimization': 'AI驱动的上下文智能优化',
         'cognitive-template': '认知模板结构化复杂任务'
     }
-
-
-# 额外的高级功能
-
-def create_agent_with_context_analysis(goals: str, constraints: str) -> str:
-    """
-    创建具有上下文分析能力的智能代理
-    """
-    agent_specification = f"""
-智能代理创建规范:
-
-目标: {goals}
-约束: {constraints}
-
-能力要求:
-- 上下文质量分析
-- 任务分解能力
-- 方案优化能力
-- 风险识别能力
-- 执行监控能力
-
-行为准则:
-- 保持上下文一致性
-- 遵循约束条件
-- 优化执行效率
-- 报告执行状态
-- 确保目标达成
-    """
-    return agent_specification
-
-
-def decompose_complex_task(task_description: str) -> dict:
-    """
-    复杂任务分解
-    """
-    import re
-    # 提取关键要素
-    entities = re.findall(r'([A-Za-z0-9_\u4e00-\u9fff]+)([包含|包括|需要|实现])', task_description)
-    dependencies = []
-    
-    # 简单的分解逻辑（实际会更复杂）
-    if '系统' in task_description:
-        subtasks = [
-            {'name': '需求分析', 'priority': 1, 'depends_on': []},
-            {'name': '架构设计', 'priority': 2, 'depends_on': ['需求分析']},
-            {'name': '模块开发', 'priority': 3, 'depends_on': ['架构设计']},
-            {'name': '集成测试', 'priority': 4, 'depends_on': ['模块开发']},
-            {'name': '部署上线', 'priority': 5, 'depends_on': ['集成测试']}
-        ]
-    else:
-        subtasks = [{'name': task_description, 'priority': 1, 'depends_on': []}]
-    
-    return {
-        'original_task': task_description,
-        'subtasks': subtasks,
-        'dependencies': dependencies,
-        'estimated_duration': f"{len(subtasks) * 2}小时",
-        'required_skills': ['分析', '设计', '开发', '测试']
-    }
-
-
-def design_project_structure(requirements: str) -> dict:
-    """
-    项目结构设计
-    """
-    structure = {
-        'recommended': {
-            'src': {
-                'main.py': '主应用入口',
-                'models/': '数据模型',
-                'services/': '业务服务',
-                'utils/': '工具函数',
-                'tests/': '测试代码'
-            },
-            'docs/': '文档',
-            'config/': '配置文件',
-            'data/': '数据文件'
-        },
-        'patterns': ['MVC', 'Layered Architecture', 'Dependency Injection'],
-        'best_practices': [
-            '单一职责原则',
-            '开闭原则', 
-            '依赖倒置原则'
-        ]
-    }
-    return structure
-
-
-def generate_constraints_from_requirements(requirements: str) -> dict:
-    """
-    从需求生成约束条件
-    """
-    constraints = {
-        'functional': [],
-        'non_functional': {
-            'performance': '响应时间 < 2秒',
-            'security': '数据加密传输',
-            'scalability': '支持1000并发用户',
-            'reliability': '系统可用性 > 99.9%'
-        },
-        'architectural': [
-            '无直接数据库访问',
-            '分层架构约束',
-            'API版本控制'
-        ],
-        'business': []
-    }
-    
-    # 根据需求动态生成特定约束
-    if '实时' in requirements:
-        constraints['non_functional']['performance'] = '响应时间 < 100毫秒'
-    
-    return constraints
