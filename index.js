@@ -124,6 +124,8 @@ function installAndConfigure() {
     const configScriptPath = path.join(projectDir, 'run_auto_config.py');
     console.log(`   执行: python ${configScriptPath}`);
 
+    // 创建独立的Python环境，避免本地代码干扰
+    // 使用run_auto_config.py的独立路径执行
     const configProcess = spawn('python', [configScriptPath], {
         stdio: 'inherit',
         cwd: projectDir, // 确保在项目目录中运行
