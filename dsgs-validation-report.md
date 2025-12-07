@@ -1,6 +1,6 @@
 # DSGS Integration Validation Report
 
-Generated at: 2025-12-07T21:40:22.205128
+Generated at: 2025-12-07T21:58:09.269071
 
 ## CLAUDE Integration
 ❌ Status: Invalid
