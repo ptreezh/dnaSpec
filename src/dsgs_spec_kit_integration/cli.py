@@ -4,6 +4,7 @@ DSGS CLI命令入口点
 提供命令行接口来使用DSGS技能
 """
 import sys
+import os
 import argparse
 from .core.command_handler import CommandHandler
 from .core.interactive_shell import InteractiveShell
@@ -40,6 +41,11 @@ def main():
     
     # validate命令：验证配置
     validate_parser = subparsers.add_parser('validate', help='Validate DSGS integration')
+
+    # integrate命令：将技能集成到AI CLI工具
+    integrate_parser = subparsers.add_parser('integrate', help='Integrate DSGS skills to AI CLI tools')
+    integrate_parser.add_argument('--platform', help='Target platform for integration')
+    integrate_parser.add_argument('--list', action='store_true', help='List available platforms')
     
     args = parser.parse_args()
     
@@ -79,6 +85,36 @@ def main():
         print('✓ Skill executor: Working')
         print('✓ Command handler: Working')
         print('All components are properly integrated.')
+
+    elif args.command == 'integrate':
+        # 集成技能到AI CLI工具
+        print('🚀 Starting DSGS Skills Integration to AI CLI Platforms...')
+        from src.dsgs_spec_kit_integration.core.skill_integrator import SkillIntegrator
+
+        integrator = SkillIntegrator()
+
+        if args.list:
+            print('Available AI CLI Platforms:')
+            for platform, path in integrator.extension_paths.items():
+                exists = '✅' if os.path.exists(path) else '❌'
+                print(f'  {exists} {platform}: {path}')
+        elif args.platform:
+            print(f'Integrating DSGS skills to {args.platform}...')
+            result = integrator.install_skills_to_platform(args.platform, {})
+            if result['success']:
+                print(f'✅ Successfully integrated to {args.platform}')
+                print(f'Message: {result.get("message", "Integration completed")}')
+            else:
+                print(f'❌ Failed to integrate to {args.platform}')
+                print(f'Error: {result.get("error", "Unknown error")}')
+        else:
+            print('Integrating DSGS skills to all detected AI CLI platforms...')
+            results = integrator.install_skills_to_all_platforms()
+            print(f'✅ Installation completed!')
+            print(f'Successfully installed to {results["installed_count"]}/{results["target_count"]} platforms')
+            for platform, result in results['installation_results'].items():
+                status = '✅' if result.get('success', False) else '❌'
+                print(f'  {status} {platform}')
         
     elif args.command is None:
         # 没有提供子命令，显示帮助
