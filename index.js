@@ -151,7 +151,7 @@ function installAndConfigure() {
 
             // Show detailed usage guide
             console.log('\nDSGS Context Engineering Skills - Usage Guide');
-            console.log('=' * 70);
+            console.log('='.repeat(70));
             console.log('');
             console.log('Congratulations! DSGS has been successfully installed and configured.');
             console.log('');
