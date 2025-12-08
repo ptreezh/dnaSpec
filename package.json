@@ -58,6 +58,8 @@
     "launch_dnaspec.bat",
     "launch_dnaspec.sh",
     "run_auto_config.py",
+    "deploy_cli.py",
+    "standalone_cli.py",
     "src/**/*",
     "pyproject.toml",
     "*.md"
