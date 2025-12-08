@@ -86,7 +86,8 @@ function installAndConfigure() {
         case 'validate':
         case '--list':
         case '--version':
-            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+        case 'help':
+            pythonScript = 'standalone_cli.py';
             description = '执行命令';
             break;
         default:
