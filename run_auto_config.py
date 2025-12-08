@@ -3,6 +3,14 @@
 DNASPEC Context Engineering Skills - Auto Configuration Script
 Performs automated detection, configuration, and validation after installation
 """
+import sys
+import os
+
+# 确保当前目录在Python路径中，以便正确导入模块
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
+
 from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
 
 
