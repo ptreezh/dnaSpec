@@ -1,19 +1,19 @@
 """
-DSGS Context Engineering Skills - 最终验证和演示
+DNASPEC Context Engineering Skills - 最终验证和演示
 验证重构后的AI原生技能系统
 """
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - AI原生系统验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生系统验证")
 print("="*70)
 print()
 
 try:
     # 测试1: 验证规范引擎
     print("✅ 测试1: 规范引擎导入")
-    from src.dsgs_context_engineering.spec_engine import DSGSSpecEngine, engine, get_available_skills, execute_skill
+    from src.dnaspec_context_engineering.spec_engine import DSGSSpecEngine, engine, get_available_skills, execute_skill
     print("   DSGS规范引擎成功导入")
     print()
 
@@ -31,7 +31,7 @@ try:
 
     # 初始化规范引擎并加载技能
     print("🔄 初始化规范引擎并加载技能...")
-    from src.dsgs_context_engineering.spec_engine import initialize_engine
+    from src.dnaspec_context_engineering.spec_engine import initialize_engine
     initialize_engine()
     
     # 等待加载完成
@@ -143,7 +143,7 @@ try:
     print()
 
     print("🎉 重构验证完成!")
-    print("   DSGS Context Engineering Skills系统已成功重构为AI原生架构")
+    print("   DNASPEC Context Engineering Skills系统已成功重构为AI原生架构")
     print("   系统现在基于spec.kit理念，通过规范驱动实现上下文工程专业化")
     print()
     print("💡 系统特点:")

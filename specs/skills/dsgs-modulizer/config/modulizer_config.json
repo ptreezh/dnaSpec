@@ -1,6 +1,6 @@
 {
   "skill_config": {
-    "name": "dsgs-modulizer",
+    "name": "dnaspec-modulizer",
     "version": "1.0.0",
     "description": "模块成熟化核验器",
     "llm_config": {

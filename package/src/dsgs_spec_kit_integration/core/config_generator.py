@@ -133,32 +133,32 @@ class ConfigGenerator:
         """
         return {
             'architect': {
-                'command': '/speckit.dsgs.architect',
+                'command': '/speckit.dnaspec.architect',
                 'description': '系统架构设计专家',
                 'enabled': True
             },
             'agent-creator': {
-                'command': '/speckit.dsgs.agent-creator',
+                'command': '/speckit.dnaspec.agent-creator',
                 'description': '智能体创建专家',
                 'enabled': True
             },
             'task-decomposer': {
-                'command': '/speckit.dsgs.task-decomposer',
+                'command': '/speckit.dnaspec.task-decomposer',
                 'description': '任务分解专家',
                 'enabled': True
             },
             'constraint-generator': {
-                'command': '/speckit.dsgs.constraint-generator',
+                'command': '/speckit.dnaspec.constraint-generator',
                 'description': '约束生成专家',
                 'enabled': True
             },
             'dapi-checker': {
-                'command': '/speckit.dsgs.dapi-checker',
+                'command': '/speckit.dnaspec.dapi-checker',
                 'description': '接口检查专家',
                 'enabled': True
             },
             'modulizer': {
-                'command': '/speckit.dsgs.modulizer',
+                'command': '/speckit.dnaspec.modulizer',
                 'description': '模块化专家',
                 'enabled': True
             }

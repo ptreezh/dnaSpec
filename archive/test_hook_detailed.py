@@ -7,8 +7,8 @@ project_root = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fi
 sys.path.insert(0, project_root)
 
 try:
-    from src.dsgs_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
-    from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+    from src.dnaspec_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
+    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
     print('所有导入成功')
 except ImportError as e:
     print('导入错误:', e)
@@ -29,7 +29,7 @@ hook_system = HookSystem()
 print('Hook系统初始化成功: interceptors=', len(hook_system._interceptors))
 
 # 测试命令检测
-is_spec_kit = hook_system._is_spec_kit_command('/speckit.dsgs.architect 设计系统')
+is_spec_kit = hook_system._is_spec_kit_command('/speckit.dnaspec.architect 设计系统')
 print('Spec.kit命令检测:', is_spec_kit)
 
 is_natural = hook_system._is_natural_language_request('设计一个系统架构')

@@ -225,7 +225,7 @@ class IntegrationValidator:
         Returns:
             验证报告字符串
         """
-        report = '# DSGS Integration Validation Report\n\n'
+        report = '# DNASPEC Integration Validation Report\n\n'
         report += f'Generated at: {self._get_timestamp()}\n\n'
         
         for platform_name, result in validation_results.items():

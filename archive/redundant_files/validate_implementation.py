@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 """
-DSGS Context Engineering Skills - 最终验证测试
+DNASPEC Context Engineering Skills - 最终验证测试
 """
 import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 
-print("🔍 DSGS Context Engineering Skills 系统验证")
+print("🔍 DNASPEC Context Engineering Skills 系统验证")
 print("=" * 60)
 
 try:
     print("导入模块...")
-    from src.dsgs_context_engineering.skills_system_real import (
+    from src.dnaspec_context_engineering.skills_system_real import (
         ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill, execute
     )
     print("✅ 模块导入成功")

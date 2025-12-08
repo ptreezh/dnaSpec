@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - 部署清单和使用指南
+# DNASPEC Context Engineering Skills - 部署清单和使用指南
 
 ## 1. 项目架构概览
 
@@ -10,9 +10,9 @@
 
 ### 1.2 系统组件
 ```
-DSGS Context Engineering Skills System
+DNASPEC Context Engineering Skills System
 ├── src/
-│   └── dsgs_context_engineering/
+│   └── dnaspec_context_engineering/
 │       ├── skills_system_final_clean.py        # 核心技能实现
 │       ├── core/                              # 核心基类
 │       │   └── skill.py                       # DSGSSkill基类
@@ -58,7 +58,7 @@ python true_verification.py
 
 ### 3.1 Python API
 ```python
-from src.dsgs_context_engineering.skills_system_final_clean import (
+from src.dnaspec_context_engineering.skills_system_final_clean import (
     ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
 )
 
@@ -81,18 +81,18 @@ result = template.process_request("如何提高性能？", {'template': 'chain_o
 ### 3.2 CLI命令（在AI平台中）
 ```
 # 分析上下文质量
-/dsgs-context-analysis "系统设计文档"
+/dnaspec-context-analysis "系统设计文档"
 
 # 优化上下文内容
-/dsgs-context-optimization "简化的功能描述" --goals "clarity,completeness"
+/dnaspec-context-optimization "简化的功能描述" --goals "clarity,completeness"
 
 # 应用认知模板
-/dsgs-cognitive-template "复杂问题" --template "chain_of_thought"
+/dnaspec-cognitive-template "复杂问题" --template "chain_of_thought"
 ```
 
 ### 3.3 直接函数调用
 ```python
-from src.dsgs_context_engineering.skills_system_final_clean import execute
+from src.dnaspec_context_engineering.skills_system_final_clean import execute
 
 # 直接执行技能
 args = {

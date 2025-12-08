@@ -1,5 +1,5 @@
 """
-DSGS Specification Engine - 核心规范引擎
+DNASPEC Specification Engine - 核心规范引擎
 结合spec.kit的理念，实现规范驱动的上下文工程技能系统
 """
 from typing import Dict, Any, List, Optional
@@ -185,7 +185,7 @@ class SkillCompiler:
     将规范编译为可执行的技能实例
     """
     
-    def compile(self, spec: Dict[str, Any]) -> 'DSGSSkill':
+    def compile(self, spec: Dict[str, Any]) -> 'DNASpecSkill':
         """
         将规范编译为技能实例
         """
@@ -220,7 +220,7 @@ class SkillCompiler:
         """
         动态生成技能类
         """
-        from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
+        from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
         import os
         import sys
         
@@ -228,7 +228,7 @@ class SkillCompiler:
         
         # 从规范创建执行方法
         def __init__(self):
-            DSGSSkill.__init__(self, spec['name'], spec['description'])
+            DNASpecSkill.__init__(self, spec['name'], spec['description'])
         
         def process_request(self, request: str, params: Dict[str, Any]) -> Dict[str, Any]:
             """
@@ -320,7 +320,7 @@ class SkillCompiler:
                 }
         
         # 使用type()动态创建类
-        skill_class = type(class_name, (DSGSSkill,), {
+        skill_class = type(class_name, (DNASpecSkill,), {
             '__init__': __init__,
             'process_request': process_request,
             '_call_ai_model': _call_ai_model,
@@ -337,9 +337,9 @@ class SkillRegistry:
     """
     
     def __init__(self):
-        self.skills: Dict[str, 'DSGSSkill'] = {}
+        self.skills: Dict[str, 'DNASpecSkill'] = {}
     
-    def register(self, skill: 'DSGSSkill') -> bool:
+    def register(self, skill: 'DNASpecSkill') -> bool:
         """
         注册技能
         """
@@ -349,7 +349,7 @@ class SkillRegistry:
         self.skills[skill.name] = skill
         return True
     
-    def get_skill(self, skill_name: str) -> Optional['DSGSSkill']:
+    def get_skill(self, skill_name: str) -> Optional['DNASpecSkill']:
         """
         获取技能实例
         """
@@ -397,7 +397,7 @@ def initialize_engine():
     specs_dir = os.path.join(os.path.dirname(__file__), '..', 'specs')
     if os.path.exists(specs_dir):
         loaded_count = engine.load_all_specs_from_directory(specs_dir)
-        print(f"DSGS Spec Engine initialized with {loaded_count} skills")
+        print(f"DNASPEC Spec Engine initialized with {loaded_count} skills")
     else:
         print("Warning: Specs directory not found, please ensure specs/ directory exists with specification files")
 

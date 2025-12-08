@@ -1,6 +1,6 @@
 ---
-name: dsgs-agent-creator
-description: DSGS Agent Creator sub-skill for creating and configuring intelligent agents, defining agent roles and behaviors, and generating agent specification documents. Use when you need to create agents, configure agent systems, design multi-agent systems, or define agent roles and behaviors.
+name: dnaspec-agent-creator
+description: DNASPEC Agent Creator sub-skill for creating and configuring intelligent agents, defining agent roles and behaviors, and generating agent specification documents. Use when you need to create agents, configure agent systems, design multi-agent systems, or define agent roles and behaviors.
 license: Apache 2.0
 allowed-tools: 
   - Bash(python:scripts/agent_creator.py)
@@ -9,10 +9,10 @@ metadata:
   speckit-category: agents
 ---
 
-# DSGS Agent Creator
+# DNASPEC Agent Creator
 
 ## Overview
-DSGS Agent Creator is a specialized sub-skill of the DSGS Intelligent Architect system. It focuses on creating and configuring intelligent agents, defining agent roles and behaviors, and generating comprehensive agent specification documents. This skill designs agents that can operate autonomously or in coordination to achieve project objectives.
+DNASPEC Agent Creator is a specialized sub-skill of the DNASPEC Intelligent Architect system. It focuses on creating and configuring intelligent agents, defining agent roles and behaviors, and generating comprehensive agent specification documents. This skill designs agents that can operate autonomously or in coordination to achieve project objectives.
 
 ## Core Functions
 

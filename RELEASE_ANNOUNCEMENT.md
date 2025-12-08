@@ -1,8 +1,8 @@
-# DSGS Context Engineering Skills - 공식 오픈 소스 릴리스 v1.0.1
+# DNASPEC Context Engineering Skills - 공식 오픈 소스 릴리스 v1.0.1
 
 ## 🎉 출시 안내
 
-AI 페르소나 랩 2025에서 발표합니다: **DSGS (Dynamic Specification Growth System) 컨텍스트 엔지니어링 스킬**이 성공적으로 오픈 소스로 공개되었습니다!
+AI 페르소나 랩 2025에서 발표합니다: **DNASPEC (Dynamic Specification Growth System) 컨텍스트 엔지니어링 스킬**이 성공적으로 오픈 소스로 공개되었습니다!
 
 ### 📋 프로젝트 정보
 - **릴리스 버전**: v1.0.1
@@ -41,7 +41,7 @@ AI 페르소나 랩 2025에서 발표합니다: **DSGS (Dynamic Specification Gr
 ```bash
 # 레포지토리 클론
 git clone https://github.com/ptreezh/dnaSpec.git
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # 패키지 설치
 pip install -e .
@@ -51,12 +51,12 @@ pip install -e .
 
 ### CLI 명령어
 ```
-/speckit.dsgs.context-analysis "요구사항 문서 분석" mode=enhanced
-/speckit.dsgs.cognitive-template "성능 개선 방법" template=verification
-/speckit.dsgs.context-optimization "요구사항 명확화" optimization_goals=clarity,relevance
-/speckit.dsgs.architect "전자상거래 시스템 설계"
-/speckit.dsgs.git-skill operation=status
-/speckit.dsgs.temp-workspace operation=create-workspace
+/speckit.dnaspec.context-analysis "요구사항 문서 분석" mode=enhanced
+/speckit.dnaspec.cognitive-template "성능 개선 방법" template=verification
+/speckit.dnaspec.context-optimization "요구사항 명확화" optimization_goals=clarity,relevance
+/speckit.dnaspec.architect "전자상거래 시스템 설계"
+/speckit.dnaspec.git-skill operation=status
+/speckit.dnaspec.temp-workspace operation=create-workspace
 ```
 
 ### 파이썬 API
@@ -100,9 +100,9 @@ result = context_analysis_execute({
 ## 🏗️ 프로젝트 구조
 
 ```
-dsgs-context-engineering/
+dnaspec-context-engineering/
 ├── src/
-│   └── dsgs_spec_kit_integration/    # 핵심 모듈
+│   └── dnaspec_spec_kit_integration/    # 핵심 모듈
 ├── dist/                             # 배포판
 │   └── clean_skills/                 # 통합 스킬
 ├── docs/                             # 문서

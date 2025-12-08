@@ -25,14 +25,14 @@
 - `/cognitive-template-enhanced` → `/cte` - 增强认知模板
 - `/context-engineering-workflow` → `/cew` - 上下文工程工作流
 
-### DSGS 快捷方式
-- `/dsgs-architect` → `/da` - DSGS架构师
-- `/dsgs-system-architect` → `/dsa` - DSGS系统架构师
-- `/dsgs-agent-creator` → `/dac` - DSGS智能体创建器
-- `/dsgs-constraint-generator` → `/dcg` - DSGS约束生成器
-- `/dsgs-task-decomposer` → `/dtd` - DSGS任务分解器
-- `/dsgs-modulizer` → `/dm` - DSGS模块化验证器
-- `/dsgs-dapi-checker` → `/ddc` - DSGS接口检查器
+### DNASPEC 快捷方式
+- `/dnaspec-architect` → `/da` - DSGS架构师
+- `/dnaspec-system-architect` → `/dsa` - DSGS系统架构师
+- `/dnaspec-agent-creator` → `/dac` - DSGS智能体创建器
+- `/dnaspec-constraint-generator` → `/dcg` - DSGS约束生成器
+- `/dnaspec-task-decomposer` → `/dtd` - DSGS任务分解器
+- `/dnaspec-modulizer` → `/dm` - DSGS模块化验证器
+- `/dnaspec-dapi-checker` → `/ddc` - DSGS接口检查器
 
 ## 帮助命令
 
@@ -43,7 +43,7 @@
 ### 分类帮助
 - `/speckit.core` - 核心spec.kit帮助
 - `/speckit.context` - 上下文工程帮助
-- `/speckit.dsgs` - DSGS技能帮助
+- `/speckit.dnaspec` - DSGS技能帮助
 
 ## 详细帮助提示词
 
@@ -62,7 +62,7 @@
 - **/coe** - `/coe [待优化上下文]` - 使用Context Engineering方法的增强优化
 - **/cew** - `/cew [待处理上下文]` - 完整的上下文工程工作流（分析→优化→认知增强）
 
-### DSGS Skills
+### DNASPEC Skills
 - **/da** - `/da [项目需求]` - 为复杂项目设计分层架构
 - **/dsa** - `/dsa [系统需求]` - 设计系统架构，选择技术栈，定义模块划分
 - **/dac** - `/dac [智能体需求]` - 创建和配置智能体，定义角色和行为
@@ -82,4 +82,4 @@
 ### 高级用法
 1. **完整上下文工程**: `/cew [内容]` - 一次性完成分析、优化、认知增强
 2. **架构设计**: `/da [需求]` → `/dsa [架构]` → `/dcg [架构]`
-3. **智能体系统**: `/dac [需求]` → `/dsgs-task-decomposer [智能体任务]`
+3. **智能体系统**: `/dac [需求]` → `/dnaspec-task-decomposer [智能体任务]`

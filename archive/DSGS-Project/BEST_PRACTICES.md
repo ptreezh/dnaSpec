@@ -1,4 +1,4 @@
-# DSGS Skills 集成最佳实践方案
+# DNASPEC Skills 集成最佳实践方案
 
 ## 1. Claude Code 集成最佳实践
 

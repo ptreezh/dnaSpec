@@ -27,7 +27,7 @@ class InteractiveShell:
         """
         启动交互式Shell
         """
-        print('DSGS spec.kit Integration Shell')
+        print('DNASPEC spec.kit Integration Shell')
         print('Type "help" for available commands, "exit" to quit\n')
         
         self.running = True
@@ -35,7 +35,7 @@ class InteractiveShell:
         while self.running:
             try:
                 # 显示提示符并读取用户输入
-                command = input('DSGS> ').strip()
+                command = input('DNASPEC> ').strip()
                 
                 if not command:
                     continue
@@ -108,7 +108,7 @@ class InteractiveShell:
         """
         列出可用技能
         """
-        print('Available DSGS Skills:')
+        print('Available DNASPEC Skills:')
         commands = self.command_handler.get_available_commands()
         for cmd in commands:
             print(f'  {cmd}')
@@ -117,7 +117,7 @@ class InteractiveShell:
         """
         显示系统状态
         """
-        print('DSGS System Status:')
+        print('DNASPEC System Status:')
         print(f'  Command Handler: Initialized')
         print(f'  Available Skills: {len(self.command_handler.get_available_commands())}')
         print('  Status: OK')

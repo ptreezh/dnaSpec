@@ -15,7 +15,7 @@ def test_new_integrate_command():
     result = subprocess.run([
         sys.executable, '-c', 
         '''
-from src.dsgs_spec_kit_integration.cli import main
+from src.dnaspec_spec_kit_integration.cli import main
 import sys
 sys.argv = ['dnaspec', 'integrate', '--list']
 main()
@@ -35,7 +35,7 @@ main()
     result = subprocess.run([
         sys.executable, '-c', 
         '''
-from src.dsgs_spec_kit_integration.cli import main
+from src.dnaspec_spec_kit_integration.cli import main
 import sys
 sys.argv = ['dnaspec', 'integrate']
 main()

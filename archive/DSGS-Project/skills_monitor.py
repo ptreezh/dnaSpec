@@ -142,11 +142,11 @@ def demonstrate_monitoring():
     
     # 模拟一些Skill调用日志
     demo_calls = [
-        ("dsgs-agent-creator", "创建智能agent", 0.37, ["agent"]),
-        ("dsgs-task-decomposer", "分解原子化任务", 0.25, ["task"]),
-        ("dsgs-dapi-checker", "检查接口一致性", 0.42, ["interface", "check"]),
-        ("dsgs-modulizer", "模块化检查", 0.38, ["module", "check"]),
-        ("dsgs-constraint-generator", "生成系统约束", 0.31, ["constraint", "generate"]),
+        ("dnaspec-agent-creator", "创建智能agent", 0.37, ["agent"]),
+        ("dnaspec-task-decomposer", "分解原子化任务", 0.25, ["task"]),
+        ("dnaspec-dapi-checker", "检查接口一致性", 0.42, ["interface", "check"]),
+        ("dnaspec-modulizer", "模块化检查", 0.38, ["module", "check"]),
+        ("dnaspec-constraint-generator", "生成系统约束", 0.31, ["constraint", "generate"]),
     ]
     
     # 记录调用日志

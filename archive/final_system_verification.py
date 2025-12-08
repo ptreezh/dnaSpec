@@ -14,7 +14,7 @@ def test_all_skills():
     # 测试1: 导入验证
     print("\n1️⃣  验证模块导入...")
     try:
-        from src.dsgs_context_engineering.skills_system_real import (
+        from src.dnaspec_context_engineering.skills_system_real import (
             ContextAnalysisSkill,
             ContextOptimizationSkill,
             CognitiveTemplateSkill,
@@ -187,7 +187,7 @@ def test_all_skills():
     
     print("\n" + "=" * 60)
     print("🎉 完整系统验证通过！")
-    print("✅ DSGS Context Engineering Skills System 已准备就绪")
+    print("✅ DNASPEC Context Engineering Skills System 已准备就绪")
     print("✅ 所有核心功能正常工作")
     print("✅ 系统架构正确实现 (AI原生 + 指令工程)")
     print("✅ 与DSGS框架完全兼容")
@@ -202,7 +202,7 @@ def main():
     success = test_all_skills()
     
     if success:
-        print("\n🎊 验证完成！DSGS Context Engineering Skills 可以正式使用！")
+        print("\n🎊 验证完成！DNASPEC Context Engineering Skills 可以正式使用！")
         print("\n系统能力:")
         print("  • 上下文质量五维分析 (清晰度、相关性、完整性、一致性、效率)")
         print("  • 多目标上下文优化 (清晰度、完整性、相关性、简洁性等)")

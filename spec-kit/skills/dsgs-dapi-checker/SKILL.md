@@ -1,6 +1,6 @@
 ---
-name: dsgs-dapi-checker
-description: DSGS Distributed API Documentation Checker for verifying interface consistency and completeness across system components, validating implementation against API documentation. Use when checking interface consistency, validating distributed interfaces, verifying API documentation, or detecting interface inconsistencies.
+name: dnaspec-dapi-checker
+description: DNASPEC Distributed API Documentation Checker for verifying interface consistency and completeness across system components, validating implementation against API documentation. Use when checking interface consistency, validating distributed interfaces, verifying API documentation, or detecting interface inconsistencies.
 license: Apache 2.0
 allowed-tools: 
   - Bash(python:scripts/dapi_checker.py)
@@ -9,10 +9,10 @@ metadata:
   speckit-category: api-validation
 ---
 
-# DSGS Distributed API Documentation Checker (DAPIcheck)
+# DNASPEC Distributed API Documentation Checker (DAPIcheck)
 
 ## Overview
-DSGS Distributed API Documentation Checker is a specialized sub-skill of the DSGS Intelligent Architect system. It focuses on verifying interface consistency and completeness across system components, validating implementation against API documentation, and detecting interface-related issues. This skill ensures that distributed systems maintain proper interface contracts and communication integrity.
+DNASPEC Distributed API Documentation Checker is a specialized sub-skill of the DNASPEC Intelligent Architect system. It focuses on verifying interface consistency and completeness across system components, validating implementation against API documentation, and detecting interface-related issues. This skill ensures that distributed systems maintain proper interface contracts and communication integrity.
 
 ## Core Functions
 

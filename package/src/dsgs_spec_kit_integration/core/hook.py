@@ -72,7 +72,7 @@ class HookSystem:
     def _initialize_command_patterns(self) -> Dict[str, re.Pattern]:
         """初始化命令模式"""
         return {
-            'spec_kit_command': re.compile(r'^/speckit\.dsgs\.\w+', re.IGNORECASE),
+            'spec_kit_command': re.compile(r'^/speckit\.dnaspec\.\w+', re.IGNORECASE),
             'slash_command': re.compile(r'^/\w+'),
             'natural_language': re.compile(r'(?:设计|创建|分解|检查|生成|优化)\s+\w+'),
         }
@@ -164,7 +164,7 @@ class HookSystem:
             )
         
         # 解析命令，提取技能名称
-        skill_name_match = re.search(r'/speckit\.dsgs\.(\w+)', command, re.IGNORECASE)
+        skill_name_match = re.search(r'/speckit\.dnaspec\.(\w+)', command, re.IGNORECASE)
         if not skill_name_match:
             return HookResult(
                 intercepted=True,
@@ -172,7 +172,7 @@ class HookSystem:
                 error_message="Invalid spec.kit command format"
             )
         
-        skill_name = f"dsgs-{skill_name_match.group(1)}"
+        skill_name = f"dnaspec-{skill_name_match.group(1)}"
         
         # 检查技能是否启用
         if not self.config.is_skill_enabled(skill_name):

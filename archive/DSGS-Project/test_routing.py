@@ -12,11 +12,11 @@ def test_routing():
     
     # 测试路由
     test_cases = [
-        ("Design architecture for a web application", "dsgs-system-architect"),
-        ("Decompose tasks for mobile app development", "dsgs-task-decomposer"),
-        ("Create agents for microservices system", "dsgs-agent-creator"),
-        ("Generate constraints for API design", "dsgs-constraint-generator"),
-        ("Unknown request type", "dsgs-system-architect")  # 默认路由
+        ("Design architecture for a web application", "dnaspec-system-architect"),
+        ("Decompose tasks for mobile app development", "dnaspec-task-decomposer"),
+        ("Create agents for microservices system", "dnaspec-agent-creator"),
+        ("Generate constraints for API design", "dnaspec-constraint-generator"),
+        ("Unknown request type", "dnaspec-system-architect")  # 默认路由
     ]
     
     print("测试路由功能:")

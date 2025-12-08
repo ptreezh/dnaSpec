@@ -26,7 +26,7 @@ describe('Documentation', () => {
   test('should have usage examples', () => {
     const readmeContent = fs.readFileSync('README.md', 'utf8');
     expect(readmeContent).toMatch(/Usage/);
-    expect(readmeContent).toMatch(/\/speckit\.dsgs\./);
+    expect(readmeContent).toMatch(/\/speckit\.dnaspec\./);
   });
   
   test('should have API documentation', () => {
@@ -74,13 +74,13 @@ describe('User Experience', () => {
   });
   
   test('should provide helpful error messages', async () => {
-    const result = await runCommand('dsgs-spec-kit invalid-command');
+    const result = await runCommand('dnaspec-spec-kit invalid-command');
     expect(result.stderr).toContain('help');
     expect(result.stderr).toContain('command');
   });
   
   test('should have clear help information', async () => {
-    const result = await runCommand('dsgs-spec-kit --help');
+    const result = await runCommand('dnaspec-spec-kit --help');
     expect(result.stdout).toMatch(/Usage/);
     expect(result.stdout).toMatch(/Commands/);
   });
@@ -212,50 +212,50 @@ function runCommand(command) {
 **测试**: 文档完整性测试
 **实现**:
 ```markdown
-# DSGS Skills for spec.kit Integration
+# DNASPEC Skills for spec.kit Integration
 
-DSGS (Dynamic Specification Growth System) Skills integration with GitHub spec.kit toolkit. This package provides professional AI skills for architecture design, agent creation, and more, with seamless integration across multiple AI CLI platforms.
+DNASPEC (Dynamic Specification Growth System) Skills integration with GitHub spec.kit toolkit. This package provides professional AI skills for architecture design, agent creation, and more, with seamless integration across multiple AI CLI platforms.
 
 ## 🚀 Quick Start
 
 ### Installation
 ```bash
 # Install globally
-npm install -g dsgs-spec-kit
+npm install -g dnaspec-spec-kit
 
 # Or install locally
-npm install dsgs-spec-kit
+npm install dnaspec-spec-kit
 ```
 
 ### Initialization
 ```bash
 # Run initialization wizard
-dsgs-spec-kit init
+dnaspec-spec-kit init
 
 # Or auto-detect and configure
-dsgs-spec-kit integrate --auto
+dnaspec-spec-kit integrate --auto
 ```
 
 ### Usage
 ```bash
 # Use spec.kit compatible commands
-/speckit.dsgs.architect "Design an e-commerce system architecture"
-/speckit.dsgs.agent-creator "Create an order processing agent"
-/speckit.dsgs.task-decomposer "Break down user management module"
+/speckit.dnaspec.architect "Design an e-commerce system architecture"
+/speckit.dnaspec.agent-creator "Create an order processing agent"
+/speckit.dnaspec.task-decomposer "Break down user management module"
 
 # Or use CLI commands
-dsgs-spec-kit exec "/speckit.dsgs.architect 'Design a system'"
+dnaspec-spec-kit exec "/speckit.dnaspec.architect 'Design a system'"
 ```
 
 ## 🎯 Features
 
 ### Professional Skill System
-- **Architecture Design** (`dsgs-architect`): Professional system architecture design
-- **Agent Creation** (`dsgs-agent-creator`): Intelligent agent creation and configuration
-- **Task Decomposition** (`dsgs-task-decomposer`): Complex task breakdown and atomicization
-- **Constraint Generation** (`dsgs-constraint-generator`): System constraints and specifications
-- **API Consistency Check** (`dsgs-dapi-checker`): Interface consistency verification
-- **Module Refactoring** (`dsgs-modulizer`): Module maturity assessment and refactoring
+- **Architecture Design** (`dnaspec-architect`): Professional system architecture design
+- **Agent Creation** (`dnaspec-agent-creator`): Intelligent agent creation and configuration
+- **Task Decomposition** (`dnaspec-task-decomposer`): Complex task breakdown and atomicization
+- **Constraint Generation** (`dnaspec-constraint-generator`): System constraints and specifications
+- **API Consistency Check** (`dnaspec-dapi-checker`): Interface consistency verification
+- **Module Refactoring** (`dnaspec-modulizer`): Module maturity assessment and refactoring
 
 ### Cross-Platform Support
 - **Claude CLI** ✅
@@ -265,7 +265,7 @@ dsgs-spec-kit exec "/speckit.dsgs.architect 'Design a system'"
 - **Cursor CLI** ✅
 
 ### Unified Interface
-- spec.kit compatible slash commands (`/speckit.dsgs.*`)
+- spec.kit compatible slash commands (`/speckit.dnaspec.*`)
 - Interactive shell mode
 - Programmatic API
 
@@ -290,13 +290,13 @@ dsgs-spec-kit exec "/speckit.dsgs.architect 'Design a system'"
 # Visit https://git-scm.com/
 ```
 
-### Install DSGS spec.kit Integration
+### Install DNASPEC spec.kit Integration
 ```bash
 # Global installation (recommended)
-npm install -g dsgs-spec-kit
+npm install -g dnaspec-spec-kit
 
 # Verify installation
-dsgs-spec-kit --version
+dnaspec-spec-kit --version
 ```
 
 ### Platform-Specific Installation
@@ -304,28 +304,28 @@ dsgs-spec-kit --version
 #### Windows
 ```bash
 # Install using npm
-npm install -g dsgs-spec-kit
+npm install -g dnaspec-spec-kit
 
 # If you encounter permission issues
-npm install -g dsgs-spec-kit --unsafe-perm
+npm install -g dnaspec-spec-kit --unsafe-perm
 ```
 
 #### macOS
 ```bash
 # Install using npm
-npm install -g dsgs-spec-kit
+npm install -g dnaspec-spec-kit
 
 # If you encounter permission issues
-sudo npm install -g dsgs-spec-kit
+sudo npm install -g dnaspec-spec-kit
 ```
 
 #### Linux
 ```bash
 # Install using npm
-npm install -g dsgs-spec-kit
+npm install -g dnaspec-spec-kit
 
 # If you encounter permission issues
-sudo npm install -g dsgs-spec-kit
+sudo npm install -g dnaspec-spec-kit
 ```
 
 ## ⚙️ Configuration
@@ -333,17 +333,17 @@ sudo npm install -g dsgs-spec-kit
 ### Automatic Configuration
 ```bash
 # Auto-detect and configure installed AI CLI tools
-dsgs-spec-kit integrate --auto
+dnaspec-spec-kit integrate --auto
 
 # Interactive configuration wizard
-dsgs-spec-kit integrate --interactive
+dnaspec-spec-kit integrate --interactive
 ```
 
 ### Manual Configuration
 ```bash
 # Create configuration file manually
-mkdir -p ~/.dsgs
-cat > ~/.dsgs/config.yaml << EOF
+mkdir -p ~/.dnaspec
+cat > ~/.dnaspec/config.yaml << EOF
 version: "1.0.0"
 platforms:
   - name: "claude"
@@ -353,7 +353,7 @@ platforms:
     enabled: false
 skills:
   architect:
-    command: "/speckit.dsgs.architect"
+    command: "/speckit.dnaspec.architect"
     enabled: true
 EOF
 ```
@@ -365,24 +365,24 @@ EOF
 #### Skill Execution
 ```bash
 # Execute skills using spec.kit compatible commands
-dsgs-spec-kit exec "/speckit.dsgs.architect 'Design a microservice architecture'"
-dsgs-spec-kit exec "/speckit.dsgs.agent-creator 'Create a project management agent'"
-dsgs-spec-kit exec "/speckit.dsgs.task-decomposer 'Break down user authentication'"
+dnaspec-spec-kit exec "/speckit.dnaspec.architect 'Design a microservice architecture'"
+dnaspec-spec-kit exec "/speckit.dnaspec.agent-creator 'Create a project management agent'"
+dnaspec-spec-kit exec "/speckit.dnaspec.task-decomposer 'Break down user authentication'"
 
 # List available skills
-dsgs-spec-kit list
+dnaspec-spec-kit list
 ```
 
 #### Interactive Shell
 ```bash
 # Start interactive shell
-dsgs-spec-kit shell
+dnaspec-spec-kit shell
 
 # In the shell:
-DSGS> /speckit.dsgs.architect "Design a system"
-DSGS> /speckit.dsgs.agent-creator "Create an agent"
-DSGS> help
-DSGS> exit
+DNASPEC> /speckit.dnaspec.architect "Design a system"
+DNASPEC> /speckit.dnaspec.agent-creator "Create an agent"
+DNASPEC> help
+DNASPEC> exit
 ```
 
 ### Integration with AI CLI Tools
@@ -393,7 +393,7 @@ DSGS> exit
 # ~/.config/claude/skills/
 
 # After integration, you can use commands directly in Claude:
-# /speckit.dsgs.architect "Design a system architecture"
+# /speckit.dnaspec.architect "Design a system architecture"
 ```
 
 #### Gemini CLI Integration
@@ -402,7 +402,7 @@ DSGS> exit
 # ~/.local/share/gemini/extensions/
 
 # After integration, you can use commands in Gemini:
-# /speckit.dsgs.task-decomposer "Break down development tasks"
+# /speckit.dnaspec.task-decomposer "Break down development tasks"
 ```
 
 #### Qwen CLI Integration
@@ -411,16 +411,16 @@ DSGS> exit
 # ~/.qwen/plugins/
 
 # After integration, you can use commands in Qwen:
-# /speckit.dsgs.agent-creator "Create an intelligent agent"
+# /speckit.dnaspec.agent-creator "Create an intelligent agent"
 ```
 
 ## 📚 API Reference
 
 ### CLI Commands
 
-#### `dsgs-spec-kit`
+#### `dnaspec-spec-kit`
 ```bash
-dsgs-spec-kit [command] [options]
+dnaspec-spec-kit [command] [options]
 ```
 
 **Commands:**
@@ -435,9 +435,9 @@ dsgs-spec-kit [command] [options]
 - `-V, --version` - Output the version number
 - `-h, --help` - Display help for command
 
-#### `dsgs-spec-kit integrate`
+#### `dnaspec-spec-kit integrate`
 ```bash
-dsgs-spec-kit integrate [options]
+dnaspec-spec-kit integrate [options]
 ```
 
 **Options:**
@@ -446,9 +446,9 @@ dsgs-spec-kit integrate [options]
 - `-c, --config <path>` - Configuration file path
 - `--no-validate` - Skip integration validation
 
-#### `dsgs-spec-kit exec`
+#### `dnaspec-spec-kit exec`
 ```bash
-dsgs-spec-kit exec <command>
+dnaspec-spec-kit exec <command>
 ```
 
 **Arguments:**
@@ -456,7 +456,7 @@ dsgs-spec-kit exec <command>
 
 ### Programmatic Usage
 ```javascript
-const { SkillExecutor, CommandHandler } = require('dsgs-spec-kit');
+const { SkillExecutor, CommandHandler } = require('dnaspec-spec-kit');
 
 // Create skill executor
 const executor = new SkillExecutor();
@@ -505,7 +505,7 @@ npm run test:coverage:view
 #### Installation Issues
 ```bash
 # If you encounter permission errors
-sudo npm install -g dsgs-spec-kit
+sudo npm install -g dnaspec-spec-kit
 
 # If you encounter Python issues
 # Make sure Python 3.8+ is installed and in PATH
@@ -515,25 +515,25 @@ python --version
 #### Integration Issues
 ```bash
 # Check installed AI CLI tools
-dsgs-spec-kit integrate detect
+dnaspec-spec-kit integrate detect
 
 # Re-run integration
-dsgs-spec-kit integrate --auto
+dnaspec-spec-kit integrate --auto
 ```
 
 #### Skill Execution Issues
 ```bash
 # Check skill availability
-dsgs-spec-kit list
+dnaspec-spec-kit list
 
 # Run with verbose output
-dsgs-spec-kit exec "/speckit.dsgs.architect 'test'" --verbose
+dnaspec-spec-kit exec "/speckit.dnaspec.architect 'test'" --verbose
 ```
 
 ### Getting Help
-- 📖 Documentation: [GitHub Docs](https://github.com/dsgs-project/spec-kit-integration/docs)
-- 🐛 Issues: [GitHub Issues](https://github.com/dsgs-project/spec-kit-integration/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/dsgs-project/spec-kit-integration/discussions)
+- 📖 Documentation: [GitHub Docs](https://github.com/dnaspec-project/spec-kit-integration/docs)
+- 🐛 Issues: [GitHub Issues](https://github.com/dnaspec-project/spec-kit-integration/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/dnaspec-project/spec-kit-integration/discussions)
 
 ## 🤝 Contributing
 
@@ -554,11 +554,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - [spec.kit](https://github.com/github/spec-kit) for the integration standard
-- [DSGS Project](https://github.com/ptreezh/Dynamic-Specification-Growth-System-DSGS) for the core skills
+- [DNASPEC Project](https://github.com/ptreezh/Dynamic-Specification-Growth-System-DNASPEC) for the core skills
 - The open-source community for inspiration and support
 
 ---
-**DSGS spec.kit Integration** - Making AI-assisted development more professional and accessible
+**DNASPEC spec.kit Integration** - Making AI-assisted development more professional and accessible
 ```
 
 **验收标准**:
@@ -584,21 +584,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Overview
 
-The DSGS spec.kit Integration provides a comprehensive API for integrating professional AI skills with various AI CLI tools. The API is designed to be simple to use while providing powerful features.
+The DNASPEC spec.kit Integration provides a comprehensive API for integrating professional AI skills with various AI CLI tools. The API is designed to be simple to use while providing powerful features.
 
 ## Installation
 
 ### Node.js Environment
 ```javascript
 // Install via npm
-npm install dsgs-spec-kit
+npm install dnaspec-spec-kit
 
 // Import modules
-const { SkillExecutor, CommandHandler, CliDetector } = require('dsgs-spec-kit');
+const { SkillExecutor, CommandHandler, CliDetector } = require('dnaspec-spec-kit');
 ```
 
 ### Python Environment
-The integration requires Python 3.8+ for executing DSGS skills:
+The integration requires Python 3.8+ for executing DNASPEC skills:
 ```bash
 # Python dependencies are automatically managed
 # but you can manually install if needed:
@@ -608,7 +608,7 @@ pip install pyyaml requests
 ## Core Classes
 
 ### SkillExecutor
-The main class for executing DSGS skills.
+The main class for executing DNASPEC skills.
 
 #### Constructor
 ```javascript
@@ -623,7 +623,7 @@ const executor = new SkillExecutor(options);
 #### Methods
 
 ##### execute(skillName, params)
-Execute a DSGS skill.
+Execute a DNASPEC skill.
 
 **Parameters:**
 - `skillName` (string): Name of the skill to execute
@@ -662,7 +662,7 @@ Handle a spec.kit command string.
 
 **Returns:** Promise<Object>
 ```javascript
-const result = await handler.handleCommand('/speckit.dsgs.architect "Design a system"');
+const result = await handler.handleCommand('/speckit.dnaspec.architect "Design a system"');
 ```
 
 ##### getAvailableCommands()
@@ -697,12 +697,12 @@ const claude = await detector.detectClaude();
 
 ## CLI Commands
 
-### dsgs-spec-kit
+### dnaspec-spec-kit
 Main CLI entry point.
 
 #### Usage
 ```bash
-dsgs-spec-kit [command] [options]
+dnaspec-spec-kit [command] [options]
 ```
 
 #### Commands
@@ -711,7 +711,7 @@ dsgs-spec-kit [command] [options]
 Initialize the integration.
 
 ```bash
-dsgs-spec-kit init [options]
+dnaspec-spec-kit init [options]
 ```
 
 **Options:**
@@ -722,7 +722,7 @@ dsgs-spec-kit init [options]
 Integrate with AI CLI tools.
 
 ```bash
-dsgs-spec-kit integrate [options]
+dnaspec-spec-kit integrate [options]
 ```
 
 **Options:**
@@ -734,7 +734,7 @@ dsgs-spec-kit integrate [options]
 Execute a skill command.
 
 ```bash
-dsgs-spec-kit exec <command>
+dnaspec-spec-kit exec <command>
 ```
 
 **Arguments:**
@@ -744,20 +744,20 @@ dsgs-spec-kit exec <command>
 Start interactive shell.
 
 ```bash
-dsgs-spec-kit shell
+dnaspec-spec-kit shell
 ```
 
 ##### list
 List available skills.
 
 ```bash
-dsgs-spec-kit list
+dnaspec-spec-kit list
 ```
 
 ## Configuration
 
 ### Configuration File
-The integration uses a YAML configuration file located at `~/.dsgs/config.yaml` by default.
+The integration uses a YAML configuration file located at `~/.dnaspec/config.yaml` by default.
 
 #### Structure
 ```yaml
@@ -770,10 +770,10 @@ platforms:
     enabled: false
 skills:
   architect:
-    command: "/speckit.dsgs.architect"
+    command: "/speckit.dnaspec.architect"
     enabled: true
   agent-creator:
-    command: "/speckit.dsgs.agent-creator"
+    command: "/speckit.dnaspec.agent-creator"
     enabled: true
 settings:
   timeout: 30000
@@ -790,7 +790,7 @@ settings:
 
 ### Basic Usage
 ```javascript
-const { SkillExecutor } = require('dsgs-spec-kit');
+const { SkillExecutor } = require('dnaspec-spec-kit');
 
 async function basicExample() {
   const executor = new SkillExecutor();
@@ -808,14 +808,14 @@ async function basicExample() {
 
 ### Command Handling
 ```javascript
-const { CommandHandler, SkillExecutor } = require('dsgs-spec-kit');
+const { CommandHandler, SkillExecutor } = require('dnaspec-spec-kit');
 
 async function commandExample() {
   const executor = new SkillExecutor();
   const handler = new CommandHandler(executor);
   
   // Handle spec.kit command
-  const result = await handler.handleCommand('/speckit.dsgs.agent-creator "Create a chatbot agent"');
+  const result = await handler.handleCommand('/speckit.dnaspec.agent-creator "Create a chatbot agent"');
   
   console.log('Command Result:', result);
 }
@@ -823,7 +823,7 @@ async function commandExample() {
 
 ### Integration Detection
 ```javascript
-const { CliDetector } = require('dsgs-spec-kit');
+const { CliDetector } = require('dnaspec-spec-kit');
 
 async function detectionExample() {
   const detector = new CliDetector();
@@ -849,7 +849,7 @@ const yaml = require('js-yaml');
 
 function configExample() {
   // Load configuration
-  const configPath = process.env.DSGS_CONFIG_PATH || '~/.dsgs/config.yaml';
+  const configPath = process.env.DSGS_CONFIG_PATH || '~/.dnaspec/config.yaml';
   const config = yaml.load(fs.readFileSync(configPath, 'utf8'));
   
   console.log('Current Configuration:', config);
@@ -886,44 +886,44 @@ function configExample() {
 ### 1. Basic Installation and Initialization
 ```bash
 # Install the package globally
-npm install -g dsgs-spec-kit
+npm install -g dnaspec-spec-kit
 
 # Run automatic initialization
-dsgs-spec-kit integrate --auto
+dnaspec-spec-kit integrate --auto
 
 # List available skills
-dsgs-spec-kit list
+dnaspec-spec-kit list
 ```
 
 ### 2. Executing Skills via CLI
 ```bash
 # Design system architecture
-dsgs-spec-kit exec "/speckit.dsgs.architect 'Design a microservice architecture for e-commerce'"
+dnaspec-spec-kit exec "/speckit.dnaspec.architect 'Design a microservice architecture for e-commerce'"
 
 # Create intelligent agents
-dsgs-spec-kit exec "/speckit.dsgs.agent-creator 'Create a customer service chatbot agent'"
+dnaspec-spec-kit exec "/speckit.dnaspec.agent-creator 'Create a customer service chatbot agent'"
 
 # Decompose complex tasks
-dsgs-spec-kit exec "/speckit.dsgs.task-decomposer 'Break down user authentication implementation'"
+dnaspec-spec-kit exec "/speckit.dnaspec.task-decomposer 'Break down user authentication implementation'"
 ```
 
 ### 3. Interactive Shell Usage
 ```bash
 # Start interactive shell
-dsgs-spec-kit shell
+dnaspec-spec-kit shell
 
 # In the shell:
-DSGS> /speckit.dsgs.architect "Design a REST API"
-DSGS> /speckit.dsgs.agent-creator "Create a data processing agent"
-DSGS> help
-DSGS> exit
+DNASPEC> /speckit.dnaspec.architect "Design a REST API"
+DNASPEC> /speckit.dnaspec.agent-creator "Create a data processing agent"
+DNASPEC> help
+DNASPEC> exit
 ```
 
 ## Advanced Usage
 
 ### 1. Programmatic Skill Execution
 ```javascript
-const { SkillExecutor } = require('dsgs-spec-kit');
+const { SkillExecutor } = require('dnaspec-spec-kit');
 
 async function advancedSkillExecution() {
   // Create executor with custom options
@@ -950,7 +950,7 @@ async function advancedSkillExecution() {
 
 ### 2. Custom Command Handling
 ```javascript
-const { CommandHandler, SkillExecutor } = require('dsgs-spec-kit');
+const { CommandHandler, SkillExecutor } = require('dnaspec-spec-kit');
 
 class CustomCommandHandler extends CommandHandler {
   constructor(skillExecutor) {
@@ -1000,14 +1000,14 @@ async function customCommandExample() {
   });
   
   // Handle custom command
-  const result = await handler.handleCommand('/custom.hello "DSGS User"');
-  console.log(result.result); // "Hello DSGS User!"
+  const result = await handler.handleCommand('/custom.hello "DNASPEC User"');
+  console.log(result.result); // "Hello DNASPEC User!"
 }
 ```
 
 ### 3. Batch Skill Execution
 ```javascript
-const { SkillExecutor } = require('dsgs-spec-kit');
+const { SkillExecutor } = require('dnaspec-spec-kit');
 
 class BatchSkillExecutor {
   constructor(skillExecutor) {
@@ -1088,30 +1088,30 @@ async function batchExecutionExample() {
 ### 1. Claude CLI Integration
 ```bash
 # Auto-detect and configure Claude CLI
-dsgs-spec-kit integrate --auto
+dnaspec-spec-kit integrate --auto
 
 # Verify integration
-dsgs-spec-kit integrate validate --platform claude
+dnaspec-spec-kit integrate validate --platform claude
 
 # Use in Claude:
-# /speckit.dsgs.architect "Design a system"
+# /speckit.dnaspec.architect "Design a system"
 ```
 
 ### 2. Gemini CLI Integration
 ```bash
 # Configure Gemini CLI integration
-dsgs-spec-kit integrate --interactive
+dnaspec-spec-kit integrate --interactive
 
 # Select Gemini when prompted
 # Follow the configuration wizard
 
 # Use in Gemini:
-# /speckit.dsgs.task-decomposer "Break down development tasks"
+# /speckit.dnaspec.task-decomposer "Break down development tasks"
 ```
 
 ### 3. Multi-Platform Integration
 ```javascript
-const { CliDetector, ConfigGenerator } = require('dsgs-spec-kit');
+const { CliDetector, ConfigGenerator } = require('dnaspec-spec-kit');
 
 async function multiPlatformIntegration() {
   const detector = new CliDetector();
@@ -1133,11 +1133,11 @@ async function multiPlatformIntegration() {
   });
   
   // Save configuration
-  const configPath = './.dsgs/multi-platform-config.yaml';
+  const configPath = './.dnaspec/multi-platform-config.yaml';
   generator.save(config, configPath);
   
   console.log(`Configuration saved to ${configPath}`);
-  console.log('You can now use DSGS skills with all detected platforms!');
+  console.log('You can now use DNASPEC skills with all detected platforms!');
 }
 ```
 
@@ -1145,17 +1145,17 @@ async function multiPlatformIntegration() {
 
 ### 1. Custom Skill Configuration
 ```yaml
-# ~/.dsgs/config.yaml
+# ~/.dnaspec/config.yaml
 version: "1.0.0"
 skills:
   architect:
-    command: "/speckit.dsgs.architect"
+    command: "/speckit.dnaspec.architect"
     enabled: true
     custom_prompts:
       - "Focus on cloud-native architecture"
       - "Consider microservices design patterns"
   agent-creator:
-    command: "/speckit.dsgs.agent-creator"
+    command: "/speckit.dnaspec.agent-creator"
     enabled: true
     custom_templates:
       - name: "dev-ops-agent"
@@ -1170,7 +1170,7 @@ settings:
 
 ### 2. Custom Platform Integration
 ```javascript
-const { CliDetector } = require('dsgs-spec-kit');
+const { CliDetector } = require('dnaspec-spec-kit');
 
 class CustomPlatformDetector extends CliDetector {
   constructor() {
@@ -1232,7 +1232,7 @@ async function customPlatformExample() {
 
 ### 3. Performance Optimization
 ```javascript
-const { SkillExecutor } = require('dsgs-spec-kit');
+const { SkillExecutor } = require('dnaspec-spec-kit');
 
 class OptimizedSkillExecutor extends SkillExecutor {
   constructor(options = {}) {
@@ -1486,7 +1486,7 @@ ${commits.split('\n').filter(line => line).map(line => `- ${line}`).join('\n')}
 ## Installation
 
 \`\`\`bash
-npm install dsgs-spec-kit@${this.packageJson.version}
+npm install dnaspec-spec-kit@${this.packageJson.version}
 \`\`\`
 
 ## Documentation
@@ -1589,29 +1589,29 @@ class DocumentationGenerator {
 ## Installation
 
 \`\`\`bash
-npm install -g dsgs-spec-kit
+npm install -g dnaspec-spec-kit
 \`\`\`
 
 ## Commands
 
-### dsgs-spec-kit
+### dnaspec-spec-kit
 
 Main CLI entry point.
 
 \`\`\`bash
-dsgs-spec-kit [command] [options]
+dnaspec-spec-kit [command] [options]
 \`\`\`
 
 #### Options
 - \`-V, --version\`: Output the version number
 - \`-h, --help\`: Display help for command
 
-### dsgs-spec-kit init
+### dnaspec-spec-kit init
 
 Initialize the integration.
 
 \`\`\`bash
-dsgs-spec-kit init [options]
+dnaspec-spec-kit init [options]
 \`\`\`
 
 #### Options
@@ -1619,12 +1619,12 @@ dsgs-spec-kit init [options]
 - \`-f, --force\`: Force re-initialization
 - \`-h, --help\`: Display help for command
 
-### dsgs-spec-kit integrate
+### dnaspec-spec-kit integrate
 
 Integrate with AI CLI tools.
 
 \`\`\`bash
-dsgs-spec-kit integrate [options]
+dnaspec-spec-kit integrate [options]
 \`\`\`
 
 #### Options
@@ -1634,12 +1634,12 @@ dsgs-spec-kit integrate [options]
 - \`--no-validate\`: Skip integration validation
 - \`-h, --help\`: Display help for command
 
-### dsgs-spec-kit exec
+### dnaspec-spec-kit exec
 
 Execute a skill command.
 
 \`\`\`bash
-dsgs-spec-kit exec <command>
+dnaspec-spec-kit exec <command>
 \`\`\`
 
 #### Arguments
@@ -1648,23 +1648,23 @@ dsgs-spec-kit exec <command>
 #### Options
 - \`-h, --help\`: Display help for command
 
-### dsgs-spec-kit shell
+### dnaspec-spec-kit shell
 
 Start interactive shell.
 
 \`\`\`bash
-dsgs-spec-kit shell
+dnaspec-spec-kit shell
 \`\`\`
 
 #### Options
 - \`-h, --help\`: Display help for command
 
-### dsgs-spec-kit list
+### dnaspec-spec-kit list
 
 List available skills.
 
 \`\`\`bash
-dsgs-spec-kit list
+dnaspec-spec-kit list
 \`\`\`
 
 #### Options
@@ -1698,10 +1698,10 @@ dsgs-spec-kit list
 
 ### Step 1: Installation
 
-Install the DSGS spec.kit integration package:
+Install the DNASPEC spec.kit integration package:
 
 \`\`\`bash
-npm install -g dsgs-spec-kit
+npm install -g dnaspec-spec-kit
 \`\`\`
 
 ### Step 2: Initialization
@@ -1709,7 +1709,7 @@ npm install -g dsgs-spec-kit
 Run the automatic initialization:
 
 \`\`\`bash
-dsgs-spec-kit integrate --auto
+dnaspec-spec-kit integrate --auto
 \`\`\`
 
 ### Step 3: Verify Installation
@@ -1717,7 +1717,7 @@ dsgs-spec-kit integrate --auto
 Check that skills are available:
 
 \`\`\`bash
-dsgs-spec-kit list
+dnaspec-spec-kit list
 \`\`\`
 
 ### Step 4: Execute Your First Skill
@@ -1725,7 +1725,7 @@ dsgs-spec-kit list
 Design a system architecture:
 
 \`\`\`bash
-dsgs-spec-kit exec "/speckit.dsgs.architect 'Design a web application'"
+dnaspec-spec-kit exec "/speckit.dnaspec.architect 'Design a web application'"
 \`\`\`
 
 ## Integration Tutorial
@@ -1739,17 +1739,17 @@ dsgs-spec-kit exec "/speckit.dsgs.architect 'Design a web application'"
 
 2. Run integration:
    \`\`\`bash
-   dsgs-spec-kit integrate --auto
+   dnaspec-spec-kit integrate --auto
    \`\`\`
 
 3. Verify integration:
    \`\`\`bash
-   dsgs-spec-kit integrate validate --platform claude
+   dnaspec-spec-kit integrate validate --platform claude
    \`\`\`
 
 4. Use in Claude:
    \`\`\`
-   /speckit.dsgs.architect "Design a system"
+   /speckit.dnaspec.architect "Design a system"
    \`\`\`
 
 ## Advanced Usage Tutorial
@@ -1759,7 +1759,7 @@ dsgs-spec-kit exec "/speckit.dsgs.architect 'Design a web application'"
 Create a custom configuration file:
 
 \`\`\`yaml
-# ~/.dsgs/config.yaml
+# ~/.dnaspec/config.yaml
 version: "1.0.0"
 platforms:
   - name: "claude"
@@ -1767,7 +1767,7 @@ platforms:
     config_path: "~/.config/claude/skills/"
 skills:
   architect:
-    command: "/speckit.dsgs.architect"
+    command: "/speckit.dnaspec.architect"
     enabled: true
     custom_context: "Focus on cloud-native solutions"
 settings:
@@ -1777,10 +1777,10 @@ settings:
 
 ### Programmatic Usage
 
-Use DSGS skills in your Node.js application:
+Use DNASPEC skills in your Node.js application:
 
 \`\`\`javascript
-const { SkillExecutor } = require('dsgs-spec-kit');
+const { SkillExecutor } = require('dnaspec-spec-kit');
 
 async function main() {
   const executor = new SkillExecutor();
@@ -1804,9 +1804,9 @@ main().catch(console.error);
   }
   
   generateIndex() {
-    const index = `# DSGS spec.kit Integration Documentation
+    const index = `# DNASPEC spec.kit Integration Documentation
 
-Welcome to the documentation for DSGS spec.kit Integration. This documentation covers everything you need to know to install, configure, and use the integration.
+Welcome to the documentation for DNASPEC spec.kit Integration. This documentation covers everything you need to know to install, configure, and use the integration.
 
 ## Table of Contents
 
@@ -1818,17 +1818,17 @@ Welcome to the documentation for DSGS spec.kit Integration. This documentation c
 
 ## Quick Links
 
-- [GitHub Repository](https://github.com/dsgs-project/spec-kit-integration)
-- [npm Package](https://www.npmjs.com/package/dsgs-spec-kit)
-- [Issue Tracker](https://github.com/dsgs-project/spec-kit-integration/issues)
+- [GitHub Repository](https://github.com/dnaspec-project/spec-kit-integration)
+- [npm Package](https://www.npmjs.com/package/dnaspec-spec-kit)
+- [Issue Tracker](https://github.com/dnaspec-project/spec-kit-integration/issues)
 
 ## Getting Help
 
 If you need help, please:
 
 1. Check the [Troubleshooting Guide](troubleshooting.md)
-2. Search [existing issues](https://github.com/dsgs-project/spec-kit-integration/issues)
-3. Open a [new issue](https://github.com/dsgs-project/spec-kit-integration/issues/new) if needed
+2. Search [existing issues](https://github.com/dnaspec-project/spec-kit-integration/issues)
+3. Open a [new issue](https://github.com/dnaspec-project/spec-kit-integration/issues/new) if needed
 `;
     
     const indexDest = path.join(this.outputDir, 'index.md');

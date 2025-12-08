@@ -119,13 +119,13 @@ def test_environment_isolation():
             text=True,
             cwd=os.getcwd()
         )
-        has_dsgs = 'dsgs' in result.stdout.lower()
+        has_dsgs = 'dnaspec' in result.stdout.lower()
         print(f"当前目录Python环境是否有dsgs包: {has_dsgs}")
     except Exception as e:
         print(f"检查包环境时出错: {e}")
 
 def main():
-    print("DSGS CLI工具检测问题诊断工具")
+    print("DNASPEC CLI工具检测问题诊断工具")
     print("=" * 50)
     
     npm_path = test_path_accessibility()

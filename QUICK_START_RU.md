@@ -1,8 +1,8 @@
-# Навыки контекстной инженерии DSGS - Краткое руководство (Russian)
+# Навыки контекстной инженерии DNASPEC - Краткое руководство (Russian)
 
 ## Обзор проекта
 
-Набор навыков контекстной инженерии DSGS (Dynamic Specification Growth System) - это профессиональный инструментарий разработки с поддержкой ИИ, специально разработанный для платформ ИИ командной строки, предоставляющий возможности анализа контекста, оптимизации и когнитивных шаблонов с рабочим процессом безопасности ИИ.
+Набор навыков контекстной инженерии DNASPEC (Dynamic Specification Growth System) - это профессиональный инструментарий разработки с поддержкой ИИ, специально разработанный для платформ ИИ командной строки, предоставляющий возможности анализа контекста, оптимизации и когнитивных шаблонов с рабочим процессом безопасности ИИ.
 
 ## Основные улучшения
 
@@ -27,7 +27,7 @@
 ```bash
 # Клонировать репозиторий
 git clone https://github.com/ptreezh/dnaSpec.git
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # Установить
 pip install -e .
@@ -37,12 +37,12 @@ pip install -e .
 
 ### Команды CLI
 ```
-/speckit.dsgs.context-analysis "Проанализировать качество этого документа требований" mode=enhanced
-/speckit.dsgs.cognitive-template "Как улучшить производительность" template=verification
-/speckit.dsgs.context-optimization "Оптимизировать это требование" optimization_goals=clarity,relevance
-/speckit.dsgs.architect "Спроектировать архитектуру электронной коммерции"
-/speckit.dsgs.git-skill operation=status
-/speckit.dsgs.temp-workspace operation=create-workspace
+/speckit.dnaspec.context-analysis "Проанализировать качество этого документа требований" mode=enhanced
+/speckit.dnaspec.cognitive-template "Как улучшить производительность" template=verification
+/speckit.dnaspec.context-optimization "Оптимизировать это требование" optimization_goals=clarity,relevance
+/speckit.dnaspec.architect "Спроектировать архитектуру электронной коммерции"
+/speckit.dnaspec.git-skill operation=status
+/speckit.dnaspec.temp-workspace operation=create-workspace
 ```
 
 ### Python API

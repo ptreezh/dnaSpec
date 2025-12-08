@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - AI原生架构实施完成确认
+# DNASPEC Context Engineering Skills - AI原生架构实施完成确认
 
 ## 🔍 项目状态验证
 
@@ -24,7 +24,7 @@
 ## 📋 已完成的实施
 
 ### 1. 核心技能实现
-- **src/dsgs_context_engineering/skills_system_final_clean.py**: 主要技能实现
+- **src/dnaspec_context_engineering/skills_system_final_clean.py**: 主要技能实现
 - **ContextAnalysisSkill**: 专业上下文质量分析
 - **ContextOptimizationSkill**: 智能上下文优化
 - **CognitiveTemplateSkill**: 认知模板应用
@@ -54,10 +54,10 @@
 │  └─────────────────────────────────────────────────────────────────┘
 └─────────────────────────────────────────────────────────────────┘
               ▲
-              │ (DSGS 指令接口) 
+              │ (DNASPEC 指令接口) 
               │
 ┌─────────────────────────────────────────────────────────────────┐
-│              DSGS Context Engineering Skills                  │
+│              DNASPEC Context Engineering Skills                  │
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │  1. 构造专业AI指令 (根据技能类型)                    │   │
 │  │  2. 发送至AI模型API                                │   │
@@ -75,7 +75,7 @@
 
 ### 1. 在Python代码中使用
 ```python
-from src.dsgs_context_engineering.skills_system_final_clean import ContextAnalysisSkill
+from src.dnaspec_context_engineering.skills_system_final_clean import ContextAnalysisSkill
 
 skill = ContextAnalysisSkill()
 result = skill.process_request("要分析的上下文", {})
@@ -84,13 +84,13 @@ result = skill.process_request("要分析的上下文", {})
 ### 2. 在AI CLI平台中使用
 ```
 # 分析上下文质量
-/dsgs-context-analysis "电商系统设计需求"
+/dnaspec-context-analysis "电商系统设计需求"
 
 # 优化上下文内容
-/dsgs-context-optimization "简单需求描述" --goals "clarity,completeness"
+/dnaspec-context-optimization "简单需求描述" --goals "clarity,completeness"
 
 # 应用认知模板
-/dsgs-cognitive-template "复杂技术问题" --template "chain_of_thought"
+/dnaspec-cognitive-template "复杂技术问题" --template "chain_of_thought"
 ```
 
 ### 3. 系统集成
@@ -112,7 +112,7 @@ result = skill.process_request("要分析的上下文", {})
 
 ## 🎉 总结
 
-**DSGS Context Engineering Skills System** 已成功实现为真正的**AI原生上下文工程增强工具集**，特点包括：
+**DNASPEC Context Engineering Skills System** 已成功实现为真正的**AI原生上下文工程增强工具集**，特点包括：
 
 1. **100% AI原生智能利用** - 无本地模型依赖
 2. **专业级上下文工程能力** - 五维分析、智能优化、认知模板

@@ -21,7 +21,7 @@ class PythonBridge:
         Args:
             skills_base_path: 技能模块的基础路径
         """
-        self.skills_base_path = skills_base_path or "src.dsgs_spec_kit_integration.skills"
+        self.skills_base_path = skills_base_path or "src.dnaspec_spec_kit_integration.skills"
         self._imported_modules = {}
     
     def execute_skill(self, skill_name: str, params: str) -> Dict[str, Any]:
@@ -29,7 +29,7 @@ class PythonBridge:
         执行Python技能
         
         Args:
-            skill_name: 技能名称（如 'dsgs-architect'）
+            skill_name: 技能名称（如 'dnaspec-architect'）
             params: 技能参数
             
         Returns:
@@ -37,8 +37,8 @@ class PythonBridge:
         """
         try:
             # 将技能名称规范化为模块名称
-            # 例如 'dsgs-architect' -> 'architect'
-            module_name = skill_name.replace('dsgs-', '')
+            # 例如 'dnaspec-architect' -> 'architect'
+            module_name = skill_name.replace('dnaspec-', '')
             
             # 构建完整的模块路径
             full_module_path = f"{self.skills_base_path}.{module_name}"
@@ -122,7 +122,7 @@ class PythonBridge:
             技能是否可用
         """
         try:
-            module_name = skill_name.replace('dsgs-', '')
+            module_name = skill_name.replace('dnaspec-', '')
             full_module_path = f"{self.skills_base_path}.{module_name}"
             
             # 尝试导入模块

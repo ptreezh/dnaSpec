@@ -5,7 +5,7 @@
 
 ## 根目录结构
 ```
-DSGS-Project/
+DNASPEC-Project/
 ├── README.md                           # 项目说明文档
 ├── PROJECT_PLAN.md                     # 项目实施计划
 ├── docs/                              # 文档目录
@@ -58,7 +58,7 @@ docs/
 ## skills/ - Claude Skills根目录结构
 ```
 skills/
-├── dsgs-architect/                    # 主技能目录
+├── dnaspec-architect/                    # 主技能目录
 │   ├── SKILL.md                           # 主技能定义
 │   ├── scripts/                           # 主技能脚本
 │   ├── references/                        # 主技能参考文档
@@ -141,7 +141,7 @@ workspace/
 ```
 output/
 ├── final_skills/                      # 最终测试通过的Skills
-│   ├── dsgs-architect/
+│   ├── dnaspec-architect/
 │   ├── sub-skills/
 │   └── packaged_skills/               # 打包的技能文件
 │

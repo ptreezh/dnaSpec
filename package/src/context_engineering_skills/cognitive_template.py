@@ -3,12 +3,12 @@ Cognitive Template Application Skill
 用于应用认知模板到上下文工程任务
 """
 from typing import Dict, Any, List
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 import json
 import re
 
 
-class CognitiveTemplateSkill(DSGSSkill):
+class CognitiveTemplateSkill(DNASpecSkill):
     """
     认知模板应用技能
     应用预定义的认知模板来改进上下文工程
@@ -16,7 +16,7 @@ class CognitiveTemplateSkill(DSGSSkill):
     
     def __init__(self):
         super().__init__(
-            name="dsgs-cognitive-template",
+            name="dnaspec-cognitive-template",
             description="DSGS认知模板应用器 - 应用认知模板改进上下文工程的专家"
         )
         # 预定义的认知模板

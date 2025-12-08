@@ -1,9 +1,9 @@
-# OpenSpec DSGS Context Engineering Skills System - 完整规范文档
+# OpenSpec DNASPEC Context Engineering Skills System - 完整规范文档
 
 ## 1. 项目概述 (Project Overview)
 
 ### 1.1 项目定义
-DSGS Context Engineering Skills System 是一个AI CLI平台的增强工具集，利用AI模型的原生智能提供专业的上下文分析、优化和结构化能力。
+DNASPEC Context Engineering Skills System 是一个AI CLI平台的增强工具集，利用AI模型的原生智能提供专业的上下文分析、优化和结构化能力。
 
 ### 1.2 范围定义
 - **包含**: 上下文质量分析、上下文智能优化、认知模板应用、AI CLI平台集成
@@ -89,7 +89,7 @@ Target: 100%兼容
               │ (通过平台API)
               │
 ┌─────────────────────────────────────────────────────────────────┐
-│               DSGS Context Engineering System                   │
+│               DNASPEC Context Engineering System                   │
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │  Skills Engine:                                         │   │
 │  │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────┐ │   │
@@ -105,7 +105,7 @@ Target: 100%兼容
 ```
 Context Engineering Skills System
 ├── src/
-│   └── dsgs_context_engineering/
+│   └── dnaspec_context_engineering/
 │       ├── skills_system_final_clean.py        # 核心技能实现
 │       ├── core/                              # 技能基类
 │       │   └── skill.py                       # DSGSSkill基类 (来自DSGS框架) 
@@ -122,7 +122,7 @@ Context Engineering Skills System
 
 ### 3.3 数据架构
 ```
-AI CLI Platform Input → DSGS Skills Engine → AI Model API → Structured Response
+AI CLI Platform Input → DNASPEC Skills Engine → AI Model API → Structured Response
      │                      │                    │                │
      ▼                      ▼                    ▼                ▼
   Context String → AI Instruction Template → AI Processing → JSON Result
@@ -149,7 +149,7 @@ Returns: str (格式化的结果输出)
 
 ### 4.2 技能接口规范
 ```
-Class: DSGSSkill (继承自DSGS框架基类)
+Class: DNASpecSkill (继承自DSGS框架基类)
 
 Methods:
 - process_request(request: str, context: Dict[str, Any]) -> SkillResult
@@ -163,7 +163,7 @@ Methods:
 系统通过高质量AI指令模板实现功能，而非复杂本地算法:
 
 ```python
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
         instruction = f"""
 作为专业分析师，请评估以下上下文的五个维度：

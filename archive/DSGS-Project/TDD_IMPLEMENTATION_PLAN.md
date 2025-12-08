@@ -54,7 +54,7 @@ tests/
 ```python
 # tests/unit/test_adapters/test_spec_kit_adapter.py
 import pytest
-from dsgs.adapters.spec_kit_adapter import SpecKitAdapter
+from dnaspec.adapters.spec_kit_adapter import SpecKitAdapter
 
 def test_spec_kit_adapter_initialization():
     """测试spec.kit适配器初始化"""
@@ -72,7 +72,7 @@ def test_spec_kit_adapter_supported_agents():
 
 #### 绿色阶段（实现功能）
 ```python
-# dsgs/adapters/spec_kit_adapter.py
+# dnaspec/adapters/spec_kit_adapter.py
 class SpecKitAdapter:
     """spec.kit适配器基类"""
     
@@ -89,7 +89,7 @@ class SpecKitAdapter:
 
 #### 重构阶段（优化代码）
 ```python
-# dsgs/adapters/spec_kit_adapter.py
+# dnaspec/adapters/spec_kit_adapter.py
 class SpecKitAdapter:
     """spec.kit适配器基类"""
     
@@ -145,7 +145,7 @@ def test_spec_kit_adapter_check_dependencies():
 
 #### 绿色阶段
 ```python
-# dsgs/adapters/spec_kit_adapter.py
+# dnaspec/adapters/spec_kit_adapter.py
 import shutil
 from typing import Dict
 
@@ -165,7 +165,7 @@ class SpecKitAdapter:
 
 #### 重构阶段
 ```python
-# dsgs/adapters/spec_kit_adapter.py
+# dnaspec/adapters/spec_kit_adapter.py
 class SpecKitAdapter:
     # ... 前面的代码 ...
     
@@ -191,8 +191,8 @@ class SpecKitAdapter:
 ```python
 # tests/integration/test_command_mapping.py
 import pytest
-from dsgs.adapters.spec_kit_adapter import SpecKitAdapter
-from dsgs.core.skill_manager import SkillManager
+from dnaspec.adapters.spec_kit_adapter import SpecKitAdapter
+from dnaspec.core.skill_manager import SkillManager
 
 def test_command_mapping_integration():
     """测试命令映射集成"""
@@ -200,13 +200,13 @@ def test_command_mapping_integration():
     skill_manager = SkillManager()
     
     # 注册测试技能
-    skill_manager.register_skill("dsgs-architect", "系统架构师")
+    skill_manager.register_skill("dnaspec-architect", "系统架构师")
     
     # 测试命令映射
-    command = "/speckit.dsgs.architect"
+    command = "/speckit.dnaspec.architect"
     mapped_skill = adapter.map_command_to_skill(command)
     
-    assert mapped_skill == "dsgs-architect"
+    assert mapped_skill == "dnaspec-architect"
 ```
 
 ### 4.2 跨平台测试
@@ -214,7 +214,7 @@ def test_command_mapping_integration():
 # tests/integration/test_cross_platform.py
 import pytest
 import platform
-from dsgs.adapters.spec_kit_adapter import SpecKitAdapter
+from dnaspec.adapters.spec_kit_adapter import SpecKitAdapter
 
 @pytest.mark.skipif(platform.system() != "Windows", reason="仅在Windows上测试")
 def test_windows_specific_functionality():
@@ -266,7 +266,7 @@ jobs:
           pip install -r requirements-dev.txt
       - name: Run tests
         run: |
-          pytest tests/ --cov=dsgs --cov-report=xml
+          pytest tests/ --cov=dnaspec --cov-report=xml
       - name: Upload coverage
         uses: codecov/codecov-action@v1
 ```
@@ -285,12 +285,12 @@ jobs:
 # tests/performance/test_benchmark.py
 import time
 import pytest
-from dsgs.adapters.spec_kit_adapter import SpecKitAdapter
+from dnaspec.adapters.spec_kit_adapter import SpecKitAdapter
 
 def test_command_parsing_performance():
     """测试命令解析性能"""
     adapter = SpecKitAdapter()
-    command = "/speckit.dsgs.architect 设计电商系统架构"
+    command = "/speckit.dnaspec.architect 设计电商系统架构"
     
     # 执行1000次命令解析
     start_time = time.time()
@@ -307,7 +307,7 @@ def test_command_parsing_performance():
 ```python
 # tests/unit/test_adapters/test_error_handling.py
 import pytest
-from dsgs.adapters.spec_kit_adapter import SpecKitAdapter
+from dnaspec.adapters.spec_kit_adapter import SpecKitAdapter
 
 def test_invalid_command_handling():
     """测试无效命令处理"""

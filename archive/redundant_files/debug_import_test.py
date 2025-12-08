@@ -2,13 +2,13 @@ import sys
 sys.path.insert(0, '.')
 import traceback
 
-print('🔍 DSGS Context Engineering Skills - AI原生架构最终验证')
+print('🔍 DNASPEC Context Engineering Skills - AI原生架构最终验证')
 print('='*70)
 
 # 测试导入
 try:
     print("尝试导入模块...")
-    from src.dsgs_context_engineering.core.skill import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
+    from src.dnaspec_context_engineering.core.skill import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
     print('✅ 模块导入成功')
     
     print("尝试实例化技能...")

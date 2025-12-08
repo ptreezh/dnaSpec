@@ -13,7 +13,7 @@
 
 ### 3.1 整合架构
 ```
-DSGS-spec.kit整合架构
+DNASPEC-spec.kit整合架构
 ├── DSGS核心层
 │   ├── 技能管理器 (SkillManager)
 │   ├── 智能匹配引擎 (IntelligentMatcher)
@@ -25,8 +25,8 @@ DSGS-spec.kit整合架构
 │   ├── Gemini CLI适配器 (GeminiAdapter)
 │   └── Qwen CLI适配器 (QwenAdapter)
 ├── 接口层
-│   ├── 斜杠命令接口 (/speckit.dsgs.*)
-│   ├── 原生命令接口 (dsgs-*)
+│   ├── 斜杠命令接口 (/speckit.dnaspec.*)
+│   ├── 原生命令接口 (dnaspec-*)
 │   └── API接口 (REST/JSON-RPC)
 └── 集成层
     ├── spec.kit依赖集成

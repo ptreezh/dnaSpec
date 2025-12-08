@@ -1,8 +1,8 @@
-# DSGS Context Engineering Skills - 快速上手指南 (Chinese)
+# DNASPEC Context Engineering Skills - 快速上手指南 (Chinese)
 
 ## 项目概述
 
-DSGS (Dynamic Specification Growth System) Context Engineering Skills 是一个专业的AI辅助开发工具包，专门为AI CLI平台设计，提供上下文分析、优化和认知模板功能，具有AI安全工作流。
+DNASPEC (Dynamic Specification Growth System) Context Engineering Skills 是一个专业的AI辅助开发工具包，专门为AI CLI平台设计，提供上下文分析、优化和认知模板功能，具有AI安全工作流。
 
 ## 核心改进
 
@@ -27,7 +27,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills 是一个�
 ```bash
 # 克隆仓库
 git clone https://github.com/ptreezh/dnaSpec.git
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # 安装
 pip install -e .
@@ -37,12 +37,12 @@ pip install -e .
 
 ### CLI命令
 ```
-/speckit.dsgs.context-analysis "分析这段需求文档的质量" mode=enhanced
-/speckit.dsgs.cognitive-template "如何提高性能" template=verification
-/speckit.dsgs.context-optimization "优化这个需求" optimization_goals=clarity,relevance
-/speckit.dsgs.architect "设计电商系统架构"
-/speckit.dsgs.git-skill operation=status
-/speckit.dsgs.temp-workspace operation=create-workspace
+/speckit.dnaspec.context-analysis "分析这段需求文档的质量" mode=enhanced
+/speckit.dnaspec.cognitive-template "如何提高性能" template=verification
+/speckit.dnaspec.context-optimization "优化这个需求" optimization_goals=clarity,relevance
+/speckit.dnaspec.architect "设计电商系统架构"
+/speckit.dnaspec.git-skill operation=status
+/speckit.dnaspec.temp-workspace operation=create-workspace
 ```
 
 ### Python API

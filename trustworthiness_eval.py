@@ -9,13 +9,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def comprehensive_functionality_test():
     """全面功能验证"""
-    print("🔍 DSGS Context Engineering Skills - 全面功能验证")
+    print("🔍 DNASPEC Context Engineering Skills - 全面功能验证")
     print("=" * 70)
 
     # 1. 测试模块导入
     print("\n1. 模块导入测试:")
     try:
-        from src.dsgs_context_engineering.skills_system_final import (
+        from src.dnaspec_context_engineering.skills_system_final import (
             execute, get_available_skills, ContextAnalysisSkill, 
             ContextOptimizationSkill, CognitiveTemplateSkill
         )
@@ -80,7 +80,7 @@ def comprehensive_functionality_test():
     # 5. AI CLI工具检测验证
     print(f"\n5. AI CLI工具检测验证:")
     try:
-        from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+        from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
         detector = CliDetector()
         results = detector.detect_all()
         
@@ -103,7 +103,7 @@ def comprehensive_functionality_test():
     print(f"\n6. 系统集成验证:")
     try:
         # 测试CLI适配器
-        from src.dsgs_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
+        from src.dnaspec_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
         adapter = ConcreteSpecKitAdapter()
         
         # 检查技能注册
@@ -119,7 +119,7 @@ def comprehensive_functionality_test():
 def trustworthiness_evaluation():
     """可信度评估"""
     print(f"\n{'='*70}")
-    print("📊 DSGS Context Engineering Skills - 信任度评估")
+    print("📊 DNASPEC Context Engineering Skills - 信任度评估")
     print(f"{'='*70}")
     
     evaluation = {

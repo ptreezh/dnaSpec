@@ -1,6 +1,6 @@
 # interactive_demo.py - 交互式演示脚本
 """
-DSGS Context Engineering Skills - 交互式演示
+DNASPEC Context Engineering Skills - 交互式演示
 """
 import sys
 import os
@@ -16,7 +16,7 @@ from src.context_engineering_skills.cognitive_template import CognitiveTemplateS
 def demo_context_analysis():
     """演示上下文分析功能"""
     print("\n" + "="*60)
-    print("🎯 DSGS Context Analysis Demo")
+    print("🎯 DNASPEC Context Analysis Demo")
     print("="*60)
     
     skill = ContextAnalysisSkill()
@@ -60,7 +60,7 @@ def demo_context_analysis():
 def demo_context_optimization():
     """演示上下文优化功能"""
     print("\n" + "="*60)
-    print("🚀 DSGS Context Optimization Demo")
+    print("🚀 DNASPEC Context Optimization Demo")
     print("="*60)
     
     skill = ContextOptimizationSkill()
@@ -93,7 +93,7 @@ def demo_context_optimization():
 def demo_cognitive_templates():
     """演示认知模板功能"""
     print("\n" + "="*60)
-    print("🧠 DSGS Cognitive Template Demo")
+    print("🧠 DNASPEC Cognitive Template Demo")
     print("="*60)
     
     skill = CognitiveTemplateSkill()
@@ -114,7 +114,7 @@ def demo_cognitive_templates():
 def interactive_mode():
     """交互模式"""
     print("\n" + "="*60)
-    print("🎮 DSGS Context Engineering - 交互模式")
+    print("🎮 DNASPEC Context Engineering - 交互模式")
     print("="*60)
     print("\n选择功能:")
     print("1. 上下文分析")
@@ -168,7 +168,7 @@ def interactive_mode():
 
 def main():
     """主函数"""
-    print("🌟 DSGS Context Engineering Skills - 本地试用版")
+    print("🌟 DNASPEC Context Engineering Skills - 本地试用版")
     print("   这个系统可以帮助您分析、优化和结构化AI上下文")
     
     demo_context_analysis()

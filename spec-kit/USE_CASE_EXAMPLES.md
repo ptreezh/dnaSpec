@@ -69,25 +69,25 @@
 
 #### 1. 架构设计
 ```
-/dsgs-architect 社交媒体平台需求：支持千万级用户，实时消息推送，内容推荐
+/dnaspec-architect 社交媒体平台需求：支持千万级用户，实时消息推送，内容推荐
 ```
 **作用**: 设计分层架构，协调各项子技能
 
 #### 2. 任务分解
 ```
-/dsgs-task-decomposer 社交媒体平台架构
+/dnaspec-task-decomposer 社交媒体平台架构
 ```
 **作用**: 将复杂架构分解为实施任务
 
 #### 3. 智能体创建
 ```
-/dsgs-agent-creator 消息推送服务需求
+/dnaspec-agent-creator 消息推送服务需求
 ```
 **作用**: 创建智能体处理实时消息推送
 
 #### 4. 约束生成
 ```
-/dsgs-constraint-generator 实时系统架构
+/dnaspec-constraint-generator 实时系统架构
 ```
 **作用**: 生成性能和可靠性约束
 
@@ -100,7 +100,7 @@
 
 #### 1. 接口检查
 ```
-/dsgs-dapi-checker 消息服务、用户服务、内容服务的API文档
+/dnaspec-dapi-checker 消息服务、用户服务、内容服务的API文档
 ```
 **作用**: 检查接口一致性，识别不匹配问题
 
@@ -119,13 +119,13 @@
 
 #### 1. 模块成熟度评估
 ```
-/dsgs-modulizer 用户管理模块代码
+/dnaspec-modulizer 用户管理模块代码
 ```
 **作用**: 评估模块的成熟度和封装准备情况
 
 #### 2. 模块化验证
 ```
-/dsgs-modulizer 订单处理模块代码
+/dnaspec-modulizer 订单处理模块代码
 ```
 **作用**: 检查模块的内聚性和耦合度
 
@@ -152,10 +152,10 @@
 ### 3. 架构验证流程
 ```
 # 架构设计验证流程
-/dsgs-architect 需求
-/dsgs-task-decomposer 架构
-/dsgs-constraint-generator 架构
-/dsgs-dapi-checker 服务接口
+/dnaspec-architect 需求
+/dnaspec-task-decomposer 架构
+/dnaspec-constraint-generator 架构
+/dnaspec-dapi-checker 服务接口
 ```
 
 ## 最佳实践

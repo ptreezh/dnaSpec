@@ -6,7 +6,7 @@
 建立DSGS项目的完整TDD测试体系，实现测试驱动的设计基线版本
 
 ### 📊 当前状态分析
-- **项目**: DSGS v2.1.0 (Dynamic Specification Growth System)
+- **项目**: DNASPEC v2.1.0 (Dynamic Specification Growth System)
 - **进度**: 65%完成，Phase 1测试架构设计已完成，开始Phase 2
 - **技术栈**: TypeScript + Jest + Node.js
 - **测试现状**: 基础架构完成，开始优化测试金字塔

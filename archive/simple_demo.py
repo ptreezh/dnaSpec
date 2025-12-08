@@ -1,6 +1,6 @@
 # simple_demo.py - 简单演示脚本
 """
-DSGS Context Engineering Skills - 简单演示
+DNASPEC Context Engineering Skills - 简单演示
 """
 import sys
 import os
@@ -16,7 +16,7 @@ from src.context_engineering_skills.cognitive_template import CognitiveTemplateS
 def demo_all_features():
     """演示所有功能"""
     print("="*70)
-    print("🎯 DSGS Context Engineering Skills - 简单演示")
+    print("🎯 DNASPEC Context Engineering Skills - 简单演示")
     print("="*70)
     
     print("\n1. 📊 Context Analysis Skill")
@@ -62,7 +62,7 @@ def demo_all_features():
     print(f"结构化结果长度: {len(result.result['enhanced_context'])} 字符")
     
     print("\n" + "="*70)
-    print("✅ DSGS Context Engineering Skills 功能演示完成!")
+    print("✅ DNASPEC Context Engineering Skills 功能演示完成!")
     print("💡 您现在可以在您的项目中使用这些技能了")
     print("="*70)
 
@@ -96,7 +96,7 @@ result = skill.process_request("任务描述", {'template': 'chain_of_thought'})
 
 def main():
     """主函数"""
-    print("🌟 DSGS Context Engineering Skills - 本地部署验证成功")
+    print("🌟 DNASPEC Context Engineering Skills - 本地部署验证成功")
     print("   系统已成功安装和配置，可以正常使用")
     
     demo_all_features()

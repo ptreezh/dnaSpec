@@ -71,7 +71,7 @@ import os
 # 使用已安装的包入口点运行查询命令
 command_result = subprocess.run([
     sys.executable,
-    '-m', 'dsgs_spec_kit_integration.cli',
+    '-m', 'dnaspec_spec_kit_integration.cli',
     '${command}'
 ], capture_output=False, text=True, env=os.environ.copy())
 
@@ -95,7 +95,7 @@ sys.exit(command_result.returncode)
             const fallbackProcess = spawn('python', ['-c', `
 import sys
 sys.path.insert(0, '.')
-from src.dsgs_spec_kit_integration.cli import main
+from src.dnaspec_spec_kit_integration.cli import main
 import sys as pysys
 pysys.argv = ['dnaspec', '${command}']
 try:
@@ -161,7 +161,7 @@ function installAndConfigure() {
             break;
         case 'integrate':
             // 集成命令也需要完整安装
-            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+            pythonScript = 'src/dnaspec_spec_kit_integration/cli.py';
             description = 'Integration';
             break;
         case 'list':
@@ -171,7 +171,7 @@ function installAndConfigure() {
         case 'help':
             // 查询命令：使用已安装的包
             console.log(`🔍 Processing ${command} command...`);
-            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+            pythonScript = 'src/dnaspec_spec_kit_integration/cli.py';
             description = 'Query';
             
             // 直接运行已安装的模块，不安装
@@ -193,7 +193,7 @@ function installAndConfigure() {
 
     if (!isProjectDir) {
         // 如果不在项目目录，创建临时目录并克隆项目
-        const tempDir = 'dsgs-install-tmp';
+        const tempDir = 'dnaspec-install-tmp';
 
         // 创建并进入临时目录
         if (!fs.existsSync(tempDir)) {
@@ -257,11 +257,11 @@ function installAndConfigure() {
     }
 
     // 安装Python包
-    if (!runCommand('pip install -e .', 'Install DSGS package')) {
-        console.error('❌ Failed to install DSGS package');
+    if (!runCommand('pip install -e .', 'Install DNASPEC package')) {
+        console.error('❌ Failed to install DNASPEC package');
         if (!isProjectDir) {
             process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
             if (fs.existsSync(tempDir)) {
                 fs.rmSync(tempDir, { recursive: true, force: true });
             }
@@ -269,7 +269,7 @@ function installAndConfigure() {
         process.exit(1);
     }
     
-    console.log('✅ DSGS package installed successfully\n');
+    console.log('✅ DNASPEC package installed successfully\n');
 
     // 确保使用正确的脚本路径（在可能更新了projectDir后）
     const scriptPath = path.join(projectDir, pythonScript);
@@ -291,7 +291,7 @@ function installAndConfigure() {
         if (!isProjectDir) {
             // 如果不是原始项目目录，清理临时目录
             process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
             if (fs.existsSync(tempDir)) {
                 fs.rmSync(tempDir, { recursive: true, force: true });
             }
@@ -305,9 +305,9 @@ function installAndConfigure() {
             console.log('\nDSGS Context Engineering Skills - POST-INSTALLATION GUIDE');
             console.log('='.repeat(80));
             console.log('');
-            console.log('Thank you for installing DSGS (Dynamic Specification Growth System)!');
+            console.log('Thank you for installing DNASPEC (Dynamic Specification Growth System)!');
             console.log('');
-            console.log('DSGS is a professional context engineering toolkit that enhances your AI-assisted');
+            console.log('DNASPEC is a professional context engineering toolkit that enhances your AI-assisted');
             console.log('development experience by providing advanced context analysis, optimization,');
             console.log('and cognitive template application capabilities.');
             console.log('');
@@ -332,10 +332,10 @@ function installAndConfigure() {
             console.log('     dnaspec list');
             console.log('');
             console.log('USAGE EXAMPLES in AI CLI Tools:');
-            console.log('  /speckit.dsgs.context-analysis "Analyze this requirement: ..."');
-            console.log('  /speckit.dsgs.context-optimization "Optimize this context: ..."');
-            console.log('  /speckit.dsgs.cognitive-template "Apply template to: ..." template=verification');
-            console.log('  /speckit.dsgs.architect "Design system for: ..."');
+            console.log('  /speckit.dnaspec.context-analysis "Analyze this requirement: ..."');
+            console.log('  /speckit.dnaspec.context-optimization "Optimize this context: ..."');
+            console.log('  /speckit.dnaspec.cognitive-template "Apply template to: ..." template=verification');
+            console.log('  /speckit.dnaspec.architect "Design system for: ..."');
             console.log('');
             console.log('COMMAND REFERENCE:');
             console.log('  dnaspec deploy            - Deploy skills to AI platforms');
@@ -350,7 +350,7 @@ function installAndConfigure() {
             console.error(`\n❌ ${description} process failed, exit code: ${code}`);
             if (!isProjectDir) {
                 process.chdir(initialDir);
-                const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+                const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
                 if (fs.existsSync(tempDir)) {
                     fs.rmSync(tempDir, { recursive: true, force: true });
                 }
@@ -363,7 +363,7 @@ function installAndConfigure() {
         if (!isProjectDir) {
             // 如果不是原始项目目录，清理临时目录
             process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
             if (fs.existsSync(tempDir)) {
                 fs.rmSync(tempDir, { recursive: true, force: true });
             }

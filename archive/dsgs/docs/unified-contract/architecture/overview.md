@@ -3,7 +3,7 @@
 ## 🏗️ 核心架构
 
 ### 系统目标
-DSGS (Dynamic Specification Growth System) 是一个AI驱动的动态规范生长系统，旨在：
+DNASPEC (Dynamic Specification Growth System) 是一个AI驱动的动态规范生长系统，旨在：
 - **动态约束生成**：按需、局部生成规范，避免静态规范爆炸
 - **树状演化一致性**：支持项目目录树状扩展，保持全局功能协同
 - **自适应进化**：通过反馈闭环实现约束自我优化
@@ -193,8 +193,8 @@ sequenceDiagram
 # docker-compose.yml
 version: '3.8'
 services:
-  dsgs-core:
-    image: dsgs/core:2.0
+  dnaspec-core:
+    image: dnaspec/core:2.0
     ports:
       - "3000:3000"
     environment:
@@ -205,11 +205,11 @@ services:
       - redis
   
   monitoring:
-    image: dsgs/monitoring:2.0
+    image: dnaspec/monitoring:2.0
     ports:
       - "9090:9090"
     depends_on:
-      - dsgs-core
+      - dnaspec-core
 ```
 
 ### Kubernetes部署
@@ -217,20 +217,20 @@ services:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dsgs-core
+  name: dnaspec-core
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: dsgs-core
+      app: dnaspec-core
   template:
     metadata:
       labels:
-        app: dsgs-core
+        app: dnaspec-core
     spec:
       containers:
       - name: core
-        image: dsgs/core:2.0
+        image: dnaspec/core:2.0
         resources:
           requests:
             memory: "512Mi"

@@ -3,7 +3,7 @@ import shutil
 
 # 复制测试目录
 source_tests = r"D:\DAIP\dnaSpec\tests"
-dest_tests = r"D:\DAIP\dsgs-core\tests"
+dest_tests = r"D:\DAIP\dnaspec-core\tests"
 
 if os.path.exists(source_tests):
     shutil.copytree(source_tests, dest_tests)
@@ -16,7 +16,7 @@ important_files = [
     r"D:\DAIP\dnaSpec\pyproject.toml"
 ]
 
-dest_docs = r"D:\DAIP\dsgs-core"
+dest_docs = r"D:\DAIP\dnaspec-core"
 os.makedirs(dest_docs, exist_ok=True)
 
 for file_path in important_files:

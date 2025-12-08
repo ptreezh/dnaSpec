@@ -1,27 +1,27 @@
 """
-DSGS Context Engineering Skills - 端到端集成测试
+DNASPEC Context Engineering Skills - 端到端集成测试
 验证完整的AI原生上下文工程系统
 """
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - 端到端集成验证")
+print("🔍 DNASPEC Context Engineering Skills - 端到端集成验证")
 print("="*80)
 
 # 1. 验证模块导入
 print("\\n1️⃣ 验证模块导入...")
 try:
-    import src.dsgs_spec_kit_integration.skills as all_skills
+    import src.dnaspec_spec_kit_integration.skills as all_skills
     
     # 原始技能
-    from src.dsgs_spec_kit_integration.skills.architect import execute as architect_execute
-    from src.dsgs_spec_kit_integration.skills.liveness import execute as liveness_execute
+    from src.dnaspec_spec_kit_integration.skills.architect import execute as architect_execute
+    from src.dnaspec_spec_kit_integration.skills.liveness import execute as liveness_execute
     
     # 新增技能
-    from src.dsgs_spec_kit_integration.skills.context_analysis import execute as context_analysis_execute
-    from src.dsgs_spec_kit_integration.skills.context_optimization import execute as context_optimization_execute
-    from src.dsgs_spec_kit_integration.skills.cognitive_template import execute as cognitive_template_execute
+    from src.dnaspec_spec_kit_integration.skills.context_analysis import execute as context_analysis_execute
+    from src.dnaspec_spec_kit_integration.skills.context_optimization import execute as context_optimization_execute
+    from src.dnaspec_spec_kit_integration.skills.cognitive_template import execute as cognitive_template_execute
     
     print("   ✅ 所有模块导入成功")
     print(f"   ✅ 原始技能数量: 3 (architect, liveness, examples)")
@@ -130,7 +130,7 @@ for case in practical_use_cases:
 print("\\n" + "="*80)
 print("🎯 集成验证成功！")
 print("="*80)
-print("✅ DSGS Context Engineering Skills 已成功集成到DSGS系统")
+print("✅ DNASPEC Context Engineering Skills 已成功集成到DSGS系统")
 print("✅ AI原生架构实现，无本地模型依赖") 
 print("✅ 与原始技能接口完全兼容")
 print("✅ 提供专业的上下文工程能力")

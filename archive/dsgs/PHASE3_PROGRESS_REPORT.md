@@ -1,4 +1,4 @@
-# DSGS Phase 3: Advanced Testing Strategies - 进展报告
+# DNASPEC Phase 3: Advanced Testing Strategies - 进展报告
 
 ## 🎯 执行状态 (2025-08-10)
 

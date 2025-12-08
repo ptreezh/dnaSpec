@@ -9,7 +9,7 @@ try:
     import importlib.util
     spec = importlib.util.spec_from_file_location(
         "skills_system_final_clean", 
-        "D:/DAIP/dnaSpec/src/dsgs_context_engineering/skills_system_final_clean.py"
+        "D:/DAIP/dnaSpec/src/dnaspec_context_engineering/skills_system_final_clean.py"
     )
     skills_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(skills_module)

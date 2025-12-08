@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS Context Engineering Skills - 独立配置入口点
+DNASPEC Context Engineering Skills - 独立配置入口点
 用于在任何环境中运行自动配置
 """
 import sys
@@ -12,7 +12,7 @@ def run_standalone_config():
     在独立环境中运行配置
     避免在项目目录中运行时的环境冲突
     """
-    print("🚀 DSGS Context Engineering Skills - 独立配置向导")
+    print("🚀 DNASPEC Context Engineering Skills - 独立配置向导")
     print("=" * 60)
 
     try:
@@ -26,7 +26,7 @@ def run_standalone_config():
         sys.path.insert(0, standalone_src_path)
         
         # 现在导入DSGS模块（使用独立的版本，而不是本地开发版本）
-        from dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+        from dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
 
         print("\n开始自动配置流程...")
         print("🚀 Starting automatic configuration...")
@@ -50,9 +50,9 @@ def run_standalone_config():
 
             print("\n使用方法:")
             print("  现在您可以在支持的CLI工具中使用以下命令:")
-            print("  /speckit.dsgs.context-analysis [上下文] - 分析上下文质量")
-            print("  /speckit.dsgs.context-optimization [上下文] - 优化上下文")
-            print("  /speckit.dsgs.cognitive-template [任务] - 应用认知模板")
+            print("  /speckit.dnaspec.context-analysis [上下文] - 分析上下文质量")
+            print("  /speckit.dnaspec.context-optimization [上下文] - 优化上下文")
+            print("  /speckit.dnaspec.cognitive-template [任务] - 应用认知模板")
             print("  ...以及其他DSGS技能")
         else:
             print("\n❌ 自动配置失败")

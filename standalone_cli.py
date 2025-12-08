@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS CLI命令处理器 - 独立的命令接口
+DNASPEC CLI命令处理器 - 独立的命令接口
 解决模块导入问题，提供直接的CLI功能
 """
 import sys
@@ -37,26 +37,26 @@ def _list_available_skills() -> str:
     列出所有可用技能
     """
     skills_description = """
-Available DSGS Skills:
+Available DNASPEC Skills:
 
 1. Context Engineering Skills:
-   - /speckit.dsgs.context-analysis [context]     # Analyze context quality (5 dimensions)
-   - /speckit.dsgs.context-optimization [context] # Optimize context with goals
-   - /speckit.dsgs.cognitive-template [task]     # Apply cognitive templates
+   - /speckit.dnaspec.context-analysis [context]     # Analyze context quality (5 dimensions)
+   - /speckit.dnaspec.context-optimization [context] # Optimize context with goals
+   - /speckit.dnaspec.cognitive-template [task]     # Apply cognitive templates
 
 2. System Design Skills:
-   - /speckit.dsgs.architect [requirements]       # System architecture design
-   - /speckit.dsgs.agent-creator [spec]           # Create specialized AI agents
-   - /speckit.dsgs.task-decomposer [task]         # Decompose complex tasks
+   - /speckit.dnaspec.architect [requirements]       # System architecture design
+   - /speckit.dnaspec.agent-creator [spec]           # Create specialized AI agents
+   - /speckit.dnaspec.task-decomposer [task]         # Decompose complex tasks
 
 3. Development Skills:
-   - /speckit.dsgs.constraint-generator [reqs]    # Generate system constraints
-   - /speckit.dsgs.dapi-checker [api]             # API interface validation
-   - /speckit.dsgs.modulizer [system]             # System modularization
+   - /speckit.dnaspec.constraint-generator [reqs]    # Generate system constraints
+   - /speckit.dnaspec.dapi-checker [api]             # API interface validation
+   - /speckit.dnaspec.modulizer [system]             # System modularization
 
 4. Utility Skills:
-   - /speckit.dsgs.git-skill [operation]          # Git operations
-   - /speckit.dsgs.temp-workspace [operation]     # Temporary workspace management
+   - /speckit.dnaspec.git-skill [operation]          # Git operations
+   - /speckit.dnaspec.temp-workspace [operation]     # Temporary workspace management
     """
     return skills_description.strip()
 
@@ -64,26 +64,26 @@ def _get_version() -> str:
     """
     获取版本信息
     """
-    return "DSGS Context Engineering Skills v1.0.4 - Dynamic Specification Growth System"
+    return "DNASPEC Context Engineering Skills v1.0.4 - Dynamic Specification Growth System"
 
 def _get_help() -> str:
     """
     获取帮助信息
     """
     help_text = """
-DSGS Context Engineering Skills - Help
+DNASPEC Context Engineering Skills - Help
 
 Commands:
   dnaspec list      - List all available skills
   dnaspec version   - Show version information
   dnaspec help      - Show this help
-  dnaspec validate  - Validate DSGS integration
+  dnaspec validate  - Validate DNASPEC integration
   dnaspec deploy    - Deploy skills to AI CLI tools
 
 Usage in AI CLI Tools:
-  /speckit.dsgs.context-analysis "Analyze this requirement"
-  /speckit.dsgs.context-optimization "Optimize this context"
-  /speckit.dsgs.cognitive-template "Apply cognitive framework" template=verification
+  /speckit.dnaspec.context-analysis "Analyze this requirement"
+  /speckit.dnaspec.context-optimization "Optimize this context"
+  /speckit.dnaspec.cognitive-template "Apply cognitive framework" template=verification
 
 For more information visit: https://github.com/ptreezh/dnaSpec
     """
@@ -95,11 +95,11 @@ def _validate_integration() -> str:
     """
     # 导入检测器验证集成
     try:
-        from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+        from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
         detector = CliDetector()
         results = detector.detect_all()
         
-        validation_report = "DSGS Integration Validation Results:\n\n"
+        validation_report = "DNASPEC Integration Validation Results:\n\n"
         installed_count = 0
         total_count = len(results)
         
@@ -111,7 +111,7 @@ def _validate_integration() -> str:
                 validation_report += f"❌ {tool}: Not installed\n"
         
         validation_report += f"\nSummary: {installed_count}/{total_count} tools detected and integrated\n"
-        validation_report += "DSGS Context Engineering Skills system is ready for use!"
+        validation_report += "DNASPEC Context Engineering Skills system is ready for use!"
         
         return validation_report
     except Exception as e:

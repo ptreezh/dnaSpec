@@ -1,12 +1,12 @@
 ---
-name: dsgs-agent-creator
+name: dnaspec-agent-creator
 description: "DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档。当用户提到创建智能体、配置agent、多智能体系统、智能体角色定义、模块智能化、agentic或具身认知时使用此技能。不要在讨论一般系统架构时使用。"
 ---
 
 # DSGS智能体创建器子技能
 
 ## 功能概述
-dsgs-agent-creator是DSGS智能架构师系统的子技能，专门负责：
+dnaspec-agent-creator是DSGS智能架构师系统的子技能，专门负责：
 1. 分析项目需求并创建合适的智能体类型
 2. 定义智能体的角色、职责和行为模式
 3. 生成智能体规范文档和配置文件

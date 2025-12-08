@@ -1,12 +1,12 @@
 ---
-name: dsgs-system-architect
+name: dnaspec-system-architect
 description: "DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义。当用户提到系统架构设计、技术栈选择、模块划分或接口定义时使用此技能。不要在讨论具体编码实现时使用。"
 ---
 
 # DSGS系统架构师子技能
 
 ## 功能概述
-dsgs-system-architect是DSGS智能架构师系统的子技能，专门负责：
+dnaspec-system-architect是DSGS智能架构师系统的子技能，专门负责：
 1. 分析项目需求和技术约束
 2. 设计系统架构图和组件关系
 3. 选择合适的技术栈和框架

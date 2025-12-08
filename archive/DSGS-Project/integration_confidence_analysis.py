@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DSGS Skills集成置信度分析报告
+DNASPEC Skills集成置信度分析报告
 """
 
 def analyze_integration_confidence():
     """分析Skills集成到不同AI工具的置信度"""
     
-    print("=== DSGS Skills集成置信度分析报告 ===\n")
+    print("=== DNASPEC Skills集成置信度分析报告 ===\n")
     
     # Claude Code集成分析
     print("1. Claude Code CLI集成分析:")

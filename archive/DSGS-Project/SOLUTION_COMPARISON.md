@@ -57,7 +57,7 @@ class GeminiAdapter:
 
 **旧方案结构：**
 ```
-DSGS-Project/
+DNASPEC-Project/
 ├── gemini_skills_core.py      # Gemini特定的核心逻辑
 ├── gemini_intelligent_matcher.py  # Gemini特定的匹配器
 ├── gemini_hook_handler.py     # Gemini特定的Hook处理
@@ -67,7 +67,7 @@ DSGS-Project/
 
 **新方案结构：**
 ```
-DSGS-Project/
+DNASPEC-Project/
 ├── dsgs_core/                 # 平台无关核心
 │   ├── skill.py              # 抽象技能接口
 │   ├── manager.py            # 通用技能管理器

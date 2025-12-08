@@ -117,7 +117,7 @@ class EnhancedAgentCreator:
         # 为每个智能体添加配置信息
         for agent in agent_config.get('agents', []):
             agent_type = agent.get('type', 'general')
-            skill_name = f"dsgs-{agent_type}-agent"  # 假设的Skill名称
+            skill_name = f"dnaspec-{agent_type}-agent"  # 假设的Skill名称
             
             # 获取LLM配置
             llm_config = self.config_manager.get_llm_config_for_skill(skill_name)
@@ -145,7 +145,7 @@ def demonstrate_skill_based_config():
     
     # 3. 演示配置查询
     print("\n2. 配置查询演示:")
-    test_skills = ['dsgs-agent-creator', 'dsgs-system-architect']
+    test_skills = ['dnaspec-agent-creator', 'dnaspec-system-architect']
     for skill in test_skills:
         llm_config = config_manager.get_llm_config_for_skill(skill)
         resource_config = config_manager.get_resource_config_for_skill(skill)

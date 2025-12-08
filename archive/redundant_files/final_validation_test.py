@@ -5,13 +5,13 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
-print("🔍 DSGS Context Engineering Skills - AI原生架构最终验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生架构最终验证")
 print("="*60)
 
 try:
     print("✅ 导入模块...")
     # 使用正确的文件名
-    from src.dsgs_context_engineering.skills_system_final_clean import (
+    from src.dnaspec_context_engineering.skills_system_final_clean import (
         ContextAnalysisSkill,
         ContextOptimizationSkill, 
         CognitiveTemplateSkill,

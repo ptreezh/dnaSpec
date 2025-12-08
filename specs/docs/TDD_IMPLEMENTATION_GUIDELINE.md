@@ -33,7 +33,7 @@
 
 **示例**:
 ```python
-# dsgs-system-architect 技能单元测试示例
+# dnaspec-system-architect 技能单元测试示例
 def test_architecture_design():
     # 准备测试数据
     input_data = {"project_type": "web_app", "requirements": ["api", "database"]}

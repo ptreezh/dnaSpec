@@ -1,8 +1,8 @@
-# DSGS Context Engineering Skills v1.0.1 Release
+# DNASPEC Context Engineering Skills v1.0.1 Release
 
 ## Release Highlights
 
-DSGS (Dynamic Specification Growth System) Context Engineering Skills v1.0.1 - Professional AI-assisted development toolkit with unified skill structure and AI safety workflow.
+DNASPEC (Dynamic Specification Growth System) Context Engineering Skills v1.0.1 - Professional AI-assisted development toolkit with unified skill structure and AI safety workflow.
 
 ### 🔧 Architecture Improvements
 - **Unified Skill Structure**: Merged standard and enhanced modes into single skill with mode parameter
@@ -41,7 +41,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills v1.0.1 - P
 ```bash
 # Clone the repository
 git clone https://github.com/ptreezh/dnaSpec.git
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # Install the package
 pip install -e .
@@ -51,12 +51,12 @@ pip install -e .
 
 ### CLI Commands
 ```
-/speckit.dsgs.context-analysis "Analyze this requirement for system design"
-/speckit.dsgs.cognitive-template "How to improve performance" template=verification
-/speckit.dsgs.context-optimization "Optimize this description" optimization_goals=clarity,relevance
-/speckit.dsgs.architect "Design an e-commerce platform"
-/speckit.dsgs.git-skill operation=status
-/speckit.dsgs.temp-workspace operation=create-workspace
+/speckit.dnaspec.context-analysis "Analyze this requirement for system design"
+/speckit.dnaspec.cognitive-template "How to improve performance" template=verification
+/speckit.dnaspec.context-optimization "Optimize this description" optimization_goals=clarity,relevance
+/speckit.dnaspec.architect "Design an e-commerce platform"
+/speckit.dnaspec.git-skill operation=status
+/speckit.dnaspec.temp-workspace operation=create-workspace
 ```
 
 ### Python API
@@ -80,7 +80,7 @@ result = context_analysis_execute({
 
 1. **Always use temporary workspace for AI generation**:
    ```
-   /speckit.dsgs.temp-workspace operation=create-workspace
+   /speckit.dnaspec.temp-workspace operation=create-workspace
    ```
    
 2. **Generate content to temporary workspace**:
@@ -93,12 +93,12 @@ result = context_analysis_execute({
 
 4. **Confirm files to main project**:
    ```
-   /speckit.dsgs.temp-workspace operation=confirm-file confirm_file=generated.py
+   /speckit.dnaspec.temp-workspace operation=confirm-file confirm_file=generated.py
    ```
 
 5. **Clean up temporary workspace**:
    ```
-   /speckit.dsgs.temp-workspace operation=clean-workspace
+   /speckit.dnaspec.temp-workspace operation=clean-workspace
    ```
 
 ## Breaking Changes (vs. previous versions)

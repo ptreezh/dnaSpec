@@ -13,7 +13,7 @@ class ContextAnalysisSkill(ContextEngineeringSkill):
     
     def __init__(self, ai_client: AIModelClient, template_registry: TemplateRegistry):
         super().__init__(
-            name="dsgs-context-analysis",
+            name="dnaspec-context-analysis",
             description="上下文分析技能 - 专业分析上下文质量的五维指标",
             ai_client=ai_client,
             template_registry=template_registry

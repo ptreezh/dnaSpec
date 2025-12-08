@@ -102,7 +102,7 @@ Progressive disclosure is a design principle that aims to help maintain focus by
 
 #### Level 3: Domain-Specific Skills
 - **Purpose**: Apply general techniques to specific problem domains
-- **Example**: `dsgs-task-decomposer` skill - applies task decomposition to DSGS system design
+- **Example**: `dnaspec-task-decomposer` skill - applies task decomposition to DNASPEC system design
 - **Benefits**: Specialized for specific use cases while maintaining familiar patterns
 - **Components**: General methodology + domain-specific knowledge
 

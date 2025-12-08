@@ -1,7 +1,7 @@
 # Directory Capsule: docs/
 
 ## Purpose
-This directory (`docs/`) serves as the comprehensive repository for all documentation related to the Dynamic Specification Growth System (DSGS). It encompasses design documents, API specifications, user guides, development workflows, TDD plans, reports, and various other informational assets. The primary purpose of this directory is to provide clear, up-to-date, and accessible information for all stakeholders, including developers, architects, project managers, and AI agents.
+This directory (`docs/`) serves as the comprehensive repository for all documentation related to the Dynamic Specification Growth System (DNASPEC). It encompasses design documents, API specifications, user guides, development workflows, TDD plans, reports, and various other informational assets. The primary purpose of this directory is to provide clear, up-to-date, and accessible information for all stakeholders, including developers, architects, project managers, and AI agents.
 
 ## Key Modules/Files (Examples)
 *   **`README.md`**: The main entry point for documentation, providing an overview and table of contents.
@@ -16,7 +16,7 @@ This directory (`docs/`) serves as the comprehensive repository for all document
 *   **`unified-contract/`**: Documentation related to the unified contract approach.
 
 ## Dependencies/Relationships
-The documentation in `docs/` is a reflection of the codebase and project processes. It is closely related to the `src/` directory (describing its components), `config/` (explaining configurations), and `test/` (documenting testing strategies). While it doesn't have direct code dependencies, its accuracy and completeness are crucial for the effective development and maintenance of the DSGS.
+The documentation in `docs/` is a reflection of the codebase and project processes. It is closely related to the `src/` directory (describing its components), `config/` (explaining configurations), and `test/` (documenting testing strategies). While it doesn't have direct code dependencies, its accuracy and completeness are crucial for the effective development and maintenance of the DNASPEC.
 
 ## Code Generation Guidelines
 When generating or updating documentation within `docs/`, adhere to the following principles:

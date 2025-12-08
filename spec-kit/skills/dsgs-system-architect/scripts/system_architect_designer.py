@@ -1,5 +1,5 @@
 """
-DSGS System Architect Script
+DNASPEC System Architect Script
 Implements the core functionality for system architecture design, 
 technology stack selection, module division, and interface definition.
 """
@@ -473,7 +473,7 @@ def main():
     system_architect = DSGSSystemArchitect()
     design = system_architect.generate_architecture_design(requirements)
     
-    print("## DSGS System Architecture Design")
+    print("## DNASPEC System Architecture Design")
     print(f"Input Requirements: {design['input_requirements']}")
     print(f"Architecture Type: {design['architecture_type']}")
     print(f"Recommended Tech Stack: {design['recommended_tech_stack']}")

@@ -1,4 +1,4 @@
-# DSGS智能架构师项目主技能 (dsgs-architect) - TDD实施第一步
+# DSGS智能架构师项目主技能 (dnaspec-architect) - TDD实施第一步
 
 ## 今日任务
 根据项目计划Week 1 Day 1-2的要求，实现dsgs-architect主技能的基础功能。

@@ -1,11 +1,11 @@
 ---
 allowed-tools: Bash(fs.createFile:*), Bash(fs.writeFile:*), Bash(fs.readFile:*)
 argument-hint: [project-requirements]
-description: DSGS Agent Creator for creating and configuring intelligent agents, defining agent roles and behaviors, and generating agent specification documents.
+description: DNASPEC Agent Creator for creating and configuring intelligent agents, defining agent roles and behaviors, and generating agent specification documents.
 model: claude-3-5-sonnet-20241022
 ---
 
-# DSGS Agent Creation Process
+# DNASPEC Agent Creation Process
 
 ## Task
 Create intelligent agents for the following project requirements: $ARGUMENTS
@@ -182,4 +182,4 @@ Please provide:
    - Lifecycle procedures
    - Troubleshooting guidelines
 
-Structure your response following the DSGS agent creation methodology with comprehensive agent specifications.
+Structure your response following the DNASPEC agent creation methodology with comprehensive agent specifications.

@@ -336,7 +336,7 @@ interface MonitoringMetrics {
 ### 9.2 契约文档模板
 
 ```markdown
-# DSGS API契约文档 v2.0
+# DNASPEC API契约文档 v2.0
 
 ## 概述
 本文档定义了DSGS系统的所有API接口和数据模型，确保前后端协作的一致性。

@@ -19,14 +19,14 @@
 - `/context-optimization-enhanced` - 增强上下文优化
 - `/cognitive-template-enhanced` - 增强认知模板
 
-#### DSGS Intelligent Architect Skills
-- `/dsgs-architect` - DSGS架构师
-- `/dsgs-system-architect` - DSGS系统架构师
-- `/dsgs-agent-creator` - DSGS智能体创建器
-- `/dsgs-constraint-generator` - DSGS约束生成器
-- `/dsgs-task-decomposer` - DSGS任务分解器
-- `/dsgs-modulizer` - DSGS模块化验证器
-- `/dsgs-dapi-checker` - DSGS接口检查器
+#### DNASPEC Intelligent Architect Skills
+- `/dnaspec-architect` - DSGS架构师
+- `/dnaspec-system-architect` - DSGS系统架构师
+- `/dnaspec-agent-creator` - DSGS智能体创建器
+- `/dnaspec-constraint-generator` - DSGS约束生成器
+- `/dnaspec-task-decomposer` - DSGS任务分解器
+- `/dnaspec-modulizer` - DSGS模块化验证器
+- `/dnaspec-dapi-checker` - DSGS接口检查器
 
 #### Workflow Skills
 - `/context-engineering-workflow` - 上下文工程工作流
@@ -41,7 +41,7 @@
 
 #### 提示词模板（可复制使用）
 ```
-请使用 dsgs-architect 技能为以下需求设计系统架构：
+请使用 dnaspec-architect 技能为以下需求设计系统架构：
 [在此插入您的项目需求]
 ```
 
@@ -118,14 +118,14 @@
 - `cognitive-template-enhanced`: 高级认知应用
 - `context-engineering-workflow`: 完整工作流
 
-### DSGS Intelligent Architect Skills
-- `dsgs-architect`: 系统架构设计
-- `dsgs-system-architect`: 技术架构设计
-- `dsgs-agent-creator`: 智能体创建
-- `dsgs-constraint-generator`: 约束生成
-- `dsgs-task-decomposer`: 任务分解
-- `dsgs-modulizer`: 模块化验证
-- `dsgs-dapi-checker`: 接口检查
+### DNASPEC Intelligent Architect Skills
+- `dnaspec-architect`: 系统架构设计
+- `dnaspec-system-architect`: 技术架构设计
+- `dnaspec-agent-creator`: 智能体创建
+- `dnaspec-constraint-generator`: 约束生成
+- `dnaspec-task-decomposer`: 任务分解
+- `dnaspec-modulizer`: 模块化验证
+- `dnaspec-dapi-checker`: 接口检查
 
 ---
 

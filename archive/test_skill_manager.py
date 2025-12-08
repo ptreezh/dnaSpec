@@ -4,12 +4,12 @@ import os
 from unittest.mock import Mock
 
 # 添加项目路径
-project_root = r"D:\DAIP\dsgs-core"
+project_root = r"D:\DAIP\dnaspec-core"
 sys.path.insert(0, project_root)
 
 try:
-    from src.dsgs_spec_kit_integration.core.manager import SkillManager
-    from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+    from src.dnaspec_spec_kit_integration.core.manager import SkillManager
+    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
     print("✅ 技能管理器模块导入成功")
     
     # 创建技能管理器
@@ -17,7 +17,7 @@ try:
     print("✅ 技能管理器初始化成功")
     
     # 测试技能注册
-    class TestSkill(DSGSSkill):
+    class TestSkill(DNASpecSkill):
         def __init__(self):
             super().__init__("test-skill", "测试技能")
         
@@ -42,9 +42,9 @@ try:
     
     # 测试智能匹配和执行
     # 先注册一个能匹配"设计"关键词的技能
-    class ArchitectSkill(DSGSSkill):
+    class ArchitectSkill(DNASpecSkill):
         def __init__(self):
-            super().__init__("dsgs-architect", "系统架构设计专家")
+            super().__init__("dnaspec-architect", "系统架构设计专家")
         
         def _execute_skill_logic(self, request, context):
             return {"architecture": "已设计", "request": request}

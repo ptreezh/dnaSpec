@@ -18,10 +18,10 @@ def demo_dapi_check_invocation():
     
     # 测试DAPIcheck技能的触发
     test_cases = [
-        "检查系统的接口一致性",           # 应该匹配 dsgs-dapi-checker
-        "验证API文档和实现的一致性",      # 应该匹配 dsgs-dapi-checker
-        "分析组件间的接口依赖关系",        # 应该匹配 dsgs-dapi-checker
-        "进行分布式接口文档核验",          # 应该匹配 dsgs-dapi-checker
+        "检查系统的接口一致性",           # 应该匹配 dnaspec-dapi-checker
+        "验证API文档和实现的一致性",      # 应该匹配 dnaspec-dapi-checker
+        "分析组件间的接口依赖关系",        # 应该匹配 dnaspec-dapi-checker
+        "进行分布式接口文档核验",          # 应该匹配 dnaspec-dapi-checker
     ]
     
     for i, user_message in enumerate(test_cases, 1):

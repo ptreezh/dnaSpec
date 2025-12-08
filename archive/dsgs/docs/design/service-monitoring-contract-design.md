@@ -826,20 +826,20 @@ CMD ["npm", "start"]
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dsgs-monitoring
+  name: dnaspec-monitoring
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: dsgs-monitoring
+      app: dnaspec-monitoring
   template:
     metadata:
       labels:
-        app: dsgs-monitoring
+        app: dnaspec-monitoring
     spec:
       containers:
       - name: monitoring
-        image: dsgs/monitoring:2.0
+        image: dnaspec/monitoring:2.0
         ports:
         - containerPort: 3000
         - containerPort: 9090

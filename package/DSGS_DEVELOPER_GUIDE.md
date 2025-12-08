@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - 开发者实用手册
+# DNASPEC Context Engineering Skills - 开发者实用手册
 
 ## 🚀 你的AI开发助手 - 不再"鸡同鸭讲"
 
@@ -31,7 +31,7 @@
 ### 🔍 1. 上下文质量分析
 **解决痛点**：AI经常误解你的需求
 ```bash
-/speckit.dsgs.context-analysis "我需要一个能够处理用户登录的系统"
+/speckit.dnaspec.context-analysis "我需要一个能够处理用户登录的系统"
 ```
 **结果**：
 - 清晰度：0.4 ⚠️ (需要更明确)
@@ -41,7 +41,7 @@
 ### ⚡ 2. 上下文智能优化
 **解决痛点**：AI回答不够具体
 ```bash
-/speckit.dsgs.context-optimization "设计一个电商系统"
+/speckit.dnaspec.context-optimization "设计一个电商系统"
 ```
 **结果**：
 自动添加：约束条件、技术栈选择、性能指标等缺失要素
@@ -49,7 +49,7 @@
 ### 🧠 3. 认知模板应用
 **解决痛点**：需要AI从专业视角分析
 ```bash
-/speckit.dsgs.cognitive-template "如何设计数据库 schema" template=verification
+/speckit.dnaspec.cognitive-template "如何设计数据库 schema" template=verification
 ```
 **结果**：
 AI按验证检查框架分析，提供多角度验证
@@ -70,14 +70,14 @@ AI生成代码 → 临时工作区 → 验证确认 → 安全提交到Git
 ### 具体操作流程
 ```bash
 # 1. 创建安全工作区
-/speckit.dsgs.temp-workspace "operation=create-workspace"
+/speckit.dnaspec.temp-workspace "operation=create-workspace"
 # 2. AI生成内容到临时区
 # 3. 检查内容质量
-/speckit.dsgs.context-analysis "AI生成的代码内容"
+/speckit.dnaspec.context-analysis "AI生成的代码内容"
 # 4. 确认后提交到Git
-/speckit.dsgs.git-skill "operation=commit message='AI生成的功能'"
+/speckit.dnaspec.git-skill "operation=commit message='AI生成的功能'"
 # 5. 清理临时区
-/speckit.dsgs.temp-workspace "operation=clean-workspace"
+/speckit.dnaspec.temp-workspace "operation=clean-workspace"
 ```
 
 ---
@@ -88,7 +88,7 @@ AI生成代码 → 临时工作区 → 验证确认 → 安全提交到Git
 **痛点**：系统设计需求表述模糊，AI难以理解
 ```bash
 # 问题
-/speckit.dsgs.context-analysis "做一个用户系统"
+/speckit.dnaspec.context-analysis "做一个用户系统"
 
 # 输出
 # 清晰度: 0.3 ⚠️
@@ -100,7 +100,7 @@ AI生成代码 → 临时工作区 → 验证确认 → 安全提交到Git
 **痛点**：不知道如何让AI理解当前代码结构
 ```bash
 # 用认知模板引导AI
-/speckit.dsgs.cognitive-template "重构用户验证模块，保持向后兼容" template=verification
+/speckit.dnaspec.cognitive-template "重构用户验证模块，保持向后兼容" template=verification
 
 # AI按验证框架分析:
 # 1. 当前实现分析
@@ -112,10 +112,10 @@ AI生成代码 → 临时工作区 → 验证确认 → 安全提交到Git
 **痛点**：需求文档不够清晰，开发效率低
 ```bash
 # 分析文档质量
-/speckit.dsgs.context-analysis "需求文档内容"
+/speckit.dnaspec.context-analysis "需求文档内容"
 
 # 优化文档
-/speckit.dsgs.context-optimization "需求文档内容" goals="clarity,completeness"
+/speckit.dnaspec.context-optimization "需求文档内容" goals="clarity,completeness"
 ```
 
 ---
@@ -137,9 +137,9 @@ export OPENAI_API_KEY=your-key
 ### 立即使用
 ```bash
 # 在任何支持的AI CLI中使用
-/speckit.dsgs.context-analysis "我的需求"
-/speckit.dsgs.context-optimization "我的问题"
-/speckit.dsgs.cognitive-template "我的任务" template=chain_of_thought
+/speckit.dnaspec.context-analysis "我的需求"
+/speckit.dnaspec.context-optimization "我的问题"
+/speckit.dnaspec.cognitive-template "我的任务" template=chain_of_thought
 ```
 
 ---
@@ -183,4 +183,4 @@ export OPENAI_API_KEY=your-key
 
 ---
 
-*DSGS - 让AI真正成为你的专业开发伙伴，而不是"高级搜索引擎"*
+*DNASPEC - 让AI真正成为你的专业开发伙伴，而不是"高级搜索引擎"*

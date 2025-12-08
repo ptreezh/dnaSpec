@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 最终验证脚本
+DNASPEC Context Engineering Skills - 最终验证脚本
 确认系统完全符合AI原生Claude架构理念
 """
 import sys
@@ -9,7 +9,7 @@ import json
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - AI原生Claude架构最终验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生Claude架构最终验证")
 print("=" * 80)
 
 validation_results = {
@@ -23,7 +23,7 @@ validation_results = {
 
 try:
     print("\\n✅ 验证1: 模块导入和可用性")
-    from src.dsgs_context_engineering.skills_system_final_clean import (
+    from src.dnaspec_context_engineering.skills_system_final_clean import (
         ContextAnalysisSkill, 
         ContextOptimizationSkill, 
         CognitiveTemplateSkill,
@@ -34,7 +34,7 @@ try:
     
     print("\\n✅ 验证2: AI原生架构检查")
     # 检查最终实现文件内容
-    skills_file_path = "src/dsgs_context_engineering/skills_system_final_clean.py"
+    skills_file_path = "src/dnaspec_context_engineering/skills_system_final_clean.py"
     with open(skills_file_path, 'r', encoding='utf-8') as f:
         code_content = f.read()
     
@@ -129,7 +129,7 @@ try:
     
     if passed_count == total_count:
         print("\\n🎉" + " COMPLETE SUCCESS ".center(60, "=") + "🎉")
-        print("✅ DSGS Context Engineering Skills 已完全验证为AI原生架构")
+        print("✅ DNASPEC Context Engineering Skills 已完全验证为AI原生架构")
         print("=" * 70)
         
         print("\\n💡 核心价值实现:")
@@ -161,7 +161,7 @@ try:
         print("   • 实用性验证: 95% (解决实际工程问题)")
         print("   • 总体置信度: 96.5%")
         
-        print("\\n✨ DSGS Context Engineering Skills System - 正式完成验证!")
+        print("\\n✨ DNASPEC Context Engineering Skills System - 正式完成验证!")
         print("🎉 系统现在可以作为AI CLI平台的专业增强工具部署使用")
         print("=" * 70)
         
@@ -181,18 +181,18 @@ except Exception as e:
 
 print("\\n" + "=" * 80)
 if validation_success:
-    print("DSGS Context Engineering Skills - AI Native Claude Architecture: VERIFIED ✅")
+    print("DNASPEC Context Engineering Skills - AI Native Claude Architecture: VERIFIED ✅")
     print("项目宪法遵从度: 100%")
     print("实用价值验证: 96.5%")
     print("架构正确度: 98%")
     print("工程实现度: 97%")
 else:
-    print("DSGS Context Engineering Skills - AI Native Claude Architecture: FAILED ❌")
+    print("DNASPEC Context Engineering Skills - AI Native Claude Architecture: FAILED ❌")
     print("需要修复发现的问题")
 print("=" * 80)
 
 if validation_success:
-    print("\\n🎯 系统验证结果: DSGS Context Engineering Skills 已正确实现为AI原生系统")
+    print("\\n🎯 系统验证结果: DNASPEC Context Engineering Skills 已正确实现为AI原生系统")
     print("✅ 完全利用AI模型原生智能")
     print("✅ 无本地模型依赖") 
     print("✅ 专业上下文工程能力")

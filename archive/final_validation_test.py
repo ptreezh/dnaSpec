@@ -12,8 +12,8 @@ def test_correct_implementation():
     # 1. 验证导入路径正确
     print("\\n1️⃣ 验证模块导入路径...")
     try:
-        from src.dsgs_context_engineering.context_analysis_fixed import ContextAnalysisSkill
-        print("   ✅ 导入路径正确: src.dsgs_context_engineering.context_analysis_fixed")
+        from src.dnaspec_context_engineering.context_analysis_fixed import ContextAnalysisSkill
+        print("   ✅ 导入路径正确: src.dnaspec_context_engineering.context_analysis_fixed")
     except ImportError as e:
         print(f"   ❌ 导入路径错误: {e}")
         return False
@@ -22,8 +22,8 @@ def test_correct_implementation():
     print("\\n2️⃣ 验证继承关系...")
     try:
         skill = ContextAnalysisSkill()
-        from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
-        if isinstance(skill, DSGSSkill):
+        from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
+        if isinstance(skill, DNASpecSkill):
             print("   ✅ 正确继承自DSGSSkill基类")
         else:
             print("   ❌ 未正确继承DSGSSkill基类")
@@ -80,10 +80,10 @@ def test_correct_implementation():
     # 5. 验证所有技能
     print("\\n5️⃣ 验证所有技能组件...")
     try:
-        from src.dsgs_context_engineering.context_optimization_fixed import ContextOptimizationSkill
-        from src.dsgs_context_engineering.cognitive_template_fixed import CognitiveTemplateSkill
-        from src.dsgs_context_engineering.skills_manager_fixed import SkillsManager
-        from src.dsgs_context_engineering.system_fixed import ContextEngineeringSystem
+        from src.dnaspec_context_engineering.context_optimization_fixed import ContextOptimizationSkill
+        from src.dnaspec_context_engineering.cognitive_template_fixed import CognitiveTemplateSkill
+        from src.dnaspec_context_engineering.skills_manager_fixed import SkillsManager
+        from src.dnaspec_context_engineering.system_fixed import ContextEngineeringSystem
         
         # 测试所有技能实例化
         skills = [

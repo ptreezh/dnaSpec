@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - AI原生架构最终验证报告
+# DNASPEC Context Engineering Skills - AI原生架构最终验证报告
 
 ## 1. 验证结果概览
 
@@ -30,10 +30,10 @@
 │  └─────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
               ▲
-              │ (DSGS 指令接口) 
+              │ (DNASPEC 指令接口) 
               │
 ┌─────────────────────────────────────────────────────────────────┐
-│                DSGS Context Engineering Skills                  │
+│                DNASPEC Context Engineering Skills                  │
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  │
 │  │  Context      │  │  Context       │  │  Cognitive    │  │
 │  │  Analysis     │  │  Optimization │  │  Template     │  │
@@ -53,7 +53,7 @@
 ### 3.1 Context Analysis Skill 验证
 ```python
 # 创建技能实例
-from src.dsgs_context_engineering.core.skill import ContextAnalysisSkill
+from src.dnaspec_context_engineering.core.skill import ContextAnalysisSkill
 skill = ContextAnalysisSkill()
 
 # 执行分析
@@ -67,7 +67,7 @@ assert len(result['result']['metrics']) == 5  # 五维指标
 
 ### 3.2 Context Optimization Skill 验证
 ```python
-from src.dsgs_context_engineering.core.skill import ContextOptimizationSkill
+from src.dnaspec_context_engineering.core.skill import ContextOptimizationSkill
 skill = ContextOptimizationSkill()
 
 result = skill.execute_with_ai('系统要处理订单', {'optimization_goals': ['clarity', 'completeness']})  
@@ -79,7 +79,7 @@ assert 'optimized_context' in result['result']
 
 ### 3.3 Cognitive Template Skill 验证
 ```python
-from src.dsgs_context_engineering.core.skill import CognitiveTemplateSkill
+from src.dnaspec_context_engineering.core.skill import CognitiveTemplateSkill
 skill = CognitiveTemplateSkill()
 
 result = skill.execute_with_ai('如何提高系统性能？', {'template': 'chain_of_thought'})
@@ -112,7 +112,7 @@ assert result['result']['success'] == True  # 嵌套成功状态
 - **AI代理增强**: 为AI代理提供结构化上下文
 
 ### 5.2 与现有系统集成
-- **CLI集成**: 可作为 `/dsgs-analyze`, `/dsgs-optimize` 等命令使用
+- **CLI集成**: 可作为 `/dnaspec-analyze`, `/dnaspec-optimize` 等命令使用
 - **SDK集成**: 可通过Python SDK直接使用技能
 - **API集成**: 可作为API服务部署
 

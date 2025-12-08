@@ -1,11 +1,11 @@
 ---
 allowed-tools: Bash(fs.createFile:*), Bash(fs.writeFile:*), Bash(fs.readFile:*)
 argument-hint: [project-requirements]
-description: DSGS System Architect for system architecture design, technology stack selection, module division, and interface definition.
+description: DNASPEC System Architect for system architecture design, technology stack selection, module division, and interface definition.
 model: claude-3-5-sonnet-20241022
 ---
 
-# DSGS System Architecture Design Process
+# DNASPEC System Architecture Design Process
 
 ## Task
 Design a system architecture for the following project requirements: $ARGUMENTS
@@ -172,4 +172,4 @@ Please provide:
    - Future evolution considerations
    - Implementation guidelines
 
-Structure your response following the DSGS system architecture methodology with comprehensive design elements.
+Structure your response following the DNASPEC system architecture methodology with comprehensive design elements.

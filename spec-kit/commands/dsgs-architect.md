@@ -1,11 +1,11 @@
 ---
 allowed-tools: Bash(fs.createFile:*), Bash(fs.writeFile:*), Bash(fs.readFile:*)
 argument-hint: [project-requirements]
-description: DSGS Intelligent Architect for complex project hierarchical architecture design, task decomposition, agent creation, and constraint generation.
+description: DNASPEC Intelligent Architect for complex project hierarchical architecture design, task decomposition, agent creation, and constraint generation.
 model: claude-3-5-sonnet-20241022
 ---
 
-# DSGS Intelligent Architecture Design Process
+# DNASPEC Intelligent Architecture Design Process
 
 ## Task
 Design a complex system architecture for the following project requirements: $ARGUMENTS
@@ -78,22 +78,22 @@ Synthesize outputs from various sub-skills:
 
 ## Sub-Skill Coordination
 
-### dsgs-system-architect Coordination
+### dnaspec-system-architect Coordination
 - Coordinate system architecture design
 - Manage component-level planning
 - Ensure architectural consistency
 
-### dsgs-task-decomposer Coordination
+### dnaspec-task-decomposer Coordination
 - Route requirements for task decomposition
 - Integrate task structures with architecture
 - Ensure task-architecture alignment
 
-### dsgs-agent-creator Coordination
+### dnaspec-agent-creator Coordination
 - Coordinate intelligent agent creation
 - Ensure agents align with architectural design
 - Manage agent interaction patterns
 
-### dsgs-constraint-generator Coordination
+### dnaspec-constraint-generator Coordination
 - Coordinate constraint generation
 - Ensure constraints align with architecture
 - Manage constraint validation
@@ -145,4 +145,4 @@ Please provide:
    - Security and compliance requirements
    - Quality standards
 
-Structure your response following the DSGS methodology with comprehensive architecture design elements.
+Structure your response following the DNASPEC methodology with comprehensive architecture design elements.

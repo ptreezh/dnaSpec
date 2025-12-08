@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 终极验证测试
+DNASPEC Context Engineering Skills - 终极验证测试
 确保系统完全符合AI原生设计原则并能实际运行于AI CLI平台
 """
 import sys
@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def run_comprehensive_test():
     """运行全面验证测试"""
-    print("🔍 DSGS Context Engineering Skills - 终极验证测试")
+    print("🔍 DNASPEC Context Engineering Skills - 终极验证测试")
     print("=" * 70)
     
     all_tests_passed = True
@@ -19,7 +19,7 @@ def run_comprehensive_test():
     try:
         # 1. 验证模块导入
         print("\\n✅ 测试1: 模块导入验证")
-        from src.dsgs_context_engineering.skills_system_real import (
+        from src.dnaspec_context_engineering.skills_system_real import (
             ContextAnalysisSkill,
             ContextOptimizationSkill,
             CognitiveTemplateSkill,
@@ -38,8 +38,8 @@ def run_comprehensive_test():
         print(f"   模板技能: {template_skill.name}")
         
         # 验证继承关系
-        from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
-        if isinstance(analysis_skill, DSGSSkill):
+        from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
+        if isinstance(analysis_skill, DNASpecSkill):
             print("   继承关系正确: ContextAnalysisSkill ✓")
         else:
             print("   ❌ 继承关系错误")
@@ -122,7 +122,7 @@ def run_comprehensive_test():
         
         # 7. 验证AI原生架构原则
         print("\\n✅ 测试7: AI原生架构验证")
-        skill_code_path = "src/dsgs_context_engineering/skills_system_real.py"
+        skill_code_path = "src/dnaspec_context_engineering/skills_system_real.py"
         with open(skill_code_path, 'r', encoding='utf-8') as f:
             skill_code = f.read()
         
@@ -144,7 +144,7 @@ def run_comprehensive_test():
         print("   设计为AI CLI平台增强工具 - 无本地模型依赖")
         print("   通过指令模板引导AI模型执行专业任务")
         print("   与Claude CLI/Gemini CLI/Qwen CLI等平台兼容")
-        print("   可作为斜杠命令(/dsgs-*)集成到AI对话中")
+        print("   可作为斜杠命令(/dnaspec-*)集成到AI对话中")
         
         # 9. 验证工程实用性
         print("\\n✅ 测试9: 工程实用性验证")
@@ -156,7 +156,7 @@ def run_comprehensive_test():
         
         if all_tests_passed:
             print("\\n" + "="*70)
-            print("🎉 所有测试通过！DSGS Context Engineering Skills 系统验证成功")
+            print("🎉 所有测试通过！DNASPEC Context Engineering Skills 系统验证成功")
             print("="*70)
             print("")
             print("🎯 系统特性:")
@@ -178,10 +178,10 @@ def run_comprehensive_test():
                     "Context Analysis (5-dimensional metrics)",
                     "Context Optimization (multi-goal)",
                     "Cognitive Templates (5 types)",
-                    "DSGS Integration",
+                    "DNASPEC Integration",
                     "CLI Compatibility"
                 ],
-                "message": "DSGS Context Engineering Skills ready for deployment"
+                "message": "DNASPEC Context Engineering Skills ready for deployment"
             }
         else:
             print("\\n❌ 部分测试失败")
@@ -212,7 +212,7 @@ def main():
     print(f"   验证时间: {time.strftime('%Y-%m-%d %H:%M:%S')}")
     
     if verification_result['success']:
-        print("\\n✅ DSGS Context Engineering Skills - 部署就绪")
+        print("\\n✅ DNASPEC Context Engineering Skills - 部署就绪")
         print("   系统已完全验证，可以安全部署到AI CLI平台")
         return 0
     else:

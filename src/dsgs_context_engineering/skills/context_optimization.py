@@ -13,7 +13,7 @@ class ContextOptimizationSkill(ContextEngineeringSkill):
     
     def __init__(self, ai_client: AIModelClient, template_registry: TemplateRegistry):
         super().__init__(
-            name="dsgs-context-optimization", 
+            name="dnaspec-context-optimization", 
             description="上下文优化技能 - 优化上下文质量以提升AI交互效果",
             ai_client=ai_client,
             template_registry=template_registry

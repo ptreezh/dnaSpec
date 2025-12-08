@@ -1,11 +1,11 @@
 ---
 allowed-tools: Bash(fs.createFile:*), Bash(fs.writeFile:*), Bash(fs.readFile:*)
 argument-hint: [project-requirements]
-description: DSGS Task Decomposer for breaking down complex project requirements into atomic tasks, generating task dependency graphs, and ensuring closure of task context documentation.
+description: DNASPEC Task Decomposer for breaking down complex project requirements into atomic tasks, generating task dependency graphs, and ensuring closure of task context documentation.
 model: claude-3-5-sonnet-20241022
 ---
 
-# DSGS Task Decomposition Process
+# DNASPEC Task Decomposition Process
 
 ## Task
 Decompose the following complex project requirements into atomic tasks: $ARGUMENTS
@@ -119,4 +119,4 @@ Please provide:
 
 5. **Quality Checkpoints**: Validation points to ensure task completion quality
 
-Structure your response with clear, actionable tasks that follow the DSGS methodology for task decomposition.
+Structure your response with clear, actionable tasks that follow the DNASPEC methodology for task decomposition.

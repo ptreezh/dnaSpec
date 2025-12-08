@@ -79,7 +79,7 @@ function installAndConfigure() {
             description = '部署技能';
             break;
         case 'integrate':
-            pythonScript = path.join(projectDir, 'src/dsgs_spec_kit_integration/cli.py');
+            pythonScript = path.join(projectDir, 'src/dnaspec_spec_kit_integration/cli.py');
             description = '集成验证';
             break;
         case 'list':
@@ -114,7 +114,7 @@ function installAndConfigure() {
 
     if (!isProjectDir) {
         // 如果不在项目目录，创建临时目录并克隆项目
-        const tempDir = 'dsgs-install-tmp';
+        const tempDir = 'dnaspec-install-tmp';
 
         // 创建并进入临时目录
         if (!fs.existsSync(tempDir)) {
@@ -123,7 +123,7 @@ function installAndConfigure() {
         process.chdir(tempDir);
 
         // 克隆项目 - 增加多源支持和重试机制
-        const repoDir = 'dsgs-context-engineering';
+        const repoDir = 'dnaspec-context-engineering';
         if (fs.existsSync(repoDir) && fs.lstatSync(repoDir).isDirectory()) {
             console.log('🔄 更新现有项目...');
             process.chdir(repoDir);
@@ -202,7 +202,7 @@ function installAndConfigure() {
                 console.error('❌ 所有安装方式都失败了');
                 if (!isProjectDir) {
                     process.chdir(initialDir);
-                    const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+                    const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
                     if (fs.existsSync(tempDir)) {
                         fs.rmSync(tempDir, { recursive: true, force: true });
                     }
@@ -243,7 +243,7 @@ function installAndConfigure() {
         if (!isProjectDir) {
             // 如果不是原始项目目录，清理临时目录
             process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
             if (fs.existsSync(tempDir)) {
                 fs.rmSync(tempDir, { recursive: true, force: true });
             }
@@ -252,17 +252,17 @@ function installAndConfigure() {
         if (code === 0) {
             // 根据命令显示不同信息
             if (command === 'deploy') {
-                console.log('\n🎉 DSGS Skills deployment completed successfully!');
-                console.log('\nNow you can use DSGS skills in your AI CLI tools:');
-                console.log('  /speckit.dsgs.context-analysis [context] - Analyze context quality');
-                console.log('  /speckit.dsgs.context-optimization [context] - Optimize context');
-                console.log('  /speckit.dsgs.cognitive-template [task] - Apply cognitive template');
+                console.log('\n🎉 DNASPEC Skills deployment completed successfully!');
+                console.log('\nNow you can use DNASPEC skills in your AI CLI tools:');
+                console.log('  /speckit.dnaspec.context-analysis [context] - Analyze context quality');
+                console.log('  /speckit.dnaspec.context-optimization [context] - Optimize context');
+                console.log('  /speckit.dnaspec.cognitive-template [task] - Apply cognitive template');
             } else if (command === 'integrate') {
-                console.log('\n🎉 DSGS Integration completed successfully!');
+                console.log('\n🎉 DNASPEC Integration completed successfully!');
             } else if (command === 'list' || command === '--list') {
-                console.log('\n🎉 DSGS Command listing completed successfully!');
+                console.log('\n🎉 DNASPEC Command listing completed successfully!');
             } else if (command === 'validate' || command === '--version') {
-                console.log('\n🎉 DSGS Validation completed successfully!');
+                console.log('\n🎉 DNASPEC Validation completed successfully!');
             } else {
                 console.log('\n🎉 Installation and configuration completed successfully!');
 
@@ -270,9 +270,9 @@ function installAndConfigure() {
                 console.log('\nDSGS Context Engineering Skills - POST-INSTALLATION GUIDE');
                 console.log('='.repeat(80));
                 console.log('');
-                console.log('Thank you for installing DSGS (Dynamic Specification Growth System)!');
+                console.log('Thank you for installing DNASPEC (Dynamic Specification Growth System)!');
                 console.log('');
-                console.log('DSGS is a professional context engineering toolkit that enhances your AI-assisted');
+                console.log('DNASPEC is a professional context engineering toolkit that enhances your AI-assisted');
                 console.log('development experience by providing advanced context analysis, optimization,');
                 console.log('and cognitive template application capabilities.');
                 console.log('');
@@ -297,10 +297,10 @@ function installAndConfigure() {
                 console.log('     dnaspec list');
                 console.log('');
                 console.log('USAGE EXAMPLES in AI CLI Tools:');
-                console.log('  /speckit.dsgs.context-analysis "Analyze this requirement: ..."');
-                console.log('  /speckit.dsgs.context-optimization "Optimize this context: ..."');
-                console.log('  /speckit.dsgs.cognitive-template "Apply template to: ..." template=verification');
-                console.log('  /speckit.dsgs.architect "Design system for: ..."');
+                console.log('  /speckit.dnaspec.context-analysis "Analyze this requirement: ..."');
+                console.log('  /speckit.dnaspec.context-optimization "Optimize this context: ..."');
+                console.log('  /speckit.dnaspec.cognitive-template "Apply template to: ..." template=verification');
+                console.log('  /speckit.dnaspec.architect "Design system for: ..."');
                 console.log('');
                 console.log('COMMAND REFERENCE:');
                 console.log('  dnaspec validate          - Check integration status');
@@ -322,7 +322,7 @@ function installAndConfigure() {
         if (!isProjectDir) {
             // 如果不是原始项目目录，清理临时目录
             process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
             if (fs.existsSync(tempDir)) {
                 fs.rmSync(tempDir, { recursive: true, force: true });
             }

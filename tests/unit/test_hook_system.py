@@ -11,8 +11,8 @@ from unittest.mock import Mock, patch
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, project_root)
 
-from src.dsgs_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 
 
 class TestHookConfig:
@@ -33,14 +33,14 @@ class TestHookConfig:
         config = HookConfig()
         
         # 启用技能
-        config.enable_skill("dsgs-architect")
-        assert "dsgs-architect" in config.enabled_skills
-        assert config.is_skill_enabled("dsgs-architect") is True
+        config.enable_skill("dnaspec-architect")
+        assert "dnaspec-architect" in config.enabled_skills
+        assert config.is_skill_enabled("dnaspec-architect") is True
         
         # 禁用技能
-        config.disable_skill("dsgs-architect")
-        assert "dsgs-architect" not in config.enabled_skills
-        assert config.is_skill_enabled("dsgs-architect") is True  # 当启用列表为空时，默认启用所有技能
+        config.disable_skill("dnaspec-architect")
+        assert "dnaspec-architect" not in config.enabled_skills
+        assert config.is_skill_enabled("dnaspec-architect") is True  # 当启用列表为空时，默认启用所有技能
     
     def test_pattern_disable(self):
         """测试模式禁用功能"""
@@ -73,9 +73,9 @@ class TestHookSystem:
         hook_system = HookSystem()
         
         # 测试有效的spec.kit命令
-        assert hook_system._is_spec_kit_command("/speckit.dsgs.architect 设计系统") is True
-        assert hook_system._is_spec_kit_command("/speckit.dsgs.agent-creator 创建智能体") is True
-        assert hook_system._is_spec_kit_command("/speckit.dsgs.task-decomposer 分解任务") is True
+        assert hook_system._is_spec_kit_command("/speckit.dnaspec.architect 设计系统") is True
+        assert hook_system._is_spec_kit_command("/speckit.dnaspec.agent-creator 创建智能体") is True
+        assert hook_system._is_spec_kit_command("/speckit.dnaspec.task-decomposer 分解任务") is True
         
         # 测试无效命令
         assert hook_system._is_spec_kit_command("普通文本请求") is False
@@ -163,7 +163,7 @@ class TestHookSystem:
         hook_system.register_interceptor(test_interceptor)
         hook_system.register_processor(test_processor)
         hook_system.register_hook("test_hook", test_hook)
-        hook_system.config.enable_skill("dsgs-architect")
+        hook_system.config.enable_skill("dnaspec-architect")
         
         info = hook_system.get_hook_info()
         assert isinstance(info, dict)
@@ -171,7 +171,7 @@ class TestHookSystem:
         assert info['interceptor_count'] == 1
         assert info['processor_count'] == 1
         assert info['hook_count'] == 1
-        assert "dsgs-architect" in info['enabled_skills']
+        assert "dnaspec-architect" in info['enabled_skills']
 
 
 class TestHookSystemWithSkillManager:
@@ -184,29 +184,29 @@ class TestHookSystemWithSkillManager:
         
         # 设置模拟的执行结果
         mock_result = Mock()
-        mock_result.skill_name = "dsgs-architect"
+        mock_result.skill_name = "dnaspec-architect"
         mock_result.status = SkillStatus.COMPLETED
         mock_result.result = {"architecture": "test"}
         
         mock_skill_manager.execute_spec_kit_command.return_value = {
             'success': True,
             'result': mock_result,
-            'skill_name': 'dsgs-architect'
+            'skill_name': 'dnaspec-architect'
         }
         
         hook_system = HookSystem(mock_skill_manager)
         
         # 测试spec.kit命令处理
-        result = hook_system.intercept_request("/speckit.dsgs.architect 设计系统")
+        result = hook_system.intercept_request("/speckit.dnaspec.architect 设计系统")
         
         assert result.intercepted is True
         assert result.handled is True
-        assert result.skill_name == "dsgs-architect"
+        assert result.skill_name == "dnaspec-architect"
         assert result.skill_result is not None
         assert result.error_message == ""
         
         # 验证技能管理器被调用
-        mock_skill_manager.execute_spec_kit_command.assert_called_once_with("/speckit.dsgs.architect 设计系统")
+        mock_skill_manager.execute_spec_kit_command.assert_called_once_with("/speckit.dnaspec.architect 设计系统")
     
     def test_spec_kit_command_handling_skill_disabled(self):
         """测试技能禁用时的spec.kit命令处理"""
@@ -214,10 +214,10 @@ class TestHookSystemWithSkillManager:
         hook_system = HookSystem(mock_skill_manager)
         
         # 禁用技能
-        hook_system.config.disable_skill("dsgs-architect")
+        hook_system.config.disable_skill("dnaspec-architect")
         
         # 尝试处理命令，应该失败
-        result = hook_system.intercept_request("/speckit.dsgs.architect 设计系统")
+        result = hook_system.intercept_request("/speckit.dnaspec.architect 设计系统")
         
         assert result.intercepted is True
         assert result.handled is False
@@ -227,7 +227,7 @@ class TestHookSystemWithSkillManager:
         """测试技能管理器缺失时的spec.kit命令处理"""
         hook_system = HookSystem(None)
         
-        result = hook_system.intercept_request("/speckit.dsgs.architect 设计系统")
+        result = hook_system.intercept_request("/speckit.dnaspec.architect 设计系统")
         
         assert result.intercepted is True
         assert result.handled is False
@@ -239,7 +239,7 @@ class TestHookSystemWithSkillManager:
         
         # 设置智能匹配结果
         mock_match_result = {
-            'skill_name': 'dsgs-architect',
+            'skill_name': 'dnaspec-architect',
             'confidence': 0.8,
             'match_type': 'keyword',
             'matched_keywords': ['架构', '设计']
@@ -249,7 +249,7 @@ class TestHookSystemWithSkillManager:
         
         # 设置技能执行结果
         mock_skill_result = SkillResult(
-            skill_name='dsgs-architect',
+            skill_name='dnaspec-architect',
             status=SkillStatus.COMPLETED,
             result={"architecture": "test_result"},
             confidence=0.8,
@@ -265,13 +265,13 @@ class TestHookSystemWithSkillManager:
         
         assert result.intercepted is True
         assert result.handled is True
-        assert result.skill_name == "dsgs-architect"
+        assert result.skill_name == "dnaspec-architect"
         assert result.skill_result is not None
         assert result.error_message == ""
         
         # 验证相关方法被调用
         mock_skill_manager.match_skill_intelligently.assert_called_once_with("设计一个系统架构")
-        mock_skill_manager.execute_skill.assert_called_once_with("dsgs-architect", "设计一个系统架构")
+        mock_skill_manager.execute_skill.assert_called_once_with("dnaspec-architect", "设计一个系统架构")
     
     def test_natural_language_handling_low_confidence(self):
         """测试低置信度时的自然语言请求处理"""
@@ -279,7 +279,7 @@ class TestHookSystemWithSkillManager:
         
         # 设置低置信度的匹配结果
         mock_match_result = {
-            'skill_name': 'dsgs-architect',
+            'skill_name': 'dnaspec-architect',
             'confidence': 0.3,  # 低于阈值0.6
             'match_type': 'keyword'
         }
@@ -302,7 +302,7 @@ class TestHookSystemWithSkillManager:
         
         # 设置匹配结果
         mock_match_result = {
-            'skill_name': 'dsgs-architect',
+            'skill_name': 'dnaspec-architect',
             'confidence': 0.8,
             'match_type': 'keyword'
         }
@@ -312,7 +312,7 @@ class TestHookSystemWithSkillManager:
         hook_system = HookSystem(mock_skill_manager)
         
         # 禁用技能
-        hook_system.config.disable_skill("dsgs-architect")
+        hook_system.config.disable_skill("dnaspec-architect")
         
         # 测试请求处理
         result = hook_system.intercept_request("设计一个系统架构")
@@ -378,7 +378,7 @@ class TestHookSystemWithSkillManager:
         
         hook_system = HookSystem(mock_skill_manager)
         
-        result = hook_system.intercept_request("/speckit.dsgs.architect 设计系统")
+        result = hook_system.intercept_request("/speckit.dnaspec.architect 设计系统")
         
         assert result.intercepted is True
         assert result.handled is False
@@ -392,7 +392,7 @@ class TestHookSystemWithSkillManager:
         
         # 设置匹配结果
         mock_match_result = {
-            'skill_name': 'dsgs-architect',
+            'skill_name': 'dnaspec-architect',
             'confidence': 0.8,
             'match_type': 'keyword'
         }

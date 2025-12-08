@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DSGS Gemini CLI 扩展 - 交互式用户界面
+DNASPEC Gemini CLI 扩展 - 交互式用户界面
 """
 
 import sys
@@ -28,7 +28,7 @@ class DSGSInteractiveInterface:
     def display_welcome(self):
         """显示欢迎信息"""
         print("=" * 60)
-        print("           DSGS Gemini CLI Extensions")
+        print("           DNASPEC Gemini CLI Extensions")
         print("        DSGS智能架构师系统交互界面")
         print("=" * 60)
         print()
@@ -164,14 +164,14 @@ class DSGSInteractiveInterface:
         
         while self.is_running:
             try:
-                user_input = input("DSGS> ").strip()
+                user_input = input("DNASPEC> ").strip()
                 if not self.process_user_input(user_input):
                     break
             except (KeyboardInterrupt, EOFError):
                 print("\n\n再见!")
                 break
         
-        print("\n感谢使用 DSGS Gemini CLI Extensions!")
+        print("\n感谢使用 DNASPEC Gemini CLI Extensions!")
 
 def main():
     """主函数"""
@@ -179,7 +179,7 @@ def main():
     
     if len(sys.argv) > 1 and sys.argv[1] in ['--demo', '-d']:
         # 演示模式
-        print("DSGS Gemini CLI Extensions 演示模式")
+        print("DNASPEC Gemini CLI Extensions 演示模式")
         print("运行一些预设示例...")
         print()
         

@@ -1,11 +1,11 @@
-# Dynamic Specification Growth System (DSGS) Project Context
+# Dynamic Specification Growth System (DNASPEC) Project Context
 
 ## 1. Project Directory Structure
 ```
-dsgs/
+dnaspec/
 ├── docs/
 │   ├── specs/
-│   │   └── dsgs-srs.md
+│   │   └── dnaspec-srs.md
 │   └── reports/
 │       └── progress.md
 ├── src/

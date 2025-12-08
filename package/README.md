@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - DSGS上下文工程技能系统
+# DNASPEC Context Engineering Skills - DSGS上下文工程技能系统
 ## 项目概述
 
 本项目是DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，提供专业的上下文工程增强工具集。系统基于AI原生设计理念，通过标准化指令模板，实现上下文分析、优化和结构化功能，包含完整的上下文工程技能、Git操作技能和临时工作区管理系统，专门设计用于安全的AI辅助开发流程。
@@ -9,43 +9,43 @@
 - **AI安全工作流**: 通过临时工作区管理系统，防止AI生成的临时文件污染主项目
 - **Git操作集成**: 完整的Git工作流支持，包括worktree和CI/CD功能
 - **跨平台支持**: 支持Claude CLI、Gemini CLI、Qwen CLI等多种AI工具
-- **统一接口**: 提供统一的斜杠命令接口 (/speckit.dsgs.*)
+- **统一接口**: 提供统一的斜杠命令接口 (/speckit.dnaspec.*)
 - **智能匹配**: 保持DSGS智能匹配和Hook系统的独特优势
 ## 核心技能集
 
 ### 上下文工程技能
-1. **Context Analysis Skill** (`dsgs-context-analysis`)
+1. **Context Analysis Skill** (`dnaspec-context-analysis`)
    - 分析上下文的有效性
    - 评估五维质量指标（清晰度、相关性、完整性、一致性、效率）
    - 提供优化建议
    - 支持标准和增强两种模式
-2. **Context Optimization Skill** (`dsgs-context-optimization`) 
+2. **Context Optimization Skill** (`dnaspec-context-optimization`) 
    - 基于分析结果优化上下文质量
    - 改进清晰度、相关性、完整性和简洁性
    - 支持Token预算优化和记忆集成考量
    - 支持标准和增强两种模式
-3. **Cognitive Template Skill** (`dsgs-cognitive-template`)
+3. **Cognitive Template Skill** (`dnaspec-cognitive-template`)
    - 应用认知模板到上下文工程任务
    - 提供思维链、少示例学习、验证检查等框架
    - 支持标准和增强两种模式
 ### Git操作技能
-4. **Git Skill** (`dsgs-git-skill`)
+4. **Git Skill** (`dnaspec-git-skill`)
    - 基本操作：status, add, commit, push, pull
    - 分支管理：create, switch, merge
    - 高级功能：worktree管理, stash, diff, log
    - CI/CD集成：支持自动化提交流程
 
 ### 临时工作区管理技能
-5. **Temporary Workspace Skill** (`dsgs-temp-workspace-skill`)
+5. **Temporary Workspace Skill** (`dnaspec-temp-workspace-skill`)
    - **AI文件隔离**：AI生成的文件首先存放在临时工作区
    - **自动整理**：当临时文件超过20个时触发整理提醒
    - **确认机制**：文件经过验证后才能移到确认区域
    - **Git集成**：确认文件可直接同步到Git仓库
    - **自动清理**：完成工作后自动清理临时工作区
 ### 管理和系统技能
-6. **Context Engineering Manager** (`dsgs-context-engineering-manager`)
+6. **Context Engineering Manager** (`dnaspec-context-engineering-manager`)
    - 统一管理上下文工程技能
-7. **Context Engineering System** (`dsgs-context-engineering-system`)
+7. **Context Engineering System** (`dnaspec-context-engineering-system`)
    - 完整的上下文工程解决方案
    - 支持项目分解和AI Agentic架构上下文管理
 ## AI安全工作流
@@ -123,7 +123,7 @@ install_and_configure.bat
 
 # 方式二：使用短命令启动（需要先安装Node.js）
 npm install -g ptreezh/dnaSpec
-dsgs
+dnaspec
 ```
 
 ### Linux/Mac系统
@@ -135,7 +135,7 @@ chmod +x install_and_configure.sh
 
 # 方式二：使用短命令启动（需要先安装Node.js）
 npm install -g ptreezh/dnaSpec
-dsgs
+dnaspec
 ```
 
 ## 手动安装
@@ -161,7 +161,7 @@ python run_auto_config.py
 git clone https://github.com/ptreezh/dnaSpec.git
 cd dnaSpec
 
-# 本地安装为全局命令（提供短命令 dsgs）
+# 本地安装为全局命令（提供短命令 dnaspec）
 npm install -g .
 
 # 或运行安装脚本（自动完成所有步骤）
@@ -170,7 +170,7 @@ npm install -g .
 node index.js
 ```
 
-使用方式二，您可以直接运行 `dsgs` 命令来进行安装和配置。
+使用方式二，您可以直接运行 `dnaspec` 命令来进行安装和配置。
 
 ### 方式三：使用启动脚本（Windows用户）
 下载并使用启动脚本，可从任何位置运行：
@@ -195,22 +195,22 @@ python run_auto_config.py
 ### 命令行使用
 ```bash
 # 使用斜杠命令调用技能
-/speckit.dsgs.context-analysis "分析这段需求文档的质量"
-/speckit.dsgs.context-optimization "优化这段需求的清晰度"
-/speckit.dsgs.cognitive-template "如何提高性能 template=verification"
-/speckit.dsgs.architect "设计电商系统架构"
-/speckit.dsgs.agent-creator "创建AI智能体"
-/speckit.dsgs.task-decomposer "分解复杂任务"
-/speckit.dsgs.constraint-generator "生成系统约束"
-/speckit.dsgs.dapi-checker "检查API接口"
-/speckit.dsgs.modulizer "模块化系统设计"
-/speckit.dsgs.git-skill "operation=status"
-/speckit.dsgs.temp-workspace "operation=create-workspace"
+/speckit.dnaspec.context-analysis "分析这段需求文档的质量"
+/speckit.dnaspec.context-optimization "优化这段需求的清晰度"
+/speckit.dnaspec.cognitive-template "如何提高性能 template=verification"
+/speckit.dnaspec.architect "设计电商系统架构"
+/speckit.dnaspec.agent-creator "创建AI智能体"
+/speckit.dnaspec.task-decomposer "分解复杂任务"
+/speckit.dnaspec.constraint-generator "生成系统约束"
+/speckit.dnaspec.dapi-checker "检查API接口"
+/speckit.dnaspec.modulizer "模块化系统设计"
+/speckit.dnaspec.git-skill "operation=status"
+/speckit.dnaspec.temp-workspace "operation=create-workspace"
 ```
 
 ### Python API使用
 ```python
-from src.dsgs_context_engineering.skills_system_clean import ContextAnalysisSkill
+from src.dnaspec_context_engineering.skills_system_clean import ContextAnalysisSkill
 
 # 使用上下文分析技能
 skill = ContextAnalysisSkill()
@@ -295,5 +295,5 @@ result = temp_workspace_execute({'operation': 'clean-workspace'})
 ✅ **修复配置路径问题** - 解决npm安装过程中找不到配置脚本的路径问题 (v1.0.3)
 
 ---
-DSGS Context Engineering Skills - 专业的AI辅助开发工具套件
+DNASPEC Context Engineering Skills - 专业的AI辅助开发工具套件
 © 2025 AI Persona Lab. Released under MIT License.

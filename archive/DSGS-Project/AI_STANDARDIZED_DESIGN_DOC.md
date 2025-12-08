@@ -17,7 +17,7 @@
 - [目标1] 实现DSGS技能与spec.kit命令系统的无缝映射
 - [目标2] 保持DSGS智能匹配和Hook系统的独特优势
 - [目标3] 支持Claude CLI、Gemini CLI、Qwen CLI等多种AI工具
-- [目标4] 提供统一的斜杠命令接口(/speckit.dsgs.*)
+- [目标4] 提供统一的斜杠命令接口(/speckit.dnaspec.*)
 
 ### 2.2 非功能目标 (Non-Functional Goals)
 - [目标5] 确保向后兼容性，不影响现有DSGS功能
@@ -30,8 +30,8 @@
 ### 3.1 整体架构 (Overall Architecture)
 ```
 整合架构上下文:
-DSGS-spec.kit整合架构
-├── DSGS核心层 (DSGS Core Layer)
+DNASPEC-spec.kit整合架构
+├── DSGS核心层 (DNASPEC Core Layer)
 │   ├── 技能管理器 (SkillManager) - 负责技能注册、管理和调用
 │   ├── 智能匹配引擎 (IntelligentMatcher) - 实现用户意图自动检测
 │   ├── Hook系统 (HookSystem) - 拦截用户请求并自动调用技能
@@ -42,8 +42,8 @@ DSGS-spec.kit整合架构
 │   ├── Gemini CLI适配器 (GeminiAdapter) - Gemini CLI平台适配
 │   └── Qwen CLI适配器 (QwenAdapter) - Qwen CLI平台适配
 ├── 接口层 (Interface Layer)
-│   ├── 斜杠命令接口 (/speckit.dsgs.*) - 统一的命令调用接口
-│   ├── 原生命令接口 (dsgs-*) - 传统的命令行接口
+│   ├── 斜杠命令接口 (/speckit.dnaspec.*) - 统一的命令调用接口
+│   ├── 原生命令接口 (dnaspec-*) - 传统的命令行接口
 │   └── API接口 (REST/JSON-RPC) - 程序化调用接口
 └── 集成层 (Integration Layer)
     ├── spec.kit依赖集成 - spec.kit作为项目依赖集成
@@ -75,7 +75,7 @@ SpecKitAdapter组件负责与spec.kit工具包的集成，提供以下功能:
 class SpecKitAdapter:
     def __init__(self):
         self.supported_agents = ['claude', 'gemini', 'qwen', 'copilot']
-        self.command_prefix = "/speckit.dsgs."
+        self.command_prefix = "/speckit.dnaspec."
     
     def parse_command(self, command: str) -> dict:
         """解析spec.kit命令并提取技能信息"""
@@ -142,21 +142,21 @@ class PlatformAdapter:
 ```
 接口上下文:
 支持的斜杠命令格式:
-/speckit.dsgs.architect <架构设计需求描述>
-/speckit.dsgs.agent-creator <智能体创建需求描述>
-/speckit.dsgs.task-decomposer <任务分解需求描述>
-/speckit.dsgs.constraint-generator <约束生成需求描述>
-/speckit.dsgs.dapi-checker <接口检查需求描述>
-/speckit.dsgs.modulizer <模块化需求描述>
+/speckit.dnaspec.architect <架构设计需求描述>
+/speckit.dnaspec.agent-creator <智能体创建需求描述>
+/speckit.dnaspec.task-decomposer <任务分解需求描述>
+/speckit.dnaspec.constraint-generator <约束生成需求描述>
+/speckit.dnaspec.dapi-checker <接口检查需求描述>
+/speckit.dnaspec.modulizer <模块化需求描述>
 ```
 
 ### 5.2 原生命令接口 (Native Command Interface)
 ```
 接口上下文:
 支持的传统命令格式:
-dsgs-architect "设计一个电商系统架构"
-dsgs-agent-creator "创建订单处理智能体"
-dsgs-task-decomposer "分解用户管理模块开发任务"
+dnaspec-architect "设计一个电商系统架构"
+dnaspec-agent-creator "创建订单处理智能体"
+dnaspec-task-decomposer "分解用户管理模块开发任务"
 ```
 
 ## 6. 配置管理 (Configuration Management)
@@ -166,7 +166,7 @@ dsgs-task-decomposer "分解用户管理模块开发任务"
 配置上下文:
 # dsgs_spec_kit_config.yaml
 project:
-  name: "DSGS-spec.kit整合项目"
+  name: "DNASPEC-spec.kit整合项目"
   version: "1.0.0"
   description: "DSGS与spec.kit整合的AI技能系统"
 
@@ -174,12 +174,12 @@ integration:
   spec_kit:
     enabled: true
     dependency_check: true
-    command_prefix: "/speckit.dsgs."
+    command_prefix: "/speckit.dnaspec."
   
   platforms:
     claude:
       enabled: true
-      skills_dir: "~/.claude/skills/dsgs"
+      skills_dir: "~/.claude/skills/dnaspec"
       template_dir: "templates/claude"
     
     gemini:
@@ -195,12 +195,12 @@ integration:
       template_dir: "templates/qwen"
 
 skills:
-  - name: "dsgs-architect"
+  - name: "dnaspec-architect"
     description: "系统架构设计专家"
     keywords: ["架构设计", "系统设计", "architecture", "design system"]
     enabled: true
   
-  - name: "dsgs-agent-creator"
+  - name: "dnaspec-agent-creator"
     description: "智能体创建专家"
     keywords: ["创建智能体", "智能体设计", "agent creator"]
     enabled: true
@@ -258,11 +258,11 @@ class TestContext:
 pip install -e .[dev]
 
 # 2. 生产环境部署
-pip install dsgs-spec-kit-integration
+pip install dnaspec-spec-kit-integration
 
 # 3. Docker容器部署
-docker build -t dsgs-spec-kit .
-docker run dsgs-spec-kit
+docker build -t dnaspec-spec-kit .
+docker run dnaspec-spec-kit
 
 # 4. 平台特定部署
 specify init my-project --ai claude --ignore-agent-tools

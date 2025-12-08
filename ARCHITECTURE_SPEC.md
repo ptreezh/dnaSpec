@@ -3,14 +3,14 @@
 ## 1. 系统架构重定义
 
 ### 1.1 项目定位
-DSGS Context Engineering Skills System 是一个在AI CLI平台中运行的上下文工程增强工具集，利用AI模型的原生智能实现上下文分析、优化和结构化功能，而非建立本地模型。
+DNASPEC Context Engineering Skills System 是一个在AI CLI平台中运行的上下文工程增强工具集，利用AI模型的原生智能实现上下文分析、优化和结构化功能，而非建立本地模型。
 
 ### 1.2 核心架构
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    AI CLI Platform                           │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │       DSGS Context Engineering Skills               │   │
+│  │       DNASPEC Context Engineering Skills               │   │
 │  │                                                     │   │
 │  │  ┌─────────────────┐  ┌─────────────────────────┐  │   │
 │  │  │ Instruction     │  │ Response                │  │   │
@@ -132,7 +132,7 @@ class AIPlatformAdapter:
 
 ### 5.2 与Python集成
 ```python
-from dsgs_context_engineering import analyze_context
+from dnaspec_context_engineering import analyze_context
 
 result = analyze_context("系统设计要求", api_key="xxx")
 print(result['metrics']['clarity'])  # 输出清晰度得分
@@ -154,13 +154,13 @@ print(result['metrics']['clarity'])  # 输出清晰度得分
 
 ### 7.1 本地部署模式
 ```
-Developer PC ──── DSGS Context Skills ──── AI API Services
+Developer PC ──── DNASPEC Context Skills ──── AI API Services
                  (指令模板+响应解析)      (Claude/Gemini/Qwen)
 ```
 
 ### 7.2 API服务模式
 ```
-Client Apps ──── DSGS Context API ──── AI Platform APIs
+Client Apps ──── DNASPEC Context API ──── AI Platform APIs
                (统一接口+负载均衡)      (多AI服务后端)
 ```
 

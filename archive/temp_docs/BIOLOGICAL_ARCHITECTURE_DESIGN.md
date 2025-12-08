@@ -223,7 +223,7 @@
 
 ### 工作区结构设计
 ```
-/DSGS-Project/
+/DNASPEC-Project/
 ├── /contract-generation-subsystem/           # 契约生成子系统
 │   ├── README.md                           # 子系统概述
 │   ├── /source-analysis-modules/           # 源码分析模块

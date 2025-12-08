@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 生产级集成测试
+DNASPEC Context Engineering Skills - 生产级集成测试
 验证系统在实际生产场景中的表现
 """
 import sys
@@ -12,14 +12,14 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def test_production_scenario():
     """测试生产级应用场景"""
-    print("🚀 DSGS Context Engineering Skills - 生产级集成测试")
+    print("🚀 DNASPEC Context Engineering Skills - 生产级集成测试")
     print("=" * 80)
     
     start_time = time.time()
     
     try:
         # 导入所有核心组件
-        from src.dsgs_context_engineering.skills_system_real import (
+        from src.dnaspec_context_engineering.skills_system_real import (
             ContextAnalysisSkill,
             ContextOptimizationSkill,
             CognitiveTemplateSkill,
@@ -208,7 +208,7 @@ def test_production_scenario():
         print(f"📊 总处理时间: {total_elapsed:.3f}s")
         print(f"📈 测试用例: 15+ 个场景")
         print(f"🔄 事务成功率: 100%")
-        print("💡 DSGS Context Engineering Skills 系统已为真实生产环境就绪")
+        print("💡 DNASPEC Context Engineering Skills 系统已为真实生产环境就绪")
         print(f"{'✅' * 80}")
         
         return True
@@ -225,7 +225,7 @@ def main():
     success = test_production_scenario()
     
     if success:
-        print("\n🎊 恭喜！DSGS Context Engineering Skills 系统已通过全部生产级验证！")
+        print("\n🎊 恭喜！DNASPEC Context Engineering Skills 系统已通过全部生产级验证！")
         print("\n系统现在可以:")
         print("  • 在AI辅助开发中提供专业上下文分析")
         print("  • 集成到各种AI CLI平台中作为增强工具")

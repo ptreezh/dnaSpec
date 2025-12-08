@@ -28,15 +28,15 @@ def test_integration():
         
         # 1. 验证主技能能正确路由到任务分解器
         routed_skill = main_skill._route_request(test_request)
-        if routed_skill == "dsgs-task-decomposer":
+        if routed_skill == "dnaspec-task-decomposer":
             print("✓ 主技能路由测试通过")
         else:
-            print(f"✗ 主技能路由测试失败: 期望'dsgs-task-decomposer'，实际'{routed_skill}'")
+            print(f"✗ 主技能路由测试失败: 期望'dnaspec-task-decomposer'，实际'{routed_skill}'")
             return
         
         # 2. 验证任务分解器子技能能正确处理请求
         result = task_decomposer_skill.process_request(test_request)
-        if result["status"] == "completed" and result["skill"] == "dsgs-task-decomposer":
+        if result["status"] == "completed" and result["skill"] == "dnaspec-task-decomposer":
             print("✓ 子技能处理测试通过")
             print(f"  生成了 {len(result['task_decomposition']['atomic_tasks'])} 个原子任务")
         else:
@@ -45,7 +45,7 @@ def test_integration():
         
         # 3. 验证完整流程
         main_result = main_skill.process_request(test_request)
-        if main_result["status"] == "processed" and main_result["skill_used"] == "dsgs-task-decomposer":
+        if main_result["status"] == "processed" and main_result["skill_used"] == "dnaspec-task-decomposer":
             print("✓ 完整流程测试通过")
         else:
             print(f"✗ 完整流程测试失败: 状态={main_result['status']}, 使用技能={main_result['skill_used']}")

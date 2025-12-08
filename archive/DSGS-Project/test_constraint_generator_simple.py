@@ -27,7 +27,7 @@ def test_constraint_generator():
     # 测试约束生成功能
     result = constraint_generator.process_request(test_request)
     
-    if result["status"] == "completed" and result["skill"] == "dsgs-constraint-generator":
+    if result["status"] == "completed" and result["skill"] == "dnaspec-constraint-generator":
         print("✓ 约束生成功能测试通过")
         spec = result['constraint_specification']
         print(f"  生成了 {len(spec['system_constraints'])} 个系统约束")

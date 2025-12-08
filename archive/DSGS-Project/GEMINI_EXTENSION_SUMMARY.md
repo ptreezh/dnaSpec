@@ -1,4 +1,4 @@
-# DSGS Gemini CLI Extensions 实施总结报告
+# DNASPEC Gemini CLI Extensions 实施总结报告
 
 ## 项目概述
 
@@ -34,27 +34,27 @@
 
 ## 支持的技能
 
-### dsgs-agent-creator (智能体创建器)
+### dnaspec-agent-creator (智能体创建器)
 - 创建和配置智能体
 - 定义智能体角色和行为
 - 生成智能体规范文档
 
-### dsgs-task-decomposer (任务分解器)
+### dnaspec-task-decomposer (任务分解器)
 - 复杂任务分解和原子化
 - 任务依赖分析
 - 任务计划生成
 
-### dsgs-dapi-checker (分布式接口检查器)
+### dnaspec-dapi-checker (分布式接口检查器)
 - 接口一致性和完整性检查
 - API文档验证
 - 参数匹配检查
 
-### dsgs-modulizer (模块化器)
+### dnaspec-modulizer (模块化器)
 - 模块成熟度检查
 - 组件封装
 - 自底向上分析
 
-### dsgs-architect (架构师)
+### dnaspec-architect (架构师)
 - 系统架构设计
 - 技术栈选择
 - 模块划分

@@ -3,15 +3,15 @@ DSGS示例技能实现
 用于演示和测试技能管理器功能
 """
 from typing import Dict, Any
-from ..core.skill import DSGSSkill, SkillResult
+from ..core.skill import DNASpecSkill, SkillResult
 
 
-class ArchitectSkill(DSGSSkill):
+class ArchitectSkill(DNASpecSkill):
     """架构师技能"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-architect",
+            name="dnaspec-architect",
             description="DSGS架构师 - 系统架构设计和协调专家"
         )
     
@@ -24,12 +24,12 @@ class ArchitectSkill(DSGSSkill):
         }
 
 
-class AgentCreatorSkill(DSGSSkill):
+class AgentCreatorSkill(DNASpecSkill):
     """智能体创建技能"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-agent-creator",
+            name="dnaspec-agent-creator",
             description="DSGS智能体创建器 - 专业的智能体设计和创建专家"
         )
     
@@ -42,12 +42,12 @@ class AgentCreatorSkill(DSGSSkill):
         }
 
 
-class TaskDecomposerSkill(DSGSSkill):
+class TaskDecomposerSkill(DNASpecSkill):
     """任务分解技能"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-task-decomposer",
+            name="dnaspec-task-decomposer",
             description="DSGS任务分解器 - 复杂任务分解和原子化专家"
         )
     

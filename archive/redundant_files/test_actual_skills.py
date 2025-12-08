@@ -6,7 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__)))
 print("Testing actual skill classes...")
 
 try:
-    from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+    from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
     print("✅ ContextAnalysisSkill imported")
     
     analysis_skill = ContextAnalysisSkill()
@@ -21,7 +21,7 @@ except Exception as e:
     traceback.print_exc()
 
 try:
-    from src.dsgs_context_engineering.skills_system_real import ContextOptimizationSkill
+    from src.dnaspec_context_engineering.skills_system_real import ContextOptimizationSkill
     print("✅ ContextOptimizationSkill imported")
     
     optimization_skill = ContextOptimizationSkill()
@@ -36,7 +36,7 @@ except Exception as e:
     traceback.print_exc()
 
 try:
-    from src.dsgs_context_engineering.skills_system_real import CognitiveTemplateSkill
+    from src.dnaspec_context_engineering.skills_system_real import CognitiveTemplateSkill
     print("✅ CognitiveTemplateSkill imported")
     
     template_skill = CognitiveTemplateSkill()

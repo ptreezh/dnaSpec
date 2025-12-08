@@ -34,22 +34,22 @@
 ## 完成的文档清单
 
 ### 主控需求文档 (3)
-1. DSGS-Core-Requirements.md - 核心需求文档
-2. DSGS-Core-Requirements-BioInspired.md - 生物学启发版本
-3. DSGS-Core-Requirements-BioInspired-Operational.md - 操作级需求
+1. DNASPEC-Core-Requirements.md - 核心需求文档
+2. DNASPEC-Core-Requirements-BioInspired.md - 生物学启发版本
+3. DNASPEC-Core-Requirements-BioInspired-Operational.md - 操作级需求
 
 ### 功能细分文档 (7)
-4. DSGS-Constraint-Engine-Requirements.md - 约束生成引擎 (5.2KB)
-5. DSGS-Template-Matcher-Requirements.md - 模板匹配系统 (6.5KB)
-6. DSGS-Specification-Management-Requirements.md - 规范管理系统 (7.1KB)
-7. DSGS-Specification-Manager-Requirements.md - 规范管理器 (4.4KB)
-8. DSGS-TCC-System-Requirements.md - 任务上下文胶囊系统 (8.5KB)
-9. DSGS-Context-Engineering-Requirements.md - 上下文工程集成 (9.1KB)
-10. DSGS-Integration-Deployment-Requirements.md - 集成与部署 (20.6KB)
+4. DNASPEC-Constraint-Engine-Requirements.md - 约束生成引擎 (5.2KB)
+5. DNASPEC-Template-Matcher-Requirements.md - 模板匹配系统 (6.5KB)
+6. DNASPEC-Specification-Management-Requirements.md - 规范管理系统 (7.1KB)
+7. DNASPEC-Specification-Manager-Requirements.md - 规范管理器 (4.4KB)
+8. DNASPEC-TCC-System-Requirements.md - 任务上下文胶囊系统 (8.5KB)
+9. DNASPEC-Context-Engineering-Requirements.md - 上下文工程集成 (9.1KB)
+10. DNASPEC-Integration-Deployment-Requirements.md - 集成与部署 (20.6KB)
 
 ### 工程化文档 (2)
-11. DSGS-Engineering-Implementation-Guide.md - 工程化实现指南 (14.1KB)
-12. DSGS-Engineering-Guide.md - 工程化指南 (14.1KB)
+11. DNASPEC-Engineering-Implementation-Guide.md - 工程化实现指南 (14.1KB)
+12. DNASPEC-Engineering-Guide.md - 工程化指南 (14.1KB)
 
 ### 辅助文档 (2)
 13. README.md - 文档系列概览 (3.1KB)

@@ -1,14 +1,14 @@
 # Project Summary
 
 ## Overall Goal
-Update the DSGS Context Engineering Skills project to fix documentation encoding issues and update the version from 1.0.1 to 1.0.2, ensuring GitHub Pages website displays correct information.
+Update the DNASPEC Context Engineering Skills project to fix documentation encoding issues and update the version from 1.0.1 to 1.0.2, ensuring GitHub Pages website displays correct information.
 
 ## Key Knowledge
-- Project name: DSGS Context Engineering Skills (previously called dnaSpec)
+- Project name: DNASPEC Context Engineering Skills (previously called dnaSpec)
 - GitHub repository: https://github.com/ptreezh/dnaSpec
 - Project version updated from 1.0.1 to 1.0.2
 - GitHub Pages is served from the `docs` directory
-- Project files affected by version updates: `package.json`, `PROJECT_INFO.json`, `pyproject.toml`, `README.md`, `RELEASE_STATEMENT.md`, `OPEN_SOURCE_CONFIG.json`, `src/dsgs_context_engineering/version_manager.py`, and several other configuration files
+- Project files affected by version updates: `package.json`, `PROJECT_INFO.json`, `pyproject.toml`, `README.md`, `RELEASE_STATEMENT.md`, `OPEN_SOURCE_CONFIG.json`, `src/dnaspec_context_engineering/version_manager.py`, and several other configuration files
 - The project is an AI-assisted development toolkit focusing on context engineering skills
 
 ## Recent Actions

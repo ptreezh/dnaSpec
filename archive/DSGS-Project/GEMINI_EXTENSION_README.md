@@ -1,6 +1,6 @@
-# DSGS Gemini CLI Extensions
+# DNASPEC Gemini CLI Extensions
 
-DSGS (Dynamic Specification Growth System) 智能架构师系统的Gemini CLI扩展，为Gemini CLI提供专业技能支持。
+DNASPEC (Dynamic Specification Growth System) 智能架构师系统的Gemini CLI扩展，为Gemini CLI提供专业技能支持。
 
 ## 功能特性
 
@@ -11,27 +11,27 @@ DSGS (Dynamic Specification Growth System) 智能架构师系统的Gemini CLI扩
 
 ## 支持的技能
 
-1. **dsgs-agent-creator** - 智能体创建器
+1. **dnaspec-agent-creator** - 智能体创建器
    - 创建和配置智能体
    - 定义智能体角色和行为
    - 生成智能体规范文档
 
-2. **dsgs-task-decomposer** - 任务分解器
+2. **dnaspec-task-decomposer** - 任务分解器
    - 复杂任务分解和原子化
    - 任务依赖分析
    - 任务计划生成
 
-3. **dsgs-dapi-checker** - 分布式接口检查器
+3. **dnaspec-dapi-checker** - 分布式接口检查器
    - 接口一致性和完整性检查
    - API文档验证
    - 参数匹配检查
 
-4. **dsgs-modulizer** - 模块化器
+4. **dnaspec-modulizer** - 模块化器
    - 模块成熟度检查
    - 组件封装
    - 自底向上分析
 
-5. **dsgs-architect** - 架构师
+5. **dnaspec-architect** - 架构师
    - 系统架构设计
    - 技术栈选择
    - 模块划分
@@ -77,7 +77,7 @@ python install_gemini_extension.py install
 ### 目录结构
 
 ```
-dsgs-gemini-extensions/
+dnaspec-gemini-extensions/
 ├── gemini_skills_core.py         # 技能核心框架
 ├── gemini_intelligent_matcher.py # 智能匹配器
 ├── gemini_hook_handler.py        # Hook处理器

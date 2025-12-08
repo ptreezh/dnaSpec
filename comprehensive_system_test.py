@@ -11,13 +11,13 @@ def test_basic_imports():
     """测试基本导入功能"""
     print("1. 测试基本模块导入...")
     try:
-        from src.dsgs_context_engineering.skills_system_final import execute, get_available_skills
+        from src.dnaspec_context_engineering.skills_system_final import execute, get_available_skills
         print("   ✅ 核心技能模块导入成功")
         
-        from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+        from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
         print("   ✅ CLI检测器模块导入成功")
         
-        from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+        from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
         print("   ✅ 自动配置器模块导入成功")
         
         return True
@@ -31,7 +31,7 @@ def test_skill_execution():
     """测试技能执行功能"""
     print("\n2. 测试技能执行功能...")
     try:
-        from src.dsgs_context_engineering.skills_system_final import execute, get_available_skills
+        from src.dnaspec_context_engineering.skills_system_final import execute, get_available_skills
         
         # 获取可用技能
         available_skills = get_available_skills()
@@ -82,7 +82,7 @@ def test_cli_integration():
     """测试CLI集成"""
     print("\n3. 测试CLI集成功能...")
     try:
-        from src.dsgs_spec_kit_integration.cli import main
+        from src.dnaspec_spec_kit_integration.cli import main
         import sys
         
         # 测试list命令（不实际执行，仅验证路径）
@@ -97,7 +97,7 @@ def test_new_cli_detector():
     """测试新版CLI检测器"""
     print("\n4. 测试新版CLI检测器...")
     try:
-        from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+        from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
         
         detector = CliDetector()
         
@@ -124,7 +124,7 @@ def test_complete_workflow():
     """测试完整工作流"""
     print("\n5. 测试完整自动配置工作流...")
     try:
-        from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+        from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
         
         auto_config = AutoConfigurator()
         
@@ -142,7 +142,7 @@ def test_complete_workflow():
 
 def main():
     """主测试函数"""
-    print("DSGS Context Engineering Skills - 完整系统验证")
+    print("DNASPEC Context Engineering Skills - 完整系统验证")
     print("="*60)
     
     all_tests_passed = True

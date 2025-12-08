@@ -21,13 +21,13 @@ def verify_claude_skills():
     # 检查所有技能目录
     skill_dirs = [d for d in os.listdir(export_path) if os.path.isdir(os.path.join(export_path, d))]
     expected_skills = [
-        'dsgs-agent-creator',
-        'dsgs-architect',
-        'dsgs-constraint-generator',
-        'dsgs-dapi-checker',
-        'dsgs-modulizer',
-        'dsgs-system-architect',
-        'dsgs-task-decomposer'
+        'dnaspec-agent-creator',
+        'dnaspec-architect',
+        'dnaspec-constraint-generator',
+        'dnaspec-dapi-checker',
+        'dnaspec-modulizer',
+        'dnaspec-system-architect',
+        'dnaspec-task-decomposer'
     ]
     
     print(f"发现 {len(skill_dirs)} 个Skills:")
@@ -142,13 +142,13 @@ def test_skills_discovery():
     # 检查Skills目录
     skill_dirs = [d for d in os.listdir(skills_path) if os.path.isdir(os.path.join(skills_path, d))]
     expected_skills = [
-        'dsgs-agent-creator',
-        'dsgs-architect',
-        'dsgs-constraint-generator',
-        'dsgs-dapi-checker',
-        'dsgs-modulizer',
-        'dsgs-system-architect',
-        'dsgs-task-decomposer'
+        'dnaspec-agent-creator',
+        'dnaspec-architect',
+        'dnaspec-constraint-generator',
+        'dnaspec-dapi-checker',
+        'dnaspec-modulizer',
+        'dnaspec-system-architect',
+        'dnaspec-task-decomposer'
     ]
     
     print(f"发现 {len(skill_dirs)} 个已部署的Skills:")
@@ -174,11 +174,11 @@ def test_skill_invocation():
     
     # 测试用例
     test_cases = [
-        ("创建一个智能体", "dsgs-agent-creator"),
-        ("分解复杂任务", "dsgs-task-decomposer"),
-        ("生成系统约束", "dsgs-constraint-generator"),
-        ("检查接口一致性", "dsgs-dapi-checker"),
-        ("模块化重构", "dsgs-modulizer")
+        ("创建一个智能体", "dnaspec-agent-creator"),
+        ("分解复杂任务", "dnaspec-task-decomposer"),
+        ("生成系统约束", "dnaspec-constraint-generator"),
+        ("检查接口一致性", "dnaspec-dapi-checker"),
+        ("模块化重构", "dnaspec-modulizer")
     ]
     
     print("技能调用测试需要手动验证:")

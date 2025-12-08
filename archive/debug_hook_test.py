@@ -7,9 +7,9 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
 
 try:
-    from src.dsgs_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
-    from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
-    from src.dsgs_spec_kit_integration.core.manager import SkillManager
+    from src.dnaspec_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
+    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
+    from src.dnaspec_spec_kit_integration.core.manager import SkillManager
     from unittest.mock import Mock
     print("所有导入成功")
 except ImportError as e:

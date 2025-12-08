@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 真正的AI原生架构集成系统
+DNASPEC Context Engineering Skills - 真正的AI原生架构集成系统
 完全基于AI模型原生智能实现，不依赖本地模型
 """
 import json
@@ -109,7 +109,7 @@ class ContextAnalysisSkill:
     """AI原生上下文分析技能"""
     
     def __init__(self):
-        self.name = "dsgs-context-analysis"
+        self.name = "dnaspec-context-analysis"
         self.description = "DSGS上下文分析技能 - 利用AI模型原生智能分析上下文质量"
     
     def process_request(self, request: str, params: Dict[str, Any] = None) -> Any:
@@ -140,7 +140,7 @@ class ContextAnalysisSkill:
             ai_response = execute_ai_native_instruction(analysis_instruction)
             result = json.loads(ai_response)
             
-            from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+            from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
             return SkillResult(
                 skill_name=self.name,
                 status=SkillStatus.COMPLETED,
@@ -150,7 +150,7 @@ class ContextAnalysisSkill:
                 error_message=""
             )
         except Exception as e:
-            from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+            from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
             return SkillResult(
                 skill_name=self.name,
                 status=SkillStatus.ERROR,
@@ -165,7 +165,7 @@ class ContextOptimizationSkill:
     """AI原生上下文优化技能"""
     
     def __init__(self):
-        self.name = "dsgs-context-optimization"
+        self.name = "dnaspec-context-optimization"
         self.description = "DSGS上下文优化技能 - 利用AI模型原生智能优化上下文质量"
     
     def process_request(self, request: str, params: Dict[str, Any] = None) -> Any:
@@ -196,7 +196,7 @@ class ContextOptimizationSkill:
             ai_response = execute_ai_native_instruction(optimization_instruction)
             result = json.loads(ai_response)
             
-            from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+            from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
             return SkillResult(
                 skill_name=self.name,
                 status=SkillStatus.COMPLETED,
@@ -206,7 +206,7 @@ class ContextOptimizationSkill:
                 error_message=""
             )
         except Exception as e:
-            from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+            from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
             return SkillResult(
                 skill_name=self.name,
                 status=SkillStatus.ERROR,
@@ -221,7 +221,7 @@ class CognitiveTemplateSkill:
     """AI原生认知模板技能"""
     
     def __init__(self):
-        self.name = "dsgs-cognitive-template"
+        self.name = "dnaspec-cognitive-template"
         self.description = "DSGS认知模板技能 - 利用AI模型原生智能应用认知模板"
         
         self.templates = {
@@ -238,7 +238,7 @@ class CognitiveTemplateSkill:
         template_type = params.get('template', 'chain_of_thought')
         
         if template_type not in self.templates:
-            from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+            from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
             return SkillResult(
                 skill_name=self.name,
                 status=SkillStatus.ERROR,
@@ -249,7 +249,7 @@ class CognitiveTemplateSkill:
             )
         
         if not request.strip():
-            from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+            from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
             return SkillResult(
                 skill_name=self.name,
                 status=SkillStatus.ERROR,
@@ -272,7 +272,7 @@ class CognitiveTemplateSkill:
                 result['original_context'] = request
                 result['success'] = True
             
-            from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+            from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
             return SkillResult(
                 skill_name=self.name,
                 status=SkillStatus.COMPLETED,
@@ -282,7 +282,7 @@ class CognitiveTemplateSkill:
                 error_message=""
             )
         except Exception as e:
-            from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+            from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
             return SkillResult(
                 skill_name=self.name,
                 status=SkillStatus.ERROR,
@@ -336,7 +336,7 @@ def execute(args: Dict[str, Any]) -> str:
     """
     统一执行接口 - 与AI CLI平台集成
     """
-    skill_name = args.get('skill', 'dsgs-context-analysis')
+    skill_name = args.get('skill', 'dnaspec-context-analysis')
     context_input = args.get('context', '') or args.get('request', '')
     params = args.get('params', {})
     
@@ -344,14 +344,14 @@ def execute(args: Dict[str, Any]) -> str:
         return "错误: 未提供需要处理的上下文"
     
     # 根据技能名称创建相应技能实例
-    if skill_name == 'dsgs-context-analysis':
+    if skill_name == 'dnaspec-context-analysis':
         skill = ContextAnalysisSkill()
-    elif skill_name == 'dsgs-context-optimization':  
+    elif skill_name == 'dnaspec-context-optimization':  
         skill = ContextOptimizationSkill()
-    elif skill_name == 'dsgs-cognitive-template':
+    elif skill_name == 'dnaspec-cognitive-template':
         skill = CognitiveTemplateSkill()
     else:
-        available_skills = ['dsgs-context-analysis', 'dsgs-context-optimization', 'dsgs-cognitive-template']
+        available_skills = ['dnaspec-context-analysis', 'dnaspec-context-optimization', 'dnaspec-cognitive-template']
         return f"错误: 未知技能 '{skill_name}'. 可用技能: {', '.join(available_skills)}"
     
     # 处理请求
@@ -362,7 +362,7 @@ def execute(args: Dict[str, Any]) -> str:
         return f"错误: {result.error_message}"
     elif hasattr(result, 'status') and result.status.name == 'COMPLETED':
         result_data = result.result
-        if skill_name == 'dsgs-context-analysis':
+        if skill_name == 'dnaspec-context-analysis':
             output_lines = [
                 "# 上下文质量分析结果",
                 f"长度: {result_data['context_length']} 字符",
@@ -392,7 +392,7 @@ def execute(args: Dict[str, Any]) -> str:
             
             return "\n".join(output_lines)
         
-        elif skill_name == 'dsgs-context-optimization':
+        elif skill_name == 'dnaspec-context-optimization':
             output_lines = [
                 "# 上下文优化结果",
                 f"原始长度: {len(result_data['original_context'])} 字符",
@@ -415,7 +415,7 @@ def execute(args: Dict[str, Any]) -> str:
             
             return "\n".join(output_lines)
         
-        elif skill_name == 'dsgs-cognitive-template':
+        elif skill_name == 'dnaspec-cognitive-template':
             output_lines = [
                 f"# 认知模板应用: {result_data['template_type']}",
                 f"描述: {result_data['template_description']}",
@@ -438,7 +438,7 @@ def execute(args: Dict[str, Any]) -> str:
 def analyze_context(context: str, params: Dict[str, Any] = None) -> str:
     """分析上下文质量"""
     return execute({
-        'skill': 'dsgs-context-analysis',
+        'skill': 'dnaspec-context-analysis',
         'context': context,
         'params': params or {}
     })
@@ -447,7 +447,7 @@ def analyze_context(context: str, params: Dict[str, Any] = None) -> str:
 def optimize_context(context: str, params: Dict[str, Any] = None) -> str:
     """优化上下文内容"""
     return execute({
-        'skill': 'dsgs-context-optimization',
+        'skill': 'dnaspec-context-optimization',
         'context': context,
         'params': params or {}
     })
@@ -456,14 +456,14 @@ def optimize_context(context: str, params: Dict[str, Any] = None) -> str:
 def apply_cognitive_template(context: str, params: Dict[str, Any] = None) -> str:
     """应用认知模板"""
     return execute({
-        'skill': 'dsgs-cognitive-template',
+        'skill': 'dnaspec-cognitive-template',
         'context': context,
         'params': params or {}
     })
 
 
 if __name__ == "__main__":
-    print("🔍 DSGS Context Engineering Skills - AI原生架构验证")
+    print("🔍 DNASPEC Context Engineering Skills - AI原生架构验证")
     print("=" * 60)
     
     test_context = "设计一个电商平台，需要支持用户登录、商品浏览、购物车功能。"
@@ -483,7 +483,7 @@ if __name__ == "__main__":
     
     print("\n✅ 4. 测试统一执行接口:")
     unified_result = execute({
-        'skill': 'dsgs-context-analysis',
+        'skill': 'dnaspec-context-analysis',
         'context': '系统需求分析任务'
     })
     print(f"   统一接口长度: {len(unified_result)} 字符")

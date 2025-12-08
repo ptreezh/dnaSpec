@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills System - 实施清单 (Implementation Checklist)
+# DNASPEC Context Engineering Skills System - 实施清单 (Implementation Checklist)
 
 ## 1. 项目范围定义
 

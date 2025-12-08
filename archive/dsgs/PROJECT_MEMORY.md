@@ -2,7 +2,7 @@
 
 ## 🎯 项目核心身份
 
-**项目名称**: Dynamic Specification Growth System (DSGS) - TDD Implementation
+**项目名称**: Dynamic Specification Growth System (DNASPEC) - TDD Implementation
 **版本**: v2.1.0
 **当前状态**: Phase 3设计完成，执行待验证 (30%实际完成度)
 **核心价值**: 通过TDD方法建立世界级测试体系，确保企业级软件质量

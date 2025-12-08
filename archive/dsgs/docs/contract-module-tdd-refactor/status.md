@@ -133,8 +133,8 @@
 - **文档问题**: 检查需求规格说明书
 
 ### 紧急联系
-- **技术负责人**: tech@dsgs.com
-- **项目经理**: pm@dsgs.com
+- **技术负责人**: tech@dnaspec.com
+- **项目经理**: pm@dnaspec.com
 - **团队沟通**: Slack #contract-module
 
 ---

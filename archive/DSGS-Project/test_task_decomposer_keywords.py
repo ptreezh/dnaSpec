@@ -22,12 +22,12 @@ def test_task_decomposer_keywords():
     # 找到dsgs-task-decomposer技能
     dsgs_task_decomposer = None
     for skill in hook.skills_registry:
-        if skill.name == 'dsgs-task-decomposer':
+        if skill.name == 'dnaspec-task-decomposer':
             dsgs_task_decomposer = skill
             break
     
     if dsgs_task_decomposer:
-        print(f"dsgs-task-decomposer 关键词: {dsgs_task_decomposer.keywords}")
+        print(f"dnaspec-task-decomposer 关键词: {dsgs_task_decomposer.keywords}")
         print()
         
         # 测试新增的关键词
@@ -51,7 +51,7 @@ def test_task_decomposer_keywords():
             print(f'  匹配关键词: {matched_keywords}')
             print()
     else:
-        print("未找到 dsgs-task-decomposer 技能")
+        print("未找到 dnaspec-task-decomposer 技能")
 
 if __name__ == "__main__":
     test_task_decomposer_keywords()

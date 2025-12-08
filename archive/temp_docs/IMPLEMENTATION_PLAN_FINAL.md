@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills System - 实施计划 (Implementation Plan)
+# DNASPEC Context Engineering Skills System - 实施计划 (Implementation Plan)
 
 ## 1. 项目阶段划分 (Project Phases)
 
@@ -7,7 +7,7 @@
 **Focus**: 建立AI原生技能框架，实现指令工程基础
 
 #### 1.1 Week 1: 核心架构实现 (Core Architecture Implementation)
-- [x] **Task-001**: 实现DSGS技能基类 (`DSGSSkill`)
+- [x] **Task-001**: 实现DSGS技能基类 (`DNASpecSkill`)
   - **Status**: ✅ **COMPLETED**
   - **Result**: 基础技能框架已实现
   - **Verification**: 通过`skills_system_final_clean.py`验证
@@ -162,7 +162,7 @@
 
 ### 3.3 兼容性测试 (Compatibility Testing)
 - [x] **AI Platform API**: 与主流AI平台API集成测试
-- [x] **DSGS Framework**: 与DSGS基类框架兼容性测试
+- [x] **DNASPEC Framework**: 与DSGS基类框架兼容性测试
 - [x] **Python Versions**: Python 3.8+兼容性测试
 - [x] **Cross-Platform**: Windows/Linux/macOS兼容性测试
 

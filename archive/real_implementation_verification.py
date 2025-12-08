@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 真实验证
+DNASPEC Context Engineering Skills - 真实验证
 验证系统作为AI CLI平台增强工具的实际功能
 """
 import sys
@@ -11,13 +11,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def test_real_implementation():
     """验证真实的AI原生实现"""
-    print("🔍 DSGS Context Engineering Skills - 真实实现验证")
+    print("🔍 DNASPEC Context Engineering Skills - 真实实现验证")
     print("=" * 70)
     
     try:
         # 验证1: 模块导入正常
         print("\n✅ 验证1: 模块导入")
-        from src.dsgs_context_engineering.skills_system_real import (
+        from src.dnaspec_context_engineering.skills_system_real import (
             ContextAnalysisSkill, 
             ContextOptimizationSkill, 
             CognitiveTemplateSkill,
@@ -135,7 +135,7 @@ def test_real_implementation():
         print("\n" + "=" * 70)
         print("🎉 所有验证通过！")
         print("")
-        print("DSGS Context Engineering Skills 已正确实现为AI原生系统：")
+        print("DNASPEC Context Engineering Skills 已正确实现为AI原生系统：")
         print("✅ 利用AI模型原生智能而非本地模型")
         print("✅ 通过精确指令模板引导AI模型")
         print("✅ 提供专业上下文工程能力")
@@ -164,7 +164,7 @@ def demo_usage():
     print("\n💡 使用演示:")
     print("-" * 40)
     
-    from src.dsgs_context_engineering.skills_system_real import (
+    from src.dnaspec_context_engineering.skills_system_real import (
         ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
     )
     
@@ -198,7 +198,7 @@ if __name__ == "__main__":
     success = test_real_implementation()
     if success:
         demo_usage()
-        print("\n✅ DSGS Context Engineering Skills 系统验证成功！")
+        print("\n✅ DNASPEC Context Engineering Skills 系统验证成功！")
     else:
         print("\n❌ 系统验证失败，请检查实现")
         sys.exit(1)

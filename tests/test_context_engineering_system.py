@@ -3,7 +3,7 @@
 System-level integration tests for the Context Engineering Skills System
 """
 import pytest
-from src.dsgs_spec_kit_integration.core.skill import SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import SkillStatus
 from tests.conftest import (
     context_analysis_skill, context_optimization_skill, 
     cognitive_template_skill, context_engineering_system, skills_manager

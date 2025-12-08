@@ -1,5 +1,5 @@
 
-from dsgs_spec_kit_integration.core.skill_manager import SkillManager
+from dnaspec_spec_kit_integration.core.skill_manager import SkillManager
 
 def test_liveness_skill_end_to_end():
     """

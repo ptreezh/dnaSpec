@@ -1,16 +1,16 @@
-# DSGS Context Engineering Skills API Specification
+# DNASPEC Context Engineering Skills API Specification
 
 ## 1. API Overview
 
-The DSGS Context Engineering Skills API provides programmatic access to context analysis, optimization, and cognitive template application capabilities. The API follows the DSGS skill execution pattern and returns standardized results.
+The DNASPEC Context Engineering Skills API provides programmatic access to context analysis, optimization, and cognitive template application capabilities. The API follows the DNASPEC skill execution pattern and returns standardized results.
 
 ### Base URL
 ```
-https://api.dsgs.example.com/v1/contexts
+https://api.dnaspec.example.com/v1/contexts
 ```
 
 ### Authentication
-All API endpoints require authentication using DSGS authentication tokens.
+All API endpoints require authentication using DNASPEC authentication tokens.
 
 ### Content Type
 All requests and responses use JSON format with UTF-8 encoding.
@@ -88,7 +88,7 @@ Analyze the quality of input context and provide metrics and recommendations.
 **Response**:
 ```json
 {
-  "skill_name": "dsgs-context-analysis",
+  "skill_name": "dnaspec-context-analysis",
   "status": "COMPLETED",
   "result": {
     "context_length": 100,
@@ -140,7 +140,7 @@ Optimize the input context based on analysis and user-defined goals.
 **Response**:
 ```json
 {
-  "skill_name": "dsgs-context-optimization",
+  "skill_name": "dnaspec-context-optimization",
   "status": "COMPLETED",
   "result": {
     "original_context": "需要设计一个系统...",
@@ -189,7 +189,7 @@ Apply cognitive templates to structure reasoning and improve context.
 **Response**:
 ```json
 {
-  "skill_name": "dsgs-cognitive-template",
+  "skill_name": "dnaspec-cognitive-template",
   "status": "COMPLETED",
   "result": {
     "success": true,
@@ -232,7 +232,7 @@ Execute system-level operations including project decomposition and agentic cont
 **Response (enhance_context_for_project)**:
 ```json
 {
-  "skill_name": "dsgs-context-engineering-system",
+  "skill_name": "dnaspec-context-engineering-system",
   "status": "COMPLETED",
   "result": {
     "success": true,
@@ -300,7 +300,7 @@ All error responses follow this format:
 - Context content is not stored or logged
 
 ### 6.2 Authentication
-- All endpoints require valid DSGS API tokens
+- All endpoints require valid DNASPEC API tokens
 - Tokens expire every 24 hours by default
 - Support for API key rotation
 

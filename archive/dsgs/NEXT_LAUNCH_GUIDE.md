@@ -1,9 +1,9 @@
-# DSGS 项目下次启动指南
+# DNASPEC 项目下次启动指南
 
 ## 🎯 启动位置
 
 **当前状态**: Phase 3 设计完成，执行待验证  
-**项目路径**: `D:\DAIP\dnaSpec\dsgs`  
+**项目路径**: `D:\DAIP\dnaSpec\dnaspec`  
 **保存时间**: 2025-08-10  
 **预估完成时间**: 4-6小时  
 
@@ -233,7 +233,7 @@ node test/chaos/chaos-engineering.js
 
 ---
 
-**启动命令**: `cd D:\DAIP\dnaSpec\dsgs && cat PROJECT_STATE_SAVE_PHASE3.md`  
+**启动命令**: `cd D:\DAIP\dnaSpec\dnaspec && cat PROJECT_STATE_SAVE_PHASE3.md`  
 **预估时间**: 4-6小时  
 **最终目标**: 建立可信赖的世界级测试体系  
 **质量标准**: 基于真实数据的完整验证

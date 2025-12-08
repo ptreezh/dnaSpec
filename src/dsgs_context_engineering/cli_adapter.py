@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - AI原生接口适配器
+DNASPEC Context Engineering Skills - AI原生接口适配器
 与Claude/Gemini等AI CLI平台集成的上下文工程增强系统
 """
 import json
@@ -15,8 +15,8 @@ class ContextEngineeringAdapter:
     """
     
     def __init__(self):
-        self.name = "dsgs-context-engineering-adapter"
-        self.description = "DSGS Context Engineering Skills - 为AI CLI平台提供专业上下文工程能力的适配器"
+        self.name = "dnaspec-context-engineering-adapter"
+        self.description = "DNASPEC Context Engineering Skills - 为AI CLI平台提供专业上下文工程能力的适配器"
     
     def handle_cli_command(self, command_parts: List[str], context: str) -> str:
         """
@@ -229,9 +229,9 @@ class ContextEngineeringAdapter:
     def _show_help(self) -> str:
         """返回帮助信息"""
         return """
-# DSGS Context Engineering Skills 帮助
+# DNASPEC Context Engineering Skills 帮助
 
-DSGS Context Engineering Skills 是为AI CLI平台设计的上下文工程增强工具集，利用AI模型原生智能提供专业级上下文分析、优化和结构化能力。
+DNASPEC Context Engineering Skills 是为AI CLI平台设计的上下文工程增强工具集，利用AI模型原生智能提供专业级上下文分析、优化和结构化能力。
 
 ## 可用命令:
 
@@ -248,9 +248,9 @@ DSGS Context Engineering Skills 是为AI CLI平台设计的上下文工程增强
 ## 示例用法:
 
 ```
-/dsgs-context analyze "设计电商系统，支持用户登录商品浏览功能。"
-/dsgs-context optimize "系统要处理订单" --goals "clarity,completeness"  
-/dsgs-context template "如何提高性能？" --template "chain_of_thought"
+/dnaspec-context analyze "设计电商系统，支持用户登录商品浏览功能。"
+/dnaspec-context optimize "系统要处理订单" --goals "clarity,completeness"  
+/dnaspec-context template "如何提高性能？" --template "chain_of_thought"
 ```
 
 ## 核心价值观:
@@ -330,7 +330,7 @@ def main():
     CLI主入口点 - 模拟与AI CLI平台的交互
     """
     if len(sys.argv) < 2:
-        print("Usage: python -m dsgs_context_engineering.cli <command> [context]")
+        print("Usage: python -m dnaspec_context_engineering.cli <command> [context]")
         print("Commands: analyze, optimize, template, help")
         return
     

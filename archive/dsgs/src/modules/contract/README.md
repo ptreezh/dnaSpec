@@ -216,7 +216,7 @@ interface ValidationConfig {
 ```yaml
 openapi: 3.0.0
 info:
-  title: DSGS API
+  title: DNASPEC API
   version: 1.0.0
   description: Dynamic Specification Growth System API
 paths:
@@ -245,7 +245,7 @@ components:
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "DSGS API Contract",
+  "title": "DNASPEC API Contract",
   "version": "1.0.0",
   "definitions": {
     "User": {
@@ -262,7 +262,7 @@ components:
 
 ### Markdown
 ```markdown
-# DSGS API Contract
+# DNASPEC API Contract
 
 **Version**: 1.0.0
 

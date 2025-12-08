@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 try:
     print("Testing import of final implementation...")
-    from src.dsgs_context_engineering.skills_system_final_real import (
+    from src.dnaspec_context_engineering.skills_system_final_real import (
         ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill, execute
     )
     print("✅ All modules imported successfully")
@@ -78,7 +78,7 @@ try:
     print(f"CLI execution length: {len(cli_result)} characters")
     print("✅ CLI interface working")
     
-    print("\n🎉 All tests passed! DSGS Context Engineering Skills with correct AI-native architecture is working!")
+    print("\n🎉 All tests passed! DNASPEC Context Engineering Skills with correct AI-native architecture is working!")
     print("\n🎯 This system leverages AI model's native intelligence through:")
     print("   • Precise instruction engineering (not local models)")
     print("   • Professional context analysis, optimization, and structuring")

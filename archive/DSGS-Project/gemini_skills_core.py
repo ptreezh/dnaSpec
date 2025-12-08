@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Gemini CLI DSGS Skills 核心框架
+Gemini CLI DNASPEC Skills 核心框架
 """
 
 import os
@@ -26,7 +26,7 @@ class SkillInfo:
     name: str
     description: str
     version: str = "1.0.0"
-    author: str = "DSGS System"
+    author: str = "DNASPEC System"
     keywords: List[str] = None
     confidence: float = 0.0
     execution_time: float = 0.0
@@ -50,7 +50,7 @@ class SkillResult:
         if self.metadata is None:
             self.metadata = {}
 
-class DSGSSkill:
+class DNASpecSkill:
     """DSGS技能基类"""
     
     def __init__(self, name: str, description: str):
@@ -107,7 +107,7 @@ class SkillManager:
     """技能管理器"""
     
     def __init__(self):
-        self.skills: Dict[str, DSGSSkill] = {}
+        self.skills: Dict[str, DNASpecSkill] = {}
         self.skill_registry: Dict[str, SkillInfo] = {}
         self._load_skills()
     
@@ -117,37 +117,37 @@ class SkillManager:
         # 目前使用模拟数据
         skill_infos = [
             SkillInfo(
-                name="dsgs-agent-creator",
+                name="dnaspec-agent-creator",
                 description="DSGS智能体创建器 - 专业的智能体设计和创建专家",
                 keywords=["创建智能体", "智能体设计", "agent creator", "多智能体系统", "智能体角色定义", "模块智能化", "agentic", "具身认知", "角色定义", "行为规范", "智能体架构"]
             ),
             SkillInfo(
-                name="dsgs-task-decomposer",
+                name="dnaspec-task-decomposer",
                 description="DSGS任务分解器 - 复杂任务分解和原子化专家",
                 keywords=["分解任务", "任务分解", "原子化任务", "任务依赖分析", "复杂任务", "一步步拆解", "任务分析", "任务清单", "任务计划", "任务依赖", "原子化", "开发任务"]
             ),
             SkillInfo(
-                name="dsgs-constraint-generator",
+                name="dnaspec-constraint-generator",
                 description="DSGS约束生成器 - 系统约束和规范生成专家",
                 keywords=["生成约束", "约束生成", "API规范", "数据约束", "约束规范", "规范生成", "接口约束", "数据规范", "系统约束"]
             ),
             SkillInfo(
-                name="dsgs-dapi-checker",
+                name="dnaspec-dapi-checker",
                 description="DSGS分布式接口检查器 - 接口一致性和完整性检查专家",
                 keywords=["接口检查", "一致性检查", "接口验证", "参数不一致", "接口不匹配", "参数错误", "接口错误", "定义不一致", "接口不一致", "API验证", "参数匹配", "支付接口", "用户服务"]
             ),
             SkillInfo(
-                name="dsgs-modulizer",
+                name="dnaspec-modulizer",
                 description="DSGS模块化器 - 模块成熟度检查和封装专家",
                 keywords=["模块化", "模块重构", "隔离测试", "分区测试", "系统重构", "模块成熟化", "封装", "自底向上", "降低系统复杂度", "成熟度评估", "模块封装", "订单处理", "用户管理"]
             ),
             SkillInfo(
-                name="dsgs-architect",
+                name="dnaspec-architect",
                 description="DSGS架构师 - 系统架构设计和协调专家",
                 keywords=["系统架构", "架构设计", "架构规划", "多层架构", "architecture", "design system", "微服务", "技术栈", "模块划分", "电商系统"]
             ),
             SkillInfo(
-                name="dsgs-system-architect",
+                name="dnaspec-system-architect",
                 description="DSGS系统架构师 - 具体系统架构设计专家",
                 keywords=["技术栈选择", "模块划分", "接口定义", "系统设计", "blueprint", "framework", "系统架构"]
             )
@@ -168,29 +168,29 @@ class SkillManager:
             from .src.dsgs_dapi_checker import dapi_checker
             from .src.dsgs_modulizer import modulizer
             
-            self.skills["dsgs-agent-creator"] = agent_creator
-            self.skills["dsgs-task-decomposer"] = task_decomposer
-            self.skills["dsgs-dapi-checker"] = dapi_checker
-            self.skills["dsgs-modulizer"] = modulizer
+            self.skills["dnaspec-agent-creator"] = agent_creator
+            self.skills["dnaspec-task-decomposer"] = task_decomposer
+            self.skills["dnaspec-dapi-checker"] = dapi_checker
+            self.skills["dnaspec-modulizer"] = modulizer
             
             # 更新技能信息
-            if "dsgs-agent-creator" in self.skill_registry:
-                self.skill_registry["dsgs-agent-creator"].version = agent_creator.get_skill_info()["version"] if hasattr(agent_creator, "get_skill_info") else "1.0.0"
+            if "dnaspec-agent-creator" in self.skill_registry:
+                self.skill_registry["dnaspec-agent-creator"].version = agent_creator.get_skill_info()["version"] if hasattr(agent_creator, "get_skill_info") else "1.0.0"
             
-            if "dsgs-task-decomposer" in self.skill_registry:
-                self.skill_registry["dsgs-task-decomposer"].version = task_decomposer.get_skill_info()["version"] if hasattr(task_decomposer, "get_skill_info") else "1.0.0"
+            if "dnaspec-task-decomposer" in self.skill_registry:
+                self.skill_registry["dnaspec-task-decomposer"].version = task_decomposer.get_skill_info()["version"] if hasattr(task_decomposer, "get_skill_info") else "1.0.0"
                 
-            if "dsgs-dapi-checker" in self.skill_registry:
-                self.skill_registry["dsgs-dapi-checker"].version = dapi_checker.get_skill_info()["version"] if hasattr(dapi_checker, "get_skill_info") else "1.0.0"
+            if "dnaspec-dapi-checker" in self.skill_registry:
+                self.skill_registry["dnaspec-dapi-checker"].version = dapi_checker.get_skill_info()["version"] if hasattr(dapi_checker, "get_skill_info") else "1.0.0"
                 
-            if "dsgs-modulizer" in self.skill_registry:
-                self.skill_registry["dsgs-modulizer"].version = modulizer.get_skill_info()["version"] if hasattr(modulizer, "get_skill_info") else "1.0.0"
+            if "dnaspec-modulizer" in self.skill_registry:
+                self.skill_registry["dnaspec-modulizer"].version = modulizer.get_skill_info()["version"] if hasattr(modulizer, "get_skill_info") else "1.0.0"
                 
         except ImportError as e:
             # 如果无法导入实际技能，使用默认处理
             pass
     
-    def register_skill(self, skill: DSGSSkill):
+    def register_skill(self, skill: DNASpecSkill):
         """注册技能"""
         self.skills[skill.name] = skill
         if skill.name in self.skill_registry:
@@ -198,7 +198,7 @@ class SkillManager:
             skill_info = self.skill_registry[skill.name]
             skill_info.version = skill.version
     
-    def get_skill(self, name: str) -> Optional[DSGSSkill]:
+    def get_skill(self, name: str) -> Optional[DNASpecSkill]:
         """获取技能"""
         return self.skills.get(name)
     
@@ -263,7 +263,7 @@ if __name__ == "__main__":
     # 测试技能管理器
     manager = get_skill_manager()
     
-    print("=== DSGS Skills 核心框架测试 ===")
+    print("=== DNASPEC Skills 核心框架测试 ===")
     print(f"已加载 {len(manager.list_skills())} 个技能:")
     
     for skill_info in manager.list_skills():

@@ -6,14 +6,14 @@
 - **语言**: Python 3.8+
 - **包管理**: pip + pyproject.toml
 - **技能系统**: 已实现6个核心技能
-  - dsgs-architect (架构师)
-  - dsgs-agent-creator (智能体创建器)
-  - dsgs-task-decomposer (任务分解器)
-  - dsgs-constraint-generator (约束生成器)
-  - dsgs-dapi-checker (接口检查器)
-  - dsgs-modulizer (模块化器)
+  - dnaspec-architect (架构师)
+  - dnaspec-agent-creator (智能体创建器)
+  - dnaspec-task-decomposer (任务分解器)
+  - dnaspec-constraint-generator (约束生成器)
+  - dnaspec-dapi-checker (接口检查器)
+  - dnaspec-modulizer (模块化器)
 - **适配器系统**: 已实现spec.kit适配器基类和具体实现
-- **命令接口**: /speckit.dsgs.* 斜杠命令格式
+- **命令接口**: /speckit.dnaspec.* 斜杠命令格式
 
 ### 1.2 当前问题
 - 缺乏npm包管理支持
@@ -44,7 +44,7 @@
 ### 2.2 初始化工具设计
 ```bash
 # npm安装后初始化
-npx dsgs-spec-kit init
+npx dnaspec-spec-kit init
 
 # 交互式配置向导
 1. 检测已安装的AI CLI工具
@@ -57,15 +57,15 @@ npx dsgs-spec-kit init
 ### 2.3 命令系统增强
 ```bash
 # 全局命令
-npx dsgs-spec-kit init          # 初始化配置
-npx dsgs-spec-kit list          # 列出可用技能
-npx dsgs-spec-kit config        # 配置管理
-npx dsgs-spec-kit test          # 测试集成
+npx dnaspec-spec-kit init          # 初始化配置
+npx dnaspec-spec-kit list          # 列出可用技能
+npx dnaspec-spec-kit config        # 配置管理
+npx dnaspec-spec-kit test          # 测试集成
 
 # 技能调用 (与spec.kit兼容)
-/speckit.dsgs.architect         # 架构设计
-/speckit.dsgs.agent-creator     # 智能体创建
-/speckit.dsgs.task-decomposer   # 任务分解
+/speckit.dnaspec.architect         # 架构设计
+/speckit.dnaspec.agent-creator     # 智能体创建
+/speckit.dnaspec.task-decomposer   # 任务分解
 ```
 
 ## 3. 升级实施路线图
@@ -177,11 +177,11 @@ npx dsgs-spec-kit test          # 测试集成
 ### 4.1 包管理规范
 ```json
 {
-  "name": "dsgs-spec-kit",
+  "name": "dnaspec-spec-kit",
   "version": "1.0.0",
-  "description": "DSGS Skills for spec.kit integration",
+  "description": "DNASPEC Skills for spec.kit integration",
   "bin": {
-    "dsgs-spec-kit": "./bin/cli.js"
+    "dnaspec-spec-kit": "./bin/cli.js"
   },
   "scripts": {
     "init": "node bin/init.js",
@@ -197,7 +197,7 @@ npx dsgs-spec-kit test          # 测试集成
 
 ### 4.2 配置文件规范
 ```yaml
-# .dsgs/config.yaml
+# .dnaspec/config.yaml
 version: "1.0.0"
 platforms:
   - name: "claude"
@@ -212,10 +212,10 @@ ai_cli_detection:
   qwen: "qwen --version"
 skills:
   architect:
-    command: "/speckit.dsgs.architect"
+    command: "/speckit.dnaspec.architect"
     enabled: true
   agent-creator:
-    command: "/speckit.dsgs.agent-creator"
+    command: "/speckit.dnaspec.agent-creator"
     enabled: true
 ```
 
@@ -223,7 +223,7 @@ skills:
 ```javascript
 // 命令解析规范
 const commandSpec = {
-  pattern: /^\/speckit\.dsgs\.([a-zA-Z0-9-]+)(?:\s+(.+))?$/,
+  pattern: /^\/speckit\.dnaspec\.([a-zA-Z0-9-]+)(?:\s+(.+))?$/,
   groups: {
     skill: 1,
     params: 2
@@ -232,9 +232,9 @@ const commandSpec = {
 
 // 技能映射规范
 const skillMap = {
-  "architect": "dsgs-architect",
-  "agent-creator": "dsgs-agent-creator",
-  "task-decomposer": "dsgs-task-decomposer"
+  "architect": "dnaspec-architect",
+  "agent-creator": "dnaspec-agent-creator",
+  "task-decomposer": "dnaspec-task-decomposer"
 };
 ```
 

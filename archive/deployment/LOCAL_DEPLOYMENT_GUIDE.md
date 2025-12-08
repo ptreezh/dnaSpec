@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - 本地部署和使用指南
+# DNASPEC Context Engineering Skills - 本地部署和使用指南
 
 ## 1. 系统要求
 
@@ -168,7 +168,7 @@ result = template_execute({"context": "任务描述", "template": "chain_of_thou
 
 ### 10.1 添加新技能
 1. 在 `src/context_engineering_skills/` 目录下创建新技能文件
-2. 继承 `DSGSSkill` 基类
+2. 继承 `DNASpecSkill` 基类
 3. 实现 `_execute_skill_logic` 方法
 4. 添加对应的测试
 

@@ -1,4 +1,4 @@
-# DSGS 模块依赖关系图
+# DNASPEC 模块依赖关系图
 
 ## 📋 目录
 1. [核心架构图](#核心架构图)
@@ -12,7 +12,7 @@
 ## 🏗️ 核心架构图
 
 ```
-DSGS (Dynamic Specification Growth System)
+DNASPEC (Dynamic Specification Growth System)
 │
 ├── 📦 src/core/ (核心模块)
 │   ├── 🎯 ContextEngineeringIntegration.ts (主入口)

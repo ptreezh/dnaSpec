@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills System - 实施清单 (Implementation Checklist)
+# DNASPEC Context Engineering Skills System - 实施清单 (Implementation Checklist)
 
 ## Week 1-2: 核心架构搭建 (Phase 1)
 
@@ -6,7 +6,7 @@
 
 #### Day 1-2: 项目初始化和基础类设计
 - [ ] **SETUP-001**: 创建项目结构
-  - [ ] 在`src/dsgs_context_engineering/`创建基础目录结构
+  - [ ] 在`src/dnaspec_context_engineering/`创建基础目录结构
   - [ ] 创建`__init__.py`文件
   - [ ] 配置`pyproject.toml`依赖管理
 
@@ -66,7 +66,7 @@
 #### Day 10-11: CLI接口实现
 - [ ] **CLI-001**: 实现基础CLI结构
   - [ ] 创建`cli/interface.py`
-  - [ ] 实现`dsgs`主命令组
+  - [ ] 实现`dnaspec`主命令组
   - [ ] 实现`analyze`子命令
   - [ ] 实现参数解析和验证
   - [ ] 集成技能执行引擎
@@ -255,7 +255,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dsgs-context-engineering"
+name = "dnaspec-context-engineering"
 version = "1.0.0"
 dependencies = [
     "pyyaml>=6.0",
@@ -278,5 +278,5 @@ dependencies = [
 ---
 **清单版本**: 1.0
 **制定日期**: 2025-11-06
-**项目经理**: DSGS Engineering Team
+**项目经理**: DNASPEC Engineering Team
 **实施状态**: 待启动

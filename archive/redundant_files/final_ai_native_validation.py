@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - AI原生系统最终验证
+DNASPEC Context Engineering Skills - AI原生系统最终验证
 验证系统所有功能都符合AI原生理念并能正常工作
 """
 import sys
@@ -12,12 +12,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def test_ai_native_implementation():
     """验证AI原生实现理念"""
-    print("🔍 DSGS Context Engineering Skills - AI原生实现验证")
+    print("🔍 DNASPEC Context Engineering Skills - AI原生实现验证")
     print("=" * 70)
     
     print("\\n✅ 验证1: 模块导入兼容性")
     try:
-        from src.dsgs_context_engineering.skills_system_real import (
+        from src.dnaspec_context_engineering.skills_system_real import (
             ContextAnalysisSkill,
             ContextOptimizationSkill,
             CognitiveTemplateSkill,
@@ -165,7 +165,7 @@ def test_ai_native_implementation():
     print("🎉 所有验证通过！AI原生架构正确实现")
     print("="*70)
     print()
-    print("DSGS Context Engineering Skills 已成功实现为AI原生系统：")
+    print("DNASPEC Context Engineering Skills 已成功实现为AI原生系统：")
     print("✅ 100%利用AI模型原生智能 - 无本地模型依赖")
     print("✅ 指令工程驱动 - 通过高质量AI指令实现功能") 
     print("✅ 专业上下文工程能力 - 五维分析、多目标优化、认知模板")
@@ -182,7 +182,7 @@ def demonstration():
     print("\\n💡 系统功能演示:")
     print("-" * 40)
     
-    from src.dsgs_context_engineering.skills_system_real import (
+    from src.dnaspec_context_engineering.skills_system_real import (
         ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
     )
     

@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - OpenSpec Claude Architecture Implementation
+# DNASPEC Context Engineering Skills - OpenSpec Claude Architecture Implementation
 
 ## 1. OpenSpec Requirements Verification
 
@@ -57,7 +57,7 @@ Based on Claude Skills architecture and AI-native principles:
                                     │
                                     ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│            DSGS Context Engineering System                    │
+│            DNASPEC Context Engineering System                    │
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │  Claude Architecture-Compatible Implementation         │   │
 │  │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────┐│   │
@@ -71,7 +71,7 @@ Based on Claude Skills architecture and AI-native principles:
 ### 2.2 Skill Execution Pattern (AI-Native)
 ```python
 # 每个技能都遵循Claude Skills的AI原生模式
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
         # 1. 构造AI指令
         instruction = f"""
@@ -91,7 +91,7 @@ class ContextAnalysisSkill(DSGSSkill):
 
 ### 3.1 Context Analysis Skill
 ```
-Name: dsgs-context-analysis
+Name: dnaspec-context-analysis
 Purpose: Analyze context quality using five dimensions through AI native intelligence
 Activation: Detects analysis, evaluate, quality, assess keywords
 Parameters: 
@@ -105,7 +105,7 @@ Output:
 
 ### 3.2 Context Optimization Skill
 ```
-Name: dsgs-context-optimization  
+Name: dnaspec-context-optimization  
 Purpose: Optimize context quality using AI native reasoning capabilities
 Activation: Detects optimize, improve, refine keywords
 Parameters:
@@ -119,7 +119,7 @@ Output:
 
 ### 3.3 Cognitive Template Skill
 ```
-Name: dsgs-cognitive-template
+Name: dnaspec-cognitive-template
 Purpose: Apply cognitive frameworks to structure complex reasoning
 Activation: Detects chain, template, framework, cognitive keywords
 Parameters:
@@ -135,7 +135,7 @@ Output:
 ## 4. Claude Architecture Integration Features
 
 ### 4.1 Platform Compatibility
-- **Command Interface**: Compatible with `/dsgs-*` style commands
+- **Command Interface**: Compatible with `/dnaspec-*` style commands
 - **Tool Integration**: Can be registered as AI CLI tools/functions
 - **Parameter Validation**: Standardized parameter handling
 - **Response Formatting**: Structured output for CLI integration
@@ -218,7 +218,7 @@ Output:
 
 ## 9. Production Readiness Assessment
 
-**DSGS Context Engineering Skills System** is fully ready for production deployment with Claude Skills architecture compatibility:
+**DNASPEC Context Engineering Skills System** is fully ready for production deployment with Claude Skills architecture compatibility:
 
 ✅ **100% AI Native Implementation** - Utilizes AI model native intelligence exclusively
 ✅ **Claude Architecture Patterns** - Follows proven Claude Skills design principles  

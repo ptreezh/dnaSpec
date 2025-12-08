@@ -34,13 +34,13 @@ spec-kit/
 │   ├── context-analysis-enhanced/ # ✅ 增强分析
 │   ├── context-optimization-enhanced/ # ✅ 增强优化
 │   ├── cognitive-template-enhanced/ # ✅ 增强认知
-│   ├── dsgs-architect/     # ✅ DSGS架构师
-│   ├── dsgs-system-architect/ # ✅ DSGS系统架构师
-│   ├── dsgs-agent-creator/ # ✅ DSGS智能体创建器
-│   ├── dsgs-constraint-generator/ # ✅ DSGS约束生成器
-│   ├── dsgs-task-decomposer/ # ✅ DSGS任务分解器
-│   ├── dsgs-modulizer/     # ✅ DSGS模块化验证器
-│   └── dsgs-dapi-checker/  # ✅ DSGS接口检查器
+│   ├── dnaspec-architect/     # ✅ DSGS架构师
+│   ├── dnaspec-system-architect/ # ✅ DSGS系统架构师
+│   ├── dnaspec-agent-creator/ # ✅ DSGS智能体创建器
+│   ├── dnaspec-constraint-generator/ # ✅ DSGS约束生成器
+│   ├── dnaspec-task-decomposer/ # ✅ DSGS任务分解器
+│   ├── dnaspec-modulizer/     # ✅ DSGS模块化验证器
+│   └── dnaspec-dapi-checker/  # ✅ DSGS接口检查器
 ├── scripts/                # ✅ 9个Python脚本
 │   ├── context_analyzer.py  # ✅ 上下文分析引擎
 │   ├── context_optimizer.py # ✅ 上下文优化引擎
@@ -117,7 +117,7 @@ spec-kit/
 ### 核心技能系统 (19个)
 - **Core Spec-Driven (5)**: 项目规格、规划、任务、实施、宪法
 - **Context Engineering (7)**: 分析、优化、认知模板及增强版本
-- **DSGS Intelligent Architect (7)**: 架构、系统、代理、约束、任务分解、模块化、接口检查
+- **DNASPEC Intelligent Architect (7)**: 架构、系统、代理、约束、任务分解、模块化、接口检查
 
 ### 脚本增强系统 (9个)
 - `context_analyzer.py` - 上下文分析引擎

@@ -13,7 +13,7 @@ class CognitiveTemplateSkill(ContextEngineeringSkill):
     
     def __init__(self, ai_client: AIModelClient, template_registry: TemplateRegistry):
         super().__init__(
-            name="dsgs-cognitive-template",
+            name="dnaspec-cognitive-template",
             description="认知模板技能 - 应用认知模板提升AI推理质量",
             ai_client=ai_client,
             template_registry=template_registry

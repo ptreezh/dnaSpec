@@ -22,12 +22,12 @@ def test_dapi_checker_keywords():
     # 找到dsgs-dapi-checker技能
     dsgs_dapi_checker = None
     for skill in hook.skills_registry:
-        if skill.name == 'dsgs-dapi-checker':
+        if skill.name == 'dnaspec-dapi-checker':
             dsgs_dapi_checker = skill
             break
     
     if dsgs_dapi_checker:
-        print(f"dsgs-dapi-checker 关键词: {dsgs_dapi_checker.keywords}")
+        print(f"dnaspec-dapi-checker 关键词: {dsgs_dapi_checker.keywords}")
         print()
         
         # 测试新增的关键词
@@ -52,7 +52,7 @@ def test_dapi_checker_keywords():
             print(f'  匹配关键词: {matched_keywords}')
             print()
     else:
-        print("未找到 dsgs-dapi-checker 技能")
+        print("未找到 dnaspec-dapi-checker 技能")
 
 if __name__ == "__main__":
     test_dapi_checker_keywords()

@@ -13,7 +13,7 @@ def test_imports():
     
     # 尝试导入核心模块
     try:
-        import src.dsgs_context_engineering.skills_system_final as skills_sys
+        import src.dnaspec_context_engineering.skills_system_final as skills_sys
         print("✅ 主模块导入成功")
     except ImportError as e:
         print(f"❌ 主模块导入失败: {e}")
@@ -32,7 +32,7 @@ def test_available_skills():
     """测试可用技能列表"""
     print("\n测试可用技能...")
     try:
-        import src.dsgs_context_engineering.skills_system_final as skills_sys
+        import src.dnaspec_context_engineering.skills_system_final as skills_sys
         available_skills = skills_sys.get_available_skills()
         print("✅ 可用技能列表获取成功:")
         for skill, desc in available_skills.items():
@@ -46,7 +46,7 @@ def test_core_functions():
     """测试核心功能"""
     print("\n测试核心功能...")
     try:
-        import src.dsgs_context_engineering.skills_system_final as skills_sys
+        import src.dnaspec_context_engineering.skills_system_final as skills_sys
         
         # 1. 测试上下文分析
         print("  测试上下文分析...")
@@ -106,7 +106,7 @@ def inspect_module_contents():
         
         spec = importlib.util.spec_from_file_location(
             "skills_system", 
-            "src/dsgs_context_engineering/skills_system_final.py"
+            "src/dnaspec_context_engineering/skills_system_final.py"
         )
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
@@ -134,7 +134,7 @@ def inspect_module_contents():
 
 def main():
     """主测试函数"""
-    print("DSGS Context Engineering Skills 功能验证")
+    print("DNASPEC Context Engineering Skills 功能验证")
     print("="*50)
     
     success = True

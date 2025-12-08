@@ -9,25 +9,25 @@ from typing import Dict, Optional, Any
 class CommandParser:
     """
     DSGS命令解析器
-    解析符合/speckit.dsgs.*格式的命令
+    解析符合/speckit.dnaspec.*格式的命令
     """
     
     def __init__(self):
         # 定义命令格式的正则表达式
-        # 匹配 /speckit.dsgs.{skill_name} [params] 格式
-        self.pattern = r'^/speckit\.dsgs\.([a-zA-Z0-9-]+)(?:\s+(.+))?$'
+        # 匹配 /speckit.dnaspec.{skill_name} [params] 格式
+        self.pattern = r'^/speckit\.dnaspec\.([a-zA-Z0-9-]+)(?:\s+(.+))?$'
     
     def parse(self, command_string: str) -> Dict[str, Any]:
         """
         解析命令字符串
         
         Args:
-            command_string: 命令字符串，如 '/speckit.dsgs.architect 设计电商系统'
+            command_string: 命令字符串，如 '/speckit.dnaspec.architect 设计电商系统'
             
         Returns:
             解析结果字典，包含命令、技能名、参数和有效性信息
         """
-        if not command_string or not command_string.startswith('/speckit.dsgs.'):
+        if not command_string or not command_string.startswith('/speckit.dnaspec.'):
             return {
                 'isValid': False,
                 'error': 'Invalid command prefix',

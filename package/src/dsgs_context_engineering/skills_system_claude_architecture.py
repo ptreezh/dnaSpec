@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - Claude Skills Architecture Implementation
+DNASPEC Context Engineering Skills - Claude Skills Architecture Implementation
 遵循Claude Skills架构模式实现，确保与AI CLI平台的兼容性和最佳实践
 """
 from typing import Dict, Any, List, Optional
@@ -51,8 +51,8 @@ class DSGSContextEngineeringSystem:
     """
     
     def __init__(self):
-        self.name = "dsgs-context-engineering"
-        self.description = "DSGS Context Engineering Skills System - 专业的上下文工程增强工具集"
+        self.name = "dnaspec-context-engineering"
+        self.description = "DNASPEC Context Engineering Skills System - 专业的上下文工程增强工具集"
         self.version = "1.0.0"
         
         # 定义核心技能

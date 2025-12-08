@@ -8,10 +8,10 @@ import time
 # 添加项目路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - AI原生实现验证测试")
+print("🔍 DNASPEC Context Engineering Skills - AI原生实现验证测试")
 print("=" * 70)
 
-from src.dsgs_context_engineering.skills_system_real import (
+from src.dnaspec_context_engineering.skills_system_real import (
     ContextAnalysisSkill, 
     ContextOptimizationSkill, 
     CognitiveTemplateSkill,
@@ -144,7 +144,7 @@ def main():
         print("🎉 全面验证成功！")
         print("="*70)
         print("")
-        print("🎯 DSGS Context Engineering Skills - AI原生系统部署完成")
+        print("🎯 DNASPEC Context Engineering Skills - AI原生系统部署完成")
         print("")
         print("✅ 系统特征:")
         print("   • 100% AI原生架构 - 利用AI模型原生智能")
@@ -165,7 +165,7 @@ def main():
         # 输出系统信息
         print("\\n📋 系统信息:")
         print(f"   • 当前版本: {time.strftime('%Y.%m.%d')}")
-        print(f"   • 系统名称: DSGS Context Engineering Skills")
+        print(f"   • 系统名称: DNASPEC Context Engineering Skills")
         print(f"   • 架构模式: AI Native + Instruction Engineering")
         print(f"   • 集成功能: Context Analysis, Optimization, Cognitive Templates")
         
@@ -178,8 +178,8 @@ def main():
 if __name__ == "__main__":
     success = run_comprehensive_test()
     if success:
-        print("\\n✅ DSGS Context Engineering Skills 系统验证通过！")
+        print("\\n✅ DNASPEC Context Engineering Skills 系统验证通过！")
         sys.exit(0)
     else:
-        print("\\n❌ DSGS Context Engineering Skills 系统验证失败！") 
+        print("\\n❌ DNASPEC Context Engineering Skills 系统验证失败！") 
         sys.exit(1)

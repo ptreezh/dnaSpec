@@ -18,10 +18,10 @@ def demo_modulizer_invocation():
     
     # 测试模块化技能的触发
     test_cases = [
-        "对系统进行自底向上的模块化检查",           # 应该匹配 dsgs-modulizer
-        "分析组件的成熟度并进行模块封装",           # 应该匹配 dsgs-modulizer
-        "检查模块是否可以进行成熟化封装",           # 应该匹配 dsgs-modulizer
-        "进行系统组件的模块化核验",                # 应该匹配 dsgs-modulizer
+        "对系统进行自底向上的模块化检查",           # 应该匹配 dnaspec-modulizer
+        "分析组件的成熟度并进行模块封装",           # 应该匹配 dnaspec-modulizer
+        "检查模块是否可以进行成熟化封装",           # 应该匹配 dnaspec-modulizer
+        "进行系统组件的模块化核验",                # 应该匹配 dnaspec-modulizer
     ]
     
     for i, user_message in enumerate(test_cases, 1):

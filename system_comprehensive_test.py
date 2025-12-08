@@ -9,13 +9,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def test_all_capabilities():
     """测试所有功能能力"""
-    print("DSGS Context Engineering Skills - 功能完整性验证")
+    print("DNASPEC Context Engineering Skills - 功能完整性验证")
     print("="*60)
     
     # 1. 验证核心技能是否可用
     print("\n1. 验证核心技能...")
     try:
-        from src.dsgs_context_engineering.skills_system_final import (
+        from src.dnaspec_context_engineering.skills_system_final import (
             execute, 
             get_available_skills,
             ContextAnalysisSkill,
@@ -50,7 +50,7 @@ def test_all_capabilities():
     # 2. 验证高级功能是否可用
     print("\n2. 验证高级功能...")
     try:
-        from src.dsgs_context_engineering.skills_system_final import (
+        from src.dnaspec_context_engineering.skills_system_final import (
             create_agent_with_context_analysis,
             decompose_complex_task,
             design_project_structure,

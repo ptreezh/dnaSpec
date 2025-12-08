@@ -214,7 +214,7 @@ class ClaudeToolsAdapter(PlatformAdapter):
                 tools=[
                     {
                         "name": tool_name,
-                        "description": f"DSGS Context Engineering Skill: {tool_name}",
+                        "description": f"DNASPEC Context Engineering Skill: {tool_name}",
                         "input_schema": {
                             "type": "object",
                             "properties": {
@@ -280,10 +280,10 @@ class ClaudeToolsAdapter(PlatformAdapter):
         # 在实际实现中，这是通过查询注册的技能获得的
         # 暂时返回模拟列表
         return [
-            "dsgs-context-analysis",
-            "dsgs-context-optimization", 
-            "dsgs-cognitive-template",
-            "dsgs-context-audit"
+            "dnaspec-context-analysis",
+            "dnaspec-context-optimization", 
+            "dnaspec-cognitive-template",
+            "dnaspec-context-audit"
         ]
 
 

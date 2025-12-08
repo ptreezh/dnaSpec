@@ -1,12 +1,12 @@
 """
-DSGS Context Engineering Skills - 真实功能验证
+DNASPEC Context Engineering Skills - 真实功能验证
 验证AI原生架构的实际工作能力
 """
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - 真实功能验证")
+print("🔍 DNASPEC Context Engineering Skills - 真实功能验证")
 print("="*70)
 
 def test_all_components():
@@ -14,7 +14,7 @@ def test_all_components():
     try:
         # 测试1: 验证导入
         print("\\n✅ 1. 验证模块导入...")
-        from src.dsgs_context_engineering.skills_system_final_clean import (
+        from src.dnaspec_context_engineering.skills_system_final_clean import (
             ContextAnalysisSkill as RealContextAnalysisSkill,
             ContextOptimizationSkill as RealContextOptimizationSkill,
             CognitiveTemplateSkill as RealCognitiveTemplateSkill
@@ -125,7 +125,7 @@ def test_all_components():
         print("🎉 全面功能验证完成！")
         print("="*70)
         print("")
-        print("🎯 DSGS Context Engineering Skills 已正确实现为AI原生架构:")
+        print("🎯 DNASPEC Context Engineering Skills 已正确实现为AI原生架构:")
         print("   ✅ 100% 利用AI模型原生智能")
         print("   ✅ 指令工程驱动实现")
         print("   ✅ 专业上下文工程能力")
@@ -167,7 +167,7 @@ if __name__ == "__main__":
     if success:
         print()
         confidence = get_confidence_level()
-        print(f"\\n🏆 DSGS Context Engineering Skills - 验证通过 (置信度: {confidence}%)")
+        print(f"\\n🏆 DNASPEC Context Engineering Skills - 验证通过 (置信度: {confidence}%)")
     else:
         print("\\n❌ 系统验证失败，请检查实现")
         sys.exit(1)

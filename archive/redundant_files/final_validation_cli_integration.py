@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 最终验证脚本
+DNASPEC Context Engineering Skills - 最终验证脚本
 验证系统作为AI CLI增强工具的真实功能
 """
 import sys
@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 try:
     print("导入核心技能模块...")
-    from src.dsgs_context_engineering.skills_system_real import (
+    from src.dnaspec_context_engineering.skills_system_real import (
         ContextAnalysisSkill,
         ContextOptimizationSkill,
         CognitiveTemplateSkill,
@@ -95,7 +95,7 @@ try:
     print(f"   输出示例: {cli_output[:100]}...")
 
     print("\\n" + "="*60)
-    print("🎉 DSGS Context Engineering Skills - 验证完成！")
+    print("🎉 DNASPEC Context Engineering Skills - 验证完成！")
     print("="*60)
     print()
     print("✅ 系统已正确实现为AI CLI平台增强工具")

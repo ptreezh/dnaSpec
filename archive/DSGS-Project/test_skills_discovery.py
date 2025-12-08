@@ -25,13 +25,13 @@ class TestSkillsDiscovery(unittest.TestCase):
         # 验证关键Skills都已注册
         skill_names = [skill.name for skill in self.hook.skills_registry]
         expected_skills = [
-            'dsgs-architect',
-            'dsgs-system-architect', 
-            'dsgs-task-decomposer',
-            'dsgs-agent-creator',
-            'dsgs-constraint-generator',
-            'dsgs-dapi-checker',
-            'dsgs-modulizer'
+            'dnaspec-architect',
+            'dnaspec-system-architect', 
+            'dnaspec-task-decomposer',
+            'dnaspec-agent-creator',
+            'dnaspec-constraint-generator',
+            'dnaspec-dapi-checker',
+            'dnaspec-modulizer'
         ]
         
         for expected_skill in expected_skills:
@@ -42,7 +42,7 @@ class TestSkillsDiscovery(unittest.TestCase):
         # 测试dsgs-dapi-checker信息提取
         dapi_skill = None
         for skill in self.hook.skills_registry:
-            if skill.name == 'dsgs-dapi-checker':
+            if skill.name == 'dnaspec-dapi-checker':
                 dapi_skill = skill
                 break
         
@@ -56,7 +56,7 @@ class TestSkillsDiscovery(unittest.TestCase):
         # 测试DAPIcheck技能的关键词提取
         dapi_keywords = self.hook._extract_keywords_improved(
             "DSGS分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性，验证实现与接口文档的符合性。当用户提到接口一致性检查、分布式接口验证、API文档核验或组件接口验证时使用此技能。",
-            "dsgs-dapi-checker"
+            "dnaspec-dapi-checker"
         )
         
         self.assertIn('dapi', dapi_keywords, "应该提取dapi关键词")
@@ -70,18 +70,18 @@ class TestSkillsDiscovery(unittest.TestCase):
         matched_skills = self.hook.analyze_user_intent("创建智能agent")
         matched_names = [skill.name for skill in matched_skills]
         
-        self.assertIn('dsgs-agent-creator', matched_names, "应该匹配到dsgs-agent-creator")
+        self.assertIn('dnaspec-agent-creator', matched_names, "应该匹配到dsgs-agent-creator")
     
     def test_advanced_intent_analysis(self):
         """测试高级意图分析"""
         # 测试DAPIcheck技能的匹配
         test_cases = [
-            ("检查接口一致性", "dsgs-dapi-checker"),
-            ("验证API文档的一致性", "dsgs-dapi-checker"),
-            ("进行分布式接口验证", "dsgs-dapi-checker"),
-            ("模块化检查", "dsgs-modulizer"),
-            ("组件成熟度验证", "dsgs-modulizer"),
-            ("自底向上封装", "dsgs-modulizer")
+            ("检查接口一致性", "dnaspec-dapi-checker"),
+            ("验证API文档的一致性", "dnaspec-dapi-checker"),
+            ("进行分布式接口验证", "dnaspec-dapi-checker"),
+            ("模块化检查", "dnaspec-modulizer"),
+            ("组件成熟度验证", "dnaspec-modulizer"),
+            ("自底向上封装", "dnaspec-modulizer")
         ]
         
         for user_message, expected_skill in test_cases:
@@ -98,7 +98,7 @@ class TestSkillsDiscovery(unittest.TestCase):
         # 找到dsgs-dapi-checker技能
         dapi_skill = None
         for skill in self.hook.skills_registry:
-            if skill.name == 'dsgs-dapi-checker':
+            if skill.name == 'dnaspec-dapi-checker':
                 dapi_skill = skill
                 break
         
@@ -120,7 +120,7 @@ class TestSkillsDiscovery(unittest.TestCase):
         
         self.assertIsNotNone(response, "应该返回Skill响应")
         self.assertEqual(response["type"], "skill_response", "响应类型应该是skill_response")
-        self.assertEqual(response["skill_name"], "dsgs-agent-creator", "应该调用dsgs-agent-creator")
+        self.assertEqual(response["skill_name"], "dnaspec-agent-creator", "应该调用dsgs-agent-creator")
 
 class TestEdgeCases(unittest.TestCase):
     """边界情况测试"""

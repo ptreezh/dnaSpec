@@ -2,7 +2,7 @@
 
 ## 已完成的技能实现
 
-### 1. dsgs-architect主技能（已完成）
+### 1. dnaspec-architect主技能（已完成）
 - **功能**: 智能架构师主技能，负责请求路由和子技能协调
 - **核心特性**:
   - 基于关键词的智能路由机制
@@ -10,7 +10,7 @@
   - 完整的单元测试覆盖
 - **测试状态**: 所有测试通过 ✓
 
-### 2. dsgs-system-architect子技能（已完成）
+### 2. dnaspec-system-architect子技能（已完成）
 - **功能**: 系统架构师，负责复杂项目的系统架构设计
 - **核心能力**:
   - 系统架构设计 (architecture_design)
@@ -19,7 +19,7 @@
   - 接口定义 (interface_definition)
 - **测试状态**: 所有测试通过 ✓
 
-### 3. dsgs-task-decomposer子技能（已完成）
+### 3. dnaspec-task-decomposer子技能（已完成）
 - **功能**: 任务分解器，负责将复杂需求分解为原子化任务
 - **核心能力**:
   - 任务分解 (task_decomposition)
@@ -28,7 +28,7 @@
   - 执行规划 (execution_planning)
 - **测试状态**: 所有测试通过 ✓
 
-### 4. dsgs-agent-creator子技能（已完成）
+### 4. dnaspec-agent-creator子技能（已完成）
 - **功能**: 智能体创建器，负责创建和配置智能体
 - **核心能力**:
   - 智能体创建 (agent_creation)
@@ -37,7 +37,7 @@
   - 通信协议 (communication_protocol)
 - **测试状态**: 所有测试通过 ✓
 
-### 5. dsgs-constraint-generator子技能（已完成）
+### 5. dnaspec-constraint-generator子技能（已完成）
 - **功能**: 约束生成器，负责生成系统约束和规范
 - **核心能力**:
   - 系统约束生成 (system_constraint_generation)

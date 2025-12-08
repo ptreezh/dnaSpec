@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - 问题修复说明
+# DNASPEC Context Engineering Skills - 问题修复说明
 
 ## 问题诊断
 

@@ -9,7 +9,7 @@ print('=' * 50)
 
 try:
     # Import and test the system
-    from src.dsgs_context_engineering.skills_system_final_clean import (
+    from src.dnaspec_context_engineering.skills_system_final_clean import (
         ContextAnalysisSkill, 
         ContextOptimizationSkill, 
         CognitiveTemplateSkill,

@@ -16,7 +16,7 @@ src_dir = os.path.join(project_root, 'src')
 print("Src dir exists:", os.path.exists(src_dir))
 
 # 检查是否存在hook.py
-hook_file = os.path.join(project_root, 'src', 'dsgs_spec_kit_integration', 'core', 'hook.py')
+hook_file = os.path.join(project_root, 'src', 'dnaspec_spec_kit_integration', 'core', 'hook.py')
 print("Hook file exists:", os.path.exists(hook_file))
 
 # 打印Python路径

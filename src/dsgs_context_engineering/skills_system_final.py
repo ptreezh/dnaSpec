@@ -1,11 +1,11 @@
 """
-DSGS Context Engineering Skills - 英文版实现
+DNASPEC Context Engineering Skills - 英文版实现
 所有输出使用英文和ANSI字符
 """
 import json
 import re
 from typing import Dict, Any
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 
 
 def simulate_ai_completion(instruction: str) -> str:
@@ -104,7 +104,7 @@ def simulate_ai_completion(instruction: str) -> str:
         return json.dumps(result_data, ensure_ascii=False)
 
 
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """Context Analysis Skill - Use AI model native intelligence for analysis"""
 
     def __init__(self):
@@ -161,7 +161,7 @@ Return analysis result in JSON format.
             return 0.8
 
 
-class ContextOptimizationSkill(DSGSSkill):
+class ContextOptimizationSkill(DNASpecSkill):
     """Context Optimization Skill - Use AI model native intelligence for optimization"""
 
     def __init__(self):
@@ -219,7 +219,7 @@ Please return optimized content and applied optimization measures in JSON format
             return 0.75
 
 
-class CognitiveTemplateSkill(DSGSSkill):
+class CognitiveTemplateSkill(DNASpecSkill):
     """Cognitive Template Skill - Use AI model native intelligence to apply cognitive templates"""
 
     def __init__(self):
@@ -344,7 +344,7 @@ def execute(args: Dict[str, Any]) -> str:
     Execute function - Interface integrated with AI CLI platforms
     """
     import json
-    from src.dsgs_spec_kit_integration.core.skill import SkillResult, SkillStatus
+    from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
     
     skill_name = args.get('skill', 'context-analysis')
     context_input = args.get('context', '') or args.get('request', '')

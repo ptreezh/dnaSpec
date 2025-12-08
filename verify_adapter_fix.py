@@ -6,7 +6,7 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-from src.dsgs_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
+from src.dnaspec_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
 
 def test_adapter_registration():
     print("测试适配器技能注册...")
@@ -23,9 +23,9 @@ def test_adapter_registration():
     
     # 检查核心DSGS技能是否注册
     core_skills = [
-        'dsgs-context-analysis',
-        'dsgs-context-optimization', 
-        'dsgs-cognitive-template'
+        'dnaspec-context-analysis',
+        'dnaspec-context-optimization', 
+        'dnaspec-cognitive-template'
     ]
     
     print("\n核心DSGS技能注册状态:")
@@ -36,9 +36,9 @@ def test_adapter_registration():
     # 测试命令解析和执行
     print("\n测试斜杠命令:")
     test_commands = [
-        "/speckit.dsgs.context-analysis 这是测试文本",
-        "/speckit.dsgs.context-optimization 这是测试文本",
-        "/speckit.dsgs.cognitive-template 这是测试文本"
+        "/speckit.dnaspec.context-analysis 这是测试文本",
+        "/speckit.dnaspec.context-optimization 这是测试文本",
+        "/speckit.dnaspec.cognitive-template 这是测试文本"
     ]
     
     for cmd in test_commands:

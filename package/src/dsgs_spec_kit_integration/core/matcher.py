@@ -76,23 +76,23 @@ class IntelligentMatcher:
     
     def _match_spec_kit_commands(self, request: str) -> Optional[MatchResult]:
         """匹配spec.kit命令模式"""
-        if not request.startswith("/speckit.dsgs."):
+        if not request.startswith("/speckit.dnaspec."):
             return None
         
         # 提取技能名称
-        remaining = request[len("/speckit.dsgs."):].strip()
+        remaining = request[len("/speckit.dnaspec."):].strip()
         if ' ' in remaining:
             skill_name_part = remaining.split(' ', 1)[0]
         else:
             skill_name_part = remaining
         
-        full_skill_name = f"dsgs-{skill_name_part}"
+        full_skill_name = f"dnaspec-{skill_name_part}"
         
         return MatchResult(
             skill_name=full_skill_name,
             confidence=0.95,  # 高置信度
             match_type="spec_kit_command",
-            matched_keywords=[f"/speckit.dsgs.{skill_name_part}"],
+            matched_keywords=[f"/speckit.dnaspec.{skill_name_part}"],
             processing_time=0.0
         )
     
@@ -222,12 +222,12 @@ class IntelligentMatcher:
     def _get_skill_context_relevance(self, skill_name: str) -> List[str]:
         """获取技能上下文相关性"""
         context_relevance = {
-            'dsgs-architect': ['system', 'architecture', 'design', 'creation', '分析'],
-            'dsgs-agent-creator': ['ai', 'creation', 'agent', '智能体'],
-            'dsgs-task-decomposer': ['decomposition', 'task', 'project', '分析'],
-            'dsgs-constraint-generator': ['generation', 'validation', '生成'],
-            'dsgs-dapi-checker': ['validation', 'data', 'system', '检查'],
-            'dsgs-modulizer': ['optimization', 'analysis', 'system', '优化']
+            'dnaspec-architect': ['system', 'architecture', 'design', 'creation', '分析'],
+            'dnaspec-agent-creator': ['ai', 'creation', 'agent', '智能体'],
+            'dnaspec-task-decomposer': ['decomposition', 'task', 'project', '分析'],
+            'dnaspec-constraint-generator': ['generation', 'validation', '生成'],
+            'dnaspec-dapi-checker': ['validation', 'data', 'system', '检查'],
+            'dnaspec-modulizer': ['optimization', 'analysis', 'system', '优化']
         }
         
         return context_relevance.get(skill_name, [])

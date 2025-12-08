@@ -6,8 +6,8 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-from src.dsgs_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
-from src.dsgs_context_engineering.skills_system_final import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
+from src.dnaspec_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
+from src.dnaspec_context_engineering.skills_system_final import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
 
 def test_adapter():
     print("测试DSGS适配器...")
@@ -29,14 +29,14 @@ def test_adapter():
         return skill.process_request(params.get("params", ""), params)
     
     # 注册核心技能
-    adapter.register_skill("dsgs-context-analysis", context_analysis_wrapper)
-    adapter.register_skill("dsgs-context-optimization", context_optimization_wrapper)
-    adapter.register_skill("dsgs-cognitive-template", cognitive_template_wrapper)
+    adapter.register_skill("dnaspec-context-analysis", context_analysis_wrapper)
+    adapter.register_skill("dnaspec-context-optimization", context_optimization_wrapper)
+    adapter.register_skill("dnaspec-cognitive-template", cognitive_template_wrapper)
     
     print(f"已注册技能: {adapter.get_registered_skills()}")
     
     # 测试命令解析
-    test_command = "/speckit.dsgs.context-analysis 测试上下文内容"
+    test_command = "/speckit.dnaspec.context-analysis 测试上下文内容"
     parsed = adapter.parse_command(test_command)
     print(f"命令解析: {test_command}")
     print(f"解析结果: {parsed}")
@@ -49,7 +49,7 @@ def test_adapter():
         print(f"执行异常: {e}")
     
     # 再测试一个命令
-    test_command2 = "/speckit.dsgs.context-optimization 优化这个"
+    test_command2 = "/speckit.dnaspec.context-optimization 优化这个"
     parsed2 = adapter.parse_command(test_command2)
     print(f"\n命令解析: {test_command2}")
     print(f"解析结果: {parsed2}")

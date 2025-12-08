@@ -73,14 +73,14 @@ line-profiler>=4.0.0
 ### 1. 创建虚拟环境
 ```bash
 # 使用venv
-python -m venv dsgs-env
-source dsgs-env/bin/activate  # Linux/Mac
+python -m venv dnaspec-env
+source dnaspec-env/bin/activate  # Linux/Mac
 # 或
-dsgs-env\Scripts\activate      # Windows
+dnaspec-env\Scripts\activate      # Windows
 
 # 使用conda
-conda create -n dsgs-env python=3.9
-conda activate dsgs-env
+conda create -n dnaspec-env python=3.9
+conda activate dnaspec-env
 ```
 
 ### 2. 安装依赖
@@ -259,7 +259,7 @@ jobs:
 ### 1. 日常开发流程
 ```bash
 # 1. 激活环境
-source dsgs-env/bin/activate
+source dnaspec-env/bin/activate
 
 # 2. 拉取最新代码
 git pull origin main
@@ -320,11 +320,11 @@ pip freeze > requirements.txt
 ```bash
 # 删除旧环境
 deactivate
-rm -rf dsgs-env
+rm -rf dnaspec-env
 
 # 重新创建环境
-python -m venv dsgs-env
-source dsgs-env/bin/activate
+python -m venv dnaspec-env
+source dnaspec-env/bin/activate
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```

@@ -3,7 +3,7 @@
 DSGS功能测试脚本
 验证DSGS Context Engineering Skills是否正确安装和工作
 """
-from src.dsgs_context_engineering.skills_system_final import execute
+from src.dnaspec_context_engineering.skills_system_final import execute
 
 def test_context_analysis():
     """测试上下文分析功能"""

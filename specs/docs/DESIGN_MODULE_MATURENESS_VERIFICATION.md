@@ -383,20 +383,20 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dsgs-modulizer
+  name: dnaspec-modulizer
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: dsgs-modulizer
+      app: dnaspec-modulizer
   template:
     metadata:
       labels:
-        app: dsgs-modulizer
+        app: dnaspec-modulizer
     spec:
       containers:
       - name: modulizer
-        image: dsgs-modulizer:latest
+        image: dnaspec-modulizer:latest
         ports:
         - containerPort: 8000
         resources:

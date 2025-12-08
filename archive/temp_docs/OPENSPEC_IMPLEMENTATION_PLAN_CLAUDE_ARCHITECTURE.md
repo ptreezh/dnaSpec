@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - OpenSpec Implementation Plan (Claude Architecture Compatible)
+# DNASPEC Context Engineering Skills - OpenSpec Implementation Plan (Claude Architecture Compatible)
 
 ## 1. Implementation Framework
 
@@ -15,7 +15,7 @@ The system implements a **Claude Skills-compatible architecture** that follows t
 
 ### Phase 1: Architecture Foundation (Completed)
 - [x] **Core Architecture**: Claude Skills-compatible base classes
-- [x] **DSGS Framework Integration**: Unified skill interface implementation
+- [x] **DNASPEC Framework Integration**: Unified skill interface implementation
 - [x] **AI Instruction Templates**: Professional prompt engineering patterns
 - [x] **API Abstraction Layer**: Common interface for different AI platforms
 
@@ -42,7 +42,7 @@ The system implements a **Claude Skills-compatible architecture** that follows t
 
 ### 3.1 Context Analysis Skill Implementation
 ```python
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """Claude Skills-compatible context analysis with AI-native intelligence"""
     
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
@@ -118,8 +118,8 @@ def execute(args: Dict[str, Any]) -> str:
 - [x] **Two-Message Pattern**: Metadata vs. execution context
 - [x] **Progressive Disclosure**: Minimal overhead for discovery
 
-### 5.2 DSGS Integration Compliance
-- [x] **DSGSSkill Inheritance**: All skills inherit from base class
+### 5.2 DNASPEC Integration Compliance
+- [x] **DNASpecSkill Inheritance**: All skills inherit from base class
 - [x] **Standardized Interface**: process_request method implementation
 - [x] **Unified Access**: Common execute function for all skills
 - [x] **Error Handling**: SkillResult with proper status management
@@ -138,16 +138,16 @@ def execute(args: Dict[str, Any]) -> str:
 - Python 3.8+
 - Requests library for API calls
 - No AI model libraries (sklearn, tensorflow, etc.)
-- DSGS core framework (for base classes)
+- DNASPEC core framework (for base classes)
 
 ### 6.2 Platform Integration
 The system integrates with AI CLI platforms by:
 
 1. **Claude CLI Integration**:
    ```bash
-   /dsgs-context-analysis "analyze this context"
-   /dsgs-context-optimization "optimize for clarity" --goals "clarity,completeness"
-   /dsgs-cognitive-template "apply chain of thought" --template "chain_of_thought"
+   /dnaspec-context-analysis "analyze this context"
+   /dnaspec-context-optimization "optimize for clarity" --goals "clarity,completeness"
+   /dnaspec-cognitive-template "apply chain of thought" --template "chain_of_thought"
    ```
 
 2. **API Integration**:
@@ -197,7 +197,7 @@ The system integrates with AI CLI platforms by:
 ```bash
 # Clone repository
 git clone <DSGS_CONTEXT_ENGINEERING_REPO>
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # Setup environment
 python -m venv venv
@@ -218,7 +218,7 @@ export GOOGLE_API_KEY=your_gemini_key     # For Gemini integration
 
 ### 8.3 Integration with AI CLI
 1. Register skills as native tools in AI CLI platform
-2. Configure slash commands: `/dsgs-analyze`, `/dsgs-optimize`, `/dsgs-template`
+2. Configure slash commands: `/dnaspec-analyze`, `/dnaspec-optimize`, `/dnaspec-template`
 3. Validate API connectivity and permissions
 4. Test all skills with real AI model responses
 

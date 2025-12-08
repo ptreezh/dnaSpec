@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills System - 实施计划 (Implementation Plan)
+# DNASPEC Context Engineering Skills System - 实施计划 (Implementation Plan)
 
 ## 1. 项目实施总览
 
@@ -25,7 +25,7 @@
   - [ ] 完成单元测试
 
 - **Task 1.1.2**: 实现基础技能框架
-  - [ ] 基础技能类 (DSGSSkill)
+  - [ ] 基础技能类 (DNASpecSkill)
   - [ ] 技能结果类 (SkillResult)
   - [ ] 技能状态枚举 (SkillStatus)
   - [ ] 完成基础架构测试
@@ -267,13 +267,13 @@ implementation:
 
 #### 3.3.1 Command Structure
 ```
-dsgs [global-options] <skill-name> [skill-options] [arguments]
+dnaspec [global-options] <skill-name> [skill-options] [arguments]
 
 Examples:
-  dsgs analyze "context to analyze"
-  dsgs analyze --context "file.txt" --metrics clarity,relevance
-  dsgs optimize --context "content" --goals clarity,completeness
-  dsgs template --template chain_of_thought --context "task"
+  dnaspec analyze "context to analyze"
+  dnaspec analyze --context "file.txt" --metrics clarity,relevance
+  dnaspec optimize --context "content" --goals clarity,completeness
+  dnaspec template --template chain_of_thought --context "task"
 ```
 
 ## 4. 质量保证计划
@@ -303,6 +303,6 @@ Examples:
 ---
 **计划版本**: 1.0
 **制定日期**: 2025-11-06
-**项目经理**: DSGS Engineering Team
+**项目经理**: DNASPEC Engineering Team
 **总工期**: 8周
 **预计完成日期**: 2025-12-29

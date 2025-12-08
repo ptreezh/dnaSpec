@@ -24,7 +24,7 @@
 ## 工作区结构设计
 
 ```
-/DSGS-Project/
+/DNASPEC-Project/
 ├── /workspace/                    # 主工作区
 │   ├── /source-analysis/         # 源码分析工作区
 │   │   ├── /input/               # 输入源码文件
@@ -59,7 +59,7 @@
 ## CLI工具协同流程
 
 ### 第一阶段: 源码分析 (/analyze)
-**参与者**: `dsgs-analyze` CLI工具
+**参与者**: `dnaspec-analyze` CLI工具
 **工作区**: `/workspace/source-analysis/`
 **输入来源**: 用户提供的源码文件路径
 **输出去向**: `/workspace/source-analysis/output/analysis.json`
@@ -68,10 +68,10 @@
 **工作流程**:
 ```bash
 # Python源码分析
-dsgs-analyze --source ./src/api.py --type python --output ./workspace/source-analysis/output/
+dnaspec-analyze --source ./src/api.py --type python --output ./workspace/source-analysis/output/
 
 # JavaScript源码分析
-dsgs-analyze --source ./src/routes.js --type javascript --output ./workspace/source-analysis/output/
+dnaspec-analyze --source ./src/routes.js --type javascript --output ./workspace/source-analysis/output/
 ```
 
 **递交记录格式**:
@@ -79,8 +79,8 @@ dsgs-analyze --source ./src/routes.js --type javascript --output ./workspace/sou
 {
   "delivery_id": "src-20251101-001",
   "timestamp": "2025-11-01T10:30:00Z",
-  "deliverer": "dsgs-analyze",
-  "receiver": "dsgs-generate",
+  "deliverer": "dnaspec-analyze",
+  "receiver": "dnaspec-generate",
   "file_path": "/workspace/source-analysis/output/analysis.json",
   "content_summary": "Python API路由分析结果，包含3个端点定义",
   "version": "1.0.0"
@@ -88,7 +88,7 @@ dsgs-analyze --source ./src/routes.js --type javascript --output ./workspace/sou
 ```
 
 ### 第二阶段: 契约生成 (/generate)
-**参与者**: `dsgs-generate` CLI工具
+**参与者**: `dnaspec-generate` CLI工具
 **工作区**: `/workspace/contract-generation/`
 **输入来源**: 从 `/delivery-registry/source-analysis-deliveries/` 获取分析结果
 **输出去向**: `/workspace/contract-generation/output/spec.yaml`
@@ -97,11 +97,11 @@ dsgs-analyze --source ./src/routes.js --type javascript --output ./workspace/sou
 **工作流程**:
 ```bash
 # 契约生成
-dsgs-generate --input ./workspace/source-analysis/output/analysis.json --format openapi3 --output ./workspace/contract-generation/output/
+dnaspec-generate --input ./workspace/source-analysis/output/analysis.json --format openapi3 --output ./workspace/contract-generation/output/
 ```
 
 ### 第三阶段: 契约验证 (/validate)
-**参与者**: `dsgs-validate` CLI工具
+**参与者**: `dnaspec-validate` CLI工具
 **工作区**: `/workspace/contract-validation/`
 **输入来源**: 从 `/delivery-registry/contract-generation-deliveries/` 获取契约文件
 **输出去向**: `/workspace/contract-validation/output/validation-report.json`
@@ -110,11 +110,11 @@ dsgs-generate --input ./workspace/source-analysis/output/analysis.json --format 
 **工作流程**:
 ```bash
 # 契约验证
-dsgs-validate --spec ./workspace/contract-generation/output/spec.yaml --checks structure,types,compatibility --output ./workspace/contract-validation/output/
+dnaspec-validate --spec ./workspace/contract-generation/output/spec.yaml --checks structure,types,compatibility --output ./workspace/contract-validation/output/
 ```
 
 ### 第四阶段: 版本管理 (/version)
-**参与者**: `dsgs-version` CLI工具
+**参与者**: `dnaspec-version` CLI工具
 **工作区**: `/workspace/version-management/`
 **输入来源**: 从 `/delivery-registry/contract-validation-deliveries/` 获取验证结果
 **输出去向**: `/workspace/version-management/output/versioned-spec.yaml`
@@ -123,10 +123,10 @@ dsgs-validate --spec ./workspace/contract-generation/output/spec.yaml --checks s
 **工作流程**:
 ```bash
 # 版本创建
-dsgs-version --spec ./workspace/contract-generation/output/spec.yaml --bump minor --output ./workspace/version-management/output/
+dnaspec-version --spec ./workspace/contract-generation/output/spec.yaml --bump minor --output ./workspace/version-management/output/
 
 # 版本比较
-dsgs-version --compare ./workspace/version-management/output/v1.0.0.yaml ./workspace/version-management/output/v1.1.0.yaml
+dnaspec-version --compare ./workspace/version-management/output/v1.0.0.yaml ./workspace/version-management/output/v1.1.0.yaml
 ```
 
 ## 文件递交机制
@@ -173,7 +173,7 @@ workflow:
   version: "1.0.0"
   steps:
     - name: "源码分析"
-      tool: "dsgs-analyze"
+      tool: "dnaspec-analyze"
       input: 
         - "source_files"
       output: 
@@ -181,7 +181,7 @@ workflow:
       dependencies: []
       
     - name: "契约生成"
-      tool: "dsgs-generate"
+      tool: "dnaspec-generate"
       input: 
         - "/workspace/source-analysis/output/analysis.json"
       output: 
@@ -189,7 +189,7 @@ workflow:
       dependencies: ["源码分析"]
       
     - name: "契约验证"
-      tool: "dsgs-validate"
+      tool: "dnaspec-validate"
       input: 
         - "/workspace/contract-generation/output/spec.yaml"
       output: 
@@ -197,7 +197,7 @@ workflow:
       dependencies: ["契约生成"]
       
     - name: "版本管理"
-      tool: "dsgs-version"
+      tool: "dnaspec-version"
       input: 
         - "/workspace/contract-generation/output/spec.yaml"
       output: 
@@ -208,10 +208,10 @@ workflow:
 ### 流程执行器
 ```bash
 # 工作流执行命令
-dsgs-workflow --config ./project-config/workflow.yaml --execute
+dnaspec-workflow --config ./project-config/workflow.yaml --execute
 
 # 单步执行
-dsgs-workflow --step "源码分析" --input ./src/api.py
+dnaspec-workflow --step "源码分析" --input ./src/api.py
 ```
 
 ## 质量控制机制
@@ -298,7 +298,7 @@ dsgs-workflow --step "源码分析" --input ./src/api.py
 {
   "timestamp": "2025-11-01T10:30:00Z",
   "level": "INFO",
-  "tool": "dsgs-analyze",
+  "tool": "dnaspec-analyze",
   "message": "开始分析Python源码文件",
   "context": {
     "file": "./src/api.py",

@@ -15,10 +15,10 @@
     "structure": {
       "missing_paths": [],
       "existing_paths": [
-        "src/dsgs_spec_kit_integration",
-        "src/dsgs_spec_kit_integration/core",
-        "src/dsgs_spec_kit_integration/skills",
-        "src/dsgs_spec_kit_integration/adapters",
+        "src/dnaspec_spec_kit_integration",
+        "src/dnaspec_spec_kit_integration/core",
+        "src/dnaspec_spec_kit_integration/skills",
+        "src/dnaspec_spec_kit_integration/adapters",
         "tests/unit"
       ],
       "all_paths_exist": true
@@ -26,8 +26,8 @@
     "spec_kit": {
       "missing_adapters": [],
       "existing_adapters": [
-        "src/dsgs_spec_kit_integration/adapters/spec_kit_adapter.py",
-        "src/dsgs_spec_kit_integration/adapters/concrete_spec_kit_adapter.py"
+        "src/dnaspec_spec_kit_integration/adapters/spec_kit_adapter.py",
+        "src/dnaspec_spec_kit_integration/adapters/concrete_spec_kit_adapter.py"
       ],
       "all_adapters_exist": true,
       "supported_agents": [

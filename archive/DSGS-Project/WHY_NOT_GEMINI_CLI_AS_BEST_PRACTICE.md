@@ -77,7 +77,7 @@ class QwenAdapter(AbstractSkillManager):
 
 ### 4.1 分层架构设计
 ```
-DSGS Skills System (新方案)
+DNASPEC Skills System (新方案)
 ├── Core Layer (平台无关核心)
 │   ├── Skill Interface
 │   ├── Skill Manager
@@ -98,7 +98,7 @@ DSGS Skills System (新方案)
 ```yaml
 # 统一配置文件示例
 skills:
-  - name: dsgs-agent-creator
+  - name: dnaspec-agent-creator
     description: "DSGS智能体创建器"
     keywords:
       - "创建智能体"
@@ -108,7 +108,7 @@ skills:
 platforms:
   claude:
     enabled: true
-    skills_dir: "~/.claude/skills/dsgs"
+    skills_dir: "~/.claude/skills/dnaspec"
   
   gemini:
     enabled: true
@@ -124,7 +124,7 @@ platforms:
 ### 4.3 标准化接口
 ```python
 # 统一的技能接口定义
-class DSGSSkill(ABC):
+class DNASpecSkill(ABC):
     @abstractmethod
     def process_request(self, request: str, context: Dict[str, Any] = None) -> SkillResult:
         """所有平台都使用相同的接口"""

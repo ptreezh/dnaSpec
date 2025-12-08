@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - 完整功能验证报告
+# DNASPEC Context Engineering Skills - 完整功能验证报告
 
 ## 1. 问题修复总结
 
@@ -85,16 +85,16 @@ dnaspec init
 ### 5.2 AI CLI中使用  
 ```bash
 # 上下文分析
-/speckit.dsgs.context-analysis "要分析的文本"
+/speckit.dnaspec.context-analysis "要分析的文本"
 
 # 上下文优化  
-/speckit.dsgs.context-optimization "要优化的内容"
+/speckit.dnaspec.context-optimization "要优化的内容"
 
 # 认知模板
-/speckit.dsgs.cognitive-template "任务描述" template=verification
+/speckit.dnaspec.cognitive-template "任务描述" template=verification
 
 # 系统架构
-/speckit.dsgs.architect "架构需求"
+/speckit.dnaspec.architect "架构需求"
 ```
 
 ### 5.3 自然语言交互

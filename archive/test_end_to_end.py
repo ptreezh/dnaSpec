@@ -4,7 +4,7 @@ import os
 from unittest.mock import Mock
 
 # 添加项目路径
-project_root = r"D:\DAIP\dsgs-core"
+project_root = r"D:\DAIP\dnaspec-core"
 sys.path.insert(0, project_root)
 
 try:
@@ -12,9 +12,9 @@ try:
     print("=" * 50)
     
     # 1. 导入核心模块
-    from src.dsgs_spec_kit_integration.core.manager import SkillManager
-    from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
-    from src.dsgs_spec_kit_integration.core.hook import HookSystem
+    from src.dnaspec_spec_kit_integration.core.manager import SkillManager
+    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
+    from src.dnaspec_spec_kit_integration.core.hook import HookSystem
     print("✅ 1. 核心模块导入成功")
     
     # 2. 初始化系统
@@ -22,23 +22,23 @@ try:
     print("✅ 2. 技能管理器初始化成功")
     
     # 3. 注册多个技能
-    class ArchitectSkill(DSGSSkill):
+    class ArchitectSkill(DNASpecSkill):
         def __init__(self):
-            super().__init__("dsgs-architect", "系统架构设计专家")
+            super().__init__("dnaspec-architect", "系统架构设计专家")
         
         def _execute_skill_logic(self, request, context):
             return {"type": "architecture", "design": "微服务架构", "request": request}
     
-    class AgentCreatorSkill(DSGSSkill):
+    class AgentCreatorSkill(DNASpecSkill):
         def __init__(self):
-            super().__init__("dsgs-agent-creator", "智能体创建专家")
+            super().__init__("dnaspec-agent-creator", "智能体创建专家")
         
         def _execute_skill_logic(self, request, context):
             return {"type": "agent", "role": "订单处理员", "request": request}
     
-    class TaskDecomposerSkill(DSGSSkill):
+    class TaskDecomposerSkill(DNASpecSkill):
         def __init__(self):
-            super().__init__("dsgs-task-decomposer", "任务分解专家")
+            super().__init__("dnaspec-task-decomposer", "任务分解专家")
         
         def _execute_skill_logic(self, request, context):
             return {"type": "tasks", "decomposed": ["需求分析", "系统设计", "编码实现"], "request": request}
@@ -53,10 +53,10 @@ try:
     
     # 4.1 直接技能调用
     print("\n--- 4.1 直接技能调用测试 ---")
-    result1 = skill_manager.execute_skill("dsgs-architect", "设计电商系统架构")
+    result1 = skill_manager.execute_skill("dnaspec-architect", "设计电商系统架构")
     print(f"   架构师技能调用: {result1.status} - {result1.result['design']}")
     
-    result2 = skill_manager.execute_skill("dsgs-agent-creator", "创建订单处理智能体")
+    result2 = skill_manager.execute_skill("dnaspec-agent-creator", "创建订单处理智能体")
     print(f"   智能体创建技能调用: {result2.status} - {result2.result['role']}")
     
     # 4.2 智能匹配调用
@@ -77,7 +77,7 @@ try:
     mock_adapter.execute_command.return_value = {
         'success': True,
         'result': SkillResult(
-            skill_name='dsgs-architect',
+            skill_name='dnaspec-architect',
             status=SkillStatus.COMPLETED,
             result={'architecture': '测试架构'},
             confidence=0.9,
@@ -86,7 +86,7 @@ try:
     }
     
     skill_manager.register_spec_kit_adapter(mock_adapter)
-    command_result = skill_manager.execute_spec_kit_command("/speckit.dsgs.architect 设计测试架构")
+    command_result = skill_manager.execute_spec_kit_command("/speckit.dnaspec.architect 设计测试架构")
     print(f"   Spec.kit命令执行: {command_result['success']}")
     
     # 4.4 Hook系统拦截调用
@@ -114,7 +114,7 @@ try:
     import time
     start_time = time.time()
     for i in range(10):
-        skill_manager.execute_skill("dsgs-architect", f"测试请求 {i}")
+        skill_manager.execute_skill("dnaspec-architect", f"测试请求 {i}")
     end_time = time.time()
     avg_time = (end_time - start_time) / 10
     print(f"   平均执行时间: {avg_time*1000:.2f}ms")

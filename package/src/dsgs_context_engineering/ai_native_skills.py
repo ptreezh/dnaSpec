@@ -1,16 +1,16 @@
 """
-DSGS Context Engineering Skills - AI CLI平台集成核心
+DNASPEC Context Engineering Skills - AI CLI平台集成核心
 利用AI原生智能提供上下文工程能力
 """
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'DSGS-Project'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'DNASPEC-Project'))
 
 from typing import Dict, Any, List
 from abc import ABC, abstractmethod
 
 
-class DSGSSkill(ABC):
+class DNASpecSkill(ABC):
     """DSGS技能基类 - 为AI CLI平台设计"""
     
     def __init__(self, name: str, description: str):
@@ -24,7 +24,7 @@ class DSGSSkill(ABC):
         pass
 
 
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """
     上下文分析技能 - 直接在AI CLI平台内部利用AI智能
     不依赖外部API，而是构造精确指令让AI模型自身分析
@@ -32,7 +32,7 @@ class ContextAnalysisSkill(DSGSSkill):
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-analysis",
+            name="dnaspec-context-analysis",
             description="DSGS上下文分析技能 - 利用AI模型原生智能分析上下文质量"
         )
     
@@ -94,14 +94,14 @@ class ContextAnalysisSkill(DSGSSkill):
         }
 
 
-class ContextOptimizationSkill(DSGSSkill):
+class ContextOptimizationSkill(DNASpecSkill):
     """
     上下文优化技能 - 利用AI模型原生推理和生成能力
     """
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-optimization",
+            name="dnaspec-context-optimization",
             description="DSGS上下文优化技能 - 利用AI模型原生智能优化上下文质量"
         )
     
@@ -164,14 +164,14 @@ class ContextOptimizationSkill(DSGSSkill):
         }
 
 
-class CognitiveTemplateSkill(DSGSSkill):
+class CognitiveTemplateSkill(DNASpecSkill):
     """
     认知模板技能 - 利用AI模型原生认知能力
     """
     
     def __init__(self):
         super().__init__(
-            name="dsgs-cognitive-template",
+            name="dnaspec-cognitive-template",
             description="DSGS认知模板技能 - 利用AI模型原生智能应用认知模板结构化任务"
         )
         
@@ -357,7 +357,7 @@ def execute(args: Dict[str, Any]) -> str:
     elif skill_name in ['cognitive-template', 'template']:
         skill = CognitiveTemplateSkill()
     else:
-        available_skills = ['dsgs-context-analysis', 'dsgs-context-optimization', 'dsgs-cognitive-template']
+        available_skills = ['dnaspec-context-analysis', 'dnaspec-context-optimization', 'dnaspec-cognitive-template']
         return f"错误: 未知技能 '{skill_name}'. 可用技能: {available_skills}"
     
     # 执行技能
@@ -419,16 +419,16 @@ def execute(args: Dict[str, Any]) -> str:
 def get_available_skills() -> List[str]:
     """获取可用技能列表"""
     return [
-        'dsgs-context-analysis',
-        'dsgs-context-optimization', 
-        'dsgs-cognitive-template'
+        'dnaspec-context-analysis',
+        'dnaspec-context-optimization', 
+        'dnaspec-cognitive-template'
     ]
 
 
 def get_skill_descriptions() -> Dict[str, str]:
     """获取技能描述"""
     return {
-        'dsgs-context-analysis': '上下文质量五维专业分析',
-        'dsgs-context-optimization': 'AI驱动的上下文智能优化',
-        'dsgs-cognitive-template': '认知模板结构化复杂任务'
+        'dnaspec-context-analysis': '上下文质量五维专业分析',
+        'dnaspec-context-optimization': 'AI驱动的上下文智能优化',
+        'dnaspec-cognitive-template': '认知模板结构化复杂任务'
     }

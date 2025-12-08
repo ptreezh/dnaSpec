@@ -1,4 +1,4 @@
-# OpenSpec DSGS Context Engineering Skills System - Implementation Plan
+# OpenSpec DNASPEC Context Engineering Skills System - Implementation Plan
 
 ## 1. Implementation Scope
 
@@ -23,14 +23,14 @@
 - [x] **Target**: Create pure AI-native architecture without local model dependencies
 - [x] **Completion**: 2025-11-06
 - [x] **Deliverables**:
-  - `src/dsgs_context_engineering/skills_system_final_clean.py`
+  - `src/dnaspec_context_engineering/skills_system_final_clean.py`
   - `ContextAnalysisSkill` using AI instruction engineering
   - `ContextOptimizationSkill` using AI native reasoning
   - `CognitiveTemplateSkill` using AI cognitive templates
 - [x] **Verification**: All 5/5 validation checks passed
 
 #### Milestone 2: Platform Integration
-- [x] **Target**: Integrate with DSGS framework and CLI platform
+- [x] **Target**: Integrate with DNASPEC framework and CLI platform
 - [x] **Completion**: 2025-11-06
 - [x] **Deliverables**:
   - Unified execute interface
@@ -85,7 +85,7 @@
                                     │
                                     ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                DSGS Context Engineering System                  │
+│                DNASPEC Context Engineering System                  │
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │  1. Construct AI Instruction Template               │   │
 │  │     "Please analyze context using 5-dim framework..." │   │
@@ -115,7 +115,7 @@
 ### 4.1 Core Architecture Patterns
 ```python
 # AI-Native Implementation Pattern
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
         # Construct high-quality AI instruction
         instruction = self._build_analysis_instruction(request, context)
@@ -191,9 +191,9 @@ Overall System: Performance limited by AI model response time (2-10s typical)
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │         Claude/Gemini/Qwen CLI Core                  │   │
 │  │  ┌─────────────────────────────────────────────────┐  │   │
-│  │  │        DSGS Skills Integration Layer          │  │   │
+│  │  │        DNASPEC Skills Integration Layer          │  │   │
 │  │  │  ┌─────────────────┐  ┌─────────────────┐    │  │   │
-│  │  │  │  Context Eng.   │  │  DSGS Core    │    │  │   │
+│  │  │  │  Context Eng.   │  │  DNASPEC Core    │    │  │   │
 │  │  │  │  Skills System  │  │  Framework    │    │  │   │
 │  │  │  └─────────────────┘  └─────────────────┘    │  │   │
 │  │  └─────────────────────────────────────────────────────────┘  │

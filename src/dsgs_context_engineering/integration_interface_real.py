@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - AI CLI平台深度集成实现
+DNASPEC Context Engineering Skills - AI CLI平台深度集成实现
 作为AI CLI平台的内置斜杠命令，利用平台AI模型原生智能
 """
 from typing import Dict, Any, List
@@ -12,8 +12,8 @@ class DSGSContextEngineeringInterface:
     """
     
     def __init__(self):
-        self.name = "dsgs-context-engineering"
-        self.description = "DSGS Context Engineering Skills - AI CLI平台的内置上下文工程增强工具"
+        self.name = "dnaspec-context-engineering"
+        self.description = "DNASPEC Context Engineering Skills - AI CLI平台的内置上下文工程增强工具"
     
     def process_command(self, command: str, context: str, params: Dict[str, Any] = None) -> str:
         """
@@ -187,40 +187,40 @@ class DSGSContextEngineeringInterface:
         获取帮助文本
         """
         return """
-# DSGS Context Engineering Skills - 帮助信息
+# DNASPEC Context Engineering Skills - 帮助信息
 
-DSGS Context Engineering Skills 是AI CLI平台的内置上下文工程增强工具集，利用AI模型的原生智能提供专业级上下文分析、优化和结构化能力。
+DNASPEC Context Engineering Skills 是AI CLI平台的内置上下文工程增强工具集，利用AI模型的原生智能提供专业级上下文分析、优化和结构化能力。
 
 ## 可用命令:
 
-**/dsgs-analyze** `<选中文本或输入上下文>`
+**/dnaspec-analyze** `<选中文本或输入上下文>`
 - 对指定上下文进行五维度质量分析 (清晰度、相关性、完整性、一致性、效率)
 
-**/dsgs-optimize** `<选中文本或输入上下文>` `--goals clarity,completeness`
+**/dnaspec-optimize** `<选中文本或输入上下文>` `--goals clarity,completeness`
 - 优化上下文质量，支持多种目标 (clarity, relevance, completeness, conciseness)
 
-**/dsgs-template** `<任务描述>` `--template chain_of_thought`
+**/dnaspec-template** `<任务描述>` `--template chain_of_thought`
 - 应用认知模板结构化复杂任务 (chain_of_thought, verification, few_shot)
 
-**/dsgs-help** 
+**/dnaspec-help** 
 - 显示此帮助信息
 
 ## 示例用法:
 
 ### 分析上下文质量
 ```
-/dsgs-analyze
+/dnaspec-analyze
 ```
 (在选中文本时执行，或直接输入上下文)
 
 ### 优化上下文内容
 ```
-/dsgs-optimize --goals "clarity,completeness"
+/dnaspec-optimize --goals "clarity,completeness"
 ```
 
 ### 应用认知模板
 ```
-/dsgs-template --template "verification"
+/dnaspec-template --template "verification"
 ```
 
 ## 核心价值:
@@ -241,15 +241,15 @@ interface = DSGSContextEngineeringInterface()
 def handle_command(command_name: str, context: str = "", params: Dict[str, Any] = None) -> str:
     """
     AI CLI平台命令处理接口
-    这个函数会被AI CLI平台调用以处理/dsgs-*命令
+    这个函数会被AI CLI平台调用以处理/dnaspec-*命令
     """
     params = params or {}
     
-    # 从命令名中提取实际命令 (移除前缀如'dsgs-', '/dsgs-'等)
+    # 从命令名中提取实际命令 (移除前缀如'dnaspec-', '/dnaspec-'等)
     actual_command = command_name.lower()
     if actual_command.startswith('/'):
         actual_command = actual_command[1:]
-    if actual_command.startswith('dsgs-'):
+    if actual_command.startswith('dnaspec-'):
         actual_command = actual_command[5:]
     
     return interface.process_command(actual_command, context, params)
@@ -260,18 +260,18 @@ def get_command_registration_info() -> Dict[str, Any]:
     获取命令注册信息 - 用于AI CLI平台的命令注册
     """
     return {
-        'name': 'dsgs-context-engineering',
+        'name': 'dnaspec-context-engineering',
         'description': 'DSGS上下文工程技能 - AI平台的内置专业上下文分析、优化和结构化工具',
         'commands': [
             {
-                'name': '/dsgs-analyze',
+                'name': '/dnaspec-analyze',
                 'description': '专业五维指标分析上下文质量',
                 'parameters': [],
                 'access': 'conversation_selection_or_context',
                 'returns': 'json_structured_analysis_result'
             },
             {
-                'name': '/dsgs-optimize',
+                'name': '/dnaspec-optimize',
                 'description': '智能优化上下文质量',
                 'parameters': [
                     {
@@ -286,7 +286,7 @@ def get_command_registration_info() -> Dict[str, Any]:
                 'returns': 'optimized_context_with_improvement_metrics'
             },
             {
-                'name': '/dsgs-template', 
+                'name': '/dnaspec-template', 
                 'description': '应用认知模板结构化复杂任务',
                 'parameters': [
                     {
@@ -301,7 +301,7 @@ def get_command_registration_info() -> Dict[str, Any]:
                 'returns': 'structured_cognitive_analysis'
             },
             {
-                'name': '/dsgs-help',
+                'name': '/dnaspec-help',
                 'description': '显示帮助信息',
                 'parameters': [],
                 'access': 'none',
@@ -330,7 +330,7 @@ def execute(args: Dict[str, Any]) -> str:
 
 if __name__ == "__main__":
     # 验证接口功能
-    print("🔍 DSGS Context Engineering Skills - AI CLI Native Integration")
+    print("🔍 DNASPEC Context Engineering Skills - AI CLI Native Integration")
     print("=" * 70)
     
     # 演示命令注册信息
@@ -346,15 +346,15 @@ if __name__ == "__main__":
     test_context = "设计一个电商平台，支持用户注册登录、商品浏览、购物车功能。"
     
     # 测试分析命令
-    result = handle_command('/dsgs-analyze', test_context)
+    result = handle_command('/dnaspec-analyze', test_context)
     print(f"   ✅ 分析命令: 已生成 {len(result)} 字符的AI指令")
     
     # 测试优化命令
-    result = handle_command('/dsgs-optimize', test_context, {'goals': 'clarity,completeness'})
+    result = handle_command('/dnaspec-optimize', test_context, {'goals': 'clarity,completeness'})
     print(f"   ✅ 优化命令: 已生成 {len(result)} 字符的AI指令")
     
     # 测试模板命令
-    result = handle_command('/dsgs-template', "如何提高系统性能？", {'template': 'chain_of_thought'})
+    result = handle_command('/dnaspec-template', "如何提高系统性能？", {'template': 'chain_of_thought'})
     print(f"   ✅ 模板命令: 已生成 {len(result)} 字符的AI指令")
     
     print(f"\n🎯 系统已准备就绪，可以集成到AI CLI平台中！")

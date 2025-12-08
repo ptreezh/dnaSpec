@@ -1,4 +1,4 @@
-# DSGS 快速开始指南
+# DNASPEC 快速开始指南
 
 ## 🚀 5分钟快速上手
 
@@ -6,7 +6,7 @@
 ```bash
 # 1. 克隆项目
 git clone <repository-url>
-cd dsgs
+cd dnaspec
 
 # 2. 安装依赖
 npm install
@@ -19,11 +19,11 @@ npm test
 
 #### 方式一：JavaScript/TypeScript 项目
 ```javascript
-// 1. 导入 DSGS
+// 1. 导入 DNASPEC
 const { ContextEngineeringIntegration, createTCC } = require('./src/index');
 
 // 2. 创建实例
-const dsgs = new ContextEngineeringIntegration();
+const dnaspec = new ContextEngineeringIntegration();
 
 // 3. 创建任务上下文
 const taskContext = createTCC(
@@ -33,7 +33,7 @@ const taskContext = createTCC(
 );
 
 // 4. 生成约束
-dsgs.generateConstraints(taskContext).then(result => {
+dnaspec.generateConstraints(taskContext).then(result => {
   console.log('生成的约束:', result.constraints);
   console.log('置信度:', result.confidence);
 });
@@ -58,7 +58,7 @@ npm run view:state
 // 在 AI 助手中配置 MCP
 {
   "mcpServers": {
-    "dsgs": {
+    "dnaspec": {
       "command": "node",
       "args": ["./src/mcp/server.js"]
     }
@@ -71,7 +71,7 @@ npm run view:state
 ### 1. 代码审查助手
 ```javascript
 // 自动代码审查
-const reviewResult = await dsgs.generateConstraints({
+const reviewResult = await dnaspec.generateConstraints({
   taskId: 'code-review',
   taskType: 'CODE_REVIEW',
   context: {
@@ -87,7 +87,7 @@ const reviewResult = await dsgs.generateConstraints({
 ### 2. 架构规范管理
 ```javascript
 // 生成架构约束
-const architectureRules = await dsgs.generateConstraints({
+const architectureRules = await dnaspec.generateConstraints({
   taskId: 'architecture-design',
   taskType: 'ARCHITECTURE',
   context: {
@@ -100,7 +100,7 @@ const architectureRules = await dsgs.generateConstraints({
 ### 3. 测试用例生成
 ```javascript
 // 生成测试约束
-const testConstraints = await dsgs.generateConstraints({
+const testConstraints = await dnaspec.generateConstraints({
   taskId: 'test-generation',
   taskType: 'TESTING',
   context: {
@@ -121,7 +121,7 @@ const config = {
   }
 };
 
-const dsgs = new ContextEngineeringIntegration(config);
+const dnaspec = new ContextEngineeringIntegration(config);
 ```
 
 ### 高级配置
@@ -184,12 +184,12 @@ node --max-old-space-size=4096 index.js
 ## 📞 获取帮助
 
 - 📖 完整文档: [USAGE_GUIDE.md](./USAGE_GUIDE.md)
-- 🐛 问题报告: [GitHub Issues](https://github.com/dsgs/issues)
-- 💬 社区讨论: [Discord](https://discord.gg/dsgs)
+- 🐛 问题报告: [GitHub Issues](https://github.com/dnaspec/issues)
+- 💬 社区讨论: [Discord](https://discord.gg/dnaspec)
 
 ## 🎉 开始使用！
 
-选择适合您的使用方式，立即开始使用 DSGS 提升您的开发体验！
+选择适合您的使用方式，立即开始使用 DNASPEC 提升您的开发体验！
 
 ---
 **快速开始版本**: 2.0.0  

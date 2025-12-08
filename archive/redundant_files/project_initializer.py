@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 项目初始化脚本
+DNASPEC Context Engineering Skills - 项目初始化脚本
 基于specify初始化流程的改进实现
 """
 import os
@@ -20,7 +20,7 @@ class DSGSProjectInitializer:
     实现类似specify的自动化初始化流程
     """
     
-    def __init__(self, project_name: str = "dsgs-context-engineering", version: str = "1.0.0"):
+    def __init__(self, project_name: str = "dnaspec-context-engineering", version: str = "1.0.0"):
         self.project_name = project_name
         self.version = version
         self.project_dir = Path.cwd() / project_name
@@ -38,7 +38,7 @@ class DSGSProjectInitializer:
         print(" (ok)")
         
         # 选择AI助手 - 这里我们可以适配不同平台
-        print("├── ● Select AI assistant (dsgs-context-engineering)", end="")
+        print("├── ● Select AI assistant (dnaspec-context-engineering)", end="")
         print(" (ok)")
         
         # 选择脚本类型 - CLI脚本
@@ -124,7 +124,7 @@ class DSGSProjectInitializer:
         files_to_create = {
             "pyproject.toml": self._get_pyproject_content(),
             "README.md": self._get_readme_content(),
-            "src/__init__.py": '"""DSGS Context Engineering Skills Package"""',
+            "src/__init__.py": '"""DNASPEC Context Engineering Skills Package"""',
             f"src/{self.project_name}/__init__.py": self._get_package_init_content(),
             f"src/{self.project_name}/skills/__init__.py": '"""Skills Package"""',
             f"src/{self.project_name}/core/__init__.py": '"""Core Package"""',
@@ -146,9 +146,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "{self.project_name}"
 version = "{self.version}"
-description = "DSGS Context Engineering Skills - Professional context analysis, optimization, and cognitive template application"
+description = "DNASPEC Context Engineering Skills - Professional context analysis, optimization, and cognitive template application"
 readme = "README.md"
-authors = [{{name = "DSGS Team", email = "dsgs@example.com"}}]
+authors = [{{name = "DNASPEC Team", email = "dnaspec@example.com"}}]
 license = {{text = "MIT"}}
 requires-python = ">=3.8"
 classifiers = [
@@ -177,9 +177,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/dsgs/{self.project_name}"
-Repository = "https://github.com/dsgs/{self.project_name}.git"
-Documentation = "https://dsgs.github.io/{self.project_name}"
+Homepage = "https://github.com/dnaspec/{self.project_name}"
+Repository = "https://github.com/dnaspec/{self.project_name}.git"
+Documentation = "https://dnaspec.github.io/{self.project_name}"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -202,7 +202,7 @@ addopts = [
         return f'''
 # {self.project_name}
 
-DSGS Context Engineering Skills System - 专业的上下文工程增强工具集，用于AI辅助开发中的上下文质量分析、优化和结构化。
+DNASPEC Context Engineering Skills System - 专业的上下文工程增强工具集，用于AI辅助开发中的上下文质量分析、优化和结构化。
 
 ## 核心功能
 
@@ -240,17 +240,17 @@ print(result)
     def _get_package_init_content(self):
         """获取包初始化内容"""
         return '''"""
-DSGS Context Engineering Skills Package Initialization
+DNASPEC Context Engineering Skills Package Initialization
 """
 from .skills.context_analysis import execute as analyze_context
 from .skills.context_optimization import execute as optimize_context  
 from .skills.cognitive_template import execute as apply_template
-from .core.skill import DSGSSkill, ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
+from .core.skill import DNASpecSkill, ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
 
 
 __version__ = "1.0.0"
-__author__ = "DSGS Team"
-__description__ = "DSGS Context Engineering Skills - AI原生上下文工程增强工具集"
+__author__ = "DNASPEC Team"
+__description__ = "DNASPEC Context Engineering Skills - AI原生上下文工程增强工具集"
 
 
 def get_available_skills():
@@ -289,7 +289,7 @@ from typing import Dict, Any
 from abc import ABC, abstractmethod
 
 
-class DSGSSkill(ABC):
+class DNASpecSkill(ABC):
     """DSGS技能基类"""
     
     def __init__(self, name: str, description: str):
@@ -303,12 +303,12 @@ class DSGSSkill(ABC):
         pass
 
 
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """上下文分析技能"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-analysis",
+            name="dnaspec-context-analysis",
             description="DSGS上下文分析技能 - 利用AI模型原生智能分析上下文质量"
         )
     
@@ -457,11 +457,11 @@ if __name__ == "__main__":
 {self.project_name} Entry Point
 """
 import sys
-from src.dsgs_context_engineering.skills_system_real import execute
+from src.dnaspec_context_engineering.skills_system_real import execute
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: dsgs-context-engineering <skill> <context> [options]")
+        print("Usage: dnaspec-context-engineering <skill> <context> [options]")
         sys.exit(1)
     
     skill_name = sys.argv[1]

@@ -1,12 +1,12 @@
 """
-DSGS Context Engineering Skills - Claude Architecture Final Verification
+DNASPEC Context Engineering Skills - Claude Architecture Final Verification
 最终验证实现是否符合Claude Skills架构模式
 """
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - Claude Architecture Final Verification")
+print("🔍 DNASPEC Context Engineering Skills - Claude Architecture Final Verification")
 print("=" * 70)
 
 # 测试Claude架构模式实现
@@ -20,7 +20,7 @@ print("\n🚀 开始功能验证...")
 
 try:
     # 导入模块
-    from src.dsgs_context_engineering.skills_system_claude_architecture import (
+    from src.dnaspec_context_engineering.skills_system_claude_architecture import (
         DSGSContextEngineeringSystem,
         execute
     )
@@ -102,7 +102,7 @@ try:
     print("\n✅ 架构原则验证:")
     
     # 检查代码中是否没有本地模型依赖
-    with open('src/dsgs_context_engineering/skills_system_claude_architecture.py', 'r', encoding='utf-8') as f:
+    with open('src/dnaspec_context_engineering/skills_system_claude_architecture.py', 'r', encoding='utf-8') as f:
         code_content = f.read()
     
     local_models = ['sklearn', 'tensorflow', 'pytorch', 'keras', 'transformers', 'model.fit', 'train(']
@@ -171,9 +171,9 @@ except Exception as e:
 
 print("\n" + "=" * 70)
 if success:
-    print("✅ DSGS Context Engineering Skills - Claude Architecture Implementation: VERIFIED")
+    print("✅ DNASPEC Context Engineering Skills - Claude Architecture Implementation: VERIFIED")
 else:
-    print("❌ DSGS Context Engineering Skills - Claude Architecture Implementation: FAILED")
+    print("❌ DNASPEC Context Engineering Skills - Claude Architecture Implementation: FAILED")
 print("=" * 70)
 
 exit(0 if success else 1)

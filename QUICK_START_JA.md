@@ -1,8 +1,8 @@
-# DSGS コンテキスト工学スキル - クイックスタートガイド (Japanese)
+# DNASPEC コンテキスト工学スキル - クイックスタートガイド (Japanese)
 
 ## プロジェクト概要
 
-DSGS (Dynamic Specification Growth System) コンテキスト工学スキルは、AI CLIプラットフォーム向けに特別設計されたプロフェッショナルなAI支援開発ツールキットで、コンテキスト分析、最適化、認知テンプレート機能とAIセーフティワークフローを提供します。
+DNASPEC (Dynamic Specification Growth System) コンテキスト工学スキルは、AI CLIプラットフォーム向けに特別設計されたプロフェッショナルなAI支援開発ツールキットで、コンテキスト分析、最適化、認知テンプレート機能とAIセーフティワークフローを提供します。
 
 ## 主な改善点
 
@@ -27,7 +27,7 @@ DSGS (Dynamic Specification Growth System) コンテキスト工学スキルは�
 ```bash
 # リポジトリをクローン
 git clone https://github.com/ptreezh/dnaSpec.git
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # インストール
 pip install -e .
@@ -37,12 +37,12 @@ pip install -e .
 
 ### CLIコマンド
 ```
-/speckit.dsgs.context-analysis "この要件ドキュメントの品質を分析" mode=enhanced
-/speckit.dsgs.cognitive-template "パフォーマンスをどう改善するか" template=verification
-/speckit.dsgs.context-optimization "この要件を最適化" optimization_goals=clarity,relevance
-/speckit.dsgs.architect "ECシステムアーキテクチャを設計"
-/speckit.dsgs.git-skill operation=status
-/speckit.dsgs.temp-workspace operation=create-workspace
+/speckit.dnaspec.context-analysis "この要件ドキュメントの品質を分析" mode=enhanced
+/speckit.dnaspec.cognitive-template "パフォーマンスをどう改善するか" template=verification
+/speckit.dnaspec.context-optimization "この要件を最適化" optimization_goals=clarity,relevance
+/speckit.dnaspec.architect "ECシステムアーキテクチャを設計"
+/speckit.dnaspec.git-skill operation=status
+/speckit.dnaspec.temp-workspace operation=create-workspace
 ```
 
 ### Python API

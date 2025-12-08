@@ -1,5 +1,5 @@
 """
-DSGS Distributed API Documentation Checker Script
+DNASPEC Distributed API Documentation Checker Script
 Implements the core functionality for checking interface consistency across system components
 """
 

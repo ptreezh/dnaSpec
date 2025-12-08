@@ -1,4 +1,4 @@
-# dsgs-modulizer子技能实现
+# dnaspec-modulizer子技能实现
 
 import os
 import sys
@@ -58,7 +58,7 @@ class DSGS_Modulizer:
     
     def __init__(self):
         """初始化模块化器"""
-        self.name = "dsgs-modulizer"
+        self.name = "dnaspec-modulizer"
         self.description = "DSGS模块成熟化核验器，用于对系统各模块进行自底向上的成熟度检查和模块化封装"
         self.capabilities = [
             "bottom_up_analysis",
@@ -330,6 +330,6 @@ modulizer = DSGS_Modulizer()
 
 if __name__ == "__main__":
     # 简单测试
-    print("DSGS Modulizer Skill Loaded")
+    print("DNASPEC Modulizer Skill Loaded")
     print(f"Skill Name: {modulizer.name}")
     print(f"Description: {modulizer.description}")

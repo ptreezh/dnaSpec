@@ -1,5 +1,5 @@
 """
-DSGS Task Decomposer Script
+DNASPEC Task Decomposer Script
 Implements the core functionality for breaking down complex requirements into atomic tasks
 """
 

@@ -1,5 +1,5 @@
 """
-DSGS Modulizer Script
+DNASPEC Modulizer Script
 Implements the core functionality for module maturation verification 
 and modular encapsulation following the principle of maximum modularity.
 """
@@ -442,7 +442,7 @@ def main():
     modulizer = DSGSModulizer()
     report = modulizer.generate_modulization_report(modules_data)
     
-    print("## DSGS Modulization Report")
+    print("## DNASPEC Modulization Report")
     print(f"Total Modules: {report['total_modules']}")
     
     print("\n### Module Assessments:")

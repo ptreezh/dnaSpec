@@ -7,14 +7,14 @@
 
 ### Week 1: 主技能开发
 
-#### Day 1-2: dsgs-architect 主技能
+#### Day 1-2: dnaspec-architect 主技能
 - [ ] 编写单元测试: 主技能基本功能测试
 - [ ] 实现SKILL.md: 主技能定义和描述
 - [ ] 实现基础脚本: 协调和路由功能
 - [ ] 测试验证: 主技能基础功能验证
 - [ ] 文档更新: 主技能使用文档
 
-#### Day 3-4: dsgs-system-architect 子技能
+#### Day 3-4: dnaspec-system-architect 子技能
 - [ ] 编写单元测试: 系统架构设计功能测试
 - [ ] 实现SKILL.md: 系统架构技能定义
 - [ ] 实现核心算法: 架构分析和设计逻辑
@@ -29,14 +29,14 @@
 
 ### Week 2: 核心分解功能
 
-#### Day 8-9: dsgs-task-decomposer 子技能
+#### Day 8-9: dnaspec-task-decomposer 子技能
 - [ ] 编写单元测试: 任务分解功能测试
 - [ ] 实现SKILL.md: 任务分解技能定义
 - [ ] 实现递归分解算法: 复杂任务分解逻辑
 - [ ] 测试验证: 分解功能验证
 - [ ] 边界验证: 原子化验证逻辑
 
-#### Day 10-11: dsgs-atomic-verifier 子技能
+#### Day 10-11: dnaspec-atomic-verifier 子技能
 - [ ] 编写单元测试: 原子化验证测试
 - [ ] 实现SKILL.md: 原子验证技能定义
 - [ ] 实现验证算法: 任务原子化检查逻辑
@@ -53,14 +53,14 @@
 
 ### Week 3: 智能体创建
 
-#### Day 15-16: dsgs-agent-creator 子技能
+#### Day 15-16: dnaspec-agent-creator 子技能
 - [ ] 编写单元测试: 智能体创建功能测试
 - [ ] 实现SKILL.md: 智能体创建技能定义
 - [ ] 实现智能体创建算法: 智能体设计和创建逻辑
 - [ ] 测试验证: 智能体创建功能验证
 - [ ] 边界设置: 优化边界定义
 
-#### Day 17-18: dsgs-agent-validator 子技能
+#### Day 17-18: dnaspec-agent-validator 子技能
 - [ ] 编写单元测试: 智能体验证功能测试
 - [ ] 实现SKILL.md: 智能体验证技能定义
 - [ ] 实现验证算法: 智能体边界和功能验证
@@ -75,7 +75,7 @@
 
 ### Week 4: 协作机制
 
-#### Day 22-23: dsgs-collaboration-orchestrator 子技能
+#### Day 22-23: dnaspec-collaboration-orchestrator 子技能
 - [ ] 编写单元测试: 智能体协作功能测试
 - [ ] 实现SKILL.md: 协作编排技能定义
 - [ ] 实现协作算法: 智能体间协作逻辑
@@ -98,14 +98,14 @@
 
 ### Week 5: 约束生成
 
-#### Day 29-30: dsgs-constraint-generator 子技能
+#### Day 29-30: dnaspec-constraint-generator 子技能
 - [ ] 编写单元测试: 约束生成功能测试
 - [ ] 实现SKILL.md: 约束生成技能定义
 - [ ] 实现生成算法: 上下文感知约束生成逻辑
 - [ ] 测试验证: 约束生成功能验证
 - [ ] 质量评估: 约束质量评估算法
 
-#### Day 31-32: dsgs-constraint-validator 子技能
+#### Day 31-32: dnaspec-constraint-validator 子技能
 - [ ] 编写单元测试: 约束验证功能测试
 - [ ] 实现SKILL.md: 约束验证技能定义
 - [ ] 实现验证算法: 约束一致性和有效性验证
@@ -120,7 +120,7 @@
 
 ### Week 6: 约束演进管理
 
-#### Day 36-37: dsgs-evolution-manager 子技能
+#### Day 36-37: dnaspec-evolution-manager 子技能
 - [ ] 编写单元测试: 约束演进管理测试
 - [ ] 实现SKILL.md: 约束演进管理技能定义
 - [ ] 实现演进算法: 约束版本和演进管理

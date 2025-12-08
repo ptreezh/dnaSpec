@@ -7,10 +7,10 @@
 - **Playbook + Context Files** 完全可以独立工作，无需MCP
 - **GEMINI.md** 文件提供持久化上下文注入机制
 
-## 2. DSGS Skills的适配性分析
+## 2. DNASPEC Skills的适配性分析
 
 ### 完美匹配的原因：
-1. **纯提示词增强**：DSGS Skills主要是改变AI的行为模式
+1. **纯提示词增强**：DNASPEC Skills主要是改变AI的行为模式
 2. **上下文注入**：通过GEMINI.md提供专业领域的上下文
 3. **关键词触发**：Playbook机制支持智能匹配
 4. **无本地操作**：不需要文件读写或系统命令执行
@@ -20,7 +20,7 @@
 ### ✅ 完全可行的方案：
 ```json
 {
-  "name": "dsgs-agent-creator",
+  "name": "dnaspec-agent-creator",
   "version": "1.0.0",
   "playbook": {
     "instructions": "你现在是DSGS智能体创建专家，专门帮助用户设计和创建智能体...",
@@ -33,7 +33,7 @@
 
 ### GEMINI.md 内容示例：
 ```markdown
-# DSGS 智能体创建专家
+# DNASPEC 智能体创建专家
 
 ## 角色定义
 你是一个专业的DSGS智能体创建专家，具备以下能力：
@@ -72,7 +72,7 @@
 ### 可行性：**95%**
 - Gemini CLI官方文档明确支持
 - 无需MCP的Extensions已有多例成功案例
-- DSGS Skills特性完美匹配此方案
+- DNASPEC Skills特性完美匹配此方案
 
 ### 风险评估：
 - ⚠ **模型理解能力**：依赖Gemini模型对上下文的理解
@@ -110,7 +110,7 @@
 
 **强烈推荐采用无MCP的纯Extensions方案**，因为：
 
-1. ✅ **完全满足需求**：DSGS Skills不需要任何本地操作
+1. ✅ **完全满足需求**：DNASPEC Skills不需要任何本地操作
 2. ✅ **更高置信度**：95%的成功率
 3. ✅ **更简单实现**：无需复杂服务器配置
 4. ✅ **更好性能**：更快响应，更低延迟

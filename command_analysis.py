@@ -55,7 +55,7 @@ def print_command_comparison():
     """
     打印命令详细对比
     """
-    print("🔍 DSGS Context Engineering Skills - 命令功能对比")
+    print("🔍 DNASPEC Context Engineering Skills - 命令功能对比")
     print("="*80)
     print()
     
@@ -96,7 +96,7 @@ def print_command_comparison():
     
 
 if __name__ == "__main__":
-    print("DSGS Context Engineering Skills - 命令行为分析")
+    print("DNASPEC Context Engineering Skills - 命令行为分析")
     print("="*80)
     print()
     

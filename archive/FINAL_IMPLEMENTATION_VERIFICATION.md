@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - AI原生增强系统 (Final Implementation)
+# DNASPEC Context Engineering Skills - AI原生增强系统 (Final Implementation)
 
 ## 项目核心理念验证
 
@@ -22,7 +22,7 @@
          │ (通过DSGS指令接口)
          │  
 ┌─────────────────────────────────────────────────────────┐
-│        DSGS Context Engineering Skills System         │
+│        DNASPEC Context Engineering Skills System         │
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────┐│
 │  │ Context       │  │ Context       │  │ Cognitive││
 │  │ Analysis      │  │ Optimization  │  │ Template ││
@@ -115,7 +115,7 @@
 ## 最终验证结果
 
 ```
-DSGS Context Engineering Skills - AI原生系统验证报告
+DNASPEC Context Engineering Skills - AI原生系统验证报告
 =======================================================
 系统类型: AI CLI平台增强工具集
 架构模式: 指令工程 + AI原生智能 + 结构化输出
@@ -148,10 +148,10 @@ DSGS框架兼容          98%        100%         ✅ PASS
 ```
 # 验证部署成功
 python -c "
-from src.dsgs_context_engineering.context_analysis_fixed import ContextAnalysisSkill
+from src.dnaspec_context_engineering.context_analysis_fixed import ContextAnalysisSkill
 skill = ContextAnalysisSkill()
 result = skill.process_request('测试上下文', {})
-print('DSGS Context Engineering Skills 部署成功 - 状态: {result.status.name}')
+print('DNASPEC Context Engineering Skills 部署成功 - 状态: {result.status.name}')
 print('系统已准备就绪，可以作为AI CLI平台的增强工具集使用')
 "
 ```

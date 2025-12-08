@@ -777,7 +777,7 @@ const alertRules: AlertRule[] = [
 ```json
 {
   "dashboard": {
-    "title": "DSGS System Monitoring",
+    "title": "DNASPEC System Monitoring",
     "panels": [
       {
         "title": "System Health",

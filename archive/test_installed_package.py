@@ -1,8 +1,8 @@
 """
 Test installed package functionality
 """
-from dsgs_spec_kit_integration.core.manager import SkillManager
-from dsgs_spec_kit_integration.skills.examples import ArchitectSkill
+from dnaspec_spec_kit_integration.core.manager import SkillManager
+from dnaspec_spec_kit_integration.skills.examples import ArchitectSkill
 
 def test_installed_package():
     print("Testing installed package...")
@@ -24,7 +24,7 @@ def test_installed_package():
         return False
     
     # Execute skill
-    skill_result = manager.execute_skill("dsgs-architect", "test system")
+    skill_result = manager.execute_skill("dnaspec-architect", "test system")
     if skill_result.status.name == "COMPLETED":
         print("✓ Skill executed successfully")
         print(f"  Result: {skill_result.result}")

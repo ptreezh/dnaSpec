@@ -1,11 +1,11 @@
-# DSGS Context Engineering Skills System - 清晰项目架构
+# DNASPEC Context Engineering Skills System - 清晰项目架构
 
 ## 1. 主要目录结构
 
 ```
 DSGS_Context_Engineering/
 ├── src/
-│   └── dsgs_context_engineering/           # 核心技能实现
+│   └── dnaspec_context_engineering/           # 核心技能实现
 │       ├── skills/                         # AI原生技能模块
 │       │   ├── __init__.py                 # 模块初始化
 │       │   ├── context_analysis.py         # 上下文分析技能
@@ -35,7 +35,7 @@ DSGS_Context_Engineering/
 └── README.md                               # 项目说明
 ```
 
-## 2. 核心技能模块 (src/dsgs_context_engineering/skills)
+## 2. 核心技能模块 (src/dnaspec_context_engineering/skills)
 
 ### 2.1 Context Analysis Skill
 - **文件**: `context_analysis.py`
@@ -62,7 +62,7 @@ DSGS_Context_Engineering/
 
 ## 3. 平台集成适配器
 
-### 3.1 AI平台适配器 (src/dsgs_context_engineering/adapters/ai_platform.py)
+### 3.1 AI平台适配器 (src/dnaspec_context_engineering/adapters/ai_platform.py)
 - 提供与不同AI平台（Claude、Gemini、Qwen等）的统一接口
 - 处理API调用、错误处理、配额管理
 
@@ -87,15 +87,15 @@ def execute(args: Dict[str, Any]) -> str:
 ```
 
 ### 5.2 可用技能列表
-- `dsgs-context-analysis` - 上下文质量分析
-- `dsgs-context-optimization` - 上下文内容优化
-- `dsgs-cognitive-template` - 认知模板应用
-- `dsgs-full-context-pipeline` - 完整上下文工程流水线
+- `dnaspec-context-analysis` - 上下文质量分析
+- `dnaspec-context-optimization` - 上下文内容优化
+- `dnaspec-cognitive-template` - 认知模板应用
+- `dnaspec-full-context-pipeline` - 完整上下文工程流水线
 
 ## 6. 部署架构
 
 此系统设计为AI CLI平台的插件，通过以下方式工作：
-1. 用户调用DSGS技能（如 /dsgs-analyze "上下文"）
+1. 用户调用DSGS技能（如 /dnaspec-analyze "上下文"）
 2. DSGS系统构造精确的AI指令
 3. 指令发送至AI模型执行
 4. AI模型返回结果
@@ -123,13 +123,13 @@ def execute(args: Dict[str, Any]) -> str:
 ### 8.2 使用示例
 ```
 # 分析上下文质量
-/dsgs-context-analysis "电商系统设计方案"
+/dnaspec-context-analysis "电商系统设计方案"
 
 # 优化上下文内容  
-/dsgs-context-optimization "简化的系统需求" --goals "clarity,completeness"
+/dnaspec-context-optimization "简化的系统需求" --goals "clarity,completeness"
 
 # 应用认知模板
-/dsgs-cognitive-template "如何设计高可用系统？" --template "chain_of_thought"
+/dnaspec-cognitive-template "如何设计高可用系统？" --template "chain_of_thought"
 ```
 
 ## 9. 维护和扩展

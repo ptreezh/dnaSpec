@@ -1,4 +1,4 @@
-# Gemini CLI DSGS Skills 最佳集成方案
+# Gemini CLI DNASPEC Skills 最佳集成方案
 
 ## 1. 推荐方案：纯Extensions方案（无MCP）
 
@@ -16,7 +16,7 @@
 
 ### Extensions结构
 ```
-dsgs-agent-creator/
+dnaspec-agent-creator/
 ├── gemini-extension.json    # 扩展配置文件
 ├── GEMINI.md               # 上下文文件
 └── README.md              # 说明文档
@@ -25,7 +25,7 @@ dsgs-agent-creator/
 ### gemini-extension.json 配置
 ```json
 {
-  "name": "dsgs-agent-creator",
+  "name": "dnaspec-agent-creator",
   "version": "1.0.0",
   "description": "DSGS智能体创建器 - 专业的智能体设计和创建专家",
   "playbook": {
@@ -45,7 +45,7 @@ dsgs-agent-creator/
 
 ### GEMINI.md 上下文文件
 ```markdown
-# DSGS 智能体创建专家
+# DNASPEC 智能体创建专家
 
 ## 角色定位
 你是一个专业的DSGS智能体创建专家，具备以下核心能力：
@@ -114,12 +114,12 @@ def deploy_gemini_extensions():
 ### 功能测试用例
 ```python
 test_cases = [
-    ("创建一个项目管理智能体", "dsgs-agent-creator"),
-    ("设计多智能体协作系统", "dsgs-agent-creator"),
-    ("分解复杂软件开发任务", "dsgs-task-decomposer"),
-    ("生成API接口约束", "dsgs-constraint-generator"),
-    ("检查微服务接口一致性", "dsgs-dapi-checker"),
-    ("模块化重构现有系统", "dsgs-modulizer")
+    ("创建一个项目管理智能体", "dnaspec-agent-creator"),
+    ("设计多智能体协作系统", "dnaspec-agent-creator"),
+    ("分解复杂软件开发任务", "dnaspec-task-decomposer"),
+    ("生成API接口约束", "dnaspec-constraint-generator"),
+    ("检查微服务接口一致性", "dnaspec-dapi-checker"),
+    ("模块化重构现有系统", "dnaspec-modulizer")
 ]
 ```
 
@@ -142,13 +142,13 @@ class GeminiCLIAdapter(BaseAdapter):
 
 ### 配置文件生成
 自动生成所有7个DSGS Skills的Extensions配置：
-- dsgs-agent-creator
-- dsgs-architect  
-- dsgs-system-architect
-- dsgs-task-decomposer
-- dsgs-constraint-generator
-- dsgs-dapi-checker
-- dsgs-modulizer
+- dnaspec-agent-creator
+- dnaspec-architect  
+- dnaspec-system-architect
+- dnaspec-task-decomposer
+- dnaspec-constraint-generator
+- dnaspec-dapi-checker
+- dnaspec-modulizer
 
 ## 7. 监控和维护
 

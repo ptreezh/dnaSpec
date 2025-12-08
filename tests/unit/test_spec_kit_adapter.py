@@ -9,7 +9,7 @@ from unittest.mock import Mock, patch
 # 添加项目根目录到Python路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
-from src.dsgs_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
+from src.dnaspec_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
 
 
 # 定义测试用的SpecKitAdapter实现
@@ -29,7 +29,7 @@ class TestSpecKitAdapter:
         assert adapter is not None
         assert hasattr(adapter, 'supported_agents')
         assert hasattr(adapter, 'command_prefix')
-        assert adapter.command_prefix == "/speckit.dsgs."
+        assert adapter.command_prefix == "/speckit.dnaspec."
         assert adapter.is_initialized == False
     
     def test_spec_kit_adapter_supported_agents(self):
@@ -84,18 +84,18 @@ class TestSpecKitAdapter:
         adapter = TestSpecKitAdapterImpl()
         
         # 测试带参数的命令
-        result = adapter.parse_command("/speckit.dsgs.architect 设计一个电商系统架构")
+        result = adapter.parse_command("/speckit.dnaspec.architect 设计一个电商系统架构")
         assert result is not None
-        assert result['skill_name'] == "dsgs-architect"
+        assert result['skill_name'] == "dnaspec-architect"
         assert result['params'] == "设计一个电商系统架构"
-        assert result['original_command'] == "/speckit.dsgs.architect 设计一个电商系统架构"
+        assert result['original_command'] == "/speckit.dnaspec.architect 设计一个电商系统架构"
         
         # 测试不带参数的命令
-        result = adapter.parse_command("/speckit.dsgs.agent-creator")
+        result = adapter.parse_command("/speckit.dnaspec.agent-creator")
         assert result is not None
-        assert result['skill_name'] == "dsgs-agent-creator"
+        assert result['skill_name'] == "dnaspec-agent-creator"
         assert result['params'] == ""
-        assert result['original_command'] == "/speckit.dsgs.agent-creator"
+        assert result['original_command'] == "/speckit.dnaspec.agent-creator"
     
     def test_spec_kit_adapter_parse_command_invalid(self):
         """测试无效命令解析"""
@@ -118,8 +118,8 @@ class TestSpecKitAdapter:
         adapter = TestSpecKitAdapterImpl()
         
         # 测试有效的命令映射
-        skill_name = adapter.map_command_to_skill("/speckit.dsgs.architect 设计系统")
-        assert skill_name == "dsgs-architect"
+        skill_name = adapter.map_command_to_skill("/speckit.dnaspec.architect 设计系统")
+        assert skill_name == "dnaspec-architect"
         
         # 测试无效的命令映射
         skill_name = adapter.map_command_to_skill("/invalid.command")
@@ -152,7 +152,7 @@ class TestSpecKitAdapter:
             assert 'is_initialized' in info
             assert 'dependencies' in info
             assert info['name'] == 'TestSpecKitAdapterImpl'
-            assert info['command_prefix'] == "/speckit.dsgs."
+            assert info['command_prefix'] == "/speckit.dnaspec."
             assert info['dependencies']['git'] is True
             assert info['dependencies']['python'] is True
     

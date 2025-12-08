@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-DSGS Context Engineering Skills - Auto Configuration Script
+DNASPEC Context Engineering Skills - Auto Configuration Script
 Performs automated detection, configuration, and validation after installation
 """
-from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
 
 
 def main():
-    print("🚀 DSGS Context Engineering Skills - Auto Configuration Wizard")
+    print("🚀 DNASPEC Context Engineering Skills - Auto Configuration Wizard")
     print("=" * 60)
 
     # Create auto configurator instance
@@ -29,10 +29,10 @@ def main():
 
         print("\nUsage Instructions:")
         print("  Now you can use the following commands in your supported CLI tools:")
-        print("  /speckit.dsgs.context-analysis [context] - Analyze context quality")
-        print("  /speckit.dsgs.context-optimization [context] - Optimize context")
-        print("  /speckit.dsgs.cognitive-template [task] - Apply cognitive template")
-        print("  ...and other DSGS skills")
+        print("  /speckit.dnaspec.context-analysis [context] - Analyze context quality")
+        print("  /speckit.dnaspec.context-optimization [context] - Optimize context")
+        print("  /speckit.dnaspec.cognitive-template [task] - Apply cognitive template")
+        print("  ...and other DNASPEC skills")
 
     else:
         print("\n❌ Automatic configuration failed")

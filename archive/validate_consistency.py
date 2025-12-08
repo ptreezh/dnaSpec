@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__)))
 
-from src.dsgs_spec_kit_integration.skills.architect import execute as architect_execute
+from src.dnaspec_spec_kit_integration.skills.architect import execute as architect_execute
 from src.context_engineering_skills.context_analysis import execute as context_analysis_execute
 
 # 测试两个技能的输出格式一致性

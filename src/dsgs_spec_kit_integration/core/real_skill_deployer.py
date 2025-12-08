@@ -158,7 +158,7 @@ class RealSkillDeployer:
                         ]
                     },
                     "metadata": {
-                        "author": "DSGS Team",
+                        "author": "DNASPEC Team",
                         "license": "MIT",
                         "tags": ["context-analysis", "optimization", "cognitive-templates"]
                     }
@@ -212,7 +212,7 @@ class RealSkillDeployer:
                         }
                     },
                     "metadata": {
-                        "author": "DSGS Team",
+                        "author": "DNASPEC Team",
                         "version": plugin_def["version"],
                         "tags": ["context-analysis", "ai-tools", "development"]
                     }
@@ -250,16 +250,16 @@ class RealSkillDeployer:
                 'version': '1.0.4',
                 'dsks_skills': self._get_dsgs_skill_definitions(),
                 'activation_commands': [
-                    '/speckit.dsgs.context-analysis',
-                    '/speckit.dsgs.context-optimization', 
-                    '/speckit.dsgs.cognitive-template',
-                    '/speckit.dsgs.architect'
+                    '/speckit.dnaspec.context-analysis',
+                    '/speckit.dnaspec.context-optimization', 
+                    '/speckit.dnaspec.cognitive-template',
+                    '/speckit.dnaspec.architect'
                 ],
                 'handlers': {
-                    'context-analysis': 'dsgs_context_engineering.skills_system_final:execute_context_analysis',
-                    'context-optimization': 'dsgs_context_engineering.skills_system_final:execute_context_optimization',
-                    'cognitive-template': 'dsgs_context_engineering.skills_system_final:execute_cognitive_template',
-                    'architect': 'dsgs_context_engineering.skills_system_final:execute_architect'
+                    'context-analysis': 'dnaspec_context_engineering.skills_system_final:execute_context_analysis',
+                    'context-optimization': 'dnaspec_context_engineering.skills_system_final:execute_context_optimization',
+                    'cognitive-template': 'dnaspec_context_engineering.skills_system_final:execute_cognitive_template',
+                    'architect': 'dnaspec_context_engineering.skills_system_final:execute_architect'
                 },
                 'installed_at': self._get_timestamp()
             }
@@ -269,7 +269,7 @@ class RealSkillDeployer:
 
             return {
                 'success': True,
-                'message': f'Configured DSGS skills for {platform_name}',
+                'message': f'Configured DNASPEC skills for {platform_name}',
                 'config_path': str(config_file),
                 'extension_path': str(ext_dir),
                 'skills_installed': len(config['dsks_skills'])
@@ -283,52 +283,52 @@ class RealSkillDeployer:
     def _get_claude_skill_definitions(self) -> Dict[str, Any]:
         """获取Claude技能定义"""
         return {
-            'dsgs-context-analysis': {
-                'name': 'dsgs-context-analysis',
+            'dnaspec-context-analysis': {
+                'name': 'dnaspec-context-analysis',
                 'description': 'Analyze context quality across 5 dimensions: clarity, relevance, completeness, consistency, efficiency',
                 'version': '1.0.4',
                 'commands': [{
-                    'name': '/dsgs-analyze',
+                    'name': '/dnaspec-analyze',
                     'description': 'Analyze quality of provided context',
                     'handler': 'context_analysis_handler'
                 }],
-                'module': 'dsgs_context_engineering.skills_system_final',
+                'module': 'dnaspec_context_engineering.skills_system_final',
                 'function': 'execute_context_analysis'
             },
-            'dsgs-context-optimization': {
-                'name': 'dsgs-context-optimization',
+            'dnaspec-context-optimization': {
+                'name': 'dnaspec-context-optimization',
                 'description': 'Optimize context with specific goals like clarity, completeness, relevance',
                 'version': '1.0.4',
                 'commands': [{
-                    'name': '/dsgs-optimize',
+                    'name': '/dnaspec-optimize',
                     'description': 'Optimize provided context',
                     'handler': 'context_optimization_handler'
                 }],
-                'module': 'dsgs_context_engineering.skills_system_final',
+                'module': 'dnaspec_context_engineering.skills_system_final',
                 'function': 'execute_context_optimization'
             },
-            'dsgs-cognitive-template': {
-                'name': 'dsgs-cognitive-template',
+            'dnaspec-cognitive-template': {
+                'name': 'dnaspec-cognitive-template',
                 'description': 'Apply cognitive templates like chain-of-thought, verification, few-shot learning',
                 'version': '1.0.4',
                 'commands': [{
-                    'name': '/dsgs-template',
+                    'name': '/dnaspec-template',
                     'description': 'Apply cognitive templates to task',
                     'handler': 'cognitive_template_handler'
                 }],
-                'module': 'dsgs_context_engineering.skills_system_final',
+                'module': 'dnaspec_context_engineering.skills_system_final',
                 'function': 'execute_cognitive_template'
             },
-            'dsgs-architect': {
-                'name': 'dsgs-architect',
+            'dnaspec-architect': {
+                'name': 'dnaspec-architect',
                 'description': 'System architecture design expert',
                 'version': '1.0.4',
                 'commands': [{
-                    'name': '/dsgs-architect',
+                    'name': '/dnaspec-architect',
                     'description': 'Design system architecture',
                     'handler': 'architect_handler'
                 }],
-                'module': 'dsgs_context_engineering.skills_system_final',
+                'module': 'dnaspec_context_engineering.skills_system_final',
                 'function': 'execute_architect'
             }
         }
@@ -336,25 +336,25 @@ class RealSkillDeployer:
     def _get_qwen_plugin_definitions(self) -> Dict[str, Any]:
         """获取Qwen插件定义"""
         return {
-            'dsgs-context-analysis': {
-                'name': 'dsgs-context-analysis',
+            'dnaspec-context-analysis': {
+                'name': 'dnaspec-context-analysis',
                 'description': 'Analyze context quality across 5 dimensions',
                 'version': '1.0.4',
-                'module': 'dsgs_context_engineering.skills_system_final',
+                'module': 'dnaspec_context_engineering.skills_system_final',
                 'function': 'execute_context_analysis'
             },
-            'dsgs-context-optimization': {
-                'name': 'dsgs-context-optimization', 
+            'dnaspec-context-optimization': {
+                'name': 'dnaspec-context-optimization', 
                 'description': 'Optimize context with specific goals',
                 'version': '1.0.4',
-                'module': 'dsgs_context_engineering.skills_system_final',
+                'module': 'dnaspec_context_engineering.skills_system_final',
                 'function': 'execute_context_optimization'
             },
-            'dsgs-cognitive-template': {
-                'name': 'dsgs-cognitive-template',
+            'dnaspec-cognitive-template': {
+                'name': 'dnaspec-cognitive-template',
                 'description': 'Apply cognitive templates to structure thinking',
                 'version': '1.0.4',
-                'module': 'dsgs_context_engineering.skills_system_final',
+                'module': 'dnaspec_context_engineering.skills_system_final',
                 'function': 'execute_cognitive_template'
             }
         }
@@ -363,25 +363,25 @@ class RealSkillDeployer:
         """获取DSGS技能定义"""
         return {
             'context-analysis': {
-                'name': 'dsgs-context-analysis',
+                'name': 'dnaspec-context-analysis',
                 'description': 'Analyze context quality across 5 dimensions',
                 'version': '1.0.4',
                 'handler': 'execute_context_analysis'
             },
             'context-optimization': {
-                'name': 'dsgs-context-optimization',
+                'name': 'dnaspec-context-optimization',
                 'description': 'Optimize context with specific goals',
                 'version': '1.0.4', 
                 'handler': 'execute_context_optimization'
             },
             'cognitive-template': {
-                'name': 'dsgs-cognitive-template',
+                'name': 'dnaspec-cognitive-template',
                 'description': 'Apply cognitive templates to tasks',
                 'version': '1.0.4',
                 'handler': 'execute_cognitive_template'
             },
             'architect': {
-                'name': 'dsgs-architect', 
+                'name': 'dnaspec-architect', 
                 'description': 'System architecture design expert',
                 'version': '1.0.4',
                 'handler': 'execute_architect'
@@ -444,7 +444,7 @@ class RealSkillDeployer:
 
 def main():
     """主函数 - 部署DSGS技能到AI CLI工具"""
-    print("🚀 DSGS Skills Deployment System - 真正的技能部署器")
+    print("🚀 DNASPEC Skills Deployment System - 真正的技能部署器")
     print("="*60)
     print("将DSGS核心技能部署到已安装的AI CLI工具中...")
     print()
@@ -481,10 +481,10 @@ def main():
     print()
     print("✅ DSGS技能部署完成！")
     print("现在可以在AI CLI工具中使用以下命令:")
-    print("  /speckit.dsgs.context-analysis [上下文] - 分析上下文质量")
-    print("  /speckit.dsgs.context-optimization [上下文] - 优化上下文")
-    print("  /speckit.dsgs.cognitive-template [任务] - 应用认知模板")
-    print("  /speckit.dsgs.architect [需求] - 系统架构设计")
+    print("  /speckit.dnaspec.context-analysis [上下文] - 分析上下文质量")
+    print("  /speckit.dnaspec.context-optimization [上下文] - 优化上下文")
+    print("  /speckit.dnaspec.cognitive-template [任务] - 应用认知模板")
+    print("  /speckit.dnaspec.architect [需求] - 系统架构设计")
     
     return results
 

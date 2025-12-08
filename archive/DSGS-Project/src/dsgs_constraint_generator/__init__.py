@@ -1,4 +1,4 @@
-# dsgs-constraint-generator子技能实现
+# dnaspec-constraint-generator子技能实现
 
 import os
 import sys
@@ -9,7 +9,7 @@ class DSGSConstraintGenerator:
     
     def __init__(self):
         """初始化约束生成器技能"""
-        self.name = "dsgs-constraint-generator"
+        self.name = "dnaspec-constraint-generator"
         self.description = "DSGS约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束"
         self.capabilities = [
             "system_constraint_generation",
@@ -388,6 +388,6 @@ constraint_generator = DSGSConstraintGenerator()
 
 if __name__ == "__main__":
     # 简单测试
-    print("DSGS Constraint Generator Skill Loaded")
+    print("DNASPEC Constraint Generator Skill Loaded")
     print(f"Skill Name: {constraint_generator.name}")
     print(f"Description: {constraint_generator.description}")

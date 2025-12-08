@@ -1,7 +1,7 @@
-# DSGS Context Engineering Skills - 专业功能详解手册
+# DNASPEC Context Engineering Skills - 专业功能详解手册
 
 ## 🎯 产品核心价值
-DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程增强系统，通过AI原生智能实现专业级的上下文分析、优化和结构化，提升AI辅助开发的效率和质量。
+DNASPEC Context Engineering Skills 是一个为AI CLI环境设计的上下文工程增强系统，通过AI原生智能实现专业级的上下文分析、优化和结构化，提升AI辅助开发的效率和质量。
 
 ## 📋 完整功能列表
 
@@ -9,7 +9,7 @@ DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程
 
 #### 1.1 Context Analysis (上下文分析)
 - **功能**: 对提供的上下文进行五维质量评估
-- **AI CLI使用**: `/speckit.dsgs.context-analysis "待分析内容"`
+- **AI CLI使用**: `/speckit.dnaspec.context-analysis "待分析内容"`
 - **输出**:
   - 五维指标评分 (清晰度、相关性、完整性、一致性、效率)
   - 优化建议
@@ -18,7 +18,7 @@ DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程
 
 #### 1.2 Context Optimization (上下文优化)
 - **功能**: 基于分析结果优化上下文质量
-- **AI CLI使用**: `/speckit.dsgs.context-optimization "待优化内容"`
+- **AI CLI使用**: `/speckit.dnaspec.context-optimization "待优化内容"`
 - **输出**:
   - 优化后的内容
   - 应用的优化措施
@@ -26,7 +26,7 @@ DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程
 
 #### 1.3 Cognitive Template (认知模板)
 - **功能**: 应用专业认知框架到任务
-- **AI CLI使用**: `/speckit.dsgs.cognitive-template "任务描述" template=verification`
+- **AI CLI使用**: `/speckit.dnaspec.cognitive-template "任务描述" template=verification`
 - **可用模板**:
   - `chain_of_thought`: 思维链推理
   - `few_shot`: 少样本学习
@@ -74,10 +74,10 @@ DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程
 #### 3.1 临时工作区管理
 - **功能**: 隔离AI生成的临时文件，防止项目污染
 - **AI CLI使用**:
-  - 创建: `/speckit.dsgs.temp-workspace "operation=create-workspace"`
-  - 添加文件: `/speckit.dsgs.temp-workspace "operation=add-file path=gen.py content=# code"`
-  - 确认文件: `/speckit.dsgs.temp-workspace "operation=confirm-file file=gen.py"`
-  - 清理: `/speckit.dsgs.temp-workspace "operation=clean-workspace"`
+  - 创建: `/speckit.dnaspec.temp-workspace "operation=create-workspace"`
+  - 添加文件: `/speckit.dnaspec.temp-workspace "operation=add-file path=gen.py content=# code"`
+  - 确认文件: `/speckit.dnaspec.temp-workspace "operation=confirm-file file=gen.py"`
+  - 清理: `/speckit.dnaspec.temp-workspace "operation=clean-workspace"`
 
 - **工作流程**:
   1. AI生成内容 → 临时工作区隔离
@@ -87,7 +87,7 @@ DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程
 
 #### 3.2 Git操作集成
 - **功能**: 完整的Git工作流支持，与AI工作流集成
-- **AI CLI使用**: `/speckit.dsgs.git-skill "operation=status"`
+- **AI CLI使用**: `/speckit.dnaspec.git-skill "operation=status"`
 - **支持操作**:
   - 基础操作: status, add, commit, push, pull
   - 分支管理: create, switch, merge
@@ -105,16 +105,16 @@ DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程
 
 #### 4.2 简化命令
 - **快捷功能**:
-  - `/speckit.dsgs.context-optimization "内容"` → 自动优化
-  - `/speckit.dsgs.context-analysis "内容"` → 自动分析
-  - `/speckit.dsgs.context-analysis "内容" goals=review` → 自动审查
-  - `/speckit.dsgs.cognitive-template "描述" template=chain_of_thought` → 智能处理
+  - `/speckit.dnaspec.context-optimization "内容"` → 自动优化
+  - `/speckit.dnaspec.context-analysis "内容"` → 自动分析
+  - `/speckit.dnaspec.context-analysis "内容" goals=review` → 自动审查
+  - `/speckit.dnaspec.cognitive-template "描述" template=chain_of_thought` → 智能处理
 
 ### 5. 专业工作流功能
 
 #### 5.1 任务分拆功能
 - **功能**: 智能分解复杂任务为可管理的子任务
-- **AI CLI使用**: `/speckit.dsgs.architect "分解开发用户认证模块 task=decompose"`
+- **AI CLI使用**: `/speckit.dnaspec.architect "分解开发用户认证模块 task=decompose"`
 - **输出**:
   - 任务分解层级
   - 资源估算
@@ -130,7 +130,7 @@ DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程
   - 结构化: 优化组织结构
   - 相关性: 强化目标关联
   - 效率: 优化信息密度
-- **AI CLI使用**: `/speckit.dsgs.context-optimization "内容" strategies="clarity,completeness"`
+- **AI CLI使用**: `/speckit.dnaspec.context-optimization "内容" strategies="clarity,completeness"`
 
 ## 🚀 AI CLI环境专业使用指南
 
@@ -140,7 +140,7 @@ DSGS Context Engineering Skills 是一个为AI CLI环境设计的上下文工程
 ```
 用户: "分析这个需求：需要一个电商系统，支持用户购买功能"
 AI: (自动识别为分析意图)
-AI: /speckit.dsgs.context-analysis "需要一个电商系统，支持用户购买功能"
+AI: /speckit.dnaspec.context-analysis "需要一个电商系统，支持用户购买功能"
 AI: (返回)
   清晰度: 0.5 ⚠️ (建议明确验证方式)
   相关性: 0.9 ✅ (高度相关)
@@ -153,7 +153,7 @@ AI: (返回)
 用户: "帮我优化这段代码的性能"
 用户: "def get_user(id): return db.get_user(id)"
 AI: (自动识别为优化意图)
-AI: /speckit.dsgs.context-optimization "def get_user(id): return db.get_user(id)" goals="performance,clarity"
+AI: /speckit.dnaspec.context-optimization "def get_user(id): return db.get_user(id)" goals="performance,clarity"
 AI: (返回优化建议)
 ```
 
@@ -162,7 +162,7 @@ AI: (返回优化建议)
 用户: "用设计模式分析这个系统"
 用户: "订单管理系统，需要支持多种支付方式"
 AI: (自动应用认知模板)
-AI: /speckit.dsgs.cognitive-template "订单管理系统，需要支持多种支付方式" template=understanding
+AI: /speckit.dnaspec.cognitive-template "订单管理系统，需要支持多种支付方式" template=understanding
 AI: (返回结构化分析)
 ```
 
@@ -172,36 +172,36 @@ AI: (返回结构化分析)
 ```
 AI CLI: 
 # 1. 需求质量评估
-/speckit.dsgs.context-analysis "项目需求文档内容"
+/speckit.dnaspec.context-analysis "项目需求文档内容"
 
 # 2. 生成项目结构
-/speckit.dsgs.modulizer "项目需求"
+/speckit.dnaspec.modulizer "项目需求"
 
 # 3. 生成系统约束
-/speckit.dsgs.constraint-generator "项目需求"
+/speckit.dnaspec.constraint-generator "项目需求"
 
 # 4. 创建开发代理
-/speckit.dsgs.agent-creator "针对项目需求的开发代理"
+/speckit.dnaspec.agent-creator "针对项目需求的开发代理"
 ```
 
 #### 场景B: 代码开发阶段
 ```
 AI CLI: 
 # 1. 安全工作区创建
-/speckit.dsgs.temp-workspace "operation=create-workspace"
+/speckit.dnaspec.temp-workspace "operation=create-workspace"
 
 # 2. 代码分析
-/speckit.dsgs.context-analysis "代码片段"
+/speckit.dnaspec.context-analysis "代码片段"
 
 # 3. 任务分解
-/speckit.dsgs.task-decomposer "复杂功能实现"
+/speckit.dnaspec.task-decomposer "复杂功能实现"
 
 # 4. 代码优化
-/speckit.dsgs.context-optimization "代码片段" goals="clarity,performance"
+/speckit.dnaspec.context-optimization "代码片段" goals="clarity,performance"
 
 # 5. 提交验证
-/speckit.dsgs.temp-workspace "operation=confirm-file file=code.py"
-/speckit.dsgs.git-skill "operation=commit message='功能实现'"
+/speckit.dnaspec.temp-workspace "operation=confirm-file file=code.py"
+/speckit.dnaspec.git-skill "operation=commit message='功能实现'"
 ```
 
 ## 🎨 特色功能亮点
@@ -241,10 +241,10 @@ AI CLI:
 
 ### 提示2: 高效工作流
 ```
-1. 需求澄清: /speckit.dsgs.context-analysis "需求"
-2. 需求优化: /speckit.dsgs.context-optimization "需求" 
-3. 架构设计: /speckit.dsgs.architect "需求"
-4. 任务分解: /speckit.dsgs.task-decomposer "架构"
+1. 需求澄清: /speckit.dnaspec.context-analysis "需求"
+2. 需求优化: /speckit.dnaspec.context-optimization "需求" 
+3. 架构设计: /speckit.dnaspec.architect "需求"
+4. 任务分解: /speckit.dnaspec.task-decomposer "架构"
 5. 开发支持: 按需使用其他技能
 ```
 

@@ -83,49 +83,49 @@
 - **脚本需求**: 高 - 已创建context_optimizer.py优化算法脚本
 - **建议**: 已实现，符合渐进式展开
 
-### 12. dsgs-architect
+### 12. dnaspec-architect
 - **类型**: DSGS领域技能
 - **功能**: DSGS智能架构师
 - **渐进式展开**: ✖ 不符合 - 独立领域技能，无渐进式层级
 - **脚本需求**: 高 - 已创建architect_coordinator.py架构模式匹配和协调脚本
 - **建议**: 已实现，符合功能需求
 
-### 13. dsgs-system-architect
+### 13. dnaspec-system-architect
 - **类型**: DSGS领域技能
 - **功能**: DSGS系统架构师
 - **渐进式展开**: ✖ 不符合 - 独立领域技能，无渐进式层级
 - **脚本需求**: 高 - 已创建system_architect_designer.py技术栈评估和架构设计脚本
 - **建议**: 已实现，符合功能需求
 
-### 14. dsgs-agent-creator
+### 14. dnaspec-agent-creator
 - **类型**: DSGS领域技能
 - **功能**: DSGS智能体创建器
 - **渐进式展开**: ✖ 不符合 - 独立领域技能，无渐进式层级
 - **脚本需求**: 高 - 已创建agent_creator.py智能体模板和配置生成脚本
 - **建议**: 已实现，符合功能需求
 
-### 15. dsgs-constraint-generator
+### 15. dnaspec-constraint-generator
 - **类型**: DSGS领域技能
 - **功能**: DSGS约束生成器
 - **渐进式展开**: ✖ 不符合 - 独立领域技能，无渐进式层级
 - **脚本需求**: 高 - 已创建constraint_generator.py约束规则验证和生成脚本
 - **建议**: 已实现，符合功能需求
 
-### 16. dsgs-task-decomposer
+### 16. dnaspec-task-decomposer
 - **类型**: DSGS领域技能
 - **功能**: DSGS任务分解器
 - **渐进式展开**: ✖ 不符合 - 独立领域技能，无渐进式层级
 - **脚本需求**: 高 - 已创建task_decomposer.py任务分解脚本
 - **建议**: 已实现，功能完整
 
-### 17. dsgs-modulizer
+### 17. dnaspec-modulizer
 - **类型**: DSGS领域技能
 - **功能**: DSGS模块成熟化验证器
 - **渐进式展开**: ✖ 不符合 - 独立领域技能，无渐进式层级
 - **脚本需求**: 中 - 已创建modulizer.py模块评估和封装脚本
 - **建议**: 已实现，符合功能需求
 
-### 18. dsgs-dapi-checker
+### 18. dnaspec-dapi-checker
 - **类型**: DSGS领域技能
 - **功能**: DSGS分布式接口文档检查器
 - **渐进式展开**: ✖ 不符合 - 独立领域技能，无渐进式层级
@@ -155,16 +155,16 @@
 
 ### 已实现的高优先级脚本
 1. **context_analyzer.py** - context-analysis-enhanced技能 (已完成) ✓
-2. **task_decomposer.py** - dsgs-task-decomposer技能 (已完成) ✓
+2. **task_decomposer.py** - dnaspec-task-decomposer技能 (已完成) ✓
 3. **context_optimizer.py** - context-optimization-enhanced技能 (已完成) ✓
-4. **constraint_generator.py** - dsgs-constraint-generator技能 (已完成) ✓
-5. **dapi_checker.py** - dsgs-dapi-checker技能 (已完成) ✓
-6. **agent_creator.py** - dsgs-agent-creator技能 (已完成) ✓
+4. **constraint_generator.py** - dnaspec-constraint-generator技能 (已完成) ✓
+5. **dapi_checker.py** - dnaspec-dapi-checker技能 (已完成) ✓
+6. **agent_creator.py** - dnaspec-agent-creator技能 (已完成) ✓
 
 ### 待实现的高优先级脚本
-1. **architect_coordinator.py** - dsgs-architect技能需要
-2. **system_architect_designer.py** - dsgs-system-architect技能需要
-3. **modulizer.py** - dsgs-modulizer技能需要
+1. **architect_coordinator.py** - dnaspec-architect技能需要
+2. **system_architect_designer.py** - dnaspec-system-architect技能需要
+3. **modulizer.py** - dnaspec-modulizer技能需要
 
 ### 中优先级脚本需求
 1. **cognitive_applicator.py** - cognitive-template-enhanced技能可以增强
@@ -200,4 +200,4 @@
 - 多个技能已达到"已实现，符合功能需求"的状态
 - 渐进式展开方面，已有的层级结构（基础→增强版）和工作流组合得到进一步强化
 
-当前项目仍需为dsgs-architect、dsgs-system-architect和dsgs-modulizer创建脚本，以进一步完善脚本支持体系。
+当前项目仍需为dsgs-architect、dnaspec-system-architect和dsgs-modulizer创建脚本，以进一步完善脚本支持体系。

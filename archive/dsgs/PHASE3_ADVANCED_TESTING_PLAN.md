@@ -1,4 +1,4 @@
-# DSGS Phase 3: Advanced Testing Strategies - 执行计划
+# DNASPEC Phase 3: Advanced Testing Strategies - 执行计划
 
 ## 🎯 Phase 3 概述
 
@@ -131,8 +131,8 @@ import { Pact } from '@pact-foundation/pact';
 // 示例：API契约测试
 describe('API Contract Test', () => {
   const provider = new Pact({
-    consumer: 'DSGS-Client',
-    provider: 'DSGS-API',
+    consumer: 'DNASPEC-Client',
+    provider: 'DNASPEC-API',
     port: 8080,
   });
 

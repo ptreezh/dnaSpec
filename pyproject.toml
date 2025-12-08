@@ -1,12 +1,12 @@
 [project]
-name = "dsgs-context-engineering-skills"
+name = "dnaspec-context-engineering-skills"
 version = "1.0.2"
 description = "Dynamic Specification Growth System (dnaspec) - AI CLI平台的上下文工程增强工具集"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "DSGS Team", email = "dsgs@example.com"},
+    {name = "DNASPEC Team", email = "dnaspec@example.com"},
 ]
 
 dependencies = [
@@ -28,7 +28,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["dsgs_spec_kit_integration", "dsgs_spec_kit_integration.*", "dsgs_context_engineering", "dsgs_context_engineering.*"]
+include = ["dnaspec_spec_kit_integration", "dnaspec_spec_kit_integration.*", "dnaspec_context_engineering", "dnaspec_context_engineering.*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -53,7 +53,7 @@ omit = [
 ]
 
 [project.scripts]
-dsgs-spec-kit = "dsgs_spec_kit_integration.cli:main"
+dnaspec-spec-kit = "dnaspec_spec_kit_integration.cli:main"
 
 [tool.coverage.report]
 exclude_lines = [

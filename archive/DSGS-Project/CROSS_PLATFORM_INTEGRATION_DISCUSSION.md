@@ -4,7 +4,7 @@
 
 ### 核心需求
 1. **基于Claude Code Skills设计哲学**：创建可发现、可组合、可审计的技能系统
-2. **多技能架构**：一个总技能(dsgs-architect)协调多个子技能(agent-creator, task-decomposer, constraint-generator, dapi-checker, modulizer)
+2. **多技能架构**：一个总技能(dnaspec-architect)协调多个子技能(agent-creator, task-decomposer, constraint-generator, dapi-checker, modulizer)
 3. **智能匹配系统**：基于关键词、语义和上下文的智能技能匹配
 4. **Hook系统集成**：自动检测用户意图并调用相应技能
 5. **跨平台兼容**：在Claude CLI、Gemini CLI、Qwen CLI等多个AI工具中使用同一套技能
@@ -54,7 +54,7 @@
 
 ### 方案一：适配器模式统一集成（推荐）
 ```
-DSGS Skills Core (平台无关)
+DNASPEC Skills Core (平台无关)
 ├── Claude CLI Adapter (SKILL.md格式)
 ├── Gemini CLI Adapter (MCP Server)
 ├── Qwen CLI Adapter (MCP Server)

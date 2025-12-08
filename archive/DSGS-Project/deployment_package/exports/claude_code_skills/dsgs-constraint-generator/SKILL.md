@@ -1,12 +1,12 @@
 ---
-name: dsgs-constraint-generator
+name: dnaspec-constraint-generator
 description: "DSGS约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束。当用户提到生成约束、API规范、数据验证规则或质量约束时使用此技能。不要在讨论具体实现细节时使用。"
 ---
 
 # DSGS约束生成器子技能
 
 ## 功能概述
-dsgs-constraint-generator是DSGS智能架构师系统的子技能，专门负责：
+dnaspec-constraint-generator是DSGS智能架构师系统的子技能，专门负责：
 1. 分析项目需求并生成相应的系统约束
 2. 生成API规范约束和接口定义
 3. 定义数据约束和验证规则

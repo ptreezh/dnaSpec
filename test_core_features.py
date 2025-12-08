@@ -6,7 +6,7 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-from src.dsgs_context_engineering.skills_system_final import execute
+from src.dnaspec_context_engineering.skills_system_final import execute
 
 print("测试DSGS核心功能:")
 

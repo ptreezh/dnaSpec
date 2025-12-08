@@ -19,7 +19,7 @@ class SpecKitAdapter(ABC):
     
     def __init__(self):
         self.supported_agents = self.SUPPORTED_AGENTS.copy()
-        self.command_prefix = "/speckit.dsgs."
+        self.command_prefix = "/speckit.dnaspec."
         self.is_initialized = False
         self._registered_skills = {}  # 注册的技能存储
     
@@ -59,7 +59,7 @@ class SpecKitAdapter(ABC):
             params = ""
         
         return {
-            'skill_name': f"dsgs-{skill_name}",
+            'skill_name': f"dnaspec-{skill_name}",
             'params': params,
             'original_command': command
         }

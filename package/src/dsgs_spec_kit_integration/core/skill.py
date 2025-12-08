@@ -21,7 +21,7 @@ class SkillInfo:
     name: str
     description: str
     version: str = "1.0.0"
-    author: str = "DSGS System"
+    author: str = "DNASPEC System"
     keywords: List[str] = None
     confidence: float = 0.0
     execution_time: float = 0.0
@@ -47,7 +47,7 @@ class SkillResult:
             self.metadata = {}
 
 
-class DSGSSkill:
+class DNASpecSkill:
     """DSGS技能基类"""
     
     def __init__(self, name: str, description: str):

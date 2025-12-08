@@ -8,7 +8,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 try:
-    from src.dsgs_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
+    from src.dnaspec_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
     print("Hook系统导入成功")
     
     # 测试HookConfig
@@ -20,7 +20,7 @@ try:
     print(f"Hook系统初始化成功: interceptors={len(hook_system._interceptors)}")
     
     # 测试命令检测
-    is_spec_kit = hook_system._is_spec_kit_command("/speckit.dsgs.architect 设计系统")
+    is_spec_kit = hook_system._is_spec_kit_command("/speckit.dnaspec.architect 设计系统")
     print(f"Spec.kit命令检测: {is_spec_kit}")
     
     is_natural = hook_system._is_natural_language_request("设计一个系统架构")

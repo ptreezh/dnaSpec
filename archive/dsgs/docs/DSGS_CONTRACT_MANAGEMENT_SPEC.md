@@ -3,7 +3,7 @@
 ## 📋 项目概述
 
 ### 项目名称
-DSGS智能契约管理系统 (DSGS Intelligent Contract Management System)
+DSGS智能契约管理系统 (DNASPEC Intelligent Contract Management System)
 
 ### 项目版本
 v2.1.0

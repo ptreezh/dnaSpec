@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
-from src.dsgs_spec_kit_integration.skills import architect
+from src.dnaspec_spec_kit_integration.skills import architect
 
 def test_architect_for_simple_ecommerce():
     """测试architect技能是否能为电商网站生成正确的架构图。"""

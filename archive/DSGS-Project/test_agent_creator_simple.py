@@ -27,7 +27,7 @@ def test_agent_creator():
     # 测试智能体创建功能
     result = agent_creator.process_request(test_request)
     
-    if result["status"] == "completed" and result["skill"] == "dsgs-agent-creator":
+    if result["status"] == "completed" and result["skill"] == "dnaspec-agent-creator":
         print("✓ 智能体创建功能测试通过")
         print(f"  创建了 {len(result['agent_configuration']['agents'])} 个智能体")
         print(f"  定义了 {len(result['agent_configuration']['roles'])} 个角色")

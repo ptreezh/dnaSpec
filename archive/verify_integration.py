@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__)))
 
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult
 from src.context_engineering_skills.context_analysis import ContextAnalysisSkill
 from src.context_engineering_skills.system import ContextEngineeringSystem
 
@@ -11,8 +11,8 @@ analysis_skill = ContextAnalysisSkill()
 system = ContextEngineeringSystem()
 
 print('继承关系验证:')
-print(f'ContextAnalysisSkill is DSGSSkill: {isinstance(analysis_skill, DSGSSkill)}')
-print(f'ContextEngineeringSystem is DSGSSkill: {isinstance(system, DSGSSkill)}')
+print(f'ContextAnalysisSkill is DNASpecSkill: {isinstance(analysis_skill, DNASpecSkill)}')
+print(f'ContextEngineeringSystem is DNASpecSkill: {isinstance(system, DNASpecSkill)}')
 
 # 测试接口一致性
 print('\n接口一致性验证:')

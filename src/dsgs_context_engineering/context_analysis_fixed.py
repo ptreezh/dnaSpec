@@ -4,15 +4,15 @@ Context Analysis Skill - 正确实现版本
 """
 from typing import Dict, Any
 import re
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 
 
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """上下文分析技能 - 基于AI模型原生智能的五维分析"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-analysis",
+            name="dnaspec-context-analysis",
             description="DSGS上下文分析技能 - 利用AI模型原生智能进行专业上下文质量分析"
         )
     
@@ -157,7 +157,7 @@ def execute(args: Dict[str, Any]) -> str:
     """
     执行函数 - 与AI CLI平台集成的接口
     """
-    from src.dsgs_spec_kit_integration.core.skill import SkillStatus
+    from src.dnaspec_spec_kit_integration.core.skill import SkillStatus
     
     if 'context' in args:
         context = args['context']

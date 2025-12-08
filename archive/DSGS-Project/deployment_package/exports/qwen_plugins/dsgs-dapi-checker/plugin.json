@@ -1,12 +1,12 @@
 {
-  "name": "dsgs-dapi-checker",
+  "name": "dnaspec-dapi-checker",
   "description": "DSGS分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性，验证实现与接口文档的符合性。当用户提到接口一致性检查、分布式接口验证、API文档核验、组件接口验证、接口不一致、参数不一致、定义不一致、参数不匹配、接口不匹配、参数错误、接口错误时使用此技能。不要在讨论一般系统架构时使用。",
   "version": "1.0.0",
-  "author": "DSGS System",
+  "author": "DNASPEC System",
   "license": "MIT",
   "tools": [
     {
-      "name": "dsgs-dapi-checker_tool",
+      "name": "dnaspec-dapi-checker_tool",
       "description": "用于执行dsgs-dapi-checker功能的工具",
       "parameters": {
         "type": "object",
@@ -37,7 +37,7 @@
     "参数不一致",
     "定义不一致",
     "验证实现与接口文档的符合性",
-    "dsgs",
+    "dnaspec",
     "文档核验",
     "接口错误"
   ]

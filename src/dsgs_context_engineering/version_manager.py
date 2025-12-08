@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 版本管理和自动更新系统
+DNASPEC Context Engineering Skills - 版本管理和自动更新系统
 实现Git版本控制和自动更新功能
 """
 import os
@@ -181,7 +181,7 @@ class DSGSVersionManager:
 
 class DSGSContextSkillsUpdater:
     """
-    DSGS Context Skills 自动更新器
+    DNASPEC Context Skills 自动更新器
     专门用于更新Context Engineering Skills系统
     """
     
@@ -236,10 +236,10 @@ class DSGSContextSkillsUpdater:
         
         # 检查关键文件存在
         critical_files = [
-            "src/dsgs_context_engineering/core/skill.py",
-            "src/dsgs_context_engineering/skills/context_analysis.py",
-            "src/dsgs_context_engineering/skills/context_optimization.py",
-            "src/dsgs_context_engineering/skills/cognitive_template.py"
+            "src/dnaspec_context_engineering/core/skill.py",
+            "src/dnaspec_context_engineering/skills/context_analysis.py",
+            "src/dnaspec_context_engineering/skills/context_optimization.py",
+            "src/dnaspec_context_engineering/skills/cognitive_template.py"
         ]
         
         missing_files = []
@@ -285,17 +285,17 @@ class DSGSContextSkillsUpdater:
         """检查单个组件"""
         try:
             if component_name == "Context Analysis Skill":
-                from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+                from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
                 skill = ContextAnalysisSkill()
                 result = skill.execute_with_ai("test context", {})
                 return "healthy" if result['success'] else "unhealthy"
             elif component_name == "Context Optimization Skill":
-                from src.dsgs_context_engineering.skills_system_real import ContextOptimizationSkill
+                from src.dnaspec_context_engineering.skills_system_real import ContextOptimizationSkill
                 skill = ContextOptimizationSkill()
                 result = skill.execute_with_ai("test", {})
                 return "healthy" if result['success'] else "unhealthy"
             elif component_name == "Cognitive Template Skill":
-                from src.dsgs_context_engineering.skills_system_real import CognitiveTemplateSkill
+                from src.dnaspec_context_engineering.skills_system_real import CognitiveTemplateSkill
                 skill = CognitiveTemplateSkill()
                 result = skill.execute_with_ai("test", {})
                 return "healthy" if result['success'] else "unhealthy"
@@ -345,10 +345,10 @@ class DSGSContextSkillsUpdater:
             
             # 备份关键文件
             files_to_backup = [
-                "src/dsgs_context_engineering/core/skill.py",
-                "src/dsgs_context_engineering/skills/context_analysis.py",
-                "src/dsgs_context_engineering/skills/context_optimization.py", 
-                "src/dsgs_context_engineering/skills/cognitive_template.py",
+                "src/dnaspec_context_engineering/core/skill.py",
+                "src/dnaspec_context_engineering/skills/context_analysis.py",
+                "src/dnaspec_context_engineering/skills/context_optimization.py", 
+                "src/dnaspec_context_engineering/skills/cognitive_template.py",
                 "VERSION",
                 "pyproject.toml"
             ]
@@ -381,7 +381,7 @@ def execute_version_command(args: Dict[str, Any]) -> str:
     if command == 'status':
         readiness = updater.check_update_readiness()
         output = []
-        output.append("DSGS Context Engineering Skills - 版本状态:")
+        output.append("DNASPEC Context Engineering Skills - 版本状态:")
         output.append(f"当前版本: {readiness['current_version']}")
         output.append(f"更新可用: {'是' if readiness['update_available'] else '否'}")
         if readiness['update_available']:
@@ -393,7 +393,7 @@ def execute_version_command(args: Dict[str, Any]) -> str:
     elif command == 'check':
         readiness = updater.check_update_readiness()
         output = []
-        output.append("DSGS Context Engineering Skills - 更新检查:")
+        output.append("DNASPEC Context Engineering Skills - 更新检查:")
         output.append(f"版本: {readiness['current_version']} → {readiness['latest_version']}")
         output.append(f"可用更新: {readiness['update_available']}")
         output.append(f"可更新: {readiness['can_update']}")
@@ -421,7 +421,7 @@ def execute_version_command(args: Dict[str, Any]) -> str:
 def cli_main():
     """版本管理CLI入口点"""
     if len(sys.argv) < 2:
-        print("DSGS Context Engineering Skills - 版本管理工具")
+        print("DNASPEC Context Engineering Skills - 版本管理工具")
         print("用法:")
         print("  python -m version_manager status    # 查看当前状态")
         print("  python -m version_manager check     # 检查更新") 

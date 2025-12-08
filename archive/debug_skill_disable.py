@@ -7,9 +7,9 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
 
 try:
-    from src.dsgs_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
-    from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
-    from src.dsgs_spec_kit_integration.core.manager import SkillManager
+    from src.dnaspec_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
+    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
+    from src.dnaspec_spec_kit_integration.core.manager import SkillManager
     from unittest.mock import Mock
     print("所有导入成功")
 except ImportError as e:
@@ -27,18 +27,18 @@ mock_skill_manager = Mock()
 hook_system_with_manager = HookSystem(mock_skill_manager)
 
 # 启用技能并设置正常匹配结果
-hook_system_with_manager.config.enable_skill("dsgs-architect")
+hook_system_with_manager.config.enable_skill("dnaspec-architect")
 mock_skill_manager.match_skill_intelligently.return_value = {
-    'skill_name': 'dsgs-architect',
+    'skill_name': 'dnaspec-architect',
     'confidence': 0.8,
     'match_type': 'keyword'
 }
 
 # 禁用技能
-hook_system_with_manager.config.disable_skill("dsgs-architect")
+hook_system_with_manager.config.disable_skill("dnaspec-architect")
 
 print("启用的技能:", hook_system_with_manager.config.enabled_skills)
-print("技能是否启用:", hook_system_with_manager.config.is_skill_enabled("dsgs-architect"))
+print("技能是否启用:", hook_system_with_manager.config.is_skill_enabled("dnaspec-architect"))
 
 # 测试请求处理
 result = hook_system_with_manager.intercept_request("分解任务")

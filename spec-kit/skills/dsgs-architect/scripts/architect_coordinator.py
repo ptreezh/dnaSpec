@@ -1,5 +1,5 @@
 """
-DSGS Architect Script
+DNASPEC Architect Script
 Implements the core functionality for complex project architecture design, 
 technology stack selection, task decomposition coordination, and constraint generation.
 """
@@ -283,7 +283,7 @@ class DSGSArchitect:
         technologies = self.recommend_technologies(requirements, req_features)
         components = self.identify_components(requirements)
         
-        # Generate recommendations for coordination with other DSGS skills
+        # Generate recommendations for coordination with other DNASPEC skills
         coordination_recommendations = self.generate_coordination_recommendations(requirements)
         
         documentation = {
@@ -301,27 +301,27 @@ class DSGSArchitect:
         return documentation
 
     def generate_coordination_recommendations(self, requirements: str) -> Dict[str, str]:
-        """Generate recommendations for coordinating with other DSGS skills"""
+        """Generate recommendations for coordinating with other DNASPEC skills"""
         coordination = {}
         
         req_lower = requirements.lower()
         
         # Recommend task decomposition coordination
-        coordination["dsgs-task-decomposer"] = "Coordinate for breaking architecture components into implementation tasks"
+        coordination["dnaspec-task-decomposer"] = "Coordinate for breaking architecture components into implementation tasks"
         
         # Recommend constraint generation coordination
         if any(indicator in req_lower for indicator in self.security_indicators):
-            coordination["dsgs-constraint-generator"] = "Generate security and compliance constraints"
+            coordination["dnaspec-constraint-generator"] = "Generate security and compliance constraints"
         elif any(indicator in req_lower for indicator in self.scalability_indicators):
-            coordination["dsgs-constraint-generator"] = "Generate performance and scalability constraints"
+            coordination["dnaspec-constraint-generator"] = "Generate performance and scalability constraints"
         else:
-            coordination["dsgs-constraint-generator"] = "Generate general system constraints"
+            coordination["dnaspec-constraint-generator"] = "Generate general system constraints"
         
         # Recommend agent creation coordination
         if any(indicator in req_lower for indicator in self.realtime_indicators):
-            coordination["dsgs-agent-creator"] = "Create monitoring and message handling agents"
+            coordination["dnaspec-agent-creator"] = "Create monitoring and message handling agents"
         else:
-            coordination["dsgs-agent-creator"] = "Create appropriate system agents based on architecture"
+            coordination["dnaspec-agent-creator"] = "Create appropriate system agents based on architecture"
         
         return coordination
 
@@ -365,7 +365,7 @@ def main():
     architect = DSGSArchitect()
     documentation = architect.generate_architecture_documentation(requirements)
     
-    print("## DSGS Architecture Documentation")
+    print("## DNASPEC Architecture Documentation")
     print(f"Input Requirements: {documentation['input_requirements']}")
     print(f"Recommended Pattern: {documentation['recommended_pattern']}")
     print(f"Pattern Rationale: {documentation['pattern_rationale']}")

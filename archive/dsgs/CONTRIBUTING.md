@@ -1,6 +1,6 @@
-# Contributing to Dynamic Specification Growth System (DSGS)
+# Contributing to Dynamic Specification Growth System (DNASPEC)
 
-Thank you for your interest in contributing to DSGS! We welcome contributions from everyone and appreciate your help in making DSGS better.
+Thank you for your interest in contributing to DNASPEC! We welcome contributions from everyone and appreciate your help in making DNASPEC better.
 
 ## Table of Contents
 - [Code of Conduct](#code-of-conduct)
@@ -17,7 +17,7 @@ Thank you for your interest in contributing to DSGS! We welcome contributions fr
 By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). Please read it carefully to ensure a positive and inclusive community.
 
 ## How to Contribute
-There are many ways you can contribute to DSGS:
+There are many ways you can contribute to DNASPEC:
 
 ### Report Bugs
 Help us identify and fix issues by reporting bugs you encounter. Please provide detailed information about the problem.
@@ -26,7 +26,7 @@ Help us identify and fix issues by reporting bugs you encounter. Please provide 
 Have an idea for a new feature? We'd love to hear it! Please open an issue with your suggestion.
 
 ### Improve Documentation
-Help us make DSGS easier to use by improving our documentation.
+Help us make DNASPEC easier to use by improving our documentation.
 
 ### Write Code
 Fix bugs, implement new features, or improve existing code.
@@ -35,7 +35,7 @@ Fix bugs, implement new features, or improve existing code.
 Help us maintain code quality by reviewing pull requests from other contributors.
 
 ## Development Setup
-To set up DSGS for development:
+To set up DNASPEC for development:
 
 1. **Fork the Repository**
    Click the "Fork" button at the top right of the repository page.
@@ -171,4 +171,4 @@ By contributing to this project, you agree that your contributions will be licen
 ## Support
 If you have questions about contributing, please open an issue or contact the maintainers.
 
-Thank you for helping make DSGS better!
+Thank you for helping make DNASPEC better!

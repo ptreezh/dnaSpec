@@ -1,7 +1,7 @@
 # DSGS项目日志文档
 
 ## 项目概述
-DSGS (Dynamic Specification Growth System) 智能架构师项目日志，记录项目开发过程中的关键决策、技术实现和问题解决。
+DNASPEC (Dynamic Specification Growth System) 智能架构师项目日志，记录项目开发过程中的关键决策、技术实现和问题解决。
 
 ## 2025年11月1日 项目进展记录
 

@@ -1,8 +1,8 @@
-# DSGS Context Engineering Skills System - 项目宪法 (Project Constitution)
+# DNASPEC Context Engineering Skills System - 项目宪法 (Project Constitution)
 
 ## 1. 项目核心使命
 
-DSGS (Dynamic Specification-Guided Skills System) Context Engineering Skills System 是一个**AI原生的上下文工程增强工具集**，专门设计用于AI CLI平台，利用AI模型的原生智能提供专业的上下文分析、优化和结构化能力。
+DNASPEC (Dynamic Specification-Guided Skills System) Context Engineering Skills System 是一个**AI原生的上下文工程增强工具集**，专门设计用于AI CLI平台，利用AI模型的原生智能提供专业的上下文分析、优化和结构化能力。
 
 ## 2. 核心哲学
 
@@ -35,7 +35,7 @@ DSGS (Dynamic Specification-Guided Skills System) Context Engineering Skills Sys
 │                                    │
 │                                    ▼ (通过DSGS指令接口)
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                 DSGS Context Engineering Skills                      │
+│                 DNASPEC Context Engineering Skills                      │
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐      │
 │  │ Context       │  │ Context       │  │ Cognitive     │      │
 │  │ Analysis      │  │ Optimization  │  │ Template      │      │
@@ -53,12 +53,12 @@ DSGS (Dynamic Specification-Guided Skills System) Context Engineering Skills Sys
 
 ### 3.2 关键组件
 
-#### 3.2.1 DSGS Skills (核心技能)
+#### 3.2.1 DNASPEC Skills (核心技能)
 - ContextAnalysisSkill: 利用AI原生智能进行五维质量分析
 - ContextOptimizationSkill: 利用AI原生推理和生成能力进行优化
 - CognitiveTemplateSkill: 利用AI原生思维能力应用认知模板
 
-#### 3.2.2 DSGS Framework (DSGS框架集成)
+#### 3.2.2 DNASPEC Framework (DSGS框架集成)
 - 继承自DSGSSkill基类
 - 实现统一的execute接口
 - 提供标准错误处理和结果格式

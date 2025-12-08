@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DSGS Gemini CLI Extensions 主入口
+DNASPEC Gemini CLI Extensions 主入口
 """
 
 import sys
@@ -18,7 +18,7 @@ from gemini_hook_handler import get_hook_handler
 
 def main():
     """主函数"""
-    print("=== DSGS Gemini CLI Extensions ===")
+    print("=== DNASPEC Gemini CLI Extensions ===")
     print("DSGS智能架构师系统已加载")
     print()
     
@@ -36,11 +36,11 @@ def main():
     print("1. 在Gemini CLI中直接输入自然语言请求")
     print("2. 系统将自动匹配并执行相应的DSGS技能")
     print("3. 支持的技能包括:")
-    print("   - 智能体创建 (dsgs-agent-creator)")
-    print("   - 任务分解 (dsgs-task-decomposer)")
-    print("   - 接口检查 (dsgs-dapi-checker)")
-    print("   - 模块化 (dsgs-modulizer)")
-    print("   - 架构设计 (dsgs-architect)")
+    print("   - 智能体创建 (dnaspec-agent-creator)")
+    print("   - 任务分解 (dnaspec-task-decomposer)")
+    print("   - 接口检查 (dnaspec-dapi-checker)")
+    print("   - 模块化 (dnaspec-modulizer)")
+    print("   - 架构设计 (dnaspec-architect)")
     print()
     
     # 测试模式

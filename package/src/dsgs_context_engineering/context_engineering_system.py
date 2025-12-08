@@ -7,13 +7,13 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from typing import Dict, Any, List
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 from .context_analysis import ContextAnalysisSkill
 from .context_optimization import ContextOptimizationSkill
 from .cognitive_template import CognitiveTemplateSkill
 
 
-class ContextEngineeringSystemSkill(DSGSSkill):
+class ContextEngineeringSystemSkill(DNASpecSkill):
     """
     上下文工程系统技能
     协调分析、优化和模板技能的综合系统
@@ -21,7 +21,7 @@ class ContextEngineeringSystemSkill(DSGSSkill):
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-engineering-system",
+            name="dnaspec-context-engineering-system",
             description="DSGS上下文工程系统 - 综合性的上下文工程解决方案，协调多个技能执行复杂任务"
         )
         

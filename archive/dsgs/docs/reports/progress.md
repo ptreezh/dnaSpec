@@ -1,7 +1,7 @@
 # Dynamic Specification Growth System - Progress Report
 
 ## Project Overview
-The Dynamic Specification Growth System (DSGS) is a specification management system that dynamically generates context-aware constraints for software development tasks. The system helps maintain code quality and consistency by providing minimal, task-specific constraints that evolve with the project.
+The Dynamic Specification Growth System (DNASPEC) is a specification management system that dynamically generates context-aware constraints for software development tasks. The system helps maintain code quality and consistency by providing minimal, task-specific constraints that evolve with the project.
 
 ## Current Status
 - **Repository**: Successfully initialized and synchronized with remote GitHub repository
@@ -27,7 +27,7 @@ The next phase of development will focus on creating a feedback-driven evolution
 
 ### 1. Template Enhancement Design
 - **Status**: Design document created
-- **Location**: `dsgs/docs/design/template-enhancement.md`
+- **Location**: `dnaspec/docs/design/template-enhancement.md`
 - **Key Features**:
   - Multi-dimensional template matching
   - Semantic analysis of task goals
@@ -36,7 +36,7 @@ The next phase of development will focus on creating a feedback-driven evolution
 
 ### 2. Implementation Plan
 - **Status**: Task list created with enhanced testing requirements
-- **Location**: `dsgs/tasks.md`
+- **Location**: `dnaspec/tasks.md`
 - **Testing Philosophy**: Each task must be accompanied by comprehensive testing:
   - **Unit Tests**: 90%+ code coverage for all new components
   - **Integration Tests**: Verify interactions between components

@@ -81,14 +81,14 @@ class IntelligentSkillMatcher:
                 score += 0.4
             
             # DSGS技能特殊处理 - 基于技能描述的关键短语匹配
-            if "dsgs" in skill_info.name.lower():
+            if "dnaspec" in skill_info.name.lower():
                 # 为每个DSGS技能定义关键短语
                 skill_phrases = {
-                    'dsgs-architect': ['架构设计', '系统设计', 'architecture', 'design system'],
-                    'dsgs-agent-creator': ['创建智能体', '智能体角色', 'agent creation', 'multi-agent'],
-                    'dsgs-task-decomposer': ['任务分解', '复杂任务', 'task decomposition', 'complex task'],
-                    'dsgs-dapi-checker': ['接口检查', '一致性检查', 'api validation', 'interface consistency'],
-                    'dsgs-modulizer': ['模块化', '成熟度检查', 'modularization', 'module maturity']
+                    'dnaspec-architect': ['架构设计', '系统设计', 'architecture', 'design system'],
+                    'dnaspec-agent-creator': ['创建智能体', '智能体角色', 'agent creation', 'multi-agent'],
+                    'dnaspec-task-decomposer': ['任务分解', '复杂任务', 'task decomposition', 'complex task'],
+                    'dnaspec-dapi-checker': ['接口检查', '一致性检查', 'api validation', 'interface consistency'],
+                    'dnaspec-modulizer': ['模块化', '成熟度检查', 'modularization', 'module maturity']
                 }
                 
                 phrases = skill_phrases.get(skill_info.name.lower(), [])
@@ -259,7 +259,7 @@ class IntelligentSkillMatcher:
             '架构': ['structure', '设计', 'framework', 'architecture', 'blueprint'],
             '成熟度': ['maturity', 'assessment', 'evaluation', '自底向上', 'bottom_up', 'sealing', '封装'],
             '系统': ['system', '体系', '体系结构', 'structure'],
-            'dsgs': ['dynamic', 'specification', 'growth', 'system', '动态规范', '动态增长']
+            'dnaspec': ['dynamic', 'specification', 'growth', 'system', '动态规范', '动态增长']
         }
         
         for keyword in keywords:

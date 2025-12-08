@@ -1,5 +1,5 @@
 """
-DSGS Hook System
+DNASPEC Hook System
 基于spec.kit风格的文件变化监听和自动处理系统
 """
 import os
@@ -9,12 +9,12 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import fnmatch
 import threading
-from src.dsgs_context_engineering.spec_engine import DSGSSpecEngine
+from src.dnaspec_context_engineering.spec_engine import DSGSSpecEngine
 
 
 class DSGSHookSystem:
     """
-    DSGS Hook System
+    DNASPEC Hook System
     基于文件系统变化的自动上下文工程处理系统
     """
     
@@ -236,7 +236,7 @@ def create_example_hook_config(config_path: str = "hooks_config.yaml"):
 
 if __name__ == "__main__":
     # 示例使用
-    from src.dsgs_context_engineering.spec_engine import engine
+    from src.dnaspec_context_engineering.spec_engine import engine
     
     hook_system = DSGSHookSystem(engine)
     

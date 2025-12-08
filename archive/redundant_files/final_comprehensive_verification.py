@@ -1,5 +1,5 @@
 """
-Final System Verification - DSGS Context Engineering Skills
+Final System Verification - DNASPEC Context Engineering Skills
 验证AI原生架构的正确实现
 """
 import sys
@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def run_comprehensive_verification():
     """运行全面验证"""
-    print("🔍 DSGS Context Engineering Skills - AI原生架构全面验证")
+    print("🔍 DNASPEC Context Engineering Skills - AI原生架构全面验证")
     print("=" * 70)
     
     verification_results = {
@@ -27,7 +27,7 @@ def run_comprehensive_verification():
     
     try:
         print("\n✅ 验证1: 模块导入")
-        from src.dsgs_context_engineering.skills_system_final import (
+        from src.dnaspec_context_engineering.skills_system_final import (
             ContextAnalysisSkill, 
             ContextOptimizationSkill, 
             CognitiveTemplateSkill,
@@ -151,7 +151,7 @@ def run_comprehensive_verification():
         
         if all_passed:
             print("\n🎉 所有验证通过！")
-            print("🏆 DSGS Context Engineering Skills 系统已成功实现AI原生架构")
+            print("🏆 DNASPEC Context Engineering Skills 系统已成功实现AI原生架构")
             print("\n💎 核心价值:")
             print("   • 100%利用AI模型原生智能，无本地模型依赖")
             print("   • 专业级上下文工程能力")
@@ -184,7 +184,7 @@ def test_ai_native_characteristics():
     print("=" * 70)
     
     # 检查是否没有本地ML模型依赖
-    with open('src/dsgs_context_engineering/skills_system_real.py', 'r', encoding='utf-8') as f:
+    with open('src/dnaspec_context_engineering/skills_system_real.py', 'r', encoding='utf-8') as f:
         code_content = f.read()
     
     # 验证不包含本地机器学习库
@@ -210,7 +210,7 @@ def test_ai_native_characteristics():
 
 def main():
     """主验证函数"""
-    print("🚀 DSGS Context Engineering Skills - AI原生系统最终验证")
+    print("🚀 DNASPEC Context Engineering Skills - AI原生系统最终验证")
     
     # 运行基础验证
     basic_verification_passed = run_comprehensive_verification()
@@ -223,7 +223,7 @@ def main():
     print("=" * 70)
     
     if basic_verification_passed and ai_native_verification_passed:
-        print("\n✅ DSGS Context Engineering Skills - AI原生系统实现成功!")
+        print("\n✅ DNASPEC Context Engineering Skills - AI原生系统实现成功!")
         print("✅ 系统完全基于AI指令工程设计")
         print("✅ 100%利用AI模型原生智能")
         print("✅ 与AI CLI平台无缝集成")

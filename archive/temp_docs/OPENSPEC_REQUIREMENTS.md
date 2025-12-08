@@ -1,16 +1,16 @@
-# DSGS Context Engineering Skills - OpenSpec需求规范
+# DNASPEC Context Engineering Skills - OpenSpec需求规范
 
 ## 1. 需求概述
 
 ### 1.1 项目标识
-- **项目名称**: DSGS Context Engineering Skills System
+- **项目名称**: DNASPEC Context Engineering Skills System
 - **版本**: 1.0.0 (AI原生架构)
-- **标识符**: DSGS-CE-SKILLS-001
+- **标识符**: DNASPEC-CE-SKILLS-001
 - **发布日期**: 2025-11-06
 - **状态**: RELEASED
 
 ### 1.2 项目描述
-DSGS Context Engineering Skills System 是一个AI原生的上下文工程增强工具集，利用AI模型的原生智能为AI CLI平台提供专业的上下文分析、优化和认知模板应用能力，无本地模型依赖。
+DNASPEC Context Engineering Skills System 是一个AI原生的上下文工程增强工具集，利用AI模型的原生智能为AI CLI平台提供专业的上下文分析、优化和认知模板应用能力，无本地模型依赖。
 
 ### 1.3 目标受众
 - **主要用户**: AI辅助开发人员、项目经理、内容创作者
@@ -130,12 +130,12 @@ DSGS Context Engineering Skills System 是一个AI原生的上下文工程增强
 #### 2.4.2 CLI命令集成 (FR-INTEGRATION-004.2)
 - **ID**: FR-INTEGRATION-004.2
 - **描述**: 支持在AI CLI中使用斜杠命令调用技能
-- **命令格式**: `/dsgs-analyze`, `/dsgs-optimize`, `/dsgs-template`
+- **命令格式**: `/dnaspec-analyze`, `/dnaspec-optimize`, `/dnaspec-template`
 
 #### 2.4.3 DSGS框架兼容 (FR-INTEGRATION-004.3)
 - **ID**: FR-INTEGRATION-004.3
 - **描述**: 继承DSGSSkill基类与DSGS框架集成
-- **继承**: `ContextAnalysisSkill(DSGSSkill)`
+- **继承**: `ContextAnalysisSkill(DNASpecSkill)`
 
 #### 2.4.4 API响应标准化 (FR-INTEGRATION-004.4)
 - **ID**: FR-INTEGRATION-004.4

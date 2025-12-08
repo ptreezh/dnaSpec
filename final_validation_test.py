@@ -9,13 +9,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def final_validation_test():
     """执行最终验证测试"""
-    print("DSGS Context Engineering Skills - 最终验证测试")
+    print("DNASPEC Context Engineering Skills - 最终验证测试")
     print("="*60)
     
     try:
         # 1. 测试基本模块导入
         print("\n1. 测试模块导入...")
-        from src.dsgs_context_engineering.skills_system_final import (
+        from src.dnaspec_context_engineering.skills_system_final import (
             execute, 
             get_available_skills,
             ContextAnalysisSkill,
@@ -66,7 +66,7 @@ def final_validation_test():
         # 4. 测试高级功能
         print("\n4. 测试高级功能...")
         try:
-            from src.dsgs_context_engineering.skills_system_final import (
+            from src.dnaspec_context_engineering.skills_system_final import (
                 create_agent_with_context_analysis,
                 decompose_complex_task,
                 design_project_structure,
@@ -106,7 +106,7 @@ def final_validation_test():
         
         # 5. 验证AI CLI集成
         print("\n5. 验证AI CLI集成就绪...")
-        print("   ✅ 斜杠命令接口准备就绪: /speckit.dsgs.*")
+        print("   ✅ 斜杠命令接口准备就绪: /speckit.dnaspec.*")
         print("   ✅ 自动配置流程完整")
         print("   ✅ 智能意图识别可用") 
         
@@ -120,7 +120,7 @@ def final_validation_test():
         
         print("\n现在可以在AI CLI工具中使用以下命令:")
         for skill, desc in available_skills.items():
-            print(f"  /speckit.dsgs.{skill} [参数] - {desc}")
+            print(f"  /speckit.dnaspec.{skill} [参数] - {desc}")
         
         return True
         
@@ -133,7 +133,7 @@ def final_validation_test():
 if __name__ == "__main__":
     success = final_validation_test()
     if success:
-        print("\n✅ DSGS Context Engineering Skills 系统准备就绪！")
+        print("\n✅ DNASPEC Context Engineering Skills 系统准备就绪！")
     else:
         print("\n❌ 系统验证失败，请检查安装。")
         sys.exit(1)

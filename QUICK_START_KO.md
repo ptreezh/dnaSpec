@@ -1,8 +1,8 @@
-# DSGS 컨텍스트 엔지니어링 스킬 - 빠른 시작 안내서 (Korean)
+# DNASPEC 컨텍스트 엔지니어링 스킬 - 빠른 시작 안내서 (Korean)
 
 ## 프로젝트 개요
 
-DSGS (Dynamic Specification Growth System) Context Engineering Skills는 AI CLI 플랫폼을 위해 특별히 설계된 전문 AI 보조 개발 툴킷으로, 컨텍스트 분석, 최적화, 인지 템플릿 기능 및 AI 안전 작업 흐름을 제공합니다.
+DNASPEC (Dynamic Specification Growth System) Context Engineering Skills는 AI CLI 플랫폼을 위해 특별히 설계된 전문 AI 보조 개발 툴킷으로, 컨텍스트 분석, 최적화, 인지 템플릿 기능 및 AI 안전 작업 흐름을 제공합니다.
 
 ## 주요 개선 사항
 
@@ -27,7 +27,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills는 AI CLI 
 ```bash
 # 리포지토리 클론
 git clone https://github.com/ptreezh/dnaSpec.git
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # 설치
 pip install -e .
@@ -37,12 +37,12 @@ pip install -e .
 
 ### CLI 명령어
 ```
-/speckit.dsgs.context-analysis "요구사항 문서의 품질 분석" mode=enhanced
-/speckit.dsgs.cognitive-template "성능 개선 방법" template=verification
-/speckit.dsgs.context-optimization "요구사항 최적화" optimization_goals=clarity,relevance
-/speckit.dsgs.architect "전자상거래 시스템 아키텍처 설계"
-/speckit.dsgs.git-skill operation=status
-/speckit.dsgs.temp-workspace operation=create-workspace
+/speckit.dnaspec.context-analysis "요구사항 문서의 품질 분석" mode=enhanced
+/speckit.dnaspec.cognitive-template "성능 개선 방법" template=verification
+/speckit.dnaspec.context-optimization "요구사항 최적화" optimization_goals=clarity,relevance
+/speckit.dnaspec.architect "전자상거래 시스템 아키텍처 설계"
+/speckit.dnaspec.git-skill operation=status
+/speckit.dnaspec.temp-workspace operation=create-workspace
 ```
 
 ### 파이썬 API

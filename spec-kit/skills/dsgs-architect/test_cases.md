@@ -1,4 +1,4 @@
-# DSGS Architect技能TDD测试用例
+# DNASPEC Architect技能TDD测试用例
 
 ## 测试1: 基础架构分析
 **输入**: "创建一个简单的电商系统，需要用户管理、产品管理、订单处理功能"

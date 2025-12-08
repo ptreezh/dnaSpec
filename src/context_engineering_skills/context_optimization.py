@@ -3,12 +3,12 @@ Context Optimization Skill
 用于优化和改进上下文质量
 """
 from typing import Dict, Any, List
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 from .context_analysis import ContextAnalysisSkill
 import re
 
 
-class ContextOptimizationSkill(DSGSSkill):
+class ContextOptimizationSkill(DNASpecSkill):
     """
     上下文优化技能
     基于分析结果优化上下文质量
@@ -16,7 +16,7 @@ class ContextOptimizationSkill(DSGSSkill):
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-optimization",
+            name="dnaspec-context-optimization",
             description="DSGS上下文优化器 - 基于分析结果优化上下文质量的专家"
         )
         self.context_analyzer = ContextAnalysisSkill()

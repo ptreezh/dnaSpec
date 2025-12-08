@@ -26,12 +26,12 @@
 │   ├── 斜杠命令系统
 │   └── AI代理适配器
 └── DSGS技能扩展
-    ├── 架构设计技能 (dsgs-architect)
-    ├── 智能体创建技能 (dsgs-agent-creator)
-    ├── 任务分解技能 (dsgs-task-decomposer)
-    ├── 约束生成技能 (dsgs-constraint-generator)
-    ├── 接口检查技能 (dsgs-dapi-checker)
-    └── 模块化技能 (dsgs-modulizer)
+    ├── 架构设计技能 (dnaspec-architect)
+    ├── 智能体创建技能 (dnaspec-agent-creator)
+    ├── 任务分解技能 (dnaspec-task-decomposer)
+    ├── 约束生成技能 (dnaspec-constraint-generator)
+    ├── 接口检查技能 (dnaspec-dapi-checker)
+    └── 模块化技能 (dnaspec-modulizer)
 ```
 
 #### 方案二：spec.kit作为DSGS的平台适配器
@@ -54,26 +54,26 @@
 #### 2.2.1 命令系统整合
 ```bash
 # 当前DSGS命令
-dsgs-architect "设计一个电商系统架构"
-dsgs-agent-creator "创建订单处理智能体"
+dnaspec-architect "设计一个电商系统架构"
+dnaspec-agent-creator "创建订单处理智能体"
 
 # 整合后的spec.kit命令
-/speckit.dsgs.architect "设计一个电商系统架构"
-/speckit.dsgs.agent-creator "创建订单处理智能体"
+/speckit.dnaspec.architect "设计一个电商系统架构"
+/speckit.dnaspec.agent-creator "创建订单处理智能体"
 ```
 
 #### 2.2.2 模板系统扩展
 ```markdown
 <!-- spec.kit标准模板扩展 -->
 # DSGS技能模板
-/speckit.dsgs.* 命令可用技能:
+/speckit.dnaspec.* 命令可用技能:
 
-- /speckit.dsgs.architect - 系统架构设计专家
-- /speckit.dsgs.agent-creator - 智能体创建专家  
-- /speckit.dsgs.task-decomposer - 任务分解专家
-- /speckit.dsgs.constraint-generator - 约束生成专家
-- /speckit.dsgs.dapi-checker - 接口检查专家
-- /speckit.dsgs.modulizer - 模块化专家
+- /speckit.dnaspec.architect - 系统架构设计专家
+- /speckit.dnaspec.agent-creator - 智能体创建专家  
+- /speckit.dnaspec.task-decomposer - 任务分解专家
+- /speckit.dnaspec.constraint-generator - 约束生成专家
+- /speckit.dnaspec.dapi-checker - 接口检查专家
+- /speckit.dnaspec.modulizer - 模块化专家
 ```
 
 ## 3. 具体整合建议
@@ -97,17 +97,17 @@ class SpecKitAdapter:
         pass
 
 class DSGSSpecKitAdapter(SpecKitAdapter):
-    """DSGS spec.kit适配器"""
+    """DNASPEC spec.kit适配器"""
     def __init__(self):
         super().__init__()
         self.supported_agents = ['claude', 'gemini', 'qwen', 'copilot']
         self.dsgs_skills = [
-            'dsgs-architect',
-            'dsgs-agent-creator', 
-            'dsgs-task-decomposer',
-            'dsgs-constraint-generator',
-            'dsgs-dapi-checker',
-            'dsgs-modulizer'
+            'dnaspec-architect',
+            'dnaspec-agent-creator', 
+            'dnaspec-task-decomposer',
+            'dnaspec-constraint-generator',
+            'dnaspec-dapi-checker',
+            'dnaspec-modulizer'
         ]
     
     def integrate_with_spec_kit(self):
@@ -121,10 +121,10 @@ class DSGSSpecKitAdapter(SpecKitAdapter):
 # 采用spec.kit的结构化流程
 1. /speckit.constitution - 项目原则制定
 2. /speckit.specify - 需求规格化  
-3. /speckit.dsgs.architect - 架构设计
-4. /speckit.dsgs.agent-creator - 智能体创建
+3. /speckit.dnaspec.architect - 架构设计
+4. /speckit.dnaspec.agent-creator - 智能体创建
 5. /speckit.plan - 技术方案规划
-6. /speckit.dsgs.task-decomposer - 任务分解
+6. /speckit.dnaspec.task-decomposer - 任务分解
 7. /speckit.tasks - 任务列表生成
 8. /speckit.implement - 实现执行
 ```

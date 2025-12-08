@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Final Verification - DSGS Context Engineering Skills as True AI-Native Claude Architecture
+Final Verification - DNASPEC Context Engineering Skills as True AI-Native Claude Architecture
 确认系统100%遵循AI原生和Claude Skills架构模式
 """
 import sys
@@ -9,7 +9,7 @@ import subprocess
 import importlib.util
 from pathlib import Path
 
-print("🔍 DSGS Context Engineering Skills - AI原生Claude架构最终验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生Claude架构最终验证")
 print("=" * 80)
 
 def test_true_ai_native_architecture():
@@ -19,7 +19,7 @@ def test_true_ai_native_architecture():
     print("\\n✅ 验证1: AI原生架构 - 无本地模型依赖")
     
     # 读取技能系统代码
-    skills_path = Path("D:/DAIP/dnaSpec/src/dsgs_context_engineering/skills_system_final_clean.py")
+    skills_path = Path("D:/DAIP/dnaSpec/src/dnaspec_context_engineering/skills_system_final_clean.py")
     if not skills_path.exists():
         print(f"   ❌ 文件不存在: {skills_path}")
         return False
@@ -53,7 +53,7 @@ def test_claude_architecture_patterns():
     """
     print("\\n✅ 验证2: Claude Skills架构模式")
     
-    skills_path = Path("D:/DAIP/dnaSpec/src/dsgs_context_engineering/skills_system_final_clean.py")
+    skills_path = Path("D:/DAIP/dnaSpec/src/dnaspec_context_engineering/skills_system_final_clean.py")
     with open(skills_path, 'r', encoding='utf-8') as f:
         code = f.read()
     
@@ -63,7 +63,7 @@ def test_claude_architecture_patterns():
         'instruction_templates': 'instruction' in code.lower(),
         'context_injection': 'context' in code.lower() and 'ai' in code.lower(),
         'structured_output': 'json' in code.lower() or '"{' in code,
-        'dsgs_inheritance': 'DSGSSkill' in code,
+        'dsgs_inheritance': 'DNASpecSkill' in code,
         'execute_interface': 'def execute(' in code
     }
     
@@ -87,7 +87,7 @@ def test_skill_functionality():
     # 使用importlib导入模块
     spec = importlib.util.spec_from_file_location(
         "skills_final_clean", 
-        "D:/DAIP/dnaSpec/src/dsgs_context_engineering/skills_system_final_clean.py"
+        "D:/DAIP/dnaSpec/src/dnaspec_context_engineering/skills_system_final_clean.py"
     )
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -155,7 +155,7 @@ def test_integration_compatibility():
     print("\\n✅ 验证4: AI CLI平台集成兼容性")
     
     # 检查是否遵循Claude Tools的模式
-    skills_path = Path("D:/DAIP/dnaSpec/src/dsgs_context_engineering/skills_system_final_clean.py")
+    skills_path = Path("D:/DAIP/dnaSpec/src/dnaspec_context_engineering/skills_system_final_clean.py")
     with open(skills_path, 'r', encoding='utf-8') as f:
         code = f.read()
     
@@ -180,7 +180,7 @@ def test_professional_capabilities():
     """
     print("\\n✅ 验证5: 专业级上下文工程能力")
     
-    skills_path = Path("D:/DAIP/dnaSpec/src/dsgs_context_engineering/skills_system_final_clean.py")
+    skills_path = Path("D:/DAIP/dnaSpec/src/dnaspec_context_engineering/skills_system_final_clean.py")
     with open(skills_path, 'r', encoding='utf-8') as f:
         code = f.read()
     
@@ -247,7 +247,7 @@ def main():
         print("   • 总体置信度: 96.5%")
         
         print("\\n✅ 系统已准备就绪，可以部署到AI CLI平台!") 
-        print("🚀 DSGS Context Engineering Skills - AI Native Claude Architecture")
+        print("🚀 DNASPEC Context Engineering Skills - AI Native Claude Architecture")
         
         return True
     else:
@@ -265,9 +265,9 @@ if __name__ == "__main__":
     success = main()
     print("\\n" + "="*80)
     if success:
-        print("DSGS Context Engineering Skills - AI Native Claude Architecture: VERIFIED ✅")
+        print("DNASPEC Context Engineering Skills - AI Native Claude Architecture: VERIFIED ✅")
     else:
-        print("DSGS Context Engineering Skills - AI Native Claude Architecture: FAILED ❌")
+        print("DNASPEC Context Engineering Skills - AI Native Claude Architecture: FAILED ❌")
     print("="*80)
     
     sys.exit(0 if success else 1)

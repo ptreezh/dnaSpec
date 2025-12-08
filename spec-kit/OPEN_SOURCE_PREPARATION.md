@@ -30,13 +30,13 @@ spec.kit是一个规格驱动开发(Spec-Driven Development)工具包，它将�
   - `context-engineering-workflow`: 完整工作流
 
 - **DSGS智能架构师技能 (7个)**
-  - `dsgs-architect`: DSGS架构师
-  - `dsgs-system-architect`: DSGS系统架构师
-  - `dsgs-agent-creator`: DSGS智能体创建器
-  - `dsgs-constraint-generator`: DSGS约束生成器
-  - `dsgs-task-decomposer`: DSGS任务分解器
-  - `dsgs-modulizer`: DSGS模块化验证器
-  - `dsgs-dapi-checker`: DSGS接口检查器
+  - `dnaspec-architect`: DSGS架构师
+  - `dnaspec-system-architect`: DSGS系统架构师
+  - `dnaspec-agent-creator`: DSGS智能体创建器
+  - `dnaspec-constraint-generator`: DSGS约束生成器
+  - `dnaspec-task-decomposer`: DSGS任务分解器
+  - `dnaspec-modulizer`: DSGS模块化验证器
+  - `dnaspec-dapi-checker`: DSGS接口检查器
 
 ### 2. Python脚本支持 (9个技能)
 - `context_analyzer.py`: 上下文分析引擎
@@ -63,7 +63,7 @@ spec-kit/
 │   ├── speckit-specify/    # 规格创建技能
 │   ├── speckit-plan/       # 规划技能
 │   ├── context-analysis/   # 上下文分析技能
-│   └── dsgs-architect/     # DSGS架构技能
+│   └── dnaspec-architect/     # DSGS架构技能
 ├── scripts/                # Python脚本目录
 ├── templates/              # 模板文件
 ├── docs/                   # 文档目录
@@ -123,9 +123,9 @@ spec-kit/
 ### 系统设计工作流
 ```bash
 # 系统设计流程
-/dsgs-architect [需求]
-/dsgs-task-decomposer [架构]
-/dsgs-constraint-generator [架构]
+/dnaspec-architect [需求]
+/dnaspec-task-decomposer [架构]
+/dnaspec-constraint-generator [架构]
 ```
 
 ## 技术特点
@@ -219,14 +219,14 @@ spec.kit is a Spec-Driven Development toolkit that makes specifications the prim
   - `cognitive-template-enhanced`: Enhanced cognitive template
   - `context-engineering-workflow`: Complete workflow
 
-- **DSGS Intelligent Architect Skills (7)**
-  - `dsgs-architect`: DSGS Architect
-  - `dsgs-system-architect`: DSGS System Architect
-  - `dsgs-agent-creator`: DSGS Agent Creator
-  - `dsgs-constraint-generator`: DSGS Constraint Generator
-  - `dsgs-task-decomposer`: DSGS Task Decomposer
-  - `dsgs-modulizer`: DSGS Module Validator
-  - `dsgs-dapi-checker`: DSGS API Checker
+- **DNASPEC Intelligent Architect Skills (7)**
+  - `dnaspec-architect`: DNASPEC Architect
+  - `dnaspec-system-architect`: DNASPEC System Architect
+  - `dnaspec-agent-creator`: DNASPEC Agent Creator
+  - `dnaspec-constraint-generator`: DNASPEC Constraint Generator
+  - `dnaspec-task-decomposer`: DNASPEC Task Decomposer
+  - `dnaspec-modulizer`: DNASPEC Module Validator
+  - `dnaspec-dapi-checker`: DNASPEC API Checker
 
 ### 2. Python Script Support (9 skills)
 - `context_analyzer.py`: Context analysis engine
@@ -253,7 +253,7 @@ spec-kit/
 │   ├── speckit-specify/    # Specification creation skill
 │   ├── speckit-plan/       # Planning skill
 │   ├── context-analysis/   # Context analysis skill
-│   └── dsgs-architect/     # DSGS architect skill
+│   └── dnaspec-architect/     # DNASPEC architect skill
 ├── scripts/                # Python script directory
 ├── templates/              # Template files
 ├── docs/                   # Documentation directory
@@ -313,9 +313,9 @@ spec-kit/
 ### System Design Workflow
 ```bash
 # System design process
-/dsgs-architect [requirements]
-/dsgs-task-decomposer [architecture]
-/dsgs-constraint-generator [architecture]
+/dnaspec-architect [requirements]
+/dnaspec-task-decomposer [architecture]
+/dnaspec-constraint-generator [architecture]
 ```
 
 ## Technical Features

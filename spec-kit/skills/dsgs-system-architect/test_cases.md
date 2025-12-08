@@ -1,4 +1,4 @@
-# DSGS System Architect技能TDD测试用例
+# DNASPEC System Architect技能TDD测试用例
 
 ## 测试1: 基础系统架构设计
 **输入**: "为一个博客系统设计系统架构，需要前端展示、后端管理、数据库存储"

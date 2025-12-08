@@ -166,12 +166,12 @@ Unit Tests (60%)
 
 ### 项目负责人
 - **姓名**：DSGS团队
-- **邮箱**：team@dsgs.com
+- **邮箱**：team@dnaspec.com
 - **角色**：架构师
 
 ### 技术负责人
 - **姓名**：技术负责人
-- **邮箱**：tech@dsgs.com
+- **邮箱**：tech@dnaspec.com
 - **角色**：技术主管
 
 ## 📚 相关文档

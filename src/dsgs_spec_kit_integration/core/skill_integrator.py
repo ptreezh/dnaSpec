@@ -67,7 +67,7 @@ class SkillIntegrator:
     
     def install_skills_to_all_platforms(self) -> Dict[str, Any]:
         """将技能安装到所有已检测到的AI CLI平台"""
-        from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+        from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
         detector = CliDetector()
         detected_tools = detector.detect_all()
         
@@ -127,36 +127,36 @@ class SkillIntegrator:
         """获取DSGS技能定义"""
         return {
             'context-analysis': {
-                'name': 'dsgs-context-analysis',
+                'name': 'dnaspec-context-analysis',
                 'description': 'Analyze context quality across 5 dimensions',
-                'command': '/speckit.dsgs.context-analysis',
+                'command': '/speckit.dnaspec.context-analysis',
                 'category': 'context-engineering',
                 'version': '1.0.4',
-                'handler': 'dsgs_context_engineering.skills_system_final.execute'
+                'handler': 'dnaspec_context_engineering.skills_system_final.execute'
             },
             'context-optimization': {
-                'name': 'dsgs-context-optimization', 
+                'name': 'dnaspec-context-optimization', 
                 'description': 'Optimize context quality with specific goals',
-                'command': '/speckit.dsgs.context-optimization',
+                'command': '/speckit.dnaspec.context-optimization',
                 'category': 'context-engineering',
                 'version': '1.0.4',
-                'handler': 'dsgs_context_engineering.skills_system_final.execute'
+                'handler': 'dnaspec_context_engineering.skills_system_final.execute'
             },
             'cognitive-template': {
-                'name': 'dsgs-cognitive-template',
+                'name': 'dnaspec-cognitive-template',
                 'description': 'Apply cognitive templates to structure reasoning',
-                'command': '/speckit.dsgs.cognitive-template',
+                'command': '/speckit.dnaspec.cognitive-template',
                 'category': 'cognitive-engineering',
                 'version': '1.0.4', 
-                'handler': 'dsgs_context_engineering.skills_system_final.execute'
+                'handler': 'dnaspec_context_engineering.skills_system_final.execute'
             },
             'architect': {
-                'name': 'dsgs-architect',
+                'name': 'dnaspec-architect',
                 'description': 'System architecture design expert',
-                'command': '/speckit.dsgs.architect',
+                'command': '/speckit.dnaspec.architect',
                 'category': 'system-design',
                 'version': '1.0.4',
-                'handler': 'dsgs_context_engineering.skills_system_final.execute'
+                'handler': 'dnaspec_context_engineering.skills_system_final.execute'
             }
         }
     
@@ -179,7 +179,7 @@ class SkillIntegrator:
                         'type': 'dsks',
                         'version': '1.0',
                         'implementation': {
-                            'module': 'dsgs_context_engineering.skills_system_final',
+                            'module': 'dnaspec_context_engineering.skills_system_final',
                             'function': 'execute'
                         }
                     }
@@ -224,7 +224,7 @@ class SkillIntegrator:
                             }
                         }
                     },
-                    'instructions': f"When user uses {skill_def['command']}, call the DSGS {skill_name} skill.",
+                    'instructions': f"When user uses {skill_def['command']}, call the DNASPEC {skill_name} skill.",
                     'created_at': self._get_timestamp()
                 }
                 
@@ -259,7 +259,7 @@ class SkillIntegrator:
                 'installed_skills': skills,
                 'activation': {
                     'commands': [skill['command'] for skill in skills.values()],
-                    'prefixes': ['/speckit.dsgs.']
+                    'prefixes': ['/speckit.dnaspec.']
                 },
                 'settings': {
                     'enable_context_analysis': True,
@@ -339,9 +339,9 @@ class SkillIntegrator:
 
 def main():
     """主函数 - 安装DSGS技能到AI CLI工具"""
-    print("🚀 DSGS Skills Integration Installer")
+    print("🚀 DNASPEC Skills Integration Installer")
     print("="*50)
-    print("Installing DSGS Context Engineering Skills to AI CLI platforms...")
+    print("Installing DNASPEC Context Engineering Skills to AI CLI platforms...")
     print()
     
     integrator = SkillIntegrator()
@@ -356,7 +356,7 @@ def main():
     print()
     
     # 安装技能
-    print("🔧 Installing DSGS skills to detected platforms...")
+    print("🔧 Installing DNASPEC skills to detected platforms...")
     results = integrator.install_skills_to_all_platforms()
     
     print()
@@ -380,8 +380,8 @@ def main():
         count = ver_result.get('files_count', 0)
         print(f"  {status} {platform}: {count} files in {path}")
     
-    print("\n🎉 DSGS Skills installation completed!")
-    print("The /speckit.dsgs.* commands should now be available in your AI CLI tools.")
+    print("\n🎉 DNASPEC Skills installation completed!")
+    print("The /speckit.dnaspec.* commands should now be available in your AI CLI tools.")
     
     return results
 

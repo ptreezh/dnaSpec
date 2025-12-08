@@ -1,6 +1,6 @@
 ---
-name: dsgs-architect
-description: DSGS Intelligent Architect main skill for complex project hierarchical architecture design, task decomposition, agent creation, and constraint generation. Use when you need to design complex system architectures, plan multi-layered systems, or create agent-based systems.
+name: dnaspec-architect
+description: DNASPEC Intelligent Architect main skill for complex project hierarchical architecture design, task decomposition, agent creation, and constraint generation. Use when you need to design complex system architectures, plan multi-layered systems, or create agent-based systems.
 license: Apache 2.0
 allowed-tools: 
   - Bash(python:scripts/architect_coordinator.py)
@@ -9,10 +9,10 @@ metadata:
   speckit-category: architecture
 ---
 
-# DSGS Intelligent Architect
+# DNASPEC Intelligent Architect
 
 ## Overview
-DSGS Intelligent Architect is the core coordinating skill for the DSGS Intelligent Architect system. It handles complex project requirements by analyzing them and routing to appropriate sub-skills, coordinating workflows between components, and integrating outputs into comprehensive architecture design documentation.
+DNASPEC Intelligent Architect is the core coordinating skill for the DNASPEC Intelligent Architect system. It handles complex project requirements by analyzing them and routing to appropriate sub-skills, coordinating workflows between components, and integrating outputs into comprehensive architecture design documentation.
 
 ## Core Functions
 
@@ -82,22 +82,22 @@ Synthesize outputs from various sub-skills:
 
 ## Sub-Skill Coordination
 
-### dsgs-system-architect
+### dnaspec-system-architect
 - Coordinates system architecture design
 - Manages component-level planning
 - Ensures architectural consistency
 
-### dsgs-task-decomposer
+### dnaspec-task-decomposer
 - Routes requirements for task decomposition
 - Integrates task structures with architecture
 - Ensures task-architecture alignment
 
-### dsgs-agent-creator
+### dnaspec-agent-creator
 - Coordinates intelligent agent creation
 - Ensures agents align with architectural design
 - Manages agent interaction patterns
 
-### dsgs-constraint-generator
+### dnaspec-constraint-generator
 - Coordinates constraint generation
 - Ensures constraints align with architecture
 - Manages constraint validation

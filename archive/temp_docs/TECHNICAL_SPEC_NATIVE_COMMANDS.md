@@ -1,9 +1,9 @@
-# DSGS Context Engineering Skills - AI CLI Native Command System
+# DNASPEC Context Engineering Skills - AI CLI Native Command System
 
 ## 1. 架构概述
 
 ### 1.1 核心理念
-DSGS Context Engineering Skills System 重新设计为AI CLI平台的原生命令扩展系统，利用AI模型的原生智能执行上下文工程任务，而非构建本地模型。
+DNASPEC Context Engineering Skills System 重新设计为AI CLI平台的原生命令扩展系统，利用AI模型的原生智能执行上下文工程任务，而非构建本地模型。
 
 ### 1.2 系统定位
 - **非替代AI**: 充分利用AI模型的原生智能
@@ -27,14 +27,14 @@ DSGS Context Engineering Skills System 重新设计为AI CLI平台的原生命�
 │  │                        │                                     │   │
 │  │                        ▼                                     │   │
 │  │  ┌─────────────────────────────────────────────────────────┐  │   │
-│  │  │         DSGS Command Integration Layer                 │  │   │
-│  │  │  (Handles /dsgs-* commands, forwards to AI model)    │  │   │
+│  │  │         DNASPEC Command Integration Layer                 │  │   │
+│  │  │  (Handles /dnaspec-* commands, forwards to AI model)    │  │   │
 │  │  └─────────────────────────────────────────────────────────┘  │   │
 │  └─────────────────────────────────────────────────────────────────────────┘
 │                                    │
 │                                    ▼
 │  ┌─────────────────────────────────────────────────────────────────────────┐
-│  │              DSGS Context Engineering Skills                         │
+│  │              DNASPEC Context Engineering Skills                         │
 │  │  (Command Classes + Instruction Templates)                          │
 │  └─────────────────────────────────────────────────────────────────────────┘
 │                                    │
@@ -66,13 +66,13 @@ DSGS Context Engineering Skills System 重新设计为AI CLI平台的原生命�
 
 ### 3.1 命令处理流程
 ```
-User: /dsgs-analyze 当前需求文档
+User: /dnaspec-analyze 当前需求文档
       │
       ▼
-Claude Command System recognizes /dsgs-analyze
+Claude Command System recognizes /dnaspec-analyze
       │
       ▼
-Calls DSGSCommandRegistry.execute_command('/dsgs-analyze', context, args)
+Calls DSGSCommandRegistry.execute_command('/dnaspec-analyze', context, args)
       │
       ▼ 
 ContextAnalysisCommand.execute() creates analysis instruction
@@ -201,7 +201,7 @@ class ContextOptimizationCommand(DSGSCommand):
 ### 6.1 开发环境搭建
 ```bash
 # 1. 安装DSGS Context Engineering Skills
-pip install dsgs-context-engineering
+pip install dnaspec-context-engineering
 
 # 2. 为Claude配置命令 (需要Claude Desktop 4.0+)
 # 将claude_commands_manifest.json放在指定目录
@@ -210,16 +210,16 @@ pip install dsgs-context-engineering
 ### 6.2 命令使用示例
 ```
 # 分析当前对话上下文
-/dsgs-analyze
+/dnaspec-analyze
 
 # 分析指定内容  
-/dsgs-analyze "系统需要支持用户注册登录功能"
+/dnaspec-analyze "系统需要支持用户注册登录功能"
 
 # 优化上下文清晰度和完整性
-/dsgs-optimize clarity completeness
+/dnaspec-optimize clarity completeness
 
 # 应用思维链模板
-/dsgs-template chain_of_thought
+/dnaspec-template chain_of_thought
 ```
 
 ## 7. 技术优势
@@ -245,7 +245,7 @@ pip install dsgs-context-engineering
 ```
 Claude Desktop Application
 ├── Command Plugin System
-│   └── dsgs-context-engineering
+│   └── dnaspec-context-engineering
 │       ├── claude_commands_manifest.json
 │       ├── claude_commands_impl.py
 │       └── skills/
@@ -255,7 +255,7 @@ Claude Desktop Application
 
 ### 8.2 API Proxy Mode (备用方案)
 ```
-User Input → DSGS API Proxy → (Enhances with structured instructions) → AI API
+User Input → DNASPEC API Proxy → (Enhances with structured instructions) → AI API
      ↑                                    ↓
      └── Enhanced Response ←──────────────────┘
 ```

@@ -8,9 +8,9 @@
 
 #### **任务 1: 定义“存活”技能 (Skill Definition)**
 *   **上下文:** 我们需要一个最简单的技能作为工作流的最终目标。这是我们TDD的“靶心”。
-*   **任务:** 在 `src/dsgs_spec_kit_integration/skills/` 目录下创建 `liveness.py` 文件。
+*   **任务:** 在 `src/dnaspec_spec_kit_integration/skills/` 目录下创建 `liveness.py` 文件。
 *   **核验标准:**
-    *   [ ] 文件 `src/dsgs_spec_kit_integration/skills/liveness.py` 已创建。
+    *   [ ] 文件 `src/dnaspec_spec_kit_integration/skills/liveness.py` 已创建。
     *   [ ] 文件中包含一个名为 `execute` 的函数，该函数返回字符串 `"alive"`。
 
 #### **任务 2: 创建端到端集成测试 (E2E Integration Test - RED)**
@@ -25,7 +25,7 @@
 #### **任务 3: 实现最小化核心逻辑 (Minimal Core Logic - GREEN)**
 *   **上下文:** 为了让上述的集成测试通过，我们需要用最少的代码实现一个可以找到并执行 `liveness` 技能的核心逻辑。
 *   **任务:**
-    1.  在 `src/dsgs_spec_kit_integration/core/` 目录下创建或修改核心文件（如 `skill_manager.py`）。
+    1.  在 `src/dnaspec_spec_kit_integration/core/` 目录下创建或修改核心文件（如 `skill_manager.py`）。
     2.  实现一个最小化的类（如 `SkillManager`），它能够根据技能名称动态加载 `skills` 目录下的模块并执行其 `execute` 函数。
 *   **核验标准:**
     *   [ ] **(关键)** 再次运行 `pytest tests/integration/test_e2e_liveness_skill.py`，**确认测试现在通过**。

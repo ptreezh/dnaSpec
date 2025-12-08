@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DSGS Skills 通用适配器框架
+DNASPEC Skills 通用适配器框架
 用于将DSGS Skills集成到不同的AI工具中
 """
 
@@ -18,7 +18,7 @@ class SkillDefinition:
     name: str
     description: str
     version: str = "1.0.0"
-    author: str = "DSGS System"
+    author: str = "DNASPEC System"
     license: str = "MIT"
     keywords: List[str] = None
     dependencies: List[str] = None
@@ -296,7 +296,7 @@ class QwenCLIAdapter(BaseAdapter):
         return export_path
 
 class DSGSSkillsAdapterFramework:
-    """DSGS Skills适配器框架"""
+    """DNASPEC Skills适配器框架"""
     
     def __init__(self, skills_base_path: str = "skills"):
         self.skills_base_path = skills_base_path
@@ -339,7 +339,7 @@ class DSGSSkillsAdapterFramework:
 
 def main():
     """主函数 - 演示适配器框架的使用"""
-    print("=== DSGS Skills 适配器框架 ===\n")
+    print("=== DNASPEC Skills 适配器框架 ===\n")
     
     # 创建适配器框架
     framework = DSGSSkillsAdapterFramework("skills")

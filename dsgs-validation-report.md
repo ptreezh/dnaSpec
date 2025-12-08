@@ -1,4 +1,4 @@
-# DSGS Integration Validation Report
+# DNASPEC Integration Validation Report
 
 Generated at: 2025-12-08T18:09:09.202851
 

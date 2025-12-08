@@ -87,21 +87,21 @@ class SkillExecutionEngine:
         
         try:
             # 根据技能名称动态导入相应的模块
-            if skill_name == "dsgs-agent-creator":
+            if skill_name == "dnaspec-agent-creator":
                 from .src.dsgs_agent_creator import agent_creator
                 result = agent_creator.process_request(request, context)
-            elif skill_name == "dsgs-task-decomposer":
+            elif skill_name == "dnaspec-task-decomposer":
                 # 任务分解器可能需要特殊处理
                 result = self._execute_task_decomposer(request, context)
-            elif skill_name == "dsgs-dapi-checker":
+            elif skill_name == "dnaspec-dapi-checker":
                 from .src.dsgs_dapi_checker import dapi_checker
                 result = dapi_checker.process_request(request, context)
-            elif skill_name == "dsgs-modulizer":
+            elif skill_name == "dnaspec-modulizer":
                 from .src.dsgs_modulizer import modulizer
                 result = modulizer.process_request(request, context)
-            elif skill_name == "dsgs-constraint-generator":
+            elif skill_name == "dnaspec-constraint-generator":
                 result = self._execute_constraint_generator(request, context)
-            elif skill_name == "dsgs-architect":
+            elif skill_name == "dnaspec-architect":
                 result = self._execute_architect(request, context)
             else:
                 # 通用执行逻辑
@@ -158,7 +158,7 @@ class SkillExecutionEngine:
         # 这里应该导入实际的任务分解器
         # 暂时返回模拟结果
         return {
-            "skill": "dsgs-task-decomposer",
+            "skill": "dnaspec-task-decomposer",
             "status": "completed",
             "message": f"任务分解器已处理请求: {request}",
             "tasks": [
@@ -172,7 +172,7 @@ class SkillExecutionEngine:
     def _execute_constraint_generator(self, request: str, context: Dict[str, Any]) -> Dict[str, Any]:
         """执行约束生成器"""
         return {
-            "skill": "dsgs-constraint-generator",
+            "skill": "dnaspec-constraint-generator",
             "status": "completed",
             "message": f"约束生成器已处理请求: {request}",
             "constraints": [
@@ -185,7 +185,7 @@ class SkillExecutionEngine:
     def _execute_architect(self, request: str, context: Dict[str, Any]) -> Dict[str, Any]:
         """执行架构师技能"""
         return {
-            "skill": "dsgs-architect",
+            "skill": "dnaspec-architect",
             "status": "completed",
             "message": f"架构师已处理请求: {request}",
             "architecture": {
@@ -285,11 +285,11 @@ if __name__ == "__main__":
     engine.enable_debug()
     
     test_cases = [
-        ("dsgs-agent-creator", "创建一个项目管理智能体"),
-        ("dsgs-task-decomposer", "分解用户注册功能的开发任务"),
-        ("dsgs-dapi-checker", "检查用户服务API接口一致性"),
-        ("dsgs-modulizer", "对订单处理模块进行成熟度评估"),
-        ("dsgs-architect", "设计微服务系统架构")
+        ("dnaspec-agent-creator", "创建一个项目管理智能体"),
+        ("dnaspec-task-decomposer", "分解用户注册功能的开发任务"),
+        ("dnaspec-dapi-checker", "检查用户服务API接口一致性"),
+        ("dnaspec-modulizer", "对订单处理模块进行成熟度评估"),
+        ("dnaspec-architect", "设计微服务系统架构")
     ]
     
     for skill_name, request in test_cases:

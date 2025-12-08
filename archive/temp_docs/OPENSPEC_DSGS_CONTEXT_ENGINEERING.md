@@ -1,9 +1,9 @@
-# OpenSpec DSGS Context Engineering Skills System - 规范文档
+# OpenSpec DNASPEC Context Engineering Skills System - 规范文档
 
 ## 1. 项目定义 (Project Definition)
 
 ### 1.1 系统边界 (System Boundaries)
-DSGS Context Engineering Skills System 是一个AI CLI平台增强工具集，专注于利用AI模型原生智能提供专业级的上下文分析、优化和结构化能力。
+DNASPEC Context Engineering Skills System 是一个AI CLI平台增强工具集，专注于利用AI模型原生智能提供专业级的上下文分析、优化和结构化能力。
 
 **Include**:
 - 上下文质量五维分析 (清晰度、相关性、完整性、一致性、效率)
@@ -28,12 +28,12 @@ DSGS Context Engineering Skills System 是一个AI CLI平台增强工具集，�
 
 #### 2.1.1 技能信息
 ```
-Name: dsgs-context-analysis
+Name: dnaspec-context-analysis
 Type: Analysis
 Category: Context Engineering
 Description: 专业级上下文质量分析技能，利用AI模型原生智能对上下文进行五维度评估
 Version: 1.0.0
-Author: DSGS Team
+Author: DNASPEC Team
 Keywords: [context, analysis, quality, assessment, metrics]
 ```
 
@@ -73,12 +73,12 @@ Execution Logic:
 
 #### 2.2.1 技能信息
 ```
-Name: dsgs-context-optimization
+Name: dnaspec-context-optimization
 Type: Optimization
 Category: Context Engineering
 Description: AI驱动的上下文智能优化技能，利用AI模型原生推理能力进行内容提升
 Version: 1.0.0
-Author: DSGS Team
+Author: DNASPEC Team
 Keywords: [context, optimization, improvement, refinement, goals]
 ```
 
@@ -110,12 +110,12 @@ Execution Logic:
 
 #### 2.3.1 技能信息
 ```
-Name: dsgs-cognitive-template
+Name: dnaspec-cognitive-template
 Type: Cognitive Enhancement
 Category: Context Engineering
 Description: 认知模板应用技能，利用AI模型原生推理能力应用认知框架结构化任务
 Version: 1.0.0
-Author: DSGS Team
+Author: DNASPEC Team
 Keywords: [cognitive, template, reasoning, structure, framework]
 ```
 
@@ -163,7 +163,7 @@ Execution Logic:
 │  │  └─────────────────────────────────────────────────────────┘  │   │
 │  └─────────────────────────────────────────────────────────────────────────┘
 ├─────────────────────────────────────────────────────────────────────────┤
-│                DSGS SKILL EXECUTION LAYER                              │
+│                DNASPEC SKILL EXECUTION LAYER                              │
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐      │
 │  │ Context       │  │ Context       │  │ Cognitive     │      │
 │  │ Analysis      │  │ Optimization  │  │ Template      │      │
@@ -177,7 +177,7 @@ Execution Logic:
 
 ### 3.2 组件交互架构 (Component Interaction Architecture)
 ```
-User Input → DSGS Skill Manager → Specific Skill → AI Model API → Structured Result → User Output
+User Input → DNASPEC Skill Manager → Specific Skill → AI Model API → Structured Result → User Output
 ```
 
 ## 4. API接口规范 (API Interface Specifications)
@@ -234,9 +234,9 @@ Output: {
 ### 5.1 CLI命令集成 (CLI Command Integration)
 ```
 Commands:
-- /dsgs-analyze <上下文>                    # 上下文质量分析
-- /dsgs-optimize <上下文> --goals <目标>   # 上下文智能优化  
-- /dsgs-template <任务> --template <类型> # 认知模板应用
+- /dnaspec-analyze <上下文>                    # 上下文质量分析
+- /dnaspec-optimize <上下文> --goals <目标>   # 上下文智能优化  
+- /dnaspec-template <任务> --template <类型> # 认知模板应用
 ```
 
 ### 5.2 API适配器规范 (API Adapter Specification)

@@ -69,54 +69,54 @@ This document provides a comprehensive summary of all skills and commands create
     - Available as: `/context-optimization-enhanced`
 
 ### Domain-Specific Skills Layer
-12. **dsgs-architect** - DSGS Intelligent Architect
+12. **dnaspec-architect** - DNASPEC Intelligent Architect
     - Purpose: Main skill for complex project architecture design
     - Category: architecture
     - Key Features: Requirements analysis, workflow management, sub-skill coordination
     - Scripts: architect_coordinator.py
-    - Available as: `/dsgs-architect`
+    - Available as: `/dnaspec-architect`
 
-13. **dsgs-system-architect** - DSGS System Architect
+13. **dnaspec-system-architect** - DNASPEC System Architect
     - Purpose: System architecture design and technology stack selection
     - Category: architecture
     - Key Features: Architecture design, technology selection, module division
     - Scripts: system_architect_designer.py
-    - Available as: `/dsgs-system-architect`
+    - Available as: `/dnaspec-system-architect`
 
-14. **dsgs-agent-creator** - DSGS Agent Creator
+14. **dnaspec-agent-creator** - DNASPEC Agent Creator
     - Purpose: Create and configure intelligent agents
     - Category: agents
     - Key Features: Agent type selection, role definition, communication protocols
     - Scripts: agent_creator.py
-    - Available as: `/dsgs-agent-creator`
+    - Available as: `/dnaspec-agent-creator`
 
-15. **dsgs-constraint-generator** - DSGS Constraint Generator
+15. **dnaspec-constraint-generator** - DNASPEC Constraint Generator
     - Purpose: Generate system constraints and quality standards
     - Category: constraints
     - Key Features: System constraints, API specifications, data validation rules
     - Scripts: constraint_generator.py
-    - Available as: `/dsgs-constraint-generator`
+    - Available as: `/dnaspec-constraint-generator`
 
-16. **dsgs-task-decomposer** - DSGS Task Decomposer
+16. **dnaspec-task-decomposer** - DNASPEC Task Decomposer
     - Purpose: Decompose complex requirements into atomic tasks
     - Category: task-management
     - Key Features: Task identification, dependency mapping, context documentation
     - Scripts: task_decomposer.py
-    - Available as: `/dsgs-task-decomposer`
+    - Available as: `/dnaspec-task-decomposer`
 
-17. **dsgs-modulizer** - DSGS Module Maturation Verifier
+17. **dnaspec-modulizer** - DNASPEC Module Maturation Verifier
     - Purpose: Perform bottom-up maturity checking and modular encapsulation
     - Category: modularity
     - Key Features: Maturity assessment, encapsulation, lifecycle management
     - Scripts: modulizer.py
-    - Available as: `/dsgs-modulizer`
+    - Available as: `/dnaspec-modulizer`
 
-18. **dsgs-dapi-checker** - DSGS Distributed API Checker
+18. **dnaspec-dapi-checker** - DNASPEC Distributed API Checker
     - Purpose: Verify interface consistency and completeness
     - Category: api-validation
     - Key Features: Interface scanning, consistency verification, compatibility analysis
     - Scripts: dapi_checker.py
-    - Available as: `/dsgs-dapi-checker`
+    - Available as: `/dnaspec-dapi-checker`
 
 ### Workflow Skills Layer (Combination of Atomic Skills)
 19. **context-engineering-workflow** - Complete Context Engineering Workflow
@@ -140,13 +140,13 @@ This document provides a comprehensive summary of all skills and commands create
 - `/context-analysis-enhanced` - Advanced Context Analysis
 - `/context-optimization-enhanced` - Advanced Context Optimization
 - `/context-engineering-workflow` - Complete Context Engineering Workflow
-- `/dsgs-architect` - DSGS Intelligent Architect
-- `/dsgs-system-architect` - DSGS System Architect
-- `/dsgs-agent-creator` - DSGS Agent Creator
-- `/dsgs-constraint-generator` - DSGS Constraint Generator
-- `/dsgs-task-decomposer` - DSGS Task Decomposer
-- `/dsgs-modulizer` - DSGS Module Maturation Verifier
-- `/dsgs-dapi-checker` - DSGS Distributed API Checker
+- `/dnaspec-architect` - DNASPEC Intelligent Architect
+- `/dnaspec-system-architect` - DNASPEC System Architect
+- `/dnaspec-agent-creator` - DNASPEC Agent Creator
+- `/dnaspec-constraint-generator` - DNASPEC Constraint Generator
+- `/dnaspec-task-decomposer` - DNASPEC Task Decomposer
+- `/dnaspec-modulizer` - DNASPEC Module Maturation Verifier
+- `/dnaspec-dapi-checker` - DNASPEC Distributed API Checker
 
 ### Conceptual (Not Yet Available):
 - Shortcut commands (e.g., `/spec`, `/ca`, `/co`, `/da`, `/dtd`, etc.) - require platform-level configuration
@@ -169,14 +169,14 @@ This document provides a comprehensive summary of all skills and commands create
 10. **context-analysis-enhanced.md** - Advanced Context Analysis Command
 11. **context-optimization-enhanced.md** - Advanced Context Optimization Command
 
-### DSGS Commands
-12. **dsgs-architect.md** - DSGS Architect Command
-13. **dsgs-system-architect.md** - DSGS System Architect Command
-14. **dsgs-agent-creator.md** - DSGS Agent Creator Command
-15. **dsgs-constraint-generator.md** - DSGS Constraint Generator Command
-16. **dsgs-task-decomposer.md** - DSGS Task Decomposer Command
-17. **dsgs-modulizer.md** - DSGS Module Maturation Verifier Command
-18. **dsgs-dapi-checker.md** - DSGS Distributed API Checker Command
+### DNASPEC Commands
+12. **dnaspec-architect.md** - DNASPEC Architect Command
+13. **dnaspec-system-architect.md** - DNASPEC System Architect Command
+14. **dnaspec-agent-creator.md** - DNASPEC Agent Creator Command
+15. **dnaspec-constraint-generator.md** - DNASPEC Constraint Generator Command
+16. **dnaspec-task-decomposer.md** - DNASPEC Task Decomposer Command
+17. **dnaspec-modulizer.md** - DNASPEC Module Maturation Verifier Command
+18. **dnaspec-dapi-checker.md** - DNASPEC Distributed API Checker Command
 
 ### Workflow Commands
 19. **context-engineering-workflow.md** - Complete Context Engineering Workflow Command
@@ -197,7 +197,7 @@ The spec.kit architecture demonstrates the principle of progressive disclosure a
 
 ### Level 3: Domain-Specific Skills
 - Specialized skills for specific problem domains
-- Examples: dsgs-task-decomposer, dsgs-architect
+- Examples: dnaspec-task-decomposer, dnaspec-architect
 - Apply general techniques to domain-specific problems
 
 ### Level 4: Workflow Skills
@@ -213,7 +213,7 @@ The spec.kit project implements the following methodology:
 
 2. **Context Engineering Integration**: Incorporated advanced Context Engineering methodologies from the Context-Engineering directory into enhanced skill versions
 
-3. **DSGS Integration**: Converted DSGS skill definitions into Claude Skills with comprehensive functionality
+3. **DNASPEC Integration**: Converted DNASPEC skill definitions into Claude Skills with comprehensive functionality
 
 4. **Script Integration**: Added Python scripts for complex computational tasks where appropriate
 

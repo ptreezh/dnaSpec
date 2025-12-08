@@ -2,9 +2,9 @@
 spec.kit适配器具体实现
 集成DSGS Context Engineering Skills
 """
-from src.dsgs_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
+from src.dnaspec_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
 from typing import Dict, Any
-from src.dsgs_context_engineering.skills_system_final import (
+from src.dnaspec_context_engineering.skills_system_final import (
     ContextAnalysisSkill,
     ContextOptimizationSkill,
     CognitiveTemplateSkill
@@ -31,15 +31,15 @@ class ConcreteSpecKitAdapter(SpecKitAdapter):
         self._cognitive_template_skill = CognitiveTemplateSkill()
 
         # 注册核心DSGS技能
-        self.register_skill('dsgs-context-analysis', self._context_analysis_wrapper)
-        self.register_skill('dsgs-context-optimization', self._context_optimization_wrapper)
-        self.register_skill('dsgs-cognitive-template', self._cognitive_template_wrapper)
+        self.register_skill('dnaspec-context-analysis', self._context_analysis_wrapper)
+        self.register_skill('dnaspec-context-optimization', self._context_optimization_wrapper)
+        self.register_skill('dnaspec-cognitive-template', self._cognitive_template_wrapper)
 
     def _register_legacy_skills(self):
         """注册原有的测试技能"""
-        self.register_skill('dsgs-architect', self._architect_skill)
-        self.register_skill('dsgs-agent-creator', self._agent_creator_skill)
-        self.register_skill('dsgs-task-decomposer', self._task_decomposer_skill)
+        self.register_skill('dnaspec-architect', self._architect_skill)
+        self.register_skill('dnaspec-agent-creator', self._agent_creator_skill)
+        self.register_skill('dnaspec-task-decomposer', self._task_decomposer_skill)
 
     def _context_analysis_wrapper(self, params: Dict[str, Any]) -> Dict[str, Any]:
         """上下文分析技能包装器"""

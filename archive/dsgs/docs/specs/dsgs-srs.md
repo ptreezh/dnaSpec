@@ -1,4 +1,4 @@
-# **动态规范生长系统（DSGS）需求规格说明书**  
+# **动态规范生长系统（DNASPEC）需求规格说明书**  
 **版本：1.0**  
 **日期：2025年3月28日**
 
@@ -173,13 +173,13 @@ context:
 ### 8.1 术语表
 | 术语         | 全称                          | 定义                          |
 |--------------|-----------------------------|-----------------------------|
-| **DSGS**     | Dynamic Specification Growth System | 动态规范生长系统              |
+| **DNASPEC**     | Dynamic Specification Growth System | 动态规范生长系统              |
 | **SOF**      | System Objective Function    | 系统目标函数（用户价值-复杂度）|
 | **TCC**      | Task Context Capsule         | 任务上下文胶囊                |
 | **MCR**      | Meta-Constraint Rules        | 元约束规则                   |
 
 ### 8.2 现有工具对比
-| 维度         | DSGS                          | Kiro Spec               | Cursor Rules            |
+| 维度         | DNASPEC                          | Kiro Spec               | Cursor Rules            |
 |--------------|-----------------------------|------------------------|------------------------|
 | **动态性**   | ✅ 按需生成约束                | ❌ 静态规范              | ✅ 目录级动态规则       |
 | **一致性**   | ✅ 图谱增量校验               | ⚠️ 手动管理             | ❌ 无跨文件校验         |

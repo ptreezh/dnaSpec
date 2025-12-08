@@ -50,7 +50,7 @@
 - [ ] 递交记录系统设计和实现
 
 #### 关键交付物
-1. `dsgs-cli` 基础CLI框架
+1. `dnaspec-cli` 基础CLI框架
 2. 工作区管理模块
 3. 递交记录管理模块
 4. 基础配置管理模块
@@ -108,7 +108,7 @@ class WorkspaceManager:
 - [ ] 单元测试编写
 
 #### 关键交付物
-1. `dsgs-analyze` 源码分析CLI工具
+1. `dnaspec-analyze` 源码分析CLI工具
 2. Python源码分析模块
 3. JavaScript源码分析模块
 4. 统一的分析结果数据模型
@@ -196,7 +196,7 @@ class ModelInfo(BaseModel):
 - [ ] 单元测试编写
 
 #### 关键交付物
-1. `dsgs-generate` 契约生成CLI工具
+1. `dnaspec-generate` 契约生成CLI工具
 2. OpenAPI契约生成模块
 3. 数据模型转换模块
 4. 示例数据生成模块
@@ -283,7 +283,7 @@ class ContractGenerator:
 - [ ] 单元测试编写
 
 #### 关键交付物
-1. `dsgs-validate` 契约验证CLI工具
+1. `dnaspec-validate` 契约验证CLI工具
 2. 契约结构验证模块
 3. 数据类型验证模块
 4. 兼容性检查模块
@@ -347,7 +347,7 @@ class ContractValidator:
 - [ ] 单元测试编写
 
 #### 关键交付物
-1. `dsgs-version` 版本管理CLI工具
+1. `dnaspec-version` 版本管理CLI工具
 2. 版本控制模块
 3. 变更追踪模块
 4. 版本比较模块

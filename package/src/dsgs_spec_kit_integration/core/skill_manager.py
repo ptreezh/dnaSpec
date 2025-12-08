@@ -4,7 +4,7 @@ import importlib
 class SkillManager:
     """最小化的技能管理器，用于加载和执行技能。"""
 
-    def __init__(self, skills_base_path="dsgs_spec_kit_integration.skills"):
+    def __init__(self, skills_base_path="dnaspec_spec_kit_integration.skills"):
         self.skills_base_path = skills_base_path
 
     def execute_skill(self, skill_name: str, args: dict) -> str:

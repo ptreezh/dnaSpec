@@ -1,6 +1,6 @@
 ---
-name: dsgs-constraint-generator
-description: DSGS Constraint Generator sub-skill for generating system constraints, API specification constraints, data constraints, and quality constraints. Use when you need to generate constraints, API specifications, data validation rules, or quality constraints.
+name: dnaspec-constraint-generator
+description: DNASPEC Constraint Generator sub-skill for generating system constraints, API specification constraints, data constraints, and quality constraints. Use when you need to generate constraints, API specifications, data validation rules, or quality constraints.
 license: Apache 2.0
 allowed-tools: 
   - Bash(python:scripts/constraint_generator.py)
@@ -9,10 +9,10 @@ metadata:
   speckit-category: constraints
 ---
 
-# DSGS Constraint Generator
+# DNASPEC Constraint Generator
 
 ## Overview
-DSGS Constraint Generator is a specialized sub-skill of the DSGS Intelligent Architect system. It focuses on generating comprehensive system constraints, API specification constraints, data constraints, and quality constraints based on project requirements and architectural design. This skill ensures that systems are designed with appropriate boundaries, rules, and quality measures from the start.
+DNASPEC Constraint Generator is a specialized sub-skill of the DNASPEC Intelligent Architect system. It focuses on generating comprehensive system constraints, API specification constraints, data constraints, and quality constraints based on project requirements and architectural design. This skill ensures that systems are designed with appropriate boundaries, rules, and quality measures from the start.
 
 ## Core Functions
 

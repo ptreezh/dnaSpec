@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DSGS Gemini CLI Extensions 使用示例
+DNASPEC Gemini CLI Extensions 使用示例
 """
 
 import sys
@@ -14,7 +14,7 @@ from gemini_hook_handler import get_hook_handler
 
 def main():
     """主函数"""
-    print("=== DSGS Gemini CLI Extensions 使用示例 ===")
+    print("=== DNASPEC Gemini CLI Extensions 使用示例 ===")
     print()
     
     # 创建Hook处理器

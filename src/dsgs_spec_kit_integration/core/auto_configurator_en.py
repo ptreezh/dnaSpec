@@ -1,6 +1,6 @@
 """
 Auto Configurator Module
-Automatically detects, configures, and validates DSGS and AI CLI tool integration
+Automatically detects, configures, and validates DNASPEC and AI CLI tool integration
 """
 import os
 from typing import Dict, Any, Optional
@@ -12,8 +12,8 @@ from .skill_executor import SkillExecutor
 
 class AutoConfigurator:
     """
-    DSGS Auto Configurator
-    Automatically detects, configures, and validates DSGS and AI CLI tool integration
+    DNASPEC Auto Configurator
+    Automatically detects, configures, and validates DNASPEC and AI CLI tool integration
     """
 
     def __init__(
@@ -59,7 +59,7 @@ class AutoConfigurator:
         config = self.config_generator.generate(detected_tools)
 
         # 3. Save configuration file
-        config_path = options.get('configPath', './.dsgs/config.yaml')
+        config_path = options.get('configPath', './.dnaspec/config.yaml')
         print(f'Saving configuration to {config_path}...')
         save_result = self.config_generator.save(config, config_path)
 
@@ -75,7 +75,7 @@ class AutoConfigurator:
 
             # Generate validation report
             report = self.validator.generate_report(validation_results)
-            report_path = options.get('reportPath', './dsgs-validation-report.md')
+            report_path = options.get('reportPath', './dnaspec-validation-report.md')
             self.validator.save_report(report, report_path)
 
             self._print_validation_results(validation_results)
@@ -133,7 +133,7 @@ class AutoConfigurator:
         Returns:
             Configuration result dictionary
         """
-        print('Welcome to DSGS Interactive Configuration Wizard\\n')
+        print('Welcome to DNASPEC Interactive Configuration Wizard\\n')
 
         # Detect tools
         print('Detecting AI CLI tools...')
@@ -142,9 +142,9 @@ class AutoConfigurator:
 
         # Get user input
         try:
-            config_path = input(f'Configuration file path (default: ./.dsgs/config.yaml): ').strip()
+            config_path = input(f'Configuration file path (default: ./.dnaspec/config.yaml): ').strip()
             if not config_path:
-                config_path = './.dsgs/config.yaml'
+                config_path = './.dnaspec/config.yaml'
 
             validate_input = input('Run integration validation after configuration? (Y/n): ').strip().lower()
             validate = validate_input != 'n'
@@ -166,7 +166,7 @@ class AutoConfigurator:
             Configuration result dictionary
         """
         return self.auto_configure({
-            'configPath': './.dsgs/config.yaml',
+            'configPath': './.dnaspec/config.yaml',
             'validate': True
         })
 
@@ -215,7 +215,7 @@ class AutoConfigurator:
 
             # Generate validation report
             report = self.validator.generate_report(validation_results)
-            report_path = new_options.get('reportPath', './dsgs-validation-report.md')
+            report_path = new_options.get('reportPath', './dnaspec-validation-report.md')
             self.validator.save_report(report, report_path)
 
             self._print_validation_results(validation_results)

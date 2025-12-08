@@ -45,7 +45,7 @@ interface MCPServer {
 }
 
 interface ConstraintTools extends MCPTool {
-  name = 'dsgs-constraint-tools';
+  name = 'dnaspec-constraint-tools';
   version = '1.0.0';
   
   // 约束检查工具
@@ -233,7 +233,7 @@ class DSGSCLI {
   // 系统状态命令
   private statusCommand: CLICommand = {
     name: 'status',
-    description: 'Show DSGS system status',
+    description: 'Show DNASPEC system status',
     options: [
       { name: 'verbose', alias: 'v', description: 'Verbose output' },
       { name: 'json', description: 'JSON output format' }
@@ -415,20 +415,20 @@ CMD ["node", "dist/server.js"]
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dsgs-api
+  name: dnaspec-api
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: dsgs-api
+      app: dnaspec-api
   template:
     metadata:
       labels:
-        app: dsgs-api
+        app: dnaspec-api
     spec:
       containers:
-      - name: dsgs-api
-        image: dsgs/api:latest
+      - name: dnaspec-api
+        image: dnaspec/api:latest
         ports:
         - containerPort: 3000
         env:
@@ -437,7 +437,7 @@ spec:
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
-              name: dsgs-secrets
+              name: dnaspec-secrets
               key: database-url
         resources:
           requests:
@@ -462,10 +462,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: dsgs-api-service
+  name: dnaspec-api-service
 spec:
   selector:
-    app: dsgs-api
+    app: dnaspec-api
   ports:
   - protocol: TCP
     port: 80
@@ -479,12 +479,12 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: dsgs-api-hpa
+  name: dnaspec-api-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: dsgs-api
+    name: dnaspec-api
   minReplicas: 2
   maxReplicas: 10
   metrics:

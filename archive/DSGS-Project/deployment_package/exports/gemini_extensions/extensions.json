@@ -2,10 +2,10 @@
   "version": "1.0",
   "extensions": [
     {
-      "name": "dsgs-agent-creator",
+      "name": "dnaspec-agent-creator",
       "description": "DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档。当用户提到创建智能体、配置agent、多智能体系统、智能体角色定义、模块智能化、agentic或具身认知时使用此技能。不要在讨论一般系统架构时使用。",
       "version": "1.0.0",
-      "author": "DSGS System",
+      "author": "DNASPEC System",
       "license": "MIT",
       "playbook": {
         "instructions": "当用户请求与DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档。当用户提到创建智能体、配置agent、多智能体系统、智能体角色定义、模块智能化、agentic或具身认知时使用此技能。不要在讨论一般系统架构时使用。相关的内容时，使用此扩展。",
@@ -20,7 +20,7 @@
           "agentic",
           "创建智能体",
           "当用户提到创建智能体",
-          "dsgs",
+          "dnaspec",
           "智能体角色定义",
           "配置"
         ],
@@ -31,14 +31,14 @@
       },
       "mcp_servers": [],
       "context_files": [
-        "dsgs-agent-creator/GEMINI.md"
+        "dnaspec-agent-creator/GEMINI.md"
       ]
     },
     {
-      "name": "dsgs-architect",
+      "name": "dnaspec-architect",
       "description": "DSGS智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成。当用户提到复杂项目架构设计、系统架构规划、多层架构分解或智能体系统创建时使用此技能。不要在讨论具体技术实现细节时使用。",
       "version": "1.0.0",
-      "author": "DSGS System",
+      "author": "DNASPEC System",
       "license": "MIT",
       "playbook": {
         "instructions": "当用户请求与DSGS智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成。当用户提到复杂项目架构设计、系统架构规划、多层架构分解或智能体系统创建时使用此技能。不要在讨论具体技术实现细节时使用。相关的内容时，使用此扩展。",
@@ -48,7 +48,7 @@
           "当用户提到复杂项目架构设计",
           "复杂项目的分层架构设计",
           "复杂项目架构设计",
-          "dsgs",
+          "dnaspec",
           "系统架构规划",
           "多层架构分解或智能体系统创建"
         ],
@@ -59,14 +59,14 @@
       },
       "mcp_servers": [],
       "context_files": [
-        "dsgs-architect/GEMINI.md"
+        "dnaspec-architect/GEMINI.md"
       ]
     },
     {
-      "name": "dsgs-constraint-generator",
+      "name": "dnaspec-constraint-generator",
       "description": "DSGS约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束。当用户提到生成约束、API规范、数据验证规则或质量约束时使用此技能。不要在讨论具体实现细节时使用。",
       "version": "1.0.0",
-      "author": "DSGS System",
+      "author": "DNASPEC System",
       "license": "MIT",
       "playbook": {
         "instructions": "当用户请求与DSGS约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束。当用户提到生成约束、API规范、数据验证规则或质量约束时使用此技能。不要在讨论具体实现细节时使用。相关的内容时，使用此扩展。",
@@ -77,7 +77,7 @@
           "数据约束和质量约束",
           "api",
           "根据项目需求和架构设计生成系统约束",
-          "dsgs",
+          "dnaspec",
           "规范约束",
           "数据验证规则或质量约束"
         ],
@@ -88,14 +88,14 @@
       },
       "mcp_servers": [],
       "context_files": [
-        "dsgs-constraint-generator/GEMINI.md"
+        "dnaspec-constraint-generator/GEMINI.md"
       ]
     },
     {
-      "name": "dsgs-dapi-checker",
+      "name": "dnaspec-dapi-checker",
       "description": "DSGS分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性，验证实现与接口文档的符合性。当用户提到接口一致性检查、分布式接口验证、API文档核验、组件接口验证、接口不一致、参数不一致、定义不一致、参数不匹配、接口不匹配、参数错误、接口错误时使用此技能。不要在讨论一般系统架构时使用。",
       "version": "1.0.0",
-      "author": "DSGS System",
+      "author": "DNASPEC System",
       "license": "MIT",
       "playbook": {
         "instructions": "当用户请求与DSGS分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性，验证实现与接口文档的符合性。当用户提到接口一致性检查、分布式接口验证、API文档核验、组件接口验证、接口不一致、参数不一致、定义不一致、参数不匹配、接口不匹配、参数错误、接口错误时使用此技能。不要在讨论一般系统架构时使用。相关的内容时，使用此扩展。",
@@ -113,7 +113,7 @@
           "参数不一致",
           "定义不一致",
           "验证实现与接口文档的符合性",
-          "dsgs",
+          "dnaspec",
           "文档核验",
           "接口错误"
         ],
@@ -124,14 +124,14 @@
       },
       "mcp_servers": [],
       "context_files": [
-        "dsgs-dapi-checker/GEMINI.md"
+        "dnaspec-dapi-checker/GEMINI.md"
       ]
     },
     {
-      "name": "dsgs-modulizer",
+      "name": "dnaspec-modulizer",
       "description": "DSGS模块成熟化核验器，用于对系统各模块进行自底向上的成熟度检查和模块化封装。遵循最大化模块化原则，确保底层模块完全成熟后进行封装，降低系统复杂性。当用户提到模块化检查、组件成熟度验证、自底向上封装、模块重构、隔离测试、分区测试或系统重构时使用此技能。不要在讨论一般系统设计时使用。",
       "version": "1.0.0",
-      "author": "DSGS System",
+      "author": "DNASPEC System",
       "license": "MIT",
       "playbook": {
         "instructions": "当用户请求与DSGS模块成熟化核验器，用于对系统各模块进行自底向上的成熟度检查和模块化封装。遵循最大化模块化原则，确保底层模块完全成熟后进行封装，降低系统复杂性。当用户提到模块化检查、组件成熟度验证、自底向上封装、模块重构、隔离测试、分区测试或系统重构时使用此技能。不要在讨论一般系统设计时使用。相关的内容时，使用此扩展。",
@@ -140,7 +140,7 @@
           "模块化检查",
           "降低系统复杂性",
           "确保底层模块完全成熟后进行封装",
-          "dsgs",
+          "dnaspec",
           "遵循最大化模块化原则",
           "当用户提到模块化检查",
           "分区测试或系统重构",
@@ -156,14 +156,14 @@
       },
       "mcp_servers": [],
       "context_files": [
-        "dsgs-modulizer/GEMINI.md"
+        "dnaspec-modulizer/GEMINI.md"
       ]
     },
     {
-      "name": "dsgs-system-architect",
+      "name": "dnaspec-system-architect",
       "description": "DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义。当用户提到系统架构设计、技术栈选择、模块划分或接口定义时使用此技能。不要在讨论具体编码实现时使用。",
       "version": "1.0.0",
-      "author": "DSGS System",
+      "author": "DNASPEC System",
       "license": "MIT",
       "playbook": {
         "instructions": "当用户请求与DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义。当用户提到系统架构设计、技术栈选择、模块划分或接口定义时使用此技能。不要在讨论具体编码实现时使用。相关的内容时，使用此扩展。",
@@ -172,7 +172,7 @@
           "技术栈选择",
           "模块划分或接口定义",
           "复杂项目的系统架构设计",
-          "dsgs",
+          "dnaspec",
           "模块划分和接口定义",
           "系统架构设计"
         ],
@@ -183,14 +183,14 @@
       },
       "mcp_servers": [],
       "context_files": [
-        "dsgs-system-architect/GEMINI.md"
+        "dnaspec-system-architect/GEMINI.md"
       ]
     },
     {
-      "name": "dsgs-task-decomposer",
+      "name": "dnaspec-task-decomposer",
       "description": "DSGS任务分解器子技能，用于将复杂项目需求分解为原子化任务，生成任务依赖关系图，确保任务上下文文档的闭包性。当用户提到任务分解、原子化任务、任务依赖分析、复杂需求拆分、复杂任务、一步步拆解、任务分析、任务清单或任务计划时使用此技能。不要在讨论具体任务执行时使用。",
       "version": "1.0.0",
-      "author": "DSGS System",
+      "author": "DNASPEC System",
       "license": "MIT",
       "playbook": {
         "instructions": "当用户请求与DSGS任务分解器子技能，用于将复杂项目需求分解为原子化任务，生成任务依赖关系图，确保任务上下文文档的闭包性。当用户提到任务分解、原子化任务、任务依赖分析、复杂需求拆分、复杂任务、一步步拆解、任务分析、任务清单或任务计划时使用此技能。不要在讨论具体任务执行时使用。相关的内容时，使用此扩展。",
@@ -204,7 +204,7 @@
           "任务依赖分析",
           "确保任务上下文文档的闭包性",
           "任务分析",
-          "dsgs",
+          "dnaspec",
           "一步步拆解",
           "原子化任务",
           "任务清单或任务计划"
@@ -216,7 +216,7 @@
       },
       "mcp_servers": [],
       "context_files": [
-        "dsgs-task-decomposer/GEMINI.md"
+        "dnaspec-task-decomposer/GEMINI.md"
       ]
     }
   ]

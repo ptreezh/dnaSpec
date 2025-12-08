@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DSGS Gemini CLI Extensions 集成脚本
+DNASPEC Gemini CLI Extensions 集成脚本
 用于将DSGS扩展集成到Gemini CLI中
 """
 
@@ -36,7 +36,7 @@ def find_gemini_config():
 
 def integrate_dsgs_extension():
     """集成DSGS扩展到Gemini CLI"""
-    print("=== DSGS Gemini CLI Extensions 集成工具 ===")
+    print("=== DNASPEC Gemini CLI Extensions 集成工具 ===")
     print()
     
     # 获取当前目录
@@ -66,7 +66,7 @@ def integrate_dsgs_extension():
     # 创建扩展目录
     gemini_dir = os.path.dirname(config_path)
     extensions_dir = os.path.join(gemini_dir, "extensions")
-    dsgs_dir = os.path.join(extensions_dir, "dsgs")
+    dsgs_dir = os.path.join(extensions_dir, "dnaspec")
     
     os.makedirs(extensions_dir, exist_ok=True)
     print(f"创建扩展目录: {extensions_dir}")
@@ -111,7 +111,7 @@ def integrate_dsgs_extension():
     # 检查是否已存在DSGS扩展
     dsgs_extension_exists = False
     for ext in config["extensions"]:
-        if ext.get("name") == "dsgs-gemini-extensions":
+        if ext.get("name") == "dnaspec-gemini-extensions":
             ext["path"] = dsgs_dir
             ext["enabled"] = True
             ext["version"] = "1.0.0"
@@ -121,7 +121,7 @@ def integrate_dsgs_extension():
     # 如果不存在，添加新的扩展配置
     if not dsgs_extension_exists:
         dsgs_extension = {
-            "name": "dsgs-gemini-extensions",
+            "name": "dnaspec-gemini-extensions",
             "path": dsgs_dir,
             "enabled": True,
             "version": "1.0.0"
@@ -148,11 +148,11 @@ def integrate_dsgs_extension():
     print("2. 系统将自动匹配并执行相应的DSGS技能")
     print()
     print("支持的技能:")
-    print("  • 智能体创建 (dsgs-agent-creator)")
-    print("  • 任务分解 (dsgs-task-decomposer)")
-    print("  • 接口检查 (dsgs-dapi-checker)")
-    print("  • 模块化 (dsgs-modulizer)")
-    print("  • 架构设计 (dsgs-architect)")
+    print("  • 智能体创建 (dnaspec-agent-creator)")
+    print("  • 任务分解 (dnaspec-task-decomposer)")
+    print("  • 接口检查 (dnaspec-dapi-checker)")
+    print("  • 模块化 (dnaspec-modulizer)")
+    print("  • 架构设计 (dnaspec-architect)")
     print()
     print("示例请求:")
     print("  • '设计微服务系统架构'")
@@ -164,7 +164,7 @@ def integrate_dsgs_extension():
 
 def remove_dsgs_extension():
     """移除DSGS扩展"""
-    print("=== DSGS Gemini CLI Extensions 移除工具 ===")
+    print("=== DNASPEC Gemini CLI Extensions 移除工具 ===")
     print()
     
     # 查找Gemini CLI配置文件
@@ -191,7 +191,7 @@ def remove_dsgs_extension():
     if "extensions" in config:
         config["extensions"] = [
             ext for ext in config["extensions"] 
-            if ext.get("name") != "dsgs-gemini-extensions"
+            if ext.get("name") != "dnaspec-gemini-extensions"
         ]
         print("移除DSGS扩展配置")
     
@@ -206,7 +206,7 @@ def remove_dsgs_extension():
     
     # 移除扩展目录
     gemini_dir = os.path.dirname(config_path)
-    dsgs_dir = os.path.join(gemini_dir, "extensions", "dsgs")
+    dsgs_dir = os.path.join(gemini_dir, "extensions", "dnaspec")
     
     if os.path.exists(dsgs_dir):
         try:
@@ -232,7 +232,7 @@ def main():
             print("  python gemini_integration.py install    - 安装并集成DSGS扩展")
             print("  python gemini_integration.py uninstall  - 移除DSGS扩展")
     else:
-        print("DSGS Gemini CLI Extensions 集成工具")
+        print("DNASPEC Gemini CLI Extensions 集成工具")
         print()
         print("用法:")
         print("  python gemini_integration.py install    - 安装并集成DSGS扩展")

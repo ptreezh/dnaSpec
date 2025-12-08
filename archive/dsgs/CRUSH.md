@@ -1,4 +1,4 @@
-# CRUSH.md - Dynamic Specification Growth System (DSGS)
+# CRUSH.md - Dynamic Specification Growth System (DNASPEC)
 
 ## Build & Test Commands
 - `npm test` - Run all tests

@@ -69,7 +69,7 @@ README.md → architecture/overview.md → api/contract-overview.md
 ```markdown
 ## 🏗️ 核心架构
 ### 系统目标
-DSGS (Dynamic Specification Growth System) 是一个AI驱动的动态规范生长系统
+DNASPEC (Dynamic Specification Growth System) 是一个AI驱动的动态规范生长系统
 
 ### 整体架构图
 ```mermaid

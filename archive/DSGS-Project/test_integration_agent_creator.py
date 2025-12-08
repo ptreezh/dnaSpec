@@ -28,15 +28,15 @@ def test_integration():
         
         # 1. 验证主技能能正确路由到智能体创建器
         routed_skill = main_skill._route_request(test_request)
-        if routed_skill == "dsgs-agent-creator":
+        if routed_skill == "dnaspec-agent-creator":
             print("✓ 主技能路由测试通过")
         else:
-            print(f"✗ 主技能路由测试失败: 期望'dsgs-agent-creator'，实际'{routed_skill}'")
+            print(f"✗ 主技能路由测试失败: 期望'dnaspec-agent-creator'，实际'{routed_skill}'")
             return
         
         # 2. 验证智能体创建器子技能能正确处理请求
         result = agent_creator_skill.process_request(test_request)
-        if result["status"] == "completed" and result["skill"] == "dsgs-agent-creator":
+        if result["status"] == "completed" and result["skill"] == "dnaspec-agent-creator":
             print("✓ 子技能处理测试通过")
             print(f"  创建了 {len(result['agent_configuration']['agents'])} 个智能体")
         else:
@@ -45,7 +45,7 @@ def test_integration():
         
         # 3. 验证完整流程
         main_result = main_skill.process_request(test_request)
-        if main_result["status"] == "processed" and main_result["skill_used"] == "dsgs-agent-creator":
+        if main_result["status"] == "processed" and main_result["skill_used"] == "dnaspec-agent-creator":
             print("✓ 完整流程测试通过")
         else:
             print(f"✗ 完整流程测试失败: 状态={main_result['status']}, 使用技能={main_result['skill_used']}")

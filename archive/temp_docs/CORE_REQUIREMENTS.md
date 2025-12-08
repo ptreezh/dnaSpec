@@ -1,9 +1,9 @@
-# DSGS Context Engineering Skills System - 核心需求规范 (Core Requirements Specification)
+# DNASPEC Context Engineering Skills System - 核心需求规范 (Core Requirements Specification)
 
 ## 1. 系统概述
 
 ### 1.1 系统定义
-DSGS Context Engineering Skills System 是一个**规范驱动、AI原生的上下文工程增强系统**，结合了Claude Code Skills的AI智能利用和GitHub spec.kit的声明式规范与Hook机制，为AI辅助开发提供专业的上下文分析、优化和结构化能力。
+DNASPEC Context Engineering Skills System 是一个**规范驱动、AI原生的上下文工程增强系统**，结合了Claude Code Skills的AI智能利用和GitHub spec.kit的声明式规范与Hook机制，为AI辅助开发提供专业的上下文分析、优化和结构化能力。
 
 ### 1.2 核心价值主张
 - **最大化AI利用率**: 充分发挥AI模型原生的语义理解、推理和生成能力
@@ -63,7 +63,7 @@ DSGS Context Engineering Skills System 是一个**规范驱动、AI原生的上�
 
 #### 2.3.1 CLI Interface (FR-CLI-007)
 - **FR-CLI-007.1**: 系统应提供类似specify的CLI命令接口
-- **FR-CLI-007.2**: 系统应支持参数化技能调用（如 `dsgs analyze --context "text" --metrics clarity,relevance`）
+- **FR-CLI-007.2**: 系统应支持参数化技能调用（如 `dnaspec analyze --context "text" --metrics clarity,relevance`）
 - **FR-CLI-007.3**: 系统应提供交互式模式支持
 - **FR-CLI-007.4**: 系统应支持批量文件处理模式
 - **FR-CLI-007.5**: 系统应提供详细的帮助信息和使用示例

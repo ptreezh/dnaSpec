@@ -1,4 +1,4 @@
-# DSGS Task Execution Status Update
+# DNASPEC Task Execution Status Update
 
 ## Current Progress Summary
 **Date**: 2025-08-10  

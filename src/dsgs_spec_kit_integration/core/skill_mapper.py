@@ -14,12 +14,12 @@ class SkillMapper:
     def __init__(self):
         # 定义技能映射关系
         self.skill_map = {
-            'architect': 'dsgs-architect',
-            'agent-creator': 'dsgs-agent-creator',
-            'task-decomposer': 'dsgs-task-decomposer',
-            'constraint-generator': 'dsgs-constraint-generator',
-            'dapi-checker': 'dsgs-dapi-checker',
-            'modulizer': 'dsgs-modulizer'
+            'architect': 'dnaspec-architect',
+            'agent-creator': 'dnaspec-agent-creator',
+            'task-decomposer': 'dnaspec-task-decomposer',
+            'constraint-generator': 'dnaspec-constraint-generator',
+            'dapi-checker': 'dnaspec-dapi-checker',
+            'modulizer': 'dnaspec-modulizer'
         }
     
     def map(self, skill_name: str) -> Optional[str]:

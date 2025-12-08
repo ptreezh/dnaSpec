@@ -6,7 +6,7 @@ print('=' * 50)
 
 try:
     # Import the system
-    from src.dsgs_context_engineering.skills_system_final_clean import (
+    from src.dnaspec_context_engineering.skills_system_final_clean import (
         ContextAnalysisSkill, 
         ContextOptimizationSkill, 
         CognitiveTemplateSkill,
@@ -50,7 +50,7 @@ try:
     
     # Check architecture by examining file content
     print('\\n5. Verifying AI-Native Architecture...')
-    with open('src/dsgs_context_engineering/skills_system_final_clean.py', 'r', encoding='utf-8') as f:
+    with open('src/dnaspec_context_engineering/skills_system_final_clean.py', 'r', encoding='utf-8') as f:
         content = f.read()
     
     # Look for AI-native indicators (instruction engineering, no local AI models)

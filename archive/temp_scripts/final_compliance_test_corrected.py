@@ -9,7 +9,7 @@ print("=" * 50)
 
 try:
     # Import and test the system
-    from src.dsgs_context_engineering.skills_system_final_clean import (
+    from src.dnaspec_context_engineering.skills_system_final_clean import (
         ContextAnalysisSkill, 
         ContextOptimizationSkill, 
         CognitiveTemplateSkill,
@@ -95,7 +95,7 @@ try:
     except:
         print("   Could not inspect code source")
         # Fallback verification based on file content
-        with open("src/dsgs_context_engineering/skills_system_final_clean.py", "r", encoding="utf-8") as f:
+        with open("src/dnaspec_context_engineering/skills_system_final_clean.py", "r", encoding="utf-8") as f:
             content = f.read()
         has_instruction_pattern = "instruction" in content.lower()
         has_local_ai = "ai" in content.lower() and "model" in content.lower()

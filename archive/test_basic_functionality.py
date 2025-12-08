@@ -10,8 +10,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 def test_basic_functionality():
     try:
         # 导入核心模块
-        from src.dsgs_spec_kit_integration.core.manager import SkillManager
-        from src.dsgs_spec_kit_integration.skills.examples import ArchitectSkill
+        from src.dnaspec_spec_kit_integration.core.manager import SkillManager
+        from src.dnaspec_spec_kit_integration.skills.examples import ArchitectSkill
         
         # 创建技能管理器
         manager = SkillManager()
@@ -30,7 +30,7 @@ def test_basic_functionality():
             return False
         
         # 执行技能
-        skill_result = manager.execute_skill("dsgs-architect", "电商系统")
+        skill_result = manager.execute_skill("dnaspec-architect", "电商系统")
         if skill_result.status.name == "COMPLETED":
             print("✓ 技能执行成功")
             print(f"  结果: {skill_result.result}")

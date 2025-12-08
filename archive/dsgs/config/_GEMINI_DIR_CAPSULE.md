@@ -1,13 +1,13 @@
 # Directory Capsule: config/
 
 ## Purpose
-This directory (`config/`) is dedicated to housing project-wide configuration files for the Dynamic Specification Growth System (DSGS). These configurations govern various aspects of the system's behavior, build processes, and integration settings. Centralizing configuration here ensures consistency and simplifies management of environmental and operational parameters.
+This directory (`config/`) is dedicated to housing project-wide configuration files for the Dynamic Specification Growth System (DNASPEC). These configurations govern various aspects of the system's behavior, build processes, and integration settings. Centralizing configuration here ensures consistency and simplifies management of environmental and operational parameters.
 
 ## Key Modules/Files
-*   **`contract.json`**: (Already examined) This file contains critical configurations related to API contract management, including settings for contract generation, validation, publishing, and documentation. It dictates how DSGS handles its internal and external API specifications.
+*   **`contract.json`**: (Already examined) This file contains critical configurations related to API contract management, including settings for contract generation, validation, publishing, and documentation. It dictates how DNASPEC handles its internal and external API specifications.
 
 ## Dependencies/Relationships
-Configuration files within `config/` are typically consumed by various parts of the DSGS application, build scripts, and integration modules. They do not have direct dependencies on other code modules but rather define parameters that influence their behavior. Changes in this directory often require careful consideration as they can impact the entire system.
+Configuration files within `config/` are typically consumed by various parts of the DNASPEC application, build scripts, and integration modules. They do not have direct dependencies on other code modules but rather define parameters that influence their behavior. Changes in this directory often require careful consideration as they can impact the entire system.
 
 ## Code Generation Guidelines
 When generating code or modifying configurations within `config/`, adhere to the following principles:

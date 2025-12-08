@@ -28,15 +28,15 @@ def test_integration():
         
         # 1. 验证主技能能正确路由到约束生成器
         routed_skill = main_skill._route_request(test_request)
-        if routed_skill == "dsgs-constraint-generator":
+        if routed_skill == "dnaspec-constraint-generator":
             print("✓ 主技能路由测试通过")
         else:
-            print(f"✗ 主技能路由测试失败: 期望'dsgs-constraint-generator'，实际'{routed_skill}'")
+            print(f"✗ 主技能路由测试失败: 期望'dnaspec-constraint-generator'，实际'{routed_skill}'")
             return
         
         # 2. 验证约束生成器子技能能正确处理请求
         result = constraint_generator_skill.process_request(test_request)
-        if result["status"] == "completed" and result["skill"] == "dsgs-constraint-generator":
+        if result["status"] == "completed" and result["skill"] == "dnaspec-constraint-generator":
             print("✓ 子技能处理测试通过")
             spec = result['constraint_specification']
             print(f"  生成了 {len(spec['system_constraints'])} 个系统约束")
@@ -47,7 +47,7 @@ def test_integration():
         
         # 3. 验证完整流程
         main_result = main_skill.process_request(test_request)
-        if main_result["status"] == "processed" and main_result["skill_used"] == "dsgs-constraint-generator":
+        if main_result["status"] == "processed" and main_result["skill_used"] == "dnaspec-constraint-generator":
             print("✓ 完整流程测试通过")
         else:
             print(f"✗ 完整流程测试失败: 状态={main_result['status']}, 使用技能={main_result['skill_used']}")

@@ -14,7 +14,7 @@ def validate_imports():
     """验证所有模块导入"""
     print("🔍 验证模块导入...")
     try:
-        from src.dsgs_context_engineering.skills_system_real import (
+        from src.dnaspec_context_engineering.skills_system_real import (
             ContextAnalysisSkill, 
             ContextOptimizationSkill, 
             CognitiveTemplateSkill,
@@ -32,7 +32,7 @@ def test_context_analysis_skill():
     """测试上下文分析技能"""
     print("\n🔍 测试Context Analysis Skill...")
     try:
-        from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+        from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
         
         skill = ContextAnalysisSkill()
         
@@ -89,7 +89,7 @@ def test_context_optimization_skill():
     """测试上下文优化技能"""
     print("\n🔍 测试Context Optimization Skill...")
     try:
-        from src.dsgs_context_engineering.skills_system_real import ContextOptimizationSkill
+        from src.dnaspec_context_engineering.skills_system_real import ContextOptimizationSkill
         
         skill = ContextOptimizationSkill()
         
@@ -135,7 +135,7 @@ def test_cognitive_template_skill():
     """测试认知模板技能"""
     print("\n🔍 测试Cognitive Template Skill...")
     try:
-        from src.dsgs_context_engineering.skills_system_real import CognitiveTemplateSkill
+        from src.dnaspec_context_engineering.skills_system_real import CognitiveTemplateSkill
         
         skill = CognitiveTemplateSkill()
         
@@ -184,7 +184,7 @@ def test_cli_integration():
     """测试CLI集成"""
     print("\n🔍 测试CLI集成兼容性...")
     try:
-        from src.dsgs_context_engineering.skills_system_real import execute
+        from src.dnaspec_context_engineering.skills_system_real import execute
         
         # 测试分析功能
         args_analysis = {
@@ -237,7 +237,7 @@ def test_error_handling():
     """测试错误处理"""
     print("\n🔍 测试错误处理...")
     try:
-        from src.dsgs_context_engineering.skills_system_real import (
+        from src.dnaspec_context_engineering.skills_system_real import (
             ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
         )
         
@@ -271,7 +271,7 @@ def test_performance():
     """测试性能基准"""
     print("\n🔍 性能基准测试...")
     try:
-        from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+        from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
         
         skill = ContextAnalysisSkill()
         
@@ -303,7 +303,7 @@ def test_performance():
 
 def main():
     """主验证函数"""
-    print("🔍 DSGS Context Engineering Skills - 最终全面验证")
+    print("🔍 DNASPEC Context Engineering Skills - 最终全面验证")
     print("="*80)
     
     # 记录开始时间
@@ -373,7 +373,7 @@ def main():
     
     print("\n" + "="*80)
     if passed_tests == total_tests:
-        print("🎊 验证完成 - DSGS Context Engineering Skills 系统准备就绪!")
+        print("🎊 验证完成 - DNASPEC Context Engineering Skills 系统准备就绪!")
         print("   您现在可以在AI辅助开发中使用这些专业技能了")
         success = True
     else:

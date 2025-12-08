@@ -2,9 +2,9 @@
 """
 验证 dnaspec init 和 deploy 命令的功能区别
 """
-from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
-from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
-from src.dsgs_context_engineering.skills_system_final import execute as skill_execute
+from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
+from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
+from src.dnaspec_context_engineering.skills_system_final import execute as skill_execute
 
 def simulate_init_behavior():
     """

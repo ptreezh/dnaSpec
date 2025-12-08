@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 基于AI CLI原生命令系统的实现
+DNASPEC Context Engineering Skills - 基于AI CLI原生命令系统的实现
 重新设计为可在AI CLI平台中直接注册使用的命令集
 """
 from typing import Dict, Any, List, Union
@@ -78,7 +78,7 @@ class ContextAnalysisCommand(DSGSCommand):
     
     def __init__(self):
         super().__init__(
-            name="/dsgs-analyze",
+            name="/dnaspec-analyze",
             description="分析当前对话或所选内容的上下文质量"
         )
     
@@ -137,7 +137,7 @@ class ContextOptimizationCommand(DSGSCommand):
     
     def __init__(self):
         super().__init__(
-            name="/dsgs-optimize",
+            name="/dnaspec-optimize",
             description="优化当前对话或所选内容的上下文质量"
         )
     
@@ -184,7 +184,7 @@ class CognitiveTemplateCommand(DSGSCommand):
     
     def __init__(self):
         super().__init__(
-            name="/dsgs-template",
+            name="/dnaspec-template",
             description="应用认知模板到当前对话内容（思维链、验证等）"
         )
     
@@ -327,13 +327,13 @@ class DSGSCommandRegistry:
         elif command_name:
             return f"❌ 未知命令：{command_name}"
         else:
-            help_text = "DSGS Context Engineering Skills 可用命令：\n"
+            help_text = "DNASPEC Context Engineering Skills 可用命令：\n"
             for name, cmd in self.commands.items():
                 help_text += f"  {name} - {cmd.description}\n"
             help_text += "\n用法示例：\n"
-            help_text += "  /dsgs-analyze - 分析当前对话的上下文质量\n"
-            help_text += "  /dsgs-optimize clarity completeness - 优化清晰度和完整性\n" 
-            help_text += "  /dsgs-template chain_of_thought - 应用思维链模板\n"
+            help_text += "  /dnaspec-analyze - 分析当前对话的上下文质量\n"
+            help_text += "  /dnaspec-optimize clarity completeness - 优化清晰度和完整性\n" 
+            help_text += "  /dnaspec-template chain_of_thought - 应用思维链模板\n"
             return help_text
 
 
@@ -364,8 +364,8 @@ def cli_main():
     import sys
     
     if len(sys.argv) < 2:
-        print("DSGS Context Engineering Skills CLI")
-        print("Usage: python -m dsgs_context_engineering.cli <command> [args...]")
+        print("DNASPEC Context Engineering Skills CLI")
+        print("Usage: python -m dnaspec_context_engineering.cli <command> [args...]")
         print("Commands: analyze, optimize, template, help")
         return
     
@@ -381,19 +381,19 @@ def cli_main():
     registry = DSGSCommandRegistry()
     
     if command == "analyze":
-        result = registry.execute_command('/dsgs-analyze', simulated_context, sys.argv[2:])
+        result = registry.execute_command('/dnaspec-analyze', simulated_context, sys.argv[2:])
         print("Context Analysis Instruction for AI:")
         print("="*50)
         print(result)
     elif command == "optimize":
         args = sys.argv[2:] if len(sys.argv) > 2 else []
-        result = registry.execute_command('/dsgs-optimize', simulated_context, args)
+        result = registry.execute_command('/dnaspec-optimize', simulated_context, args)
         print("Context Optimization Instruction for AI:")
         print("="*50) 
         print(result)
     elif command == "template":
         args = sys.argv[2:] if len(sys.argv) > 2 else ['chain_of_thought']
-        result = registry.execute_command('/dsgs-template', simulated_context, args)
+        result = registry.execute_command('/dnaspec-template', simulated_context, args)
         print("Cognitive Template Application Instruction for AI:")
         print("="*50)
         print(result)

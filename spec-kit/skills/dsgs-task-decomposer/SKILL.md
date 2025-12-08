@@ -1,6 +1,6 @@
 ---
-name: dsgs-task-decomposer
-description: DSGS Task Decomposer sub-skill for breaking down complex project requirements into atomic tasks, generating task dependency graphs, and ensuring closure of task context documentation. Use when you need to decompose complex requirements, analyze dependencies, or create task plans.
+name: dnaspec-task-decomposer
+description: DNASPEC Task Decomposer sub-skill for breaking down complex project requirements into atomic tasks, generating task dependency graphs, and ensuring closure of task context documentation. Use when you need to decompose complex requirements, analyze dependencies, or create task plans.
 license: Apache 2.0
 allowed-tools: 
   - Bash(python:scripts/task_decomposer.py)
@@ -9,10 +9,10 @@ metadata:
   speckit-category: task-management
 ---
 
-# DSGS Task Decomposer
+# DNASPEC Task Decomposer
 
 ## Overview
-DSGS Task Decomposer is a specialized sub-skill for the DSGS Intelligent Architect system. It breaks down complex project requirements into atomic tasks, generates task dependency relationships, and ensures comprehensive task context documentation closure.
+DNASPEC Task Decomposer is a specialized sub-skill for the DNASPEC Intelligent Architect system. It breaks down complex project requirements into atomic tasks, generates task dependency relationships, and ensures comprehensive task context documentation closure.
 
 The decomposition utilizes specialized scripts for accurate analysis:
 - `scripts/task_decomposer.py` - Core task decomposition engine with advanced dependency mapping and resource recommendations

@@ -1,6 +1,6 @@
 {
   "skill_config": {
-    "name": "dsgs-dapi-checker",
+    "name": "dnaspec-dapi-checker",
     "version": "1.0.0",
     "description": "分布式接口一致性检测器",
     "llm_config": {

@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 与DSGS-Project集成实现
+DNASPEC Context Engineering Skills - 与DSGS-Project集成实现
 整合DSGS Project中现有的skills与Context Engineering增强技能
 """
 import sys
@@ -9,14 +9,14 @@ from typing import Dict, Any
 # 添加项目路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.dsgs_context_engineering.skills_system_final_clean import (
+from src.dnaspec_context_engineering.skills_system_final_clean import (
     ContextAnalysisSkill as ContextEngineAnalysisSkill,
     ContextOptimizationSkill as ContextEngineOptimizationSkill, 
     CognitiveTemplateSkill as ContextEngineTemplateSkill
 )
 
 # 在DSGS-Project路径中查找原生技能
-dsgs_proj_path = os.path.join(os.path.dirname(__file__), '..', '..', 'DSGS-Project')
+dsgs_proj_path = os.path.join(os.path.dirname(__file__), '..', '..', 'DNASPEC-Project')
 sys.path.insert(0, dsgs_proj_path)
 
 # 尝试导入DSGS-Project的原生技能
@@ -35,12 +35,12 @@ try:
     
     DSGS_PROJECT_AVAILABLE = True
 except ImportError as e:
-    print(f"⚠️ DSGS-Project技能不可用: {e}")
+    print(f"⚠️ DNASPEC-Project技能不可用: {e}")
     DSGS_PROJECT_AVAILABLE = False
     # 创建模拟类以继续集成
     class DSGSArchitect:
         def __init__(self): 
-            self.name = "dsgs-architect"
+            self.name = "dnaspec-architect"
             self.description = "DSGS原生架构师技能 (模拟)"
         
         def process_request(self, request: str, context=None):
@@ -48,7 +48,7 @@ except ImportError as e:
     
     class DSGSTaskDecomposer:
         def __init__(self):
-            self.name = "dsgs-task-decomposer"
+            self.name = "dnaspec-task-decomposer"
             self.description = "DSGS原生任务分解技能 (模拟)"
             
         def process_request(self, request: str, context=None):
@@ -69,29 +69,29 @@ class DSGSIntegratedContextEngineeringSystem:
     """
     
     def __init__(self):
-        # DSGS-Project 原生技能
+        # DNASPEC-Project 原生技能
         if DSGS_PROJECT_AVAILABLE:
             self.native_skills = {
-                'dsgs-architect': DSGSArchitect(),
-                'dsgs-task-decomposer': DSGSTaskDecomposer(),
-                'dsgs-agent-creator': DSGSAgentCreator(),
-                'dsgs-system-architect': DSGSSystemArchitect(),
-                'dsgs-constraint-generator': DSGSConstraintGenerator(),
-                'dsgs-dapi-checker': DSGSDAPIChecker(),
-                'dsgs-modulizer': DSGSModulizer()
+                'dnaspec-architect': DSGSArchitect(),
+                'dnaspec-task-decomposer': DSGSTaskDecomposer(),
+                'dnaspec-agent-creator': DSGSAgentCreator(),
+                'dnaspec-system-architect': DSGSSystemArchitect(),
+                'dnaspec-constraint-generator': DSGSConstraintGenerator(),
+                'dnaspec-dapi-checker': DSGSDAPIChecker(),
+                'dnaspec-modulizer': DSGSModulizer()
             }
         else:
             # 如果原生项目不可用，使用模拟技能
             self.native_skills = {
-                'dsgs-architect': DSGSArchitect(),
+                'dnaspec-architect': DSGSArchitect(),
                 # 添加更多模拟技能...
             }
         
         # Context Engineering 增强技能（AI原生）
         self.enhanced_skills = {
-            'dsgs-context-analysis': ContextEngineAnalysisSkill(),
-            'dsgs-context-optimization': ContextEngineOptimizationSkill(),
-            'dsgs-cognitive-template': ContextEngineTemplateSkill()
+            'dnaspec-context-analysis': ContextEngineAnalysisSkill(),
+            'dnaspec-context-optimization': ContextEngineOptimizationSkill(),
+            'dnaspec-cognitive-template': ContextEngineTemplateSkill()
         }
         
         # 统一技能库
@@ -104,8 +104,8 @@ class DSGSIntegratedContextEngineeringSystem:
         if skill_name in self.enhanced_skills:
             # 使用AI原生增强技能
             skill = self.enhanced_skills[skill_name]
-            from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
-            if isinstance(skill, DSGSSkill):
+            from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
+            if isinstance(skill, DNASpecSkill):
                 # 使用DSGS框架的process_request
                 return skill.process_request(context, params)
             else:
@@ -138,13 +138,13 @@ class DSGSIntegratedContextEngineeringSystem:
         
         try:
             # Phase 1: 使用Context Engineering进行上下文分析
-            analysis_result = self.execute_skill('dsgs-context-analysis', project_context)
+            analysis_result = self.execute_skill('dnaspec-context-analysis', project_context)
             results['analysis_phase'] = analysis_result
             
             if isinstance(analysis_result, dict) and analysis_result.get('success', False):
                 # Phase 2: 使用Context Engineering进行上下文优化
                 optimization_result = self.execute_skill(
-                    'dsgs-context-optimization',
+                    'dnaspec-context-optimization',
                     project_context,
                     {'optimization_goals': ['clarity', 'completeness']}
                 )
@@ -152,7 +152,7 @@ class DSGSIntegratedContextEngineeringSystem:
                 
                 # Phase 3: 应用认知模板
                 template_result = self.execute_skill(
-                    'dsgs-cognitive-template',
+                    'dnaspec-cognitive-template',
                     project_context,
                     {'template': 'chain_of_thought'}
                 )
@@ -188,16 +188,16 @@ class DSGSIntegratedContextEngineeringSystem:
 """
                 else:
                     results['execution_phase'] = {
-                        'used_skill': 'dsgs-architect',
-                        'result': self.execute_skill('dsgs-architect', optimized_context),
+                        'used_skill': 'dnaspec-architect',
+                        'result': self.execute_skill('dnaspec-architect', optimized_context),
                         'fallback': True
                     }
                     results['final_output'] = f"默认使用dsgs-architect处理: {project_context[:50]}..."
             else:
                 # 如果分析失败，直接使用原生DSGS技能
-                dsgs_result = self.execute_skill('dsgs-architect', project_context)
+                dsgs_result = self.execute_skill('dnaspec-architect', project_context)
                 results['execution_phase'] = {
-                    'used_skill': 'dsgs-architect',
+                    'used_skill': 'dnaspec-architect',
                     'result': dsgs_result,
                     'fallback': True
                 }
@@ -217,17 +217,17 @@ class DSGSIntegratedContextEngineeringSystem:
     def _route_to_best_dsgs_skill(self, request: str) -> str:
         """路由请求到最适合的原生DSGS技能"""
         if "constraint" in request.lower() or "约束" in request:
-            return "dsgs-constraint-generator"
+            return "dnaspec-constraint-generator"
         elif "agent" in request.lower() or "智能体" in request:
-            return "dsgs-agent-creator"
+            return "dnaspec-agent-creator"
         elif "decompos" in request.lower() or "分解" in request:
-            return "dsgs-task-decomposer"
+            return "dnaspec-task-decomposer"
         elif "architect" in request.lower() or "架构" in request:
-            return "dsgs-system-architect"
+            return "dnaspec-system-architect"
         elif "api" in request.lower() or "接口" in request:
-            return "dsgs-dapi-checker"
+            return "dnaspec-dapi-checker"
         else:
-            return "dsgs-architect"  # 默认架构师技能
+            return "dnaspec-architect"  # 默认架构师技能
     
     def get_available_skills(self) -> Dict[str, str]:
         """获取所有可用技能"""
@@ -248,7 +248,7 @@ class DSGSIntegratedContextEngineeringSystem:
     
     def execute_cli_interface(self, args: Dict[str, Any]) -> str:
         """CLI接口 - 集成原生和增强技能"""
-        skill_name = args.get('skill', 'dsgs-context-analysis')
+        skill_name = args.get('skill', 'dnaspec-context-analysis')
         context = args.get('context', '') or args.get('request', '')
         params = args.get('params', {})
         
@@ -262,7 +262,7 @@ class DSGSIntegratedContextEngineeringSystem:
     
     def _format_skill_result(self, skill_name: str, result: Dict[str, Any], original_context: str) -> str:
         """格式化技能执行结果"""
-        if skill_name.startswith('dsgs-context-'):
+        if skill_name.startswith('dnaspec-context-'):
             # Context Engineering 技能的结果格式
             if isinstance(result, dict) and result.get('success', False):
                 result_data = result
@@ -458,7 +458,7 @@ class DSGSIntegratedContextEngineeringSystem:
                     result_content = result.get('result', 'No result returned')
                     return f"DSGS原生技能结果:\n{result_content}"
                 elif result.get('success', False) == False:
-                    error_msg = result.get('error', 'Unknown error in native DSGS skill')
+                    error_msg = result.get('error', 'Unknown error in native DNASPEC skill')
                     return f"错误: {error_msg}"
                 else:
                     return str(result)
@@ -503,7 +503,7 @@ def run_integrated_workflow(project_description: str) -> str:
             "#### Phase 2: Context Enhancement", 
             f"优化措施应用",
             "",
-            "#### Phase 3: DSGS Execution",
+            "#### Phase 3: DNASPEC Execution",
             f"使用的技能: {workflow_result['execution_phase'].get('used_skill', 'unknown')}",
             "",
             "#### 最终输出:",
@@ -515,11 +515,11 @@ def run_integrated_workflow(project_description: str) -> str:
 
 
 if __name__ == "__main__":
-    print("DSGS Integrated Context Engineering System - 原生技能集成")
+    print("DNASPEC Integrated Context Engineering System - 原生技能集成")
     print("="*70)
     print()
     print("🔍 检测DSGS-Project原生技能可用性...")
-    print(f"   DSGS-Project技能: {'✅ 可用' if DSGS_PROJECT_AVAILABLE else '⚠️ 模拟模式'}")
+    print(f"   DNASPEC-Project技能: {'✅ 可用' if DSGS_PROJECT_AVAILABLE else '⚠️ 模拟模式'}")
     
     system = DSGSIntegratedContextEngineeringSystem()
     available_skills = system.get_available_skills()
@@ -527,12 +527,12 @@ if __name__ == "__main__":
     print(f"\n📋 可用技能总数: {len(available_skills)}")
     print("   Context Engineering 增强技能:")
     for name, desc in available_skills.items():
-        if name.startswith('dsgs-context-'):
+        if name.startswith('dnaspec-context-'):
             print(f"     • {name}: {desc[:50]}...")
     
-    print("   DSGS-Project 原生技能:")
+    print("   DNASPEC-Project 原生技能:")
     for name, desc in available_skills.items():
-        if name.startswith('dsgs-') and not name.startswith('dsgs-context-'):
+        if name.startswith('dnaspec-') and not name.startswith('dnaspec-context-'):
             print(f"     • {name}: {desc[:50]}...")
     
     print()
@@ -543,6 +543,6 @@ if __name__ == "__main__":
     print("✅ 平台集成 - 可用于AI CLI平台")
     print()
     print("💡 现在可以使用统一接口调用所有技能:")
-    print("   execute({'skill': 'dsgs-context-analysis', 'context': '内容'})")
-    print("   execute({'skill': 'dsgs-architect', 'context': '内容'})")
+    print("   execute({'skill': 'dnaspec-context-analysis', 'context': '内容'})")
+    print("   execute({'skill': 'dnaspec-architect', 'context': '内容'})")
     print("   run_integrated_workflow('项目描述')")

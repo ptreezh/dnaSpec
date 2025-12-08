@@ -1,6 +1,6 @@
-# DSGS Context Engineering Skills v1.0.2 Release Notes
+# DNASPEC Context Engineering Skills v1.0.2 Release Notes
 
-DSGS (Dynamic Specification Growth System) Context Engineering Skills v1.0.2 - Professional AI-assisted development toolkit with unified skill structure and AI safety workflow.
+DNASPEC (Dynamic Specification Growth System) Context Engineering Skills v1.0.2 - Professional AI-assisted development toolkit with unified skill structure and AI safety workflow.
 
 ## 版本信息
 - **发布版本**: v1.0.2

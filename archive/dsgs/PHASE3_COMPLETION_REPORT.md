@@ -1,4 +1,4 @@
-# DSGS Phase 3: Advanced Testing Strategies - 完成报告
+# DNASPEC Phase 3: Advanced Testing Strategies - 完成报告
 
 ## 🎯 Phase 3 完成！ (100%)
 

@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - AI原生系统核心实现
+DNASPEC Context Engineering Skills - AI原生系统核心实现
 完全利用AI模型原生智能，无本地模型依赖
 通过指令工程实现专业级上下文工程技能
 """
@@ -10,14 +10,14 @@ import re
 
 class DSGSContextEngineeringSystem:
     """
-    DSGS Context Engineering System - AI原生架构核心
+    DNASPEC Context Engineering System - AI原生架构核心
     专门作为AI CLI平台的增强工具集设计
     100%利用AI模型原生智能执行上下文工程任务
     """
     
     def __init__(self):
-        self.name = "dsgs-context-engineering-system"
-        self.description = "DSGS Context Engineering Skills - AI原生上下文工程增强系统，完全基于AI模型原生智能实现专业功能"
+        self.name = "dnaspec-context-engineering-system"
+        self.description = "DNASPEC Context Engineering Skills - AI原生上下文工程增强系统，完全基于AI模型原生智能实现专业功能"
         self.version = "1.0.0"
     
     def create_analysis_instruction(self, context: str, metrics: List[str] = None) -> str:
@@ -373,7 +373,7 @@ def execute(args: Dict[str, Any]) -> str:
     params = args.get('params', args.get('arguments', {}))
     
     if not context:
-        return "错误: 未提供需要处理的上下文。使用方法: /dsgs-context [skill] [context] [options]"
+        return "错误: 未提供需要处理的上下文。使用方法: /dnaspec-context [skill] [context] [options]"
 
     # 执行相应技能并返回构造的AI指令
     result = skill_executor.execute_skill(skill_name, context, params)
@@ -385,14 +385,14 @@ def get_skill_manifest() -> Dict[str, Any]:
     获取技能清单 - 用于AI CLI平台集成
     """
     return {
-        "name": "dsgs-context-engineering",
+        "name": "dnaspec-context-engineering",
         "version": "1.0.0",
-        "description": "DSGS Context Engineering Skills - AI原生上下文工程增强工具集",
+        "description": "DNASPEC Context Engineering Skills - AI原生上下文工程增强工具集",
         "skills": [
             {
-                "name": "/dsgs-context-analyze",
+                "name": "/dnaspec-context-analyze",
                 "description": "分析上下文质量的五维指标",
-                "usage": "/dsgs-context-analyze [上下文内容]",
+                "usage": "/dnaspec-context-analyze [上下文内容]",
                 "parameters": {
                     "metrics": {
                         "type": "string",
@@ -402,9 +402,9 @@ def get_skill_manifest() -> Dict[str, Any]:
                 }
             },
             {
-                "name": "/dsgs-context-optimize", 
+                "name": "/dnaspec-context-optimize", 
                 "description": "优化上下文质量，支持多目标",
-                "usage": "/dsgs-context-optimize [上下文内容] --goals [优化目标]",
+                "usage": "/dnaspec-context-optimize [上下文内容] --goals [优化目标]",
                 "parameters": {
                     "goals": {
                         "type": "string",
@@ -414,9 +414,9 @@ def get_skill_manifest() -> Dict[str, Any]:
                 }
             },
             {
-                "name": "/dsgs-context-template",
+                "name": "/dnaspec-context-template",
                 "description": "应用认知模板结构化复杂任务",
-                "usage": "/dsgs-context-template [任务描述] --template [模板类型]",
+                "usage": "/dnaspec-context-template [任务描述] --template [模板类型]",
                 "parameters": {
                     "template": {
                         "type": "string", 
@@ -445,7 +445,7 @@ def main_cli():
     import sys
     import json
     
-    print("DSGS Context Engineering Skills - AI原生架构")
+    print("DNASPEC Context Engineering Skills - AI原生架构")
     print("="*50)
     print("💡 此工具集利用AI模型原生智能提供专业上下文工程能力")
     print("🔗 与AI CLI平台无缝集成")
@@ -453,8 +453,8 @@ def main_cli():
     print("="*50)
     
     if len(sys.argv) < 3:
-        print("用法: /dsgs-context [skill] [context] [options]")
-        print("示例: /dsgs-context analyze \"系统需求分析\"")
+        print("用法: /dnaspec-context [skill] [context] [options]")
+        print("示例: /dnaspec-context analyze \"系统需求分析\"")
         print()
         manifest = get_skill_manifest()
         for skill in manifest['skills']:
@@ -513,7 +513,7 @@ def demo_template():
 
 def run_demonstration():
     """运行完整演示"""
-    print("🔍 DSGS Context Engineering Skills - AI原生架构演示")
+    print("🔍 DNASPEC Context Engineering Skills - AI原生架构演示")
     print("="*70)
     print()
     

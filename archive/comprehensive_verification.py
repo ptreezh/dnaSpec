@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 完全功能验证
+DNASPEC Context Engineering Skills - 完全功能验证
 验证系统的所有功能是否按照AI原生理念正确实现
 """
 import sys
@@ -10,14 +10,14 @@ import traceback
 # 添加项目路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - 全面功能验证")
+print("🔍 DNASPEC Context Engineering Skills - 全面功能验证")
 print("="*60)
 
 def test_core_concept():
     """验证核心概念：AI原生架构"""
     print("\n✅ 验证1: AI原生架构概念")
     
-    from src.dsgs_context_engineering.skills_system_real import (
+    from src.dnaspec_context_engineering.skills_system_real import (
         ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
     )
     
@@ -40,7 +40,7 @@ def test_context_analysis_functionality():
     """验证上下文分析功能"""
     print("\n✅ 验证2: 上下文分析功能")
     
-    from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+    from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
     
     skill = ContextAnalysisSkill()
     test_context = "实现一个任务管理功能，需要支持任务创建、分配、跟踪。"
@@ -80,7 +80,7 @@ def test_context_optimization_functionality():
     """验证上下文优化功能"""  
     print("\n✅ 验证3: 上下文优化功能")
     
-    from src.dsgs_context_engineering.skills_system_real import ContextOptimizationSkill
+    from src.dnaspec_context_engineering.skills_system_real import ContextOptimizationSkill
     
     skill = ContextOptimizationSkill()
     test_context = "系统要处理用户订单"
@@ -116,7 +116,7 @@ def test_cognitive_template_functionality():
     """验证认知模板功能"""
     print("\n✅ 验证4: 认知模板功能")
     
-    from src.dsgs_context_engineering.skills_system_real import CognitiveTemplateSkill
+    from src.dnaspec_context_engineering.skills_system_real import CognitiveTemplateSkill
     
     skill = CognitiveTemplateSkill()
     test_task = "如何提高系统性能？"
@@ -158,7 +158,7 @@ def test_system_integration():
     """验证完整系统集成"""
     print("\n✅ 验证5: 系统集成")
     
-    from src.dsgs_context_engineering.skills_system_real import ContextEngineeringSystem
+    from src.dnaspec_context_engineering.skills_system_real import ContextEngineeringSystem
     
     system = ContextEngineeringSystem()
     
@@ -197,7 +197,7 @@ def test_ai_native_architecture():
     
     # 验证没有复杂本地算法
     import inspect
-    from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+    from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
     
     skill_source = inspect.getsource(ContextAnalysisSkill.execute_with_ai)
     
@@ -215,7 +215,7 @@ def test_practical_utility():
     """验证实用价值"""
     print("\n✅ 验证7: 实用价值")
     
-    from src.dsgs_context_engineering.skills_system_real import ContextEngineeringSystem
+    from src.dnaspec_context_engineering.skills_system_real import ContextEngineeringSystem
     
     system = ContextEngineeringSystem()
     
@@ -265,7 +265,7 @@ def run_comprehensive_verification():
     if all_tests_passed:
         print("🎉 全面验证成功！")
         print("")
-        print("✅ DSGS Context Engineering Skills 已正确实现为AI原生系统")
+        print("✅ DNASPEC Context Engineering Skills 已正确实现为AI原生系统")
         print("✅ 系统验证了以下核心原则:")
         print("   • 100% 依赖AI模型原生智能")
         print("   • 通过高质量指令模板引导AI") 
@@ -289,7 +289,7 @@ def run_comprehensive_verification():
 if __name__ == "__main__":
     success = run_comprehensive_verification()
     if success:
-        print("\n🎯 DSGS Context Engineering Skills - 验证完成，系统已准备就绪！")
+        print("\n🎯 DNASPEC Context Engineering Skills - 验证完成，系统已准备就绪！")
     else:
         print("\n⚠️  验证失败，请检查系统实现")
     

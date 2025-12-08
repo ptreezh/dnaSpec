@@ -105,7 +105,7 @@ def create_mcp_server_stub():
     mcp_stub_content = '''#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DSGS MCP服务器存根
+DNASPEC MCP服务器存根
 用于Gemini CLI Extensions的工具执行
 """
 import json
@@ -187,13 +187,13 @@ def test_extensions_discovery():
     # 检查Extensions目录
     ext_dirs = [d for d in os.listdir(extensions_path) if os.path.isdir(os.path.join(extensions_path, d))]
     expected_extensions = [
-        'dsgs-agent-creator',
-        'dsgs-architect',
-        'dsgs-constraint-generator',
-        'dsgs-dapi-checker',
-        'dsgs-modulizer',
-        'dsgs-system-architect',
-        'dsgs-task-decomposer'
+        'dnaspec-agent-creator',
+        'dnaspec-architect',
+        'dnaspec-constraint-generator',
+        'dnaspec-dapi-checker',
+        'dnaspec-modulizer',
+        'dnaspec-system-architect',
+        'dnaspec-task-decomposer'
     ]
     
     print(f"发现 {len(ext_dirs)} 个已部署的Extensions:")
@@ -219,11 +219,11 @@ def test_extension_invocation():
     
     # 测试用例
     test_cases = [
-        ("创建一个智能体", "dsgs-agent-creator"),
-        ("分解复杂任务", "dsgs-task-decomposer"),
-        ("生成系统约束", "dsgs-constraint-generator"),
-        ("检查接口一致性", "dsgs-dapi-checker"),
-        ("模块化重构", "dsgs-modulizer")
+        ("创建一个智能体", "dnaspec-agent-creator"),
+        ("分解复杂任务", "dnaspec-task-decomposer"),
+        ("生成系统约束", "dnaspec-constraint-generator"),
+        ("检查接口一致性", "dnaspec-dapi-checker"),
+        ("模块化重构", "dnaspec-modulizer")
     ]
     
     print("Extension调用测试需要手动验证:")

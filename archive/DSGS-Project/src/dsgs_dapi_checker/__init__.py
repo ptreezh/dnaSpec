@@ -1,4 +1,4 @@
-# dsgs-dapi-checker子技能实现
+# dnaspec-dapi-checker子技能实现
 
 import os
 import sys
@@ -43,7 +43,7 @@ class DSGS_DAPI_Checker:
     
     def __init__(self):
         """初始化DAPI检查器"""
-        self.name = "dsgs-dapi-checker"
+        self.name = "dnaspec-dapi-checker"
         self.description = "DSGS分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性"
         self.capabilities = [
             "interface_scanning",
@@ -254,6 +254,6 @@ dapi_checker = DSGS_DAPI_Checker()
 
 if __name__ == "__main__":
     # 简单测试
-    print("DSGS DAPI Checker Skill Loaded")
+    print("DNASPEC DAPI Checker Skill Loaded")
     print(f"Skill Name: {dapi_checker.name}")
     print(f"Description: {dapi_checker.description}")

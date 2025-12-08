@@ -78,12 +78,12 @@
       "version": "0.2.3",
       "overridden": false
     },
-    "dsgs-cli": {
+    "dnaspec-cli": {
       "version": "1.0.2",
       "resolved": "file:D:/DAIP/dnaSpec",
       "overridden": false
     },
-    "dsgs-spec-kit": {
+    "dnaspec-spec-kit": {
       "overridden": false
     },
     "dynamic-specs-growth": {

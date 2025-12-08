@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - AI原生架构最终验证
+DNASPEC Context Engineering Skills - AI原生架构最终验证
 验证系统确实100%利用AI模型原生智能，无本地模型依赖
 """
 import sys
@@ -8,7 +8,7 @@ import inspect
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-print("🔍 DSGS Context Engineering Skills - AI原生架构最终验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生架构最终验证")
 print("="*70)
 
 def verify_ai_native_architecture():
@@ -16,7 +16,7 @@ def verify_ai_native_architecture():
     print("\\n✅ 验证1: AI原生架构特征")
     
     # 检查源代码中是否不含本地AI模型库
-    with open('src/dsgs_context_engineering/skills_system_final_clean.py', 'r', encoding='utf-8') as f:
+    with open('src/dnaspec_context_engineering/skills_system_final_clean.py', 'r', encoding='utf-8') as f:
         code_content = f.read()
     
     # 检查是否包含本地模型相关库
@@ -47,7 +47,7 @@ def verify_core_skills_functionality():
     """验证核心技能功能"""
     print("\\n✅ 验证2: 核心技能功能")
     
-    from src.dsgs_context_engineering.skills_system_final_clean import (
+    from src.dnaspec_context_engineering.skills_system_final_clean import (
         ContextAnalysisSkill,
         ContextOptimizationSkill,
         CognitiveTemplateSkill
@@ -91,7 +91,7 @@ def verify_no_local_complex_algorithms():
     """验证无本地复杂算法实现"""
     print("\\n✅ 验证3: 无本地复杂算法依赖")
     
-    from src.dsgs_context_engineering.skills_system_final_clean import ContextAnalysisSkill
+    from src.dnaspec_context_engineering.skills_system_final_clean import ContextAnalysisSkill
     
     # 检查技能类的代码是否主要依赖AI指令构造
     import inspect
@@ -118,7 +118,7 @@ def verify_platform_integration():
     """验证平台集成能力"""
     print("\\n✅ 验证4: 平台集成兼容性")
     
-    from src.dsgs_context_engineering.skills_system_final_clean import execute
+    from src.dnaspec_context_engineering.skills_system_final_clean import execute
     
     # 测试统一执行接口
     test_args = {
@@ -143,22 +143,22 @@ def verify_implementation_quality():
     print("\\n✅ 验证5: 实现质量与工程价值")
     
     # 检查是否遵循DSGS框架规范
-    from src.dsgs_context_engineering.skills_system_final_clean import ContextAnalysisSkill
-    from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
+    from src.dnaspec_context_engineering.skills_system_final_clean import ContextAnalysisSkill
+    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
     
     skill = ContextAnalysisSkill()
-    is_proper_inheritance = isinstance(skill, DSGSSkill)
+    is_proper_inheritance = isinstance(skill, DNASpecSkill)
     
     print(f"   DSGS框架继承正确: {'✅' if is_proper_inheritance else '❌'}")
     
     # 检查功能完整性
     try:
-        from src.dsgs_context_engineering.skills_system_final_clean import get_available_skills
+        from src.dnaspec_context_engineering.skills_system_final_clean import get_available_skills
         available_skills = get_available_skills()
         has_core_skills = True  # 假设函数存在，即使可能返回空字典
     except:
         # 如果get_available_skills不存在，我们手动检查
-        from src.dsgs_context_engineering.skills_system_final_clean import execute
+        from src.dnaspec_context_engineering.skills_system_final_clean import execute
         # 尝试执行各种技能来验证存在性
         test_skills = ['context-analysis', 'context-optimization', 'cognitive-template']
         has_core_skills = True  # 假设execute函数可以处理核心技能
@@ -190,7 +190,7 @@ def main():
     if success_count == total_checks:
         print("\\n🎉 全面验证成功！")
         print("="*70) 
-        print("DSGS Context Engineering Skills 系统已正确实现为AI原生架构:")
+        print("DNASPEC Context Engineering Skills 系统已正确实现为AI原生架构:")
         print("✅ 100% 利用AI模型原生智能")
         print("✅ 无本地模型依赖")
         print("✅ 指令工程驱动 - 通过AI API执行功能")  
@@ -210,7 +210,7 @@ def main():
 if __name__ == "__main__":
     success = main()
     if success:
-        print("\\n✅ DSGS Context Engineering Skills - AI原生实现验证成功")
+        print("\\n✅ DNASPEC Context Engineering Skills - AI原生实现验证成功")
         print("💡 系统现在可以安全部署并投入使用")
     else:
         print("\\n❌ 系统验证未完全通过，请检查实现")

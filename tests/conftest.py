@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 from src.context_engineering_skills.context_analysis import ContextAnalysisSkill
 from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
 from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill

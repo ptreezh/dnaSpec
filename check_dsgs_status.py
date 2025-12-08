@@ -2,7 +2,7 @@
 """
 DSGS系统状态检查脚本
 """
-from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
 
 def check_system_status():
     """检查DSGS系统状态"""
@@ -24,10 +24,10 @@ def check_system_status():
             print(f'  ❌ {name}: Not installed')
     
     print()
-    print("DSGS Context Engineering Skills 核心功能测试:")
+    print("DNASPEC Context Engineering Skills 核心功能测试:")
     
     # 测试核心技能
-    from src.dsgs_context_engineering.skills_system_final import execute
+    from src.dnaspec_context_engineering.skills_system_final import execute
     result = execute({
         'context': '验证DSGS功能',
         'skill': 'context-analysis'

@@ -7,17 +7,17 @@ import tempfile
 import os
 from pathlib import Path
 
-from src.dsgs_spec_kit_integration.core.command_parser import CommandParser
-from src.dsgs_spec_kit_integration.core.skill_mapper import SkillMapper
-from src.dsgs_spec_kit_integration.core.python_bridge import PythonBridge
-from src.dsgs_spec_kit_integration.core.skill_executor import SkillExecutor
-from src.dsgs_spec_kit_integration.core.command_handler import CommandHandler
-from src.dsgs_spec_kit_integration.core.interactive_shell import InteractiveShell
-from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
-from src.dsgs_spec_kit_integration.core.config_generator import ConfigGenerator
-from src.dsgs_spec_kit_integration.core.integration_validator import IntegrationValidator
-from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
-from src.dsgs_spec_kit_integration.core.platform_utils import PlatformUtils
+from src.dnaspec_spec_kit_integration.core.command_parser import CommandParser
+from src.dnaspec_spec_kit_integration.core.skill_mapper import SkillMapper
+from src.dnaspec_spec_kit_integration.core.python_bridge import PythonBridge
+from src.dnaspec_spec_kit_integration.core.skill_executor import SkillExecutor
+from src.dnaspec_spec_kit_integration.core.command_handler import CommandHandler
+from src.dnaspec_spec_kit_integration.core.interactive_shell import InteractiveShell
+from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
+from src.dnaspec_spec_kit_integration.core.config_generator import ConfigGenerator
+from src.dnaspec_spec_kit_integration.core.integration_validator import IntegrationValidator
+from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
+from src.dnaspec_spec_kit_integration.core.platform_utils import PlatformUtils
 
 
 class TestDSGSIntegration(unittest.TestCase):
@@ -49,13 +49,13 @@ class TestDSGSIntegration(unittest.TestCase):
         测试命令解析器
         """
         # 测试有效命令
-        result = self.parser.parse('/speckit.dsgs.architect 设计电商系统')
+        result = self.parser.parse('/speckit.dnaspec.architect 设计电商系统')
         self.assertTrue(result['isValid'])
         self.assertEqual(result['skill'], 'architect')
         self.assertEqual(result['params'], '设计电商系统')
         
         # 测试无参数命令
-        result = self.parser.parse('/speckit.dsgs.agent-creator')
+        result = self.parser.parse('/speckit.dnaspec.agent-creator')
         self.assertTrue(result['isValid'])
         self.assertEqual(result['skill'], 'agent-creator')
         self.assertEqual(result['params'], '')
@@ -70,12 +70,12 @@ class TestDSGSIntegration(unittest.TestCase):
         """
         # 测试标准映射
         mapped = self.skill_mapper.map('architect')
-        self.assertEqual(mapped, 'dsgs-architect')
+        self.assertEqual(mapped, 'dnaspec-architect')
         
         # 测试自定义映射
-        self.skill_mapper.register('custom-skill', 'dsgs-custom')
+        self.skill_mapper.register('custom-skill', 'dnaspec-custom')
         mapped = self.skill_mapper.map('custom-skill')
-        self.assertEqual(mapped, 'dsgs-custom')
+        self.assertEqual(mapped, 'dnaspec-custom')
         
         # 测试不存在的技能
         mapped = self.skill_mapper.map('nonexistent')
@@ -86,7 +86,7 @@ class TestDSGSIntegration(unittest.TestCase):
         测试Python桥接器
         """
         # 测试architect技能
-        result = self.python_bridge.execute_skill('dsgs-architect', '电商系统')
+        result = self.python_bridge.execute_skill('dnaspec-architect', '电商系统')
         self.assertTrue(result['success'])
         self.assertIn('WebApp', result['result'])
     
@@ -108,7 +108,7 @@ class TestDSGSIntegration(unittest.TestCase):
         测试命令处理器
         """
         # 测试完整命令处理流程
-        result = self.command_handler.handle_command('/speckit.dsgs.architect 电商系统')
+        result = self.command_handler.handle_command('/speckit.dnaspec.architect 电商系统')
         self.assertTrue(result['success'])
         self.assertIn('WebApp', result['result'])
         
@@ -219,7 +219,7 @@ class TestDSGSIntegration(unittest.TestCase):
         测试端到端集成
         """
         # 测试命令解析 -> 执行 -> 返回结果的完整流程
-        result = self.command_handler.handle_command('/speckit.dsgs.architect 博客系统')
+        result = self.command_handler.handle_command('/speckit.dnaspec.architect 博客系统')
         
         # 验证结果结构
         self.assertIn('success', result)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Final Comprehensive Test - DSGS Context Engineering Skills
+Final Comprehensive Test - DNASPEC Context Engineering Skills
 确认AI原生架构的正确实现，完全基于AI模型原生智能
 """
 import sys
@@ -10,7 +10,7 @@ import time
 # 添加项目路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - AI原生架构最终验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生架构最终验证")
 print("=" * 70)
 
 def run_comprehensive_test():
@@ -21,7 +21,7 @@ def run_comprehensive_test():
     # 1. 验证模块导入
     print("\\n✅ 测试1: 模块正确导入")
     try:
-        from src.dsgs_context_engineering.skills_system_corrected import (
+        from src.dnaspec_context_engineering.skills_system_corrected import (
             ContextAnalysisSkill,
             ContextOptimizationSkill,
             CognitiveTemplateSkill,
@@ -178,7 +178,7 @@ def main():
     
     print("\\n" + "="*70)
     if success:
-        print("🎉 DSGS Context Engineering Skills - AI原生架构全面验证通过！")
+        print("🎉 DNASPEC Context Engineering Skills - AI原生架构全面验证通过！")
         print("="*70)
         print("✅ 系统已正确实现为AI原生架构，特点:")
         print("   • 100% 利用AI模型原生智能，无本地模型依赖")
@@ -200,7 +200,7 @@ def main():
         print("✅ 验证完成 - 系统符合AI原生设计原则")
         print("✅ 准备就绪 - 可部署到Claude CLI/Gemini CLI/Qwen CLI等平台")
     else:
-        print("❌ DSGS Context Engineering Skills - 验证失败")
+        print("❌ DNASPEC Context Engineering Skills - 验证失败")
         print("系统未完全符合AI原生架构要求，需要进一步修复")
         print("="*70)
     

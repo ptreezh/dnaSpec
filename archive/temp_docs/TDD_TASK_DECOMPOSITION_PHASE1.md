@@ -17,7 +17,7 @@ describe('Package Configuration', () => {
     expect(fs.existsSync(packagePath)).toBe(true);
     
     const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-    expect(packageJson.name).toBe('dsgs-spec-kit');
+    expect(packageJson.name).toBe('dnaspec-spec-kit');
     expect(packageJson.version).toMatch(/^\d+\.\d+\.\d+$/);
     expect(packageJson.bin).toBeDefined();
   });
@@ -309,13 +309,13 @@ async function runInteractiveWizard() {
 const { program } = require('commander');
 
 program
-  .name('dsgs-spec-kit')
-  .description('DSGS Skills for spec.kit integration')
+  .name('dnaspec-spec-kit')
+  .description('DNASPEC Skills for spec.kit integration')
   .version('1.0.0');
 
 program
   .command('init')
-  .description('Initialize DSGS spec.kit integration')
+  .description('Initialize DNASPEC spec.kit integration')
   .action(() => {
     // 初始化逻辑
   });

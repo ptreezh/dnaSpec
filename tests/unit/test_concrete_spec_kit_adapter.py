@@ -9,8 +9,8 @@ from unittest.mock import Mock, patch
 # 添加项目根目录到Python路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
-from src.dsgs_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
-from src.dsgs_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
+from src.dnaspec_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
+from src.dnaspec_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
 
 
 class TestConcreteSpecKitAdapter:
@@ -31,19 +31,19 @@ class TestConcreteSpecKitAdapter:
         def test_skill(params):
             return {"result": "test"}
         
-        result = adapter.register_skill("dsgs-test-skill", test_skill)
+        result = adapter.register_skill("dnaspec-test-skill", test_skill)
         assert result is True
-        assert adapter.is_skill_registered("dsgs-test-skill") is True
+        assert adapter.is_skill_registered("dnaspec-test-skill") is True
         
         # 测试重复注册
-        result = adapter.register_skill("dsgs-test-skill", test_skill)
+        result = adapter.register_skill("dnaspec-test-skill", test_skill)
         assert result is True
         
         # 测试无效注册
         result = adapter.register_skill("", test_skill)
         assert result is False
         
-        result = adapter.register_skill("dsgs-invalid", "not_a_function")
+        result = adapter.register_skill("dnaspec-invalid", "not_a_function")
         assert result is False
     
     def test_skill_execution(self):
@@ -51,22 +51,22 @@ class TestConcreteSpecKitAdapter:
         adapter = ConcreteSpecKitAdapter()
         
         # 测试执行已注册技能
-        result = adapter.execute_skill("dsgs-architect", {"params": "电商系统"})
+        result = adapter.execute_skill("dnaspec-architect", {"params": "电商系统"})
         assert result["skill"] == "architect"
         assert "电商系统" in result["result"]
         
         # 测试执行未注册技能
         with pytest.raises(ValueError):
-            adapter.execute_skill("dsgs-unknown", {"params": "test"})
+            adapter.execute_skill("dnaspec-unknown", {"params": "test"})
     
     def test_command_execution(self):
         """测试完整命令执行"""
         adapter = ConcreteSpecKitAdapter()
         
         # 测试有效命令执行
-        result = adapter.execute_command("/speckit.dsgs.architect 设计电商系统架构")
+        result = adapter.execute_command("/speckit.dnaspec.architect 设计电商系统架构")
         assert result["success"] is True
-        assert result["skill_name"] == "dsgs-architect"
+        assert result["skill_name"] == "dnaspec-architect"
         assert "电商系统架构" in result["result"]["result"]
         
         # 测试无效命令格式
@@ -75,7 +75,7 @@ class TestConcreteSpecKitAdapter:
         assert result["error"] == "Invalid command format"
         
         # 测试未注册技能命令
-        result = adapter.execute_command("/speckit.dsgs.unknown 未知技能")
+        result = adapter.execute_command("/speckit.dnaspec.unknown 未知技能")
         assert result["success"] is False
         assert "Skill not registered" in result["error"]
         
@@ -90,9 +90,9 @@ class TestConcreteSpecKitAdapter:
         skills = adapter.get_registered_skills()
         assert isinstance(skills, list)
         assert len(skills) > 0
-        assert "dsgs-architect" in skills
-        assert "dsgs-agent-creator" in skills
-        assert "dsgs-task-decomposer" in skills
+        assert "dnaspec-architect" in skills
+        assert "dnaspec-agent-creator" in skills
+        assert "dnaspec-task-decomposer" in skills
     
     def test_adapter_info(self):
         """测试获取适配器信息"""

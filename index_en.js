@@ -72,7 +72,7 @@ function installAndConfigure() {
 
     if (!isProjectDir) {
         // If not in project directory, create temp directory and clone project
-        const tempDir = 'dsgs-install-tmp';
+        const tempDir = 'dnaspec-install-tmp';
 
         // Create and enter temp directory
         if (!fs.existsSync(tempDir)) {
@@ -81,7 +81,7 @@ function installAndConfigure() {
         process.chdir(tempDir);
 
         // Clone project
-        const repoDir = 'dsgs-context-engineering';
+        const repoDir = 'dnaspec-context-engineering';
         if (fs.existsSync(repoDir) && fs.lstatSync(repoDir).isDirectory()) {
             console.log('🔄 Updating existing project...');
             process.chdir(repoDir);
@@ -100,14 +100,14 @@ function installAndConfigure() {
     }
 
     // Install Python package
-    if (!runCommand('pip install -e .', 'Install DSGS package')) {
+    if (!runCommand('pip install -e .', 'Install DNASPEC package')) {
         // Try using python -m pip
-        if (!runCommand('python -m pip install -e .', 'Install DSGS package (alternative method)')) {
-            if (!runCommand('python3 -m pip install -e .', 'Install DSGS package (alternative method 2)')) {
+        if (!runCommand('python -m pip install -e .', 'Install DNASPEC package (alternative method)')) {
+            if (!runCommand('python3 -m pip install -e .', 'Install DNASPEC package (alternative method 2)')) {
                 console.error('❌ All installation methods failed');
                 if (!isProjectDir) {
                     process.chdir(initialDir);
-                    const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+                    const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
                     if (fs.existsSync(tempDir)) {
                         fs.rmSync(tempDir, { recursive: true, force: true });
                     }
@@ -138,7 +138,7 @@ function installAndConfigure() {
         if (!isProjectDir) {
             // Cleanup temp directory if not original project directory
             process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
             if (fs.existsSync(tempDir)) {
                 fs.rmSync(tempDir, { recursive: true, force: true });
             }
@@ -147,11 +147,11 @@ function installAndConfigure() {
         if (code === 0) {
             console.log('\n🎉 Installation and configuration completed successfully!');
             console.log('\nNow you can use the following commands in your AI CLI tools:');
-            console.log('  /speckit.dsgs.context-analysis [context] - Analyze context quality');
-            console.log('  /speckit.dsgs.context-optimization [context] - Optimize context');
-            console.log('  /speckit.dsgs.cognitive-template [task] - Apply cognitive template');
-            console.log('  /speckit.dsgs.architect [requirements] - System architecture design');
-            console.log('  ...and other DSGS professional skills');
+            console.log('  /speckit.dnaspec.context-analysis [context] - Analyze context quality');
+            console.log('  /speckit.dnaspec.context-optimization [context] - Optimize context');
+            console.log('  /speckit.dnaspec.cognitive-template [task] - Apply cognitive template');
+            console.log('  /speckit.dnaspec.architect [requirements] - System architecture design');
+            console.log('  ...and other DNASPEC professional skills');
             console.log('\nWelcome to use dnaspec tool! You can run configuration again with `dnaspec` command.');
         } else {
             console.error(`\n❌ Configuration process failed, exit code: ${code}`);
@@ -163,7 +163,7 @@ function installAndConfigure() {
         if (!isProjectDir) {
             // Cleanup temp directory if not original project directory
             process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
             if (fs.existsSync(tempDir)) {
                 fs.rmSync(tempDir, { recursive: true, force: true });
             }

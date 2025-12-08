@@ -1,4 +1,4 @@
-# DSGS Phase 3: Advanced Testing Strategies - 任务启动
+# DNASPEC Phase 3: Advanced Testing Strategies - 任务启动
 
 ## 🚀 Phase 3 正式开始
 
@@ -94,10 +94,10 @@ describe('ConstraintGenerator Property Tests', () => {
 import { Pact } from '@pact-foundation/pact';
 import { ConstraintGenerator } from '../../src/core/constraint/ConstraintGenerator';
 
-describe('DSGS API Contract Test', () => {
+describe('DNASPEC API Contract Test', () => {
   const provider = new Pact({
-    consumer: 'DSGS-Test',
-    provider: 'DSGS-API',
+    consumer: 'DNASPEC-Test',
+    provider: 'DNASPEC-API',
     port: 8080,
     logLevel: 'debug',
   });

@@ -3,13 +3,13 @@ Context Engineering Skills Manager
 统一管理所有上下文工程技能
 """
 from typing import Dict, Any, List
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 from .context_analysis import ContextAnalysisSkill
 from .context_optimization import ContextOptimizationSkill
 from .cognitive_template import CognitiveTemplateSkill
 
 
-class ContextEngineeringSkillsManager(DSGSSkill):
+class ContextEngineeringSkillsManager(DNASpecSkill):
     """
     上下文工程技能管理器
     统一管理并协调各种上下文工程技能
@@ -17,7 +17,7 @@ class ContextEngineeringSkillsManager(DSGSSkill):
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-engineering-manager",
+            name="dnaspec-context-engineering-manager",
             description="DSGS上下文工程技能管理器 - 统一管理上下文工程技能的专家"
         )
         self.context_analysis_skill = ContextAnalysisSkill()

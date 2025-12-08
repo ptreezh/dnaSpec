@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - AI原生核心技能实现
+DNASPEC Context Engineering Skills - AI原生核心技能实现
 直接利用AI模型原生智能，不依赖本地模型
 """
 from abc import ABC, abstractmethod
@@ -9,7 +9,7 @@ import re
 import random
 
 
-class DSGSSkill(ABC):
+class DNASpecSkill(ABC):
     """DSGS技能基础接口 - 为AI CLI平台设计的统一接口"""
     
     def __init__(self, name: str, description: str):
@@ -118,12 +118,12 @@ def simulate_template_response(instruction: str) -> str:
     }, ensure_ascii=False, indent=2)
 
 
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """上下文分析技能 - AI原生分析能力"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-analysis",
+            name="dnaspec-context-analysis",
             description="DSGS上下文分析技能 - 利用AI模型原生智能进行上下文质量分析"
         )
     
@@ -212,12 +212,12 @@ class ContextAnalysisSkill(DSGSSkill):
             }
 
 
-class ContextOptimizationSkill(DSGSSkill):
+class ContextOptimizationSkill(DNASpecSkill):
     """上下文优化技能 - AI原生优化能力"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-optimization",
+            name="dnaspec-context-optimization",
             description="DSGS上下文优化技能 - 利用AI模型原生智能优化上下文质量"
         )
     
@@ -302,12 +302,12 @@ class ContextOptimizationSkill(DSGSSkill):
             }
 
 
-class CognitiveTemplateSkill(DSGSSkill):
+class CognitiveTemplateSkill(DNASpecSkill):
     """认知模板技能 - AI原生模板应用能力"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-cognitive-template",
+            name="dnaspec-cognitive-template",
             description="DSGS认知模板技能 - 利用AI模型原生智能应用认知模板"
         )
     

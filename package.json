@@ -41,7 +41,7 @@
   "scripts": {
     "install": "node index.js",
     "setup": "node index.js",
-    "dsgs": "node index.js",
+    "dnaspec": "node index.js",
     "verify": "node post_install_guide.js",
     "guide": "node post_install_guide.js"
   },

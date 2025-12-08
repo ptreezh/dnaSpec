@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - 快速上手指南
+# DNASPEC Context Engineering Skills - 快速上手指南
 
 ## 概述
 
@@ -21,16 +21,16 @@ pip install -e .
 ### 1. 命令行使用
 ```bash
 # 使用上下文分析技能
-/speckit.dsgs.context-analysis "分析这个需求文档的质量"
+/speckit.dnaspec.context-analysis "分析这个需求文档的质量"
 
 # 使用认知模板技能
-/speckit.dsgs.cognitive-template "如何提高系统性能 template=verification"
+/speckit.dnaspec.cognitive-template "如何提高系统性能 template=verification"
 
 # 使用Git技能（在CLI中）
-/speckit.dsgs.git-skill "operation=status"
+/speckit.dnaspec.git-skill "operation=status"
 
 # 使用临时工作区技能
-/speckit.dsgs.temp-workspace "operation=create-workspace"
+/speckit.dnaspec.temp-workspace "operation=create-workspace"
 ```
 
 ### 2. Python API使用

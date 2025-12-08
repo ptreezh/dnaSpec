@@ -1,8 +1,8 @@
-# DSGS Context Engineering Skills - 最终部署和使用文档
+# DNASPEC Context Engineering Skills - 最终部署和使用文档
 
 ## 项目概述
 
-DSGS Context Engineering Skills 是一个**AI原生上下文工程增强工具集**，专门设计用于增强AI CLI平台的能力。系统通过精心设计的提示工程和指令模板，充分利用AI模型的原生智能来执行专业的上下文分析、优化和结构化任务。
+DNASPEC Context Engineering Skills 是一个**AI原生上下文工程增强工具集**，专门设计用于增强AI CLI平台的能力。系统通过精心设计的提示工程和指令模板，充分利用AI模型的原生智能来执行专业的上下文分析、优化和结构化任务。
 
 **核心特点**：
 - **AI原生架构**：100%依赖AI模型原生智能，无本地模型训练
@@ -15,25 +15,25 @@ DSGS Context Engineering Skills 是一个**AI原生上下文工程增强工具�
 
 ### ✅ 已完成核心功能
 
-#### 1. Context Analysis Skill (`src/dsgs_context_engineering/context_analysis.py`)
+#### 1. Context Analysis Skill (`src/dnaspec_context_engineering/context_analysis.py`)
 - **五维质量分析**：清晰度、相关性、完整性、一致性、效率
 - **量化指标**：0.0-1.0范围的精确评分
 - **智能建议**：基于AI分析提供具体改进建议
 - **问题识别**：自动识别上下文中的不足和问题
 
-#### 2. Context Optimization Skill (`src/dsgs_context_engineering/context_optimization.py`)
+#### 2. Context Optimization Skill (`src/dnaspec_context_engineering/context_optimization.py`)
 - **多目标优化**：支持清晰度、完整性、相关性、简洁性等目标
 - **智能优化**：AI模型原生推理生成优化策略
 - **改进量化**：测量各项指标的改进程度
 - **结果对比**：优化前后对比分析
 
-#### 3. Cognitive Template Skill (`src/dsgs_context_engineering/cognitive_template.py`)
+#### 3. Cognitive Template Skill (`src/dnaspec_context_engineering/cognitive_template.py`)
 - **5种认知模板**：思维链、少样本学习、验证检查、角色扮演、深度理解
 - **结构化输出**：AI模型生成结构化、条理化的分析结果
 - **专业推理**：利用AI模型原生推理能力执行复杂任务
 - **模板扩展**：支持自定义认知模板扩展
 
-#### 4. 系统集成 (`src/dsgs_context_engineering/skills_system_real.py`)
+#### 4. 系统集成 (`src/dnaspec_context_engineering/skills_system_real.py`)
 - **统一接口**：提供一致的技能执行接口
 - **CLI兼容**：支持命令行工具集成
 - **参数处理**：智能参数解析和验证
@@ -45,7 +45,7 @@ DSGS Context Engineering Skills 是一个**AI原生上下文工程增强工具�
 ```bash
 # 克隆项目
 git clone <repository-url>
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # 使用现有虚拟环境或创建新环境
 python -m venv venv
@@ -60,7 +60,7 @@ pip install -e .
 #### 2. 功能验证
 ```python
 # 验证安装
-from src.dsgs_context_engineering.skills_system_real import (
+from src.dnaspec_context_engineering.skills_system_real import (
     ContextAnalysisSkill, 
     ContextOptimizationSkill, 
     CognitiveTemplateSkill
@@ -87,7 +87,7 @@ python real_implementation_verification.py
 
 #### 1. 上下文分析
 ```python
-from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
 
 skill = ContextAnalysisSkill()
 context = "开发电商平台，支持用户注册登录、商品浏览、购物车、订单处理功能。"
@@ -102,7 +102,7 @@ if result['success']:
 
 #### 2. 上下文优化
 ```python
-from src.dsgs_context_engineering.skills_system_real import ContextOptimizationSkill
+from src.dnaspec_context_engineering.skills_system_real import ContextOptimizationSkill
 
 skill = ContextOptimizationSkill()
 context = "系统要处理订单"
@@ -116,7 +116,7 @@ if result['success']:
 
 #### 3. 认知模板应用
 ```python
-from src.dsgs_context_engineering.skills_system_real import CognitiveTemplateSkill
+from src.dnaspec_context_engineering.skills_system_real import CognitiveTemplateSkill
 
 skill = CognitiveTemplateSkill()
 task = "如何提高系统安全性？"

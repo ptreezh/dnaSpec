@@ -4,14 +4,14 @@
 
 ## 项目概述
 
-DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，提供专业的上下文工程增强工具集，基于AI原生设计理念，通过标准化指令模板实现上下文分析、优化和结构化功能。项目包含完整的上下文工程技能、Git操作技能和临时工作区管理系统，专门设计用于安全的AI辅助开发流程。
+DNASPEC (Dynamic Specification Growth System) Context Engineering Skills系统，提供专业的上下文工程增强工具集，基于AI原生设计理念，通过标准化指令模板实现上下文分析、优化和结构化功能。项目包含完整的上下文工程技能、Git操作技能和临时工作区管理系统，专门设计用于安全的AI辅助开发流程。
 
 本项目实现了一套独立的技能系统，专注于上下文工程领域，而非依赖外部的spec.kit系统。
 
 ## 已完成的功能
 
 ### 第二阶段：命令系统增强
-- [x] **命令解析器** - 实现了 `/speckit.dsgs.*` 格式命令的解析
+- [x] **命令解析器** - 实现了 `/speckit.dnaspec.*` 格式命令的解析
 - [x] **技能映射器** - 将命令技能映射到实际的DSGS技能实现
 - [x] **Python桥接器** - 调用Python实现的DSGS技能
 - [x] **技能执行器** - 协调技能映射和执行逻辑
@@ -37,7 +37,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，�
 
 ## 核心模块
 
-### 1. 核心处理模块 (`src/dsgs_spec_kit_integration/core/`)
+### 1. 核心处理模块 (`src/dnaspec_spec_kit_integration/core/`)
 - `command_parser.py` - 命令解析
 - `skill_mapper.py` - 技能映射
 - `python_bridge.py` - Python技能调用
@@ -50,11 +50,11 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，�
 - `auto_configurator.py` - 自动配置
 - `platform_utils.py` - 跨平台工具
 
-### 2. 适配器模块 (`src/dsgs_spec_kit_integration/adapters/`)
+### 2. 适配器模块 (`src/dnaspec_spec_kit_integration/adapters/`)
 - `spec_kit_adapter.py` - spec.kit适配器基类
 - `concrete_spec_kit_adapter.py` - 具体适配器实现
 
-### 3. 技能模块 (`src/dsgs_spec_kit_integration/skills/`)
+### 3. 技能模块 (`src/dnaspec_spec_kit_integration/skills/`)
 - `context_analysis.py` - 上下文分析技能（支持标准/增强模式）
 - `cognitive_template.py` - 认知模板技能（支持标准/增强模式）
 - `context_optimization.py` - 上下文优化技能（支持标准/增强模式）
@@ -105,18 +105,18 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，�
 ### 1. 命令行使用
 ```bash
 # 执行DSGS技能
-python -c "from src.dsgs_spec_kit_integration.cli import main; main()" exec "/speckit.dsgs.context-analysis 分析这段需求文档的质量"
+python -c "from src.dnaspec_spec_kit_integration.cli import main; main()" exec "/speckit.dnaspec.context-analysis 分析这段需求文档的质量"
 
 # 启动交互式Shell
-python -c "from src.dsgs_spec_kit_integration.cli import main; main()" shell
+python -c "from src.dnaspec_spec_kit_integration.cli import main; main()" shell
 ```
 
 ### 2. 作为库使用
 ```python
-from src.dsgs_spec_kit_integration import CommandHandler
+from src.dnaspec_spec_kit_integration import CommandHandler
 
 handler = CommandHandler()
-result = handler.handle_command('/speckit.dsgs.context-analysis 分析需求文档')
+result = handler.handle_command('/speckit.dnaspec.context-analysis 分析需求文档')
 print(result['result'])
 ```
 
@@ -146,7 +146,7 @@ temp_workspace_execute({'operation': 'clean-workspace'})
 
 ### 4. 自动配置
 ```python
-from src.dsgs_spec_kit_integration import AutoConfigurator
+from src.dnaspec_spec_kit_integration import AutoConfigurator
 
 auto_config = AutoConfigurator()
 result = auto_config.quick_configure()
@@ -157,7 +157,7 @@ result = auto_config.quick_configure()
 ```
 .
 ├── src/
-│   └── dsgs_spec_kit_integration/
+│   └── dnaspec_spec_kit_integration/
 │       ├── __init__.py
 │       ├── adapters/          # 平台适配器
 │       ├── core/              # 核心模块

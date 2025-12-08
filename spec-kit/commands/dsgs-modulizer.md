@@ -1,11 +1,11 @@
 ---
 allowed-tools: Bash(fs.createFile:*), Bash(fs.writeFile:*), Bash(fs.readFile:*)
 argument-hint: [system-components]
-description: DSGS Module Maturation Verifier for bottom-up maturity checking and modular encapsulation of system components.
+description: DNASPEC Module Maturation Verifier for bottom-up maturity checking and modular encapsulation of system components.
 model: claude-3-5-sonnet-20241022
 ---
 
-# DSGS Module Maturation Verification Process
+# DNASPEC Module Maturation Verification Process
 
 ## Task
 Perform module maturation verification and modular encapsulation for the following system components: $ARGUMENTS
@@ -212,4 +212,4 @@ Please provide:
    - Mitigation strategies
    - Rollback procedures
 
-Structure your response following the DSGS modulization methodology with comprehensive maturity assessment and encapsulation planning.
+Structure your response following the DNASPEC modulization methodology with comprehensive maturity assessment and encapsulation planning.

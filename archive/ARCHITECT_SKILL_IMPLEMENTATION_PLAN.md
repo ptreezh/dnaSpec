@@ -10,9 +10,9 @@
 
 #### **任务 1: 创建 `architect` 技能的骨架 (Skill Skeleton)**
 *   **上下文:** 创建技能文件和基本的 `execute` 函数，作为我们开发的起点。
-*   **任务:** 在 `src/dsgs_spec_kit_integration/skills/` 目录下创建 `architect.py` 文件。
+*   **任务:** 在 `src/dnaspec_spec_kit_integration/skills/` 目录下创建 `architect.py` 文件。
 *   **核验标准:**
-    *   [ ] 文件 `src/dsgs_spec_kit_integration/skills/architect.py` 已创建。
+    *   [ ] 文件 `src/dnaspec_spec_kit_integration/skills/architect.py` 已创建。
     *   [ ] 文件中包含一个 `execute(args: dict)` 函数，目前可以暂时返回一个空字符串。
 
 #### **任务 2: 创建 `architect` 技能的单元测试 (Unit Test - RED)**

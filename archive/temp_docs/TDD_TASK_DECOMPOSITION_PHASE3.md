@@ -99,7 +99,7 @@ describe('Integration Validator', () => {
   test('should validate Claude integration', async () => {
     const result = await validator.validateClaudeIntegration();
     expect(result.valid).toBe(true);
-    expect(result.skills).toContain('dsgs-architect');
+    expect(result.skills).toContain('dnaspec-architect');
   });
   
   test('should run performance test', async () => {
@@ -470,32 +470,32 @@ class ConfigGenerator {
   getDefaultSkills() {
     return {
       architect: {
-        command: "/speckit.dsgs.architect",
+        command: "/speckit.dnaspec.architect",
         description: "系统架构设计专家",
         enabled: true
       },
       'agent-creator': {
-        command: "/speckit.dsgs.agent-creator",
+        command: "/speckit.dnaspec.agent-creator",
         description: "智能体创建专家",
         enabled: true
       },
       'task-decomposer': {
-        command: "/speckit.dsgs.task-decomposer",
+        command: "/speckit.dnaspec.task-decomposer",
         description: "任务分解专家",
         enabled: true
       },
       'constraint-generator': {
-        command: "/speckit.dsgs.constraint-generator",
+        command: "/speckit.dnaspec.constraint-generator",
         description: "约束生成专家",
         enabled: true
       },
       'dapi-checker': {
-        command: "/speckit.dsgs.dapi-checker",
+        command: "/speckit.dnaspec.dapi-checker",
         description: "接口检查专家",
         enabled: true
       },
       'modulizer': {
-        command: "/speckit.dsgs.modulizer",
+        command: "/speckit.dnaspec.modulizer",
         description: "模块化专家",
         enabled: true
       }
@@ -697,7 +697,7 @@ class IntegrationValidator {
   }
   
   generateReport(validationResults) {
-    let report = '# DSGS Integration Validation Report\n\n';
+    let report = '# DNASPEC Integration Validation Report\n\n';
     report += `Generated at: ${new Date().toISOString()}\n\n`;
     
     for (const [platformName, result] of Object.entries(validationResults)) {
@@ -773,7 +773,7 @@ class AutoConfigurator {
     const config = this.configGenerator.generate(detectedTools);
     
     // 3. 保存配置文件
-    const configPath = options.configPath || './.dsgs/config.yaml';
+    const configPath = options.configPath || './.dnaspec/config.yaml';
     console.log(`💾 Saving configuration to ${configPath}...`);
     const saveResult = this.configGenerator.save(config, configPath);
     
@@ -790,7 +790,7 @@ class AutoConfigurator {
       
       // 生成验证报告
       const report = this.validator.generateReport(validationResults);
-      const reportPath = options.reportPath || './dsgs-validation-report.md';
+      const reportPath = options.reportPath || './dnaspec-validation-report.md';
       this.validator.saveReport(report, reportPath);
       
       this.printValidationResults(validationResults);
@@ -838,7 +838,7 @@ class AutoConfigurator {
   async interactiveConfigure() {
     const inquirer = require('inquirer');
     
-    console.log('🧙 Welcome to DSGS Interactive Configuration Wizard\n');
+    console.log('🧙 Welcome to DNASPEC Interactive Configuration Wizard\n');
     
     // 询问是否自动检测
     const { autoDetect } = await inquirer.prompt([
@@ -887,7 +887,7 @@ class AutoConfigurator {
         type: 'input',
         name: 'configPath',
         message: 'Configuration file path:',
-        default: './.dsgs/config.yaml'
+        default: './.dnaspec/config.yaml'
       },
       {
         type: 'confirm',
@@ -930,8 +930,8 @@ const { SkillExecutor } = require('../lib/skill-executor');
 const program = new Command();
 
 program
-  .name('dsgs-spec-kit integrate')
-  .description('Integrate DSGS skills with AI CLI tools')
+  .name('dnaspec-spec-kit integrate')
+  .description('Integrate DNASPEC skills with AI CLI tools')
   .version('1.0.0');
 
 program
@@ -961,7 +961,7 @@ program
 
 program
   .command('configure')
-  .description('Configure DSGS integration')
+  .description('Configure DNASPEC integration')
   .option('-a, --auto', 'Automatic configuration')
   .option('-i, --interactive', 'Interactive configuration wizard')
   .option('-c, --config <path>', 'Configuration file path')
@@ -994,8 +994,8 @@ program
 
 program
   .command('validate')
-  .description('Validate DSGS integration')
-  .option('-c, --config <path>', 'Configuration file path', './.dsgs/config.yaml')
+  .description('Validate DNASPEC integration')
+  .option('-c, --config <path>', 'Configuration file path', './.dnaspec/config.yaml')
   .option('-p, --platform <name>', 'Validate specific platform')
   .option('-r, --report <path>', 'Validation report path')
   .option('--performance', 'Run performance tests')
@@ -1087,15 +1087,15 @@ class PlatformUtils {
     
     if (this.isWindows()) {
       return {
-        config: path.join(home, '.dsgs'),
+        config: path.join(home, '.dnaspec'),
         temp: process.env.TEMP || process.env.TMP || 'C:\\temp',
-        data: path.join(home, 'AppData', 'Local', 'dsgs')
+        data: path.join(home, 'AppData', 'Local', 'dnaspec')
       };
     } else {
       return {
-        config: path.join(home, '.dsgs'),
+        config: path.join(home, '.dnaspec'),
         temp: '/tmp',
-        data: path.join(home, '.local', 'share', 'dsgs')
+        data: path.join(home, '.local', 'share', 'dnaspec')
       };
     }
   }

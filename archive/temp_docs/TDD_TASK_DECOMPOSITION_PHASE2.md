@@ -17,10 +17,10 @@ describe('Command Parser', () => {
     parser = new CommandParser();
   });
   
-  test('should parse valid DSGS command', () => {
-    const result = parser.parse('/speckit.dsgs.architect 设计电商系统');
+  test('should parse valid DNASPEC command', () => {
+    const result = parser.parse('/speckit.dnaspec.architect 设计电商系统');
     expect(result).toEqual({
-      command: '/speckit.dsgs.architect',
+      command: '/speckit.dnaspec.architect',
       skill: 'architect',
       params: '设计电商系统',
       isValid: true
@@ -33,7 +33,7 @@ describe('Command Parser', () => {
   });
   
   test('should handle command without parameters', () => {
-    const result = parser.parse('/speckit.dsgs.agent-creator');
+    const result = parser.parse('/speckit.dnaspec.agent-creator');
     expect(result.skill).toBe('agent-creator');
     expect(result.params).toBe('');
   });
@@ -209,11 +209,11 @@ describe('Interactive Shell', () => {
 // lib/command-parser.js
 class CommandParser {
   constructor() {
-    this.pattern = /^\/speckit\.dsgs\.([a-zA-Z0-9-]+)(?:\s+(.+))?$/;
+    this.pattern = /^\/speckit\.dnaspec\.([a-zA-Z0-9-]+)(?:\s+(.+))?$/;
   }
   
   parse(commandString) {
-    if (!commandString || !commandString.startsWith('/speckit.dsgs.')) {
+    if (!commandString || !commandString.startsWith('/speckit.dnaspec.')) {
       return { isValid: false, error: 'Invalid command prefix' };
     }
     
@@ -252,12 +252,12 @@ class CommandParser {
 class SkillMapper {
   constructor() {
     this.skillMap = {
-      'architect': 'dsgs-architect',
-      'agent-creator': 'dsgs-agent-creator',
-      'task-decomposer': 'dsgs-task-decomposer',
-      'constraint-generator': 'dsgs-constraint-generator',
-      'dapi-checker': 'dsgs-dapi-checker',
-      'modulizer': 'dsgs-modulizer'
+      'architect': 'dnaspec-architect',
+      'agent-creator': 'dnaspec-agent-creator',
+      'task-decomposer': 'dnaspec-task-decomposer',
+      'constraint-generator': 'dnaspec-constraint-generator',
+      'dapi-checker': 'dnaspec-dapi-checker',
+      'modulizer': 'dnaspec-modulizer'
     };
   }
   
@@ -427,12 +427,12 @@ class CommandHandler {
   
   getAvailableCommands() {
     return [
-      '/speckit.dsgs.architect [参数] - 系统架构设计',
-      '/speckit.dsgs.agent-creator [参数] - 智能体创建',
-      '/speckit.dsgs.task-decomposer [参数] - 任务分解',
-      '/speckit.dsgs.constraint-generator [参数] - 约束生成',
-      '/speckit.dsgs.dapi-checker [参数] - 接口检查',
-      '/speckit.dsgs.modulizer [参数] - 模块化'
+      '/speckit.dnaspec.architect [参数] - 系统架构设计',
+      '/speckit.dnaspec.agent-creator [参数] - 智能体创建',
+      '/speckit.dnaspec.task-decomposer [参数] - 任务分解',
+      '/speckit.dnaspec.constraint-generator [参数] - 约束生成',
+      '/speckit.dnaspec.dapi-checker [参数] - 接口检查',
+      '/speckit.dnaspec.modulizer [参数] - 模块化'
     ];
   }
 }
@@ -461,10 +461,10 @@ class InteractiveShell {
   }
   
   start() {
-    console.log('DSGS spec.kit Integration Shell');
+    console.log('DNASPEC spec.kit Integration Shell');
     console.log('Type "help" for available commands, "exit" to quit\n');
     
-    this.rl.setPrompt('DSGS> ');
+    this.rl.setPrompt('DNASPEC> ');
     this.rl.prompt();
     
     this.rl.on('line', async (line) => {
@@ -521,7 +521,7 @@ class InteractiveShell {
   }
   
   listSkills() {
-    console.log('Available DSGS Skills:');
+    console.log('Available DNASPEC Skills:');
     const commands = this.commandHandler.getAvailableCommands();
     commands.forEach(cmd => console.log(`  ${cmd}`));
   }
@@ -548,13 +548,13 @@ const { InteractiveShell } = require('../lib/interactive-shell');
 const program = new Command();
 
 program
-  .name('dsgs-spec-kit')
-  .description('DSGS Skills for spec.kit integration')
+  .name('dnaspec-spec-kit')
+  .description('DNASPEC Skills for spec.kit integration')
   .version('1.0.0');
 
 program
   .command('exec')
-  .description('Execute a DSGS skill command')
+  .description('Execute a DNASPEC skill command')
   .argument('<command>', 'The command to execute')
   .action(async (command) => {
     const handler = createCommandHandler();
@@ -582,7 +582,7 @@ program
   .action(() => {
     const handler = createCommandHandler();
     const commands = handler.getAvailableCommands();
-    console.log('Available DSGS Skills:');
+    console.log('Available DNASPEC Skills:');
     commands.forEach(cmd => console.log(`  ${cmd}`));
   });
 

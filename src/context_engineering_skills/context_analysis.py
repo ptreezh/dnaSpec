@@ -4,10 +4,10 @@ Context Analysis Skill
 """
 from typing import Dict, Any, List, Optional
 import re
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 
 
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """
     上下文分析技能
     分析当前上下文的有效性，识别缺失信息，并推荐优化策略
@@ -15,7 +15,7 @@ class ContextAnalysisSkill(DSGSSkill):
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-analysis",
+            name="dnaspec-context-analysis",
             description="DSGS上下文分析器 - 分析上下文有效性和质量的专家"
         )
         self.analysis_metrics = [

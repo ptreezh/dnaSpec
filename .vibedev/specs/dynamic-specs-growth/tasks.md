@@ -1,4 +1,4 @@
-# Dynamic Specification Growth System (DSGS) Implementation Plan
+# Dynamic Specification Growth System (DNASPEC) Implementation Plan
 
 ## Implementation Checklist
 

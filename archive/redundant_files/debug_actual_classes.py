@@ -3,7 +3,7 @@ sys.path.append('.')
 
 # 看看是否有execute_with_ai方法
 try:
-    from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+    from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
     skill_class = ContextAnalysisSkill
     print("Class methods:", [m for m in dir(skill_class) if not m.startswith('_')])
     

@@ -1,15 +1,15 @@
 # tests/test_cognitive_template_skill.py
 import pytest
-from src.dsgs_spec_kit_integration.core.skill import SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import SkillStatus
 
 
 def test_cognitive_template_skill_inheritance():
-    """RED: Test CognitiveTemplateSkill inherits from DSGSSkill"""
+    """RED: Test CognitiveTemplateSkill inherits from DNASpecSkill"""
     from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
-    from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
+    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
     
     skill = CognitiveTemplateSkill()
-    assert isinstance(skill, DSGSSkill)
+    assert isinstance(skill, DNASpecSkill)
 
 
 def test_cognitive_template_basic_functionality():

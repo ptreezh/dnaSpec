@@ -1,6 +1,6 @@
 
 import pytest
-from dsgs_spec_kit_integration.core.skill_manager import SkillManager
+from dnaspec_spec_kit_integration.core.skill_manager import SkillManager
 
 def test_skill_manager_executes_existing_skill():
     """测试SkillManager能否成功执行一个存在的技能。"""

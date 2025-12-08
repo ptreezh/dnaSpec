@@ -1,6 +1,6 @@
 """
 Core Skills Base Class
-DSGS Context Engineering Skills 的核心基类
+DNASPEC Context Engineering Skills 的核心基类
 """
 from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional

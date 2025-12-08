@@ -6,7 +6,7 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
 
 def test_cli_detection():
     print("测试AI CLI工具检测功能...")

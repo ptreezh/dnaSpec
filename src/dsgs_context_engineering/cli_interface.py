@@ -1,5 +1,5 @@
 """
-CLI Interface for DSGS Context Engineering Skills
+CLI Interface for DNASPEC Context Engineering Skills
 提供命令行接口访问DSGS技能
 """
 import click
@@ -11,19 +11,19 @@ import os
 # 将项目路径添加到sys.path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.dsgs_context_engineering.spec_engine import DSGSSpecEngine, engine
+from src.dnaspec_context_engineering.spec_engine import DSGSSpecEngine, engine
 
 
 @click.group()
-def dsgs():
+def dnaspec():
     """
-    DSGS Context Engineering Skills CLI
+    DNASPEC Context Engineering Skills CLI
     专业上下文工程工具集 - 增强AI辅助开发能力
     """
     pass
 
 
-@dsgs.command()
+@dnaspec.command()
 @click.argument('context', nargs=-1)
 @click.option('--metrics', '-m', default='clarity,relevance,completeness', help='分析指标 (clarity,relevance,completeness,consistency,efficiency)')
 @click.option('--format', '-f', default='text', type=click.Choice(['text', 'json', 'table']), help='输出格式')
@@ -31,7 +31,7 @@ def analyze(context: tuple, metrics: str, format: str):
     """
     分析上下文质量
     
-    示例: dsgs analyze "这是要分析的上下文"
+    示例: dnaspec analyze "这是要分析的上下文"
     """
     context_str = ' '.join(context) if context else click.get_text_stream('stdin').read()
     
@@ -82,7 +82,7 @@ def analyze(context: tuple, metrics: str, format: str):
         click.echo(f"错误: {result['error']}", err=True)
 
 
-@dsgs.command()
+@dnaspec.command()
 @click.argument('context', nargs=-1)
 @click.option('--goals', '-g', default='clarity,completeness', help='优化目标 (clarity,relevance,completeness,conciseness)')
 @click.option('--format', '-f', default='text', type=click.Choice(['text', 'json']), help='输出格式')
@@ -90,7 +90,7 @@ def optimize(context: tuple, goals: str, format: str):
     """
     优化上下文质量
     
-    示例: dsgs optimize --goals "clarity,completeness" "这是待优化的上下文"
+    示例: dnaspec optimize --goals "clarity,completeness" "这是待优化的上下文"
     """
     context_str = ' '.join(context) if context else click.get_text_stream('stdin').read()
     
@@ -128,7 +128,7 @@ def optimize(context: tuple, goals: str, format: str):
         click.echo(f"错误: {result['error']}", err=True)
 
 
-@dsgs.command()
+@dnaspec.command()
 @click.argument('task', nargs=-1)
 @click.option('--template', '-t', default='chain_of_thought', 
               type=click.Choice(['chain_of_thought', 'few_shot', 'verification', 'role_playing', 'understanding']),
@@ -139,7 +139,7 @@ def template(task: tuple, template: str, role: str, format: str):
     """
     应用认知模板到任务
     
-    示例: dsgs template --template chain_of_thought "如何设计系统架构？"
+    示例: dnaspec template --template chain_of_thought "如何设计系统架构？"
     """
     task_str = ' '.join(task) if task else click.get_text_stream('stdin').read()
     
@@ -172,26 +172,26 @@ def template(task: tuple, template: str, role: str, format: str):
         click.echo(f"错误: {error_msg}", err=True)
 
 
-@dsgs.command()
+@dnaspec.command()
 def list():
     """
     列出所有可用的DSGS技能
     """
     skills = engine.list_available_skills()
-    click.echo("DSGS Context Engineering Skills:")
+    click.echo("DNASPEC Context Engineering Skills:")
     click.echo("-" * 50)
     for name, description in skills.items():
         click.echo(f"{name:25s} - {description}")
 
 
-@dsgs.command()
+@dnaspec.command()
 @click.option('--skill', '-s', required=True, help='技能名称')
 @click.option('--context', '-c', required=True, help='要处理的上下文')
 def execute(skill: str, context: str):
     """
     执行指定的DSGS技能
     
-    示例: dsgs execute --skill context-analysis --context "要分析的内容"
+    示例: dnaspec execute --skill context-analysis --context "要分析的内容"
     """
     result = engine.execute_skill(skill, context, {})
     
@@ -201,12 +201,12 @@ def execute(skill: str, context: str):
         click.echo(f"错误: {result['error']}", err=True)
 
 
-@dsgs.command()
+@dnaspec.command()
 def demo():
     """
     运行DSGS功能演示
     """
-    click.echo("🎯 DSGS Context Engineering Skills 演示")
+    click.echo("🎯 DNASPEC Context Engineering Skills 演示")
     click.echo("=" * 60)
     
     sample_context = "设计一个电商平台，需要支持用户注册登录、商品浏览、购物车、订单处理等功能。"
@@ -246,4 +246,4 @@ def demo():
 
 
 if __name__ == '__main__':
-    dsgs()
+    dnaspec()

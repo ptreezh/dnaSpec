@@ -1,6 +1,6 @@
 ---
-name: dsgs-system-architect
-description: DSGS System Architect sub-skill for system architecture design, technology stack selection, module division, and interface definition. Use when you need to design system architectures, select technology stacks, divide modules, or define interfaces.
+name: dnaspec-system-architect
+description: DNASPEC System Architect sub-skill for system architecture design, technology stack selection, module division, and interface definition. Use when you need to design system architectures, select technology stacks, divide modules, or define interfaces.
 license: Apache 2.0
 allowed-tools: 
   - Bash(python:scripts/system_architect_designer.py)
@@ -9,10 +9,10 @@ metadata:
   speckit-category: architecture
 ---
 
-# DSGS System Architect
+# DNASPEC System Architect
 
 ## Overview
-DSGS System Architect is a specialized sub-skill of the DSGS Intelligent Architect system. It focuses on system architecture design, technology stack selection, module division, and interface definition for complex projects. This skill creates comprehensive architectural designs that balance functionality, performance, scalability, and maintainability.
+DNASPEC System Architect is a specialized sub-skill of the DNASPEC Intelligent Architect system. It focuses on system architecture design, technology stack selection, module division, and interface definition for complex projects. This skill creates comprehensive architectural designs that balance functionality, performance, scalability, and maintainability.
 
 ## Core Functions
 

@@ -3,11 +3,11 @@ Context Engineering Enhancement System
 综合的上下文工程技能增强系统
 """
 from typing import Dict, Any, List
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 from .skills_manager import ContextEngineeringSkillsManager
 
 
-class ContextEngineeringSystem(DSGSSkill):
+class ContextEngineeringSystem(DNASpecSkill):
     """
     上下文工程系统
     提供完整的上下文工程解决方案，支持项目分解和AI Agentic架构的上下文管理
@@ -15,7 +15,7 @@ class ContextEngineeringSystem(DSGSSkill):
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-engineering-system",
+            name="dnaspec-context-engineering-system",
             description="DSGS上下文工程系统 - 提供完整上下文工程解决方案的专家"
         )
         self.skills_manager = ContextEngineeringSkillsManager()

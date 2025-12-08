@@ -1,7 +1,7 @@
-# DSGS Context Engineering Skills - 开源发布清单
+# DNASPEC Context Engineering Skills - 开源发布清单
 
 ## 项目信息
-- **项目名称**: DSGS Context Engineering Skills (dsgs-context-engineering)
+- **项目名称**: DNASPEC Context Engineering Skills (dnaspec-context-engineering)
 - **官方仓库**: https://github.com/ptreezh/dnaSpec
 - **作者**: pTree Dr.Zhang
 - **机构**: AI Persona Lab 2025
@@ -25,9 +25,9 @@
 
 ### 📁 核心文件结构
 ```
-dsgs-context-engineering/
+dnaspec-context-engineering/
 ├── src/
-│   └── dsgs_spec_kit_integration/
+│   └── dnaspec_spec_kit_integration/
 │       ├── __init__.py
 │       ├── core/
 │       │   ├── skill.py
@@ -103,16 +103,16 @@ dsgs-context-engineering/
 ```bash
 # 克隆官方仓库
 git clone https://github.com/ptreezh/dnaSpec.git
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # 安装
 pip install -e .
 
 # 使用
-/speckit.dsgs.context-analysis "分析上下文质量"
-/speckit.dsgs.cognitive-template "应用认知模板" template=verification
-/speckit.dsgs.context-optimization "优化需求" optimization_goals=clarity,relevance
+/speckit.dnaspec.context-analysis "分析上下文质量"
+/speckit.dnaspec.cognitive-template "应用认知模板" template=verification
+/speckit.dnaspec.context-optimization "优化需求" optimization_goals=clarity,relevance
 ```
 
 ## 发布说明
-DSGS Context Engineering Skills是一套专业的AI辅助开发工具集，专注于上下文工程领域。项目包含完整的上下文分析、优化和认知模板功能，同时提供安全的AI工作流管理，防止AI生成的临时文件污染项目。
+DNASPEC Context Engineering Skills是一套专业的AI辅助开发工具集，专注于上下文工程领域。项目包含完整的上下文分析、优化和认知模板功能，同时提供安全的AI工作流管理，防止AI生成的临时文件污染项目。

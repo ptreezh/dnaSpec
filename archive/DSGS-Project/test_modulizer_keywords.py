@@ -22,12 +22,12 @@ def test_modulizer_keywords():
     # 找到dsgs-modulizer技能
     dsgs_modulizer = None
     for skill in hook.skills_registry:
-        if skill.name == 'dsgs-modulizer':
+        if skill.name == 'dnaspec-modulizer':
             dsgs_modulizer = skill
             break
     
     if dsgs_modulizer:
-        print(f"dsgs-modulizer 关键词: {dsgs_modulizer.keywords}")
+        print(f"dnaspec-modulizer 关键词: {dsgs_modulizer.keywords}")
         print()
         
         # 测试新增的关键词
@@ -49,7 +49,7 @@ def test_modulizer_keywords():
             print(f'  匹配关键词: {matched_keywords}')
             print()
     else:
-        print("未找到 dsgs-modulizer 技能")
+        print("未找到 dnaspec-modulizer 技能")
 
 if __name__ == "__main__":
     test_modulizer_keywords()

@@ -1,8 +1,8 @@
-# DSGS 性能压力测试与安全渗透测试套件
+# DNASPEC 性能压力测试与安全渗透测试套件
 
 ## 概述
 
-本套件为 Dynamic Specification Growth System (DSGS) 提供全面的性能压力测试和安全渗透测试能力，确保系统在生产环境中的稳定性和安全性。
+本套件为 Dynamic Specification Growth System (DNASPEC) 提供全面的性能压力测试和安全渗透测试能力，确保系统在生产环境中的稳定性和安全性。
 
 ## 性能压力测试
 

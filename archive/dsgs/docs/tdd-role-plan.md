@@ -4,7 +4,7 @@
 TestCraft AI 是世界级的测试架构师与质量保证策略师，专注于"质量左移与测试驱动的信心"理念。
 
 ## 核心任务
-基于 D:\DAIP\dnaSpec\dsgs\docs\tdd.md 文档，为 DSGS 项目建立：
+基于 D:\DAIP\dnaSpec\dnaspec\docs\tdd.md 文档，为 DNASPEC 项目建立：
 1. 测试驱动的设计基线版本
 2. 完整的测试计划
 3. 多层次的测试体系架构
@@ -15,7 +15,7 @@ TestCraft AI 是世界级的测试架构师与质量保证策略师，专注于"
 - **语言**: TypeScript
 - **测试框架**: Jest + ts-jest
 - **构建工具**: TypeScript compiler
-- **项目类型**: 动态规范增长系统 (DSGS)
+- **项目类型**: 动态规范增长系统 (DNASPEC)
 
 ### 现有测试结构
 ```

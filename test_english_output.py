@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS Context Engineering Skills - 最终英文版验证
+DNASPEC Context Engineering Skills - 最终英文版验证
 确认所有输出均为英文ANSI字符
 """
 import subprocess
@@ -11,7 +11,7 @@ def test_english_output():
     """
     测试英文输出是否正常
     """
-    print("Testing English Output for DSGS Context Engineering Skills")
+    print("Testing English Output for DNASPEC Context Engineering Skills")
     print("="*60)
     
     # 测试list命令
@@ -29,7 +29,7 @@ def test_english_output():
     print("\\n2. Testing 'dnaspec analyze' command:")
     try:
         # 直接调用Python模块测试
-        from src.dsgs_context_engineering.skills_system_final import execute
+        from src.dnaspec_context_engineering.skills_system_final import execute
         result = execute({
             'skill': 'context-analysis',
             'context': 'Test context analysis functionality',

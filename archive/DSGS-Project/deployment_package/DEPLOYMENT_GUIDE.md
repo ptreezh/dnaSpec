@@ -1,15 +1,15 @@
-# DSGS Skills 集成部署包
+# DNASPEC Skills 集成部署包
 
 ## 项目概述
-DSGS (Dynamic Specification Growth System) Skills 是一套智能架构师技能系统，包含7个核心技能：
+DNASPEC (Dynamic Specification Growth System) Skills 是一套智能架构师技能系统，包含7个核心技能：
 
-- **dsgs-agent-creator**: 智能体创建器 - 创建和配置智能体
-- **dsgs-architect**: 智能架构师 - 主协调技能
-- **dsgs-system-architect**: 系统架构师 - 系统架构设计
-- **dsgs-task-decomposer**: 任务分解器 - 任务分解和原子化
-- **dsgs-constraint-generator**: 约束生成器 - 生成系统约束
-- **dsgs-dapi-checker**: DAPI检查器 - 接口一致性检查
-- **dsgs-modulizer**: 模块化器 - 模块成熟化核验
+- **dnaspec-agent-creator**: 智能体创建器 - 创建和配置智能体
+- **dnaspec-architect**: 智能架构师 - 主协调技能
+- **dnaspec-system-architect**: 系统架构师 - 系统架构设计
+- **dnaspec-task-decomposer**: 任务分解器 - 任务分解和原子化
+- **dnaspec-constraint-generator**: 约束生成器 - 生成系统约束
+- **dnaspec-dapi-checker**: DAPI检查器 - 接口一致性检查
+- **dnaspec-modulizer**: 模块化器 - 模块成熟化核验
 
 ## Claude Code 集成
 
@@ -28,11 +28,11 @@ python test_claude_integration.py
 
 ### 使用示例
 在 Claude Code 中尝试以下请求：
-- "创建一个智能体" - 自动调用 dsgs-agent-creator
-- "分解复杂任务" - 自动调用 dsgs-task-decomposer  
-- "生成系统约束" - 自动调用 dsgs-constraint-generator
-- "检查接口一致性" - 自动调用 dsgs-dapi-checker
-- "模块化重构" - 自动调用 dsgs-modulizer
+- "创建一个智能体" - 自动调用 dnaspec-agent-creator
+- "分解复杂任务" - 自动调用 dnaspec-task-decomposer  
+- "生成系统约束" - 自动调用 dnaspec-constraint-generator
+- "检查接口一致性" - 自动调用 dnaspec-dapi-checker
+- "模块化重构" - 自动调用 dnaspec-modulizer
 
 ## Gemini CLI 集成
 

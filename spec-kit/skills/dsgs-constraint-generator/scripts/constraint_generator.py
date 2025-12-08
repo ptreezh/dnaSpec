@@ -1,5 +1,5 @@
 """
-DSGS Constraint Generator Script
+DNASPEC Constraint Generator Script
 Implements the core functionality for generating system constraints based on project requirements
 """
 

@@ -27,7 +27,7 @@ def test_task_decomposer():
     # 测试任务分解功能
     result = task_decomposer.process_request(test_request)
     
-    if result["status"] == "completed" and result["skill"] == "dsgs-task-decomposer":
+    if result["status"] == "completed" and result["skill"] == "dnaspec-task-decomposer":
         print("✓ 任务分解功能测试通过")
         print(f"  生成了 {len(result['task_decomposition']['atomic_tasks'])} 个原子任务")
         print(f"  识别了 {len(result['task_decomposition']['dependencies'])} 个任务依赖")

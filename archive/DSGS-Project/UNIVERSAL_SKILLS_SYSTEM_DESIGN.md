@@ -21,7 +21,7 @@
 
 ### 2.1 分层架构
 ```
-DSGS Skills System
+DNASPEC Skills System
 ├── Core Layer (平台无关核心)
 │   ├── Skill Interface (技能接口定义)
 │   ├── Skill Manager (技能管理器)
@@ -56,7 +56,7 @@ class SkillResult:
     confidence: float
     metadata: Dict[str, Any]
 
-class DSGSSkill(ABC):
+class DNASpecSkill(ABC):
     """抽象技能基类"""
     def __init__(self, name: str, description: str):
         self.name = name
@@ -77,16 +77,16 @@ class DSGSSkill(ABC):
 ```python
 # dsgs_core/manager.py
 from typing import Dict, List, Optional
-from .skill import DSGSSkill, SkillResult
+from .skill import DNASpecSkill, SkillResult
 from .models import SkillInfo
 
 class SkillManager:
     """平台无关的技能管理器"""
     def __init__(self):
-        self.skills: Dict[str, DSGSSkill] = {}
+        self.skills: Dict[str, DNASpecSkill] = {}
         self.skill_registry: Dict[str, SkillInfo] = {}
     
-    def register_skill(self, skill: DSGSSkill):
+    def register_skill(self, skill: DNASpecSkill):
         """注册技能"""
         self.skills[skill.name] = skill
         # 更新技能注册表
@@ -175,7 +175,7 @@ class QwenCLIAdapter:
 ```yaml
 # dsgs_config.yaml
 skills:
-  - name: dsgs-agent-creator
+  - name: dnaspec-agent-creator
     description: "DSGS智能体创建器"
     keywords:
       - "创建智能体"
@@ -186,7 +186,7 @@ skills:
 platforms:
   claude:
     enabled: true
-    skills_dir: "~/.claude/skills/dsgs"
+    skills_dir: "~/.claude/skills/dnaspec"
   
   gemini:
     enabled: true

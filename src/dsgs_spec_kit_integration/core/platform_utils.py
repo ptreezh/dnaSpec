@@ -77,15 +77,15 @@ class PlatformUtils:
         
         if PlatformUtils.is_windows():
             return {
-                'config': os.path.join(home, '.dsgs'),
+                'config': os.path.join(home, '.dnaspec'),
                 'temp': os.environ.get('TEMP', os.environ.get('TMP', 'C:\\temp')),
-                'data': os.path.join(home, 'AppData', 'Local', 'dsgs')
+                'data': os.path.join(home, 'AppData', 'Local', 'dnaspec')
             }
         else:
             return {
-                'config': os.path.join(home, '.dsgs'),
+                'config': os.path.join(home, '.dnaspec'),
                 'temp': '/tmp',
-                'data': os.path.join(home, '.local', 'share', 'dsgs')
+                'data': os.path.join(home, '.local', 'share', 'dnaspec')
             }
     
     @staticmethod

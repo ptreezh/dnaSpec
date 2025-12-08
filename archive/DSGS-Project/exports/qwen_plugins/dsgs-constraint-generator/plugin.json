@@ -1,12 +1,12 @@
 {
-  "name": "dsgs-constraint-generator",
+  "name": "dnaspec-constraint-generator",
   "description": "DSGS约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束。当用户提到生成约束、API规范、数据验证规则或质量约束时使用此技能。不要在讨论具体实现细节时使用。",
   "version": "1.0.0",
-  "author": "DSGS System",
+  "author": "DNASPEC System",
   "license": "MIT",
   "tools": [
     {
-      "name": "dsgs-constraint-generator_tool",
+      "name": "dnaspec-constraint-generator_tool",
       "description": "用于执行dsgs-constraint-generator功能的工具",
       "parameters": {
         "type": "object",
@@ -30,7 +30,7 @@
     "数据约束和质量约束",
     "api",
     "根据项目需求和架构设计生成系统约束",
-    "dsgs",
+    "dnaspec",
     "规范约束",
     "数据验证规则或质量约束"
   ]

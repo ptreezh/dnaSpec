@@ -1,11 +1,11 @@
 ---
 allowed-tools: Bash(fs.createFile:*), Bash(fs.writeFile:*), Bash(fs.readFile:*)
 argument-hint: [project-requirements]
-description: DSGS Constraint Generator for generating system constraints, API specification constraints, data constraints, and quality constraints.
+description: DNASPEC Constraint Generator for generating system constraints, API specification constraints, data constraints, and quality constraints.
 model: claude-3-5-sonnet-20241022
 ---
 
-# DSGS Constraint Generation Process
+# DNASPEC Constraint Generation Process
 
 ## Task
 Generate comprehensive system constraints for the following project requirements: $ARGUMENTS
@@ -189,4 +189,4 @@ Please provide:
    - Enforcement procedures
    - Compliance checking processes
 
-Structure your response following the DSGS constraint generation methodology with comprehensive constraint specifications.
+Structure your response following the DNASPEC constraint generation methodology with comprehensive constraint specifications.

@@ -1,7 +1,7 @@
-# Dynamic Specification Growth System (DSGS) Requirements
+# Dynamic Specification Growth System (DNASPEC) Requirements
 
 ## Introduction
-This document outlines the requirements for the Dynamic Specification Growth System (DSGS), a system designed to manage software engineering complexity through hierarchical, context-aware constraints. The system will generate minimal necessary constraints for each subtask while maintaining overall project coherence, with integration into MCP/Cline/VS Studio environments. The system follows a phased approach, starting with a lightweight MVP and evolving into a full-featured specification management system.
+This document outlines the requirements for the Dynamic Specification Growth System (DNASPEC), a system designed to manage software engineering complexity through hierarchical, context-aware constraints. The system will generate minimal necessary constraints for each subtask while maintaining overall project coherence, with integration into MCP/Cline/VS Studio environments. The system follows a phased approach, starting with a lightweight MVP and evolving into a full-featured specification management system.
 
 ## Requirements
 
@@ -27,7 +27,7 @@ This document outlines the requirements for the Dynamic Specification Growth Sys
 
 ### 2. Integration and Deployment
 
-#### 2.1 As a developer, I want seamless integration with my development environment, so that I can use DSGS without disrupting my workflow.
+#### 2.1 As a developer, I want seamless integration with my development environment, so that I can use DNASPEC without disrupting my workflow.
 - 2.1.1 The system SHALL integrate with MCP protocol for tool communication
 - 2.1.2 The system SHALL support integration with Cline and VS Studio environments
 - 2.1.3 The integration SHALL provide real-time feedback during development

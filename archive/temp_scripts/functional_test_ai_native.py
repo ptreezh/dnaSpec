@@ -5,7 +5,7 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - AI原生架构功能测试")
+print("🔍 DNASPEC Context Engineering Skills - AI原生架构功能测试")
 print("="*70)
 
 try:
@@ -13,7 +13,7 @@ try:
     import importlib.util
     spec = importlib.util.spec_from_file_location(
         "ai_native_system",
-        "D:/DAIP/dnaSpec/src/dsgs_context_engineering/ai_native_skills_system.py"
+        "D:/DAIP/dnaSpec/src/dnaspec_context_engineering/ai_native_skills_system.py"
     )
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

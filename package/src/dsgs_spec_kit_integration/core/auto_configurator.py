@@ -59,7 +59,7 @@ class AutoConfigurator:
         config = self.config_generator.generate(detected_tools)
         
         # 3. 保存配置文件
-        config_path = options.get('configPath', './.dsgs/config.yaml')
+        config_path = options.get('configPath', './.dnaspec/config.yaml')
         print(f'💾 Saving configuration to {config_path}...')
         save_result = self.config_generator.save(config, config_path)
         
@@ -75,7 +75,7 @@ class AutoConfigurator:
             
             # 生成验证报告
             report = self.validator.generate_report(validation_results)
-            report_path = options.get('reportPath', './dsgs-validation-report.md')
+            report_path = options.get('reportPath', './dnaspec-validation-report.md')
             self.validator.save_report(report, report_path)
             
             self._print_validation_results(validation_results)
@@ -133,7 +133,7 @@ class AutoConfigurator:
         Returns:
             配置结果字典
         """
-        print('🧙 Welcome to DSGS Interactive Configuration Wizard\n')
+        print('🧙 Welcome to DNASPEC Interactive Configuration Wizard\n')
         
         # 检测工具
         print('🔍 Detecting AI CLI tools...')
@@ -142,9 +142,9 @@ class AutoConfigurator:
         
         # 获取用户输入
         try:
-            config_path = input(f'Configuration file path (default: ./.dsgs/config.yaml): ').strip()
+            config_path = input(f'Configuration file path (default: ./.dnaspec/config.yaml): ').strip()
             if not config_path:
-                config_path = './.dsgs/config.yaml'
+                config_path = './.dnaspec/config.yaml'
             
             validate_input = input('Run integration validation after configuration? (Y/n): ').strip().lower()
             validate = validate_input != 'n'
@@ -166,7 +166,7 @@ class AutoConfigurator:
             配置结果字典
         """
         return self.auto_configure({
-            'configPath': './.dsgs/config.yaml',
+            'configPath': './.dnaspec/config.yaml',
             'validate': True
         })
     
@@ -215,7 +215,7 @@ class AutoConfigurator:
             
             # 生成验证报告
             report = self.validator.generate_report(validation_results)
-            report_path = new_options.get('reportPath', './dsgs-validation-report.md')
+            report_path = new_options.get('reportPath', './dnaspec-validation-report.md')
             self.validator.save_report(report, report_path)
             
             self._print_validation_results(validation_results)

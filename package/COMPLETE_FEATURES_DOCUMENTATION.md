@@ -1,18 +1,18 @@
-# DSGS Context Engineering Skills - 完整功能说明文档
+# DNASPEC Context Engineering Skills - 完整功能说明文档
 
 ## 📋 项目概览
 
-DSGS (Dynamic Specification Growth System) Context Engineering Skills 是一个基于AI原生智能的上下文工程增强系统，专为AI CLI环境设计，提供专业级的上下文分析、优化和结构化功能。
+DNASPEC (Dynamic Specification Growth System) Context Engineering Skills 是一个基于AI原生智能的上下文工程增强系统，专为AI CLI环境设计，提供专业级的上下文分析、优化和结构化功能。
 
 ## 🎯 核心功能
 
 ### 1. 上下文分析技能 (Context Analysis)
 - **功能**: 对输入上下文进行五维质量评估
 - **维度**: 清晰度、相关性、完整性、一致性、效率
-- **AI CLI调用**: `/speckit.dsgs.context-analysis [待分析内容]`
+- **AI CLI调用**: `/speckit.dnaspec.context-analysis [待分析内容]`
 - **Python API**: 
   ```python
-  from src.dsgs_context_engineering.skills_system_final import execute
+  from src.dnaspec_context_engineering.skills_system_final import execute
   result = execute({
       'skill': 'context-analysis',
       'context': '待分析内容'
@@ -22,7 +22,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills 是一个�
 ### 2. 上下文优化技能 (Context Optimization)
 - **功能**: 基于分析结果优化上下文质量
 - **优化目标**: 清晰度、完整性、相关性、简洁性等
-- **AI CLI调用**: `/speckit.dsgs.context-optimization [待优化内容]`
+- **AI CLI调用**: `/speckit.dnaspec.context-optimization [待优化内容]`
 - **Python API**:
   ```python
   result = execute({
@@ -40,7 +40,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills 是一个�
   - `few_shot`: 少样本学习
   - `role_playing`: 角色扮演
   - `understanding`: 深度理解
-- **AI CLI调用**: `/speckit.dsgs.cognitive-template [任务] template=verification`
+- **AI CLI调用**: `/speckit.dnaspec.cognitive-template [任务] template=verification`
 - **Python API**:
   ```python
   result = execute({
@@ -115,7 +115,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills 是一个�
 ## 📊 AI CLI环境集成
 
 ### 15. 斜杠命令接口
-- **格式**: `/speckit.dsgs.*`
+- **格式**: `/speckit.dnaspec.*`
 - **兼容性**: Claude Desktop, Qwen CLI, Gemini CLI等
 - **响应格式**: 针对AI对话优化的输出格式
 
@@ -128,19 +128,19 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills 是一个�
 ### 基础使用
 ```bash
 # 分析上下文质量
-/speckit.dsgs.context-analysis "设计电商平台，支持用户登录、商品管理、订单处理功能"
+/speckit.dnaspec.context-analysis "设计电商平台，支持用户登录、商品管理、订单处理功能"
 
 # 优化上下文质量
-/speckit.dsgs.context-optimization "设计一个系统"
+/speckit.dnaspec.context-optimization "设计一个系统"
 
 # 应用认知模板
-/speckit.dsgs.cognitive-template "如何设计API接口" template=verification
+/speckit.dnaspec.cognitive-template "如何设计API接口" template=verification
 ```
 
 ### 高级使用
 ```bash
 # 项目启动时的综合分析
-/speckit.dsgs.context-analysis "电商项目需求文档"
+/speckit.dnaspec.context-analysis "电商项目需求文档"
 
 # 任务分解（通过架构设计技能）
 # 实现: design_project_structure("电商系统开发") → 返回任务分解
@@ -148,7 +148,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills 是一个�
 
 ### Python API使用
 ```python
-from src.dsgs_context_engineering.skills_system_final import execute, get_available_skills
+from src.dnaspec_context_engineering.skills_system_final import execute, get_available_skills
 
 # 查看可用技能
 skills = get_available_skills()
@@ -187,4 +187,4 @@ print(result)
 3. **安全工作流**: AI生成内容先在临时工作区验证
 4. **逐步优化**: 使用多轮优化迭代提升质量
 
-DSGS Context Engineering Skills 提供了完整的AI辅助开发工作流，使开发者能够更高效、更安全地利用AI助手进行软件工程任务。
+DNASPEC Context Engineering Skills 提供了完整的AI辅助开发工作流，使开发者能够更高效、更安全地利用AI助手进行软件工程任务。

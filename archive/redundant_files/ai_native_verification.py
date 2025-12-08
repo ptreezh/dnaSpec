@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - AI原生架构验证
+DNASPEC Context Engineering Skills - AI原生架构验证
 验证真实AI CLI平台集成能力
 """
 import sys
@@ -8,12 +8,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def test_ai_native_implementation():
     """测试AI原生架构实现"""
-    print("🔍 DSGS Context Engineering Skills - AI原生架构验证")
+    print("🔍 DNASPEC Context Engineering Skills - AI原生架构验证")
     print("=" * 70)
     
     print("\\n1️⃣ 验证模块导入...")
     try:
-        from src.dsgs_context_engineering.core.skill import (
+        from src.dnaspec_context_engineering.core.skill import (
             ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
         )
         print("   ✅ 所有AI原生技能模块导入成功")
@@ -42,9 +42,9 @@ def test_ai_native_implementation():
     print("   ✅ 技能设计为发送AI指令，利用模型原生智能")
     
     # 验证核心AI原生理念
-    from src.dsgs_context_engineering.core.skill import DSGSSkill
+    from src.dnaspec_context_engineering.core.skill import DNASpecSkill
     
-    if hasattr(DSGSSkill, 'execute_with_ai'):
+    if hasattr(DNASpecSkill, 'execute_with_ai'):
         print("   ✅ 使用execute_with_ai方法 - 体现AI原生理念")
     else:
         print("   ⚠️  未找到AI原生方法")
@@ -53,7 +53,7 @@ def test_ai_native_implementation():
     print("\\n4️⃣ 验证无本地模型依赖...")
     # 检查代码中没有复杂的本地模型
     skill_code = """
-from src.dsgs_context_engineering.core.skill import ContextAnalysisSkill
+from src.dnaspec_context_engineering.core.skill import ContextAnalysisSkill
 skill = ContextAnalysisSkill()
 # 所有功能都通过AI指令实现
 """
@@ -99,7 +99,7 @@ skill = ContextAnalysisSkill()
     print("\\n6️⃣ 验证与AI CLI平台集成能力...")
     print("   ✅ 作为CLI增强工具设计，与Claude/Gemini/Qwen等CLI平台兼容")
     print("   ✅ 通过指令工程实现功能，不依赖特定运行时环境")
-    print("   ✅ 可通过斜杠命令(/dsgs-analyze 等)集成到AI CLI")
+    print("   ✅ 可通过斜杠命令(/dnaspec-analyze 等)集成到AI CLI")
     
     print("\\n7️⃣ 验证工程实用价值...")
     print("   ✅ 提供专业的上下文质量分析能力")
@@ -111,7 +111,7 @@ skill = ContextAnalysisSkill()
     print("🎯 AI原生架构验证成功！")
     print("="*70)
     print("")
-    print("✅ DSGS Context Engineering Skills 已正确实现为AI原生系统")
+    print("✅ DNASPEC Context Engineering Skills 已正确实现为AI原生系统")
     print("✅ 系统完全利用AI模型原生智能，无本地模型依赖")
     print("✅ 提供专业级上下文工程能力")
     print("✅ 可作为AI CLI平台的增强工具集使用")
@@ -128,7 +128,7 @@ def main():
     success = test_ai_native_implementation()
     
     if success:
-        print("\\n🎉 DSGS Context Engineering Skills - AI原生架构部署完成！")
+        print("\\n🎉 DNASPEC Context Engineering Skills - AI原生架构部署完成！")
         print("📊 系统置信度: 98%")
         print("🔧 AI原生实现: 100%")
         print("⚡ 工程实用性: 96%")

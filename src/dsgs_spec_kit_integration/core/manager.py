@@ -4,7 +4,7 @@ DSGS技能管理器
 """
 import re
 from typing import Dict, List, Optional, Any
-from .skill import DSGSSkill, SkillInfo, SkillResult
+from .skill import DNASpecSkill, SkillInfo, SkillResult
 from .matcher import IntelligentMatcher
 from .hook import HookSystem
 
@@ -13,15 +13,15 @@ class SkillManager:
     """DSGS技能管理器"""
     
     def __init__(self):
-        self.skills: Dict[str, DSGSSkill] = {}
+        self.skills: Dict[str, DNASpecSkill] = {}
         self.skill_registry: Dict[str, SkillInfo] = {}
         self._spec_kit_adapters = []  # 注册的spec.kit适配器
         self._intelligent_matcher = IntelligentMatcher()  # 智能匹配器
         self._hook_system = HookSystem(self)  # Hook系统
     
-    def register_skill(self, skill: DSGSSkill) -> bool:
+    def register_skill(self, skill: DNASpecSkill) -> bool:
         """注册DSGS技能"""
-        if not isinstance(skill, DSGSSkill):
+        if not isinstance(skill, DNASpecSkill):
             return False
         
         self.skills[skill.name] = skill
@@ -50,36 +50,36 @@ class SkillManager:
         
         return True
     
-    def _register_skill_keywords(self, skill: DSGSSkill):
+    def _register_skill_keywords(self, skill: DNASpecSkill):
         """将技能关键词注册到智能匹配器"""
         # 根据技能类型推断关键词
         skill_type_keywords = {
-            'dsgs-architect': [
+            'dnaspec-architect': [
                 '架构', '系统设计', 'architecture', 'design', 'structure', 
                 '系统架构', '架构设计', '设计系统', 'architect', 'blueprint',
                 '设计', '创建系统', '系统蓝图'
             ],
-            'dsgs-agent-creator': [
+            'dnaspec-agent-creator': [
                 '智能体', 'agent', 'create agent', '设计智能体', '创建智能体',
                 '智能体角色', 'agent creator', '智能体设计', 'create', 'role',
                 '创建', '生成智能体', '设计agent'
             ],
-            'dsgs-task-decomposer': [
+            'dnaspec-task-decomposer': [
                 '分解任务', '任务分解', 'task decomposition', 'break down',
                 '拆分', '细化', '任务分析', 'decompose', 'analyze',
                 '分解', '细化任务', '任务拆分'
             ],
-            'dsgs-constraint-generator': [
+            'dnaspec-constraint-generator': [
                 '约束', '生成约束', 'constraint', 'generate', 'specification',
                 '规范', '规则', 'constraint generation', 'rules',
                 '生成', '创建约束', '制定规范'
             ],
-            'dsgs-dapi-checker': [
+            'dnaspec-dapi-checker': [
                 '接口检查', '一致性检查', 'api validation', 'interface',
                 '接口验证', '检查', '验证', 'consistency', 'api', 'validation',
                 '检查接口', '验证一致性'
             ],
-            'dsgs-modulizer': [
+            'dnaspec-modulizer': [
                 '模块化', '重构', 'modularization', 'refactor', 'maturity',
                 '模块成熟度', '封装', '重构', 'modulize', 'optimize',
                 '优化', '模块重构', '系统优化'
@@ -105,7 +105,7 @@ class SkillManager:
         keywords = [word for word in words if len(word) > 1 and word not in common_words]
         return keywords
     
-    def _register_skill_with_adapters(self, skill: DSGSSkill):
+    def _register_skill_with_adapters(self, skill: DNASpecSkill):
         """将技能注册到所有连接的spec.kit适配器"""
         for adapter in self._spec_kit_adapters:
             try:
@@ -142,7 +142,7 @@ class SkillManager:
         
         return True
     
-    def get_skill(self, name: str) -> Optional[DSGSSkill]:
+    def get_skill(self, name: str) -> Optional[DNASpecSkill]:
         """获取技能"""
         return self.skills.get(name)
     
@@ -185,7 +185,7 @@ class SkillManager:
     def _execute_command_directly(self, command: str) -> Dict[str, Any]:
         """直接执行命令（不通过适配器）"""
         # 简单的命令解析
-        if not command.startswith("/speckit.dsgs."):
+        if not command.startswith("/speckit.dnaspec."):
             return {
                 'success': False,
                 'error': 'Invalid command format',
@@ -193,7 +193,7 @@ class SkillManager:
             }
         
         # 提取技能名称和参数
-        remaining = command[len("/speckit.dsgs."):].strip()
+        remaining = command[len("/speckit.dnaspec."):].strip()
         if ' ' in remaining:
             skill_name, params = remaining.split(' ', 1)
             params = params.strip()
@@ -201,7 +201,7 @@ class SkillManager:
             skill_name = remaining
             params = ""
         
-        full_skill_name = f"dsgs-{skill_name}"
+        full_skill_name = f"dnaspec-{skill_name}"
         
         # 执行技能
         try:

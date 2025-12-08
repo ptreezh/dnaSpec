@@ -1,17 +1,17 @@
 """
-DSGS spec.kit集成演示脚本
+DNASPEC spec.kit集成演示脚本
 演示整个系统的功能
 """
-from src.dsgs_spec_kit_integration.core.command_parser import CommandParser
-from src.dsgs_spec_kit_integration.core.skill_mapper import SkillMapper
-from src.dsgs_spec_kit_integration.core.python_bridge import PythonBridge
-from src.dsgs_spec_kit_integration.core.skill_executor import SkillExecutor
-from src.dsgs_spec_kit_integration.core.command_handler import CommandHandler
-from src.dsgs_spec_kit_integration.core.interactive_shell import InteractiveShell
-from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
-from src.dsgs_spec_kit_integration.core.config_generator import ConfigGenerator
-from src.dsgs_spec_kit_integration.core.integration_validator import IntegrationValidator
-from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+from src.dnaspec_spec_kit_integration.core.command_parser import CommandParser
+from src.dnaspec_spec_kit_integration.core.skill_mapper import SkillMapper
+from src.dnaspec_spec_kit_integration.core.python_bridge import PythonBridge
+from src.dnaspec_spec_kit_integration.core.skill_executor import SkillExecutor
+from src.dnaspec_spec_kit_integration.core.command_handler import CommandHandler
+from src.dnaspec_spec_kit_integration.core.interactive_shell import InteractiveShell
+from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
+from src.dnaspec_spec_kit_integration.core.config_generator import ConfigGenerator
+from src.dnaspec_spec_kit_integration.core.integration_validator import IntegrationValidator
+from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
 import tempfile
 import os
 
@@ -24,7 +24,7 @@ def demo_command_parsing():
     parser = CommandParser()
     
     # 测试有效命令
-    result = parser.parse('/speckit.dsgs.architect 设计电商系统')
+    result = parser.parse('/speckit.dnaspec.architect 设计电商系统')
     print(f"解析结果: {result}")
     
     # 测试无效命令
@@ -58,10 +58,10 @@ def demo_command_handling():
     command_handler = CommandHandler()
     
     # 处理完整命令
-    result = command_handler.handle_command('/speckit.dsgs.architect 电商系统')
+    result = command_handler.handle_command('/speckit.dnaspec.architect 电商系统')
     print(f"命令处理结果: {result}")
     
-    result = command_handler.handle_command('/speckit.dsgs.architect 博客系统')
+    result = command_handler.handle_command('/speckit.dnaspec.architect 博客系统')
     print(f"博客命令处理结果: {result}")
     print()
 
@@ -176,7 +176,7 @@ def main():
     """
     主函数 - 运行所有演示
     """
-    print("DSGS spec.kit 集成系统演示")
+    print("DNASPEC spec.kit 集成系统演示")
     print("=" * 50)
     
     demo_command_parsing()
@@ -188,7 +188,7 @@ def main():
     demo_auto_configuration()
     
     print("演示完成！")
-    print("\n要启动交互式Shell，请运行: python -c \"from src.dsgs_spec_kit_integration.core.interactive_shell import InteractiveShell; from src.dsgs_spec_kit_integration.core.command_handler import CommandHandler; shell = InteractiveShell(CommandHandler()); shell.start()\"")
+    print("\n要启动交互式Shell，请运行: python -c \"from src.dnaspec_spec_kit_integration.core.interactive_shell import InteractiveShell; from src.dnaspec_spec_kit_integration.core.command_handler import CommandHandler; shell = InteractiveShell(CommandHandler()); shell.start()\"")
 
 
 if __name__ == "__main__":

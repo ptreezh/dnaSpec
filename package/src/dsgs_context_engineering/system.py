@@ -1,5 +1,5 @@
 """
-System Components for DSGS Context Engineering Skills
+System Components for DNASPEC Context Engineering Skills
 完整的系统组件实现
 """
 from typing import Dict, Any, List

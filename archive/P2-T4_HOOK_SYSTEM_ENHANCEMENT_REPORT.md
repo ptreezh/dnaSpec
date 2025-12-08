@@ -16,7 +16,7 @@
 - **HookResult类**：封装Hook处理结果
 
 ### 2. 命令拦截功能
-- **Spec.kit命令检测**：识别`/speckit.dsgs.*`格式的命令
+- **Spec.kit命令检测**：识别`/speckit.dnaspec.*`格式的命令
 - **自然语言请求检测**：识别包含中文或英文的自然语言请求
 - **自定义拦截器支持**：支持注册自定义拦截器和处理器
 
@@ -104,7 +104,7 @@ class HookSystem:
 
 ### Spec.kit命令处理
 ```
-用户输入: /speckit.dsgs.architect 设计电商系统架构
+用户输入: /speckit.dnaspec.architect 设计电商系统架构
 Hook系统: 拦截命令 -> 解析技能名称 -> 调用技能管理器 -> 执行dsgs-architect技能
 ```
 
@@ -139,7 +139,7 @@ Hook系统: 检测自然语言 -> 智能匹配技能 -> 置信度检查 -> 自�
 hook_system = HookSystem(skill_manager)
 
 # 配置Hook系统
-hook_system.config.enable_skill("dsgs-architect")
+hook_system.config.enable_skill("dnaspec-architect")
 hook_system.config.add_disabled_pattern(r"危险.*命令")
 ```
 

@@ -1,17 +1,17 @@
 """
-Demo: Correct Architecture - DSGS Context Engineering Skills as AI CLI Enhancement
+Demo: Correct Architecture - DNASPEC Context Engineering Skills as AI CLI Enhancement
 展示系统如何作为AI CLI平台的增强工具正确工作
 """
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🎯 DSGS Context Engineering Skills - 正确架构演示")
+print("🎯 DNASPEC Context Engineering Skills - 正确架构演示")
 print("="*70)
 print()
 
 print("🔍 架构理解:")
-print("DSGS Context Engineering Skills 系统是一个在AI CLI平台中运行的增强工具集")
+print("DNASPEC Context Engineering Skills 系统是一个在AI CLI平台中运行的增强工具集")
 print("它利用AI模型的原生智能执行上下文工程任务，而不是建立本地模型")
 print()
 
@@ -36,8 +36,8 @@ print("3. Cognitive Template: 通过AI模型应用认知模板")
 print()
 
 print("💡 实际应用场景:")
-print("- 在Claude CLI中: /dsgs-analyze \"项目需求文档\"")
-print("- 在Gemini CLI中: dsgs.optimize_context(\"待优化内容\")") 
+print("- 在Claude CLI中: /dnaspec-analyze \"项目需求文档\"")
+print("- 在Gemini CLI中: dnaspec.optimize_context(\"待优化内容\")") 
 print("- 在Qwen CLI中: 使用认知模板结构化复杂任务")
 print()
 

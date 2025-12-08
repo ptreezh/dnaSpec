@@ -29,7 +29,7 @@ class CommandHandler:
         处理命令字符串
         
         Args:
-            command_string: 完整的命令字符串，如 '/speckit.dsgs.architect 设计电商系统'
+            command_string: 完整的命令字符串，如 '/speckit.dnaspec.architect 设计电商系统'
             
         Returns:
             处理结果字典
@@ -71,7 +71,7 @@ class CommandHandler:
             }
             
             description = descriptions.get(skill, f'{skill}功能')
-            commands.append(f'/speckit.dsgs.{skill} [参数] - {description}')
+            commands.append(f'/speckit.dnaspec.{skill} [参数] - {description}')
         
         return commands
     

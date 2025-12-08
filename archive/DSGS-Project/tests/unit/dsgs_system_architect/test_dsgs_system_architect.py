@@ -1,4 +1,4 @@
-# dsgs-system-architect子技能单元测试
+# dnaspec-system-architect子技能单元测试
 
 import sys
 import os
@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..', 'sr
 def test_skill_metadata():
     """测试技能元数据定义"""
     # 测试SKILL.md文件存在
-    skill_md_path = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'skills', 'dsgs-system-architect', 'SKILL.md')
+    skill_md_path = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'skills', 'dnaspec-system-architect', 'SKILL.md')
     assert os.path.exists(skill_md_path), "SKILL.md文件应该存在"
     
     # 读取SKILL.md内容
@@ -20,7 +20,7 @@ def test_skill_metadata():
     assert content.startswith('---'), "文件应该以YAML前言开始"
     
     # 验证必需字段
-    assert 'name: dsgs-system-architect' in content, "应该包含正确的技能名称"
+    assert 'name: dnaspec-system-architect' in content, "应该包含正确的技能名称"
     assert 'description:' in content, "应该包含描述字段"
 
 def test_skill_basic_functionality():
@@ -30,7 +30,7 @@ def test_skill_basic_functionality():
         from dsgs_system_architect import DSGSSystemArchitect
         skill = DSGSSystemArchitect()
         assert skill is not None, "技能实例不应该为空"
-        assert skill.name == "dsgs-system-architect", "技能名称应该正确"
+        assert skill.name == "dnaspec-system-architect", "技能名称应该正确"
     except ImportError as e:
         assert False, f"技能模块导入失败: {e}"
 
@@ -60,7 +60,7 @@ def test_skill_processing():
     result = skill.process_request(test_request)
     
     assert result["status"] == "completed", "处理状态应该正确"
-    assert result["skill"] == "dsgs-system-architect", "技能名称应该正确"
+    assert result["skill"] == "dnaspec-system-architect", "技能名称应该正确"
     assert result["request"] == test_request, "请求内容应该正确"
     assert "architecture_design" in result, "应该包含架构设计结果"
     assert "timestamp" in result, "应该包含时间戳"
@@ -100,7 +100,7 @@ def test_key_points_extraction():
 
 if __name__ == "__main__":
     # 简单测试执行
-    print("Running dsgs-system-architect tests...")
+    print("Running dnaspec-system-architect tests...")
     
     try:
         test_skill_metadata()

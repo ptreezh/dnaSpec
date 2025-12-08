@@ -1,7 +1,7 @@
 # Directory Capsule: test/
 
 ## Purpose
-This directory (`test/`) is the central repository for all automated tests within the Dynamic Specification Growth System (DSGS). It is structured to support a comprehensive testing strategy, encompassing various levels and types of testing to ensure the quality, reliability, and performance of the DSGS. The primary purpose is to provide a robust safety net for development, validate functionalities, and prevent regressions.
+This directory (`test/`) is the central repository for all automated tests within the Dynamic Specification Growth System (DNASPEC). It is structured to support a comprehensive testing strategy, encompassing various levels and types of testing to ensure the quality, reliability, and performance of the DNASPEC. The primary purpose is to provide a robust safety net for development, validate functionalities, and prevent regressions.
 
 ## Key Modules/Files (Examples)
 *   **`unit/`**: Contains unit tests, focusing on isolated components and functions to verify their correctness.

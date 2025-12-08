@@ -119,10 +119,10 @@ class DeploymentConfigChecker:
         print("\n📁 检查项目结构...")
         
         required_paths = [
-            "src/dsgs_spec_kit_integration",
-            "src/dsgs_spec_kit_integration/core",
-            "src/dsgs_spec_kit_integration/skills",
-            "src/dsgs_spec_kit_integration/adapters",
+            "src/dnaspec_spec_kit_integration",
+            "src/dnaspec_spec_kit_integration/core",
+            "src/dnaspec_spec_kit_integration/skills",
+            "src/dnaspec_spec_kit_integration/adapters",
             "tests/unit"
         ]
         
@@ -152,8 +152,8 @@ class DeploymentConfigChecker:
         
         # 检查适配器实现
         adapter_files = [
-            "src/dsgs_spec_kit_integration/adapters/spec_kit_adapter.py",
-            "src/dsgs_spec_kit_integration/adapters/concrete_spec_kit_adapter.py"
+            "src/dnaspec_spec_kit_integration/adapters/spec_kit_adapter.py",
+            "src/dnaspec_spec_kit_integration/adapters/concrete_spec_kit_adapter.py"
         ]
         
         missing_adapters = []

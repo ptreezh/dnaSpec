@@ -1,13 +1,13 @@
-# Dynamic Specification Growth System (DSGS)
+# Dynamic Specification Growth System (DNASPEC)
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/ptreezh/Dynamic-Specification-Growth-System-DSGS)
-![DSGS Logo](https://via.placeholder.com/150) <!-- Replace with actual logo -->
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/ptreezh/Dynamic-Specification-Growth-System-DNASPEC)
+![DNASPEC Logo](https://via.placeholder.com/150) <!-- Replace with actual logo -->
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-blue)](https://nodejs.org/)
 [![npm Version](https://img.shields.io/npm/v/dynamic-specs-growth.svg)](https://www.npmjs.com/package/dynamic-specs-growth)
 
-**Dynamic Specification Growth System (DSGS)** is a next-generation specification management system that dynamically generates context-aware constraints for software development tasks. DSGS helps teams maintain code quality and consistency by providing minimal, task-specific constraints that evolve with your project.
+**Dynamic Specification Growth System (DNASPEC)** is a next-generation specification management system that dynamically generates context-aware constraints for software development tasks. DNASPEC helps teams maintain code quality and consistency by providing minimal, task-specific constraints that evolve with your project.
 
 ## Table of Contents
 - [Features](#features)
@@ -38,10 +38,10 @@
 
 ## Architecture
 
-DSGS follows a layered architecture with clear separation between core logic, integration, and utilities:
+DNASPEC follows a layered architecture with clear separation between core logic, integration, and utilities:
 
 ```
-dsgs/
+dnaspec/
 ├── src/
 │   ├── core/               # Core business logic
 │   │   ├── specification/  # Specification management
@@ -70,8 +70,8 @@ npm install dynamic-specs-growth
 ### From Source
 ```bash
 # Clone the repository
-git clone https://github.com/ptreezh/Dynamic-Specification-Growth-System-DSGS.git
-cd Dynamic-Specification-Growth-System-DSGS
+git clone https://github.com/ptreezh/Dynamic-Specification-Growth-System-DNASPEC.git
+cd Dynamic-Specification-Growth-System-DNASPEC
 
 # Install dependencies
 npm install
@@ -83,14 +83,14 @@ npm run build
 ## Usage
 
 ### IDE Integration (Cline/VS Studio)
-DSGS integrates seamlessly with MCP-compatible IDEs:
+DNASPEC integrates seamlessly with MCP-compatible IDEs:
 
-1. Install the DSGS MCP server:
+1. Install the DNASPEC MCP server:
 ```bash
 npm install -g dynamic-specs-growth
 ```
 
-2. Configure your IDE's MCP settings to include DSGS:
+2. Configure your IDE's MCP settings to include DNASPEC:
 ```json
 {
   "mcpServers": {
@@ -98,7 +98,7 @@ npm install -g dynamic-specs-growth
       "type": "stdio",
       "command": "node",
       "args": [
-        "path/to/dsgs/dist/integration/mcp/McpStdioServer.js"
+        "path/to/dnaspec/dist/integration/mcp/McpStdioServer.js"
       ]
     }
   }
@@ -108,17 +108,17 @@ npm install -g dynamic-specs-growth
 3. Restart your IDE to activate the integration.
 
 ### Command Line Interface
-DSGS provides a CLI for CI/CD integration and standalone usage:
+DNASPEC provides a CLI for CI/CD integration and standalone usage:
 
 ```bash
 # Check constraints for a task
-dsgs check-constraints --tcc-path ./task.tcc --spec-path ./spec.json
+dnaspec check-constraints --tcc-path ./task.tcc --spec-path ./spec.json
 
 # Get system status
-dsgs status
+dnaspec status
 
 # Generate constraints for a task type
-dsgs generate-constraints --task-type SECURITY
+dnaspec generate-constraints --task-type SECURITY
 ```
 
 ### Programmatic Usage
@@ -127,14 +127,14 @@ const { initializeMcpStdioServer } = require('dynamic-specs-growth');
 
 // Start the MCP server
 initializeMcpStdioServer().then(() => {
-  console.log('DSGS server is running');
+  console.log('DNASPEC server is running');
 });
 ```
 
 ## Configuration
 
 ### Basic Configuration
-Create a `dsgs.config.json` file in your project root:
+Create a `dnaspec.config.json` file in your project root:
 
 ```json
 {
@@ -150,7 +150,7 @@ Create a `dsgs.config.json` file in your project root:
 ```
 
 ### MCP Configuration
-Configure DSGS in your IDE's MCP settings:
+Configure DNASPEC in your IDE's MCP settings:
 
 ```json
 {
@@ -173,7 +173,7 @@ Configure DSGS in your IDE's MCP settings:
 ## API Reference
 
 ### MCP Methods
-DSGS implements the following MCP methods:
+DNASPEC implements the following MCP methods:
 
 #### `checkConstraints`
 Validates code against constraints defined in a Task Context Capsule.
@@ -192,7 +192,7 @@ Validates code against constraints defined in a Task Context Capsule.
 ```
 
 #### `getSystemStatus`
-Returns the current status of the DSGS server.
+Returns the current status of the DNASPEC server.
 
 **Returns:**
 ```json
@@ -227,8 +227,8 @@ Returns the current evolution stage of the system.
 ### Getting Started
 ```bash
 # Clone the repository
-git clone https://github.com/ptreezh/Dynamic-Specification-Growth-System-DSGS.git
-cd Dynamic-Specification-Growth-System-DSGS
+git clone https://github.com/ptreezh/Dynamic-Specification-Growth-System-DNASPEC.git
+cd Dynamic-Specification-Growth-System-DNASPEC
 
 # Install dependencies
 npm install
@@ -276,7 +276,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.com) for the integration standard
 - The open-source community for inspiration and support
-- All contributors who have helped improve DSGS
+- All contributors who have helped improve DNASPEC
 
 ## Support
 For help or questions, please open an issue on GitHub or contact the maintainers.

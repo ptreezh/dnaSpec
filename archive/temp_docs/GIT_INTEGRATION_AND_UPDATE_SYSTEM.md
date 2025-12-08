@@ -1,9 +1,9 @@
-# DSGS Context Engineering Skills - Git集成与自动更新系统
+# DNASPEC Context Engineering Skills - Git集成与自动更新系统
 
 ## 1. 项目宪法更新
 
 ### 1.1 项目使命更新
-DSGS Context Engineering Skills System 现在是一个**AI原生上下文工程增强工具集**，具备完整的Git版本管理和自动更新能力。系统不仅提供专业的上下文分析、优化和结构化能力，还支持持续演进和自我更新。
+DNASPEC Context Engineering Skills System 现在是一个**AI原生上下文工程增强工具集**，具备完整的Git版本管理和自动更新能力。系统不仅提供专业的上下文分析、优化和结构化能力，还支持持续演进和自我更新。
 
 ### 1.2 核心架构原则
 - **AI原生智能**: 充分利用AI模型原生能力，无本地模型依赖
@@ -22,7 +22,7 @@ DSGS_Context_Engineering/
 ├── CHANGELOG.md            # 变更日志
 ├── COMMIT_HISTORY.md       # 提交历史
 ├── src/
-│   └── dsgs_context_engineering/
+│   └── dnaspec_context_engineering/
 │       ├── version_manager.py     # 版本管理器
 │       ├── git_integration.py     # Git集成工具
 │       └── update_system.py       # 自动更新系统
@@ -40,7 +40,7 @@ DSGS_Context_Engineering/
 
 #### 2.2.1 VERSION文件管理
 ```python
-# src/dsgs_context_engineering/version_manager.py
+# src/dnaspec_context_engineering/version_manager.py
 from typing import Dict, Any
 import subprocess
 import sys
@@ -201,20 +201,20 @@ def verify_git_integration(self) -> bool:
 ### 8.1 验证步骤
 ```bash
 # 1. 克隆项目
-git clone https://github.com/your-org/dsgs-context-engineering.git
+git clone https://github.com/your-org/dnaspec-context-engineering.git
 
 # 2. 检查版本
-cd dsgs-context-engineering
-python -m src.dsgs_context_engineering.version_manager status
+cd dnaspec-context-engineering
+python -m src.dnaspec_context_engineering.version_manager status
 
 # 3. 检查更新
-python -m src.dsgs_context_engineering.version_manager check
+python -m src.dnaspec_context_engineering.version_manager check
 
 # 4. 创建备份
-python -m src.dsgs_context_engineering.version_manager backup
+python -m src.dnaspec_context_engineering.version_manager backup
 
 # 5. 执行更新
-python -m src.dsgs_context_engineering.version_manager update
+python -m src.dnaspec_context_engineering.version_manager update
 ```
 
 ### 8.2 验证结果

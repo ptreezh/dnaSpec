@@ -1,4 +1,4 @@
-# DSGS Phase 3 状态总结 - 保存完成
+# DNASPEC Phase 3 状态总结 - 保存完成
 
 ## 🎯 项目状态已保存
 
@@ -164,4 +164,4 @@ npm run test:property:unit  # 属性测试验证
 **预估时间**: 4-6小时完成真实验证  
 **最终目标**: 建立可信赖的世界级测试体系  
 
-**启动命令**: `cd D:\DAIP\dnaSpec\dsgs && cat NEXT_LAUNCH_GUIDE.md`
+**启动命令**: `cd D:\DAIP\dnaSpec\dnaspec && cat NEXT_LAUNCH_GUIDE.md`

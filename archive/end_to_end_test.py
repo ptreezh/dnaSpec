@@ -1,7 +1,7 @@
 """
 端到端功能验证脚本
 """
-from src.dsgs_spec_kit_integration import (
+from src.dnaspec_spec_kit_integration import (
     CommandParser,
     SkillMapper,
     PythonBridge,
@@ -25,7 +25,7 @@ def test_end_to_end():
     
     # 测试命令解析
     print("\n1. 测试命令解析...")
-    parsed = parser.parse('/speckit.dsgs.architect 电商系统设计')
+    parsed = parser.parse('/speckit.dnaspec.architect 电商系统设计')
     print(f"   解析结果: {parsed}")
     assert parsed['isValid'] == True
     assert parsed['skill'] == 'architect'
@@ -36,7 +36,7 @@ def test_end_to_end():
     print("\n2. 测试技能映射...")
     mapped_skill = skill_mapper.map('architect')
     print(f"   映射结果: {mapped_skill}")
-    assert mapped_skill == 'dsgs-architect'
+    assert mapped_skill == 'dnaspec-architect'
     print("   ✓ 技能映射测试通过")
     
     # 测试技能执行
@@ -49,7 +49,7 @@ def test_end_to_end():
     
     # 测试完整命令处理
     print("\n4. 测试完整命令处理...")
-    command_result = command_handler.handle_command('/speckit.dsgs.architect 博客系统')
+    command_result = command_handler.handle_command('/speckit.dnaspec.architect 博客系统')
     print(f"   完整处理结果: {command_result}")
     assert command_result['success'] == True
     assert '[WebApp]' in command_result['result']
@@ -76,7 +76,7 @@ def test_error_handling():
     
     # 测试不存在的技能
     print("\n2. 测试不存在的技能...")
-    result = command_handler.handle_command('/speckit.dsgs.nonexistent test')
+    result = command_handler.handle_command('/speckit.dnaspec.nonexistent test')
     print(f"   不存在技能处理结果: {result}")
     assert result['success'] == False
     print("   ✓ 不存在技能处理测试通过")
@@ -102,9 +102,9 @@ def main():
         # 展示一些示例命令
         print("\n示例命令:")
         examples = [
-            "/speckit.dsgs.architect 设计一个电商系统",
-            "/speckit.dsgs.agent-creator 创建一个订单处理智能体",
-            "/speckit.dsgs.task-decomposer 分解电商系统开发任务"
+            "/speckit.dnaspec.architect 设计一个电商系统",
+            "/speckit.dnaspec.agent-creator 创建一个订单处理智能体",
+            "/speckit.dnaspec.task-decomposer 分解电商系统开发任务"
         ]
         for example in examples:
             print(f"  {example}")

@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - OpenSpec架构设计规范
+# DNASPEC Context Engineering Skills - OpenSpec架构设计规范
 
 ## 1. 架构概述
 
@@ -33,7 +33,7 @@
 │                                    │
 │                                    ▼ (通过DSGS接口)
 ┌─────────────────────────────────────────────────────────────────────────┐
-│              DSGS Context Engineering Skills System                 │
+│              DNASPEC Context Engineering Skills System                 │
 │  ┌─────────────────────────────────────────────────────────────────┐   │
 │  │                        Skills Layer                           │   │
 │  │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐│   │
@@ -53,9 +53,9 @@
 │                                    │
 │                                    ▼
 │  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                     DSGS Core Framework                       │   │
+│  │                     DNASPEC Core Framework                       │   │
 │  │  ┌─────────────────────────────────────────────────────────┐  │   │
-│  │  │  Skill Base Class (DSGSSkill)                        │  │   │
+│  │  │  Skill Base Class (DNASpecSkill)                        │  │   │
 │  │  │  - process_request()                                  │  │   │
 │  │  │  - _execute_skill_logic()                             │  │   │
 │  │  │  - _calculate_confidence()                            │  │   │
@@ -77,9 +77,9 @@
 
 ### 3.1 核心模块 (Core Modules)
 
-#### 3.1.1 DSGSSkill (核心基类 - src.dsgs_spec_kit_integration.core.skill)
+#### 3.1.1 DNASpecSkill (核心基类 - src.dnaspec_spec_kit_integration.core.skill)
 ```python
-class DSGSSkill(ABC):
+class DNASpecSkill(ABC):
     """
     DSGS技能基类
     定义统一的技能接口和执行模式
@@ -97,9 +97,9 @@ class DSGSSkill(ABC):
 **接口**: DSGSSkill基类
 **职责**: 定义统一技能接口、错误处理、结果格式化
 
-#### 3.1.2 ContextAnalysisSkill (上下文分析 - src/dsgs_context_engineering/skills/context_analysis.py)
+#### 3.1.2 ContextAnalysisSkill (上下文分析 - src/dnaspec_context_engineering/skills/context_analysis.py)
 ```python
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """
     上下文分析技能
     利用AI原生智能进行专业上下文质量分析
@@ -113,9 +113,9 @@ class ContextAnalysisSkill(DSGSSkill):
 **接口**: execute_with_ai()
 **职责**: 执行上下文质量五维分析
 
-#### 3.1.3 ContextOptimizationSkill (上下文优化 - src/dsgs_context_engineering/skills/context_optimization.py)
+#### 3.1.3 ContextOptimizationSkill (上下文优化 - src/dnaspec_context_engineering/skills/context_optimization.py)
 ```python
-class ContextOptimizationSkill(DSGSSkill):
+class ContextOptimizationSkill(DNASpecSkill):
     """
     上下文优化技能
     利用AI原生推理能力进行上下文优化
@@ -129,9 +129,9 @@ class ContextOptimizationSkill(DSGSSkill):
 **接口**: execute_with_ai()
 **职责**: 执行多目标上下文优化
 
-#### 3.1.4 CognitiveTemplateSkill (认知模板 - src/dsgs_context_engineering/skills/cognitive_template.py)
+#### 3.1.4 CognitiveTemplateSkill (认知模板 - src/dnaspec_context_engineering/skills/cognitive_template.py)
 ```python
-class CognitiveTemplateSkill(DSGSSkill):
+class CognitiveTemplateSkill(DNASpecSkill):
     """
     认知模板技能
     利用AI原生推理能力应用认知模板
@@ -147,24 +147,24 @@ class CognitiveTemplateSkill(DSGSSkill):
 
 ### 3.2 集成模块 (Integration Modules)
 
-#### 3.2.1 API Adapter Layer (src/dsgs_context_engineering/adapters/)
+#### 3.2.1 API Adapter Layer (src/dnaspec_context_engineering/adapters/)
 - **ClaudeAPIAdapter**: Anthropic Claude Tools API适配器
 - **GeminiAPIAdapter**: Google Gemini Functions API适配器  
 - **GenericAPIAdapter**: 通用API适配器
 
-#### 3.2.2 CLI Interface (src/dsgs_context_engineering/cli_interface.py)
+#### 3.2.2 CLI Interface (src/dnaspec_context_engineering/cli_interface.py)
 - **execute()**: CLI命令执行接口
 - **统一错误处理**: 一致的错误信息格式
 - **参数校验**: 标准参数验证逻辑
 
 ### 3.3 工具模块 (Utility Modules)
 
-#### 3.3.1 ContextProcessor (src/dsgs_context_engineering/utils/context_processor.py)
+#### 3.3.1 ContextProcessor (src/dnaspec_context_engineering/utils/context_processor.py)
 - **上下文预处理**: 格式化和验证输入上下文
 - **上下文后处理**: 解析和格式化AI响应
 - **指令模板**: AI指令构造模板
 
-#### 3.3.2 ResultFormatter (src/dsgs_context_engineering/utils/result_formatter.py)
+#### 3.3.2 ResultFormatter (src/dnaspec_context_engineering/utils/result_formatter.py)
 - **结构化输出**: 将AI响应转为结构化格式
 - **标准化格式**: 统一结果格式输出
 - **错误格式化**: 一致的错误信息处理
@@ -246,14 +246,14 @@ class CognitiveTemplateSkill(DSGSSkill):
 
 ### 5.1 指令接口 (Command Interface)
 ```
-/dsgs-analyze <上下文内容>
-/dsgs-optimize <上下文内容> --goals <优化目标>
-/dsgs-template <任务描述> --template <模板类型>
+/dnaspec-analyze <上下文内容>
+/dnaspec-optimize <上下文内容> --goals <优化目标>
+/dnaspec-template <任务描述> --template <模板类型>
 ```
 
 ### 5.2 编程接口 (Programmatic Interface)
 ```python
-from src.dsgs_context_engineering.skills_system_final_clean import (
+from src.dnaspec_context_engineering.skills_system_final_clean import (
     ContextAnalysisSkill,
     ContextOptimizationSkill, 
     CognitiveTemplateSkill,
@@ -291,7 +291,7 @@ POST /skills/execute
 ### 6.1 本地部署模式
 ```
 AI CLI Platform (Claude/Gemini/Qwen) 
-    └─ DSGS Context Engineering Skills (Plugin/Extension)
+    └─ DNASPEC Context Engineering Skills (Plugin/Extension)
         └─ AI API Access (Anthropic/Google/OpenAI)
 ```
 
@@ -301,7 +301,7 @@ AI CLI Platform (Claude/Gemini/Qwen)
 │                        AI CLI Platform                         │
 ├─────────────────────────────────────────────────────────────────┤
 │  ┌─────────────────────────────────────────────────────────┐   │
-│  │                   DSGS Gateway                          │   │
+│  │                   DNASPEC Gateway                          │   │
 │  │  ┌─────────────────┐  ┌─────────────────┐  ┌───────────┐ │   │
 │  │  │  Request Queue │  │  Skill Router  │  │  Circuit  │ │   │
 │  │  │  (Rate Limit)  │  │  (Skill Select)│  │  Breaker  │ │   │
@@ -310,7 +310,7 @@ AI CLI Platform (Claude/Gemini/Qwen)
 │                                    │
 │                                    ▼
 │  ┌─────────────────────────────────────────────────────────────────┐
-│  │              DSGS Context Engineering Cluster                │
+│  │              DNASPEC Context Engineering Cluster                │
 │  └─────────────────────────────────────────────────────────────────┘
 │                                    │
 │                                    ▼
@@ -362,7 +362,7 @@ AI CLI Platform (Claude/Gemini/Qwen)
 
 **架构版本**: 2.0 (AI原生设计版)  
 **设计日期**: 2025-11-06
-**架构师**: DSGS Context Engineering Team
+**架构师**: DNASPEC Context Engineering Team
 **审核状态**: APPROVED
 **实施状态**: COMPLETED
 **置信度**: 98%

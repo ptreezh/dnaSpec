@@ -8,7 +8,7 @@ import os
 # 将项目添加到路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - AI原生验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生验证")
 print("=" * 70)
 print()
 
@@ -18,7 +18,7 @@ def test_ai_native_design():
     
     # 检查是否真的没有本地模型依赖
     import inspect
-    from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+    from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
     
     # 验证ContextAnalysisSkill没有复杂的本地算法
     skill_source = inspect.getsource(ContextAnalysisSkill)
@@ -49,14 +49,14 @@ def test_skill_interfaces():
     print("\\n✅ 验证2: 技能接口一致性")
     
     try:
-        from src.dsgs_context_engineering.skills_system_real import (
+        from src.dnaspec_context_engineering.skills_system_real import (
             ContextAnalysisSkill,
             ContextOptimizationSkill, 
             CognitiveTemplateSkill
         )
         
         # 验证所有技能都继承自DSGSSkill
-        from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
+        from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
         
         skills = [
             ContextAnalysisSkill(),
@@ -64,7 +64,7 @@ def test_skill_interfaces():
             CognitiveTemplateSkill()
         ]
         
-        all_inherit_base = all(isinstance(skill, DSGSSkill) for skill in skills)
+        all_inherit_base = all(isinstance(skill, DNASpecSkill) for skill in skills)
         print(f"   继承DSGSSkill基类: {all_inherit_base}")
         
         # 验证接口方法
@@ -94,7 +94,7 @@ def test_context_analysis():
     print("\\n✅ 验证3: Context Analysis 功能")
     
     try:
-        from src.dsgs_context_engineering.skills_system_real import ContextAnalysisSkill
+        from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
         
         skill = ContextAnalysisSkill()
         
@@ -131,7 +131,7 @@ def test_context_optimization():
     print("\\n✅ 验证4: Context Optimization 功能")
     
     try:
-        from src.dsgs_context_engineering.skills_system_real import ContextOptimizationSkill
+        from src.dnaspec_context_engineering.skills_system_real import ContextOptimizationSkill
         
         skill = ContextOptimizationSkill()
         
@@ -168,7 +168,7 @@ def test_cognitive_template():
     print("\\n✅ 验证5: Cognitive Template 功能")
     
     try:
-        from src.dsgs_context_engineering.skills_system_real import CognitiveTemplateSkill
+        from src.dnaspec_context_engineering.skills_system_real import CognitiveTemplateSkill
         
         skill = CognitiveTemplateSkill()
         
@@ -207,7 +207,7 @@ def test_system_integration():
     print("\\n✅ 验证6: 系统集成")
     
     try:
-        from src.dsgs_context_engineering.skills_system_real import ContextEngineeringSystem
+        from src.dnaspec_context_engineering.skills_system_real import ContextEngineeringSystem
         
         system = ContextEngineeringSystem()
         
@@ -233,7 +233,7 @@ def test_git_integration():
     print("\\n✅ 验证7: Git集成")
     
     try:
-        from src.dsgs_context_engineering.version_manager import DSGSVersionManager
+        from src.dnaspec_context_engineering.version_manager import DSGSVersionManager
         
         vm = DSGSVersionManager()
         current_version = vm.get_current_version()
@@ -254,7 +254,7 @@ def test_git_integration():
 
 def main():
     """主验证函数"""
-    print("DSGS Context Engineering Skills - AI原生实现验证")
+    print("DNASPEC Context Engineering Skills - AI原生实现验证")
     print("此验证确认系统真正利用AI模型原生智能，而非本地模型")
     print()
     

@@ -22,14 +22,14 @@
 - `cognitive-template-enhanced` - 增强认知模板
 - `context-engineering-workflow` - 上下文工程工作流
 
-### DSGS Intelligent Architect Skills
-- `dsgs-architect` - DSGS架构师
-- `dsgs-system-architect` - DSGS系统架构师
-- `dsgs-agent-creator` - DSGS智能体创建器
-- `dsgs-constraint-generator` - DSGS约束生成器
-- `dsgs-task-decomposer` - DSGS任务分解器
-- `dsgs-modulizer` - DSGS模块化验证器
-- `dsgs-dapi-checker` - DSGS接口检查器
+### DNASPEC Intelligent Architect Skills
+- `dnaspec-architect` - DSGS架构师
+- `dnaspec-system-architect` - DSGS系统架构师
+- `dnaspec-agent-creator` - DSGS智能体创建器
+- `dnaspec-constraint-generator` - DSGS约束生成器
+- `dnaspec-task-decomposer` - DSGS任务分解器
+- `dnaspec-modulizer` - DSGS模块化验证器
+- `dnaspec-dapi-checker` - DSGS接口检查器
 
 ## 技术实现详情
 
@@ -44,13 +44,13 @@
 以下技能包含实际的Python脚本支持以增强功能：
 - `context-analysis-enhanced` - context_analyzer.py
 - `context-optimization-enhanced` - context_optimizer.py
-- `dsgs-task-decomposer` - task_decomposer.py
-- `dsgs-constraint-generator` - constraint_generator.py
-- `dsgs-dapi-checker` - dapi_checker.py
-- `dsgs-agent-creator` - agent_creator.py
-- `dsgs-architect` - architect_coordinator.py
-- `dsgs-system-architect` - system_architect_designer.py
-- `dsgs-modulizer` - modulizer.py
+- `dnaspec-task-decomposer` - task_decomposer.py
+- `dnaspec-constraint-generator` - constraint_generator.py
+- `dnaspec-dapi-checker` - dapi_checker.py
+- `dnaspec-agent-creator` - agent_creator.py
+- `dnaspec-architect` - architect_coordinator.py
+- `dnaspec-system-architect` - system_architect_designer.py
+- `dnaspec-modulizer` - modulizer.py
 
 ### 平台兼容性
 - **Claude Skills**: 通过SKILL.md文件实现完整功能
@@ -71,13 +71,13 @@
 - `/context-optimization-enhanced` - 增强上下文优化
 - `/cognitive-template-enhanced` - 增认知模板
 - `/context-engineering-workflow` - 上下文工程工作流
-- `/dsgs-architect` - DSGS架构师
-- `/dsgs-system-architect` - DSGS系统架构师
-- `/dsgs-agent-creator` - DSGS智能体创建器
-- `/dsgs-constraint-generator` - DSGS约束生成器
-- `/dsgs-task-decomposer` - DSGS任务分解器
-- `/dsgs-modulizer` - DSGS模块化验证器
-- `/dsgs-dapi-checker` - DSGS接口检查器
+- `/dnaspec-architect` - DSGS架构师
+- `/dnaspec-system-architect` - DSGS系统架构师
+- `/dnaspec-agent-creator` - DSGS智能体创建器
+- `/dnaspec-constraint-generator` - DSGS约束生成器
+- `/dnaspec-task-decomposer` - DSGS任务分解器
+- `/dnaspec-modulizer` - DSGS模块化验证器
+- `/dnaspec-dapi-checker` - DSGS接口检查器
 
 ### 不可使用的功能
 - 短命令/快捷方式 (如 `/spec`, `/ca`, `/da` 等) - 这些是概念性的，需要平台级配置才能实现
@@ -97,9 +97,9 @@
 3. `/context-engineering-workflow [内容]` - 完整工作流
 
 #### 系统设计流程
-1. `/dsgs-architect [需求]` - 设计系统架构
-2. `/dsgs-task-decomposer [架构]` - 分解任务
-3. `/dsgs-constraint-generator [架构]` - 生成约束
+1. `/dnaspec-architect [需求]` - 设计系统架构
+2. `/dnaspec-task-decomposer [架构]` - 分解任务
+3. `/dnaspec-constraint-generator [架构]` - 生成约束
 
 ## 功能完整性
 

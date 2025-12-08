@@ -15,7 +15,7 @@ class LocalAdaptationSystem:
     
     def __init__(self):
         self.project_root = Path(__file__).parent.absolute()
-        self.config_dir = self.project_root / ".dsgs"
+        self.config_dir = self.project_root / ".dnaspec"
         self.adaptation_config = {}
         self.system_status = {}
     

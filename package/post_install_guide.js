@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * DSGS Context Engineering Skills - Post-installation Guide
+ * DNASPEC Context Engineering Skills - Post-installation Guide
  * Provides post-installation verification and usage guide
  */
 const { execSync, spawnSync } = require('child_process');
@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 function checkInstallation() {
-    console.log('DSGS Context Engineering Skills - Post-installation Verification');
+    console.log('DNASPEC Context Engineering Skills - Post-installation Verification');
     console.log('=' * 70);
     console.log('');
 
@@ -29,7 +29,7 @@ function checkInstallation() {
     console.log('');
     console.log('2. Verifying Python integration...');
     try {
-        const result = execSync('python -c "from src.dsgs_context_engineering.skills_system_final import execute; print(\'DSGS Core Module OK\')"', { encoding: 'utf-8' });
+        const result = execSync('python -c "from src.dnaspec_context_engineering.skills_system_final import execute; print(\'DNASPEC Core Module OK\')"', { encoding: 'utf-8' });
         console.log('   [OK] Python integration working');
         console.log(`   Result: ${result.trim()}`);
     } catch (error) {
@@ -42,7 +42,7 @@ function checkInstallation() {
     console.log('');
     console.log('3. Verifying AI CLI tools detection...');
     try {
-        const result = execSync('python -c "from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector; detector = CliDetector(); results = detector.detect_all(); print(dict((k, v.get(\'installed\', False)) for k, v in results.items()))"', { encoding: 'utf-8' });
+        const result = execSync('python -c "from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector; detector = CliDetector(); results = detector.detect_all(); print(dict((k, v.get(\'installed\', False)) for k, v in results.items()))"', { encoding: 'utf-8' });
         console.log('   [OK] CLI detection system working');
         console.log(`   Detected tools: ${result.trim()}`);
     } catch (error) {
@@ -56,34 +56,34 @@ function checkInstallation() {
 
 function showUsageGuide() {
     console.log('');
-    console.log('DSGS Context Engineering Skills - Usage Guide');
+    console.log('DNASPEC Context Engineering Skills - Usage Guide');
     console.log('=' * 70);
     console.log('');
-    console.log('Congratulations! DSGS has been successfully installed and configured.');
+    console.log('Congratulations! DNASPEC has been successfully installed and configured.');
     console.log('');
     console.log('Available Commands in AI CLI Tools:');
-    console.log('  /speckit.dsgs.context-analysis [context]    # Analyze context quality');
-    console.log('  /speckit.dsgs.context-optimization [context] # Optimize context');
-    console.log('  /speckit.dsgs.cognitive-template [task]      # Apply cognitive template');
-    console.log('  /speckit.dsgs.architect [requirements]       # System architecture design');
-    console.log('  /speckit.dsgs.agent-creator [spec]           # Create AI agent');
-    console.log('  /speckit.dsgs.task-decomposer [task]         # Decompose complex tasks');
-    console.log('  /speckit.dsgs.constraint-generator [reqs]    # Generate system constraints');
-    console.log('  /speckit.dsgs.modulizer [system]             # System modularization');
-    console.log('  /speckit.dsgs.dapi-checker [api]             # API interface validation');
+    console.log('  /speckit.dnaspec.context-analysis [context]    # Analyze context quality');
+    console.log('  /speckit.dnaspec.context-optimization [context] # Optimize context');
+    console.log('  /speckit.dnaspec.cognitive-template [task]      # Apply cognitive template');
+    console.log('  /speckit.dnaspec.architect [requirements]       # System architecture design');
+    console.log('  /speckit.dnaspec.agent-creator [spec]           # Create AI agent');
+    console.log('  /speckit.dnaspec.task-decomposer [task]         # Decompose complex tasks');
+    console.log('  /speckit.dnaspec.constraint-generator [reqs]    # Generate system constraints');
+    console.log('  /speckit.dnaspec.modulizer [system]             # System modularization');
+    console.log('  /speckit.dnaspec.dapi-checker [api]             # API interface validation');
     console.log('');
     console.log('Quick Start Examples:');
     console.log('  1. Context Analysis:');
-    console.log('     /speckit.dsgs.context-analysis "Design a user authentication system"');
+    console.log('     /speckit.dnaspec.context-analysis "Design a user authentication system"');
     console.log('');
     console.log('  2. Context Optimization:');
-    console.log('     /speckit.dsgs.context-optimization "Create a web app"');
+    console.log('     /speckit.dnaspec.context-optimization "Create a web app"');
     console.log('');
     console.log('  3. Cognitive Template Application:');
-    console.log('     /speckit.dsgs.cognitive-template "How to optimize database queries" template=verification');
+    console.log('     /speckit.dnaspec.cognitive-template "How to optimize database queries" template=verification');
     console.log('');
     console.log('  4. System Architecture Design:');
-    console.log('     /speckit.dsgs.architect "Build an e-commerce platform"');
+    console.log('     /speckit.dnaspec.architect "Build an e-commerce platform"');
     console.log('');
     console.log('Advanced Features:');
     console.log('  - Agentic Design: Create specialized AI agents for specific tasks');
@@ -92,7 +92,7 @@ function showUsageGuide() {
     console.log('  - Safety Workflows: Protected AI interaction with temporary workspaces');
     console.log('');
     console.log('Troubleshooting:');
-    console.log('  If AI CLI tools don\'t recognize DSGS commands:');
+    console.log('  If AI CLI tools don\'t recognize DNASPEC commands:');
     console.log('    1. Wait a few minutes for AI tool to refresh tools list');
     console.log('    2. Restart your AI CLI client');
     console.log('    3. Run: dnaspec init (to re-run auto-configuration)');
@@ -102,22 +102,22 @@ function showUsageGuide() {
     console.log('  - Run: dnaspec help');
     console.log('  - Contact: 3061176@qq.com');
     console.log('');
-    console.log('Happy Coding with DSGS Context Engineering Skills!');
+    console.log('Happy Coding with DNASPEC Context Engineering Skills!');
 }
 
 function main() {
-    console.log('Checking DSGS installation status...');
+    console.log('Checking DNASPEC installation status...');
     
     const installationOk = checkInstallation();
     
     if (installationOk) {
         console.log('');
-        console.log('[SUCCESS] DSGS installation verified successfully!');
+        console.log('[SUCCESS] DNASPEC installation verified successfully!');
         console.log('');
         showUsageGuide();
     } else {
         console.log('');
-        console.log('[FAILURE] DSGS installation has issues.');
+        console.log('[FAILURE] DNASPEC installation has issues.');
         console.log('Please reinstall using: npm install -g dnaspec');
     }
 }

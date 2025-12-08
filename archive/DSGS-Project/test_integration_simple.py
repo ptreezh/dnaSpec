@@ -35,15 +35,15 @@ def test_integration():
     
     # 1. 验证主技能能正确路由到系统架构师
     routed_skill = main_skill._route_request(test_request)
-    if routed_skill == "dsgs-system-architect":
+    if routed_skill == "dnaspec-system-architect":
         print("✓ 主技能路由测试通过")
     else:
-        print(f"✗ 主技能路由测试失败: 期望'dsgs-system-architect'，实际'{routed_skill}'")
+        print(f"✗ 主技能路由测试失败: 期望'dnaspec-system-architect'，实际'{routed_skill}'")
         return
     
     # 2. 验证系统架构师子技能能正确处理请求
     result = system_architect_skill.process_request(test_request)
-    if result["status"] == "completed" and result["skill"] == "dsgs-system-architect":
+    if result["status"] == "completed" and result["skill"] == "dnaspec-system-architect":
         print("✓ 子技能处理测试通过")
     else:
         print(f"✗ 子技能处理测试失败: 状态={result['status']}, 技能={result['skill']}")
@@ -51,7 +51,7 @@ def test_integration():
     
     # 3. 验证完整流程
     main_result = main_skill.process_request(test_request)
-    if main_result["status"] == "processed" and main_result["skill_used"] == "dsgs-system-architect":
+    if main_result["status"] == "processed" and main_result["skill_used"] == "dnaspec-system-architect":
         print("✓ 完整流程测试通过")
     else:
         print(f"✗ 完整流程测试失败: 状态={main_result['status']}, 使用技能={main_result['skill_used']}")

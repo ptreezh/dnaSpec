@@ -1,11 +1,11 @@
 ---
 allowed-tools: Bash(fs.createFile:*), Bash(fs.writeFile:*), Bash(fs.readFile:*)
 argument-hint: [system-components]
-description: DSGS Distributed API Documentation Checker for verifying interface consistency and completeness across system components.
+description: DNASPEC Distributed API Documentation Checker for verifying interface consistency and completeness across system components.
 model: claude-3-5-sonnet-20241022
 ---
 
-# DSGS Distributed API Documentation Check Process (DAPIcheck)
+# DNASPEC Distributed API Documentation Check Process (DAPIcheck)
 
 ## Task
 Perform interface consistency checking for the following system components: $ARGUMENTS
@@ -183,4 +183,4 @@ Please provide:
    - Documentation standards
    - Review procedures
 
-Structure your response following the DSGS DAPIcheck methodology with comprehensive interface consistency analysis.
+Structure your response following the DNASPEC DAPIcheck methodology with comprehensive interface consistency analysis.

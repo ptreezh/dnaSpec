@@ -1,33 +1,33 @@
-# DSGS Context Engineering Integration
+# DNASPEC Context Engineering Integration
 
 本项目将上下文工程技能成功集成到DSGS（Dynamic Specification Growth System）框架中，实现了与原有技能系统的完全兼容。
 
 ## 集成概述
 
 上下文工程技能现已完全集成到DSGS生态系统中，遵循相同的架构模式：
-- 继承自 `DSGSSkill` 基类
+- 继承自 `DNASpecSkill` 基类
 - 实现标准的 `process_request()` 方法
 - 返回统一的 `SkillResult` 对象
 - 支持置信度计算和错误处理
 
 ## 集成的技能
 
-### 1. Context Analysis Skill (`dsgs-context-analysis`)
+### 1. Context Analysis Skill (`dnaspec-context-analysis`)
 - 分析上下文的质量和有效性
 - 评估清晰度、相关性、完整性等指标
 - 与原有技能一致的接口和行为
 
-### 2. Context Optimization Skill (`dsgs-context-optimization`) 
+### 2. Context Optimization Skill (`dnaspec-context-optimization`) 
 - 基于分析结果优化上下文质量
 - 自动改进上下文的结构和内容
 - 与DSGS框架完全兼容
 
-### 3. Cognitive Template Skill (`dsgs-cognitive-template`)
+### 3. Cognitive Template Skill (`dnaspec-cognitive-template`)
 - 应用认知模板到上下文工程任务
 - 提供思维链、验证检查等推理框架
 - 遵循DSGS技能协议
 
-### 4. Context Engineering System (`dsgs-context-engineering-system`)
+### 4. Context Engineering System (`dnaspec-context-engineering-system`)
 - 综合的上下文工程解决方案
 - 支持项目分解和AI Agentic架构上下文管理
 - 完全集成到DSGS技能栈中

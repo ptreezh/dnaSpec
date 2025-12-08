@@ -1,11 +1,11 @@
 """
-DSGS Context Engineering Skills - AI native implementation (final clean version)
+DNASPEC Context Engineering Skills - AI native implementation (final clean version)
 Leveraging native AI intelligence through instruction engineering, not local models
 """
 import json
 import random
 from typing import Dict, Any
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 
 
 def simulate_ai_completion(instruction: str) -> str:
@@ -102,13 +102,13 @@ def simulate_ai_completion(instruction: str) -> str:
         return json.dumps(result_data, ensure_ascii=False, indent=2)
 
 
-class ContextAnalysisSkill(DSGSSkill):
+class ContextAnalysisSkill(DNASpecSkill):
     """Context Analysis Skill - leveraging native AI intelligence for analysis"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-analysis",
-            description="DSGS Context Analysis Skill - Professional context quality analysis using native AI intelligence"
+            name="dnaspec-context-analysis",
+            description="DNASPEC Context Analysis Skill - Professional context quality analysis using native AI intelligence"
         )
     
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
@@ -160,13 +160,13 @@ Please return analysis results in JSON format.
             return 0.85  # High confidence for appropriate length
 
 
-class ContextOptimizationSkill(DSGSSkill):
+class ContextOptimizationSkill(DNASpecSkill):
     """Context Optimization Skill - leveraging native AI intelligence for optimization"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-context-optimization",
-            description="DSGS Context Optimization Skill - AI-powered context quality optimization using native intelligence"
+            name="dnaspec-context-optimization",
+            description="DNASPEC Context Optimization Skill - AI-powered context quality optimization using native intelligence"
         )
     
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
@@ -219,13 +219,13 @@ Return optimized content and applied improvements in JSON format.
             return 0.8  # Good confidence for normal context
 
 
-class CognitiveTemplateSkill(DSGSSkill):
+class CognitiveTemplateSkill(DNASpecSkill):
     """Cognitive Template Skill - applying native AI cognitive capabilities"""
     
     def __init__(self):
         super().__init__(
-            name="dsgs-cognitive-template",
-            description="DSGS Cognitive Template Skill - Applying cognitive templates to structure reasoning using AI native intelligence"
+            name="dnaspec-cognitive-template",
+            description="DNASPEC Cognitive Template Skill - Applying cognitive templates to structure reasoning using AI native intelligence"
         )
         
         self.templates = {

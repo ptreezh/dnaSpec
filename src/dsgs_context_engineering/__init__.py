@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills Package Initialization
+DNASPEC Context Engineering Skills Package Initialization
 """
 from typing import Dict, Any, List
 from .core_skill import ContextEngineeringSkill, SkillResult, SkillsManager
@@ -12,14 +12,14 @@ from .skills.cognitive_template import CognitiveTemplateSkill, execute as cognit
 
 
 __version__ = "1.0.0"
-__author__ = "DSGS Context Engineering Team"
+__author__ = "DNASPEC Context Engineering Team"
 __description__ = "AI CLI平台的上下文工程增强工具集"
 
 
 def get_system_info() -> Dict[str, Any]:
     """获取系统信息"""
     return {
-        'name': 'DSGS Context Engineering Skills System',
+        'name': 'DNASPEC Context Engineering Skills System',
         'version': __version__,
         'description': __description__,
         'modules': [

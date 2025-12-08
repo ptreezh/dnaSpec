@@ -1,4 +1,4 @@
-# DSGS 文档驱动开发工作流规范
+# DNASPEC 文档驱动开发工作流规范
 
 ## 📋 目标
 - 强制保障所有开发活动必须参考现有文档
@@ -443,7 +443,7 @@ npm run docs:report
 
 ### 1. 新人培训
 ```markdown
-## DSGS 文档驱动开发培训
+## DNASPEC 文档驱动开发培训
 
 ### 📚 必读文档
 1. [API 接口文档](docs/API_INTERFACE_DOCUMENTATION.md)

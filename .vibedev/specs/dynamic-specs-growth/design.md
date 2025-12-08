@@ -1,7 +1,7 @@
-# Dynamic Specification Growth System (DSGS) Design Document
+# Dynamic Specification Growth System (DNASPEC) Design Document
 
 ## 1. Overview
-This document outlines the technical design for the Dynamic Specification Growth System (DSGS), a system that manages software engineering complexity through hierarchical, context-aware constraints. The system follows a phased approach, starting with a lightweight MVP and evolving into a full-featured specification management system. The design emphasizes minimal dependencies for the MVP while providing a clear path for future enhancements.
+This document outlines the technical design for the Dynamic Specification Growth System (DNASPEC), a system that manages software engineering complexity through hierarchical, context-aware constraints. The system follows a phased approach, starting with a lightweight MVP and evolving into a full-featured specification management system. The design emphasizes minimal dependencies for the MVP while providing a clear path for future enhancements.
 
 ## 2. Architecture
 The system follows a strict hierarchical, tree-structured architecture with top-down design and bottom-up implementation principles:

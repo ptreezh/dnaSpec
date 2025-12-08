@@ -1,4 +1,4 @@
-# dsgs-architect主技能单元测试
+# dnaspec-architect主技能单元测试
 
 import sys
 import os
@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'src'))
 def test_skill_metadata():
     """测试技能元数据定义"""
     # 测试SKILL.md文件存在
-    skill_md_path = os.path.join(os.path.dirname(__file__), '..', '..', 'skills', 'dsgs-architect', 'SKILL.md')
+    skill_md_path = os.path.join(os.path.dirname(__file__), '..', '..', 'skills', 'dnaspec-architect', 'SKILL.md')
     assert os.path.exists(skill_md_path), "SKILL.md文件应该存在"
     
     # 读取SKILL.md内容
@@ -20,7 +20,7 @@ def test_skill_metadata():
     assert content.startswith('---'), "文件应该以YAML前言开始"
     
     # 验证必需字段
-    assert 'name: dsgs-architect' in content, "应该包含正确的技能名称"
+    assert 'name: dnaspec-architect' in content, "应该包含正确的技能名称"
     assert 'description:' in content, "应该包含描述字段"
     
     # 验证描述内容
@@ -34,7 +34,7 @@ def test_skill_basic_functionality():
         from dsgs_architect import DSGSArchitect
         skill = DSGSArchitect()
         assert skill is not None, "技能实例不应该为空"
-        assert skill.name == "dsgs-architect", "技能名称应该正确"
+        assert skill.name == "dnaspec-architect", "技能名称应该正确"
     except ImportError as e:
         assert False, f"技能模块导入失败: {e}"
 
@@ -45,11 +45,11 @@ def test_skill_routing():
     
     # 测试技能可以识别不同类型的请求
     test_cases = [
-        ("Design architecture for a web application", "dsgs-system-architect"),
-        ("Decompose tasks for mobile app development", "dsgs-task-decomposer"),
-        ("Create agents for microservices system", "dsgs-agent-creator"),
-        ("Generate constraints for API design", "dsgs-constraint-generator"),
-        ("Unknown request type", "dsgs-system-architect")  # 默认路由
+        ("Design architecture for a web application", "dnaspec-system-architect"),
+        ("Decompose tasks for mobile app development", "dnaspec-task-decomposer"),
+        ("Create agents for microservices system", "dnaspec-agent-creator"),
+        ("Generate constraints for API design", "dnaspec-constraint-generator"),
+        ("Unknown request type", "dnaspec-system-architect")  # 默认路由
     ]
     
     # 验证每个请求都能被正确路由
@@ -64,10 +64,10 @@ def test_skill_integration_points():
     
     # 验证技能可以与其他子技能交互
     expected_subskills = [
-        'dsgs-system-architect',
-        'dsgs-task-decomposer', 
-        'dsgs-agent-creator',
-        'dsgs-constraint-generator'
+        'dnaspec-system-architect',
+        'dnaspec-task-decomposer', 
+        'dnaspec-agent-creator',
+        'dnaspec-constraint-generator'
     ]
     
     # 验证子技能列表

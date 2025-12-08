@@ -1,7 +1,7 @@
 # Directory Capsule: src/core/
 
 ## Purpose
-This directory (`src/core/`) serves as the heart of the Dynamic Specification Growth System (DSGS). It encapsulates the fundamental business logic, algorithms, and core components responsible for dynamic constraint generation, context engineering, neural field operations, cognitive tools, and protocol engine management. Modules within this directory are designed to be highly cohesive and loosely coupled, forming the foundational layer upon which the rest of the DSGS system is built.
+This directory (`src/core/`) serves as the heart of the Dynamic Specification Growth System (DNASPEC). It encapsulates the fundamental business logic, algorithms, and core components responsible for dynamic constraint generation, context engineering, neural field operations, cognitive tools, and protocol engine management. Modules within this directory are designed to be highly cohesive and loosely coupled, forming the foundational layer upon which the rest of the DNASPEC system is built.
 
 ## Key Modules/Files
 *   **`ContextEngineeringIntegration.ts`**: (Already has a code capsule) Manages the integration of context engineering principles, responsible for generating context-aware constraints.
@@ -9,7 +9,7 @@ This directory (`src/core/`) serves as the heart of the Dynamic Specification Gr
 *   **`cognitive-tools/`**: Houses various cognitive tools like `ProblemUnderstandingTool`, `RelatedRecallTool`, etc., designed to assist in understanding and processing complex information for constraint generation.
 *   **`protocol-engine/`**: Defines the `ProtocolEngine` and related components for managing and executing defined protocols within the system.
 *   **`constraint/`**: Contains the core logic for constraint generation, including `TemplateMatcher`, `TemplateEvolver`, and `ConstraintGenerator`.
-*   **`specification/`**: Manages the overall specification and its evolution within the DSGS.
+*   **`specification/`**: Manages the overall specification and its evolution within the DNASPEC.
 *   **`types/`**: Defines shared TypeScript types and interfaces used across the core modules, such as `TaskContextCapsule`.
 *   **`utils/`**: Provides core utility functions and factories specific to the `core` domain.
 

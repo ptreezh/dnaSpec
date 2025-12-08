@@ -1,5 +1,5 @@
 """
-Final Integration Test for DSGS Context Engineering Skills System
+Final Integration Test for DNASPEC Context Engineering Skills System
 验证所有组件正确集成和工作
 """
 import sys
@@ -11,7 +11,7 @@ def test_imports():
     print("🔍 测试模块导入...")
     
     try:
-        from src.dsgs_context_engineering import (
+        from src.dnaspec_context_engineering import (
             ContextEngineeringSkill,
             SkillResult,
             SkillsManager,
@@ -25,7 +25,7 @@ def test_imports():
         return False
     
     try:
-        from src.dsgs_context_engineering.skills import (
+        from src.dnaspec_context_engineering.skills import (
             ContextAnalysisSkill,
             ContextOptimizationSkill,
             CognitiveTemplateSkill
@@ -43,7 +43,7 @@ def test_ai_client_creation():
     print("\n🔍 测试AI客户端创建...")
     
     try:
-        from src.dsgs_context_engineering.ai_client import create_ai_client
+        from src.dnaspec_context_engineering.ai_client import create_ai_client
         
         # 测试通用客户端创建（用于开发测试）
         client = create_ai_client("generic", "dummy-key")
@@ -59,7 +59,7 @@ def test_template_registry():
     print("\n🔍 测试模板注册表...")
     
     try:
-        from src.dsgs_context_engineering.instruction_template import TemplateRegistry
+        from src.dnaspec_context_engineering.instruction_template import TemplateRegistry
         
         registry = TemplateRegistry()
         templates = registry.list_templates()
@@ -76,9 +76,9 @@ def test_skill_creation():
     print("\n🔍 测试技能创建...")
     
     try:
-        from src.dsgs_context_engineering.ai_client import create_ai_client
-        from src.dsgs_context_engineering.instruction_template import TemplateRegistry
-        from src.dsgs_context_engineering.skills.context_analysis import ContextAnalysisSkill
+        from src.dnaspec_context_engineering.ai_client import create_ai_client
+        from src.dnaspec_context_engineering.instruction_template import TemplateRegistry
+        from src.dnaspec_context_engineering.skills.context_analysis import ContextAnalysisSkill
         
         # 创建依赖组件
         client = create_ai_client("generic", "dummy-key")
@@ -100,7 +100,7 @@ def test_system_creation():
     print("\n🔍 测试系统创建...")
     
     try:
-        from src.dsgs_context_engineering.system import ContextEngineeringSystem
+        from src.dnaspec_context_engineering.system import ContextEngineeringSystem
         
         system = ContextEngineeringSystem(ai_provider="generic")
         print("   ✅ ContextEngineeringSystem 创建成功")
@@ -118,7 +118,7 @@ def test_skill_execution():
     print("\n🔍 测试技能执行...")
     
     try:
-        from src.dsgs_context_engineering.system import ContextEngineeringSystem
+        from src.dnaspec_context_engineering.system import ContextEngineeringSystem
         
         system = ContextEngineeringSystem(ai_provider="generic")
         
@@ -143,7 +143,7 @@ def test_skill_execution():
 
 def main():
     """主测试函数"""
-    print("🧪 DSGS Context Engineering Skills System - 最终集成测试")
+    print("🧪 DNASPEC Context Engineering Skills System - 最终集成测试")
     print("=" * 70)
     
     all_tests_passed = True
@@ -164,7 +164,7 @@ def main():
     
     print("\n" + "=" * 70)
     if all_tests_passed:
-        print("🎉 所有测试通过！DSGS Context Engineering Skills System 已成功部署。")
+        print("🎉 所有测试通过！DNASPEC Context Engineering Skills System 已成功部署。")
         print("\n系统现在可以使用以下功能：")
         print("   • context-analysis: 上下文质量五维分析")
         print("   • context-optimization: 上下文内容优化") 

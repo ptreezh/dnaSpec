@@ -1,4 +1,4 @@
-# dsgs-agent-creator子技能实现
+# dnaspec-agent-creator子技能实现
 
 import os
 import sys
@@ -9,7 +9,7 @@ class DSGSAgentCreator:
     
     def __init__(self):
         """初始化智能体创建器技能"""
-        self.name = "dsgs-agent-creator"
+        self.name = "dnaspec-agent-creator"
         self.description = "DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档"
         self.capabilities = [
             "agent_creation",
@@ -316,6 +316,6 @@ agent_creator = DSGSAgentCreator()
 
 if __name__ == "__main__":
     # 简单测试
-    print("DSGS Agent Creator Skill Loaded")
+    print("DNASPEC Agent Creator Skill Loaded")
     print(f"Skill Name: {agent_creator.name}")
     print(f"Description: {agent_creator.description}")

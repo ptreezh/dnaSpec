@@ -1,4 +1,4 @@
-# dsgs-system-architect子技能实现
+# dnaspec-system-architect子技能实现
 
 import os
 import sys
@@ -9,7 +9,7 @@ class DSGSSystemArchitect:
     
     def __init__(self):
         """初始化系统架构师技能"""
-        self.name = "dsgs-system-architect"
+        self.name = "dnaspec-system-architect"
         self.description = "DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义"
         self.capabilities = [
             "architecture_design",
@@ -175,6 +175,6 @@ system_architect = DSGSSystemArchitect()
 
 if __name__ == "__main__":
     # 简单测试
-    print("DSGS System Architect Skill Loaded")
+    print("DNASPEC System Architect Skill Loaded")
     print(f"Skill Name: {system_architect.name}")
     print(f"Description: {system_architect.description}")

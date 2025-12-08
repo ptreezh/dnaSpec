@@ -1,7 +1,7 @@
-# DSGS Context Engineering Skills - 开源发布说明
+# DNASPEC Context Engineering Skills - 开源发布说明
 
 ## 项目信息
-- **名称**: DSGS Context Engineering Skills
+- **名称**: DNASPEC Context Engineering Skills
 - **官方仓库**: https://github.com/ptreezh/dnaSpec
 - **作者**: pTree Dr.Zhang  
 - **机构**: AI Persona Lab 2025
@@ -46,9 +46,9 @@ cd dnaSpec
 pip install -e .
 
 # 使用技能
-/speckit.dsgs.context-analysis "分析上下文质量"
-/speckit.dsgs.cognitive-template "应用认知模板" template=verification
-/speckit.dsgs.temp-workspace "operation=create-workspace"
+/speckit.dnaspec.context-analysis "分析上下文质量"
+/speckit.dnaspec.cognitive-template "应用认知模板" template=verification
+/speckit.dnaspec.temp-workspace "operation=create-workspace"
 ```
 
 ## 版本信息

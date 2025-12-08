@@ -1,6 +1,6 @@
-# Project Overview: Dynamic Specification Growth System (DSGS)
+# Project Overview: Dynamic Specification Growth System (DNASPEC)
 
-The Dynamic Specification Growth System (DSGS) is a sophisticated software project designed to dynamically generate context-aware constraints for software development tasks. Its primary goal is to enhance code quality and consistency by providing minimal, task-specific constraints that evolve with the project's lifecycle.
+The Dynamic Specification Growth System (DNASPEC) is a sophisticated software project designed to dynamically generate context-aware constraints for software development tasks. Its primary goal is to enhance code quality and consistency by providing minimal, task-specific constraints that evolve with the project's lifecycle.
 
 **Key Features:**
 *   **Dynamic Constraint Generation:** Automatically generates constraints based on task type and context.
@@ -9,7 +9,7 @@ The Dynamic Specification Growth System (DSGS) is a sophisticated software proje
 *   **Phased Evolution:** Supports incremental adoption of features.
 
 **Technologies:**
-DSGS is built primarily with **TypeScript** and **Node.js**, leveraging `npm` for package management and scripting. It utilizes `jest` for comprehensive testing.
+DNASPEC is built primarily with **TypeScript** and **Node.js**, leveraging `npm` for package management and scripting. It utilizes `jest` for comprehensive testing.
 
 **Architecture:**
 The project follows a layered architecture with a clear separation of concerns:
@@ -24,15 +24,15 @@ A significant aspect of the architecture is its **contract-driven development** 
 
 # Building and Running
 
-This section outlines the essential commands for setting up, building, and running the DSGS project.
+This section outlines the essential commands for setting up, building, and running the DNASPEC project.
 
 ## Installation
 
 ### From Source
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/ptreezh/Dynamic-Specification-Growth-System-DSGS.git
-    cd Dynamic-Specification-Growth-System-DSGS
+    git clone https://github.com/ptreezh/Dynamic-Specification-Growth-System-DNASPEC.git
+    cd Dynamic-Specification-Growth-System-DNASPEC
     ```
 2.  **Install dependencies:**
     ```bash
@@ -116,7 +116,7 @@ For improved module resolution and readability, the following path aliases are c
 *   `@utils/*`: maps to `src/utils/*`
 
 ## Testing Practices
-DSGS employs a robust testing strategy encompassing:
+DNASPEC employs a robust testing strategy encompassing:
 *   **Unit Testing:** Focused on individual components.
 *   **Integration Testing:** Verifying interactions between different modules.
 *   **End-to-End Testing:** Simulating real-world user scenarios.

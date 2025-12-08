@@ -1,4 +1,4 @@
-# Gemini CLI DSGS Extensions 架构分析报告
+# Gemini CLI DNASPEC Extensions 架构分析报告
 
 ## 1. 当前实现方式分析
 
@@ -7,7 +7,7 @@
 2. **Context Files**: GEMINI.md上下文文件
 3. **MCP Servers**: 工具执行服务器（可选）
 
-### DSGS Skills的特点：
+### DNASPEC Skills的特点：
 - 主要是**提示词增强**，而非工具执行
 - 通过**上下文注入**改变AI行为
 - 不需要访问本地文件系统或网络
@@ -30,13 +30,13 @@
 ### 方案一：纯Playbook + Context Files（推荐）
 ```json
 {
-  "name": "dsgs-agent-creator",
+  "name": "dnaspec-agent-creator",
   "playbook": {
     "instructions": "你是DSGS智能体创建专家...",
     "triggers": ["创建智能体", "智能体设计"],
     "capabilities": ["context_management"]
   },
-  "context_files": ["dsgs-agent-creator/GEMINI.md"]
+  "context_files": ["dnaspec-agent-creator/GEMINI.md"]
 }
 ```
 
@@ -49,7 +49,7 @@
 ### 方案三：Slash Commands
 定义自定义命令：
 ```bash
-/gemini dsgs-agent-creator "创建一个项目管理智能体"
+/gemini dnaspec-agent-creator "创建一个项目管理智能体"
 ```
 
 ## 4. 最佳实践建议

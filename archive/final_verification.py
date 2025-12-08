@@ -1,6 +1,6 @@
 # final_verification.py - 最终验证脚本
 """
-DSGS Context Engineering Skills - 最终验证
+DNASPEC Context Engineering Skills - 最终验证
 验证所有组件正确安装和配置
 """
 import sys
@@ -10,7 +10,7 @@ import time
 # 添加项目路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - 最终验证")
+print("🔍 DNASPEC Context Engineering Skills - 最终验证")
 print("=" * 60)
 
 # 1. 验证基本导入
@@ -41,15 +41,15 @@ except Exception as e:
 
 # 3. 验证技能继承关系
 print("\n3. 验证继承关系...")
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
 
 skills = [analysis_skill, optimization_skill, template_skill, skills_manager, system]
 for i, skill in enumerate(skills):
-    if isinstance(skill, DSGSSkill):
+    if isinstance(skill, DNASpecSkill):
         skill_names = ["ContextAnalysisSkill", "ContextOptimizationSkill", "CognitiveTemplateSkill", "SkillsManager", "ContextEngineeringSystem"]
-        print(f"   ✅ {skill_names[i]} 继承自 DSGSSkill")
+        print(f"   ✅ {skill_names[i]} 继承自 DNASpecSkill")
     else:
-        print(f"   ❌ {skill} 未正确继承 DSGSSkill")
+        print(f"   ❌ {skill} 未正确继承 DNASpecSkill")
         sys.exit(1)
 
 # 4. 验证基础功能
@@ -117,7 +117,7 @@ else:
 
 # 7. 输出验证总结
 print("\n" + "=" * 60)
-print("✅ 系统验证通过! DSGS Context Engineering Skills 准备就绪")
+print("✅ 系统验证通过! DNASPEC Context Engineering Skills 准备就绪")
 print("=" * 60)
 print("\n系统特性:")
 print("   • 5维指标分析 (清晰度、相关性、完整性、一致性、效率)")

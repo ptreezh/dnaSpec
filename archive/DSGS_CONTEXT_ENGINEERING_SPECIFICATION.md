@@ -1,16 +1,16 @@
-# DSGS Context Engineering Skills System - Specification Kit Requirements
+# DNASPEC Context Engineering Skills System - Specification Kit Requirements
 
 ## 1. System Overview
 
 ### 1.1 System Definition
-The DSGS Context Engineering Skills System is a specialized component of the DSGS (Dynamic Specification Growth System) that provides context analysis, optimization, and cognitive template application capabilities to enhance AI model performance and output quality.
+The DNASPEC Context Engineering Skills System is a specialized component of the DNASPEC (Dynamic Specification Growth System) that provides context analysis, optimization, and cognitive template application capabilities to enhance AI model performance and output quality.
 
 ### 1.2 System Scope
-- **In Scope**: Context analysis, optimization, cognitive templates, DSGS integration
+- **In Scope**: Context analysis, optimization, cognitive templates, DNASPEC integration
 - **Out of Scope**: External AI model training, direct model inference, deployment orchestration
 
 ### 1.3 Stakeholders
-- **Primary**: AI model users, DSGS system integrators
+- **Primary**: AI model users, DNASPEC system integrators
 - **Secondary**: System administrators, developers, quality assurance engineers
 
 ## 2. Functional Requirements
@@ -45,13 +45,13 @@ The DSGS Context Engineering Skills System is a specialized component of the DSG
 **FR-013**: The system SHALL provide template application results with clear structure and guidance.
 
 ### 2.4 Skills Management Feature
-**FR-014**: The system SHALL inherit from DSGS base classes and follow DSGS architectural patterns.
+**FR-014**: The system SHALL inherit from DNASPEC base classes and follow DNASPEC architectural patterns.
 
-**FR-015**: The system SHALL implement standard DSGS interfaces including process_request() and SkillResult return types.
+**FR-015**: The system SHALL implement standard DNASPEC interfaces including process_request() and SkillResult return types.
 
 **FR-016**: The system SHALL support unified skill execution and management through Skills Manager.
 
-**FR-017**: The system SHALL maintain compatibility with existing DSGS skill ecosystem.
+**FR-017**: The system SHALL maintain compatibility with existing DNASPEC skill ecosystem.
 
 ## 3. Non-Functional Requirements
 
@@ -88,7 +88,7 @@ The DSGS Context Engineering Skills System is a specialized component of the DSG
 **AR-003**: The system SHALL support plugin architecture for extending cognitive templates and analysis strategies.
 
 ### 4.2 Interface Requirements
-**AR-004**: The system SHALL implement the DSGSSkill interface for all skill classes.
+**AR-004**: The system SHALL implement the DNASpecSkill interface for all skill classes.
 
 **AR-005**: The system SHALL use SkillResult data class for all skill execution results.
 
@@ -112,12 +112,12 @@ The DSGS Context Engineering Skills System is a specialized component of the DSG
 
 ## 6. Integration Requirements
 
-### 6.1 DSGS Integration
-**IR-001**: The system SHALL be fully compatible with DSGS core framework and skill management system.
+### 6.1 DNASPEC Integration
+**IR-001**: The system SHALL be fully compatible with DNASPEC core framework and skill management system.
 
-**IR-002**: The system SHALL follow DSGS naming conventions and skill discovery patterns.
+**IR-002**: The system SHALL follow DNASPEC naming conventions and skill discovery patterns.
 
-**IR-003**: The system SHALL support DSGS configuration and deployment mechanisms.
+**IR-003**: The system SHALL support DNASPEC configuration and deployment mechanisms.
 
 ### 6.2 External System Integration
 **IR-004**: The system SHALL support integration with external semantic analysis services (optional).

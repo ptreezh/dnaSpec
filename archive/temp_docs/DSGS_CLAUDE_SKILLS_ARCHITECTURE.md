@@ -5,10 +5,10 @@
 
 ## 核心技能体系
 
-### 总技能设计 (dsgs-architect)
+### 总技能设计 (dnaspec-architect)
 ```markdown
 ---
-name: dsgs-architect
+name: dnaspec-architect
 description: "DSGS智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成。当用户需要对复杂项目进行架构设计、任务分解确保原子化、生成上下文闭包文档、创建层级智能体时使用此技能。"
 ---
 ```
@@ -21,24 +21,24 @@ description: "DSGS智能架构师主技能，用于复杂项目的分层架构�
 ### 核心技能族
 
 #### 1. 项目架构技能族
-- `dsgs-system-architect`: 系统级架构设计
-- `dsgs-module-decomposer`: 模块级任务分解
-- `dsgs-component-analyzer`: 组件级上下文分析
+- `dnaspec-system-architect`: 系统级架构设计
+- `dnaspec-module-decomposer`: 模块级任务分解
+- `dnaspec-component-analyzer`: 组件级上下文分析
 
 #### 2. 任务分解技能族
-- `dsgs-task-decomposer`: 复杂任务递归分解
-- `dsgs-atomic-verifier`: 任务原子化验证
-- `dsgs-context-closure`: 任务上下文闭包生成
+- `dnaspec-task-decomposer`: 复杂任务递归分解
+- `dnaspec-atomic-verifier`: 任务原子化验证
+- `dnaspec-context-closure`: 任务上下文闭包生成
 
 #### 3. 智能体化技能族
-- `dsgs-agent-creator`: 层级智能体创建
-- `dsgs-agent-validator`: 智能体边界验证
-- `dsgs-collaboration-orchestrator`: 智能体协作编排
+- `dnaspec-agent-creator`: 层级智能体创建
+- `dnaspec-agent-validator`: 智能体边界验证
+- `dnaspec-collaboration-orchestrator`: 智能体协作编排
 
 #### 4. 约束生成技能族
-- `dsgs-constraint-generator`: 上下文感知约束生成
-- `dsgs-constraint-validator`: 约束一致性验证
-- `dsgs-evolution-manager`: 约束演进管理
+- `dnaspec-constraint-generator`: 上下文感知约束生成
+- `dnaspec-constraint-validator`: 约束一致性验证
+- `dnaspec-evolution-manager`: 约束演进管理
 
 ## 嵌套技能工作流
 
@@ -46,19 +46,19 @@ description: "DSGS智能架构师主技能，用于复杂项目的分层架构�
 ```
 复杂项目请求
     ↓
-dsgs-architect (总协调)
+dnaspec-architect (总协调)
     ↓
 1. 系统架构阶段:
-   dsgs-system-architect → dsgs-module-decomposer → dsgs-component-analyzer
+   dnaspec-system-architect → dnaspec-module-decomposer → dnaspec-component-analyzer
    
 2. 任务分解阶段:
-   dsgs-task-decomposer (递归) → dsgs-atomic-verifier → dsgs-context-closure
+   dnaspec-task-decomposer (递归) → dnaspec-atomic-verifier → dnaspec-context-closure
    
 3. 智能体化阶段:
-   dsgs-agent-creator → dsgs-agent-validator → dsgs-collaboration-orchestrator
+   dnaspec-agent-creator → dnaspec-agent-validator → dnaspec-collaboration-orchestrator
    
 4. 约束生成阶段:
-   dsgs-constraint-generator → dsgs-constraint-validator → dsgs-evolution-manager
+   dnaspec-constraint-generator → dnaspec-constraint-validator → dnaspec-evolution-manager
 ```
 
 ### 技能调用模式
@@ -70,23 +70,23 @@ dsgs-architect (总协调)
 ## 生物学有机体架构实现
 
 ### 器官层技能 (子系统级别)
-- `dsgs-organ-contract`: 契约管理器官
-- `dsgs-organ-analysis`: 源码分析器官
-- `dsgs-organ-architecture`: 架构设计器官
+- `dnaspec-organ-contract`: 契约管理器官
+- `dnaspec-organ-analysis`: 源码分析器官
+- `dnaspec-organ-architecture`: 架构设计器官
 
 ### 组织层技能 (模块级别)
-- `dsgs-tissue-decomposition`: 任务分解组织
-- `dsgs-tissue-constraint`: 约束生成组织
-- `dsgs-tissue-agent`: 智能体化组织
+- `dnaspec-tissue-decomposition`: 任务分解组织
+- `dnaspec-tissue-constraint`: 约束生成组织
+- `dnaspec-tissue-agent`: 智能体化组织
 
 ### 细胞层技能 (组件级别)
-- `dsgs-cell-atomic`: 原子任务细胞
-- `dsgs-cell-context`: 上下文闭包细胞
-- `dsgs-cell-boundary`: 优化边界细胞
+- `dnaspec-cell-atomic`: 原子任务细胞
+- `dnaspec-cell-context`: 上下文闭包细胞
+- `dnaspec-cell-boundary`: 优化边界细胞
 
 ## 资源组织结构
 ```
-dsgs-architect-skill/
+dnaspec-architect-skill/
 ├── SKILL.md
 ├── scripts/
 │   ├── architect_coordinator.py

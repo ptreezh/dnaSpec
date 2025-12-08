@@ -7,10 +7,10 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-from src.dsgs_context_engineering.skills_system_final import execute
+from src.dnaspec_context_engineering.skills_system_final import execute
 
 def test_all_skills():
-    print("DSGS Context Engineering Skills - 功能验证")
+    print("DNASPEC Context Engineering Skills - 功能验证")
     print("="*50)
     
     try:
@@ -47,7 +47,7 @@ def test_all_skills():
         print("   ✅ 认知模板功能正常\n")
         
         print("🎉 所有核心功能测试通过！")
-        print("DSGS Context Engineering Skills 系统完全正常运行！")
+        print("DNASPEC Context Engineering Skills 系统完全正常运行！")
         print("系统已准备好在AI CLI环境中使用。")
         
     except Exception as e:

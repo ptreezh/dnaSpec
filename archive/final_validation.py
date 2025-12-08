@@ -6,9 +6,9 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__)))
 
-from src.dsgs_spec_kit_integration.core.skill import DSGSSkill, SkillResult, SkillStatus
-from src.dsgs_spec_kit_integration.skills.architect import execute as architect_execute
-from src.dsgs_spec_kit_integration.skills.liveness import execute as liveness_execute
+from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
+from src.dnaspec_spec_kit_integration.skills.architect import execute as architect_execute
+from src.dnaspec_spec_kit_integration.skills.liveness import execute as liveness_execute
 from src.context_engineering_skills.context_analysis import ContextAnalysisSkill, execute as context_analysis_execute
 from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
 from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
@@ -53,10 +53,10 @@ def test_dsgs_skill_compatibility():
     
     # 测试技能属性
     print("1. 新技能继承自DSGSSkill:")
-    print(f"   ContextAnalysisSkill is DSGSSkill: {isinstance(context_skill, DSGSSkill)}")
-    print(f"   ContextOptimizationSkill is DSGSSkill: {isinstance(optimization_skill, DSGSSkill)}")
-    print(f"   CognitiveTemplateSkill is DSGSSkill: {isinstance(template_skill, DSGSSkill)}")
-    print(f"   ContextEngineeringSystem is DSGSSkill: {isinstance(system_skill, DSGSSkill)}")
+    print(f"   ContextAnalysisSkill is DNASpecSkill: {isinstance(context_skill, DNASpecSkill)}")
+    print(f"   ContextOptimizationSkill is DNASpecSkill: {isinstance(optimization_skill, DNASpecSkill)}")
+    print(f"   CognitiveTemplateSkill is DNASpecSkill: {isinstance(template_skill, DNASpecSkill)}")
+    print(f"   ContextEngineeringSystem is DNASpecSkill: {isinstance(system_skill, DNASpecSkill)}")
     print()
     
     # 测试技能执行

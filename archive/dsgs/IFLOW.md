@@ -1,8 +1,8 @@
-# Dynamic Specification Growth System (DSGS) - iFlow 上下文
+# Dynamic Specification Growth System (DNASPEC) - iFlow 上下文
 
 ## 项目概述
 
-Dynamic Specification Growth System (DSGS) 是一个下一代规范管理系统，能够为软件开发任务动态生成上下文感知的约束。DSGS 通过提供最小化、任务特定的约束来帮助团队维护代码质量和一致性，这些约束会随着项目的发展而演进。
+Dynamic Specification Growth System (DNASPEC) 是一个下一代规范管理系统，能够为软件开发任务动态生成上下文感知的约束。DNASPEC 通过提供最小化、任务特定的约束来帮助团队维护代码质量和一致性，这些约束会随着项目的发展而演进。
 
 ### 核心特性
 
@@ -138,7 +138,7 @@ npm run docs:report
 ## 核心架构
 
 ```
-dsgs/
+dnaspec/
 ├── src/
 │   ├── core/               # 核心业务逻辑
 │   │   ├── cognitive-tools/    # 认知工具
@@ -189,19 +189,19 @@ npm install -g dynamic-specs-growth
 
 ```bash
 # 生成API契约
-dsgs-contract-simple generate
+dnaspec-contract-simple generate
 
 # 验证API契约
-dsgs-contract-simple validate
+dnaspec-contract-simple validate
 
 # 检查任务约束
-dsgs check-constraints --tcc-path ./task.tcc --spec-path ./spec.json
+dnaspec check-constraints --tcc-path ./task.tcc --spec-path ./spec.json
 
 # 获取系统状态
-dsgs status
+dnaspec status
 
 # 生成任务类型约束
-dsgs generate-constraints --task-type SECURITY
+dnaspec generate-constraints --task-type SECURITY
 ```
 
 ## 开发约定

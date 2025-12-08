@@ -34,9 +34,9 @@ def check_dependencies():
 def check_project_structure():
     """检查项目结构"""
     required_paths = [
-        "src/dsgs_spec_kit_integration",
-        "src/dsgs_spec_kit_integration/core",
-        "src/dsgs_spec_kit_integration/skills",
+        "src/dnaspec_spec_kit_integration",
+        "src/dnaspec_spec_kit_integration/core",
+        "src/dnaspec_spec_kit_integration/skills",
         "tests/unit"
     ]
     
@@ -56,15 +56,15 @@ def check_build_system():
     try:
         # 尝试导入项目
         sys.path.insert(0, os.path.dirname(__file__))
-        from src.dsgs_spec_kit_integration.core.manager import SkillManager
-        from src.dsgs_spec_kit_integration.skills.examples import ArchitectSkill
+        from src.dnaspec_spec_kit_integration.core.manager import SkillManager
+        from src.dnaspec_spec_kit_integration.skills.examples import ArchitectSkill
         
         # 创建并测试基本功能
         manager = SkillManager()
         skill = ArchitectSkill()
         manager.register_skill(skill)
         
-        result = manager.execute_skill("dsgs-architect", "测试系统")
+        result = manager.execute_skill("dnaspec-architect", "测试系统")
         if result.status.name == "COMPLETED":
             print("✓ 项目构建和基本功能测试通过")
             return True

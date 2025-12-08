@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - NPM发布指南
+# DNASPEC Context Engineering Skills - NPM发布指南
 
 ## 发布前准备
 

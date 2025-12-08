@@ -37,13 +37,13 @@ def verify_skills_integration():
     
     # 3. 检查所有关键Skills是否存在
     expected_skills = [
-        'dsgs-architect',
-        'dsgs-system-architect', 
-        'dsgs-task-decomposer',
-        'dsgs-agent-creator',
-        'dsgs-constraint-generator',
-        'dsgs-dapi-checker',
-        'dsgs-modulizer'
+        'dnaspec-architect',
+        'dnaspec-system-architect', 
+        'dnaspec-task-decomposer',
+        'dnaspec-agent-creator',
+        'dnaspec-constraint-generator',
+        'dnaspec-dapi-checker',
+        'dnaspec-modulizer'
     ]
     
     registered_skill_names = [skill.name for skill in hook.skills_registry]

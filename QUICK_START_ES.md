@@ -1,8 +1,8 @@
-# Habilidades de Ingeniería de Contexto DSGS - Guía Rápida (Spanish)
+# Habilidades de Ingeniería de Contexto DNASPEC - Guía Rápida (Spanish)
 
 ## Resumen del Proyecto
 
-DSGS (Dynamic Specification Growth System) Context Engineering Skills es una herramienta profesional de desarrollo asistido por IA diseñada específicamente para plataformas CLI de IA, que proporciona análisis de contexto, optimización y capacidades de plantillas cognitivas con flujo de trabajo de seguridad de IA.
+DNASPEC (Dynamic Specification Growth System) Context Engineering Skills es una herramienta profesional de desarrollo asistido por IA diseñada específicamente para plataformas CLI de IA, que proporciona análisis de contexto, optimización y capacidades de plantillas cognitivas con flujo de trabajo de seguridad de IA.
 
 ## Mejoras Principales
 
@@ -27,7 +27,7 @@ DSGS (Dynamic Specification Growth System) Context Engineering Skills es una her
 ```bash
 # Clonar repositorio
 git clone https://github.com/ptreezh/dnaSpec.git
-cd dsgs-context-engineering
+cd dnaspec-context-engineering
 
 # Instalar
 pip install -e .
@@ -37,12 +37,12 @@ pip install -e .
 
 ### Comandos CLI
 ```
-/speckit.dsgs.context-analysis "Analizar calidad de este documento de requisitos" mode=enhanced
-/speckit.dsgs.cognitive-template "Cómo mejorar el rendimiento" template=verification
-/speckit.dsgs.context-optimization "Optimizar este requisito" optimization_goals=clarity,relevance
-/speckit.dsgs.architect "Diseñar arquitectura del sistema de comercio electrónico"
-/speckit.dsgs.git-skill operation=status
-/speckit.dsgs.temp-workspace operation=create-workspace
+/speckit.dnaspec.context-analysis "Analizar calidad de este documento de requisitos" mode=enhanced
+/speckit.dnaspec.cognitive-template "Cómo mejorar el rendimiento" template=verification
+/speckit.dnaspec.context-optimization "Optimizar este requisito" optimization_goals=clarity,relevance
+/speckit.dnaspec.architect "Diseñar arquitectura del sistema de comercio electrónico"
+/speckit.dnaspec.git-skill operation=status
+/speckit.dnaspec.temp-workspace operation=create-workspace
 ```
 
 ### Python API

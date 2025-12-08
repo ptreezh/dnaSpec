@@ -10,7 +10,7 @@ from pathlib import Path
 
 def test_installation():
     """测试安装和配置过程"""
-    print("🔍 测试 DSGS Context Engineering Skills 安装配置...")
+    print("🔍 测试 DNASPEC Context Engineering Skills 安装配置...")
     
     # 检查依赖
     print("\n📋 检查系统依赖...")
@@ -32,8 +32,8 @@ def test_installation():
     # 测试Python包安装
     print("\n📦 测试Python包功能...")
     try:
-        from src.dsgs_context_engineering.skills_system_clean import ContextAnalysisSkill
-        from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+        from src.dnaspec_context_engineering.skills_system_clean import ContextAnalysisSkill
+        from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
         
         print("✅ 成功导入DSGS模块")
         
@@ -60,7 +60,7 @@ def test_encoding():
     """测试中文编码支持"""
     print("\n🌐 测试中文编码支持...")
     try:
-        from src.dsgs_context_engineering.skills_system_clean import ContextAnalysisSkill
+        from src.dnaspec_context_engineering.skills_system_clean import ContextAnalysisSkill
         
         # 测试包含中文的输入
         skill = ContextAnalysisSkill()
@@ -86,7 +86,7 @@ def test_encoding():
 def main():
     """主测试函数"""
     print("="*60)
-    print("DSGS Context Engineering Skills - 安装配置测试")
+    print("DNASPEC Context Engineering Skills - 安装配置测试")
     print("="*60)
     
     # 设置环境变量以确保UTF-8编码

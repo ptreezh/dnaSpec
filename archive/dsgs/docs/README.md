@@ -1,11 +1,11 @@
-# DSGS Documentation
+# DNASPEC Documentation
 
 This directory contains all project documentation for the Dynamic Specification Growth System.
 
 ## Documentation Structure
 
 - **specs/**: Software requirements and specifications
-  - `dsgs-srs.md`: Software Requirements Specification
+  - `dnaspec-srs.md`: Software Requirements Specification
   
 - **reports/**: Progress and status reports
   - `progress.md`: Development progress tracking
@@ -23,4 +23,4 @@ See [lessons-learned.md](lessons-learned.md) for a comprehensive guide on:
 - Test dependency management best practices
 - Systematic problem-solving approaches
 - TemplateEvolver logic improvements
-- General development principles for the DSGS project
+- General development principles for the DNASPEC project

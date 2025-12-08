@@ -2,8 +2,8 @@ import os
 import shutil
 
 # 源目录和目标目录
-source_dir = r"D:\DAIP\dnaSpec\DSGS-Project"
-dest_dir = r"D:\DAIP\dsgs-core\DSGS-Project"
+source_dir = r"D:\DAIP\dnaSpec\DNASPEC-Project"
+dest_dir = r"D:\DAIP\dnaspec-core\DNASPEC-Project"
 
 # 创建目标目录
 os.makedirs(os.path.dirname(dest_dir), exist_ok=True)

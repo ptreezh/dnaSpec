@@ -1,5 +1,5 @@
 """
-DSGS Agent Creator Script
+DNASPEC Agent Creator Script
 Implements the core functionality for creating and configuring intelligent agents
 """
 

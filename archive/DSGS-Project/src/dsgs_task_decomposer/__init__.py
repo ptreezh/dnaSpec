@@ -1,4 +1,4 @@
-# dsgs-task-decomposer子技能实现
+# dnaspec-task-decomposer子技能实现
 
 import os
 import sys
@@ -10,7 +10,7 @@ class DSGSTaskDecomposer:
     
     def __init__(self):
         """初始化任务分解器技能"""
-        self.name = "dsgs-task-decomposer"
+        self.name = "dnaspec-task-decomposer"
         self.description = "DSGS任务分解器子技能，用于将复杂项目需求分解为原子化任务，生成任务依赖关系图，确保任务上下文文档的闭包性"
         self.capabilities = [
             "task_decomposition",
@@ -379,6 +379,6 @@ task_decomposer = DSGSTaskDecomposer()
 
 if __name__ == "__main__":
     # 简单测试
-    print("DSGS Task Decomposer Skill Loaded")
+    print("DNASPEC Task Decomposer Skill Loaded")
     print(f"Skill Name: {task_decomposer.name}")
     print(f"Description: {task_decomposer.description}")

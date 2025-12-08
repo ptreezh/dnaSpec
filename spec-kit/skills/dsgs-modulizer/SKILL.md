@@ -1,6 +1,6 @@
 ---
-name: dsgs-modulizer
-description: DSGS Module Maturation Verifier for bottom-up maturity checking and modular encapsulation of system components. Following the principle of maximum modularity, ensures that bottom-level modules are fully mature before encapsulation to reduce system complexity. Use when checking modularity, validating component maturity, encapsulating modules, refactoring, or restructuring systems.
+name: dnaspec-modulizer
+description: DNASPEC Module Maturation Verifier for bottom-up maturity checking and modular encapsulation of system components. Following the principle of maximum modularity, ensures that bottom-level modules are fully mature before encapsulation to reduce system complexity. Use when checking modularity, validating component maturity, encapsulating modules, refactoring, or restructuring systems.
 license: Apache 2.0
 allowed-tools: 
   - Bash(python:scripts/modulizer.py)
@@ -9,10 +9,10 @@ metadata:
   speckit-category: modularity
 ---
 
-# DSGS Module Maturation Verifier
+# DNASPEC Module Maturation Verifier
 
 ## Overview
-DSGS Module Maturation Verifier is a specialized skill for the DSGS system focused on modularization. It performs bottom-up maturity checks on system components and modular encapsulation following the principle of maximum modularity. This ensures that lower-level modules are fully mature before encapsulation, reducing overall system complexity and improving maintainability.
+DNASPEC Module Maturation Verifier is a specialized skill for the DNASPEC system focused on modularization. It performs bottom-up maturity checks on system components and modular encapsulation following the principle of maximum modularity. This ensures that lower-level modules are fully mature before encapsulation, reducing overall system complexity and improving maintainability.
 
 ## Core Functions
 

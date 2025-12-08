@@ -11,19 +11,19 @@
 #### 1. 完整的技能集 (19个核心技能)
 - **Core Spec-Driven Skills (5)**: specify, plan, tasks, implement, constitution
 - **Context Engineering Skills (7)**: 分析、优化、认知模板及其增强版本
-- **DSGS Intelligent Architect Skills (7)**: 架构、系统设计、智能体、约束、任务分解等
+- **DNASPEC Intelligent Architect Skills (7)**: 架构、系统设计、智能体、约束、任务分解等
 - **Workflow Skills (1)**: 上下文工程完整工作流
 
 #### 2. Python脚本支持 (9个技能)
 - **context-analysis-enhanced**: context_analyzer.py
 - **context-optimization-enhanced**: context_optimizer.py (placeholder)
-- **dsgs-task-decomposer**: task_decomposer.py
-- **dsgs-constraint-generator**: constraint_generator.py
-- **dsgs-dapi-checker**: dapi_checker.py
-- **dsgs-agent-creator**: agent_creator.py
-- **dsgs-architect**: architect_coordinator.py
-- **dsgs-system-architect**: system_architect_designer.py
-- **dsgs-modulizer**: modulizer.py
+- **dnaspec-task-decomposer**: task_decomposer.py
+- **dnaspec-constraint-generator**: constraint_generator.py
+- **dnaspec-dapi-checker**: dapi_checker.py
+- **dnaspec-agent-creator**: agent_creator.py
+- **dnaspec-architect**: architect_coordinator.py
+- **dnaspec-system-architect**: system_architect_designer.py
+- **dnaspec-modulizer**: modulizer.py
 
 #### 3. 技术架构
 - **Claude Skills兼容**: SKILL.md文件格式
@@ -63,14 +63,14 @@
 - `/cognitive-template-enhanced` - 增强认知模板
 - `/context-engineering-workflow` - 完整工作流
 
-#### DSGS Intelligent Architect
-- `/dsgs-architect` - 架构设计
-- `/dsgs-system-architect` - 系统架构
-- `/dsgs-agent-creator` - 智能体创建
-- `/dsgs-constraint-generator` - 约束生成
-- `/dsgs-task-decomposer` - 任务分解
-- `/dsgs-modulizer` - 模块验证
-- `/dsgs-dapi-checker` - 接口检查
+#### DNASPEC Intelligent Architect
+- `/dnaspec-architect` - 架构设计
+- `/dnaspec-system-architect` - 系统架构
+- `/dnaspec-agent-creator` - 智能体创建
+- `/dnaspec-constraint-generator` - 约束生成
+- `/dnaspec-task-decomposer` - 任务分解
+- `/dnaspec-modulizer` - 模块验证
+- `/dnaspec-dapi-checker` - 接口检查
 
 ## 使用最佳实践
 
@@ -96,9 +96,9 @@
 ### 3. 系统设计流程
 ```
 # 架构设计流程
-/dsgs-architect [需求]
-/dsgs-task-decomposer [架构] 
-/dsgs-constraint-generator [架构]
+/dnaspec-architect [需求]
+/dnaspec-task-decomposer [架构] 
+/dnaspec-constraint-generator [架构]
 # 然后实施
 ```
 
@@ -107,17 +107,17 @@
 ### 简单任务
 - **需求规格化**: `/speckit.specify`
 - **内容分析**: `/context-analysis`
-- **任务分解**: `/dsgs-task-decomposer`
+- **任务分解**: `/dnaspec-task-decomposer`
 
 ### 复杂任务
-- **完整架构**: `/dsgs-architect`
-- **系统设计**: `/dsgs-system-architect`
+- **完整架构**: `/dnaspec-architect`
+- **系统设计**: `/dnaspec-system-architect`
 - **工作流**: `/context-engineering-workflow`
 
 ### 高级分析
 - **增强分析**: `/context-analysis-enhanced`
 - **增强优化**: `/context-optimization-enhanced`
-- **智能体创建**: `/dsgs-agent-creator`
+- **智能体创建**: `/dnaspec-agent-creator`
 
 ## 性能和可靠性
 

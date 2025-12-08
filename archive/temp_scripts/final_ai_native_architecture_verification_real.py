@@ -9,7 +9,7 @@ import subprocess
 # 添加项目路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - AI原生架构最终验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生架构最终验证")
 print("="*70)
 
 # 验证步骤
@@ -21,7 +21,7 @@ print("\n📊 验证步骤:")
 # 步骤1: 检查基础导入
 print("   1. 检查模块导入...")
 try:
-    module_path = "D:/DAIP/dnaSpec/src/dsgs_context_engineering/skills_system_final_clean.py"
+    module_path = "D:/DAIP/dnaSpec/src/dnaspec_context_engineering/skills_system_final_clean.py"
     import importlib.util
     spec = importlib.util.spec_from_file_location("skills_final_clean", module_path)
     skills_module = importlib.util.module_from_spec(spec)
@@ -87,7 +87,7 @@ except Exception as e:
 print("   4. 验证技能功能执行...")
 try:
     # 创建一个测试技能实例
-    from src.dsgs_context_engineering.skills_system_final_clean import ContextAnalysisSkill
+    from src.dnaspec_context_engineering.skills_system_final_clean import ContextAnalysisSkill
     skill = ContextAnalysisSkill()
     
     print(f"      技能名: {skill.name}")
@@ -111,7 +111,7 @@ except Exception as e:
 # 步骤5: 验证集成接口
 print("   5. 验证CLI集成接口...")
 try:
-    from src.dsgs_context_engineering.skills_system_final_clean import execute
+    from src.dnaspec_context_engineering.skills_system_final_clean import execute
     test_args = {
         'skill': 'context-analysis',
         'context': '测试CLI接口功能',
@@ -135,7 +135,7 @@ print(f"\n✅ 验证结果: {steps_passed}/{total_steps} 项通过")
 
 if steps_passed == total_steps:
     print("\n🎉 完全验证通过！")
-    print("=== DSGS Context Engineering Skills - AI原生架构 ===")
+    print("=== DNASPEC Context Engineering Skills - AI原生架构 ===")
     print("✅ 100% 利用AI模型原生智能 - 无本地模型依赖")
     print("✅ 通过指令工程实现功能 - 利用AI原生推理和生成能力")  
     print("✅ 专业级上下文工程能力 - 分析、优化、结构化")
@@ -158,5 +158,5 @@ else:
     print("需要修复以上发现的问题")
 
 print("\n" + "="*70)
-print(f"DSGS Context Engineering Skills - AI Native Architecture Validation: {'SUCCESS' if steps_passed == total_steps else 'PARTIAL SUCCESS'}")
+print(f"DNASPEC Context Engineering Skills - AI Native Architecture Validation: {'SUCCESS' if steps_passed == total_steps else 'PARTIAL SUCCESS'}")
 print("="*70)

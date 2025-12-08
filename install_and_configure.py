@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS Context Engineering Skills - 一键安装和配置脚本
+DNASPEC Context Engineering Skills - 一键安装和配置脚本
 自动处理环境依赖安装和CLI工具自动配置
 """
 import os
@@ -104,7 +104,7 @@ def run_auto_config():
 
     # 导入并运行自动配置器
     try:
-        from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+        from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
 
         print("   初始化自动配置器...")
         auto_config = AutoConfigurator()
@@ -146,7 +146,7 @@ def run_auto_config():
 def main():
     """主函数"""
     print("\n" + "="*70)
-    print("DSGS Context Engineering Skills - 一键安装配置脚本")
+    print("DNASPEC Context Engineering Skills - 一键安装配置脚本")
     print("自动处理环境依赖安装和CLI工具自动配置")
     print("="*70)
     
@@ -170,10 +170,10 @@ def main():
     print("="*70)
     
     print("\n现在您可以在AI CLI工具中使用以下命令：")
-    print("  /speckit.dsgs.context-analysis [上下文] - 分析上下文质量")
-    print("  /speckit.dsgs.context-optimization [上下文] - 优化上下文")
-    print("  /speckit.dsgs.cognitive-template [任务] template=[模板类型] - 应用认知模板")
-    print("  /speckit.dsgs.architect [需求] - 系统架构设计")
+    print("  /speckit.dnaspec.context-analysis [上下文] - 分析上下文质量")
+    print("  /speckit.dnaspec.context-optimization [上下文] - 优化上下文")
+    print("  /speckit.dnaspec.cognitive-template [任务] template=[模板类型] - 应用认知模板")
+    print("  /speckit.dnaspec.architect [需求] - 系统架构设计")
     print("  ...以及其他DSGS专业技能")
     
     print(f"\n系统信息:")

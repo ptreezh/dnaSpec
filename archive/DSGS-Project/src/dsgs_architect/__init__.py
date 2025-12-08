@@ -1,4 +1,4 @@
-# dsgs-architect主技能基础实现
+# dnaspec-architect主技能基础实现
 
 import os
 import sys
@@ -9,13 +9,13 @@ class DSGSArchitect:
     
     def __init__(self):
         """初始化主技能"""
-        self.name = "dsgs-architect"
+        self.name = "dnaspec-architect"
         self.description = "DSGS智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成"
         self.subskills = [
-            'dsgs-system-architect',
-            'dsgs-task-decomposer', 
-            'dsgs-agent-creator',
-            'dsgs-constraint-generator'
+            'dnaspec-system-architect',
+            'dnaspec-task-decomposer', 
+            'dnaspec-agent-creator',
+            'dnaspec-constraint-generator'
         ]
     
     def process_request(self, request: str) -> Dict[str, Any]:
@@ -40,15 +40,15 @@ class DSGSArchitect:
         # 检查多个关键词组合以提高路由准确性
         # 优先检查特定关键词，避免冲突
         if "constraint" in request_lower or "约束" in request_lower or ("generate" in request_lower and "constraint" in request_lower):
-            return "dsgs-constraint-generator"
+            return "dnaspec-constraint-generator"
         elif "architect" in request_lower or "design" in request_lower or ("architecture" in request_lower and "design" in request_lower):
-            return "dsgs-system-architect"
+            return "dnaspec-system-architect"
         elif "decompos" in request_lower or "task" in request_lower:
-            return "dsgs-task-decomposer"
+            return "dnaspec-task-decomposer"
         elif "agent" in request_lower or "智能体" in request_lower:
-            return "dsgs-agent-creator"
+            return "dnaspec-agent-creator"
         else:
-            return "dsgs-system-architect"  # 默认路由
+            return "dnaspec-system-architect"  # 默认路由
     
     def _get_timestamp(self) -> str:
         """获取当前时间戳"""
@@ -68,6 +68,6 @@ architect = DSGSArchitect()
 
 if __name__ == "__main__":
     # 简单测试
-    print("DSGS Architect Skill Loaded")
+    print("DNASPEC Architect Skill Loaded")
     print(f"Skill Name: {architect.name}")
     print(f"Description: {architect.description}")

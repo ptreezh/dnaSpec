@@ -1,8 +1,8 @@
 {
-  "name": "dsgs-gemini-extensions",
+  "name": "dnaspec-gemini-extensions",
   "version": "1.0.0",
   "description": "DSGS智能架构师系统 - 为Gemini CLI提供专业技能支持",
-  "author": "DSGS System",
+  "author": "DNASPEC System",
   "license": "MIT",
   "main": "dsgs_gemini_cli.py",
   "scripts": {
@@ -15,7 +15,7 @@
   "gemini": {
     "hooks": [
       {
-        "name": "dsgs-pre-request",
+        "name": "dnaspec-pre-request",
         "type": "intercept",
         "target": "gemini_hook_handler.process_gemini_request",
         "priority": 100
@@ -28,14 +28,14 @@
       "专业架构建议"
     ]
   },
-  "dsgs": {
+  "dnaspec": {
     "skills": [
-      "dsgs-agent-creator",
-      "dsgs-task-decomposer", 
-      "dsgs-dapi-checker",
-      "dsgs-modulizer",
-      "dsgs-architect",
-      "dsgs-constraint-generator"
+      "dnaspec-agent-creator",
+      "dnaspec-task-decomposer", 
+      "dnaspec-dapi-checker",
+      "dnaspec-modulizer",
+      "dnaspec-architect",
+      "dnaspec-constraint-generator"
     ],
     "integration": {
       "hook_handler": "gemini_hook_handler",

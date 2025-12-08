@@ -1,11 +1,11 @@
-# DSGS 使用示例项目
+# DNASPEC 使用示例项目
 
-这个项目展示了如何在不同场景下使用 DSGS (Dynamic Specification Growth System)。
+这个项目展示了如何在不同场景下使用 DNASPEC (Dynamic Specification Growth System)。
 
 ## 📁 项目结构
 
 ```
-dsgs-examples/
+dnaspec-examples/
 ├── basic-usage/           # 基础使用示例
 ├── code-review/          # 代码审查助手
 ├── architecture/         # 架构规范管理
@@ -22,10 +22,10 @@ dsgs-examples/
 const { ContextEngineeringIntegration, createTCC } = require('../../src/index');
 
 async function simpleExample() {
-  console.log('=== DSGS 基础使用示例 ===\n');
+  console.log('=== DNASPEC 基础使用示例 ===\n');
   
-  // 1. 创建 DSGS 实例
-  const dsgs = new ContextEngineeringIntegration({
+  // 1. 创建 DNASPEC 实例
+  const dnaspec = new ContextEngineeringIntegration({
     cognitive: {
       enableVerboseLogging: true,
       confidenceThreshold: 0.6
@@ -41,7 +41,7 @@ async function simpleExample() {
   
   // 3. 生成约束
   try {
-    const result = await dsgs.generateConstraints(taskContext, {
+    const result = await dnaspec.generateConstraints(taskContext, {
       includeReasoning: true,
       maxConstraints: 5
     });
@@ -80,9 +80,9 @@ simpleExample();
 const { ContextEngineeringIntegration, createTCC } = require('../../src/index');
 
 async function batchProcessingExample() {
-  console.log('=== DSGS 批量处理示例 ===\n');
+  console.log('=== DNASPEC 批量处理示例 ===\n');
   
-  const dsgs = new ContextEngineeringIntegration();
+  const dnaspec = new ContextEngineeringIntegration();
   
   // 定义多个任务
   const tasks = [
@@ -114,7 +114,7 @@ async function batchProcessingExample() {
   const results = await Promise.all(
     tasks.map(async (task) => {
       const taskContext = createTCC(task.id, task.goal, task.type);
-      return dsgs.generateConstraints(taskContext, {
+      return dnaspec.generateConstraints(taskContext, {
         maxConstraints: 3,
         includeReasoning: false
       });
@@ -145,7 +145,7 @@ const { ContextEngineeringIntegration, createTCC } = require('../../src/index');
 
 class SmartCodeReviewer {
   constructor() {
-    this.dsgs = new ContextEngineeringIntegration({
+    this.dnaspec = new ContextEngineeringIntegration({
       cognitive: {
         enableVerboseLogging: true,
         confidenceThreshold: 0.7
@@ -173,7 +173,7 @@ class SmartCodeReviewer {
     taskContext.context.sourceCode = sourceCode;
     
     try {
-      const result = await this.dsgs.generateConstraints(taskContext, {
+      const result = await this.dnaspec.generateConstraints(taskContext, {
         includeReasoning: true,
         maxConstraints: 10
       });
@@ -280,7 +280,7 @@ const { ContextEngineeringIntegration, createTCC } = require('../../src/index');
 
 class ArchitectureStandardsManager {
   constructor() {
-    this.dsgs = new ContextEngineeringIntegration({
+    this.dnaspec = new ContextEngineeringIntegration({
       cognitive: {
         enableVerboseLogging: true,
         confidenceThreshold: 0.8
@@ -311,7 +311,7 @@ class ArchitectureStandardsManager {
     };
     
     try {
-      const result = await this.dsgs.generateConstraints(taskContext, {
+      const result = await this.dnaspec.generateConstraints(taskContext, {
         includeReasoning: true,
         maxConstraints: 15
       });
@@ -470,7 +470,7 @@ const { ContextEngineeringIntegration, createTCC } = require('../../src/index');
 
 class IntelligentTestGenerator {
   constructor() {
-    this.dsgs = new ContextEngineeringIntegration({
+    this.dnaspec = new ContextEngineeringIntegration({
       cognitive: {
         enableVerboseLogging: true,
         confidenceThreshold: 0.75
@@ -504,7 +504,7 @@ class IntelligentTestGenerator {
     };
     
     try {
-      const result = await this.dsgs.generateConstraints(taskContext, {
+      const result = await this.dnaspec.generateConstraints(taskContext, {
         includeReasoning: true,
         maxConstraints: 12
       });
@@ -715,7 +715,7 @@ const { ContextEngineeringIntegration, createTCC } = require('../../src/index');
 
 class DSGSMCPServer {
   constructor() {
-    this.dsgs = new ContextEngineeringIntegration({
+    this.dnaspec = new ContextEngineeringIntegration({
       cognitive: {
         enableVerboseLogging: false,
         confidenceThreshold: 0.7
@@ -745,7 +745,7 @@ class DSGSMCPServer {
       Object.assign(taskContext.context, context);
     }
     
-    const result = await this.dsgs.generateConstraints(taskContext, {
+    const result = await this.dnaspec.generateConstraints(taskContext, {
       includeReasoning: true,
       maxConstraints: 10
     });
@@ -773,7 +773,7 @@ class DSGSMCPServer {
       Object.assign(taskContext.context, projectContext);
     }
     
-    const result = await this.dsgs.generateConstraints(taskContext, {
+    const result = await this.dnaspec.generateConstraints(taskContext, {
       includeReasoning: true,
       maxConstraints: 8
     });
@@ -804,7 +804,7 @@ class DSGSMCPServer {
       technologyStack: projectConfig.technologyStack
     };
     
-    const result = await this.dsgs.generateConstraints(taskContext, {
+    const result = await this.dnaspec.generateConstraints(taskContext, {
       includeReasoning: true,
       maxConstraints: 15
     });
@@ -834,7 +834,7 @@ class DSGSMCPServer {
       code: functionCode
     };
     
-    const result = await this.dsgs.generateConstraints(taskContext, {
+    const result = await this.dnaspec.generateConstraints(taskContext, {
       includeReasoning: true,
       maxConstraints: 12
     });
@@ -950,7 +950,7 @@ async function mcpServerExample() {
     }
   ];
   
-  console.log('🤖 DSGS MCP 服务器示例\n');
+  console.log('🤖 DNASPEC MCP 服务器示例\n');
   
   for (const request of requests) {
     console.log(`📤 处理请求: ${request.tool}`);
@@ -991,7 +991,7 @@ mcpServerExample();
 
 ### 运行基础示例
 ```bash
-cd dsgs-examples
+cd dnaspec-examples
 node basic-usage/simple-constraint-generation.js
 ```
 
@@ -1028,7 +1028,7 @@ DSGS_ENABLE_REASONING=true
 
 ### 配置文件
 ```javascript
-// dsgs.config.js
+// dnaspec.config.js
 module.exports = {
   cognitive: {
     enableVerboseLogging: process.env.DSGS_LOG_LEVEL === 'debug',
@@ -1049,9 +1049,9 @@ module.exports = {
 3. **根据需要修改配置**
 4. **集成到您的项目中**
 
-通过这些示例，您可以快速了解如何在不同场景下使用 DSGS 来提升开发效率和代码质量。
+通过这些示例，您可以快速了解如何在不同场景下使用 DNASPEC 来提升开发效率和代码质量。
 
 ---
 **示例项目版本**: 2.0.0  
 **更新时间**: 2025-08-10  
-**兼容性**: DSGS v2.0.0+
+**兼容性**: DNASPEC v2.0.0+

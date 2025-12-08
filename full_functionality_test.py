@@ -3,7 +3,7 @@
 DSGS功能测试脚本
 验证所有核心功能是否正常工作
 """
-from src.dsgs_context_engineering.skills_system_final import execute
+from src.dnaspec_context_engineering.skills_system_final import execute
 
 def test_context_analysis():
     print("测试上下文分析功能...")
@@ -54,7 +54,7 @@ def test_task_decomposition():
     print("✅ 任务分解功能测试完成\n")
 
 if __name__ == "__main__":
-    print("DSGS Context Engineering Skills 功能测试")
+    print("DNASPEC Context Engineering Skills 功能测试")
     print("="*50)
     
     try:

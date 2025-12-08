@@ -1,16 +1,16 @@
 # tests/test_context_analysis_skill.py
 import pytest
-from src.dsgs_spec_kit_integration.core.skill import SkillStatus
+from src.dnaspec_spec_kit_integration.core.skill import SkillStatus
 from tests.conftest import context_analysis_skill, sample_context
 
 
 def test_context_analysis_skill_inheritance(context_analysis_skill):
-    """RED: Test that ContextAnalysisSkill properly inherits from DSGSSkill"""
+    """RED: Test that ContextAnalysisSkill properly inherits from DNASpecSkill"""
     # Should initially fail until we verify inheritance
     from src.context_engineering_skills.context_analysis import ContextAnalysisSkill
-    from src.dsgs_spec_kit_integration.core.skill import DSGSSkill
+    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
     
-    assert isinstance(context_analysis_skill, DSGSSkill)
+    assert isinstance(context_analysis_skill, DNASpecSkill)
 
 
 def test_context_analysis_skill_basic_functionality(context_analysis_skill, sample_context):

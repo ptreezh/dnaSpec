@@ -1,5 +1,5 @@
 """
-DSGS Context Engineering Skills - 终极验证脚本
+DNASPEC Context Engineering Skills - 终极验证脚本
 完整验证AI原生架构的正确实现
 """
 import sys
@@ -9,7 +9,7 @@ import time
 # 添加项目路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - 终极验证脚本")
+print("🔍 DNASPEC Context Engineering Skills - 终极验证脚本")
 print("=" * 70)
 
 
@@ -18,7 +18,7 @@ def test_real_implementation():
     print("\\n✅ 1. 验证真实模块导入")
     try:
         # 导入真实的、正确实现的模块
-        from src.dsgs_context_engineering.skills_system_final_clean import (
+        from src.dnaspec_context_engineering.skills_system_final_clean import (
             ContextAnalysisSkill, 
             ContextOptimizationSkill, 
             CognitiveTemplateSkill
@@ -137,7 +137,7 @@ def run_verification():
         print("🎉 终极验证成功！")
         print("="*70)
         print("")
-        print("🎯 DSGS Context Engineering Skills 系统已正确实现为AI原生架构：")
+        print("🎯 DNASPEC Context Engineering Skills 系统已正确实现为AI原生架构：")
         print("")
         print("✅ 核心价值确认:")
         print("   • 100% AI原生智能利用 - 无本地模型依赖")
@@ -171,7 +171,7 @@ def run_verification():
 if __name__ == "__main__":
     success = run_verification()
     if success:
-        print("\\n✅ DSGS Context Engineering Skills - AI原生系统已验证并准备就绪！")
+        print("\\n✅ DNASPEC Context Engineering Skills - AI原生系统已验证并准备就绪！")
     else:
         print("\\n❌ 系统验证失败，请检查实现。")
     sys.exit(0 if success else 1)

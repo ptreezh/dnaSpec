@@ -1,4 +1,4 @@
-# DSGS Context Engineering Skills - Implementation Plan & Deployment Guide
+# DNASPEC Context Engineering Skills - Implementation Plan & Deployment Guide
 
 ## 1. Project Implementation Plan
 
@@ -6,22 +6,22 @@
 **Objective**: Establish core architecture and implement basic context engineering skills
 
 **Deliverables**:
-- DSGS Context Analysis Skill
+- DNASPEC Context Analysis Skill
 - Basic Context Optimization Skill
 - Cognitive Template Application Skill
-- Integration with DSGS framework
+- Integration with DNASPEC framework
 
 **Tasks**:
 1. Set up development environment and project structure
 2. Implement ContextAnalyzer class with core metrics
 3. Develop ContextOptimizer with basic optimization rules
 4. Create CognitiveTemplateApplier with template management
-5. Integrate with DSGS base classes and interfaces
+5. Integrate with DNASPEC base classes and interfaces
 6. Write unit tests for all components (≥80% coverage)
 
 **Success Criteria**:
-- All skills inherit from DSGSSkill
-- Pass DSGS integration tests
+- All skills inherit from DNASpecSkill
+- Pass DNASPEC integration tests
 - Achieve baseline performance metrics
 
 ### 1.2 Phase 2: System Integration and Advanced Features (Weeks 3-4)
@@ -98,7 +98,7 @@ class SkillsManager:
     def __init__(self):
         self._skills = {}
     
-    def register_skill(self, name: str, skill: 'DSGSSkill') -> None:
+    def register_skill(self, name: str, skill: 'DNASpecSkill') -> None:
         self._skills[name] = skill
     
     def execute_skill(self, name: str, context: str, params: dict) -> 'SkillResult':
@@ -236,20 +236,20 @@ CMD ["gunicorn", "--workers", "4", "--bind", "0.0.0.0:8000", "main:app"]
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dsgs-context-engineering
+  name: dnaspec-context-engineering
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: dsgs-context-engineering
+      app: dnaspec-context-engineering
   template:
     metadata:
       labels:
-        app: dsgs-context-engineering
+        app: dnaspec-context-engineering
     spec:
       containers:
       - name: context-engineering
-        image: dsgs-context-engineering:latest
+        image: dnaspec-context-engineering:latest
         ports:
         - containerPort: 8000
         env:
@@ -279,10 +279,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: dsgs-context-engineering-service
+  name: dnaspec-context-engineering-service
 spec:
   selector:
-    app: dsgs-context-engineering
+    app: dnaspec-context-engineering
   ports:
   - port: 80
     targetPort: 8000
@@ -296,7 +296,7 @@ spec:
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "title": "DSGS Context Engineering Configuration",
+  "title": "DNASPEC Context Engineering Configuration",
   "properties": {
     "analysis": {
       "type": "object",
@@ -452,7 +452,7 @@ class JSONFormatter(logging.Formatter):
         return json.dumps(log_entry)
 
 def setup_logging() -> logging.Logger:
-    logger = logging.getLogger('dsgs_context_engineering')
+    logger = logging.getLogger('dnaspec_context_engineering')
     logger.setLevel(logging.INFO)
     
     handler = logging.StreamHandler()
@@ -591,7 +591,7 @@ def test_analysis_never_crashes(context_text):
 # Integration tests
 class TestDSGSIntegration(unittest.TestCase):
     def test_skill_compatibility(self):
-        """Test that all context skills are compatible with DSGS framework"""
+        """Test that all context skills are compatible with DNASPEC framework"""
         skills = [
             ContextAnalysisSkill(),
             ContextOptimizationSkill(),
@@ -600,8 +600,8 @@ class TestDSGSIntegration(unittest.TestCase):
         ]
         
         for skill in skills:
-            # Test that all skills inherit from DSGSSkill
-            self.assertIsInstance(skill, DSGSSkill)
+            # Test that all skills inherit from DNASpecSkill
+            self.assertIsInstance(skill, DNASpecSkill)
             
             # Test that they can process requests
             result = skill.process_request("test", {})

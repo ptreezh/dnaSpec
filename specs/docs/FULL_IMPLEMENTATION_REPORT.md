@@ -1,23 +1,23 @@
 # DSGS项目完整实现报告
 
 ## 项目概述
-DSGS (Dynamic Specification Growth System) 智能架构师项目，基于Claude Code Skills设计哲学实现，用于复杂项目的架构设计、任务分解、智能体化和约束生成。
+DNASPEC (Dynamic Specification Growth System) 智能架构师项目，基于Claude Code Skills设计哲学实现，用于复杂项目的架构设计、任务分解、智能体化和约束生成。
 
 ## 已完成实现
 
-### 1. dsgs-architect主技能
+### 1. dnaspec-architect主技能
 - **功能**: DSGS智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成
 - **核心能力**:
   - 请求路由：根据请求内容智能路由到相应的子技能
   - 协调管理：管理子技能间的工作流协调
 - **路由逻辑**:
-  - 包含"constraint"或"约束"关键词 → dsgs-constraint-generator
-  - 包含"architect"或"design"关键词 → dsgs-system-architect
-  - 包含"decompos"或"task"关键词 → dsgs-task-decomposer
-  - 包含"agent"或"智能体"关键词 → dsgs-agent-creator
-  - 其他 → dsgs-system-architect (默认)
+  - 包含"constraint"或"约束"关键词 → dnaspec-constraint-generator
+  - 包含"architect"或"design"关键词 → dnaspec-system-architect
+  - 包含"decompos"或"task"关键词 → dnaspec-task-decomposer
+  - 包含"agent"或"智能体"关键词 → dnaspec-agent-creator
+  - 其他 → dnaspec-system-architect (默认)
 
-### 2. dsgs-system-architect子技能
+### 2. dnaspec-system-architect子技能
 - **功能**: DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义
 - **核心能力**:
   - architecture_design: 架构设计
@@ -31,7 +31,7 @@ DSGS (Dynamic Specification Growth System) 智能架构师项目，基于Claude 
   - 接口定义规范
   - 部署架构建议
 
-### 3. dsgs-task-decomposer子技能
+### 3. dnaspec-task-decomposer子技能
 - **功能**: DSGS任务分解器子技能，用于将复杂项目需求分解为原子化任务，生成任务依赖关系图，确保任务上下文文档的闭包性
 - **核心能力**:
   - task_decomposition: 任务分解
@@ -45,7 +45,7 @@ DSGS (Dynamic Specification Growth System) 智能架构师项目，基于Claude 
   - 任务上下文文档
   - 资源分配建议
 
-### 4. dsgs-agent-creator子技能
+### 4. dnaspec-agent-creator子技能
 - **功能**: DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档
 - **核心能力**:
   - agent_creation: 智能体创建
@@ -59,7 +59,7 @@ DSGS (Dynamic Specification Growth System) 智能架构师项目，基于Claude 
   - 通信协议定义
   - 监控和管理策略
 
-### 5. dsgs-constraint-generator子技能
+### 5. dnaspec-constraint-generator子技能
 - **功能**: DSGS约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束
 - **核心能力**:
   - system_constraint_generation: 系统约束生成
@@ -89,13 +89,13 @@ DSGS (Dynamic Specification Growth System) 智能架构师项目，基于Claude 
 
 ### 目录结构
 ```
-DSGS-Project/
+DNASPEC-Project/
 ├── skills/                    # 技能定义文件
-│   ├── dsgs-architect/        # 主技能
-│   ├── dsgs-system-architect/ # 系统架构师子技能
-│   ├── dsgs-task-decomposer/  # 任务分解器子技能
-│   ├── dsgs-agent-creator/    # 智能体创建器子技能
-│   ├── dsgs-constraint-generator/ # 约束生成器子技能
+│   ├── dnaspec-architect/        # 主技能
+│   ├── dnaspec-system-architect/ # 系统架构师子技能
+│   ├── dnaspec-task-decomposer/  # 任务分解器子技能
+│   ├── dnaspec-agent-creator/    # 智能体创建器子技能
+│   ├── dnaspec-constraint-generator/ # 约束生成器子技能
 │   └── ...
 ├── src/                       # 源代码
 │   ├── dsgs_architect/        # 主技能实现

@@ -1,12 +1,12 @@
 {
-  "name": "dsgs-modulizer",
+  "name": "dnaspec-modulizer",
   "description": "DSGS模块成熟化核验器，用于对系统各模块进行自底向上的成熟度检查和模块化封装。遵循最大化模块化原则，确保底层模块完全成熟后进行封装，降低系统复杂性。当用户提到模块化检查、组件成熟度验证、自底向上封装、模块重构、隔离测试、分区测试或系统重构时使用此技能。不要在讨论一般系统设计时使用。",
   "version": "1.0.0",
-  "author": "DSGS System",
+  "author": "DNASPEC System",
   "license": "MIT",
   "tools": [
     {
-      "name": "dsgs-modulizer_tool",
+      "name": "dnaspec-modulizer_tool",
       "description": "用于执行dsgs-modulizer功能的工具",
       "parameters": {
         "type": "object",
@@ -28,7 +28,7 @@
     "模块化检查",
     "降低系统复杂性",
     "确保底层模块完全成熟后进行封装",
-    "dsgs",
+    "dnaspec",
     "遵循最大化模块化原则",
     "当用户提到模块化检查",
     "分区测试或系统重构",

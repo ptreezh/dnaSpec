@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Final Comprehensive Validation - DSGS Context Engineering Skills
+Final Comprehensive Validation - DNASPEC Context Engineering Skills
 验证AI原生架构的完整功能实现
 """
 import sys
@@ -8,11 +8,11 @@ import os
 import time
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - AI原生架构综合验证")
+print("🔍 DNASPEC Context Engineering Skills - AI原生架构综合验证")
 print("="*70)
 
 # 验证每个组件
-from src.dsgs_context_engineering.skills_system_final_clean import (
+from src.dnaspec_context_engineering.skills_system_final_clean import (
     ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill, get_available_skills
 )
 
@@ -125,7 +125,7 @@ print("   🎯 集成置信度: 97% - 与平台完全兼容")
 print("   🎯 实用置信度: 95% - 解决实际工程问题")
 print("   🎯 总体置信度: 96.5%")
 
-print("\\n🎉 DSGS Context Engineering Skills - AI原生系统部署准备就绪!")
+print("\\n🎉 DNASPEC Context Engineering Skills - AI原生系统部署准备就绪!")
 print("💡 系统现在可以作为AI CLI平台的专业增强工具使用")
 print("🚀 准备集成Claude CLI / Gemini CLI / Qwen CLI 等平台")
 print("="*70)

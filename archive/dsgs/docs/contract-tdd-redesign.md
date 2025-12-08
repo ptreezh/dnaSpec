@@ -1,4 +1,4 @@
-# DSGS Contract模块 - TDD重构设计文档
+# DNASPEC Contract模块 - TDD重构设计文档
 
 ## 📋 设计原则
 

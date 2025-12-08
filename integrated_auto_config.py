@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-DSGS Context Engineering Skills - 集成式自动配置系统
+DNASPEC Context Engineering Skills - 集成式自动配置系统
 使用改进的CLI检测器进行自动配置
 """
 import os
 import json
 from typing import Dict, Any
 from improved_cli_detector import ImprovedCliDetector
-from src.dsgs_spec_kit_integration.core.config_generator import ConfigGenerator
-from src.dsgs_spec_kit_integration.core.integration_validator import IntegrationValidator
+from src.dnaspec_spec_kit_integration.core.config_generator import ConfigGenerator
+from src.dnaspec_spec_kit_integration.core.integration_validator import IntegrationValidator
 
 
 class IntegratedAutoConfig:
@@ -105,7 +105,7 @@ class IntegratedAutoConfig:
         config = self.generate_config()
         
         # 3. 保存配置
-        config_path = './.dsgs/integrated-config.yaml'
+        config_path = './.dnaspec/integrated-config.yaml'
         print(f"💾 步骤 3: 保存配置到 {config_path}")
         
         save_success = self.config_generator.save(config, config_path)
@@ -125,7 +125,7 @@ class IntegratedAutoConfig:
         
         # 生成验证报告
         report = self.validator.generate_report(validation_results)
-        report_path = './dsgs-integrated-validation-report.md'
+        report_path = './dnaspec-integrated-validation-report.md'
         self.validator.save_report(report, report_path)
         
         print("✅ 集成验证完成")
@@ -140,10 +140,10 @@ class IntegratedAutoConfig:
         print(f"\n🎯 步骤 5: 配置完成!")
         print("="*60)
         print("现在您可以在AI CLI工具中使用以下命令:")
-        print("  /speckit.dsgs.context-analysis [上下文] - 分析上下文质量")
-        print("  /speckit.dsgs.context-optimization [上下文] - 优化上下文")
-        print("  /speckit.dsgs.cognitive-template [任务] - 应用认知模板")
-        print("  /speckit.dsgs.architect [需求] - 系统架构设计")
+        print("  /speckit.dnaspec.context-analysis [上下文] - 分析上下文质量")
+        print("  /speckit.dnaspec.context-optimization [上下文] - 优化上下文")
+        print("  /speckit.dnaspec.cognitive-template [任务] - 应用认知模板")
+        print("  /speckit.dnaspec.architect [需求] - 系统架构设计")
         print("  ...以及其他DSGS专业技能")
         print("="*60)
         
@@ -159,7 +159,7 @@ class IntegratedAutoConfig:
 
 def main():
     """主函数"""
-    print("DSGS Context Engineering Skills - 集成式自动配置系统")
+    print("DNASPEC Context Engineering Skills - 集成式自动配置系统")
     print("使用npm包管理器进行精准CLI工具检测")
     
     config_system = IntegratedAutoConfig()

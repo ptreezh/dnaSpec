@@ -14,15 +14,15 @@ project_root = os.path.dirname(script_dir)
 sys.path.insert(0, project_root)
 
 # 导入DSGS技能部署器
-from src.dsgs_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
+from src.dnaspec_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
 
 
 def main():
     """主函数 - 部署器入口"""
-    print("🚀 DSGS Skills Deployment System - 独立部署接口")
+    print("🚀 DNASPEC Skills Deployment System - 独立部署接口")
     print("=" * 60)
     
-    parser = argparse.ArgumentParser(description='DSGS Skills Deployment System')
+    parser = argparse.ArgumentParser(description='DNASPEC Skills Deployment System')
     parser.add_argument('--list', action='store_true', help='List available platforms')
     parser.add_argument('--platform', help='Specific platform to deploy to')
     parser.add_argument('--force', action='store_true', help='Force redeployment')
@@ -39,8 +39,8 @@ def main():
                 print(f'  {exists} {platform_name}: {path}')
                 
         elif args.platform:
-            print(f'Integrating DSGS skills to {args.platform}...')
-            from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+            print(f'Integrating DNASPEC skills to {args.platform}...')
+            from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
             detector = CliDetector()
             detected_tools = detector.detect_all()
             tool_info = detected_tools.get(args.platform, {})
@@ -56,7 +56,7 @@ def main():
                 print(f'Error: {result.get("error", "Unknown error")}')
                 
         else:
-            print('Deploying DSGS skills to all detected AI CLI platforms...')
+            print('Deploying DNASPEC skills to all detected AI CLI platforms...')
             results = deployer.deploy_skills_to_all_platforms()
             print(f'✅ Deployment completed!')
             print(f'Successfully deployed to {results["successful_deployments"]}/{results["total_installed_platforms"]} platforms')

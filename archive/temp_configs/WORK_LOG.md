@@ -10,7 +10,7 @@
     *   **REFACTOR:** 增加了“博客”场景的测试，并重构了技能代码，使其更易于扩展。
 3.  **产出物:**
     *   `ARCHITECT_SKILL_IMPLEMENTATION_PLAN.md`
-    *   `src/dsgs_spec_kit_integration/skills/architect.py` (v1 版本)
+    *   `src/dnaspec_spec_kit_integration/skills/architect.py` (v1 版本)
     *   `tests/unit/test_architect_skill.py` (包含两个测试用例)
 
 **当前障碍:**

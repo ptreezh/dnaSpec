@@ -29,7 +29,7 @@ def test_end_to_end():
         print("\n--- 测试用例1：系统架构设计 ---")
         request1 = "Design architecture for a web application with API services"
         result1 = main_skill.process_request(request1)
-        if result1["status"] == "processed" and result1["skill_used"] == "dsgs-system-architect":
+        if result1["status"] == "processed" and result1["skill_used"] == "dnaspec-system-architect":
             print("✓ 系统架构设计请求处理成功")
         else:
             print(f"✗ 系统架构设计请求处理失败: {result1}")
@@ -39,7 +39,7 @@ def test_end_to_end():
         print("\n--- 测试用例2：任务分解 ---")
         request2 = "Decompose tasks for developing a mobile app with backend services"
         result2 = main_skill.process_request(request2)
-        if result2["status"] == "processed" and result2["skill_used"] == "dsgs-task-decomposer":
+        if result2["status"] == "processed" and result2["skill_used"] == "dnaspec-task-decomposer":
             print("✓ 任务分解请求处理成功")
         else:
             print(f"✗ 任务分解请求处理失败: {result2}")
@@ -49,7 +49,7 @@ def test_end_to_end():
         print("\n--- 测试用例3：智能体创建 ---")
         request3 = "Create agents for implementing a secure web platform"
         result3 = main_skill.process_request(request3)
-        if result3["status"] == "processed" and result3["skill_used"] == "dsgs-agent-creator":
+        if result3["status"] == "processed" and result3["skill_used"] == "dnaspec-agent-creator":
             print("✓ 智能体创建请求处理成功")
         else:
             print(f"✗ 智能体创建请求处理失败: {result3}")
@@ -59,7 +59,7 @@ def test_end_to_end():
         print("\n--- 测试用例4：约束生成 ---")
         request4 = "Generate constraints for API design and data security"
         result4 = main_skill.process_request(request4)
-        if result4["status"] == "processed" and result4["skill_used"] == "dsgs-constraint-generator":
+        if result4["status"] == "processed" and result4["skill_used"] == "dnaspec-constraint-generator":
             print("✓ 约束生成请求处理成功")
         else:
             print(f"✗ 约束生成请求处理失败: {result4}")
@@ -68,10 +68,10 @@ def test_end_to_end():
         # 验证路由准确性
         print("\n--- 验证路由准确性 ---")
         routing_tests = [
-            ("Design system architecture", "dsgs-system-architect"),
-            ("Decompose complex tasks", "dsgs-task-decomposer"),
-            ("Create intelligent agents", "dsgs-agent-creator"),
-            ("Generate system constraints", "dsgs-constraint-generator")
+            ("Design system architecture", "dnaspec-system-architect"),
+            ("Decompose complex tasks", "dnaspec-task-decomposer"),
+            ("Create intelligent agents", "dnaspec-agent-creator"),
+            ("Generate system constraints", "dnaspec-constraint-generator")
         ]
         
         all_routing_correct = True

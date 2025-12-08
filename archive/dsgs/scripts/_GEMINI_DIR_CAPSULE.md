@@ -1,7 +1,7 @@
 # Directory Capsule: scripts/
 
 ## Purpose
-This directory (`scripts/`) is dedicated to housing various automation scripts that support the development, documentation, and maintenance workflows of the Dynamic Specification Growth System (DSGS). These scripts are designed to automate repetitive tasks, enforce project standards, and streamline common operations, contributing to increased efficiency and consistency across the development lifecycle.
+This directory (`scripts/`) is dedicated to housing various automation scripts that support the development, documentation, and maintenance workflows of the Dynamic Specification Growth System (DNASPEC). These scripts are designed to automate repetitive tasks, enforce project standards, and streamline common operations, contributing to increased efficiency and consistency across the development lifecycle.
 
 ## Key Modules/Files
 *   **`docs-check.sh`**: A shell script likely used for validating documentation, ensuring compliance with standards, and potentially generating reports related to documentation quality.
@@ -10,7 +10,7 @@ This directory (`scripts/`) is dedicated to housing various automation scripts t
 *   **`update-project-state.ts`**: A TypeScript script likely responsible for updating the project's internal state or configuration, possibly related to build processes or deployment.
 
 ## Dependencies/Relationships
-Scripts within `scripts/` may interact with various parts of the DSGS project, including source code (`src/`), documentation (`docs/`), and configuration files (`config/`). They often rely on external tools (e.g., `git`, `npm`, `tsc`) and the project's `package.json` scripts. These scripts are crucial for maintaining the health and integrity of the project.
+Scripts within `scripts/` may interact with various parts of the DNASPEC project, including source code (`src/`), documentation (`docs/`), and configuration files (`config/`). They often rely on external tools (e.g., `git`, `npm`, `tsc`) and the project's `package.json` scripts. These scripts are crucial for maintaining the health and integrity of the project.
 
 ## Code Generation Guidelines
 When generating new scripts or modifying existing ones within `scripts/`, adhere to the following principles:

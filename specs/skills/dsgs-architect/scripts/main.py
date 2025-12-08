@@ -1,4 +1,4 @@
-# dsgs-architect主技能协调脚本
+# dnaspec-architect主技能协调脚本
 
 import sys
 import os
@@ -76,7 +76,7 @@ def get_skill_metadata() -> Dict[str, Any]:
     
     try:
         # 读取SKILL.md文件
-        skill_md_path = os.path.join(os.path.dirname(__file__), '..', '..', 'skills', 'dsgs-architect', 'SKILL.md')
+        skill_md_path = os.path.join(os.path.dirname(__file__), '..', '..', 'skills', 'dnaspec-architect', 'SKILL.md')
         if os.path.exists(skill_md_path):
             with open(skill_md_path, 'r', encoding='utf-8') as f:
                 content = f.read()

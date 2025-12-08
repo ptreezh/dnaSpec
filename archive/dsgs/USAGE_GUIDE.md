@@ -1,12 +1,12 @@
-# DSGS 使用说明文档
+# DNASPEC 使用说明文档
 
 ## 📋 项目概览
 
-**DSGS** (Dynamic Specification Growth System) 是一个智能的动态规范增长系统，能够根据任务上下文自动生成和管理约束规则。系统采用先进的上下文工程技术，结合神经场理论和认知工具编排，为软件开发提供智能化的约束管理解决方案。
+**DNASPEC** (Dynamic Specification Growth System) 是一个智能的动态规范增长系统，能够根据任务上下文自动生成和管理约束规则。系统采用先进的上下文工程技术，结合神经场理论和认知工具编排，为软件开发提供智能化的约束管理解决方案。
 
 ## 🎯 用户界面和交互方式
 
-DSGS 提供多种使用方式，满足不同用户的需求：
+DNASPEC 提供多种使用方式，满足不同用户的需求：
 
 ### 1. 📝 编程接口 (API)
 **主要交互方式**，适合开发者集成到现有系统中
@@ -34,7 +34,7 @@ DSGS 提供多种使用方式，满足不同用户的需求：
 #### 1. 克隆项目
 ```bash
 git clone <repository-url>
-cd dsgs
+cd dnaspec
 ```
 
 #### 2. 安装依赖
@@ -204,7 +204,7 @@ npm run view:state
 ```bash
 # 在 VS Code 中安装
 # 1. 打开 Extensions 面板 (Ctrl+Shift+X)
-# 2. 搜索 "DSGS"
+# 2. 搜索 "DNASPEC"
 # 3. 点击 "Install"
 ```
 
@@ -222,11 +222,11 @@ npm run view:state
 ```json
 // .vscode/settings.json
 {
-  "dsgs.enable": true,
-  "dsgs.severity": "warning",
-  "dsgs.maxConstraints": 10,
-  "dsgs.confidenceThreshold": 0.6,
-  "dsgs.enableVerboseLogging": false
+  "dnaspec.enable": true,
+  "dnaspec.severity": "warning",
+  "dnaspec.maxConstraints": 10,
+  "dnaspec.confidenceThreshold": 0.6,
+  "dnaspec.enableVerboseLogging": false
 }
 ```
 
@@ -237,7 +237,7 @@ npm run view:state
 // mcp-settings.json
 {
   "mcpServers": {
-    "dsgs": {
+    "dnaspec": {
       "command": "node",
       "args": ["./src/mcp/server.js"],
       "env": {
@@ -252,7 +252,7 @@ npm run view:state
 ```javascript
 // 在 Cline 或其他 AI 助手中使用
 // 1. 配置 MCP 服务器
-// 2. AI 助手会自动调用 DSGS 功能
+// 2. AI 助手会自动调用 DNASPEC 功能
 // 3. 获得智能的代码约束和建议
 ```
 
@@ -638,10 +638,10 @@ console.log(`Generated ${result.constraints.length} constraints`);
 ## 📞 支持和社区
 
 ### 获取帮助
-- 📧 邮件: support@dsgs.com
-- 💬 Discord: [DSGS Community](https://discord.gg/dsgs)
-- 🐛 问题报告: [GitHub Issues](https://github.com/dsgs/issues)
-- 📖 文档: [DSGS Documentation](https://docs.dsgs.com)
+- 📧 邮件: support@dnaspec.com
+- 💬 Discord: [DNASPEC Community](https://discord.gg/dnaspec)
+- 🐛 问题报告: [GitHub Issues](https://github.com/dnaspec/issues)
+- 📖 文档: [DNASPEC Documentation](https://docs.dnaspec.com)
 
 ### 贡献指南
 1. Fork 项目
@@ -659,7 +659,7 @@ console.log(`Generated ${result.constraints.length} constraints`);
 
 ## 🎉 总结
 
-DSGS 提供了多种使用方式，从简单的 API 调用到复杂的 AI 助手集成。无论您是开发者、架构师还是 QA 工程师，都能找到适合的使用方式。
+DNASPEC 提供了多种使用方式，从简单的 API 调用到复杂的 AI 助手集成。无论您是开发者、架构师还是 QA 工程师，都能找到适合的使用方式。
 
 **推荐的使用路径**:
 1. **新手**: 从 CLI 工具开始，了解基本功能
@@ -667,9 +667,9 @@ DSGS 提供了多种使用方式，从简单的 API 调用到复杂的 AI 助手
 3. **团队**: 配置 VS Code 插件，实现团队标准化
 4. **AI 用户**: 通过 MCP 工具与 AI 助手配合使用
 
-通过合理配置和使用，DSGS 可以显著提高代码质量、减少技术债务、提升开发效率。
+通过合理配置和使用，DNASPEC 可以显著提高代码质量、减少技术债务、提升开发效率。
 
 ---
 **文档版本**: 2.0.0  
 **最后更新**: 2025-08-10  
-**维护者**: DSGS Architecture Team
+**维护者**: DNASPEC Architecture Team

@@ -22,12 +22,12 @@ def test_new_keywords():
     # 找到dsgs-agent-creator技能
     dsgs_agent_creator = None
     for skill in hook.skills_registry:
-        if skill.name == 'dsgs-agent-creator':
+        if skill.name == 'dnaspec-agent-creator':
             dsgs_agent_creator = skill
             break
     
     if dsgs_agent_creator:
-        print(f"dsgs-agent-creator 关键词: {dsgs_agent_creator.keywords}")
+        print(f"dnaspec-agent-creator 关键词: {dsgs_agent_creator.keywords}")
         print()
         
         # 测试新增的关键词
@@ -50,7 +50,7 @@ def test_new_keywords():
             print(f'  匹配关键词: {matched_keywords}')
             print()
     else:
-        print("未找到 dsgs-agent-creator 技能")
+        print("未找到 dnaspec-agent-creator 技能")
 
 if __name__ == "__main__":
     test_new_keywords()

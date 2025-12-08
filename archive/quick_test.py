@@ -1,6 +1,6 @@
 # quick_test.py - 快速功能验证脚本
 """
-DSGS Context Engineering Skills - Quick Test
+DNASPEC Context Engineering Skills - Quick Test
 用于验证系统基本功能是否正常工作
 """
 import sys
@@ -9,7 +9,7 @@ import os
 # 添加项目根目录到Python路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-print("🔍 DSGS Context Engineering Skills - 功能验证")
+print("🔍 DNASPEC Context Engineering Skills - 功能验证")
 print("="*60)
 
 try:
@@ -74,7 +74,7 @@ try:
     
     print("   ✅ 所有直接执行函数工作正常")
     
-    print("\n🎉 所有功能测试通过！DSGS Context Engineering Skills 系统可正常使用。")
+    print("\n🎉 所有功能测试通过！DNASPEC Context Engineering Skills 系统可正常使用。")
     print("\n💡 您可以开始使用以下功能：")
     print("   - context_analysis: 分析上下文质量")
     print("   - context_optimization: 优化上下文内容") 
@@ -89,4 +89,4 @@ except Exception as e:
     traceback.print_exc()
 
 print("\n" + "="*60)
-print("DSGS Context Engineering Skills - 本地部署验证完成")
+print("DNASPEC Context Engineering Skills - 本地部署验证完成")

@@ -1,7 +1,7 @@
 # Dynamic Template Generation Enhancement Design
 
 ## 1. Overview
-This document outlines the design for enhancing the Dynamic Specification Growth System's (DSGS) template generation capabilities to improve intelligence, adaptability, and context awareness. The enhancement will enable DSGS to generate more relevant and effective constraints by leveraging multi-dimensional matching, semantic analysis, and feedback-driven evolution.
+This document outlines the design for enhancing the Dynamic Specification Growth System's (DNASPEC) template generation capabilities to improve intelligence, adaptability, and context awareness. The enhancement will enable DNASPEC to generate more relevant and effective constraints by leveraging multi-dimensional matching, semantic analysis, and feedback-driven evolution.
 
 ## 2. Goals
 - Improve template relevance by 40% through multi-dimensional matching
@@ -14,7 +14,7 @@ This document outlines the design for enhancing the Dynamic Specification Growth
 
 ### 3.1 Enhanced Template Matching System
 ```
-dsgs/
+dnaspec/
 ├── src/
 │   ├── core/
 │   │   ├── constraint/
