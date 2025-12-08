@@ -1,6 +1,6 @@
 {
   "name": "dnaspec",
-  "version": "1.0.8",
+  "version": "1.0.23",
   "description": "Dynamic Specification Growth System - Context Engineering Skills for AI-assisted development",
   "homepage": "https://github.com/ptreezh/dnaSpec",
   "author": "pTree Dr.Zhang (AI Persona Lab 2025)",
@@ -35,12 +35,15 @@
     "dynamic-specification"
   ],
   "bin": {
-    "dnaspec": "index.js"
+    "dnaspec": "index.js",
+    "dnaspec-guide": "post_install_guide.js"
   },
   "scripts": {
     "install": "node index.js",
     "setup": "node index.js",
-    "dsgs": "node index.js"
+    "dsgs": "node index.js",
+    "verify": "node post_install_guide.js",
+    "guide": "node post_install_guide.js"
   },
   "engines": {
     "node": ">=14.0.0",

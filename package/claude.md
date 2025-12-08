@@ -1,17 +1,17 @@
-# QwenCode CLI Configuration
+# Claude CLI Configuration
 
 ## Basic Information
-- **Name**: qwen
-- **Display Name**: QwenCode CLI
+- **Name**: claude
+- **Display Name**: Claude CLI
 - **Status**: Installed
-- **Required**: No
+- **Required**: Yes
 
 ## Stigmergy Collaboration Configuration
 This tool has been configured to participate in the cross-AI tool collaboration system.
 
 ## Collaboration Command Examples
-- Chinese: "请用qwen帮我{任务}"
-- English: "use qwen to {task}"
+- Chinese: "请用claude帮我{任务}"
+- English: "use claude to {task}"
 
 ---
-Generated at: 2025-12-06T14:24:18.571Z
+Generated at: 2025-12-06T14:24:18.569Z
