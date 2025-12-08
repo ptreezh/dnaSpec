@@ -1,9 +1,10 @@
 """
-CLI Detector Module
+CLI Detection Module
 Responsible for detecting installed AI CLI tools in the system
 """
 import subprocess
 import os
+import shutil
 from typing import Dict, Any, Optional
 import platform
 
@@ -31,18 +32,19 @@ class CliDetector:
             Detection result dictionary
         """
         try:
-            # On Windows, use shell=True to handle npm created scripts
+            # Run command name directly, this handles .cmd scripts on Windows properly
             result = subprocess.run(
                 ['claude', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
-                shell=(platform.system() == 'Windows')
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('claude')
+                # If execution succeeds, get installation path with shutil.which
+                install_path = shutil.which('claude')
 
                 return {
                     'installed': True,
@@ -74,18 +76,19 @@ class CliDetector:
             Detection result dictionary
         """
         try:
-            # On Windows, use shell=True to handle npm created scripts
+            # Run command name directly, this handles .cmd scripts on Windows properly
             result = subprocess.run(
                 ['gemini', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
-                shell=(platform.system() == 'Windows')
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('gemini')
+                # If execution succeeds, get installation path with shutil.which
+                install_path = shutil.which('gemini')
 
                 return {
                     'installed': True,
@@ -117,18 +120,19 @@ class CliDetector:
             Detection result dictionary
         """
         try:
-            # On Windows, use shell=True to handle npm created scripts
+            # Run command name directly, this handles .cmd scripts on Windows properly
             result = subprocess.run(
                 ['qwen', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
-                shell=(platform.system() == 'Windows')
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('qwen')
+                # If execution succeeds, get installation path with shutil.which
+                install_path = shutil.which('qwen')
 
                 return {
                     'installed': True,
@@ -160,18 +164,19 @@ class CliDetector:
             Detection result dictionary
         """
         try:
-            # On Windows, use shell=True to handle npm created scripts
+            # GitHub Copilot runs as an extension to GitHub CLI (gh)
             result = subprocess.run(
                 ['gh', 'copilot', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
-                shell=(platform.system() == 'Windows')
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('gh')
+                # If execution succeeds, get installation path with shutil.which
+                install_path = shutil.which('gh')
 
                 return {
                     'installed': True,
@@ -180,10 +185,25 @@ class CliDetector:
                     'configPath': self._get_copilot_config_path()
                 }
             else:
-                return {
-                    'installed': False,
-                    'error': result.stderr.strip() if result.stderr else 'Unknown error'
-                }
+                # Check if GitHub CLI is installed but Copilot extension isn't
+                gh_result = subprocess.run(
+                    ['gh', '--version'],
+                    capture_output=True,
+                    text=True,
+                    timeout=10,
+                    shell=(platform.system() == 'Windows')
+                )
+                
+                if gh_result.returncode == 0:
+                    return {
+                        'installed': False,
+                        'error': 'GitHub CLI installed but Copilot extension not found'
+                    }
+                else:
+                    return {
+                        'installed': False,
+                        'error': 'GitHub CLI with Copilot extension not found'
+                    }
         except (subprocess.TimeoutExpired, FileNotFoundError):
             return {
                 'installed': False,
@@ -197,24 +217,24 @@ class CliDetector:
 
     def detect_cursor(self) -> Dict[str, Any]:
         """
-        Detect if Cursor CLI is installed
+        Detect if Cursor is installed
 
         Returns:
             Detection result dictionary
         """
         try:
-            # Cursor typically does not have a command line version, check if related commands exist
+            # Cursor may not have command line version, check if related commands exist
             result = subprocess.run(
                 ['cursor', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=10,
-                shell=(platform.system() == 'Windows')
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                install_path = self._get_install_path('cursor')
+                install_path = shutil.which('cursor')
 
                 return {
                     'installed': True,
@@ -234,7 +254,7 @@ class CliDetector:
                             shell=(platform.system() == 'Windows')
                         )
                         if result.returncode == 0:
-                            install_path = self._get_install_path(cmd)
+                            install_path = shutil.which(cmd)
                             return {
                                 'installed': True,
                                 'version': 'Unknown',
@@ -281,10 +301,10 @@ class CliDetector:
 
     def _get_install_path(self, cli_name: str) -> Optional[str]:
         """
-        Get the installation path of the CLI tool
+        Get installation path of CLI tool
 
         Args:
-            cli_name: CLI tool name
+            cli_name: Name of CLI tool
 
         Returns:
             Installation path or None
@@ -295,7 +315,7 @@ class CliDetector:
                 capture_output=True,
                 text=True,
                 timeout=5,
-                shell=(platform.system() == 'Windows')  # Use shell on Windows for 'where' command
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle 'where' command
             )
             if result.returncode == 0:
                 return result.stdout.strip().split('\n')[0]  # Take first path
