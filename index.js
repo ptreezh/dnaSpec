@@ -52,19 +52,10 @@ function checkDependencies() {
     return true;
 }
 
-function determineCommand() {
-    // 分析命令行参数
-    const args = process.argv.slice(2);
-    if (args.length > 0) {
-        return args[0].toLowerCase();
-    }
-    return 'init'; // 默认命令
-}
-
 function installAndConfigure() {
     const command = determineCommand();
-
-    // 获取当前工作目录（在获取命令后立即获取）
+    
+    // 获取当前工作目录（只声明一次）
     const initialDir = process.cwd();
 
     // 检查当前目录是否是项目目录（通过检查关键文件）
@@ -106,21 +97,12 @@ function installAndConfigure() {
     }
 
     console.log(`🚀 开始Dynamic Specification Growth System (dnaspec)${description}...\n`);
-
+    
     // 检查依赖
     if (!checkDependencies()) {
         process.exit(1);
     }
 
-    // 获取当前工作目录
-    const initialDir = process.cwd();
-
-    // 检查当前目录是否是项目目录（通过检查关键文件）
-    const isProjectDir = fs.existsSync('src') &&
-                         fs.existsSync('pyproject.toml') &&
-                         fs.existsSync('package.json');
-
-    let projectDir = initialDir;
 
     if (!isProjectDir) {
         // 如果不在项目目录，创建临时目录并克隆项目
@@ -133,7 +115,7 @@ function installAndConfigure() {
         process.chdir(tempDir);
 
         // 克隆项目 - 增加多源支持和重试机制
-        const repoDir = 'dsgs-context-engineering';
+        const repoDir = 'dnaSpec';
         if (fs.existsSync(repoDir) && fs.lstatSync(repoDir).isDirectory()) {
             console.log('🔄 更新现有项目...');
             process.chdir(repoDir);
@@ -154,21 +136,6 @@ function installAndConfigure() {
                 console.log(`尝试源 ${i+1}/${gitUrls.length}: ${url}`);
 
                 try {
-                    // 确保当前在临时目录中
-                    process.chdir(path.join(initialDir, tempDir));
-
-                    if (i > 0) {
-                        // 如果第一次失败，清空当前目录以便尝试下一个源
-                        if (fs.readdirSync('.').length > 0) {
-                            fs.rmSync('.', { recursive: true, force: true });
-                        }
-                    }
-
-                    // 重新创建并进入repo目录
-                    if (!fs.existsSync('.')) {
-                        fs.mkdirSync('.');
-                    }
-
                     const result = spawnSync('git', ['clone', url, '.'], {
                         stdio: 'inherit',
                         encoding: 'utf-8',
@@ -189,63 +156,6 @@ function installAndConfigure() {
             if (!cloneSuccess) {
                 console.error('❌ 所有源都无法克隆项目');
                 process.chdir(initialDir);
-                fs.rmSync(tempDir, { recursive: true, force: true });
-                process.exit(1);
-            }
-
-            // 确保已进入克隆的项目目录
-            if (!fs.existsSync('package.json') || !fs.existsSync('src')) {
-                process.chdir(path.join(initialDir, tempDir, 'dnaSpec'));
-            }
-        }
-
-        projectDir = process.cwd(); // 更新项目目录为克隆的目录
-    } else {
-        console.log('📋 检测到已在项目目录中...');
-    }
-
-    // 安装Python包
-    if (!runCommand('pip install -e .', '安装DSGS包')) {
-        // 尝试使用python -m pip
-        if (!runCommand('python -m pip install -e .', '安装DSGS包（备用方式）')) {
-            if (!runCommand('python3 -m pip install -e .', '安装DSGS包（备用方式2）')) {
-                console.error('❌ 所有安装方式都失败了');
-                if (!isProjectDir) {
-                    process.chdir(initialDir);
-                    const tempDir = path.join(initialDir, 'dsgs-install-tmp');
-                    if (fs.existsSync(tempDir)) {
-                        fs.rmSync(tempDir, { recursive: true, force: true });
-                    }
-                }
-                process.exit(1);
-            }
-        }
-    }
-
-    // 运行相应脚本
-    console.log(`⚙️  运行${description}...`);
-
-    // 在非项目目录中克隆项目
-    if (!isProjectDir) {
-        // 如果不在项目目录，创建临时目录并克隆项目
-        const tempDir = 'dsgs-install-tmp';
-
-        // 创建并进入临时目录
-        if (!fs.existsSync(tempDir)) {
-            fs.mkdirSync(tempDir);
-        }
-        process.chdir(tempDir);
-
-        // 克隆项目
-        const repoDir = 'dnaspec-repo';
-        if (fs.existsSync(repoDir) && fs.lstatSync(repoDir).isDirectory()) {
-            console.log('🔄 更新现有项目...');
-            process.chdir(repoDir);
-        } else {
-            console.log('📦 克隆项目...');
-            const repoUrl = 'https://github.com/ptreezh/dnaSpec.git';
-            if (!runCommand(`git clone ${repoUrl} .`, '克隆项目')) {
-                process.chdir(initialDir);
                 const cleanupDir = path.join(initialDir, tempDir);
                 if (fs.existsSync(cleanupDir)) {
                     fs.rmSync(cleanupDir, { recursive: true, force: true });
@@ -259,21 +169,28 @@ function installAndConfigure() {
         console.log('📋 检测到已在项目目录中...');
     }
 
+    // 安装Python包
+    if (!runCommand('pip install -e .', '安装DSGS包')) {
+        console.error('❌ 安装DSGS包失败');
+        if (!isProjectDir) {
+            process.chdir(initialDir);
+            const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+            if (fs.existsSync(tempDir)) {
+                fs.rmSync(tempDir, { recursive: true, force: true });
+            }
+        }
+        process.exit(1);
+    }
+    
+    console.log('✅ 安装DSGS包成功\n');
+
     // 确保使用正确的脚本路径（在可能更新了projectDir后）
     const scriptPath = path.join(projectDir, pythonScript);
+    
+    console.log(`⚙️  运行${description}...`);
+    console.log(`   执行: python ${scriptPath}`);
 
-    // 构建Python命令参数
-    let pythonArgs = [scriptPath];
-    if (command !== 'init' && command !== 'install' && !command.startsWith('-')) {
-        pythonArgs.push(command);
-        // 添加其他参数
-        const additionalArgs = process.argv.slice(3);
-        pythonArgs = pythonArgs.concat(additionalArgs);
-    }
-
-    console.log(`   执行: python ${pythonArgs.join(' ')}`);
-
-    const commandProcess = spawn('python', pythonArgs, {
+    const commandProcess = spawn('python', [scriptPath], {
         stdio: 'inherit',
         cwd: projectDir, // 确保在项目目录中运行
         env: {
@@ -294,70 +211,63 @@ function installAndConfigure() {
         }
 
         if (code === 0) {
-            // 根据命令显示不同信息
-            if (command === 'deploy') {
-                console.log('\n🎉 DSGS Skills deployment completed successfully!');
-                console.log('\nNow you can use DSGS skills in your AI CLI tools:');
-                console.log('  /speckit.dsgs.context-analysis [context] - Analyze context quality');
-                console.log('  /speckit.dsgs.context-optimization [context] - Optimize context');
-                console.log('  /speckit.dsgs.cognitive-template [task] - Apply cognitive template');
-            } else if (command === 'integrate') {
-                console.log('\n🎉 DSGS Integration completed successfully!');
-            } else if (command === 'list' || command === '--list') {
-                console.log('\n🎉 DSGS Command listing completed successfully!');
-            } else if (command === 'validate' || command === '--version') {
-                console.log('\n🎉 DSGS Validation completed successfully!');
-            } else {
-                console.log('\n🎉 Installation and configuration completed successfully!');
+            // 显示英文ANSI兼容的输出
+            console.log('\n🎉 Installation and configuration completed successfully!');
 
-                // Show post-installation guide
-                console.log('\nDSGS Context Engineering Skills - POST-INSTALLATION GUIDE');
-                console.log('='.repeat(80));
-                console.log('');
-                console.log('Thank you for installing DSGS (Dynamic Specification Growth System)!');
-                console.log('');
-                console.log('DSGS is a professional context engineering toolkit that enhances your AI-assisted');
-                console.log('development experience by providing advanced context analysis, optimization,');
-                console.log('and cognitive template application capabilities.');
-                console.log('');
-                console.log('KEY FEATURES:');
-                console.log('  ✓ Context Quality Analysis: 5-dimensional assessment (clarity, relevance,');
-                console.log('                               completeness, consistency, efficiency)');
-                console.log('  ✓ Context Optimization: AI-driven improvements based on specific goals');
-                console.log('  ✓ Cognitive Templates: Professional thinking frameworks (CoT, Verification, etc.)');
-                console.log('  ✓ Agentic Design: System architecture and task decomposition skills');
-                console.log('  ✓ Safety Workflows: Secure AI interaction with temporary workspaces');
-                console.log('  ✓ Multi-Platform Support: Claude, Qwen, Gemini, Cursor, Copilot');
-                console.log('');
-                console.log('GETTING STARTED - Next Steps:');
-                console.log('');
-                console.log('  1. Run automatic validation:');
-                console.log('     dnaspec validate');
-                console.log('');
-                console.log('  2. Deploy skills to AI platforms (if you have AI CLI tools installed):');
-                console.log('     dnaspec deploy');
-                console.log('');
-                console.log('  3. View all available commands:');
-                console.log('     dnaspec list');
-                console.log('');
-                console.log('USAGE EXAMPLES in AI CLI Tools:');
-                console.log('  /speckit.dsgs.context-analysis "Analyze this requirement: ..."');
-                console.log('  /speckit.dsgs.context-optimization "Optimize this context: ..."');
-                console.log('  /speckit.dsgs.cognitive-template "Apply template to: ..." template=verification');
-                console.log('  /speckit.dsgs.architect "Design system for: ..."');
-                console.log('');
-                console.log('COMMAND REFERENCE:');
-                console.log('  dnaspec validate          - Check integration status');
-                console.log('  dnaspec deploy            - Deploy skills to AI platforms');
-                console.log('  dnaspec deploy --list     - List detected AI platforms');
-                console.log('  dnaspec list              - Show all available skills');
-                console.log('  dnaspec help              - Show help information');
-                console.log('');
-                console.log('For support, visit: https://github.com/ptreezh/dnaSpec');
-                console.log('Report issues at: https://github.com/ptreezh/dnaSpec/issues');
-            }
+            // Show post-installation guide
+            console.log('\nDSGS Context Engineering Skills - POST-INSTALLATION GUIDE');
+            console.log('='.repeat(80));
+            console.log('');
+            console.log('Thank you for installing DSGS (Dynamic Specification Growth System)!');
+            console.log('');
+            console.log('DSGS is a professional context engineering toolkit that enhances your AI-assisted');
+            console.log('development experience by providing advanced context analysis, optimization,');
+            console.log('and cognitive template application capabilities.');
+            console.log('');
+            console.log('KEY FEATURES:');
+            console.log('  ✓ Context Quality Analysis: 5-dimensional assessment (clarity, relevance,');
+            console.log('                               completeness, consistency, efficiency)');
+            console.log('  ✓ Context Optimization: AI-driven improvements based on specific goals');
+            console.log('  ✓ Cognitive Templates: Professional thinking frameworks (CoT, Verification, etc.)');
+            console.log('  ✓ Agentic Design: System architecture and task decomposition skills');
+            console.log('  ✓ Safety Workflows: Secure AI interaction with temporary workspaces');
+            console.log('  ✓ Multi-Platform Support: Claude, Qwen, Gemini, Cursor, Copilot');
+            console.log('');
+            console.log('GETTING STARTED - Next Steps:');
+            console.log('');
+            console.log('  1. Run automatic validation:');
+            console.log('     dnaspec validate');
+            console.log('');
+            console.log('  2. Deploy skills to AI platforms (if you have AI CLI tools installed):');
+            console.log('     dnaspec deploy');
+            console.log('');
+            console.log('  3. View all available commands:');
+            console.log('     dnaspec list');
+            console.log('');
+            console.log('USAGE EXAMPLES in AI CLI Tools:');
+            console.log('  /speckit.dsgs.context-analysis "Analyze this requirement: ..."');
+            console.log('  /speckit.dsgs.context-optimization "Optimize this context: ..."');
+            console.log('  /speckit.dsgs.cognitive-template "Apply template to: ..." template=verification');
+            console.log('  /speckit.dsgs.architect "Design system for: ..."');
+            console.log('');
+            console.log('COMMAND REFERENCE:');
+            console.log('  dnaspec deploy            - Deploy skills to AI platforms');
+            console.log('  dnaspec deploy --list     - List detected AI platforms');
+            console.log('  dnaspec validate          - Check integration status');
+            console.log('  dnaspec list              - Show all available skills');
+            console.log('  dnaspec help              - Show help information');
+            console.log('');
+            console.log('For support, visit: https://github.com/ptreezh/dnaSpec');
+            console.log('Report issues at: https://github.com/ptreezh/dnaSpec/issues');
         } else {
             console.error(`\n❌ ${description} process failed, exit code: ${code}`);
+            if (!isProjectDir) {
+                process.chdir(initialDir);
+                const tempDir = path.join(initialDir, 'dsgs-install-tmp');
+                if (fs.existsSync(tempDir)) {
+                    fs.rmSync(tempDir, { recursive: true, force: true });
+                }
+            }
             process.exit(1);
         }
     });
@@ -375,6 +285,15 @@ function installAndConfigure() {
         console.error(`\n❌ Error running ${description}: ${err.message}`);
         process.exit(1);
     });
+}
+
+function determineCommand() {
+    // 分析命令行参数
+    const args = process.argv.slice(2);
+    if (args.length > 0) {
+        return args[0].toLowerCase();
+    }
+    return 'init'; // 默认命令
 }
 
 // 运行安装和配置
