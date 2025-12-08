@@ -62,7 +62,21 @@ function runQueryCommand(command, pythonScript, description) {
     }
 
     // 直接运行Python脚本，使用已安装的模块
-    const commandProcess = spawn('python', ['-m', 'src.dsgs_spec_kit_integration.cli', command], {
+    // 使用已安装的包入口点，而不是src目录
+    const commandProcess = spawn('python', ['-c', `
+import subprocess
+import sys
+import os
+
+# 使用已安装的包入口点运行查询命令
+command_result = subprocess.run([
+    sys.executable,
+    '-m', 'dsgs_spec_kit_integration.cli',
+    '${command}'
+], capture_output=False, text=True, env=os.environ.copy())
+
+sys.exit(command_result.returncode)
+    `], {
         stdio: 'inherit',
         env: {
             ...process.env,
