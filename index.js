@@ -52,6 +52,68 @@ function checkDependencies() {
     return true;
 }
 
+function runQueryCommand(command, pythonScript, description) {
+    // 对于查询型命令，直接运行已安装的Python包
+    console.log(`🔍 Processing ${command} command...`);
+    
+    // 检查依赖
+    if (!checkDependencies()) {
+        process.exit(1);
+    }
+
+    // 直接运行Python脚本，使用已安装的模块
+    const commandProcess = spawn('python', ['-m', 'src.dsgs_spec_kit_integration.cli', command], {
+        stdio: 'inherit',
+        env: {
+            ...process.env,
+            PYTHONIOENCODING: 'utf-8',
+            LANG: 'en_US.UTF-8'
+        }
+    });
+
+    commandProcess.on('close', (code) => {
+        if (code === 0) {
+            console.log(`✅ ${command} command executed successfully!`);
+        } else {
+            // 如果直接调用失败，尝试使用standalone_cli
+            console.log(`⚠️  Trying fallback method for ${command}...`);
+            
+            const fallbackProcess = spawn('python', ['-c', `
+import sys
+sys.path.insert(0, '.')
+from src.dsgs_spec_kit_integration.cli import main
+import sys as pysys
+pysys.argv = ['dnaspec', '${command}']
+try:
+    main()
+except SystemExit:
+    pass
+            `], {
+                stdio: 'inherit',
+                env: {
+                    ...process.env,
+                    PYTHONIOENCODING: 'utf-8',
+                    LANG: 'en_US.UTF-8'
+                }
+            });
+
+            fallbackProcess.on('close', (fallbackCode) => {
+                if (fallbackCode === 0) {
+                    console.log(`✅ ${command} command executed successfully!`);
+                } else {
+                    console.error(`❌ ${command} command execution failed, exit code: ${fallbackCode}`);
+                    process.exit(fallbackCode);
+                }
+            });
+        }
+    });
+
+    commandProcess.on('error', (err) => {
+        console.error(`❌ Error running ${command} command: ${err.message}`);
+        process.exit(1);
+    });
+}
+
 function installAndConfigure() {
     const command = determineCommand();
     
@@ -63,41 +125,52 @@ function installAndConfigure() {
                          fs.existsSync('pyproject.toml') &&
                          fs.existsSync('package.json');
 
-    let projectDir = initialDir;
+    // 对于查询型命令（不需要安装），直接使用已安装的模块
+    const queryCommands = ['list', 'validate', '--list', '--version', 'help'];
+    const shouldRunFullInstall = !queryCommands.includes(command);
 
-    // 根据命令决定执行的Python脚本
+    let projectDir = initialDir;
     let pythonScript;
     let description;
 
     switch(command) {
         case 'init':
         case 'install':
+            // 确保初始化命令执行完整安装流程
             pythonScript = 'run_auto_config.py';
-            description = '安装和配置';
+            description = 'Installation and Configuration';
             break;
         case 'deploy':
+            // 部署命令也需要完整安装
             pythonScript = 'deploy_cli.py';
-            description = '部署技能';
+            description = 'Deployment';
             break;
         case 'integrate':
+            // 集成命令也需要完整安装
             pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
-            description = '集成验证';
+            description = 'Integration';
             break;
         case 'list':
         case 'validate':
         case '--list':
         case '--version':
         case 'help':
-            pythonScript = 'standalone_cli.py';
-            description = '执行命令';
-            break;
+            // 查询命令：使用已安装的包
+            console.log(`🔍 Processing ${command} command...`);
+            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+            description = 'Query';
+            
+            // 直接运行已安装的模块，不安装
+            runQueryCommand(command, pythonScript, description);
+            return;
         default:
+            // 其他命令：执行完整安装流程
             pythonScript = 'run_auto_config.py';
-            description = '安装和配置';
+            description = 'Installation and Configuration';
     }
 
-    console.log(`🚀 开始Dynamic Specification Growth System (dnaspec)${description}...\n`);
-    
+    console.log(`🚀 Starting Dynamic Specification Growth System (dnaspec) ${description}...\n`);
+
     // 检查依赖
     if (!checkDependencies()) {
         process.exit(1);
@@ -170,8 +243,8 @@ function installAndConfigure() {
     }
 
     // 安装Python包
-    if (!runCommand('pip install -e .', '安装DSGS包')) {
-        console.error('❌ 安装DSGS包失败');
+    if (!runCommand('pip install -e .', 'Install DSGS package')) {
+        console.error('❌ Failed to install DSGS package');
         if (!isProjectDir) {
             process.chdir(initialDir);
             const tempDir = path.join(initialDir, 'dsgs-install-tmp');
@@ -182,13 +255,13 @@ function installAndConfigure() {
         process.exit(1);
     }
     
-    console.log('✅ 安装DSGS包成功\n');
+    console.log('✅ DSGS package installed successfully\n');
 
     // 确保使用正确的脚本路径（在可能更新了projectDir后）
     const scriptPath = path.join(projectDir, pythonScript);
     
-    console.log(`⚙️  运行${description}...`);
-    console.log(`   执行: python ${scriptPath}`);
+    console.log(`⚙️  Running ${description}...`);
+    console.log(`   Executing: python ${scriptPath}`);
 
     const commandProcess = spawn('python', [scriptPath], {
         stdio: 'inherit',
