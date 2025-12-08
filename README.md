@@ -1,7 +1,7 @@
-# DNASPEC Context Engineering Skills - DSGS上下文工程技能系统
+# DNASPEC Context Engineering Skills - DNASPEC上下文工程技能系统
 ## 项目概述
 
-本项目是DSGS (Dynamic Specification Growth System) Context Engineering Skills系统，提供专业的上下文工程增强工具集。系统基于AI原生设计理念，通过标准化指令模板，实现上下文分析、优化和结构化功能，包含完整的上下文工程技能、Git操作技能和临时工作区管理系统，专门设计用于安全的AI辅助开发流程。
+本项目是DNASPEC (Dynamic Specification Growth System) Context Engineering Skills系统，提供专业的上下文工程增强工具集。系统基于AI原生设计理念，通过标准化指令模板，实现上下文分析、优化和结构化功能，包含完整的上下文工程技能、Git操作技能和临时工作区管理系统，专门设计用于安全的AI辅助开发流程。
 本项目实现了一套独立的技能系统，专注于上下文工程领域，而非依赖外部的spec.kit系统。
 ## 功能特性
 - **专业技能系统**: 专注上下文分析、优化和认知模板应用的专业技能
@@ -10,7 +10,7 @@
 - **Git操作集成**: 完整的Git工作流支持，包括worktree和CI/CD功能
 - **跨平台支持**: 支持Claude CLI、Gemini CLI、Qwen CLI等多种AI工具
 - **统一接口**: 提供统一的斜杠命令接口 (/speckit.dnaspec.*)
-- **智能匹配**: 保持DSGS智能匹配和Hook系统的独特优势
+- **智能匹配**: 保持DNASPEC智能匹配和Hook系统的独特优势
 ## 核心技能集
 
 ### 上下文工程技能
@@ -176,13 +176,13 @@ node index.js
 下载并使用启动脚本，可从任何位置运行：
 ```bash
 # 下载启动脚本
-curl -O https://raw.githubusercontent.com/ptreezh/dnaSpec/main/launch_dsgs.bat
+curl -O https://raw.githubusercontent.com/ptreezh/dnaSpec/main/launch_dnaspec.bat
 
 # 运行安装配置
-launch_dsgs.bat
+launch_dnaspec.bat
 ```
 
-将 `launch_dsgs.bat` 文件放在系统PATH中的目录中，即可从任何位置运行 `launch_dsgs.bat` 命令。
+将 `launch_dnaspec.bat` 文件放在系统PATH中的目录中，即可从任何位置运行 `launch_dnaspec.bat` 命令。
 
 ## 使用方法
 

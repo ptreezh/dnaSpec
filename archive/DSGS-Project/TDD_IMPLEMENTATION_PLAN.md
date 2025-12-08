@@ -1,4 +1,4 @@
-# DSGS与spec.kit整合TDD实施规划
+# DNASPEC与spec.kit整合TDD实施规划
 
 ## 1. TDD实施原则
 
@@ -332,4 +332,4 @@ def test_invalid_command_handling():
 - 周三：中期测试覆盖率检查
 - 周五：完整测试套件运行和质量评估
 
-通过这样的TDD实施规划，我们可以确保DSGS与spec.kit的整合过程质量可控、风险可管理，并且最终交付一个高质量、可维护的系统。
+通过这样的TDD实施规划，我们可以确保DNASPEC与spec.kit的整合过程质量可控、风险可管理，并且最终交付一个高质量、可维护的系统。

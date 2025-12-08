@@ -8,7 +8,7 @@ sys.path.insert(0, os.getcwd())
 
 def test_all_skills():
     """测试所有技能"""
-    print("🔍 开始验证DSGS Context Engineering Skills系统")
+    print("🔍 开始验证DNASPEC Context Engineering Skills系统")
     print("=" * 60)
     
     # 测试1: 导入验证
@@ -190,7 +190,7 @@ def test_all_skills():
     print("✅ DNASPEC Context Engineering Skills System 已准备就绪")
     print("✅ 所有核心功能正常工作")
     print("✅ 系统架构正确实现 (AI原生 + 指令工程)")
-    print("✅ 与DSGS框架完全兼容")
+    print("✅ 与DNASPEC框架完全兼容")
     print("✅ 生产环境准备就绪")
     print("=" * 60)
     

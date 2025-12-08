@@ -5,7 +5,7 @@ DNASPEC Context Engineering Skills - 最终验证脚本
 import sys
 import os
 import time
-print("🔍 开始DSGS Context Engineering Skills验证测试")
+print("🔍 开始DNASPEC Context Engineering Skills验证测试")
 
 # 添加项目路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
@@ -101,7 +101,7 @@ try:
     print("✅ 系统已正确实现为AI CLI平台增强工具")
     print("✅ 利用AI模型原生智能而非本地模型")
     print("✅ 提供专业级上下文工程能力")
-    print("✅ 与DSGS框架完全兼容")
+    print("✅ 与DNASPEC框架完全兼容")
     print()
     print("📋 系统特性:")
     print("   • 5维上下文质量分析") 

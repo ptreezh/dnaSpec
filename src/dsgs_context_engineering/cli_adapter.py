@@ -287,9 +287,9 @@ DNASPEC Context Engineering Skills 是为AI CLI平台设计的上下文工程增
         }
 
 
-def execute_dsgs_command(skill_args: Dict[str, Any]) -> str:
+def execute_dnaspec_command(skill_args: Dict[str, Any]) -> str:
     """
-    执行DSGS Context Engineering Skill命令
+    执行DNASPEC Context Engineering Skill命令
     这是与AI CLI平台集成的入口函数
     """
     adapter = ContextEngineeringAdapter()

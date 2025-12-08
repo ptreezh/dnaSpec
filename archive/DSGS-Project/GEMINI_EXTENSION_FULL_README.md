@@ -118,7 +118,7 @@ dnaspec-gemini-extensions/
 
 ### 扩展开发
 
-1. 创建新的技能类继承DSGSSkill基类
+1. 创建新的技能类继承DNASPECSkill基类
 2. 在SkillManager中注册技能信息
 3. 更新智能匹配器的关键词映射
 4. 在Hook处理器中添加技能执行逻辑
@@ -155,7 +155,7 @@ class IntelligentSkillMatcher:
 {
   "name": "dnaspec-gemini-extensions",
   "version": "1.0.0",
-  "description": "DSGS智能架构师系统 - 为Gemini CLI提供专业技能支持",
+  "description": "DNASPEC智能架构师系统 - 为Gemini CLI提供专业技能支持",
   "gemini": {
     "hooks": [
       {
@@ -175,4 +175,4 @@ MIT License
 
 ## 贡献
 
-欢迎提交Issue和Pull Request来改进DSGS Gemini CLI Extensions！
+欢迎提交Issue和Pull Request来改进DNASPEC Gemini CLI Extensions！

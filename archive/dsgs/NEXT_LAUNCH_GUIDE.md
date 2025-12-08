@@ -126,7 +126,7 @@ npx jest test/unit/ContextEngineeringIntegrationProperty.test.ts
 npm run test:contract:advanced
 
 # 或者直接运行
-npx jest test/contract/DSGSContractTest.ts
+npx jest test/contract/DNASPECContractTest.ts
 ```
 
 #### 4.2 验证契约功能

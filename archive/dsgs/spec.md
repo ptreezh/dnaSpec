@@ -1,37 +1,37 @@
-# DSGS智能契约管理系统 - 项目规范
+# DNASPEC智能契约管理系统 - 项目规范
 
 ## 📋 项目概述
 
 ### 项目名称
-DSGS智能契约管理系统 (DNASPEC Intelligent Contract Management System)
+DNASPEC智能契约管理系统 (DNASPEC Intelligent Contract Management System)
 
 ### 项目版本
 v2.1.0
 
 ### 项目描述
-基于DSGS架构的智能契约管理系统，提供自动化的API契约生成、验证、版本管理和文档生成功能。
+基于DNASPEC架构的智能契约管理系统，提供自动化的API契约生成、验证、版本管理和文档生成功能。
 
 ### 项目目标
 1. 实现智能化的TypeScript源码分析
 2. 生成准确的OpenAPI 3.0契约
 3. 提供完整的契约验证和兼容性检查
-4. 集成到DSGS现有模块中
+4. 集成到DNASPEC现有模块中
 5. 提供友好的Web管理界面
 
 ## 🏗️ 系统架构
 
 ### 核心模块
 ```
-DSGS智能契约管理系统
+DNASPEC智能契约管理系统
 ├── 核心引擎 (Core Engine)
 │   ├── 源码分析器 (Source Code Analyzer)
 │   ├── 契约生成器 (Contract Generator)
 │   ├── 契约验证器 (Contract Validator)
 │   └── 版本管理器 (Version Manager)
 ├── 集成模块 (Integration Modules)
-│   ├── DSGS约束生成器集成
-│   ├── DSGS神经场集成
-│   └── DSGS监控模块集成
+│   ├── DNASPEC约束生成器集成
+│   ├── DNASPEC神经场集成
+│   └── DNASPEC监控模块集成
 ├── 用户界面 (User Interface)
 │   ├── CLI工具 (CLI Tools)
 │   ├── Web管理界面 (Web Interface)
@@ -55,7 +55,7 @@ DSGS智能契约管理系统
 - **测试框架**: Jest
 
 ### 设计原则
-1. **智能优先**: 利用DSGS的智能分析能力
+1. **智能优先**: 利用DNASPEC的智能分析能力
 2. **自动化**: 全自动契约生成和验证
 3. **类型安全**: 严格的TypeScript类型检查
 4. **可扩展**: 模块化设计，易于扩展
@@ -158,9 +158,9 @@ DSGS智能契约管理系统
 - [ ] 完善契约验证器
 
 ### Phase 2: 系统集成 (Week 3-4)
-- [ ] 集成DSGS约束生成器
-- [ ] 集成DSGS神经场
-- [ ] 集成DSGS监控模块
+- [ ] 集成DNASPEC约束生成器
+- [ ] 集成DNASPEC神经场
+- [ ] 集成DNASPEC监控模块
 
 ### Phase 3: 用户界面 (Week 5-6)
 - [ ] 完善CLI工具
@@ -195,7 +195,7 @@ DSGS智能契约管理系统
 - [ ] 错误处理完善
 
 ### 集成度
-- [ ] 完全集成到DSGS系统
+- [ ] 完全集成到DNASPEC系统
 - [ ] 支持现有工作流程
 - [ ] 不破坏现有功能
 - [ ] 提供增量价值
@@ -237,5 +237,5 @@ DSGS智能契约管理系统
 **文档版本**: v1.0  
 **创建日期**: 2025-08-06  
 **最后更新**: 2025-08-06  
-**负责人**: DSGS架构团队  
+**负责人**: DNASPEC架构团队  
 **状态**: 规划阶段

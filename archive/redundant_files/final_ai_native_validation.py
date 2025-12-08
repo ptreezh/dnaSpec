@@ -27,7 +27,7 @@ def test_ai_native_implementation():
         
         print("   ✅ 所有核心模块成功导入")
         print("   ✅ 遵循AI CLI平台集成标准")
-        print("   ✅ 与DSGS系统完全兼容")
+        print("   ✅ 与DNASPEC系统完全兼容")
         
     except ImportError as e:
         print(f"   ❌ 模块导入失败: {e}")

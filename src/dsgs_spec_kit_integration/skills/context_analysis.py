@@ -1,5 +1,5 @@
 """
-Context Analysis Skill - 符合DSGS原始规范的实现
+Context Analysis Skill - 符合DNASPEC原始规范的实现
 为AI CLI平台提供上下文分析能力，与原始技能保持一致的接口
 """
 from typing import Dict, Any
@@ -8,7 +8,7 @@ import re
 
 def execute(args: Dict[str, Any]) -> str:
     """
-    执行上下文分析 - 与DSGS原始技能接口保持一致
+    执行上下文分析 - 与DNASPEC原始技能接口保持一致
     """
     context = args.get("context", "") or args.get("request", "") or args.get("description", "")
     

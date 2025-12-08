@@ -5,9 +5,9 @@ DNASPEC Context Engineering Skills - AI CLI平台深度集成实现
 from typing import Dict, Any, List
 
 
-class DSGSContextEngineeringInterface:
+class DNASPECContextEngineeringInterface:
     """
-    DSGS上下文工程接口
+    DNASPEC上下文工程接口
     与AI CLI平台集成，作为平台内置技能提供服务
     """
     
@@ -235,7 +235,7 @@ DNASPEC Context Engineering Skills 是AI CLI平台的内置上下文工程增强
 
 
 # 全局接口实例
-interface = DSGSContextEngineeringInterface()
+interface = DNASPECContextEngineeringInterface()
 
 
 def handle_command(command_name: str, context: str = "", params: Dict[str, Any] = None) -> str:
@@ -261,7 +261,7 @@ def get_command_registration_info() -> Dict[str, Any]:
     """
     return {
         'name': 'dnaspec-context-engineering',
-        'description': 'DSGS上下文工程技能 - AI平台的内置专业上下文分析、优化和结构化工具',
+        'description': 'DNASPEC上下文工程技能 - AI平台的内置专业上下文分析、优化和结构化工具',
         'commands': [
             {
                 'name': '/dnaspec-analyze',

@@ -1,4 +1,4 @@
-# DSGS智能契约管理系统 - CLI协同工作流程
+# DNASPEC智能契约管理系统 - CLI协同工作流程
 
 ## 工作流程概述
 
@@ -169,7 +169,7 @@ delivery_record:
 ```yaml
 # workflow.yaml
 workflow:
-  name: "DSGS智能契约生成流程"
+  name: "DNASPEC智能契约生成流程"
   version: "1.0.0"
   steps:
     - name: "源码分析"

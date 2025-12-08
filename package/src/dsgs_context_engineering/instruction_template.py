@@ -1,6 +1,6 @@
 """
 Instruction Template Engine
-为DSGS Context Engineering Skills提供标准化的指令模板
+为DNASPEC Context Engineering Skills提供标准化的指令模板
 """
 from abc import ABC, abstractmethod
 from typing import Dict, Any, List

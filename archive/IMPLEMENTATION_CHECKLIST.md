@@ -10,8 +10,8 @@
   - [ ] 创建`__init__.py`文件
   - [ ] 配置`pyproject.toml`依赖管理
 
-#### Day 3-4: DSGS规范引擎核心类实现
-- [ ] **ENGINE-001**: 实现DSGSSpecEngine
+#### Day 3-4: DNASPEC规范引擎核心类实现
+- [ ] **ENGINE-001**: 实现DNASPECSpecEngine
   - [ ] 实现`__init__`方法，初始化组件
   - [ ] 实现`register_skill_from_spec`方法
   - [ ] 实现`_load_platform_adapter`方法
@@ -31,7 +31,7 @@
   - [ ] 编写编译器单元测试
 
 #### Day 5-7: 技能基类和注册表实现
-- [ ] **BASE-001**: 实现DSGSSkill基类
+- [ ] **BASE-001**: 实现DNASPECSkill基类
   - [ ] 继承平台基类或创建通用基类
   - [ ] 实现`__init__`方法
   - [ ] 实现`process_request`通用处理逻辑
@@ -173,7 +173,7 @@
 #### Day 36-37: Hook系统基础架构
 - [ ] **HOOK-001**: 实现Hook系统基础组件
   - [ ] 创建`hooks/hook_system.py`
-  - [ ] 实现`DSGSHookSystem`主类
+  - [ ] 实现`DNASPECHookSystem`主类
   - [ ] 实现文件监控事件处理器
   - [ ] 实现Hook配置解析器
   - [ ] 编写基础Hook测试

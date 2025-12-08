@@ -20,14 +20,14 @@ try:
     print("✅ 模块加载成功")
     
     # 检查类是否存在
-    ContextEngSystem = getattr(module, 'DSGSContextEngineeringSystem', None)
+    ContextEngSystem = getattr(module, 'DNASPECContextEngineeringSystem', None)
     SkillExecutor = getattr(module, 'SkillExecutor', None)
     execute_func = getattr(module, 'execute', None)
     get_manifest_func = getattr(module, 'get_skill_manifest', None)
     
     if not all([ContextEngSystem, SkillExecutor, execute_func, get_manifest_func]):
         missing_classes = []
-        if not ContextEngSystem: missing_classes.append('DSGSContextEngineeringSystem')
+        if not ContextEngSystem: missing_classes.append('DNASPECContextEngineeringSystem')
         if not SkillExecutor: missing_classes.append('SkillExecutor')
         if not execute_func: missing_classes.append('execute')
         if not get_manifest_func: missing_classes.append('get_skill_manifest')

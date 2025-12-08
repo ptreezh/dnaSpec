@@ -6,7 +6,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-print('🔍 验证DSGS技能系统兼容性')
+print('🔍 验证DNASPEC技能系统兼容性')
 print('='*60)
 
 # 测试原始技能
@@ -66,5 +66,5 @@ except Exception as e:
 print('\n🎉 兼容性验证完成！')
 print('\n✅ DNASPEC Context Engineering Skills 系统已成功集成到原始项目中')
 print('✅ 所有技能遵循统一的execute接口模式')
-print('✅ 与原始DSGS架构完全兼容')
+print('✅ 与原始DNASPEC架构完全兼容')
 print('✅ 可作为AI CLI平台的增强工具集使用')

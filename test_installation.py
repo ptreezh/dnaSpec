@@ -35,7 +35,7 @@ def test_installation():
         from src.dnaspec_context_engineering.skills_system_clean import ContextAnalysisSkill
         from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
         
-        print("✅ 成功导入DSGS模块")
+        print("✅ 成功导入DNASPEC模块")
         
         # 测试核心功能
         skill = ContextAnalysisSkill()

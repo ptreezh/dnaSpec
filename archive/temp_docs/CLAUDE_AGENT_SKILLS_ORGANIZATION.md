@@ -1,13 +1,13 @@
-# DSGS智能契约管理系统 - Claude智能体技能组织架构
+# DNASPEC智能契约管理系统 - Claude智能体技能组织架构
 
 ## 概述
 
-基于Claude Code Skills设计哲学，将DSGS智能契约管理系统的功能重新组织为智能体和技能架构，采用生物学有机体层级结构，支持CLI集成协同和Python/JS源码分析能力。
+基于Claude Code Skills设计哲学，将DNASPEC智能契约管理系统的功能重新组织为智能体和技能架构，采用生物学有机体层级结构，支持CLI集成协同和Python/JS源码分析能力。
 
 ## 生物学有机体层级架构
 
 ```
-DSGS智能契约管理系统 (器官系统层)
+DNASPEC智能契约管理系统 (器官系统层)
 ├── 契约生成子系统 (器官层)
 │   ├── 源码分析模块 (组织层)
 │   │   ├── Python分析器 (细胞层)
@@ -259,4 +259,4 @@ def agent_improvement_cycle(context, state=None, audit_log=None, depth=0, max_de
 
 ---
 
-*本架构基于Context Engineering的理论基础，结合Claude Code Skills的设计模式，为DSGS智能契约管理系统提供模块化、可扩展的智能体协作框架。*
+*本架构基于Context Engineering的理论基础，结合Claude Code Skills的设计模式，为DNASPEC智能契约管理系统提供模块化、可扩展的智能体协作框架。*

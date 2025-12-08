@@ -9,7 +9,7 @@ from typing import Dict, Any
 
 class InteractiveShell:
     """
-    DSGS交互式Shell
+    DNASPEC交互式Shell
     提供命令行交互界面
     """
     

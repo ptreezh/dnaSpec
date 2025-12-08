@@ -110,7 +110,7 @@ class ContextAnalysisSkill:
     
     def __init__(self):
         self.name = "dnaspec-context-analysis"
-        self.description = "DSGS上下文分析技能 - 利用AI模型原生智能分析上下文质量"
+        self.description = "DNASPEC上下文分析技能 - 利用AI模型原生智能分析上下文质量"
     
     def process_request(self, request: str, params: Dict[str, Any] = None) -> Any:
         """处理请求 - 通过AI原生智能实现"""
@@ -166,7 +166,7 @@ class ContextOptimizationSkill:
     
     def __init__(self):
         self.name = "dnaspec-context-optimization"
-        self.description = "DSGS上下文优化技能 - 利用AI模型原生智能优化上下文质量"
+        self.description = "DNASPEC上下文优化技能 - 利用AI模型原生智能优化上下文质量"
     
     def process_request(self, request: str, params: Dict[str, Any] = None) -> Any:
         """处理请求 - 通过AI原生智能优化"""
@@ -222,7 +222,7 @@ class CognitiveTemplateSkill:
     
     def __init__(self):
         self.name = "dnaspec-cognitive-template"
-        self.description = "DSGS认知模板技能 - 利用AI模型原生智能应用认知模板"
+        self.description = "DNASPEC认知模板技能 - 利用AI模型原生智能应用认知模板"
         
         self.templates = {
             'chain_of_thought': '思维链推理模板',

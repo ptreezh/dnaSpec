@@ -8,13 +8,13 @@ sys.path.insert(0, 'src')
 
 def demo_agent_creator():
     """演示智能体创建技能的使用方法"""
-    print("=== DSGS智能体创建技能使用演示 ===\n")
+    print("=== DNASPEC智能体创建技能使用演示 ===\n")
     
     # 导入智能体创建技能
-    from dsgs_agent_creator import DSGSAgentCreator
+    from dnaspec_agent_creator import DNASPECAgentCreator
     
     # 创建技能实例
-    agent_creator = DSGSAgentCreator()
+    agent_creator = DNASPECAgentCreator()
     
     print("✓ 智能体创建技能加载成功")
     print(f"技能名称: {agent_creator.name}")

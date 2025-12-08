@@ -44,7 +44,7 @@
 - **监控服务**: `HealthCheckService`
 
 ### 4. 端到端测试错误 (约 10 个错误)
-- **E2E 测试**: `DSGS_EndToEnd.test.ts`
+- **E2E 测试**: `DNASPEC_EndToEnd.test.ts`
 - **集成测试**: `ContextEngineeringIntegration.test.ts`
 
 ## 🎯 下一步修复计划

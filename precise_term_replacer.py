@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-精确术语替换器 - 将DSGS相关术语统一替换为dnaspec
+精确术语替换器 - 将DNASPEC相关术语统一替换为dnaspec
 """
 import os
 import re
@@ -112,7 +112,7 @@ def main():
     """主函数"""
     print("🚀 DNASPEC 术语统一替换工具")
     print("="*50)
-    print("将项目中所有DSGS相关术语统一替换为dnaspec")
+    print("将项目中所有DNASPEC相关术语统一替换为dnaspec")
     print()
     
     project_path = r"D:\DAIP\dnaSpec"
@@ -124,7 +124,7 @@ def main():
     )
     
     print(f"\n✅ 术语替换任务完成！")
-    print(f"已更新 {updated_files} 个文件中的DSGS术语为dnaspec")
+    print(f"已更新 {updated_files} 个文件中的DNASPEC术语为dnaspec")
     
     # 创建更新说明
     print("\n主要替换内容:")

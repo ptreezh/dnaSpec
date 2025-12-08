@@ -19,15 +19,15 @@ def test_new_keywords():
     # 创建Skills发现Hook
     hook = SkillsDiscoveryHook('skills')
     
-    # 找到dsgs-agent-creator技能
-    dsgs_agent_creator = None
+    # 找到dna-agent-creator技能
+    dnaspec_agent_creator = None
     for skill in hook.skills_registry:
         if skill.name == 'dnaspec-agent-creator':
-            dsgs_agent_creator = skill
+            dnaspec_agent_creator = skill
             break
     
-    if dsgs_agent_creator:
-        print(f"dnaspec-agent-creator 关键词: {dsgs_agent_creator.keywords}")
+    if dnaspec_agent_creator:
+        print(f"dnaspec-agent-creator 关键词: {dnaspec_agent_creator.keywords}")
         print()
         
         # 测试新增的关键词
@@ -43,8 +43,8 @@ def test_new_keywords():
         ]
         
         for msg in test_messages:
-            confidence = hook._calculate_match_confidence_improved(msg, dsgs_agent_creator)
-            matched_keywords = [k for k in dsgs_agent_creator.keywords if k in msg.lower()]
+            confidence = hook._calculate_match_confidence_improved(msg, dnaspec_agent_creator)
+            matched_keywords = [k for k in dnaspec_agent_creator.keywords if k in msg.lower()]
             print(f'消息: "{msg}"')
             print(f'  置信度: {confidence:.3f}')
             print(f'  匹配关键词: {matched_keywords}')

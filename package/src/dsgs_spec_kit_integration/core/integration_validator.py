@@ -1,6 +1,6 @@
 """
 集成验证器模块
-验证DSGS技能与AI CLI工具的集成状态
+验证DNASPEC技能与AI CLI工具的集成状态
 """
 import time
 import os
@@ -12,8 +12,8 @@ from .skill_mapper import SkillMapper
 
 class IntegrationValidator:
     """
-    DSGS集成验证器
-    验证DSGS技能与AI CLI工具的集成状态
+    DNASPEC集成验证器
+    验证DNASPEC技能与AI CLI工具的集成状态
     """
     
     def __init__(self, skill_executor: SkillExecutor = None):

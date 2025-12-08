@@ -9,7 +9,7 @@ from typing import Dict, Any
 
 class SkillExecutor:
     """
-    DSGS技能执行器
+    DNASPEC技能执行器
     协调技能映射和Python桥接来执行技能
     """
     
@@ -45,9 +45,9 @@ class SkillExecutor:
                     'skill': skill_name
                 }
             
-            # 映射技能名称到DSGS技能
-            dsgs_skill_name = self.skill_mapper.map(skill_name)
-            if not dsgs_skill_name:
+            # 映射技能名称到DNASPEC技能
+            dnaspec_skill_name = self.skill_mapper.map(skill_name)
+            if not dnaspec_skill_name:
                 return {
                     'success': False,
                     'error': f'Skill not found: {skill_name}',
@@ -55,7 +55,7 @@ class SkillExecutor:
                 }
             
             # 通过Python桥接器执行技能
-            result = self.python_bridge.execute_skill(dsgs_skill_name, params)
+            result = self.python_bridge.execute_skill(dnaspec_skill_name, params)
             
             # 格式化输出
             formatted_result = {
@@ -147,8 +147,8 @@ class SkillExecutor:
         Returns:
             技能是否可用
         """
-        dsgs_skill_name = self.skill_mapper.map(skill_name)
-        if not dsgs_skill_name:
+        dnaspec_skill_name = self.skill_mapper.map(skill_name)
+        if not dnaspec_skill_name:
             return False
         
-        return self.python_bridge.is_skill_available(dsgs_skill_name)
+        return self.python_bridge.is_skill_available(dnaspec_skill_name)

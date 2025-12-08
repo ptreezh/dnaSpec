@@ -2,7 +2,7 @@
 
 ## 📋 项目概述
 
-本项目基于TDD（测试驱动开发）原则，对DSGS Contract Module进行全面重构。遵循kiro spec规范，采用文档驱动开发方法，确保代码质量和可维护性。
+本项目基于TDD（测试驱动开发）原则，对DNASPEC Contract Module进行全面重构。遵循kiro spec规范，采用文档驱动开发方法，确保代码质量和可维护性。
 
 ## 🎯 项目目标
 
@@ -165,7 +165,7 @@ Unit Tests (60%)
 ## 📞 联系信息
 
 ### 项目负责人
-- **姓名**：DSGS团队
+- **姓名**：DNASPEC团队
 - **邮箱**：team@dnaspec.com
 - **角色**：架构师
 
@@ -183,7 +183,7 @@ Unit Tests (60%)
 4. **[执行指南](execution-guide.md)** - TDD执行的具体步骤
 
 ### 参考文档
-- [DSGS统一契约文档体系](../unified-contract/README.md)
+- [DNASPEC统一契约文档体系](../unified-contract/README.md)
 - [TDD最佳实践](https://github.com/jasonkneen/kiro)
 - [TypeScript官方文档](https://www.typescriptlang.org/docs/)
 
@@ -201,5 +201,5 @@ Unit Tests (60%)
 **项目概览版本**：1.0  
 **创建日期**：2025-08-11  
 **最后更新**：2025-08-11  
-**作者**：DSGS团队  
+**作者**：DNASPEC团队  
 **状态**：准备执行

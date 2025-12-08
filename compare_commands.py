@@ -12,7 +12,7 @@ def simulate_init_behavior():
     """
     print("🔄 模拟 dnaspec init 命令行为:")
     print("1. 检查环境依赖...")
-    print("2. 安装DSGS Python包...")
+    print("2. 安装DNASPEC Python包...")
     print("3. 检测AI CLI工具...")
     print("4. 生成全面配置...")
     print("5. 验证所有集成...")
@@ -29,7 +29,7 @@ def simulate_deploy_behavior():
     模拟 deploy 命令行为 - 仅部署技能
     """
     print("🔄 模拟 dnaspec deploy 命令行为:")
-    print("1. 重用已安装的DSGS包...")
+    print("1. 重用已安装的DNASPEC包...")
     print("2. 检测AI CLI工具...")
     print("3. 部署技能到AI工具...")
     print("4. 创建AI CLI扩展...")

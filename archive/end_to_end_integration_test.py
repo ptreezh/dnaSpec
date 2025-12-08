@@ -130,7 +130,7 @@ for case in practical_use_cases:
 print("\\n" + "="*80)
 print("🎯 集成验证成功！")
 print("="*80)
-print("✅ DNASPEC Context Engineering Skills 已成功集成到DSGS系统")
+print("✅ DNASPEC Context Engineering Skills 已成功集成到DNASPEC系统")
 print("✅ AI原生架构实现，无本地模型依赖") 
 print("✅ 与原始技能接口完全兼容")
 print("✅ 提供专业的上下文工程能力")

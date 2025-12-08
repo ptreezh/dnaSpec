@@ -70,7 +70,7 @@ public async getTemplatesNeedingReview(): Promise<string[]>
    - `confidenceThreshold` 属性不存在
    - 返回类型不匹配
 
-6. **DSGS_EndToEnd.test.ts** - API不匹配
+6. **DNASPEC_EndToEnd.test.ts** - API不匹配
    - `getWorkflowTime` 方法不存在
    - `contextEngineeringIntegration` 变量名错误
 

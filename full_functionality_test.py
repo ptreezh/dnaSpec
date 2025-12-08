@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS功能测试脚本
+DNASPEC功能测试脚本
 验证所有核心功能是否正常工作
 """
 from src.dnaspec_context_engineering.skills_system_final import execute
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         test_task_decomposition()
         
         print("🎉 所有功能测试通过！")
-        print("DSGS系统已完全正常运行！")
+        print("DNASPEC系统已完全正常运行！")
     except Exception as e:
         print(f"❌ 测试失败: {e}")
         import traceback

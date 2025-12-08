@@ -16,7 +16,7 @@ class ContextAnalysisSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-analysis",
-            description="DSGS上下文分析器 - 分析上下文有效性和质量的专家"
+            description="DNASPEC上下文分析器 - 分析上下文有效性和质量的专家"
         )
         self.analysis_metrics = [
             'clarity',      # 清晰度

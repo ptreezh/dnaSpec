@@ -8,7 +8,7 @@ import json
 import re
 
 
-class DSGSContextEngineeringSystem:
+class DNASPECContextEngineeringSystem:
     """
     DNASPEC Context Engineering System - AI原生架构核心
     专门作为AI CLI平台的增强工具集设计
@@ -310,7 +310,7 @@ class SkillExecutor:
     """
     
     def __init__(self):
-        self.system = DSGSContextEngineeringSystem()
+        self.system = DNASPECContextEngineeringSystem()
     
     def execute_analysis(self, context: str, params: Dict[str, Any] = None) -> str:
         """执行分析技能 - 构造AI指令"""
@@ -477,7 +477,7 @@ def main_cli():
 # 用于测试的便捷函数
 def demo_analysis():
     """演示分析功能"""
-    system = DSGSContextEngineeringSystem()
+    system = DNASPECContextEngineeringSystem()
     instruction = system.create_analysis_instruction("设计电商平台，支持用户注册登录、商品浏览、购物车功能。")
     
     print("📋 上下文分析指令:")
@@ -487,7 +487,7 @@ def demo_analysis():
 
 def demo_optimization():
     """演示优化功能"""
-    system = DSGSContextEngineeringSystem()
+    system = DNASPECContextEngineeringSystem()
     instruction = system.create_optimization_instruction(
         "系统要处理订单", 
         ['clarity', 'completeness']
@@ -500,7 +500,7 @@ def demo_optimization():
 
 def demo_template():
     """演示模板功能"""
-    system = DSGSContextEngineeringSystem()
+    system = DNASPECContextEngineeringSystem()
     instruction = system.create_cognitive_template_instruction(
         "如何提高系统安全性？",
         "chain_of_thought"

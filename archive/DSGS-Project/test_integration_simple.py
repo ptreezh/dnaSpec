@@ -12,7 +12,7 @@ def test_integration():
     
     # 导入主技能
     try:
-        from dsgs_architect import DSGSArchitect
+        from dnaspec_architect import DNASPECArchitect
         print("✓ 成功导入主技能")
     except Exception as e:
         print(f"✗ 导入主技能失败: {e}")
@@ -20,15 +20,15 @@ def test_integration():
     
     # 导入系统架构师子技能
     try:
-        from dsgs_system_architect import DSGSSystemArchitect
+        from dnaspec_system_architect import DNASPECSystemArchitect
         print("✓ 成功导入系统架构师子技能")
     except Exception as e:
         print(f"✗ 导入系统架构师子技能失败: {e}")
         return
     
     # 创建技能实例
-    main_skill = DSGSArchitect()
-    system_architect_skill = DSGSSystemArchitect()
+    main_skill = DNASPECArchitect()
+    system_architect_skill = DNASPECSystemArchitect()
     
     # 测试请求
     test_request = "Design architecture for a web application"

@@ -220,9 +220,9 @@ def demonstrate_llm_config_integration():
     print("1. LLM配置管理器初始化完成")
     print(f"   支持的提供商: {list(llm_config_manager.config['llm_providers'].keys())}")
     
-    # 2. 使用DSGS创建智能体配置
-    from dsgs_agent_creator import DSGSAgentCreator
-    agent_creator = DSGSAgentCreator()
+    # 2. 使用DNASPEC创建智能体配置
+    from dnaspec_agent_creator import DNASPECAgentCreator
+    agent_creator = DNASPECAgentCreator()
     
     request = "Create agents for a comprehensive system with security, monitoring, and data capabilities"
     result = agent_creator.process_request(request)
@@ -230,7 +230,7 @@ def demonstrate_llm_config_integration():
     if result["status"] == "completed":
         agent_config = result["agent_configuration"]
         
-        print(f"\n2. 从DSGS获取了 {len(agent_config['agents'])} 个智能体配置")
+        print(f"\n2. 从DNASPEC获取了 {len(agent_config['agents'])} 个智能体配置")
         
         # 3. 为每个智能体配置LLM
         print("\n3. 为智能体配置LLM API...")

@@ -7,7 +7,7 @@
 - [x] Context Optimization Skill - 多目标上下文优化  
 - [x] Cognitive Template Skill - 认知模板结构化应用
 - [x] Skills Manager - 技能统一管理器
-- [x] System Integration - 与DSGS框架集成
+- [x] System Integration - 与DNASPEC框架集成
 - [x] CLI Interface - 命令行接口兼容
 - [x] Platform Adapters - AI CLI平台适配器
 
@@ -33,7 +33,7 @@
 - [x] 统一接口 - 所有技能接口一致
 
 ### 2.3 集成兼容性验证
-- [x] DSGS框架兼容 - 继承DSGSSkill基类
+- [x] DNASPEC框架兼容 - 继承DNASPECSkill基类
 - [x] 与Claude CLI适配 - 支持工具调用模式
 - [x] 与Gemini CLI适配 - 支持函数调用模式
 - [x] 与Qwen CLI适配 - 支持指令集成模式
@@ -103,7 +103,7 @@
 ### 6.2 集成测试
 - [x] 系统整体功能测试 - 1个端到端测试
 - [x] CLI接口集成测试 - 1个接口测试
-- [x] DSGS框架集成测试 - 1个集成测试
+- [x] DNASPEC框架集成测试 - 1个集成测试
 - [x] 平台适配集成测试 - 1个适配测试
 
 ### 6.3 性能测试
@@ -138,7 +138,7 @@
 - [x] **功能实现**: 100% - 所有核心功能完成
 - [x] **测试覆盖**: 95% - 超过最低覆盖率要求
 - [x] **文档完整**: 98% - 完整的技术和使用文档
-- [x] **集成验证**: 97% - 与DSGS框架完全兼容
+- [x] **集成验证**: 97% - 与DNASPEC框架完全兼容
 - [x] **部署验证**: 96% - 本地部署和功能验证完成
 
 ### 8.2 风险评估

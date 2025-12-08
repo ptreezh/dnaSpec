@@ -40,7 +40,7 @@ def demo_dapi_check_invocation():
     print("\n" + "="*60)
     print("DAPIcheck技能集成验证")
     print("="*60)
-    print("✓ 新增的dsgs-dapi-checker技能已被成功识别")
+    print("✓ 新增的dna-dapi-checker技能已被成功识别")
     print("✓ Skills注册表自动包含了新技能")
     print("✓ 关键词匹配机制正常工作")
     print("✓ Skill调用流程完整")

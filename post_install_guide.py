@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Post-installation Guide - DSGS系统安装后指引
+Post-installation Guide - DNASPEC系统安装后指引
 为用户提供清晰的操作说明和功能介绍
 """
 import sys

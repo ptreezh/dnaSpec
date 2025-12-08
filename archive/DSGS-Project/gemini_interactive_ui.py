@@ -16,8 +16,8 @@ from gemini_hook_handler import get_hook_handler
 from gemini_skills_core import get_skill_manager
 from gemini_skill_executor import get_execution_engine
 
-class DSGSInteractiveInterface:
-    """DSGS交互式用户界面"""
+class DNASPECInteractiveInterface:
+    """DNASPEC交互式用户界面"""
     
     def __init__(self):
         self.hook_handler = get_hook_handler()
@@ -29,7 +29,7 @@ class DSGSInteractiveInterface:
         """显示欢迎信息"""
         print("=" * 60)
         print("           DNASPEC Gemini CLI Extensions")
-        print("        DSGS智能架构师系统交互界面")
+        print("        DNASPEC智能架构师系统交互界面")
         print("=" * 60)
         print()
         
@@ -175,7 +175,7 @@ class DSGSInteractiveInterface:
 
 def main():
     """主函数"""
-    interface = DSGSInteractiveInterface()
+    interface = DNASPECInteractiveInterface()
     
     if len(sys.argv) > 1 and sys.argv[1] in ['--demo', '-d']:
         # 演示模式

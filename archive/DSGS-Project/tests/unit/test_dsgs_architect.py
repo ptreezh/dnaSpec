@@ -31,8 +31,8 @@ def test_skill_basic_functionality():
     """测试技能基本功能"""
     # 测试技能可以被导入
     try:
-        from dsgs_architect import DSGSArchitect
-        skill = DSGSArchitect()
+        from dnaspec_architect import DNASPECArchitect
+        skill = DNASPECArchitect()
         assert skill is not None, "技能实例不应该为空"
         assert skill.name == "dnaspec-architect", "技能名称应该正确"
     except ImportError as e:
@@ -40,8 +40,8 @@ def test_skill_basic_functionality():
 
 def test_skill_routing():
     """测试技能路由功能"""
-    from dsgs_architect import DSGSArchitect
-    skill = DSGSArchitect()
+    from dnaspec_architect import DNASPECArchitect
+    skill = DNASPECArchitect()
     
     # 测试技能可以识别不同类型的请求
     test_cases = [
@@ -59,8 +59,8 @@ def test_skill_routing():
 
 def test_skill_integration_points():
     """测试技能集成点"""
-    from dsgs_architect import DSGSArchitect
-    skill = DSGSArchitect()
+    from dnaspec_architect import DNASPECArchitect
+    skill = DNASPECArchitect()
     
     # 验证技能可以与其他子技能交互
     expected_subskills = [
@@ -76,8 +76,8 @@ def test_skill_integration_points():
 
 def test_skill_error_handling():
     """测试技能错误处理"""
-    from dsgs_architect import DSGSArchitect
-    skill = DSGSArchitect()
+    from dnaspec_architect import DNASPECArchitect
+    skill = DNASPECArchitect()
     
     # 测试空输入处理
     empty_inputs = ["", "   ", "\n\t"]
@@ -91,8 +91,8 @@ def test_skill_error_handling():
 
 def test_skill_processing():
     """测试技能处理功能"""
-    from dsgs_architect import DSGSArchitect
-    skill = DSGSArchitect()
+    from dnaspec_architect import DNASPECArchitect
+    skill = DNASPECArchitect()
     
     # 测试正常请求处理
     test_request = "Design architecture for a web application"

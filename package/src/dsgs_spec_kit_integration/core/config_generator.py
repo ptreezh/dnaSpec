@@ -1,6 +1,6 @@
 """
 配置生成器模块
-根据检测结果生成DSGS配置文件
+根据检测结果生成DNASPEC配置文件
 """
 import os
 import yaml
@@ -10,7 +10,7 @@ from pathlib import Path
 
 class ConfigGenerator:
     """
-    DSGS配置生成器
+    DNASPEC配置生成器
     根据检测到的CLI工具生成配置文件
     """
     

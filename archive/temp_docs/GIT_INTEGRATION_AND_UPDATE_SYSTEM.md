@@ -15,7 +15,7 @@ DNASPEC Context Engineering Skills System 现在是一个**AI原生上下文工�
 
 ### 2.1 版本管理文件结构
 ```
-DSGS_Context_Engineering/
+DNASPEC_Context_Engineering/
 ├── .git/
 ├── .gitignore
 ├── VERSION                    # 版本文件
@@ -46,8 +46,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-class DSGSVersionManager:
-    """DSGS版本管理器 - Git集成版本"""
+class DNASPECVersionManager:
+    """DNASPEC版本管理器 - Git集成版本"""
     
     def __init__(self):
         self.version_file = Path("VERSION") 

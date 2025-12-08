@@ -11,10 +11,10 @@ def demo_modulizer():
     print("=== 模块化技能使用演示 ===\n")
     
     # 导入模块化技能
-    from dsgs_modulizer import DSGS_Modulizer
+    from dnaspec_modulizer import DNASPEC_Modulizer
     
     # 创建技能实例
-    modulizer = DSGS_Modulizer()
+    modulizer = DNASPEC_Modulizer()
     
     print("✓ 模块化技能加载成功")
     print(f"技能名称: {modulizer.name}")

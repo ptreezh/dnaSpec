@@ -17,18 +17,18 @@ def test_adapter_registration():
     # 获取所有注册的技能
     registered_skills = adapter.get_registered_skills()
     print(f"已注册技能数量: {len(registered_skills)}")
-    print("已注册的DSGS技能:")
+    print("已注册的DNASPEC技能:")
     for skill in registered_skills:
         print(f"  - {skill}")
     
-    # 检查核心DSGS技能是否注册
+    # 检查核心DNASPEC技能是否注册
     core_skills = [
         'dnaspec-context-analysis',
         'dnaspec-context-optimization', 
         'dnaspec-cognitive-template'
     ]
     
-    print("\n核心DSGS技能注册状态:")
+    print("\n核心DNASPEC技能注册状态:")
     for skill in core_skills:
         status = "✅" if skill in registered_skills else "❌"
         print(f"  {status} {skill}")

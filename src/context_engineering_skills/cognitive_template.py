@@ -17,7 +17,7 @@ class CognitiveTemplateSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-cognitive-template",
-            description="DSGS认知模板应用器 - 应用认知模板改进上下文工程的专家"
+            description="DNASPEC认知模板应用器 - 应用认知模板改进上下文工程的专家"
         )
         # 预定义的认知模板
         self.templates = {

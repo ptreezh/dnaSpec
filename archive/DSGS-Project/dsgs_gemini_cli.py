@@ -19,7 +19,7 @@ from gemini_hook_handler import get_hook_handler
 def main():
     """主函数"""
     print("=== DNASPEC Gemini CLI Extensions ===")
-    print("DSGS智能架构师系统已加载")
+    print("DNASPEC智能架构师系统已加载")
     print()
     
     # 显示可用技能
@@ -34,7 +34,7 @@ def main():
     # 显示使用说明
     print("使用说明:")
     print("1. 在Gemini CLI中直接输入自然语言请求")
-    print("2. 系统将自动匹配并执行相应的DSGS技能")
+    print("2. 系统将自动匹配并执行相应的DNASPEC技能")
     print("3. 支持的技能包括:")
     print("   - 智能体创建 (dnaspec-agent-creator)")
     print("   - 任务分解 (dnaspec-task-decomposer)")
@@ -67,7 +67,7 @@ def process_input(user_input: str):
 
 def run_tests():
     """运行测试"""
-    print("运行DSGS技能匹配测试...")
+    print("运行DNASPEC技能匹配测试...")
     
     test_cases = [
         "创建一个项目管理智能体",

@@ -53,7 +53,7 @@
 
 #### 3.2.1 API契约测试框架
 **状态**: ✅ 完成  
-**文件**: `test/contract/DSGSContractTest.ts`  
+**文件**: `test/contract/DNASPECContractTest.ts`  
 **实现内容**:
 - ✅ **Pact框架集成**: 完整的契约测试基础设施
 - ✅ **约束生成API**: `/api/constraints/generate` 契约验证

@@ -79,7 +79,7 @@ getProtocolEngine(): ProtocolEngine
 - `test/integration/ContextEngineeringIntegration.test.ts`
 - `test/integration/ContextEngineeringIntegrationEnhanced.test.ts`
 - `test/integration/SimpleIntegration.test.ts`
-- `test/e2e/DSGS_EndToEnd.test.ts`
+- `test/e2e/DNASPEC_EndToEnd.test.ts`
 
 **推荐方法**:
 1. 更新配置对象以匹配当前API

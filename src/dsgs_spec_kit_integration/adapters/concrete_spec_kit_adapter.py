@@ -1,6 +1,6 @@
 """
 spec.kit适配器具体实现
-集成DSGS Context Engineering Skills
+集成DNASPEC Context Engineering Skills
 """
 from src.dnaspec_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
 from typing import Dict, Any
@@ -17,20 +17,20 @@ class ConcreteSpecKitAdapter(SpecKitAdapter):
     def __init__(self):
         super().__init__()
 
-        # 注册DSGS核心技能
-        self._register_dsgs_skills()
+        # 注册DNASPEC核心技能
+        self._register_dnaspec_skills()
 
         # 保留原有的测试技能
         self._register_legacy_skills()
 
-    def _register_dsgs_skills(self):
-        """注册DSGS核心上下文工程技能"""
+    def _register_dnaspec_skills(self):
+        """注册DNASPEC核心上下文工程技能"""
         # 创建技能实例
         self._context_analysis_skill = ContextAnalysisSkill()
         self._context_optimization_skill = ContextOptimizationSkill()
         self._cognitive_template_skill = CognitiveTemplateSkill()
 
-        # 注册核心DSGS技能
+        # 注册核心DNASPEC技能
         self.register_skill('dnaspec-context-analysis', self._context_analysis_wrapper)
         self.register_skill('dnaspec-context-optimization', self._context_optimization_wrapper)
         self.register_skill('dnaspec-cognitive-template', self._cognitive_template_wrapper)
@@ -99,7 +99,7 @@ class ConcreteSpecKitAdapter(SpecKitAdapter):
             }
     
     def execute_skill(self, skill_name: str, params: Dict[str, Any]) -> Dict[str, Any]:
-        """执行映射的DSGS技能"""
+        """执行映射的DNASPEC技能"""
         if skill_name in self._registered_skills:
             skill_func = self._registered_skills[skill_name]
             return skill_func(params)

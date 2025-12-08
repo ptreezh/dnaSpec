@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 DNASPEC CLI命令入口点
-提供命令行接口来使用DSGS技能
+提供命令行接口来使用DNASPEC技能
 """
 import sys
 import os
@@ -29,7 +29,7 @@ def main():
     
     subparsers = parser.add_subparsers(dest='command', help='Available commands')
     
-    # exec命令：执行DSGS技能
+    # exec命令：执行DNASPEC技能
     exec_parser = subparsers.add_parser('exec', help='Execute a DNASPEC skill command')
     exec_parser.add_argument('command_string', help='The command to execute')
     

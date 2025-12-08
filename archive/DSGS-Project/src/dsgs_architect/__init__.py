@@ -4,13 +4,13 @@ import os
 import sys
 from typing import Dict, Any
 
-class DSGSArchitect:
-    """DSGS智能架构师主技能类"""
+class DNASPECArchitect:
+    """DNASPEC智能架构师主技能类"""
     
     def __init__(self):
         """初始化主技能"""
         self.name = "dnaspec-architect"
-        self.description = "DSGS智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成"
+        self.description = "DNASPEC智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成"
         self.subskills = [
             'dnaspec-system-architect',
             'dnaspec-task-decomposer', 
@@ -64,7 +64,7 @@ class DSGSArchitect:
         }
 
 # 全局实例
-architect = DSGSArchitect()
+architect = DNASPECArchitect()
 
 if __name__ == "__main__":
     # 简单测试

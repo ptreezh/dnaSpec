@@ -6,7 +6,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 def test_correct_implementation():
-    print("🔍 验证DSGS Context Engineering Skills - AI原生架构")
+    print("🔍 验证DNASPEC Context Engineering Skills - AI原生架构")
     print("="*70)
     
     # 1. 验证导入路径正确
@@ -24,9 +24,9 @@ def test_correct_implementation():
         skill = ContextAnalysisSkill()
         from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
         if isinstance(skill, DNASpecSkill):
-            print("   ✅ 正确继承自DSGSSkill基类")
+            print("   ✅ 正确继承自DNASPECSkill基类")
         else:
-            print("   ❌ 未正确继承DSGSSkill基类")
+            print("   ❌ 未正确继承DNASPECSkill基类")
             return False
     except Exception as e:
         print(f"   ❌ 继承验证失败: {e}")
@@ -105,9 +105,9 @@ def test_correct_implementation():
     
     print("\\n" + "="*70)
     print("🎯 验证完成！")
-    print("\\nDSGS Context Engineering Skills 已正确实现为AI原生架构:")
+    print("\\nDNASPEC Context Engineering Skills 已正确实现为AI原生架构:")
     print("✅ 利用AI模型原生智能执行上下文工程任务")
-    print("✅ 遵循DSGS技能框架标准")
+    print("✅ 遵循DNASPEC技能框架标准")
     print("✅ 提供专业级上下文分析、优化和模板应用")
     print("✅ 与AI CLI平台完全兼容")
     print("\\n💡 系统可以作为AI CLI平台的增强工具集部署使用")

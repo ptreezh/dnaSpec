@@ -42,7 +42,7 @@ DNASPEC Skills System
 
 #### 2.2.1 抽象技能接口
 ```python
-# dsgs_core/skill.py
+# dnaspec_core/skill.py
 from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional
 from dataclasses import dataclass
@@ -75,7 +75,7 @@ class DNASpecSkill(ABC):
 
 #### 2.2.2 统一技能管理器
 ```python
-# dsgs_core/manager.py
+# dnaspec_core/manager.py
 from typing import Dict, List, Optional
 from .skill import DNASpecSkill, SkillResult
 from .models import SkillInfo
@@ -110,7 +110,7 @@ class SkillManager:
 # adapters/claude/adapter.py
 import os
 from typing import Dict, Any
-from dsgs_core.manager import SkillManager
+from dnaspec_core.manager import SkillManager
 
 class ClaudeCLIAdapter:
     """Claude CLI适配器"""
@@ -133,7 +133,7 @@ class ClaudeCLIAdapter:
 ```python
 # adapters/gemini/adapter.py
 from typing import Dict, Any
-from dsgs_core.manager import SkillManager
+from dnaspec_core.manager import SkillManager
 # Gemini MCP相关导入
 
 class GeminiCLIAdapter:
@@ -155,7 +155,7 @@ class GeminiCLIAdapter:
 ```python
 # adapters/qwen/adapter.py
 from typing import Dict, Any
-from dsgs_core.manager import SkillManager
+from dnaspec_core.manager import SkillManager
 # Qwen MCP相关导入
 
 class QwenCLIAdapter:
@@ -173,10 +173,10 @@ class QwenCLIAdapter:
 
 ### 3.1 统一配置文件
 ```yaml
-# dsgs_config.yaml
+# dnaspec_config.yaml
 skills:
   - name: dnaspec-agent-creator
-    description: "DSGS智能体创建器"
+    description: "DNASPEC智能体创建器"
     keywords:
       - "创建智能体"
       - "智能体设计"
@@ -234,7 +234,7 @@ class ConfigManager:
 ```bash
 #!/bin/bash
 # deploy_all.sh
-echo "部署DSGS技能到所有支持的平台..."
+echo "部署DNASPEC技能到所有支持的平台..."
 
 # 部署到Claude CLI
 python deploy.py --platform claude
@@ -274,7 +274,7 @@ if __name__ == "__main__":
     parser.add_argument("--platform", required=True, help="目标平台")
     args = parser.parse_args()
     
-    config_manager = ConfigManager("dsgs_config.yaml")
+    config_manager = ConfigManager("dnaspec_config.yaml")
     deploy_to_platform(args.platform, config_manager)
 ```
 

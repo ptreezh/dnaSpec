@@ -63,7 +63,7 @@ def test_claude_architecture_patterns():
         'instruction_templates': 'instruction' in code.lower(),
         'context_injection': 'context' in code.lower() and 'ai' in code.lower(),
         'structured_output': 'json' in code.lower() or '"{' in code,
-        'dsgs_inheritance': 'DNASpecSkill' in code,
+        'dnaspec_inheritance': 'DNASpecSkill' in code,
         'execute_interface': 'def execute(' in code
     }
     
@@ -97,7 +97,7 @@ def test_skill_functionality():
         'ContextAnalysisSkill', 
         'ContextOptimizationSkill', 
         'CognitiveTemplateSkill',
-        'DSGSContextEngineeringSystem'
+        'DNASPECContextEngineeringSystem'
     ]
     
     all_classes_exist = True
@@ -205,7 +205,7 @@ def test_professional_capabilities():
 
 def main():
     """主验证函数"""
-    print("\\n🚀 执行DSGS Context Engineering Skills最终验证...")
+    print("\\n🚀 执行DNASPEC Context Engineering Skills最终验证...")
     
     checks = [
         test_true_ai_native_architecture(),
@@ -225,7 +225,7 @@ def main():
         print("   COMPLETE SUCCESS: AI原生Claude架构验证通过!")
         print("🎉" * 25)
         
-        print("\\n🎯 系统已完全符合DSGS Context Engineering Skills规范:")
+        print("\\n🎯 系统已完全符合DNASPEC Context Engineering Skills规范:")
         print("   ✅ 100% AI原生架构 - 无本地模型依赖")
         print("   ✅ Claude Skills架构兼容 - 遵循最佳实践") 
         print("   ✅ 指令工程实现 - 通过AI API完成专业任务")

@@ -15,7 +15,7 @@
 ## 2. MCP服务器的必要性分析
 
 ### ✅ **可以不需要MCP的情况**：
-- 纯提示词增强Skills（如我们的DSGS）
+- 纯提示词增强Skills（如我们的DNASPEC）
 - 上下文管理通过GEMINI.md实现
 - 无本地资源访问需求
 
@@ -32,7 +32,7 @@
 {
   "name": "dnaspec-agent-creator",
   "playbook": {
-    "instructions": "你是DSGS智能体创建专家...",
+    "instructions": "你是DNASPEC智能体创建专家...",
     "triggers": ["创建智能体", "智能体设计"],
     "capabilities": ["context_management"]
   },
@@ -54,7 +54,7 @@
 
 ## 4. 最佳实践建议
 
-### 对于DSGS Skills：
+### 对于DNASPEC Skills：
 ✅ **使用纯Playbook方式**
 - 无需MCP服务器
 - 更简单部署

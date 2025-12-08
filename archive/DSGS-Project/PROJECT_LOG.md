@@ -1,4 +1,4 @@
-# DSGS项目日志文档
+# DNASPEC项目日志文档
 
 ## 项目概述
 DNASPEC (Dynamic Specification Growth System) 智能架构师项目日志，记录项目开发过程中的关键决策、技术实现和问题解决。
@@ -6,10 +6,10 @@ DNASPEC (Dynamic Specification Growth System) 智能架构师项目日志，记�
 ## 2025年11月1日 项目进展记录
 
 ### 智能体创建技能完善
-今日完成了dsgs-agent-creator智能体创建技能的全面测试和演示，验证了其在实际应用场景中的可操作性。
+今日完成了dna-agent-creator智能体创建技能的全面测试和演示，验证了其在实际应用场景中的可操作性。
 
 ### 核心技术决策
-1. **智能体概念澄清**: 确认dsgs-agent-creator创建的是目标系统内部的内生智能体，而非开发工具中的subagent
+1. **智能体概念澄清**: 确认dna-agent-creator创建的是目标系统内部的内生智能体，而非开发工具中的subagent
 2. **AI算力管理**: 设计了统一的AI资源管理和LLM API配置方案
 
 ### LLM API配置管理方案
@@ -47,7 +47,7 @@ class LLMConfigManager:
 4. **动态调整**: 支持根据负载动态调整资源配置
 
 #### 集成方案
-- 通过DSGS智能体创建技能生成智能体配置
+- 通过DNASPEC智能体创建技能生成智能体配置
 - 为每个智能体分配合适的LLM资源
 - 提供统一的LLM调用接口
 - 实现资源使用监控和管理

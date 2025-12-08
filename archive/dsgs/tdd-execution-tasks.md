@@ -3,7 +3,7 @@
 ## 📋 任务分解总览
 
 ### 🎯 总体目标
-建立DSGS项目的完整TDD测试体系，实现测试驱动的设计基线版本
+建立DNASPEC项目的完整TDD测试体系，实现测试驱动的设计基线版本
 
 ### 📊 当前状态分析
 - **项目**: DNASPEC v2.1.0 (Dynamic Specification Growth System)
@@ -73,7 +73,7 @@
 - [x] **压力测试**: 持续负载和压力条件测试
 - [x] **跨模块集成**: 真实场景模拟和集成验证
 **交付物**:
-- `DSGS_EndToEnd.test.ts` - 综合E2E测试套件
+- `DNASPEC_EndToEnd.test.ts` - 综合E2E测试套件
 - `run-e2e-tests.js` - E2E测试执行和报告工具
 - 6个主要工作流，100%覆盖率
 - 完整的业务指标和性能报告

@@ -19,15 +19,15 @@ def test_task_decomposer_keywords():
     # 创建Skills发现Hook
     hook = SkillsDiscoveryHook('skills')
     
-    # 找到dsgs-task-decomposer技能
-    dsgs_task_decomposer = None
+    # 找到dna-task-decomposer技能
+    dnaspec_task_decomposer = None
     for skill in hook.skills_registry:
         if skill.name == 'dnaspec-task-decomposer':
-            dsgs_task_decomposer = skill
+            dnaspec_task_decomposer = skill
             break
     
-    if dsgs_task_decomposer:
-        print(f"dnaspec-task-decomposer 关键词: {dsgs_task_decomposer.keywords}")
+    if dnaspec_task_decomposer:
+        print(f"dnaspec-task-decomposer 关键词: {dnaspec_task_decomposer.keywords}")
         print()
         
         # 测试新增的关键词
@@ -44,8 +44,8 @@ def test_task_decomposer_keywords():
         ]
         
         for msg in test_messages:
-            confidence = hook._calculate_match_confidence_improved(msg, dsgs_task_decomposer)
-            matched_keywords = [k for k in dsgs_task_decomposer.keywords if k in msg.lower()]
+            confidence = hook._calculate_match_confidence_improved(msg, dnaspec_task_decomposer)
+            matched_keywords = [k for k in dnaspec_task_decomposer.keywords if k in msg.lower()]
             print(f'消息: "{msg}"')
             print(f'  置信度: {confidence:.3f}')
             print(f'  匹配关键词: {matched_keywords}')

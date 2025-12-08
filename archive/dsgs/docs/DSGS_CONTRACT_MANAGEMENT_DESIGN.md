@@ -1,10 +1,10 @@
-# DSGS智能契约管理系统 - 系统设计
+# DNASPEC智能契约管理系统 - 系统设计
 
 ## 🏗️ 系统架构
 
 ### 整体架构
 ```
-DSGS智能契约管理系统
+DNASPEC智能契约管理系统
 ├── 应用层 (Application Layer)
 │   ├── CLI应用 (CLI Application)
 │   ├── Web应用 (Web Application)
@@ -16,9 +16,9 @@ DSGS智能契约管理系统
 │   ├── 版本管理服务 (Version Management Service)
 │   └── 文档生成服务 (Documentation Service)
 ├── 集成层 (Integration Layer)
-│   ├── DSGS约束生成器适配器 (Constraint Generator Adapter)
-│   ├── DSGS神经场适配器 (Neural Field Adapter)
-│   ├── DSGS监控适配器 (Monitoring Adapter)
+│   ├── DNASPEC约束生成器适配器 (Constraint Generator Adapter)
+│   ├── DNASPEC神经场适配器 (Neural Field Adapter)
+│   ├── DNASPEC监控适配器 (Monitoring Adapter)
 │   └── CI/CD适配器 (CI/CD Adapter)
 ├── 数据层 (Data Layer)
 │   ├── 契约存储 (Contract Storage)
@@ -283,17 +283,17 @@ interface DocumentationService {
 ```typescript
 interface IntegrationService {
   /**
-   * 与DSGS约束生成器集成
+   * 与DNASPEC约束生成器集成
    */
   integrateWithConstraintGenerator(request: IntegrationRequest): Promise<IntegrationResponse>;
   
   /**
-   * 与DSGS神经场集成
+   * 与DNASPEC神经场集成
    */
   integrateWithNeuralField(request: IntegrationRequest): Promise<IntegrationResponse>;
   
   /**
-   * 与DSGS监控集成
+   * 与DNASPEC监控集成
    */
   integrateWithMonitoring(request: IntegrationRequest): Promise<IntegrationResponse>;
 }
@@ -890,5 +890,5 @@ class ConnectionPool {
 **文档版本**: v1.0  
 **创建日期**: 2025-08-06  
 **最后更新**: 2025-08-06  
-**负责人**: DSGS架构团队  
+**负责人**: DNASPEC架构团队  
 **状态**: 设计阶段

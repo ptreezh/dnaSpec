@@ -26,13 +26,13 @@
 - `/context-engineering-workflow` → `/cew` - 上下文工程工作流
 
 ### DNASPEC 快捷方式
-- `/dnaspec-architect` → `/da` - DSGS架构师
-- `/dnaspec-system-architect` → `/dsa` - DSGS系统架构师
-- `/dnaspec-agent-creator` → `/dac` - DSGS智能体创建器
-- `/dnaspec-constraint-generator` → `/dcg` - DSGS约束生成器
-- `/dnaspec-task-decomposer` → `/dtd` - DSGS任务分解器
-- `/dnaspec-modulizer` → `/dm` - DSGS模块化验证器
-- `/dnaspec-dapi-checker` → `/ddc` - DSGS接口检查器
+- `/dnaspec-architect` → `/da` - DNASPEC架构师
+- `/dnaspec-system-architect` → `/dsa` - DNASPEC系统架构师
+- `/dnaspec-agent-creator` → `/dac` - DNASPEC智能体创建器
+- `/dnaspec-constraint-generator` → `/dcg` - DNASPEC约束生成器
+- `/dnaspec-task-decomposer` → `/dtd` - DNASPEC任务分解器
+- `/dnaspec-modulizer` → `/dm` - DNASPEC模块化验证器
+- `/dnaspec-dapi-checker` → `/ddc` - DNASPEC接口检查器
 
 ## 帮助命令
 
@@ -43,7 +43,7 @@
 ### 分类帮助
 - `/speckit.core` - 核心spec.kit帮助
 - `/speckit.context` - 上下文工程帮助
-- `/speckit.dnaspec` - DSGS技能帮助
+- `/speckit.dnaspec` - DNASPEC技能帮助
 
 ## 详细帮助提示词
 

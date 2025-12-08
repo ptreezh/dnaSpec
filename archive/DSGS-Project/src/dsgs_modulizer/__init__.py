@@ -53,13 +53,13 @@ class ModularizationReport:
     recommendations: List[str]
     risk_analysis: Dict[str, Any]
 
-class DSGS_Modulizer:
-    """DSGS模块成熟化核验器"""
+class DNASPEC_Modulizer:
+    """DNASPEC模块成熟化核验器"""
     
     def __init__(self):
         """初始化模块化器"""
         self.name = "dnaspec-modulizer"
-        self.description = "DSGS模块成熟化核验器，用于对系统各模块进行自底向上的成熟度检查和模块化封装"
+        self.description = "DNASPEC模块成熟化核验器，用于对系统各模块进行自底向上的成熟度检查和模块化封装"
         self.capabilities = [
             "bottom_up_analysis",
             "maturity_assessment",
@@ -326,7 +326,7 @@ class DSGS_Modulizer:
         }
 
 # 全局实例
-modulizer = DSGS_Modulizer()
+modulizer = DNASPEC_Modulizer()
 
 if __name__ == "__main__":
     # 简单测试

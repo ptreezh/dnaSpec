@@ -15,7 +15,7 @@ DNASPEC Context Engineering Skills System
 │   └── dnaspec_context_engineering/
 │       ├── skills_system_final_clean.py        # 核心技能实现
 │       ├── core/                              # 核心基类
-│       │   └── skill.py                       # DSGSSkill基类
+│       │   └── skill.py                       # DNASPECSkill基类
 │       ├── skills/                            # 技能模块
 │       │   ├── context_analysis.py            # 上下文分析技能
 │       │   ├── context_optimization.py        # 上下文优化技能  
@@ -178,7 +178,7 @@ print(result)
 ## 8. 维护和扩展
 
 ### 8.1 添加新技能
-1. 继承DSGSSkill基类
+1. 继承DNASPECSkill基类
 2. 实现_execute_skill_logic方法
 3. 构造AI指令以利用AI模型原生能力
 4. 解析AI模型返回结果为结构化格式
@@ -197,7 +197,7 @@ print(result)
 
 ✅ **功能完整**: 所有核心技能正常工作
 ✅ **架构正确**: AI原生架构完全实现
-✅ **接口统一**: 遵循DSGS标准接口
+✅ **接口统一**: 遵循DNASPEC标准接口
 ✅ **文档齐全**: 使用指南和API文档完成
 ✅ **测试覆盖**: 功能测试和集成测试通过
 ✅ **平台兼容**: 与主流AI CLI平台兼容

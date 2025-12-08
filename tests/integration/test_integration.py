@@ -20,9 +20,9 @@ from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigur
 from src.dnaspec_spec_kit_integration.core.platform_utils import PlatformUtils
 
 
-class TestDSGSIntegration(unittest.TestCase):
+class TestDNASPECIntegration(unittest.TestCase):
     """
-    DSGS集成测试类
+    DNASPEC集成测试类
     """
     
     def setUp(self):

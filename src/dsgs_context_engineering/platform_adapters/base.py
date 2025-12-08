@@ -275,7 +275,7 @@ class ClaudeToolsAdapter(PlatformAdapter):
     
     def get_available_tools(self) -> List[str]:
         """
-        获取Claude平台可用的DSGS工具列表
+        获取Claude平台可用的DNASPEC工具列表
         """
         # 在实际实现中，这是通过查询注册的技能获得的
         # 暂时返回模拟列表
@@ -393,5 +393,5 @@ class GenericAPIProxyAdapter(PlatformAdapter):
         """
         获取代理支持的工具列表
         """
-        # 返回通过DSGS规范引擎注册的工具
+        # 返回通过DNASPEC规范引擎注册的工具
         return []  # 实际实现中会从注册表获取

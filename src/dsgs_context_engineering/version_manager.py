@@ -12,9 +12,9 @@ import requests
 from datetime import datetime
 
 
-class DSGSVersionManager:
+class DNASPECVersionManager:
     """
-    DSGS版本管理器
+    DNASPEC版本管理器
     处理Git版本控制和自动更新功能
     """
     
@@ -179,14 +179,14 @@ class DSGSVersionManager:
             }
 
 
-class DSGSContextSkillsUpdater:
+class DNASPECContextSkillsUpdater:
     """
     DNASPEC Context Skills 自动更新器
     专门用于更新Context Engineering Skills系统
     """
     
     def __init__(self):
-        self.version_manager = DSGSVersionManager()
+        self.version_manager = DNASPECVersionManager()
         self.project_root = Path(".")  # 设置项目根目录
         self.update_log_file = Path("UPDATE_LOG.md")
     
@@ -376,7 +376,7 @@ def execute_version_command(args: Dict[str, Any]) -> str:
     执行版本相关的命令
     """
     command = args.get('command', 'status')
-    updater = DSGSContextSkillsUpdater()
+    updater = DNASPECContextSkillsUpdater()
     
     if command == 'status':
         readiness = updater.check_update_readiness()

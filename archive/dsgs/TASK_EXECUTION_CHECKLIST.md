@@ -160,7 +160,7 @@
   
 - [ ] **任务4.2.2**: 修复契约测试问题
   ```bash
-  npm test -- test/contract/DSGSContractTest.ts
+  npm test -- test/contract/DNASPECContractTest.ts
   ```
 
 #### 4.3 验证Performance Testing
@@ -366,7 +366,7 @@
   - TemplateReevaluator.test.ts: API不匹配
   - ContextEngineeringIntegrationEnhanced.test.ts: 大量失败
   - ContextEngineeringIntegration.test.ts: 配置不兼容
-  - DSGSContractTest.ts: 契约测试失败
+  - DNASPECContractTest.ts: 契约测试失败
   - TemplateReevaluatorProperty.test.ts: 属性测试失败
 - **10:57**: 📊 真实测试结果分析
   - Test Suites: 6 failed, 9 passed, 15 total (60% 套件成功率)
@@ -417,7 +417,7 @@
   - TemplateReevaluator.test.ts: API不匹配
   - ContextEngineeringIntegrationEnhanced.test.ts: 大量失败
   - ContextEngineeringIntegration.test.ts: 配置不兼容
-  - DSGSContractTest.ts: 契约测试失败
+  - DNASPECContractTest.ts: 契约测试失败
   - TemplateReevaluatorProperty.test.ts: 属性测试失败
 - **10:57**: 📊 真实测试结果分析
   - Test Suites: 6 failed, 9 passed, 15 total (60% 套件成功率)

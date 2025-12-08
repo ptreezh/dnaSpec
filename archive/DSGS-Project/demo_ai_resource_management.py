@@ -215,13 +215,13 @@ def demonstrate_ai_resource_management():
     for agent_type, resources in allocations.items():
         print(f"   {agent_type}: {resources}")
     
-    # 3. 使用DSGS生成智能体配置
+    # 3. 使用DNASPEC生成智能体配置
     import sys
     sys.path.insert(0, 'src')
-    from dsgs_agent_creator import DSGSAgentCreator
+    from dnaspec_agent_creator import DNASPECAgentCreator
     
-    print("\n3. 使用DSGS生成智能体配置...")
-    agent_creator = DSGSAgentCreator()
+    print("\n3. 使用DNASPEC生成智能体配置...")
+    agent_creator = DNASPECAgentCreator()
     request = "Create agents for a comprehensive system with security, monitoring, and data processing capabilities"
     result = agent_creator.process_request(request)
     

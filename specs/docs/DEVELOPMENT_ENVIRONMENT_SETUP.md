@@ -1,4 +1,4 @@
-# DSGS智能架构师项目开发环境配置
+# DNASPEC智能架构师项目开发环境配置
 
 ## 环境要求
 
@@ -111,7 +111,7 @@ python -c "import pytest; print(pytest.__version__)"
 
 ### 创建基础目录结构
 ```bash
-mkdir -p src/dsgs_architect
+mkdir -p src/dnaspec_architect
 mkdir -p tests/unit
 mkdir -p tests/integration
 mkdir -p docs
@@ -120,8 +120,8 @@ mkdir -p config
 
 ### 创建基础文件
 ```bash
-touch src/dsgs_architect/__init__.py
-touch src/dsgs_architect/main.py
+touch src/dnaspec_architect/__init__.py
+touch src/dnaspec_architect/main.py
 touch tests/__init__.py
 touch requirements.txt
 touch requirements-dev.txt
@@ -292,7 +292,7 @@ git push origin main
 pytest tests/unit/test_new_feature.py
 
 # 3. 编写实现代码
-# src/dsgs_architect/new_feature.py
+# src/dnaspec_architect/new_feature.py
 
 # 4. 运行测试（应该通过）
 pytest tests/unit/test_new_feature.py

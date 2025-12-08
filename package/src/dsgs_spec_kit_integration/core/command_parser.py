@@ -1,6 +1,6 @@
 """
 命令解析器模块
-负责解析和验证DSGS命令格式
+负责解析和验证DNASPEC命令格式
 """
 import re
 from typing import Dict, Optional, Any
@@ -8,7 +8,7 @@ from typing import Dict, Optional, Any
 
 class CommandParser:
     """
-    DSGS命令解析器
+    DNASPEC命令解析器
     解析符合/speckit.dnaspec.*格式的命令
     """
     

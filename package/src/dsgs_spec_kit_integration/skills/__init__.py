@@ -1,7 +1,7 @@
 """
-DSGS技能模块初始化文件
+DNASPEC技能模块初始化文件
 
-包含DSGS核心技能和上下文工程增强技能
+包含DNASPEC核心技能和上下文工程增强技能
 """
 from . import architect
 from . import liveness  

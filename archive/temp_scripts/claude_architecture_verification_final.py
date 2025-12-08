@@ -21,14 +21,14 @@ print("\n🚀 开始功能验证...")
 try:
     # 导入模块
     from src.dnaspec_context_engineering.skills_system_claude_architecture import (
-        DSGSContextEngineeringSystem,
+        DNASPECContextEngineeringSystem,
         execute
     )
     
     print("✅ 模块成功导入")
     
     # 创建系统实例
-    system = DSGSContextEngineeringSystem()
+    system = DNASPECContextEngineeringSystem()
     print(f"✅ 系统实例化: {system.name}")
     
     # 检查技能数量

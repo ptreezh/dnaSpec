@@ -6,8 +6,8 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 try:
-    from dsgs_architect import DSGSArchitect
-    skill = DSGSArchitect()
+    from dnaspec_architect import DNASPECArchitect
+    skill = DNASPECArchitect()
     print('Skill loaded successfully')
     print(f'Name: {skill.name}')
     print(f'Description: {skill.description}')

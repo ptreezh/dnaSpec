@@ -4,13 +4,13 @@ import os
 import sys
 from typing import Dict, Any, List
 
-class DSGSAgentCreator:
-    """DSGS智能体创建器子技能类"""
+class DNASPECAgentCreator:
+    """DNASPEC智能体创建器子技能类"""
     
     def __init__(self):
         """初始化智能体创建器技能"""
         self.name = "dnaspec-agent-creator"
-        self.description = "DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档"
+        self.description = "DNASPEC智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档"
         self.capabilities = [
             "agent_creation",
             "role_definition",
@@ -312,7 +312,7 @@ class DSGSAgentCreator:
         }
 
 # 全局实例
-agent_creator = DSGSAgentCreator()
+agent_creator = DNASPECAgentCreator()
 
 if __name__ == "__main__":
     # 简单测试

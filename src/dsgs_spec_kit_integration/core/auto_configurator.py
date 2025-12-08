@@ -1,6 +1,6 @@
 """
 自动配置器模块
-自动检测、配置和验证DSGS与AI CLI工具的集成
+自动检测、配置和验证DNASPEC与AI CLI工具的集成
 """
 import os
 from typing import Dict, Any, Optional
@@ -12,8 +12,8 @@ from .skill_executor import SkillExecutor
 
 class AutoConfigurator:
     """
-    DSGS自动配置器
-    自动检测、配置和验证DSGS与AI CLI工具的集成
+    DNASPEC自动配置器
+    自动检测、配置和验证DNASPEC与AI CLI工具的集成
     """
     
     def __init__(

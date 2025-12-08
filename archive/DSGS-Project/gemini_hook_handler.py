@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Gemini CLI Hook处理器
-用于拦截用户请求并智能调用DSGS技能
+用于拦截用户请求并智能调用DNASPEC技能
 """
 
 import sys
@@ -107,16 +107,16 @@ class GeminiHookHandler:
     def _format_skill_result(self, skill_result: SkillResult) -> str:
         """格式化技能执行结果"""
         if skill_result.status.name == 'ERROR':
-            return f"[DSGS技能执行错误] {skill_result.error_message}"
+            return f"[DNASPEC技能执行错误] {skill_result.error_message}"
         
         result = skill_result.result
         
         if isinstance(result, dict):
             if 'error' in result:
-                return f"[DSGS技能错误] {result['error']}"
+                return f"[DNASPEC技能错误] {result['error']}"
             
             # 格式化输出
-            formatted_output = f"[DSGS技能执行结果 - {skill_result.skill_name}]\n"
+            formatted_output = f"[DNASPEC技能执行结果 - {skill_result.skill_name}]\n"
             
             if 'message' in result:
                 formatted_output += f"{result['message']}\n"
@@ -144,7 +144,7 @@ class GeminiHookHandler:
             
             return formatted_output.strip()
         
-        return f"[DSGS技能结果] {str(result)}"
+        return f"[DNASPEC技能结果] {str(result)}"
     
     def enable_debug(self):
         """启用调试模式"""

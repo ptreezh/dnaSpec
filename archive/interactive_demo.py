@@ -131,7 +131,7 @@ def interactive_mode():
         choice = input("\n请选择 (1-4, q退出): ").strip().lower()
         
         if choice == 'q':
-            print("👋 感谢使用DSGS Context Engineering Skills!")
+            print("👋 感谢使用DNASPEC Context Engineering Skills!")
             break
         elif choice == '1':
             user_input = input("请输入要分析的上下文: ").strip()

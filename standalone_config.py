@@ -25,7 +25,7 @@ def run_standalone_config():
         # 临时添加到模块路径
         sys.path.insert(0, standalone_src_path)
         
-        # 现在导入DSGS模块（使用独立的版本，而不是本地开发版本）
+        # 现在导入DNASPEC模块（使用独立的版本，而不是本地开发版本）
         from dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
 
         print("\n开始自动配置流程...")
@@ -53,15 +53,15 @@ def run_standalone_config():
             print("  /speckit.dnaspec.context-analysis [上下文] - 分析上下文质量")
             print("  /speckit.dnaspec.context-optimization [上下文] - 优化上下文")
             print("  /speckit.dnaspec.cognitive-template [任务] - 应用认知模板")
-            print("  ...以及其他DSGS技能")
+            print("  ...以及其他DNASPEC技能")
         else:
             print("\n❌ 自动配置失败")
             if 'error' in result:
                 print(f"错误信息: {result['error']}")
 
     except ImportError as e:
-        print(f"❌ 导入DSGS模块失败: {e}")
-        print("这可能是因为DSGS包未正确安装，请尝试重新安装:")
+        print(f"❌ 导入DNASPEC模块失败: {e}")
+        print("这可能是因为DNASPEC包未正确安装，请尝试重新安装:")
         print("  pip install -e .")
     except Exception as e:
         print(f"❌ 配置过程中发生错误: {e}")

@@ -142,14 +142,14 @@ def verify_implementation_quality():
     """验证实现质量"""
     print("\\n✅ 验证5: 实现质量与工程价值")
     
-    # 检查是否遵循DSGS框架规范
+    # 检查是否遵循DNASPEC框架规范
     from src.dnaspec_context_engineering.skills_system_final_clean import ContextAnalysisSkill
     from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
     
     skill = ContextAnalysisSkill()
     is_proper_inheritance = isinstance(skill, DNASpecSkill)
     
-    print(f"   DSGS框架继承正确: {'✅' if is_proper_inheritance else '❌'}")
+    print(f"   DNASPEC框架继承正确: {'✅' if is_proper_inheritance else '❌'}")
     
     # 检查功能完整性
     try:
@@ -196,7 +196,7 @@ def main():
         print("✅ 指令工程驱动 - 通过AI API执行功能")  
         print("✅ 专业级上下文工程能力")
         print("✅ 与AI CLI平台无缝集成")
-        print("✅ 遵循DSGS框架架构规范")
+        print("✅ 遵循DNASPEC框架架构规范")
         print("✅ 工程实用价值明确")
         print("="*70)
         print("\\n🎯 系统现已完全准备就绪，可以作为AI CLI平台的增强工具部署！")

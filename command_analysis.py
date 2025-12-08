@@ -23,7 +23,7 @@ def test_command_execution_time(command: str, description: str):
         if command == "init":
             steps = [
                 "✅ 检查系统依赖 (Python, Git)",
-                "✅ 安装DSGS Python包 (pip install -e .)",
+                "✅ 安装DNASPEC Python包 (pip install -e .)",
                 "✅ 检测AI CLI工具",
                 "✅ 生成完整配置文件",
                 "✅ 验证所有集成",
@@ -32,7 +32,7 @@ def test_command_execution_time(command: str, description: str):
         elif command == "deploy":
             steps = [
                 "✅ 检测AI CLI工具",
-                "✅ 部署DSGS技能到AI工具",
+                "✅ 部署DNASPEC技能到AI工具",
                 "✅ 生成技能集成配置",
                 "✅ 验证集成状态"
             ]
@@ -60,10 +60,10 @@ def print_command_comparison():
     print()
     
     print("DNASPEC INIT 命令:")
-    print("  🎯 目的: 完整安装和初始化DSGS系统")
+    print("  🎯 目的: 完整安装和初始化DNASPEC系统")
     print("  📋 主要功能:")
     print("     • 环境依赖检查 (Python, Git)")
-    print("     • 安装DSGS Python包")
+    print("     • 安装DNASPEC Python包")
     print("     • 检测所有AI CLI工具")
     print("     • 生成完整配置文件")
     print("     • 验证所有集成")
@@ -73,11 +73,11 @@ def print_command_comparison():
     print()
     
     print("DNASPEC DEPLOY 命令:")
-    print("  🎯 目的: 将DSGS技能部署到AI CLI工具")
+    print("  🎯 目的: 将DNASPEC技能部署到AI CLI工具")
     print("  📋 主要功能:")
     print("     • 检测AI CLI工具 (假定包已安装)")
     print("     • 将技能部署到AI工具扩展目录")
-    print("     • 更新AI工具的DSGS配置")
+    print("     • 更新AI工具的DNASPEC配置")
     print("     • 验证技能集成状态")
     print("  ⚡ 执行时间: 较快 (约10-20秒)")
     print("  🛠️ 使用场景: 添加新AI工具、更新技能配置、日常维护")

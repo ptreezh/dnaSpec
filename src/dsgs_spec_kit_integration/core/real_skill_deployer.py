@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS技能安装器 - 将技能安装到AI CLI工具中
+DNASPEC技能安装器 - 将技能安装到AI CLI工具中
 真正的技能部署和注册系统
 """
 import os
@@ -14,7 +14,7 @@ from typing import Dict, Any
 class RealSkillDeployer:
     """
     真正的技能部署系统
-    将DSGS技能安装到各个AI CLI工具的扩展目录中
+    将DNASPEC技能安装到各个AI CLI工具的扩展目录中
     """
 
     def __init__(self):
@@ -76,7 +76,7 @@ class RealSkillDeployer:
 
         for platform_name, tool_info in detected_tools.items():
             if tool_info.get('installed', False):
-                print(f"🔄 部署DSGS技能到 {platform_name}...")
+                print(f"🔄 部署DNASPEC技能到 {platform_name}...")
                 results[platform_name] = self.deploy_skills_to_platform(platform_name, tool_info)
                 if results[platform_name]['success']:
                     successful_deployments += 1
@@ -248,7 +248,7 @@ class RealSkillDeployer:
                 'platform': platform_name,
                 'extension_type': 'dsks',
                 'version': '1.0.4',
-                'dsks_skills': self._get_dsgs_skill_definitions(),
+                'dsks_skills': self._get_dnaspec_skill_definitions(),
                 'activation_commands': [
                     '/speckit.dnaspec.context-analysis',
                     '/speckit.dnaspec.context-optimization', 
@@ -359,8 +359,8 @@ class RealSkillDeployer:
             }
         }
 
-    def _get_dsgs_skill_definitions(self) -> Dict[str, Any]:
-        """获取DSGS技能定义"""
+    def _get_dnaspec_skill_definitions(self) -> Dict[str, Any]:
+        """获取DNASPEC技能定义"""
         return {
             'context-analysis': {
                 'name': 'dnaspec-context-analysis',
@@ -443,10 +443,10 @@ class RealSkillDeployer:
 
 
 def main():
-    """主函数 - 部署DSGS技能到AI CLI工具"""
+    """主函数 - 部署DNASPEC技能到AI CLI工具"""
     print("🚀 DNASPEC Skills Deployment System - 真正的技能部署器")
     print("="*60)
-    print("将DSGS核心技能部署到已安装的AI CLI工具中...")
+    print("将DNASPEC核心技能部署到已安装的AI CLI工具中...")
     print()
     
     deployer = RealSkillDeployer()
@@ -457,7 +457,7 @@ def main():
         print(f"  {exists} {platform}: {path}")
     
     print()
-    print("📦 开始部署DSGS技能...")
+    print("📦 开始部署DNASPEC技能...")
     results = deployer.deploy_skills_to_all_platforms()
     
     print()
@@ -479,7 +479,7 @@ def main():
     print(f"  总共部署技能: {len(results['deployed_skills'])} 个")
     
     print()
-    print("✅ DSGS技能部署完成！")
+    print("✅ DNASPEC技能部署完成！")
     print("现在可以在AI CLI工具中使用以下命令:")
     print("  /speckit.dnaspec.context-analysis [上下文] - 分析上下文质量")
     print("  /speckit.dnaspec.context-optimization [上下文] - 优化上下文")

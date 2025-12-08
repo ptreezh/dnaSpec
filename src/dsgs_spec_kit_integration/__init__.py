@@ -1,5 +1,5 @@
 """
-DSGS与spec.kit整合项目 - 项目的主入口点
+DNASPEC与spec.kit整合项目 - 项目的主入口点
 """
 from .core import (
     CommandParser,

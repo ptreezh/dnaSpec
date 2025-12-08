@@ -12,14 +12,14 @@ def test_agent_creator():
     
     # 导入智能体创建器子技能
     try:
-        from dsgs_agent_creator import DSGSAgentCreator
+        from dnaspec_agent_creator import DNASPECAgentCreator
         print("✓ 成功导入智能体创建器子技能")
     except Exception as e:
         print(f"✗ 导入智能体创建器子技能失败: {e}")
         return
     
     # 创建技能实例
-    agent_creator = DSGSAgentCreator()
+    agent_creator = DNASPECAgentCreator()
     
     # 测试请求
     test_request = "Create agents for developing a web application with API services and database"

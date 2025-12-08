@@ -36,7 +36,7 @@ DNASPEC> 检查API接口一致性
 ### 直接测试
 ```bash
 # 运行演示测试
-python dsgs_gemini_cli.py --test
+python dnaspec_gemini_cli.py --test
 
 # 运行交互演示
 python gemini_interactive_ui.py --demo

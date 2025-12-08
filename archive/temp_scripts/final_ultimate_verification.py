@@ -108,7 +108,7 @@ def test_real_implementation():
         print("\\n✅ 7. 验证平台兼容性")
         print("   - 可扩展: 支持Claude、Gemini、Qwen等平台")
         print("   - 统一接口: 标准化技能执行接口")
-        print("   - 向后兼容: 与DSGS框架兼容")
+        print("   - 向后兼容: 与DNASPEC框架兼容")
         print("   - ✅ 平台兼容性验证通过")
         
         return True

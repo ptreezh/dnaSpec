@@ -10,20 +10,20 @@ def test_end_to_end():
         sys.path.insert(0, 'src')
         
         # 导入所有技能
-        from dsgs_architect import DSGSArchitect
-        from dsgs_system_architect import DSGSSystemArchitect
-        from dsgs_task_decomposer import DSGSTaskDecomposer
-        from dsgs_agent_creator import DSGSAgentCreator
-        from dsgs_constraint_generator import DSGSConstraintGenerator
+        from dnaspec_architect import DNASPECArchitect
+        from dnaspec_system_architect import DNASPECSystemArchitect
+        from dnaspec_task_decomposer import DNASPECTaskDecomposer
+        from dnaspec_agent_creator import DNASPECAgentCreator
+        from dnaspec_constraint_generator import DNASPECConstraintGenerator
         
         print("✓ 成功导入所有技能")
         
         # 创建技能实例
-        main_skill = DSGSArchitect()
-        system_architect = DSGSSystemArchitect()
-        task_decomposer = DSGSTaskDecomposer()
-        agent_creator = DSGSAgentCreator()
-        constraint_generator = DSGSConstraintGenerator()
+        main_skill = DNASPECArchitect()
+        system_architect = DNASPECSystemArchitect()
+        task_decomposer = DNASPECTaskDecomposer()
+        agent_creator = DNASPECAgentCreator()
+        constraint_generator = DNASPECConstraintGenerator()
         
         # 测试用例1：系统架构设计
         print("\n--- 测试用例1：系统架构设计 ---")
@@ -90,7 +90,7 @@ def test_end_to_end():
             return
         
         print("\n🎉 所有端到端集成测试通过！")
-        print("DSGS智能架构师系统完整功能验证成功！")
+        print("DNASPEC智能架构师系统完整功能验证成功！")
         
     except Exception as e:
         print(f"测试过程中出现错误: {e}")

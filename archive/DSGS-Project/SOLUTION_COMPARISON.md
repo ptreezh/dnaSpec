@@ -68,7 +68,7 @@ DNASPEC-Project/
 **新方案结构：**
 ```
 DNASPEC-Project/
-├── dsgs_core/                 # 平台无关核心
+├── dnaspec_core/                 # 平台无关核心
 │   ├── skill.py              # 抽象技能接口
 │   ├── manager.py            # 通用技能管理器
 │   ├── matcher.py            # 通用匹配器

@@ -32,13 +32,13 @@ spec-kit/
 │   ├── context-analysis-enhanced/ # 增强上下文分析
 │   ├── context-optimization-enhanced/ # 增强上下文优化
 │   ├── cognitive-template-enhanced/ # 增强认知模板
-│   ├── dnaspec-architect/     # DSGS架构师
-│   ├── dnaspec-system-architect/ # DSGS系统架构师
-│   ├── dnaspec-agent-creator/ # DSGS智能体创建器
-│   ├── dnaspec-constraint-generator/ # DSGS约束生成器
-│   ├── dnaspec-task-decomposer/ # DSGS任务分解器
-│   ├── dnaspec-modulizer/     # DSGS模块化验证器
-│   └── dnaspec-dapi-checker/  # DSGS接口检查器
+│   ├── dnaspec-architect/     # DNASPEC架构师
+│   ├── dnaspec-system-architect/ # DNASPEC系统架构师
+│   ├── dnaspec-agent-creator/ # DNASPEC智能体创建器
+│   ├── dnaspec-constraint-generator/ # DNASPEC约束生成器
+│   ├── dnaspec-task-decomposer/ # DNASPEC任务分解器
+│   ├── dnaspec-modulizer/     # DNASPEC模块化验证器
+│   └── dnaspec-dapi-checker/  # DNASPEC接口检查器
 ├── scripts/                # Python脚本实现
 │   ├── context_analyzer.py  # 上下文分析引擎
 │   ├── context_optimizer.py # 上下文优化引擎
@@ -76,14 +76,14 @@ spec-kit/
 - `/cognitive-template-enhanced` - 增强认知模板 (Context Engineering方法)
 - `/context-engineering-workflow` - 完整工作流 (分析→优化→认知增强)
 
-### 3. DSGS智能架构师功能 (7个技能)
-- `/dnaspec-architect` - DSGS智能架构师 (复杂系统架构设计)
-- `/dnaspec-system-architect` - DSGS系统架构师 (系统架构设计和技栈选择)
-- `/dnaspec-agent-creator` - DSGS智能体创建器 (创建智能代理)
-- `/dnaspec-constraint-generator` - DSGS约束生成器 (生成系统约束)
-- `/dnaspec-task-decomposer` - DSGS任务分解器 (分解复杂需求)
-- `/dnaspec-modulizer` - DSGS模块化验证器 (模块成熟度检查)
-- `/dnaspec-dapi-checker` - DSGS接口检查器 (API一致性验证)
+### 3. DNASPEC智能架构师功能 (7个技能)
+- `/dnaspec-architect` - DNASPEC智能架构师 (复杂系统架构设计)
+- `/dnaspec-system-architect` - DNASPEC系统架构师 (系统架构设计和技栈选择)
+- `/dnaspec-agent-creator` - DNASPEC智能体创建器 (创建智能代理)
+- `/dnaspec-constraint-generator` - DNASPEC约束生成器 (生成系统约束)
+- `/dnaspec-task-decomposer` - DNASPEC任务分解器 (分解复杂需求)
+- `/dnaspec-modulizer` - DNASPEC模块化验证器 (模块成熟度检查)
+- `/dnaspec-dapi-checker` - DNASPEC接口检查器 (API一致性验证)
 
 ## 🛠️ 安装与使用
 

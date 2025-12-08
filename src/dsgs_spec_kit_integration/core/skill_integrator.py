@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DSGS技能集成安装器
-将DSGS技能安装到各种AI CLI工具的扩展目录中
+DNASPEC技能集成安装器
+将DNASPEC技能安装到各种AI CLI工具的扩展目录中
 """
 import os
 import platform
@@ -14,7 +14,7 @@ from typing import Dict, Any
 class SkillIntegrator:
     """
     技能集成器
-    将DSGS技能安装到AI CLI工具的扩展系统中
+    将DNASPEC技能安装到AI CLI工具的扩展系统中
     """
 
     def __init__(self):
@@ -75,7 +75,7 @@ class SkillIntegrator:
         
         for tool_name, tool_info in detected_tools.items():
             if tool_info.get('installed', False):
-                print(f"🔧 安装DSGS技能到 {tool_name}...")
+                print(f"🔧 安装DNASPEC技能到 {tool_name}...")
                 results[tool_name] = self.install_skills_to_platform(tool_name, tool_info)
             else:
                 results[tool_name] = {
@@ -108,23 +108,23 @@ class SkillIntegrator:
                 'error': f'Could not create extension directory: {e}'
             }
         
-        # 创建DSGS技能定义
-        dsgs_skills = self._get_dsgs_skill_definitions()
+        # 创建DNASPEC技能定义
+        dnaspec_skills = self._get_dnaspec_skill_definitions()
         
         # 根据平台类型安装技能
         if platform_name == 'claude':
-            result = self._install_claude_skills(extension_path, dsgs_skills)
+            result = self._install_claude_skills(extension_path, dnaspec_skills)
         elif platform_name == 'qwen':
-            result = self._install_qwen_plugins(extension_path, dsgs_skills)  
+            result = self._install_qwen_plugins(extension_path, dnaspec_skills)  
         elif platform_name in ['gemini', 'copilot', 'cursor']:
-            result = self._install_generic_skills(extension_path, platform_name, dsgs_skills)
+            result = self._install_generic_skills(extension_path, platform_name, dnaspec_skills)
         else:
-            result = self._install_generic_skills(extension_path, platform_name, dsgs_skills)
+            result = self._install_generic_skills(extension_path, platform_name, dnaspec_skills)
         
         return result
     
-    def _get_dsgs_skill_definitions(self) -> Dict[str, Any]:
-        """获取DSGS技能定义"""
+    def _get_dnaspec_skill_definitions(self) -> Dict[str, Any]:
+        """获取DNASPEC技能定义"""
         return {
             'context-analysis': {
                 'name': 'dnaspec-context-analysis',
@@ -338,7 +338,7 @@ class SkillIntegrator:
 
 
 def main():
-    """主函数 - 安装DSGS技能到AI CLI工具"""
+    """主函数 - 安装DNASPEC技能到AI CLI工具"""
     print("🚀 DNASPEC Skills Integration Installer")
     print("="*50)
     print("Installing DNASPEC Context Engineering Skills to AI CLI platforms...")

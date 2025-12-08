@@ -12,14 +12,14 @@ def test_constraint_generator():
     
     # 导入约束生成器子技能
     try:
-        from dsgs_constraint_generator import DSGSConstraintGenerator
+        from dnaspec_constraint_generator import DNASPECConstraintGenerator
         print("✓ 成功导入约束生成器子技能")
     except Exception as e:
         print(f"✗ 导入约束生成器子技能失败: {e}")
         return
     
     # 创建技能实例
-    constraint_generator = DSGSConstraintGenerator()
+    constraint_generator = DNASPECConstraintGenerator()
     
     # 测试请求
     test_request = "Generate constraints for developing a web application with API services and database"

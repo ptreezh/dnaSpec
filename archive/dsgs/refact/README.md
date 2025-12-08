@@ -1,8 +1,8 @@
-# DSGS文档系列概览
+# DNASPEC文档系列概览
 
 ## 1. 文档结构
 
-本目录包含DSGS (Dynamic Specification Growth System) 项目的完整需求文档系列，按照金字塔原则组织，从核心需求到具体功能实现：
+本目录包含DNASPEC (Dynamic Specification Growth System) 项目的完整需求文档系列，按照金字塔原则组织，从核心需求到具体功能实现：
 
 ### 1.1 主控文档
 - **DNASPEC-Core-Requirements.md**: 核心需求文档，定义项目的顶层需求和架构
@@ -23,7 +23,7 @@
 - **DNASPEC-Engineering-Guide.md**: 工程化指南
 
 ### 1.4 历史文档
-- **DSGS_Core_Requirements.md**: 早期版本的核心需求文档
+- **DNASPEC_Core_Requirements.md**: 早期版本的核心需求文档
 
 ## 2. 文档关系图
 
@@ -60,7 +60,7 @@ DNASPEC-Engineering-Implementation-Guide.md (工程化实现)
 
 ## 5. 生物学启发映射关系
 
-| DSGS组件 | 生物学类比 | 功能描述 |
+| DNASPEC组件 | 生物学类比 | 功能描述 |
 |---------|-----------|---------|
 | BSL | DNA | 系统核心约束原则 |
 | TCC | 发育信号 | 任务上下文信息 |

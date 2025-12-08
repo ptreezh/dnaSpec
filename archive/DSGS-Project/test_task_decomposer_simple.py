@@ -12,14 +12,14 @@ def test_task_decomposer():
     
     # 导入任务分解器子技能
     try:
-        from dsgs_task_decomposer import DSGSTaskDecomposer
+        from dnaspec_task_decomposer import DNASPECTaskDecomposer
         print("✓ 成功导入任务分解器子技能")
     except Exception as e:
         print(f"✗ 导入任务分解器子技能失败: {e}")
         return
     
     # 创建技能实例
-    task_decomposer = DSGSTaskDecomposer()
+    task_decomposer = DNASPECTaskDecomposer()
     
     # 测试请求
     test_request = "Decompose tasks for developing a web application with API services and database"

@@ -123,7 +123,7 @@ systemState: {
 }
 ```
 
-#### 任务6: DSGS_EndToEnd.test.ts 重写
+#### 任务6: DNASPEC_EndToEnd.test.ts 重写
 **负责人**: TDD团队  
 **优先级**: 🟡 高
 **工作量**: 4-5小时
@@ -160,7 +160,7 @@ systemState: {
 - [ ] 修复McpAdapter.test.ts SystemState问题
 
 ### **第三天** (收尾工作)
-- [ ] 完成DSGS_EndToEnd.test.ts重写
+- [ ] 完成DNASPEC_EndToEnd.test.ts重写
 - [ ] 修复SpecificationManager逻辑问题
 - [ ] 全面测试验证
 

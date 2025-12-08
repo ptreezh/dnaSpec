@@ -1,7 +1,7 @@
-# DSGS智能架构师项目目录结构
+# DNASPEC智能架构师项目目录结构
 
 ## 项目概述
-基于Claude Skills框架实现DSGS智能架构师系统，支持复杂项目的分层架构设计、任务分解、智能体化和约束生成。
+基于Claude Skills框架实现DNASPEC智能架构师系统，支持复杂项目的分层架构设计、任务分解、智能体化和约束生成。
 
 ## 根目录结构
 ```
@@ -20,7 +20,7 @@ DNASPEC-Project/
 ```
 docs/
 ├── architecture/                      # 架构设计文档
-│   ├── DSGS_CLAUDE_SKILLS_ARCHITECTURE.md  # 主架构设计
+│   ├── DNASPEC_CLAUDE_SKILLS_ARCHITECTURE.md  # 主架构设计
 │   ├── BIOLOGICAL_ARCHITECTURE_DESIGN.md   # 生物学架构设计
 │   ├── TECHNICAL_IMPLEMENTATION_ROADMAP.md # 技术实现路线图
 │   └── CORE_REQUIREMENTS_AND_GOALS.md      # 核心需求与目标

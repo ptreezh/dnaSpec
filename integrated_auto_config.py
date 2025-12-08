@@ -144,7 +144,7 @@ class IntegratedAutoConfig:
         print("  /speckit.dnaspec.context-optimization [上下文] - 优化上下文")
         print("  /speckit.dnaspec.cognitive-template [任务] - 应用认知模板")
         print("  /speckit.dnaspec.architect [需求] - 系统架构设计")
-        print("  ...以及其他DSGS专业技能")
+        print("  ...以及其他DNASPEC专业技能")
         print("="*60)
         
         return {

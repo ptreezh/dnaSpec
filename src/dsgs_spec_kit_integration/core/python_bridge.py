@@ -1,6 +1,6 @@
 """
 Python桥接器模块
-负责调用Python实现的DSGS技能
+负责调用Python实现的DNASPEC技能
 """
 import importlib
 import sys
@@ -11,7 +11,7 @@ from pathlib import Path
 class PythonBridge:
     """
     Python桥接器
-    负责调用Python实现的DSGS技能
+    负责调用Python实现的DNASPEC技能
     """
     
     def __init__(self, skills_base_path: Optional[str] = None):

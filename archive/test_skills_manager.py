@@ -18,8 +18,8 @@ def test_skills_manager():
     """测试技能管理器"""
     print("=== 测试技能管理器 ===")
     
-    # 测试各个DSGS技能
-    print("1. 测试上下文分析技能 (DSGS模式):")
+    # 测试各个DNASPEC技能
+    print("1. 测试上下文分析技能 (DNASPEC模式):")
     analysis_skill = ContextAnalysisSkill()
     result = analysis_skill.process_request(
         "设计一个电商平台的用户认证系统，需要支持多种登录方式，并确保安全性和用户体验。",
@@ -34,7 +34,7 @@ def test_skills_manager():
         print(f"   错误: {result.error_message}")
     print()
     
-    print("2. 测试上下文优化技能 (DSGS模式):")
+    print("2. 测试上下文优化技能 (DNASPEC模式):")
     optimization_skill = ContextOptimizationSkill()
     result = optimization_skill.process_request(
         "开发一个任务管理系统，包含任务创建、分配、跟踪和报告功能。",
@@ -47,7 +47,7 @@ def test_skills_manager():
         print(f"   错误: {result.error_message}")
     print()
     
-    print("3. 测试认知模板技能 (DSGS模式):")
+    print("3. 测试认知模板技能 (DNASPEC模式):")
     template_skill = CognitiveTemplateSkill()
     result = template_skill.process_request(
         "如何提高系统的安全性？",

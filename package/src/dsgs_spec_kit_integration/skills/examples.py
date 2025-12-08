@@ -1,5 +1,5 @@
 """
-DSGS示例技能实现
+DNASPEC示例技能实现
 用于演示和测试技能管理器功能
 """
 from typing import Dict, Any
@@ -12,7 +12,7 @@ class ArchitectSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-architect",
-            description="DSGS架构师 - 系统架构设计和协调专家"
+            description="DNASPEC架构师 - 系统架构设计和协调专家"
         )
     
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
@@ -30,7 +30,7 @@ class AgentCreatorSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-agent-creator",
-            description="DSGS智能体创建器 - 专业的智能体设计和创建专家"
+            description="DNASPEC智能体创建器 - 专业的智能体设计和创建专家"
         )
     
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
@@ -48,7 +48,7 @@ class TaskDecomposerSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-task-decomposer",
-            description="DSGS任务分解器 - 复杂任务分解和原子化专家"
+            description="DNASPEC任务分解器 - 复杂任务分解和原子化专家"
         )
     
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:

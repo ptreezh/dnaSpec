@@ -132,9 +132,9 @@ DNASPEC Context Engineering Skills System 是一个AI原生的上下文工程增
 - **描述**: 支持在AI CLI中使用斜杠命令调用技能
 - **命令格式**: `/dnaspec-analyze`, `/dnaspec-optimize`, `/dnaspec-template`
 
-#### 2.4.3 DSGS框架兼容 (FR-INTEGRATION-004.3)
+#### 2.4.3 DNASPEC框架兼容 (FR-INTEGRATION-004.3)
 - **ID**: FR-INTEGRATION-004.3
-- **描述**: 继承DSGSSkill基类与DSGS框架集成
+- **描述**: 继承DNASPECSkill基类与DNASPEC框架集成
 - **继承**: `ContextAnalysisSkill(DNASpecSkill)`
 
 #### 2.4.4 API响应标准化 (FR-INTEGRATION-004.4)
@@ -192,7 +192,7 @@ DNASPEC Context Engineering Skills System 是一个AI原生的上下文工程增
 - **ID**: C-DESIGN-002
 - **描述**: 设计约束要求
 - **约束**:
-  - 继承DSGS架构: 必须继承DSGSSkill基类
+  - 继承DNASPEC架构: 必须继承DNASPECSkill基类
   - 接口统一: 必须提供标准execute接口
   - 结果结构化: 必须将AI响应转为结构化格式
 
@@ -200,7 +200,7 @@ DNASPEC Context Engineering Skills System 是一个AI原生的上下文工程增
 
 ### 5.1 内部依赖 (D-INTERNAL-001)
 - **ID**: D-INTERNAL-001
-- **依赖**: DSGS核心框架
+- **依赖**: DNASPEC核心框架
 - **版本**: >= 1.0.0
 - **类型**: 必需
 
@@ -223,7 +223,7 @@ DNASPEC Context Engineering Skills System 是一个AI原生的上下文工程增
 ### 6.2 集成验收标准 (AC-INTEGRATION-002)
 - **ID**: AC-INTEGRATION-002
 - **标准**:
-  - 与DSGS框架兼容
+  - 与DNASPEC框架兼容
   - 在AI CLI平台中正常执行
   - 错误处理机制完善
   - 性能指标满足要求

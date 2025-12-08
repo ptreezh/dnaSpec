@@ -13,8 +13,8 @@ print()
 try:
     # 测试1: 验证规范引擎
     print("✅ 测试1: 规范引擎导入")
-    from src.dnaspec_context_engineering.spec_engine import DSGSSpecEngine, engine, get_available_skills, execute_skill
-    print("   DSGS规范引擎成功导入")
+    from src.dnaspec_context_engineering.spec_engine import DNASPECSpecEngine, engine, get_available_skills, execute_skill
+    print("   DNASPEC规范引擎成功导入")
     print()
 
     # 测试2: 验证技能注册

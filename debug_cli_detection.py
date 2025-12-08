@@ -119,8 +119,8 @@ def test_environment_isolation():
             text=True,
             cwd=os.getcwd()
         )
-        has_dsgs = 'dnaspec' in result.stdout.lower()
-        print(f"当前目录Python环境是否有dsgs包: {has_dsgs}")
+        has_dnaspec = 'dnaspec' in result.stdout.lower()
+        print(f"当前目录Python环境是否有dnaspec包: {has_dnaspec}")
     except Exception as e:
         print(f"检查包环境时出错: {e}")
 

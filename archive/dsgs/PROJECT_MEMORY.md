@@ -1,4 +1,4 @@
-# PROJECT_MEMORY.md - DSGS项目持久记忆系统
+# PROJECT_MEMORY.md - DNASPEC项目持久记忆系统
 
 ## 🎯 项目核心身份
 
@@ -278,7 +278,7 @@ npm run test:chaos
 - 验证所有测试工具正常运行
 
 ### 长期愿景
-建立业界领先的TDD测试体系，为DSGS项目提供坚实的质量保障，实现测试驱动的开发文化。
+建立业界领先的TDD测试体系，为DNASPEC项目提供坚实的质量保障，实现测试驱动的开发文化。
 
 ---
 

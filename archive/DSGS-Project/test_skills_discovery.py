@@ -39,14 +39,14 @@ class TestSkillsDiscovery(unittest.TestCase):
     
     def test_skill_info_extraction(self):
         """测试Skill信息提取"""
-        # 测试dsgs-dapi-checker信息提取
+        # 测试dna-dapi-checker信息提取
         dapi_skill = None
         for skill in self.hook.skills_registry:
             if skill.name == 'dnaspec-dapi-checker':
                 dapi_skill = skill
                 break
         
-        self.assertIsNotNone(dapi_skill, "应该找到dsgs-dapi-checker Skill")
+        self.assertIsNotNone(dapi_skill, "应该找到dna-dapi-checker Skill")
         self.assertIn('dapi', dapi_skill.keywords, "应该包含dapi关键词")
         self.assertIn('interface', dapi_skill.keywords, "应该包含interface关键词")
         self.assertIn('check', dapi_skill.keywords, "应该包含check关键词")
@@ -55,7 +55,7 @@ class TestSkillsDiscovery(unittest.TestCase):
         """测试改进的关键词提取"""
         # 测试DAPIcheck技能的关键词提取
         dapi_keywords = self.hook._extract_keywords_improved(
-            "DSGS分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性，验证实现与接口文档的符合性。当用户提到接口一致性检查、分布式接口验证、API文档核验或组件接口验证时使用此技能。",
+            "DNASPEC分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性，验证实现与接口文档的符合性。当用户提到接口一致性检查、分布式接口验证、API文档核验或组件接口验证时使用此技能。",
             "dnaspec-dapi-checker"
         )
         
@@ -66,11 +66,11 @@ class TestSkillsDiscovery(unittest.TestCase):
     
     def test_intent_analysis_basic(self):
         """测试基本意图分析"""
-        # 测试能匹配到dsgs-agent-creator的请求
+        # 测试能匹配到dna-agent-creator的请求
         matched_skills = self.hook.analyze_user_intent("创建智能agent")
         matched_names = [skill.name for skill in matched_skills]
         
-        self.assertIn('dnaspec-agent-creator', matched_names, "应该匹配到dsgs-agent-creator")
+        self.assertIn('dnaspec-agent-creator', matched_names, "应该匹配到dna-agent-creator")
     
     def test_advanced_intent_analysis(self):
         """测试高级意图分析"""
@@ -95,14 +95,14 @@ class TestSkillsDiscovery(unittest.TestCase):
     
     def test_confidence_calculation(self):
         """测试置信度计算"""
-        # 找到dsgs-dapi-checker技能
+        # 找到dna-dapi-checker技能
         dapi_skill = None
         for skill in self.hook.skills_registry:
             if skill.name == 'dnaspec-dapi-checker':
                 dapi_skill = skill
                 break
         
-        self.assertIsNotNone(dapi_skill, "应该找到dsgs-dapi-checker Skill")
+        self.assertIsNotNone(dapi_skill, "应该找到dna-dapi-checker Skill")
         
         # 测试置信度计算
         confidence = self.hook._calculate_match_confidence_improved(
@@ -120,7 +120,7 @@ class TestSkillsDiscovery(unittest.TestCase):
         
         self.assertIsNotNone(response, "应该返回Skill响应")
         self.assertEqual(response["type"], "skill_response", "响应类型应该是skill_response")
-        self.assertEqual(response["skill_name"], "dnaspec-agent-creator", "应该调用dsgs-agent-creator")
+        self.assertEqual(response["skill_name"], "dnaspec-agent-creator", "应该调用dna-agent-creator")
 
 class TestEdgeCases(unittest.TestCase):
     """边界情况测试"""

@@ -133,7 +133,7 @@ try:
     print("   ✅ 系统状态检查")
     print("   ✅ 性能测试")
     
-    print("\n🚀 DSGS系统已准备就绪，可以进行实际部署体验!")
+    print("\n🚀 DNASPEC系统已准备就绪，可以进行实际部署体验!")
     
 except Exception as e:
     print(f"❌ 测试失败: {e}")

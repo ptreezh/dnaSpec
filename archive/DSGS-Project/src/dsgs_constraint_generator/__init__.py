@@ -4,13 +4,13 @@ import os
 import sys
 from typing import Dict, Any, List
 
-class DSGSConstraintGenerator:
-    """DSGS约束生成器子技能类"""
+class DNASPECConstraintGenerator:
+    """DNASPEC约束生成器子技能类"""
     
     def __init__(self):
         """初始化约束生成器技能"""
         self.name = "dnaspec-constraint-generator"
-        self.description = "DSGS约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束"
+        self.description = "DNASPEC约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束"
         self.capabilities = [
             "system_constraint_generation",
             "api_constraint_definition",
@@ -384,7 +384,7 @@ class DSGSConstraintGenerator:
         }
 
 # 全局实例
-constraint_generator = DSGSConstraintGenerator()
+constraint_generator = DNASPECConstraintGenerator()
 
 if __name__ == "__main__":
     # 简单测试

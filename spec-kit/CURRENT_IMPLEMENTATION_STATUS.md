@@ -23,13 +23,13 @@
 - `context-engineering-workflow` - 上下文工程工作流
 
 ### DNASPEC Intelligent Architect Skills
-- `dnaspec-architect` - DSGS架构师
-- `dnaspec-system-architect` - DSGS系统架构师
-- `dnaspec-agent-creator` - DSGS智能体创建器
-- `dnaspec-constraint-generator` - DSGS约束生成器
-- `dnaspec-task-decomposer` - DSGS任务分解器
-- `dnaspec-modulizer` - DSGS模块化验证器
-- `dnaspec-dapi-checker` - DSGS接口检查器
+- `dnaspec-architect` - DNASPEC架构师
+- `dnaspec-system-architect` - DNASPEC系统架构师
+- `dnaspec-agent-creator` - DNASPEC智能体创建器
+- `dnaspec-constraint-generator` - DNASPEC约束生成器
+- `dnaspec-task-decomposer` - DNASPEC任务分解器
+- `dnaspec-modulizer` - DNASPEC模块化验证器
+- `dnaspec-dapi-checker` - DNASPEC接口检查器
 
 ## 技术实现详情
 
@@ -71,13 +71,13 @@
 - `/context-optimization-enhanced` - 增强上下文优化
 - `/cognitive-template-enhanced` - 增认知模板
 - `/context-engineering-workflow` - 上下文工程工作流
-- `/dnaspec-architect` - DSGS架构师
-- `/dnaspec-system-architect` - DSGS系统架构师
-- `/dnaspec-agent-creator` - DSGS智能体创建器
-- `/dnaspec-constraint-generator` - DSGS约束生成器
-- `/dnaspec-task-decomposer` - DSGS任务分解器
-- `/dnaspec-modulizer` - DSGS模块化验证器
-- `/dnaspec-dapi-checker` - DSGS接口检查器
+- `/dnaspec-architect` - DNASPEC架构师
+- `/dnaspec-system-architect` - DNASPEC系统架构师
+- `/dnaspec-agent-creator` - DNASPEC智能体创建器
+- `/dnaspec-constraint-generator` - DNASPEC约束生成器
+- `/dnaspec-task-decomposer` - DNASPEC任务分解器
+- `/dnaspec-modulizer` - DNASPEC模块化验证器
+- `/dnaspec-dapi-checker` - DNASPEC接口检查器
 
 ### 不可使用的功能
 - 短命令/快捷方式 (如 `/spec`, `/ca`, `/da` 等) - 这些是概念性的，需要平台级配置才能实现

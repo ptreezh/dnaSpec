@@ -44,9 +44,9 @@ def load_skill_config(skill_path: str) -> Dict[str, Any]:
         return {'error': str(e), 'content': content}
 
 
-class DSGSContextEngineeringSystem:
+class DNASPECContextEngineeringSystem:
     """
-    DSGS上下文工程系统 - 遵循Claude Skills架构模式
+    DNASPEC上下文工程系统 - 遵循Claude Skills架构模式
     作为AI原生工具系统，通过指令驱动而非本地模型实现
     """
     
@@ -487,7 +487,7 @@ def execute(args: Dict[str, Any]) -> str:
     
     if not skill_name:
         # 如果没有指定技能，尝试自动识别
-        system = DSGSContextEngineeringSystem()
+        system = DNASPECContextEngineeringSystem()
         active_skills = system.activate_for_context(context_input)
         if active_skills:
             skill_name = active_skills[0]  # 使用第一个匹配的技能
@@ -497,7 +497,7 @@ def execute(args: Dict[str, Any]) -> str:
     if not context_input and skill_name != 'help':
         return "错误: 未提供需要处理的上下文或请求内容"
     
-    system = DSGSContextEngineeringSystem()
+    system = DNASPECContextEngineeringSystem()
     
     if skill_name == 'help':
         return system.get_available_skills_info()
@@ -581,5 +581,5 @@ def get_skill_metadata() -> str:
     """
     获取技能元数据，用于Claude Tools的工具描述
     """
-    system = DSGSContextEngineeringSystem()
+    system = DNASPECContextEngineeringSystem()
     return system.skill_metadata

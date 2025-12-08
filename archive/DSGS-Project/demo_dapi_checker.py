@@ -11,10 +11,10 @@ def demo_dapi_checker():
     print("=== DAPIcheck技能使用演示 ===\n")
     
     # 导入DAPIcheck技能
-    from dsgs_dapi_checker import DSGS_DAPI_Checker
+    from dnaspec_dapi_checker import DNASPEC_DAPI_Checker
     
     # 创建技能实例
-    dapi_checker = DSGS_DAPI_Checker()
+    dapi_checker = DNASPEC_DAPI_Checker()
     
     print("✓ DAPIcheck技能加载成功")
     print(f"技能名称: {dapi_checker.name}")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS功能测试脚本 - 修复版本
+DNASPEC功能测试脚本 - 修复版本
 验证所有功能是否正常工作
 """
 import sys

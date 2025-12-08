@@ -31,8 +31,8 @@ def find_gemini_cli_directory():
     
     return None
 
-def install_dsgs_extensions():
-    """安装DSGS扩展"""
+def install_dnaspec_extensions():
+    """安装DNASPEC扩展"""
     print("=== DNASPEC Gemini CLI Extensions 安装程序 ===")
     
     # 获取当前目录
@@ -105,7 +105,7 @@ def install_dsgs_extensions():
         if "extensions" not in config:
             config["extensions"] = []
         
-        dsgs_extension = {
+        dnaspec_extension = {
             "name": "dnaspec-gemini-extensions",
             "path": extensions_dir,
             "enabled": True,
@@ -116,12 +116,12 @@ def install_dsgs_extensions():
         existing = False
         for i, ext in enumerate(config["extensions"]):
             if ext.get("name") == "dnaspec-gemini-extensions":
-                config["extensions"][i] = dsgs_extension
+                config["extensions"][i] = dnaspec_extension
                 existing = True
                 break
         
         if not existing:
-            config["extensions"].append(dsgs_extension)
+            config["extensions"].append(dnaspec_extension)
         
         # 保存配置
         with open(config_path, 'w', encoding='utf-8') as f:
@@ -130,18 +130,18 @@ def install_dsgs_extensions():
         print(f"更新配置文件: {config_path}")
     
     print("\n=== 安装完成 ===")
-    print("DSGS扩展已成功安装到Gemini CLI中")
-    print("现在可以在Gemini CLI中使用DSGS技能了")
+    print("DNASPEC扩展已成功安装到Gemini CLI中")
+    print("现在可以在Gemini CLI中使用DNASPEC技能了")
     print("\n使用示例:")
-    print("  • '创建一个项目管理智能体' -> 自动调用dsgs-agent-creator")
-    print("  • '分解复杂的软件开发任务' -> 自动调用dsgs-task-decomposer")
-    print("  • '检查API接口一致性' -> 自动调用dsgs-dapi-checker")
-    print("  • '对系统进行模块化重构' -> 自动调用dsgs-modulizer")
+    print("  • '创建一个项目管理智能体' -> 自动调用dna-agent-creator")
+    print("  • '分解复杂的软件开发任务' -> 自动调用dna-task-decomposer")
+    print("  • '检查API接口一致性' -> 自动调用dna-dapi-checker")
+    print("  • '对系统进行模块化重构' -> 自动调用dna-modulizer")
     
     return True
 
-def uninstall_dsgs_extensions():
-    """卸载DSGS扩展"""
+def uninstall_dnaspec_extensions():
+    """卸载DNASPEC扩展"""
     print("=== DNASPEC Gemini CLI Extensions 卸载程序 ===")
     
     # 查找Gemini CLI目录
@@ -183,7 +183,7 @@ def uninstall_dsgs_extensions():
         print(f"更新配置文件: {config_path}")
     
     print("\n=== 卸载完成 ===")
-    print("DSGS扩展已从Gemini CLI中移除")
+    print("DNASPEC扩展已从Gemini CLI中移除")
     
     return True
 
@@ -191,9 +191,9 @@ def main():
     """主函数"""
     if len(sys.argv) > 1:
         if sys.argv[1] == "install":
-            install_dsgs_extensions()
+            install_dnaspec_extensions()
         elif sys.argv[1] == "uninstall":
-            uninstall_dsgs_extensions()
+            uninstall_dnaspec_extensions()
         else:
             print("用法: python install.py [install|uninstall]")
     else:

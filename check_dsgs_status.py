@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-DSGS系统状态检查脚本
+DNASPEC系统状态检查脚本
 """
 from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
 
 def check_system_status():
-    """检查DSGS系统状态"""
-    print("DSGS系统状态检查")
+    """检查DNASPEC系统状态"""
+    print("DNASPEC系统状态检查")
     print("=" * 50)
     
     configurator = AutoConfigurator()
@@ -29,7 +29,7 @@ def check_system_status():
     # 测试核心技能
     from src.dnaspec_context_engineering.skills_system_final import execute
     result = execute({
-        'context': '验证DSGS功能',
+        'context': '验证DNASPEC功能',
         'skill': 'context-analysis'
     })
     

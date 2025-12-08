@@ -36,7 +36,7 @@ DNASPEC Context Engineering Skills 提供了强大的自动配置功能，能够
 
 #### 2. 自动配置
 - 根据检测结果生成 `./.dnaspec/config.yaml` 配置文件
-- 配置所有可用的DSGS技能
+- 配置所有可用的DNASPEC技能
 - 设置平台特定的配置选项
 
 #### 3. 自动验证

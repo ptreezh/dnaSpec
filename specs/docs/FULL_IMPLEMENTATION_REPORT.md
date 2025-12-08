@@ -1,4 +1,4 @@
-# DSGS项目完整实现报告
+# DNASPEC项目完整实现报告
 
 ## 项目概述
 DNASPEC (Dynamic Specification Growth System) 智能架构师项目，基于Claude Code Skills设计哲学实现，用于复杂项目的架构设计、任务分解、智能体化和约束生成。
@@ -6,7 +6,7 @@ DNASPEC (Dynamic Specification Growth System) 智能架构师项目，基于Clau
 ## 已完成实现
 
 ### 1. dnaspec-architect主技能
-- **功能**: DSGS智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成
+- **功能**: DNASPEC智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成
 - **核心能力**:
   - 请求路由：根据请求内容智能路由到相应的子技能
   - 协调管理：管理子技能间的工作流协调
@@ -18,7 +18,7 @@ DNASPEC (Dynamic Specification Growth System) 智能架构师项目，基于Clau
   - 其他 → dnaspec-system-architect (默认)
 
 ### 2. dnaspec-system-architect子技能
-- **功能**: DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义
+- **功能**: DNASPEC系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义
 - **核心能力**:
   - architecture_design: 架构设计
   - tech_stack_selection: 技术栈选择
@@ -32,7 +32,7 @@ DNASPEC (Dynamic Specification Growth System) 智能架构师项目，基于Clau
   - 部署架构建议
 
 ### 3. dnaspec-task-decomposer子技能
-- **功能**: DSGS任务分解器子技能，用于将复杂项目需求分解为原子化任务，生成任务依赖关系图，确保任务上下文文档的闭包性
+- **功能**: DNASPEC任务分解器子技能，用于将复杂项目需求分解为原子化任务，生成任务依赖关系图，确保任务上下文文档的闭包性
 - **核心能力**:
   - task_decomposition: 任务分解
   - dependency_analysis: 依赖分析
@@ -46,7 +46,7 @@ DNASPEC (Dynamic Specification Growth System) 智能架构师项目，基于Clau
   - 资源分配建议
 
 ### 4. dnaspec-agent-creator子技能
-- **功能**: DSGS智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档
+- **功能**: DNASPEC智能体创建器子技能，用于根据项目需求创建和配置智能体、定义智能体角色和行为、生成智能体规范文档
 - **核心能力**:
   - agent_creation: 智能体创建
   - role_definition: 角色定义
@@ -60,7 +60,7 @@ DNASPEC (Dynamic Specification Growth System) 智能架构师项目，基于Clau
   - 监控和管理策略
 
 ### 5. dnaspec-constraint-generator子技能
-- **功能**: DSGS约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束
+- **功能**: DNASPEC约束生成器子技能，用于根据项目需求和架构设计生成系统约束、API规范约束、数据约束和质量约束
 - **核心能力**:
   - system_constraint_generation: 系统约束生成
   - api_constraint_definition: API约束定义
@@ -98,11 +98,11 @@ DNASPEC-Project/
 │   ├── dnaspec-constraint-generator/ # 约束生成器子技能
 │   └── ...
 ├── src/                       # 源代码
-│   ├── dsgs_architect/        # 主技能实现
-│   ├── dsgs_system_architect/ # 系统架构师子技能实现
-│   ├── dsgs_task_decomposer/  # 任务分解器子技能实现
-│   ├── dsgs_agent_creator/    # 智能体创建器子技能实现
-│   └── dsgs_constraint_generator/ # 约束生成器子技能实现
+│   ├── dnaspec_architect/        # 主技能实现
+│   ├── dnaspec_system_architect/ # 系统架构师子技能实现
+│   ├── dnaspec_task_decomposer/  # 任务分解器子技能实现
+│   ├── dnaspec_agent_creator/    # 智能体创建器子技能实现
+│   └── dnaspec_constraint_generator/ # 约束生成器子技能实现
 ├── tests/                     # 测试代码
 │   ├── unit/                  # 单元测试
 │   └── integration_tests/     # 集成测试

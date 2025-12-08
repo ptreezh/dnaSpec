@@ -2,12 +2,12 @@
 
 ## 项目概述
 
-本项目成功实现了DSGS (Dynamic Specification Growth System) 智能架构师系统的Gemini CLI扩展，为Gemini CLI提供了专业的技能支持。通过智能匹配算法和Hook机制，用户可以在Gemini CLI中直接使用自然语言请求来调用各种专业技能。
+本项目成功实现了DNASPEC (Dynamic Specification Growth System) 智能架构师系统的Gemini CLI扩展，为Gemini CLI提供了专业的技能支持。通过智能匹配算法和Hook机制，用户可以在Gemini CLI中直接使用自然语言请求来调用各种专业技能。
 
 ## 已完成功能
 
 ### 1. 核心框架 (已完成)
-- **技能基类设计**: 创建了DSGSSkill基类，为所有技能提供统一接口
+- **技能基类设计**: 创建了DNASPECSkill基类，为所有技能提供统一接口
 - **技能管理器**: 实现了SkillManager类，负责技能注册、管理和匹配
 - **技能信息模型**: 定义了SkillInfo和SkillResult数据模型
 
@@ -111,4 +111,4 @@ python gemini_interactive_ui.py
 
 ## 总结
 
-本项目成功实现了DSGS Gemini CLI扩展，为用户提供了一套完整的专业技能支持系统。通过智能匹配和无缝集成，用户可以在Gemini CLI中自然地使用各种专业技能，大大提升了工作效率和体验。系统具有良好的可扩展性和维护性，为后续发展奠定了坚实基础。
+本项目成功实现了DNASPEC Gemini CLI扩展，为用户提供了一套完整的专业技能支持系统。通过智能匹配和无缝集成，用户可以在Gemini CLI中自然地使用各种专业技能，大大提升了工作效率和体验。系统具有良好的可扩展性和维护性，为后续发展奠定了坚实基础。

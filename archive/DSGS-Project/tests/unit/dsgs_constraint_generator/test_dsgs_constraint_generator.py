@@ -27,8 +27,8 @@ def test_skill_basic_functionality():
     """测试技能基本功能"""
     # 测试技能可以被导入
     try:
-        from dsgs_constraint_generator import DSGSConstraintGenerator
-        skill = DSGSConstraintGenerator()
+        from dnaspec_constraint_generator import DNASPECConstraintGenerator
+        skill = DNASPECConstraintGenerator()
         assert skill is not None, "技能实例不应该为空"
         assert skill.name == "dnaspec-constraint-generator", "技能名称应该正确"
     except ImportError as e:
@@ -36,8 +36,8 @@ def test_skill_basic_functionality():
 
 def test_skill_capabilities():
     """测试技能能力"""
-    from dsgs_constraint_generator import DSGSConstraintGenerator
-    skill = DSGSConstraintGenerator()
+    from dnaspec_constraint_generator import DNASPECConstraintGenerator
+    skill = DNASPECConstraintGenerator()
     
     # 验证技能能力列表
     expected_capabilities = [
@@ -52,8 +52,8 @@ def test_skill_capabilities():
 
 def test_skill_processing():
     """测试技能处理功能"""
-    from dsgs_constraint_generator import DSGSConstraintGenerator
-    skill = DSGSConstraintGenerator()
+    from dnaspec_constraint_generator import DNASPECConstraintGenerator
+    skill = DNASPECConstraintGenerator()
     
     # 测试正常请求处理
     test_request = "Generate constraints for developing a web application with API services"
@@ -67,8 +67,8 @@ def test_skill_processing():
 
 def test_skill_error_handling():
     """测试技能错误处理"""
-    from dsgs_constraint_generator import DSGSConstraintGenerator
-    skill = DSGSConstraintGenerator()
+    from dnaspec_constraint_generator import DNASPECConstraintGenerator
+    skill = DNASPECConstraintGenerator()
     
     # 测试空输入处理
     empty_inputs = ["", "   ", "\n\t"]
@@ -82,8 +82,8 @@ def test_skill_error_handling():
 
 def test_key_points_extraction():
     """测试关键点提取功能"""
-    from dsgs_constraint_generator import DSGSConstraintGenerator
-    skill = DSGSConstraintGenerator()
+    from dnaspec_constraint_generator import DNASPECConstraintGenerator
+    skill = DNASPECConstraintGenerator()
     
     # 测试关键点提取
     test_cases = [
@@ -100,8 +100,8 @@ def test_key_points_extraction():
 
 def test_constraint_generation():
     """测试约束生成功能"""
-    from dsgs_constraint_generator import DSGSConstraintGenerator
-    skill = DSGSConstraintGenerator()
+    from dnaspec_constraint_generator import DNASPECConstraintGenerator
+    skill = DNASPECConstraintGenerator()
     
     # 测试约束生成
     test_request = "Generate constraints for developing a web application with API services and database"

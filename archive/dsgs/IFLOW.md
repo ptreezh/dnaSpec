@@ -163,14 +163,14 @@ dnaspec/
 
 ## IDE集成
 
-DSGS与MCP兼容的IDE无缝集成：
+DNASPEC与MCP兼容的IDE无缝集成：
 
-1. 安装DSGS MCP服务器:
+1. 安装DNASPEC MCP服务器:
 ```bash
 npm install -g dynamic-specs-growth
 ```
 
-2. 在IDE的MCP设置中配置DSGS:
+2. 在IDE的MCP设置中配置DNASPEC:
 ```json
 {
   "mcpServers": {

@@ -5,10 +5,10 @@ import os
 # 添加src目录到Python路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-from dsgs_architect import DSGSArchitect
+from dnaspec_architect import DNASPECArchitect
 
 def test_routing():
-    skill = DSGSArchitect()
+    skill = DNASPECArchitect()
     
     # 测试路由
     test_cases = [

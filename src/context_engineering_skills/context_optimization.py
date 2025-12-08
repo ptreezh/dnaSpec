@@ -17,7 +17,7 @@ class ContextOptimizationSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-optimization",
-            description="DSGS上下文优化器 - 基于分析结果优化上下文质量的专家"
+            description="DNASPEC上下文优化器 - 基于分析结果优化上下文质量的专家"
         )
         self.context_analyzer = ContextAnalysisSkill()
     

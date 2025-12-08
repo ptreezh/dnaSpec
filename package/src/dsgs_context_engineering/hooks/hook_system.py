@@ -9,16 +9,16 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import fnmatch
 import threading
-from src.dnaspec_context_engineering.spec_engine import DSGSSpecEngine
+from src.dnaspec_context_engineering.spec_engine import DNASPECSpecEngine
 
 
-class DSGSHookSystem:
+class DNASPECHookSystem:
     """
     DNASPEC Hook System
     基于文件系统变化的自动上下文工程处理系统
     """
     
-    def __init__(self, spec_engine: DSGSSpecEngine):
+    def __init__(self, spec_engine: DNASPECSpecEngine):
         self.spec_engine = spec_engine
         self.hooks: List[Dict[str, Any]] = []
         self.observer = Observer()
@@ -80,7 +80,7 @@ class DSGSHookSystem:
         监视目录变化
         """
         try:
-            event_handler = DSGSDirectoryEventHandler(
+            event_handler = DNASPECDirectoryEventHandler(
                 self, 
                 directory, 
                 self.hooks
@@ -151,12 +151,12 @@ class DSGSHookSystem:
         return results
 
 
-class DSGSDirectoryEventHandler(FileSystemEventHandler):
+class DNASPECDirectoryEventHandler(FileSystemEventHandler):
     """
-    DSGS目录事件处理器
+    DNASPEC目录事件处理器
     """
     
-    def __init__(self, hook_system: DSGSHookSystem, watched_dir: str, hooks: List[Dict[str, Any]]):
+    def __init__(self, hook_system: DNASPECHookSystem, watched_dir: str, hooks: List[Dict[str, Any]]):
         super().__init__()
         self.hook_system = hook_system
         self.watched_dir = watched_dir
@@ -238,7 +238,7 @@ if __name__ == "__main__":
     # 示例使用
     from src.dnaspec_context_engineering.spec_engine import engine
     
-    hook_system = DSGSHookSystem(engine)
+    hook_system = DNASPECHookSystem(engine)
     
     # 注册Hook
     hook_system.register_hook(

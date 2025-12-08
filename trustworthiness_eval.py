@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS系统全面功能验证脚本
+DNASPEC系统全面功能验证脚本
 验证所有功能的实现逻辑和信任度
 """
 import sys
@@ -179,6 +179,6 @@ if __name__ == "__main__":
     trustworthiness_evaluation()
     
     if success:
-        print("\n✅ 所有核心功能验证通过！DSGS系统准备就绪。")
+        print("\n✅ 所有核心功能验证通过！DNASPEC系统准备就绪。")
     else:
         print("\n❌ 部分功能验证失败。")

@@ -19,12 +19,12 @@ def replace_terms_in_file(file_path: str):
         # 执行替换
         replacements = [
             # 包名和产品名替换
-            (r'\bDSGS\b', 'DNASPEC'),
-            (r'\bdsgs\b', 'dnaspec'),
-            (r'\bDSGS\b', 'DNASPEC'), 
-            (r'\bDSGS-Project\b', 'DNA-SPEC-Project'),
-            (r'\bDSGS_CONTEXT_ENGINEERING\b', 'DNASPEC_CONTEXT_ENGINEERING'),
-            (r'\bDSGS_Context_Engineering\b', 'DNASPEC_Context_Engineering'),
+            (r'\bDNASPEC\b', 'DNASPEC'),
+            (r'\bdnaspec\b', 'dnaspec'),
+            (r'\bDNASPEC\b', 'DNASPEC'), 
+            (r'\bDNA-Project\b', 'DNA-SPEC-Project'),
+            (r'\bDNASPEC_CONTEXT_ENGINEERING\b', 'DNASPEC_CONTEXT_ENGINEERING'),
+            (r'\bDNASPEC_Context_Engineering\b', 'DNASPEC_Context_Engineering'),
             (r'\bdsks\b', 'dnaspec'),
             
             # 中英文混合替换 - 大写
@@ -33,13 +33,13 @@ def replace_terms_in_file(file_path: str):
             # 命令和路径替换
             (r'/speckit\.dnaspec\.', '/speckit.dnaspec.'),
             (r'dnaspec-', 'dnaspec-'),
-            (r'DSGS_', 'DNASPEC_'),
-            (r'\bdsgs_', 'dnaspec_'),
+            (r'DNASPEC_', 'DNASPEC_'),
+            (r'\bdnaspec_', 'dnaspec_'),
             
-            # 保留"dnaspec"相关，但移除其他DSGS术语
+            # 保留"dnaspec"相关，但移除其他DNASPEC术语
             (r'DNASPEC Context Engineering Skills', 'DNASPEC Context Engineering Skills'),
             (r'dnaspec-context-engineering', 'dnaspec-context-engineering'),
-            (r'dsgs_spec_kit', 'dnaspec_spec_kit'),
+            (r'dnaspec_spec_kit', 'dnaspec_spec_kit'),
             (r'dnaspec_context_engineering', 'dnaspec_context_engineering'),
         ]
         
@@ -85,7 +85,7 @@ def verify_replacements():
     """验证替换结果"""
     print("\n验证替换结果...")
     
-    # 查找可能遗漏的DSGS术语
+    # 查找可能遗漏的DNASPEC术语
     import subprocess
     try:
         result = subprocess.run(
@@ -95,10 +95,10 @@ def verify_replacements():
             cwd=os.getcwd()
         )
         if result.stdout:
-            print("可能还有遗漏的DSGS术语:")
+            print("可能还有遗漏的DNASPEC术语:")
             print(result.stdout[:500])  # 只显示前500字符
         else:
-            print("✅ 所有DSGS术语已成功替换为dnaspec")
+            print("✅ 所有DNASPEC术语已成功替换为dnaspec")
     except:
         print("无法使用grep检查，跳过验证")
 
@@ -107,7 +107,7 @@ def main():
     """主函数"""
     print("术语统一替换工具")
     print("="*50)
-    print("将所有DSGS相关术语替换为dnaspec")
+    print("将所有DNASPEC相关术语替换为dnaspec")
     print()
     
     directory = r"D:\DAIP\dnaSpec"
@@ -124,7 +124,7 @@ def main():
     print("- DNASPEC → DNASPEC")
     print("- dnaspec → dnaspec") 
     print("- /speckit.dnaspec. → /speckit.dnaspec.")
-    print("- 各种模块和类名中的DSGS术语")
+    print("- 各种模块和类名中的DNASPEC术语")
 
 
 if __name__ == "__main__":

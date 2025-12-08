@@ -19,15 +19,15 @@ def test_dapi_checker_keywords():
     # 创建Skills发现Hook
     hook = SkillsDiscoveryHook('skills')
     
-    # 找到dsgs-dapi-checker技能
-    dsgs_dapi_checker = None
+    # 找到dna-dapi-checker技能
+    dnaspec_dapi_checker = None
     for skill in hook.skills_registry:
         if skill.name == 'dnaspec-dapi-checker':
-            dsgs_dapi_checker = skill
+            dnaspec_dapi_checker = skill
             break
     
-    if dsgs_dapi_checker:
-        print(f"dnaspec-dapi-checker 关键词: {dsgs_dapi_checker.keywords}")
+    if dnaspec_dapi_checker:
+        print(f"dnaspec-dapi-checker 关键词: {dnaspec_dapi_checker.keywords}")
         print()
         
         # 测试新增的关键词
@@ -45,8 +45,8 @@ def test_dapi_checker_keywords():
         ]
         
         for msg in test_messages:
-            confidence = hook._calculate_match_confidence_improved(msg, dsgs_dapi_checker)
-            matched_keywords = [k for k in dsgs_dapi_checker.keywords if k in msg.lower()]
+            confidence = hook._calculate_match_confidence_improved(msg, dnaspec_dapi_checker)
+            matched_keywords = [k for k in dnaspec_dapi_checker.keywords if k in msg.lower()]
             print(f'消息: "{msg}"')
             print(f'  置信度: {confidence:.3f}')
             print(f'  匹配关键词: {matched_keywords}')

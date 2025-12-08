@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-测试DSGS技能适配器
+测试DNASPEC技能适配器
 """
 import sys
 import os
@@ -10,7 +10,7 @@ from src.dnaspec_spec_kit_integration.adapters.concrete_spec_kit_adapter import 
 from src.dnaspec_context_engineering.skills_system_final import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
 
 def test_adapter():
-    print("测试DSGS适配器...")
+    print("测试DNASPEC适配器...")
     
     # 创建适配器
     adapter = ConcreteSpecKitAdapter()

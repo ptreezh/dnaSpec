@@ -1,4 +1,4 @@
-# DSGS智能契约管理系统 - Claude Skills风格设计规范
+# DNASPEC智能契约管理系统 - Claude Skills风格设计规范
 
 ## 设计哲学
 
@@ -175,7 +175,7 @@ atoms → molecules → cells → organs → neural systems → neural fields
 针对特定应用场景的完整解决方案技能
 
 #### 7. `/project.setup` - 项目初始化技能
-**目的**: 初始化DSGS智能契约管理项目
+**目的**: 初始化DNASPEC智能契约管理项目
 
 **使用示例**:
 ```
@@ -329,4 +329,4 @@ def skill_improvement_cycle(context, state=None, depth=0, max_depth=3):
 
 ---
 
-*本设计规范基于Claude Code Skills的交互模式和Context Engineering的理论框架，为DSGS智能契约管理系统提供标准化的技能开发指南。*
+*本设计规范基于Claude Code Skills的交互模式和Context Engineering的理论框架，为DNASPEC智能契约管理系统提供标准化的技能开发指南。*

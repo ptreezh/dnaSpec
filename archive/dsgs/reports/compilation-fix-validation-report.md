@@ -3,7 +3,7 @@
 ### 🔧 修复的编译错误
 
 #### 1. E2E测试文件类型错误修复
-**文件**: `test/e2e/DSGS_EndToEnd.test.ts`
+**文件**: `test/e2e/DNASPEC_EndToEnd.test.ts`
 
 **修复内容**:
 - ✅ 修正 `loadLevel` 枚举值: 'high' → 'HIGH', 'medium' → 'MED', 'low' → 'LOW'

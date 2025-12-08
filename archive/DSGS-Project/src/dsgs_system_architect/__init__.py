@@ -4,13 +4,13 @@ import os
 import sys
 from typing import Dict, Any, List
 
-class DSGSSystemArchitect:
-    """DSGS系统架构师子技能类"""
+class DNASPECSystemArchitect:
+    """DNASPEC系统架构师子技能类"""
     
     def __init__(self):
         """初始化系统架构师技能"""
         self.name = "dnaspec-system-architect"
-        self.description = "DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义"
+        self.description = "DNASPEC系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义"
         self.capabilities = [
             "architecture_design",
             "tech_stack_selection",
@@ -171,7 +171,7 @@ class DSGSSystemArchitect:
         }
 
 # 全局实例
-system_architect = DSGSSystemArchitect()
+system_architect = DNASPECSystemArchitect()
 
 if __name__ == "__main__":
     # 简单测试

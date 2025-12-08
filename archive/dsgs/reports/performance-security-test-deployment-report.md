@@ -13,7 +13,7 @@
 
 #### TypeScript编译问题
 当前测试套件存在TypeScript类型错误，影响以下测试文件：
-- `test/e2e/DSGS_EndToEnd.test.ts` - 25个类型错误
+- `test/e2e/DNASPEC_EndToEnd.test.ts` - 25个类型错误
 - `test/integration/ContextEngineeringIntegrationEnhanced.test.ts` - 19个类型错误
 - `test/unit/SpecificationManagerProperty.test.ts` - 1个类型错误
 - `test/unit/TemplateReevaluator.test.ts` - 1个导入错误

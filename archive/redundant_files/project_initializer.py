@@ -14,9 +14,9 @@ import json
 import hashlib
 
 
-class DSGSProjectInitializer:
+class DNASPECProjectInitializer:
     """
-    DSGS项目初始化器
+    DNASPEC项目初始化器
     实现类似specify的自动化初始化流程
     """
     
@@ -290,7 +290,7 @@ from abc import ABC, abstractmethod
 
 
 class DNASpecSkill(ABC):
-    """DSGS技能基类"""
+    """DNASPEC技能基类"""
     
     def __init__(self, name: str, description: str):
         self.name = name
@@ -309,7 +309,7 @@ class ContextAnalysisSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-analysis",
-            description="DSGS上下文分析技能 - 利用AI模型原生智能分析上下文质量"
+            description="DNASPEC上下文分析技能 - 利用AI模型原生智能分析上下文质量"
         )
     
     def execute_with_ai(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
@@ -476,7 +476,7 @@ if __name__ == "__main__":
     print(result)
 '''
 
-        entry_file = self.project_dir / "dsgs_context_engineering_cli.py"
+        entry_file = self.project_dir / "dnaspec_context_engineering_cli.py"
         entry_file.write_text(entry_point, encoding='utf-8')
 
     def _cleanup(self):
@@ -517,7 +517,7 @@ if __name__ == "__main__":
 
 def main():
     """主函数 - 命令行入口"""
-    initializer = DSGSProjectInitializer()
+    initializer = DNASPECProjectInitializer()
     success = initializer.initialize_project()
     
     if success:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 模块功能验证脚本
-测试DSGS模块是否可以正确导入并提供所需功能
+测试DNASPEC模块是否可以正确导入并提供所需功能
 """
 import sys
 import os
@@ -145,9 +145,9 @@ def main():
     
     print("\n" + "="*50)
     if success:
-        print("🎉 所有测试通过！DSGS系统功能正常。")
+        print("🎉 所有测试通过！DNASPEC系统功能正常。")
     else:
-        print("❌ 存在测试失败。DSGS系统可能存在问题。")
+        print("❌ 存在测试失败。DNASPEC系统可能存在问题。")
     
     return success
 

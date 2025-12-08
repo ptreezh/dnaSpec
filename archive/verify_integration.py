@@ -28,4 +28,4 @@ print(f'分析技能结果类型: {type(result.result)}')
 result = system.process_request('测试任务', {'function': 'run_context_audit'})
 print(f'系统技能执行状态: {result.status.name}')
 
-print('\n✓ 所有验证通过！上下文工程技能与DSGS系统完全兼容')
+print('\n✓ 所有验证通过！上下文工程技能与DNASPEC系统完全兼容')

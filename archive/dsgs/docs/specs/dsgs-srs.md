@@ -28,7 +28,7 @@
 ### 2.1 系统边界
 ```mermaid
 graph TB
-  subgraph DSGS核心系统
+  subgraph DNASPEC核心系统
     A[规范DNA引擎] --> B[任务胶囊化模块]
     B --> C[形态发生引擎]
     C --> D[规范图谱]

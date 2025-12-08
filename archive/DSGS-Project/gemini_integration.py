@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 DNASPEC Gemini CLI Extensions 集成脚本
-用于将DSGS扩展集成到Gemini CLI中
+用于将DNASPEC扩展集成到Gemini CLI中
 """
 
 import os
@@ -34,14 +34,14 @@ def find_gemini_config():
     
     return None
 
-def integrate_dsgs_extension():
-    """集成DSGS扩展到Gemini CLI"""
+def integrate_dnaspec_extension():
+    """集成DNASPEC扩展到Gemini CLI"""
     print("=== DNASPEC Gemini CLI Extensions 集成工具 ===")
     print()
     
     # 获取当前目录
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    print(f"DSGS扩展目录: {current_dir}")
+    print(f"DNASPEC扩展目录: {current_dir}")
     
     # 查找Gemini CLI配置文件
     config_path = find_gemini_config()
@@ -66,13 +66,13 @@ def integrate_dsgs_extension():
     # 创建扩展目录
     gemini_dir = os.path.dirname(config_path)
     extensions_dir = os.path.join(gemini_dir, "extensions")
-    dsgs_dir = os.path.join(extensions_dir, "dnaspec")
+    dnaspec_dir = os.path.join(extensions_dir, "dnaspec")
     
     os.makedirs(extensions_dir, exist_ok=True)
     print(f"创建扩展目录: {extensions_dir}")
     
-    # 复制DSGS扩展文件
-    print("复制DSGS扩展文件...")
+    # 复制DNASPEC扩展文件
+    print("复制DNASPEC扩展文件...")
     
     # 需要复制的文件和目录
     items_to_copy = [
@@ -87,7 +87,7 @@ def integrate_dsgs_extension():
     
     for item in items_to_copy:
         src_path = os.path.join(current_dir, item)
-        dst_path = os.path.join(dsgs_dir, item)
+        dst_path = os.path.join(dnaspec_dir, item)
         
         if os.path.exists(src_path):
             if os.path.isdir(src_path):
@@ -108,28 +108,28 @@ def integrate_dsgs_extension():
     if "extensions" not in config:
         config["extensions"] = []
     
-    # 检查是否已存在DSGS扩展
-    dsgs_extension_exists = False
+    # 检查是否已存在DNASPEC扩展
+    dnaspec_extension_exists = False
     for ext in config["extensions"]:
         if ext.get("name") == "dnaspec-gemini-extensions":
-            ext["path"] = dsgs_dir
+            ext["path"] = dnaspec_dir
             ext["enabled"] = True
             ext["version"] = "1.0.0"
-            dsgs_extension_exists = True
+            dnaspec_extension_exists = True
             break
     
     # 如果不存在，添加新的扩展配置
-    if not dsgs_extension_exists:
-        dsgs_extension = {
+    if not dnaspec_extension_exists:
+        dnaspec_extension = {
             "name": "dnaspec-gemini-extensions",
-            "path": dsgs_dir,
+            "path": dnaspec_dir,
             "enabled": True,
             "version": "1.0.0"
         }
-        config["extensions"].append(dsgs_extension)
-        print("  添加新的DSGS扩展配置")
+        config["extensions"].append(dnaspec_extension)
+        print("  添加新的DNASPEC扩展配置")
     else:
-        print("  更新现有DSGS扩展配置")
+        print("  更新现有DNASPEC扩展配置")
     
     # 保存配置文件
     try:
@@ -141,11 +141,11 @@ def integrate_dsgs_extension():
         return False
     
     print("\n=== 集成完成 ===")
-    print("DSGS扩展已成功集成到Gemini CLI中!")
+    print("DNASPEC扩展已成功集成到Gemini CLI中!")
     print()
     print("使用方法:")
     print("1. 在Gemini CLI中直接输入自然语言请求")
-    print("2. 系统将自动匹配并执行相应的DSGS技能")
+    print("2. 系统将自动匹配并执行相应的DNASPEC技能")
     print()
     print("支持的技能:")
     print("  • 智能体创建 (dnaspec-agent-creator)")
@@ -162,8 +162,8 @@ def integrate_dsgs_extension():
     
     return True
 
-def remove_dsgs_extension():
-    """移除DSGS扩展"""
+def remove_dnaspec_extension():
+    """移除DNASPEC扩展"""
     print("=== DNASPEC Gemini CLI Extensions 移除工具 ===")
     print()
     
@@ -187,13 +187,13 @@ def remove_dsgs_extension():
         print(f"读取配置文件失败: {e}")
         return False
     
-    # 移除DSGS扩展配置
+    # 移除DNASPEC扩展配置
     if "extensions" in config:
         config["extensions"] = [
             ext for ext in config["extensions"] 
             if ext.get("name") != "dnaspec-gemini-extensions"
         ]
-        print("移除DSGS扩展配置")
+        print("移除DNASPEC扩展配置")
     
     # 保存配置文件
     try:
@@ -206,17 +206,17 @@ def remove_dsgs_extension():
     
     # 移除扩展目录
     gemini_dir = os.path.dirname(config_path)
-    dsgs_dir = os.path.join(gemini_dir, "extensions", "dnaspec")
+    dnaspec_dir = os.path.join(gemini_dir, "extensions", "dnaspec")
     
-    if os.path.exists(dsgs_dir):
+    if os.path.exists(dnaspec_dir):
         try:
-            shutil.rmtree(dsgs_dir)
-            print(f"移除扩展目录: {dsgs_dir}")
+            shutil.rmtree(dnaspec_dir)
+            print(f"移除扩展目录: {dnaspec_dir}")
         except Exception as e:
             print(f"移除扩展目录失败: {e}")
     
     print("\n=== 移除完成 ===")
-    print("DSGS扩展已从Gemini CLI中移除!")
+    print("DNASPEC扩展已从Gemini CLI中移除!")
     
     return True
 
@@ -224,19 +224,19 @@ def main():
     """主函数"""
     if len(sys.argv) > 1:
         if sys.argv[1] in ["install", "integrate"]:
-            integrate_dsgs_extension()
+            integrate_dnaspec_extension()
         elif sys.argv[1] in ["uninstall", "remove"]:
-            remove_dsgs_extension()
+            remove_dnaspec_extension()
         else:
             print("用法:")
-            print("  python gemini_integration.py install    - 安装并集成DSGS扩展")
-            print("  python gemini_integration.py uninstall  - 移除DSGS扩展")
+            print("  python gemini_integration.py install    - 安装并集成DNASPEC扩展")
+            print("  python gemini_integration.py uninstall  - 移除DNASPEC扩展")
     else:
         print("DNASPEC Gemini CLI Extensions 集成工具")
         print()
         print("用法:")
-        print("  python gemini_integration.py install    - 安装并集成DSGS扩展")
-        print("  python gemini_integration.py uninstall  - 移除DSGS扩展")
+        print("  python gemini_integration.py install    - 安装并集成DNASPEC扩展")
+        print("  python gemini_integration.py uninstall  - 移除DNASPEC扩展")
 
 if __name__ == "__main__":
     main()

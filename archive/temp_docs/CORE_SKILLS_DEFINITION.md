@@ -1,8 +1,8 @@
-# DSGS智能契约管理系统 - 核心技能定义
+# DNASPEC智能契约管理系统 - 核心技能定义
 
 ## 系统概述
 
-基于Claude Skills设计哲学和Context Engineering生物学有机体架构，定义DSGS智能契约管理系统的核心技能集合。每个技能都是独立的、可组合的模块，通过CLI接口协同工作。
+基于Claude Skills设计哲学和Context Engineering生物学有机体架构，定义DNASPEC智能契约管理系统的核心技能集合。每个技能都是独立的、可组合的模块，通过CLI接口协同工作。
 
 ## 核心技能分类
 
@@ -449,4 +449,4 @@ measurement:
 
 ---
 
-*本技能定义基于Claude Code Skills的交互模式和Context Engineering的生物学有机体架构，为DSGS智能契约管理系统提供完整的技能体系框架。*
+*本技能定义基于Claude Code Skills的交互模式和Context Engineering的生物学有机体架构，为DNASPEC智能契约管理系统提供完整的技能体系框架。*

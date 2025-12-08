@@ -8,20 +8,20 @@ def test_integration():
     try:
         import sys
         sys.path.insert(0, 'src')
-        sys.path.insert(0, 'src/dsgs_architect')
-        sys.path.insert(0, 'src/dsgs_agent_creator')
+        sys.path.insert(0, 'src/dnaspec_architect')
+        sys.path.insert(0, 'src/dnaspec_agent_creator')
         
         # 导入主技能
-        from dsgs_architect import DSGSArchitect
+        from dnaspec_architect import DNASPECArchitect
         print("✓ 成功导入主技能")
         
         # 导入智能体创建器子技能
-        from dsgs_agent_creator import DSGSAgentCreator
+        from dnaspec_agent_creator import DNASPECAgentCreator
         print("✓ 成功导入智能体创建器子技能")
         
         # 创建技能实例
-        main_skill = DSGSArchitect()
-        agent_creator_skill = DSGSAgentCreator()
+        main_skill = DNASPECArchitect()
+        agent_creator_skill = DNASPECAgentCreator()
         
         # 测试请求
         test_request = "Create agents for developing a web application"

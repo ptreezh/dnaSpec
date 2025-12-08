@@ -10,7 +10,7 @@ import random
 
 
 class DNASpecSkill(ABC):
-    """DSGS技能基础接口 - 为AI CLI平台设计的统一接口"""
+    """DNASPEC技能基础接口 - 为AI CLI平台设计的统一接口"""
     
     def __init__(self, name: str, description: str):
         self.name = name
@@ -124,7 +124,7 @@ class ContextAnalysisSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-analysis",
-            description="DSGS上下文分析技能 - 利用AI模型原生智能进行上下文质量分析"
+            description="DNASPEC上下文分析技能 - 利用AI模型原生智能进行上下文质量分析"
         )
     
     def execute_with_ai(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
@@ -218,7 +218,7 @@ class ContextOptimizationSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-optimization",
-            description="DSGS上下文优化技能 - 利用AI模型原生智能优化上下文质量"
+            description="DNASPEC上下文优化技能 - 利用AI模型原生智能优化上下文质量"
         )
     
     def execute_with_ai(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
@@ -308,7 +308,7 @@ class CognitiveTemplateSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-cognitive-template",
-            description="DSGS认知模板技能 - 利用AI模型原生智能应用认知模板"
+            description="DNASPEC认知模板技能 - 利用AI模型原生智能应用认知模板"
         )
     
     def execute_with_ai(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:

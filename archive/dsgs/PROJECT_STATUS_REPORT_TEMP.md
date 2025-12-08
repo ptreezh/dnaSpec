@@ -1,7 +1,7 @@
-# DSGS智能契约管理系统 - 项目状态报告
+# DNASPEC智能契约管理系统 - 项目状态报告
 
 ## 📊 项目概览
-- **项目名称**: DSGS智能契约管理系统
+- **项目名称**: DNASPEC智能契约管理系统
 - **项目版本**: v2.1.0
 - **当前阶段**: Beta阶段
 - **最后更新**: 2025-08-06
@@ -35,15 +35,15 @@
 ## 📋 当前项目状态
 
 ### 🏗️ 系统架构
-DSGS智能契约管理系统
+DNASPEC智能契约管理系统
 ├── 核心模块 (Core Modules)
 │   ├── EnhancedSourceCodeAnalyzer ✅
 │   ├── EnhancedContractGenerator ✅
 │   └── ContractValidator (待实现)
 ├── 集成模块 (Integration Modules)
-│   ├── DSGS约束生成器集成 (待实现)
-│   ├── DSGS神经场集成 (待实现)
-│   └── DSGS监控集成 (待实现)
+│   ├── DNASPEC约束生成器集成 (待实现)
+│   ├── DNASPEC神经场集成 (待实现)
+│   └── DNASPEC监控集成 (待实现)
 ├── 用户界面 (User Interface)
 │   ├── CLI工具 ✅
 │   ├── Web管理界面 (待实现)

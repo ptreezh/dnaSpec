@@ -196,7 +196,7 @@ The system integrates with AI CLI platforms by:
 ### 8.1 Installation
 ```bash
 # Clone repository
-git clone <DSGS_CONTEXT_ENGINEERING_REPO>
+git clone <DNASPEC_CONTEXT_ENGINEERING_REPO>
 cd dnaspec-context-engineering
 
 # Setup environment

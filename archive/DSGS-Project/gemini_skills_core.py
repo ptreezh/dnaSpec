@@ -51,7 +51,7 @@ class SkillResult:
             self.metadata = {}
 
 class DNASpecSkill:
-    """DSGS技能基类"""
+    """DNASPEC技能基类"""
     
     def __init__(self, name: str, description: str):
         self.name = name
@@ -112,43 +112,43 @@ class SkillManager:
         self._load_skills()
     
     def _load_skills(self):
-        """加载所有DSGS技能"""
+        """加载所有DNASPEC技能"""
         # 这里应该动态加载实际的技能实现
         # 目前使用模拟数据
         skill_infos = [
             SkillInfo(
                 name="dnaspec-agent-creator",
-                description="DSGS智能体创建器 - 专业的智能体设计和创建专家",
+                description="DNASPEC智能体创建器 - 专业的智能体设计和创建专家",
                 keywords=["创建智能体", "智能体设计", "agent creator", "多智能体系统", "智能体角色定义", "模块智能化", "agentic", "具身认知", "角色定义", "行为规范", "智能体架构"]
             ),
             SkillInfo(
                 name="dnaspec-task-decomposer",
-                description="DSGS任务分解器 - 复杂任务分解和原子化专家",
+                description="DNASPEC任务分解器 - 复杂任务分解和原子化专家",
                 keywords=["分解任务", "任务分解", "原子化任务", "任务依赖分析", "复杂任务", "一步步拆解", "任务分析", "任务清单", "任务计划", "任务依赖", "原子化", "开发任务"]
             ),
             SkillInfo(
                 name="dnaspec-constraint-generator",
-                description="DSGS约束生成器 - 系统约束和规范生成专家",
+                description="DNASPEC约束生成器 - 系统约束和规范生成专家",
                 keywords=["生成约束", "约束生成", "API规范", "数据约束", "约束规范", "规范生成", "接口约束", "数据规范", "系统约束"]
             ),
             SkillInfo(
                 name="dnaspec-dapi-checker",
-                description="DSGS分布式接口检查器 - 接口一致性和完整性检查专家",
+                description="DNASPEC分布式接口检查器 - 接口一致性和完整性检查专家",
                 keywords=["接口检查", "一致性检查", "接口验证", "参数不一致", "接口不匹配", "参数错误", "接口错误", "定义不一致", "接口不一致", "API验证", "参数匹配", "支付接口", "用户服务"]
             ),
             SkillInfo(
                 name="dnaspec-modulizer",
-                description="DSGS模块化器 - 模块成熟度检查和封装专家",
+                description="DNASPEC模块化器 - 模块成熟度检查和封装专家",
                 keywords=["模块化", "模块重构", "隔离测试", "分区测试", "系统重构", "模块成熟化", "封装", "自底向上", "降低系统复杂度", "成熟度评估", "模块封装", "订单处理", "用户管理"]
             ),
             SkillInfo(
                 name="dnaspec-architect",
-                description="DSGS架构师 - 系统架构设计和协调专家",
+                description="DNASPEC架构师 - 系统架构设计和协调专家",
                 keywords=["系统架构", "架构设计", "架构规划", "多层架构", "architecture", "design system", "微服务", "技术栈", "模块划分", "电商系统"]
             ),
             SkillInfo(
                 name="dnaspec-system-architect",
-                description="DSGS系统架构师 - 具体系统架构设计专家",
+                description="DNASPEC系统架构师 - 具体系统架构设计专家",
                 keywords=["技术栈选择", "模块划分", "接口定义", "系统设计", "blueprint", "framework", "系统架构"]
             )
         ]
@@ -163,10 +163,10 @@ class SkillManager:
         """注册实际的技能实例"""
         try:
             # 尝试导入并注册实际的技能实例
-            from .src.dsgs_agent_creator import agent_creator
-            from .src.dsgs_task_decomposer import task_decomposer
-            from .src.dsgs_dapi_checker import dapi_checker
-            from .src.dsgs_modulizer import modulizer
+            from .src.dnaspec_agent_creator import agent_creator
+            from .src.dnaspec_task_decomposer import task_decomposer
+            from .src.dnaspec_dapi_checker import dapi_checker
+            from .src.dnaspec_modulizer import modulizer
             
             self.skills["dnaspec-agent-creator"] = agent_creator
             self.skills["dnaspec-task-decomposer"] = task_decomposer

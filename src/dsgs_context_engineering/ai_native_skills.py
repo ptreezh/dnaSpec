@@ -11,7 +11,7 @@ from abc import ABC, abstractmethod
 
 
 class DNASpecSkill(ABC):
-    """DSGS技能基类 - 为AI CLI平台设计"""
+    """DNASPEC技能基类 - 为AI CLI平台设计"""
     
     def __init__(self, name: str, description: str):
         self.name = name
@@ -33,7 +33,7 @@ class ContextAnalysisSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-analysis",
-            description="DSGS上下文分析技能 - 利用AI模型原生智能分析上下文质量"
+            description="DNASPEC上下文分析技能 - 利用AI模型原生智能分析上下文质量"
         )
     
     def execute(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
@@ -102,7 +102,7 @@ class ContextOptimizationSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-optimization",
-            description="DSGS上下文优化技能 - 利用AI模型原生智能优化上下文质量"
+            description="DNASPEC上下文优化技能 - 利用AI模型原生智能优化上下文质量"
         )
     
     def execute(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
@@ -172,7 +172,7 @@ class CognitiveTemplateSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-cognitive-template",
-            description="DSGS认知模板技能 - 利用AI模型原生智能应用认知模板结构化任务"
+            description="DNASPEC认知模板技能 - 利用AI模型原生智能应用认知模板结构化任务"
         )
         
         # 定义可用的认知模板

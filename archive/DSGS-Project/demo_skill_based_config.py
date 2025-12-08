@@ -157,12 +157,12 @@ def demonstrate_skill_based_config():
     print("\n3. 增强版智能体创建器演示:")
     enhanced_creator = EnhancedAgentCreator()
     
-    # 使用DSGS生成智能体配置
+    # 使用DNASPEC生成智能体配置
     import sys
     sys.path.insert(0, 'src')
-    from dsgs_agent_creator import DSGSAgentCreator
+    from dnaspec_agent_creator import DNASPECAgentCreator
     
-    agent_creator = DSGSAgentCreator()
+    agent_creator = DNASPECAgentCreator()
     request = "Create agents for a system with security and data processing capabilities"
     result = agent_creator.process_request(request)
     

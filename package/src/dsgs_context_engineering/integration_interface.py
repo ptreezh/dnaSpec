@@ -8,9 +8,9 @@ from typing import Dict, Any, List
 from abc import ABC, abstractmethod
 
 
-class DSGSSkillInterface:
+class DNASPECSkillInterface:
     """
-    DSGS斜杠命令接口
+    DNASPEC斜杠命令接口
     与AI CLI平台集成，作为平台内置命令
     """
     
@@ -273,7 +273,7 @@ DNASPEC Context Engineering Skills 是AI CLI平台的内置上下文工程增强
 
 
 # 全局命令处理器实例（模拟AI CLI平台集成）
-slash_command_handler = DSGSSlashCommandInterface()
+slash_command_handler = DNASPECSlashCommandInterface()
 
 
 def handle_command(command_name: str, arguments: List[str], platform_context: str) -> str:
@@ -320,7 +320,7 @@ def get_command_info() -> Dict[str, Any]:
             },
             {
                 'name': '/dnaspec-help',
-                'description': '显示DSGS Context Engineering Skills帮助信息',
+                'description': '显示DNASPEC Context Engineering Skills帮助信息',
                 'usage': '/dnaspec-help',
                 'access': 'none',
                 'permissions': []
@@ -336,7 +336,7 @@ def get_command_info() -> Dict[str, Any]:
 def register_with_cli_platform():
     """
     向AI CLI平台注册命令
-    这个函数会被平台调用以注册DSGS命令
+    这个函数会被平台调用以注册DNASPEC命令
     """
     command_info = get_command_info()
     print(f"Registering DNASPEC Context Engineering Commands with AI CLI Platform:")

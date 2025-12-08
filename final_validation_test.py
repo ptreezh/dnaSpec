@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS系统最终验证测试
+DNASPEC系统最终验证测试
 确认所有功能在AI CLI环境中正常工作
 """
 import sys
@@ -111,7 +111,7 @@ def final_validation_test():
         print("   ✅ 智能意图识别可用") 
         
         print("\n" + "="*60)
-        print("🎉 DSGS系统验证完成！")
+        print("🎉 DNASPEC系统验证完成！")
         print("✅ 所有核心功能正常工作")
         print("✅ AI CLI环境集成完整")  
         print("✅ 配置脚本路径修复成功")

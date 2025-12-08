@@ -87,7 +87,7 @@ describe('ConstraintGenerator Property Tests', () => {
 ```
 
 ### 第三步: 创建Contract测试文件
-**文件**: `test/contract/DSGSAPITest.ts`
+**文件**: `test/contract/DNASPECAPITest.ts`
 
 **内容框架**:
 ```typescript

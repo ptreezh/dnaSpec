@@ -99,7 +99,7 @@ DNASPEC Skills System (新方案)
 # 统一配置文件示例
 skills:
   - name: dnaspec-agent-creator
-    description: "DSGS智能体创建器"
+    description: "DNASPEC智能体创建器"
     keywords:
       - "创建智能体"
       - "智能体设计"

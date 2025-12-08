@@ -67,7 +67,7 @@ DNASPEC Skills Core (平台无关)
 - 通过平台原生API调用技能
 
 ### 方案三：命令行工具集成
-- 创建独立的DSGS CLI工具
+- 创建独立的DNASPEC CLI工具
 - 各平台通过命令行调用
 - 支持JSON/RPC通信协议
 

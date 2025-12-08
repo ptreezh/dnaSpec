@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DSGS功能测试脚本
-验证DSGS Context Engineering Skills是否正确安装和工作
+DNASPEC功能测试脚本
+验证DNASPEC Context Engineering Skills是否正确安装和工作
 """
 from src.dnaspec_context_engineering.skills_system_final import execute
 
@@ -36,7 +36,7 @@ def test_cognitive_template():
     print()
 
 if __name__ == "__main__":
-    print("DSGS功能测试")
+    print("DNASPEC功能测试")
     print("="*50)
     
     test_context_analysis()

@@ -106,7 +106,7 @@ class ContextAnalysisSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-analysis",
-            description="DSGS上下文分析技能 - 利用AI模型原生智能进行专业上下文质量分析"
+            description="DNASPEC上下文分析技能 - 利用AI模型原生智能进行专业上下文质量分析"
         )
 
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
@@ -163,7 +163,7 @@ class ContextOptimizationSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-optimization",
-            description="DSGS上下文优化技能 - 利用AI模型原生智能优化上下文质量"
+            description="DNASPEC上下文优化技能 - 利用AI模型原生智能优化上下文质量"
         )
 
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Any:
@@ -221,7 +221,7 @@ class CognitiveTemplateSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-cognitive-template",
-            description="DSGS认知模板技能 - 利用AI模型原生智能应用认知模板结构化复杂任务"
+            description="DNASPEC认知模板技能 - 利用AI模型原生智能应用认知模板结构化复杂任务"
         )
 
         self.templates = {

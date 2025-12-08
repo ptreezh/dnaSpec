@@ -1,6 +1,6 @@
 """
 CLI Interface for DNASPEC Context Engineering Skills
-提供命令行接口访问DSGS技能
+提供命令行接口访问DNASPEC技能
 """
 import click
 from typing import Dict, Any
@@ -11,7 +11,7 @@ import os
 # 将项目路径添加到sys.path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.dnaspec_context_engineering.spec_engine import DSGSSpecEngine, engine
+from src.dnaspec_context_engineering.spec_engine import DNASPECSpecEngine, engine
 
 
 @click.group()
@@ -175,7 +175,7 @@ def template(task: tuple, template: str, role: str, format: str):
 @dnaspec.command()
 def list():
     """
-    列出所有可用的DSGS技能
+    列出所有可用的DNASPEC技能
     """
     skills = engine.list_available_skills()
     click.echo("DNASPEC Context Engineering Skills:")
@@ -189,7 +189,7 @@ def list():
 @click.option('--context', '-c', required=True, help='要处理的上下文')
 def execute(skill: str, context: str):
     """
-    执行指定的DSGS技能
+    执行指定的DNASPEC技能
     
     示例: dnaspec execute --skill context-analysis --context "要分析的内容"
     """
@@ -204,7 +204,7 @@ def execute(skill: str, context: str):
 @dnaspec.command()
 def demo():
     """
-    运行DSGS功能演示
+    运行DNASPEC功能演示
     """
     click.echo("🎯 DNASPEC Context Engineering Skills 演示")
     click.echo("=" * 60)
@@ -242,7 +242,7 @@ def demo():
     if template_result['success'] and template_result['result']['success']:
         click.echo("   思维链结构化成功")
     
-    click.echo("\n✅ 演示完成！DSGS系统已准备就绪。")
+    click.echo("\n✅ 演示完成！DNASPEC系统已准备就绪。")
 
 
 if __name__ == '__main__':

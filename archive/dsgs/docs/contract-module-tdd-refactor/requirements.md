@@ -2,7 +2,7 @@
 
 ## 📋 概述
 
-本文档基于TDD（测试驱动开发）原则，定义DSGS Contract Module的重构需求。遵循kiro spec规范，采用EARS格式（WHEN/IF/THEN）编写验收标准。
+本文档基于TDD（测试驱动开发）原则，定义DNASPEC Contract Module的重构需求。遵循kiro spec规范，采用EARS格式（WHEN/IF/THEN）编写验收标准。
 
 ## 🎯 重构目标
 
@@ -157,7 +157,7 @@ REQ-001 (编译修复) → REQ-002 (功能测试) → REQ-005 (测试覆盖)
 - **TypeScript编译**：将TypeScript代码转换为JavaScript的过程
 
 ### B. 参考文档
-- [DSGS统一契约文档体系](../unified-contract/README.md)
+- [DNASPEC统一契约文档体系](../unified-contract/README.md)
 - [TDD最佳实践](https://github.com/jasonkneen/kiro)
 - [TypeScript官方文档](https://www.typescriptlang.org/docs/)
 
@@ -166,5 +166,5 @@ REQ-001 (编译修复) → REQ-002 (功能测试) → REQ-005 (测试覆盖)
 **文档版本**：1.0  
 **创建日期**：2025-08-11  
 **最后更新**：2025-08-11  
-**作者**：DSGS团队  
+**作者**：DNASPEC团队  
 **状态**：待审核

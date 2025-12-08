@@ -61,9 +61,9 @@ def check_dependencies():
     return True
 
 
-def install_dsgs():
-    """安装DSGS包"""
-    print("\n📦 安装DSGS Context Engineering Skills...")
+def install_dnaspec():
+    """安装DNASPEC包"""
+    print("\n📦 安装DNASPEC Context Engineering Skills...")
     
     # 检查是否已存在项目目录
     project_dir = Path("dnaSpec")
@@ -85,11 +85,11 @@ def install_dsgs():
         os.chdir(project_dir)
     
     # 安装项目
-    result = run_command("pip install -e .", "安装DSGS包")
+    result = run_command("pip install -e .", "安装DNASPEC包")
     if not result:
         return False
     
-    print("✅ DSGS包安装成功")
+    print("✅ DNASPEC包安装成功")
     return True
 
 
@@ -155,14 +155,14 @@ def main():
         print("\n❌ 依赖检查失败，安装终止")
         sys.exit(1)
     
-    # 安装DSGS
-    if not install_dsgs():
-        print("\n❌ DSGS安装失败，安装终止")
+    # 安装DNASPEC
+    if not install_dnaspec():
+        print("\n❌ DNASPEC安装失败，安装终止")
         sys.exit(1)
     
     # 运行自动配置
     if not run_auto_config():
-        print("\n❌ 自动配置失败，但DSGS已安装")
+        print("\n❌ 自动配置失败，但DNASPEC已安装")
         sys.exit(1)
     
     print("\n" + "="*70)
@@ -174,14 +174,14 @@ def main():
     print("  /speckit.dnaspec.context-optimization [上下文] - 优化上下文")
     print("  /speckit.dnaspec.cognitive-template [任务] template=[模板类型] - 应用认知模板")
     print("  /speckit.dnaspec.architect [需求] - 系统架构设计")
-    print("  ...以及其他DSGS专业技能")
+    print("  ...以及其他DNASPEC专业技能")
     
     print(f"\n系统信息:")
     print(f"  操作系统: {platform.system()} {platform.release()}")
     print(f"  Python版本: {sys.version}")
     print(f"  工作目录: {os.getcwd()}")
     
-    print("\n感谢使用DSGS Context Engineering Skills！")
+    print("\n感谢使用DNASPEC Context Engineering Skills！")
 
 
 if __name__ == "__main__":

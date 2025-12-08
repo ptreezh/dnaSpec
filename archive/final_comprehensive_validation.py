@@ -1,6 +1,6 @@
 """
 Final Comprehensive Validation Suite
-全面验证DSGS Context Engineering Skills系统的实际工作能力
+全面验证DNASPEC Context Engineering Skills系统的实际工作能力
 """
 import time
 import sys

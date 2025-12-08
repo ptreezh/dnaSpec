@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DSGS技能执行引擎
+DNASPEC技能执行引擎
 负责实际执行技能并管理执行过程
 """
 
@@ -88,16 +88,16 @@ class SkillExecutionEngine:
         try:
             # 根据技能名称动态导入相应的模块
             if skill_name == "dnaspec-agent-creator":
-                from .src.dsgs_agent_creator import agent_creator
+                from .src.dnaspec_agent_creator import agent_creator
                 result = agent_creator.process_request(request, context)
             elif skill_name == "dnaspec-task-decomposer":
                 # 任务分解器可能需要特殊处理
                 result = self._execute_task_decomposer(request, context)
             elif skill_name == "dnaspec-dapi-checker":
-                from .src.dsgs_dapi_checker import dapi_checker
+                from .src.dnaspec_dapi_checker import dapi_checker
                 result = dapi_checker.process_request(request, context)
             elif skill_name == "dnaspec-modulizer":
-                from .src.dsgs_modulizer import modulizer
+                from .src.dnaspec_modulizer import modulizer
                 result = modulizer.process_request(request, context)
             elif skill_name == "dnaspec-constraint-generator":
                 result = self._execute_constraint_generator(request, context)
@@ -279,7 +279,7 @@ def get_execution_engine() -> SkillExecutionEngine:
 
 if __name__ == "__main__":
     # 测试技能执行引擎
-    print("=== DSGS技能执行引擎测试 ===")
+    print("=== DNASPEC技能执行引擎测试 ===")
     
     engine = get_execution_engine()
     engine.enable_debug()

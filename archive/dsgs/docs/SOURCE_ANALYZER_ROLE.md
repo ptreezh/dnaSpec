@@ -1,10 +1,10 @@
-# DSGS源码分析器在系统中的地位和作用
+# DNASPEC源码分析器在系统中的地位和作用
 
 ## 🎯 核心地位
 
 ### 系统架构中的位置
 ```
-DSGS智能契约管理系统
+DNASPEC智能契约管理系统
 ├── 源码分析层 (Source Analysis Layer)
 │   ├── EnhancedSourceCodeAnalyzer (核心分析器)
 │   ├── TypeResolver (类型解析器)
@@ -19,9 +19,9 @@ DSGS智能契约管理系统
 │   ├── CompatibilityChecker (兼容性检查器)
 │   └── BusinessRuleValidator (业务规则验证器)
 └── 集成层 (Integration Layer)
-    ├── DSGS约束生成器集成
-    ├── DSGS神经场集成
-    └── DSGS监控集成
+    ├── DNASPEC约束生成器集成
+    ├── DNASPEC神经场集成
+    └── DNASPEC监控集成
 ```
 
 ### 核心作用
@@ -79,9 +79,9 @@ npm run contract:generate
   # 自动调用源码分析器
 ```
 
-### 5. **通过DSGS约束生成器调用**
+### 5. **通过DNASPEC约束生成器调用**
 ```typescript
-// 在DSGS约束生成器中
+// 在DNASPEC约束生成器中
 const analysis = await sourceAnalyzer.analyze(sourcePaths);
 // 使用分析结果生成约束
 ```
@@ -195,7 +195,7 @@ npm version patch/minor/major
 ### 8. **监控告警**
 #### 场景: 监控API变更
 ```typescript
-// 在DSGS监控系统中
+// 在DNASPEC监控系统中
 const analysis = await sourceAnalyzer.analyze(sourcePaths);
 // 检测到变更，触发告警
 ```
@@ -208,7 +208,7 @@ const analysis = await sourceAnalyzer.analyze(sourcePaths);
 5. 生成变更报告
 6. 触发告警
 
-## 🔄 与DSGS其他模块的集成
+## 🔄 与DNASPEC其他模块的集成
 
 ### 1. **与约束生成器的集成**
 ```typescript
@@ -274,7 +274,7 @@ class MonitoringSystem {
 ## 🎯 总结
 
 ### 地位
-- **核心组件**: DSGS智能契约管理系统的基础
+- **核心组件**: DNASPEC智能契约管理系统的基础
 - **数据源**: 为整个系统提供源码数据
 - **智能引擎**: 提供智能的源码理解能力
 
@@ -297,4 +297,4 @@ class MonitoringSystem {
 - **部署**: 部署时生成文档
 - **监控**: 监控时检测变更
 
-源码分析器是DSGS智能契约管理系统的核心和基础，为整个系统提供了智能的源码理解能力，是实现自动化契约管理的关键组件。
+源码分析器是DNASPEC智能契约管理系统的核心和基础，为整个系统提供了智能的源码理解能力，是实现自动化契约管理的关键组件。

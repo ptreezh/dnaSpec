@@ -24,7 +24,7 @@
 - ✅ `test/unit/ConstraintGeneratorProperty.test.ts`
 - ✅ `test/unit/TemplateEvolverProperty.test.ts`
 - ✅ `test/unit/ContextEngineeringIntegrationProperty.test.ts`
-- ✅ `test/contract/DSGSContractTest.ts`
+- ✅ `test/contract/DNASPECContractTest.ts`
 - ✅ `test/performance/performance-benchmark.js`
 - ✅ `test/chaos/chaos-engineering.js`
 

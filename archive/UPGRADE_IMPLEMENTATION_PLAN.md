@@ -1,4 +1,4 @@
-# DSGS与spec.kit整合升级实施计划
+# DNASPEC与spec.kit整合升级实施计划
 
 ## 1. 项目现状分析
 

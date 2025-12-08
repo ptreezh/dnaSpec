@@ -5,13 +5,13 @@ import sys
 from typing import Dict, Any, List, Tuple
 from collections import defaultdict
 
-class DSGSTaskDecomposer:
-    """DSGS任务分解器子技能类"""
+class DNASPECTaskDecomposer:
+    """DNASPEC任务分解器子技能类"""
     
     def __init__(self):
         """初始化任务分解器技能"""
         self.name = "dnaspec-task-decomposer"
-        self.description = "DSGS任务分解器子技能，用于将复杂项目需求分解为原子化任务，生成任务依赖关系图，确保任务上下文文档的闭包性"
+        self.description = "DNASPEC任务分解器子技能，用于将复杂项目需求分解为原子化任务，生成任务依赖关系图，确保任务上下文文档的闭包性"
         self.capabilities = [
             "task_decomposition",
             "dependency_analysis",
@@ -375,7 +375,7 @@ class DSGSTaskDecomposer:
         }
 
 # 全局实例
-task_decomposer = DSGSTaskDecomposer()
+task_decomposer = DNASPECTaskDecomposer()
 
 if __name__ == "__main__":
     # 简单测试

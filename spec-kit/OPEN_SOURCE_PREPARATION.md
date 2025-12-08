@@ -29,14 +29,14 @@ spec.kit是一个规格驱动开发(Spec-Driven Development)工具包，它将�
   - `cognitive-template-enhanced`: 增强认知模板
   - `context-engineering-workflow`: 完整工作流
 
-- **DSGS智能架构师技能 (7个)**
-  - `dnaspec-architect`: DSGS架构师
-  - `dnaspec-system-architect`: DSGS系统架构师
-  - `dnaspec-agent-creator`: DSGS智能体创建器
-  - `dnaspec-constraint-generator`: DSGS约束生成器
-  - `dnaspec-task-decomposer`: DSGS任务分解器
-  - `dnaspec-modulizer`: DSGS模块化验证器
-  - `dnaspec-dapi-checker`: DSGS接口检查器
+- **DNASPEC智能架构师技能 (7个)**
+  - `dnaspec-architect`: DNASPEC架构师
+  - `dnaspec-system-architect`: DNASPEC系统架构师
+  - `dnaspec-agent-creator`: DNASPEC智能体创建器
+  - `dnaspec-constraint-generator`: DNASPEC约束生成器
+  - `dnaspec-task-decomposer`: DNASPEC任务分解器
+  - `dnaspec-modulizer`: DNASPEC模块化验证器
+  - `dnaspec-dapi-checker`: DNASPEC接口检查器
 
 ### 2. Python脚本支持 (9个技能)
 - `context_analyzer.py`: 上下文分析引擎
@@ -63,7 +63,7 @@ spec-kit/
 │   ├── speckit-specify/    # 规格创建技能
 │   ├── speckit-plan/       # 规划技能
 │   ├── context-analysis/   # 上下文分析技能
-│   └── dnaspec-architect/     # DSGS架构技能
+│   └── dnaspec-architect/     # DNASPEC架构技能
 ├── scripts/                # Python脚本目录
 ├── templates/              # 模板文件
 ├── docs/                   # 文档目录

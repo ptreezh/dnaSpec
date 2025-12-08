@@ -195,10 +195,10 @@ function installAndConfigure() {
     }
 
     // 安装Python包
-    if (!runCommand('pip install -e .', '安装DSGS包')) {
+    if (!runCommand('pip install -e .', '安装DNASPEC包')) {
         // 尝试使用python -m pip
-        if (!runCommand('python -m pip install -e .', '安装DSGS包（备用方式）')) {
-            if (!runCommand('python3 -m pip install -e .', '安装DSGS包（备用方式2）')) {
+        if (!runCommand('python -m pip install -e .', '安装DNASPEC包（备用方式）')) {
+            if (!runCommand('python3 -m pip install -e .', '安装DNASPEC包（备用方式2）')) {
                 console.error('❌ 所有安装方式都失败了');
                 if (!isProjectDir) {
                     process.chdir(initialDir);
@@ -267,7 +267,7 @@ function installAndConfigure() {
                 console.log('\n🎉 Installation and configuration completed successfully!');
 
                 // Show post-installation guide
-                console.log('\nDSGS Context Engineering Skills - POST-INSTALLATION GUIDE');
+                console.log('\nDNASPEC Context Engineering Skills - POST-INSTALLATION GUIDE');
                 console.log('='.repeat(80));
                 console.log('');
                 console.log('Thank you for installing DNASPEC (Dynamic Specification Growth System)!');

@@ -1,7 +1,7 @@
-# DSGS与spec.kit整合实施计划
+# DNASPEC与spec.kit整合实施计划
 
 ## 1. 项目目标
-将DSGS技能系统与spec.kit的跨平台支持能力进行深度整合，创建一个既具备专业技能又支持多平台的AI辅助开发系统。
+将DNASPEC技能系统与spec.kit的跨平台支持能力进行深度整合，创建一个既具备专业技能又支持多平台的AI辅助开发系统。
 
 ## 2. 实施原则
 - 渐进式集成：分阶段实现功能，降低风险
@@ -14,7 +14,7 @@
 ### 3.1 整合架构
 ```
 DNASPEC-spec.kit整合架构
-├── DSGS核心层
+├── DNASPEC核心层
 │   ├── 技能管理器 (SkillManager)
 │   ├── 智能匹配引擎 (IntelligentMatcher)
 │   ├── Hook系统 (HookSystem)
@@ -36,7 +36,7 @@ DNASPEC-spec.kit整合架构
 
 ### 3.2 数据流设计
 1. 用户请求 → Hook系统检测 → 智能匹配 → 技能执行
-2. 斜杠命令 → spec.kit适配器 → DSGS技能调用 → 结果返回
+2. 斜杠命令 → spec.kit适配器 → DNASPEC技能调用 → 结果返回
 3. 配置管理 → 统一配置系统 → 各平台适配器 → 平台特定配置
 
 ## 4. 实施阶段规划

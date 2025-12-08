@@ -3,7 +3,7 @@
 ## 1. 推荐方案：纯Extensions方案（无MCP）
 
 ### 方案概述
-采用Playbook + Context Files的纯Extensions方式，完全满足DSGS Skills需求。
+采用Playbook + Context Files的纯Extensions方式，完全满足DNASPEC Skills需求。
 
 ### 核心优势
 - ✅ **零服务器依赖**：无需启动任何MCP服务器
@@ -27,9 +27,9 @@ dnaspec-agent-creator/
 {
   "name": "dnaspec-agent-creator",
   "version": "1.0.0",
-  "description": "DSGS智能体创建器 - 专业的智能体设计和创建专家",
+  "description": "DNASPEC智能体创建器 - 专业的智能体设计和创建专家",
   "playbook": {
-    "instructions": "你现在是DSGS智能体创建专家，专门帮助用户设计和创建智能体。请根据用户需求提供专业的智能体设计方案。",
+    "instructions": "你现在是DNASPEC智能体创建专家，专门帮助用户设计和创建智能体。请根据用户需求提供专业的智能体设计方案。",
     "triggers": [
       "创建智能体",
       "智能体设计", 
@@ -48,7 +48,7 @@ dnaspec-agent-creator/
 # DNASPEC 智能体创建专家
 
 ## 角色定位
-你是一个专业的DSGS智能体创建专家，具备以下核心能力：
+你是一个专业的DNASPEC智能体创建专家，具备以下核心能力：
 - 分析复杂项目需求并设计合适的智能体架构
 - 定义智能体的角色、职责和行为模式
 - 生成详细的智能体规范文档和配置建议
@@ -75,7 +75,7 @@ dnaspec-agent-creator/
 ### 自动化部署脚本
 ```python
 def deploy_gemini_extensions():
-    """部署DSGS Extensions到Gemini CLI"""
+    """部署DNASPEC Extensions到Gemini CLI"""
     # 1. 验证Extensions格式
     # 2. 复制到配置目录
     # 3. 重启Gemini CLI会话
@@ -141,7 +141,7 @@ class GeminiCLIAdapter(BaseAdapter):
 ```
 
 ### 配置文件生成
-自动生成所有7个DSGS Skills的Extensions配置：
+自动生成所有7个DNASPEC Skills的Extensions配置：
 - dnaspec-agent-creator
 - dnaspec-architect  
 - dnaspec-system-architect

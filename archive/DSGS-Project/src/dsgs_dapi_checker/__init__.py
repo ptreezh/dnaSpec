@@ -38,13 +38,13 @@ class ConsistencyReport:
     summary: Dict[str, int]
     recommendations: List[str]
 
-class DSGS_DAPI_Checker:
-    """DSGS分布式接口一致性检测器"""
+class DNASPEC_DAPI_Checker:
+    """DNASPEC分布式接口一致性检测器"""
     
     def __init__(self):
         """初始化DAPI检查器"""
         self.name = "dnaspec-dapi-checker"
-        self.description = "DSGS分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性"
+        self.description = "DNASPEC分布式接口文档检查器，用于检查系统各组件间的接口一致性和完整性"
         self.capabilities = [
             "interface_scanning",
             "consistency_checking",
@@ -250,7 +250,7 @@ class DSGS_DAPI_Checker:
         }
 
 # 全局实例
-dapi_checker = DSGS_DAPI_Checker()
+dapi_checker = DNASPEC_DAPI_Checker()
 
 if __name__ == "__main__":
     # 简单测试

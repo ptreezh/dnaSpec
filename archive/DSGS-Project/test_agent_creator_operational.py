@@ -4,13 +4,13 @@ import sys
 import os
 sys.path.insert(0, 'src')
 
-from dsgs_agent_creator import DSGSAgentCreator
+from dnaspec_agent_creator import DNASPECAgentCreator
 
 def test_operational_capabilities():
     """测试智能体创建技能的实际可操作性"""
-    print("=== DSGS智能体创建技能可操作性验证 ===\n")
+    print("=== DNASPEC智能体创建技能可操作性验证 ===\n")
     
-    agent_creator = DSGSAgentCreator()
+    agent_creator = DNASPECAgentCreator()
     
     # 测试用例1：复杂项目团队配置
     print("测试用例1：复杂项目团队配置")
@@ -92,7 +92,7 @@ def test_practical_application_scenarios():
     """测试实际应用场景的可操作性"""
     print("\n=== 实际应用场景可操作性测试 ===\n")
     
-    agent_creator = DSGSAgentCreator()
+    agent_creator = DNASPECAgentCreator()
     
     # 场景1：电商平台开发
     print("场景1：电商平台开发团队配置")
@@ -141,7 +141,7 @@ def test_practical_application_scenarios():
 
 def main():
     """主测试函数"""
-    print("开始全面测试DSGS智能体创建技能的可操作性...\n")
+    print("开始全面测试DNASPEC智能体创建技能的可操作性...\n")
     
     # 测试操作能力
     operational_ok = test_operational_capabilities()
@@ -155,7 +155,7 @@ def main():
     print(f"应用场景测试: {'通过' if scenarios_ok else '未通过'}")
     
     if operational_ok and scenarios_ok:
-        print("\n🎉 DSGS智能体创建技能具有良好的可操作性！")
+        print("\n🎉 DNASPEC智能体创建技能具有良好的可操作性！")
         print("\n主要优势：")
         print("1. 能够根据自然语言请求自动创建合适的智能体")
         print("2. 支持多领域、多类型的智能体配置")

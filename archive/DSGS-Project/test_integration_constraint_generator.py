@@ -8,20 +8,20 @@ def test_integration():
     try:
         import sys
         sys.path.insert(0, 'src')
-        sys.path.insert(0, 'src/dsgs_architect')
-        sys.path.insert(0, 'src/dsgs_constraint_generator')
+        sys.path.insert(0, 'src/dnaspec_architect')
+        sys.path.insert(0, 'src/dnaspec_constraint_generator')
         
         # 导入主技能
-        from dsgs_architect import DSGSArchitect
+        from dnaspec_architect import DNASPECArchitect
         print("✓ 成功导入主技能")
         
         # 导入约束生成器子技能
-        from dsgs_constraint_generator import DSGSConstraintGenerator
+        from dnaspec_constraint_generator import DNASPECConstraintGenerator
         print("✓ 成功导入约束生成器子技能")
         
         # 创建技能实例
-        main_skill = DSGSArchitect()
-        constraint_generator_skill = DSGSConstraintGenerator()
+        main_skill = DNASPECArchitect()
+        constraint_generator_skill = DNASPECConstraintGenerator()
         
         # 测试请求
         test_request = "Generate constraints for API design"

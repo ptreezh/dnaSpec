@@ -87,11 +87,11 @@ def demonstrate_concept():
     """演示目标系统内生智能体概念"""
     print("=== 目标系统内生智能体概念演示 ===\n")
     
-    # 1. 使用DSGS智能体创建器生成配置
+    # 1. 使用DNASPEC智能体创建器生成配置
     import sys
     sys.path.insert(0, 'src')
-    from dsgs_agent_creator import DSGSAgentCreator
-    agent_creator = DSGSAgentCreator()
+    from dnaspec_agent_creator import DNASPECAgentCreator
+    agent_creator = DNASPECAgentCreator()
     
     request = "Create agents for a secure user management system with monitoring"
     result = agent_creator.process_request(request)

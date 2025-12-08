@@ -81,7 +81,7 @@ dnaspec-gemini-extensions/
 ├── gemini_skills_core.py         # 技能核心框架
 ├── gemini_intelligent_matcher.py # 智能匹配器
 ├── gemini_hook_handler.py        # Hook处理器
-├── dsgs_gemini_cli.py            # 主入口
+├── dnaspec_gemini_cli.py            # 主入口
 ├── install_gemini_extension.py   # 安装脚本
 ├── GEMINI_EXTENSION_CONFIG.json  # 配置文件
 ├── skills/                       # 技能定义文件
@@ -90,7 +90,7 @@ dnaspec-gemini-extensions/
 
 ### 扩展开发
 
-1. 创建新的技能类继承DSGSSkill基类
+1. 创建新的技能类继承DNASPECSkill基类
 2. 在SkillManager中注册技能信息
 3. 更新智能匹配器的关键词映射
 4. 在Hook处理器中添加技能执行逻辑

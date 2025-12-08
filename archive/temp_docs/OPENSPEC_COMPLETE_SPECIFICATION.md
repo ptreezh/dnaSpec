@@ -108,7 +108,7 @@ Context Engineering Skills System
 │   └── dnaspec_context_engineering/
 │       ├── skills_system_final_clean.py        # 核心技能实现
 │       ├── core/                              # 技能基类
-│       │   └── skill.py                       # DSGSSkill基类 (来自DSGS框架) 
+│       │   └── skill.py                       # DNASPECSkill基类 (来自DNASPEC框架) 
 │       ├── skills/                            # 具体技能模块
 │       │   ├── context_analysis.py            # 上下文分析技能
 │       │   ├── context_optimization.py        # 上下文优化技能
@@ -149,7 +149,7 @@ Returns: str (格式化的结果输出)
 
 ### 4.2 技能接口规范
 ```
-Class: DNASpecSkill (继承自DSGS框架基类)
+Class: DNASpecSkill (继承自DNASPEC框架基类)
 
 Methods:
 - process_request(request: str, context: Dict[str, Any]) -> SkillResult
@@ -185,7 +185,7 @@ class ContextAnalysisSkill(DNASpecSkill):
 
 ### 6.1 部署环境
 - **Python Version**: 3.8+
-- **Dependencies**: 基础Python库，DSGS框架
+- **Dependencies**: 基础Python库，DNASPEC框架
 - **Storage**: 无持久化存储要求
 - **Network**: AI API访问权限
 

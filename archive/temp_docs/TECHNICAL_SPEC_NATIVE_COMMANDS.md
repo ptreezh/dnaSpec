@@ -48,9 +48,9 @@ DNASPEC Context Engineering Skills System 重新设计为AI CLI平台的原生�
 ### 2.2 核心组件
 
 #### 2.2.1 Command System
-- **DSGSCommand**: 所有命令的抽象基类
-- **DSGSCommandContext**: 命令执行时的上下文环境
-- **DSGSCommandRegistry**: 命令注册和管理器
+- **DNASPECCommand**: 所有命令的抽象基类
+- **DNASPECCommandContext**: 命令执行时的上下文环境
+- **DNASPECCommandRegistry**: 命令注册和管理器
 
 #### 2.2.2 Skill Implementation
 - **ContextAnalysisCommand**: 上下文分析技能实现
@@ -72,7 +72,7 @@ User: /dnaspec-analyze 当前需求文档
 Claude Command System recognizes /dnaspec-analyze
       │
       ▼
-Calls DSGSCommandRegistry.execute_command('/dnaspec-analyze', context, args)
+Calls DNASPECCommandRegistry.execute_command('/dnaspec-analyze', context, args)
       │
       ▼ 
 ContextAnalysisCommand.execute() creates analysis instruction
@@ -92,9 +92,9 @@ Response displayed in Claude chat
 
 ### 3.2 Context Access Model
 ```python
-class DSGSCommandContext:
+class DNASPECCommandContext:
     """
-    DSGS命令上下文 - 访问AI CLI平台的原生上下文信息
+    DNASPEC命令上下文 - 访问AI CLI平台的原生上下文信息
     """
     
     def get_full_conversation_context(self) -> str:
@@ -127,7 +127,7 @@ class DSGSCommandContext:
 
 ### 4.3 通用API代理方案
 ```python
-class DSGSAPIProxy:
+class DNASPECAPIProxy:
     """
     通用AI API代理 - 为不支持原生命令的平台提供支持
     """
@@ -139,7 +139,7 @@ class DSGSAPIProxy:
         
         for i, message in enumerate(messages):
             content = message.get('content', '')
-            if self.is_dsgs_command(content):
+            if self.is_dnaspec_command(content):
                 # 将命令转换为分析指令
                 enhanced_content = self.transform_command_to_instruction(content)
                 messages[i]['content'] = enhanced_content
@@ -151,8 +151,8 @@ class DSGSAPIProxy:
 
 ### 5.1 Context Analysis Implementation
 ```python
-class ContextAnalysisCommand(DSGSCommand):
-    def execute(self, context: DSGSCommandContext, args: List[str]) -> str:
+class ContextAnalysisCommand(DNASPECCommand):
+    def execute(self, context: DNASPECCommandContext, args: List[str]) -> str:
         # 获取要分析的内容
         content = args[0] if args else context.get_message_at_cursor()
         if not content:
@@ -178,8 +178,8 @@ class ContextAnalysisCommand(DSGSCommand):
 
 ### 5.2 Context Optimization Implementation
 ```python
-class ContextOptimizationCommand(DSGSCommand):
-    def execute(self, context: DSGSCommandContext, args: List[str]) -> str:
+class ContextOptimizationCommand(DNASPECCommand):
+    def execute(self, context: DNASPECCommandContext, args: List[str]) -> str:
         content = context.get_message_at_cursor()
         goals = args if args else ['clarity', 'completeness']
         
@@ -200,7 +200,7 @@ class ContextOptimizationCommand(DSGSCommand):
 
 ### 6.1 开发环境搭建
 ```bash
-# 1. 安装DSGS Context Engineering Skills
+# 1. 安装DNASPEC Context Engineering Skills
 pip install dnaspec-context-engineering
 
 # 2. 为Claude配置命令 (需要Claude Desktop 4.0+)

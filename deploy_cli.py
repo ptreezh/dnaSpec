@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS技能部署器 - 独立的部署接口
+DNASPEC技能部署器 - 独立的部署接口
 用于在AI CLI工具中部署技能
 """
 import sys
@@ -13,7 +13,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
 sys.path.insert(0, project_root)
 
-# 导入DSGS技能部署器
+# 导入DNASPEC技能部署器
 from src.dnaspec_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
 
 

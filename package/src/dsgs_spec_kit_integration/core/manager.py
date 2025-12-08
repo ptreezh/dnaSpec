@@ -1,6 +1,6 @@
 """
-DSGS技能管理器
-管理所有DSGS技能并与spec.kit适配器集成
+DNASPEC技能管理器
+管理所有DNASPEC技能并与spec.kit适配器集成
 """
 import re
 from typing import Dict, List, Optional, Any
@@ -10,7 +10,7 @@ from .hook import HookSystem
 
 
 class SkillManager:
-    """DSGS技能管理器"""
+    """DNASPEC技能管理器"""
     
     def __init__(self):
         self.skills: Dict[str, DNASpecSkill] = {}
@@ -20,7 +20,7 @@ class SkillManager:
         self._hook_system = HookSystem(self)  # Hook系统
     
     def register_skill(self, skill: DNASpecSkill) -> bool:
-        """注册DSGS技能"""
+        """注册DNASPEC技能"""
         if not isinstance(skill, DNASpecSkill):
             return False
         

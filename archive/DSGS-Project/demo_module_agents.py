@@ -3,13 +3,13 @@
 import sys
 sys.path.insert(0, 'src')
 
-from dsgs_agent_creator import DSGSAgentCreator
+from dnaspec_agent_creator import DNASPECAgentCreator
 
 def create_module_agents(module_name, requirements):
     """为特定模块创建智能体"""
     print(f"=== 为模块 '{module_name}' 创建智能体 ===")
     
-    agent_creator = DSGSAgentCreator()
+    agent_creator = DNASPECAgentCreator()
     
     # 根据模块需求创建智能体
     result = agent_creator.process_request(requirements)
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     )
     
     print("\n=== 总结 ===")
-    print("通过DSGS智能体创建技能，我们可以:")
+    print("通过DNASPEC智能体创建技能，我们可以:")
     print("1. 根据模块的具体需求自动生成合适的智能体")
     print("2. 为每个智能体定义明确的角色和能力")
     print("3. 提供智能体间的通信和协作规范")

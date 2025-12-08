@@ -242,7 +242,7 @@ def main():
         return 1
     
     print("\n=== 部署完成 ===")
-    print("✓ 所有DSGS Skills已成功部署到Claude Code")
+    print("✓ 所有DNASPEC Skills已成功部署到Claude Code")
     print("✓ 集成测试脚本已创建: test_claude_integration.py")
     print("\n下一步操作:")
     print("1. 在Claude Code中启用Skills功能")

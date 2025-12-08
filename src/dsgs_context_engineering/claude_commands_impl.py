@@ -8,9 +8,9 @@ import re
 from abc import ABC, abstractmethod
 
 
-class DSGSCommandContext:
+class DNASPECCommandContext:
     """
-    DSGS命令上下文
+    DNASPEC命令上下文
     在AI CLI环境中运行时可访问的上下文信息
     """
     
@@ -47,10 +47,10 @@ class DSGSCommandContext:
         return ""
 
 
-class DSGSCommand(ABC):
+class DNASPECCommand(ABC):
     """
-    DSGS命令抽象基类
-    所有DSGS命令都需要继承此类
+    DNASPEC命令抽象基类
+    所有DNASPEC命令都需要继承此类
     """
     
     def __init__(self, name: str, description: str):
@@ -58,7 +58,7 @@ class DSGSCommand(ABC):
         self.description = description
     
     @abstractmethod
-    def execute(self, context: DSGSCommandContext, args: List[str]) -> str:
+    def execute(self, context: DNASPECCommandContext, args: List[str]) -> str:
         """
         执行命令
         Args:
@@ -70,7 +70,7 @@ class DSGSCommand(ABC):
         pass
 
 
-class ContextAnalysisCommand(DSGSCommand):
+class ContextAnalysisCommand(DNASPECCommand):
     """
     上下文分析命令
     对当前对话上下文进行质量分析
@@ -82,7 +82,7 @@ class ContextAnalysisCommand(DSGSCommand):
             description="分析当前对话或所选内容的上下文质量"
         )
     
-    def execute(self, context: DSGSCommandContext, args: List[str]) -> str:
+    def execute(self, context: DNASPECCommandContext, args: List[str]) -> str:
         """执行上下文分析"""
         # 确定要分析的内容
         content_to_analyze = context.get_message_at_cursor()
@@ -129,7 +129,7 @@ class ContextAnalysisCommand(DSGSCommand):
         return analysis_instruction
 
 
-class ContextOptimizationCommand(DSGSCommand):
+class ContextOptimizationCommand(DNASPECCommand):
     """
     上下文优化命令
     优化当前对话或所选内容的上下文质量
@@ -141,7 +141,7 @@ class ContextOptimizationCommand(DSGSCommand):
             description="优化当前对话或所选内容的上下文质量"
         )
     
-    def execute(self, context: DSGSCommandContext, args: List[str]) -> str:
+    def execute(self, context: DNASPECCommandContext, args: List[str]) -> str:
         """执行上下文优化"""
         content_to_optimize = context.get_message_at_cursor()
         if not content_to_optimize:
@@ -176,7 +176,7 @@ class ContextOptimizationCommand(DSGSCommand):
         return optimization_instruction
 
 
-class CognitiveTemplateCommand(DSGSCommand):
+class CognitiveTemplateCommand(DNASPECCommand):
     """
     认知模板命令
     应用认知模板到当前对话内容
@@ -188,7 +188,7 @@ class CognitiveTemplateCommand(DSGSCommand):
             description="应用认知模板到当前对话内容（思维链、验证等）"
         )
     
-    def execute(self, context: DSGSCommandContext, args: List[str]) -> str:
+    def execute(self, context: DNASPECCommandContext, args: List[str]) -> str:
         """执行认知模板应用"""
         content = context.get_message_at_cursor()
         if not content:
@@ -278,14 +278,14 @@ class CognitiveTemplateCommand(DSGSCommand):
         return template_instructions[template_type]
 
 
-class DSGSCommandRegistry:
+class DNASPECCommandRegistry:
     """
-    DSGS命令注册表
-    管理所有可用的DSGS命令
+    DNASPEC命令注册表
+    管理所有可用的DNASPEC命令
     """
     
     def __init__(self):
-        self.commands: Dict[str, DSGSCommand] = {}
+        self.commands: Dict[str, DNASPECCommand] = {}
         self._register_default_commands()
     
     def _register_default_commands(self):
@@ -299,11 +299,11 @@ class DSGSCommandRegistry:
         for cmd in commands:
             self.register_command(cmd)
     
-    def register_command(self, command: DSGSCommand):
+    def register_command(self, command: DNASPECCommand):
         """注册命令"""
         self.commands[command.name] = command
     
-    def execute_command(self, command_name: str, context: DSGSCommandContext, args: List[str] = None) -> str:
+    def execute_command(self, command_name: str, context: DNASPECCommandContext, args: List[str] = None) -> str:
         """执行命令"""
         if command_name not in self.commands:
             available_commands = list(self.commands.keys())
@@ -343,8 +343,8 @@ def handle_command(command_name: str, args: List[str], context_data: Dict[str, A
     Claude Commands处理接口
     这是Claude Commands SDK调用的入口函数
     """
-    # 从context_data构建DSGS命令上下文
-    command_context = DSGSCommandContext(
+    # 从context_data构建DNASPEC命令上下文
+    command_context = DNASPECCommandContext(
         current_conversation=context_data.get('conversation_history', []),
         selected_text=context_data.get('selected_text', ''),
         current_cursor_position=context_data.get('cursor_position', 0),
@@ -352,7 +352,7 @@ def handle_command(command_name: str, args: List[str], context_data: Dict[str, A
     )
     
     # 创建命令注册表并执行
-    registry = DSGSCommandRegistry()
+    registry = DNASPECCommandRegistry()
     return registry.execute_command(command_name, command_context, args)
 
 
@@ -372,13 +372,13 @@ def cli_main():
     command = sys.argv[1]
     
     # 模拟上下文环境
-    simulated_context = DSGSCommandContext(
+    simulated_context = DNASPECCommandContext(
         current_conversation=[
             {"role": "user", "content": " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "Hello, please analyze this context."}
         ]
     )
     
-    registry = DSGSCommandRegistry()
+    registry = DNASPECCommandRegistry()
     
     if command == "analyze":
         result = registry.execute_command('/dnaspec-analyze', simulated_context, sys.argv[2:])

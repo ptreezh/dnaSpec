@@ -1,6 +1,6 @@
 """
 Final Validation: Context Engineering Skills Integration
-验证上下文工程技能与DSGS系统的完全兼容性
+验证上下文工程技能与DNASPEC系统的完全兼容性
 """
 import sys
 import os
@@ -41,9 +41,9 @@ def test_basic_skills():
     print()
 
 
-def test_dsgs_skill_compatibility():
-    """测试DSGS技能兼容性"""
-    print("=== 测试DSGS技能兼容性 ===")
+def test_dnaspec_skill_compatibility():
+    """测试DNASPEC技能兼容性"""
+    print("=== 测试DNASPEC技能兼容性 ===")
     
     # 创建新技能实例
     context_skill = ContextAnalysisSkill()
@@ -52,7 +52,7 @@ def test_dsgs_skill_compatibility():
     system_skill = ContextEngineeringSystem()
     
     # 测试技能属性
-    print("1. 新技能继承自DSGSSkill:")
+    print("1. 新技能继承自DNASPECSkill:")
     print(f"   ContextAnalysisSkill is DNASpecSkill: {isinstance(context_skill, DNASpecSkill)}")
     print(f"   ContextOptimizationSkill is DNASpecSkill: {isinstance(optimization_skill, DNASpecSkill)}")
     print(f"   CognitiveTemplateSkill is DNASpecSkill: {isinstance(template_skill, DNASpecSkill)}")
@@ -120,14 +120,14 @@ def main():
     
     try:
         test_basic_skills()
-        test_dsgs_skill_compatibility()
+        test_dnaspec_skill_compatibility()
         validate_skill_structure()
         test_error_handling()
         
         print("✓ 所有验证通过！")
-        print("✓ 上下文工程技能与DSGS系统完全兼容")
+        print("✓ 上下文工程技能与DNASPEC系统完全兼容")
         print("✓ 新技能遵循相同的接口和架构模式")
-        print("✓ 可以无缝集成到现有的DSGS生态系统中")
+        print("✓ 可以无缝集成到现有的DNASPEC生态系统中")
         
     except Exception as e:
         print(f"✗ 验证失败: {e}")

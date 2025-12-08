@@ -10,7 +10,7 @@ spec.kit - 规格驱动开发工具包，将规格作为开发的主要驱动力
 |----------|------|------|
 | 核心规格功能 | ✅ 完成 | 5个核心技能 (specify, plan, tasks, implement, constitution) |
 | 上下文工程功能 | ✅ 完成 | 7个技能 (基础+增强版本) |
-| DSGS智能架构师功能 | ✅ 完成 | 7个技能 (架构、系统、代理、约束、任务分解等) |
+| DNASPEC智能架构师功能 | ✅ 完成 | 7个技能 (架构、系统、代理、约束、任务分解等) |
 | Python脚本增强 | ✅ 完成 | 9个技能具有Python脚本支持 |
 | Claude Skills实现 | ✅ 完成 | SKILL.md格式实现 |
 | 多平台兼容 | ✅ 完成 | 支持Claude Skills和其它AI CLI |
@@ -34,13 +34,13 @@ spec-kit/
 │   ├── context-analysis-enhanced/ # ✅ 增强分析
 │   ├── context-optimization-enhanced/ # ✅ 增强优化
 │   ├── cognitive-template-enhanced/ # ✅ 增强认知
-│   ├── dnaspec-architect/     # ✅ DSGS架构师
-│   ├── dnaspec-system-architect/ # ✅ DSGS系统架构师
-│   ├── dnaspec-agent-creator/ # ✅ DSGS智能体创建器
-│   ├── dnaspec-constraint-generator/ # ✅ DSGS约束生成器
-│   ├── dnaspec-task-decomposer/ # ✅ DSGS任务分解器
-│   ├── dnaspec-modulizer/     # ✅ DSGS模块化验证器
-│   └── dnaspec-dapi-checker/  # ✅ DSGS接口检查器
+│   ├── dnaspec-architect/     # ✅ DNASPEC架构师
+│   ├── dnaspec-system-architect/ # ✅ DNASPEC系统架构师
+│   ├── dnaspec-agent-creator/ # ✅ DNASPEC智能体创建器
+│   ├── dnaspec-constraint-generator/ # ✅ DNASPEC约束生成器
+│   ├── dnaspec-task-decomposer/ # ✅ DNASPEC任务分解器
+│   ├── dnaspec-modulizer/     # ✅ DNASPEC模块化验证器
+│   └── dnaspec-dapi-checker/  # ✅ DNASPEC接口检查器
 ├── scripts/                # ✅ 9个Python脚本
 │   ├── context_analyzer.py  # ✅ 上下文分析引擎
 │   ├── context_optimizer.py # ✅ 上下文优化引擎

@@ -72,7 +72,7 @@ try:
     print("✅ 通过指令工程利用AI模型原生智能")
     print("✅ 专业上下文工程能力")
     print("✅ 与AI CLI平台兼容")
-    print("\nDSGS Context Engineering Skills 已准备就绪！")
+    print("\nDNASPEC Context Engineering Skills 已准备就绪！")
     print("🎯 系统正确实现为AI原生上下文工程增强工具集")
     
 except Exception as e:

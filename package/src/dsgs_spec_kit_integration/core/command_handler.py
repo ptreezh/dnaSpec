@@ -9,7 +9,7 @@ from typing import Dict, Any
 
 class CommandHandler:
     """
-    DSGS命令处理器
+    DNASPEC命令处理器
     处理完整的命令流程：解析 -> 映射 -> 执行
     """
     

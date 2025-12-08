@@ -253,4 +253,4 @@ AI CLI:
 - 利用`modulizer`进行架构级别的模块化设计
 - 使用`constraint-generator`提前定义系统边界
 
-这份功能详解手册提供了DSGS Context Engineering Skills在AI CLI环境中的完整使用指南，涵盖了从基础功能到高级专业功能的所有特性。用户可以根据具体需求选择合适的技能和组合使用。
+这份功能详解手册提供了DNASPEC Context Engineering Skills在AI CLI环境中的完整使用指南，涵盖了从基础功能到高级专业功能的所有特性。用户可以根据具体需求选择合适的技能和组合使用。

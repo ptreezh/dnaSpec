@@ -12,17 +12,17 @@ DNASPEC (Dynamic Specification Growth System) Context Engineering Skills系统�
 
 ### 第二阶段：命令系统增强
 - [x] **命令解析器** - 实现了 `/speckit.dnaspec.*` 格式命令的解析
-- [x] **技能映射器** - 将命令技能映射到实际的DSGS技能实现
-- [x] **Python桥接器** - 调用Python实现的DSGS技能
+- [x] **技能映射器** - 将命令技能映射到实际的DNASPEC技能实现
+- [x] **Python桥接器** - 调用Python实现的DNASPEC技能
 - [x] **技能执行器** - 协调技能映射和执行逻辑
 - [x] **命令处理器** - 处理完整的命令流程（解析→映射→执行）
 - [x] **交互式Shell** - 提供命令行交互界面
-- [x] **CLI命令集成** - 提供命令行接口来使用DSGS技能
+- [x] **CLI命令集成** - 提供命令行接口来使用DNASPEC技能
 
 ### 第三阶段：智能集成
 - [x] **CLI检测器** - 检测系统中安装的各种AI CLI工具
 - [x] **配置生成器** - 根据检测结果生成配置文件
-- [x] **集成验证器** - 验证DSGS技能与AI CLI工具的集成状态
+- [x] **集成验证器** - 验证DNASPEC技能与AI CLI工具的集成状态
 - [x] **自动配置器** - 自动检测、配置和验证集成
 - [x] **跨平台工具** - 提供Windows、macOS、Linux兼容性支持
 
@@ -81,7 +81,7 @@ DNASPEC (Dynamic Specification Growth System) Context Engineering Skills系统�
 - GitHub Copilot CLI
 - Cursor CLI
 
-## 支持的DSGS技能
+## 支持的DNASPEC技能
 
 ### 传统技能
 - `architect` - 系统架构设计
@@ -104,7 +104,7 @@ DNASPEC (Dynamic Specification Growth System) Context Engineering Skills系统�
 
 ### 1. 命令行使用
 ```bash
-# 执行DSGS技能
+# 执行DNASPEC技能
 python -c "from src.dnaspec_spec_kit_integration.cli import main; main()" exec "/speckit.dnaspec.context-analysis 分析这段需求文档的质量"
 
 # 启动交互式Shell
@@ -197,7 +197,7 @@ result = auto_config.quick_configure()
 
 ## 下一步计划
 
-1. 扩展更多DSGS技能实现
+1. 扩展更多DNASPEC技能实现
 2. 增强AI安全工作流自动化
 3. 实现更多AI平台的适配器
 4. 优化性能和错误处理

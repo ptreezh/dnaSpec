@@ -10,7 +10,7 @@
 
 ### 🔴 关键失败测试 (优先级排序)
 1. **ContractGeneratorCompilation.test.ts** - 编译错误 (阻塞核心功能)
-2. **DSGS_EndToEnd.test.ts** - E2E测试失效 (影响端到端验证)
+2. **DNASPEC_EndToEnd.test.ts** - E2E测试失效 (影响端到端验证)
 3. **ContextEngineeringIntegrationEnhanced.test.ts** - 集成测试 (影响模块协作)
 4. **SpecificationManagerProperty.test.ts** - 单元测试 (3个功能失败)
 

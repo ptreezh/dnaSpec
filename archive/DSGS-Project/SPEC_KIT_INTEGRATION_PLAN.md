@@ -1,10 +1,10 @@
-# spec.kit与DSGS整合建议
+# spec.kit与DNASPEC整合建议
 
 ## 1. 整合目标
 
 ### 1.1 核心目标
 - **增强跨平台兼容性**：利用spec.kit的成熟跨平台支持机制
-- **保持专业领域优势**：保留DSGS在架构设计和智能体创建方面的专业能力
+- **保持专业领域优势**：保留DNASPEC在架构设计和智能体创建方面的专业能力
 - **提升用户体验**：结合两者优势提供更完整的AI辅助开发体验
 
 ### 1.2 整合原则
@@ -17,7 +17,7 @@
 
 ### 2.1 架构整合方案
 
-#### 方案一：DSGS作为spec.kit的技能扩展
+#### 方案一：DNASPEC作为spec.kit的技能扩展
 ```
 整合架构 (方案一)
 ├── spec.kit核心
@@ -25,7 +25,7 @@
 │   ├── 模板系统
 │   ├── 斜杠命令系统
 │   └── AI代理适配器
-└── DSGS技能扩展
+└── DNASPEC技能扩展
     ├── 架构设计技能 (dnaspec-architect)
     ├── 智能体创建技能 (dnaspec-agent-creator)
     ├── 任务分解技能 (dnaspec-task-decomposer)
@@ -34,10 +34,10 @@
     └── 模块化技能 (dnaspec-modulizer)
 ```
 
-#### 方案二：spec.kit作为DSGS的平台适配器
+#### 方案二：spec.kit作为DNASPEC的平台适配器
 ```
 整合架构 (方案二)
-├── DSGS核心
+├── DNASPEC核心
 │   ├── 技能管理器
 │   ├── 智能匹配引擎
 │   ├── Hook系统
@@ -53,7 +53,7 @@
 
 #### 2.2.1 命令系统整合
 ```bash
-# 当前DSGS命令
+# 当前DNASPEC命令
 dnaspec-architect "设计一个电商系统架构"
 dnaspec-agent-creator "创建订单处理智能体"
 
@@ -65,7 +65,7 @@ dnaspec-agent-creator "创建订单处理智能体"
 #### 2.2.2 模板系统扩展
 ```markdown
 <!-- spec.kit标准模板扩展 -->
-# DSGS技能模板
+# DNASPEC技能模板
 /speckit.dnaspec.* 命令可用技能:
 
 - /speckit.dnaspec.architect - 系统架构设计专家
@@ -96,12 +96,12 @@ class SpecKitAdapter:
         """生成代理配置"""
         pass
 
-class DSGSSpecKitAdapter(SpecKitAdapter):
+class DNASPECSpecKitAdapter(SpecKitAdapter):
     """DNASPEC spec.kit适配器"""
     def __init__(self):
         super().__init__()
         self.supported_agents = ['claude', 'gemini', 'qwen', 'copilot']
-        self.dsgs_skills = [
+        self.dnaspec_skills = [
             'dnaspec-architect',
             'dnaspec-agent-creator', 
             'dnaspec-task-decomposer',
@@ -112,7 +112,7 @@ class DSGSSpecKitAdapter(SpecKitAdapter):
     
     def integrate_with_spec_kit(self):
         """与spec.kit集成"""
-        # 注册DSGS技能到spec.kit命令系统
+        # 注册DNASPEC技能到spec.kit命令系统
         pass
 ```
 
@@ -129,11 +129,11 @@ class DSGSSpecKitAdapter(SpecKitAdapter):
 8. /speckit.implement - 实现执行
 ```
 
-### 3.2 保留DSGS的核心优势
+### 3.2 保留DNASPEC的核心优势
 
 #### 3.2.1 智能匹配系统
 ```python
-# 保留DSGS的智能匹配能力
+# 保留DNASPEC的智能匹配能力
 class IntelligentMatcher:
     """智能技能匹配器"""
     def match_skill_intelligently(self, user_request: str):
@@ -170,11 +170,11 @@ class HookSystem:
 
 ### 4.1 第一阶段：基础整合 (1-2个月)
 1. **集成spec.kit CLI工具**
-   - 在DSGS项目中添加spec.kit作为依赖
+   - 在DNASPEC项目中添加spec.kit作为依赖
    - 实现基本的命令调用集成
 
 2. **适配器开发**
-   - 开发DSGS到spec.kit的适配器
+   - 开发DNASPEC到spec.kit的适配器
    - 实现技能注册和调用机制
 
 3. **文档和示例**
@@ -183,11 +183,11 @@ class HookSystem:
 
 ### 4.2 第二阶段：功能增强 (2-3个月)
 1. **命令系统扩展**
-   - 将DSGS技能映射到spec.kit斜杠命令
+   - 将DNASPEC技能映射到spec.kit斜杠命令
    - 实现统一的命令调用接口
 
 2. **模板系统集成**
-   - 开发DSGS技能模板
+   - 开发DNASPEC技能模板
    - 集成到spec.kit模板系统
 
 3. **智能匹配优化**
@@ -233,4 +233,4 @@ class HookSystem:
 
 ## 7. 结论
 
-spec.kit项目与DSGS在跨平台支持和结构化开发流程方面高度匹配，是理想的整合对象。通过借鉴spec.kit的成熟机制，同时保留DSGS在智能匹配和专业技能方面的优势，可以打造一个更强大、更通用的AI技能系统。建议采用渐进式整合策略，先实现基础功能集成，再逐步扩展和完善。
+spec.kit项目与DNASPEC在跨平台支持和结构化开发流程方面高度匹配，是理想的整合对象。通过借鉴spec.kit的成熟机制，同时保留DNASPEC在智能匹配和专业技能方面的优势，可以打造一个更强大、更通用的AI技能系统。建议采用渐进式整合策略，先实现基础功能集成，再逐步扩展和完善。

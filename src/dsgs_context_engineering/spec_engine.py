@@ -11,9 +11,9 @@ import importlib
 import os
 
 
-class DSGSSpecEngine:
+class DNASPECSpecEngine:
     """
-    DSGS规范引擎
+    DNASPEC规范引擎
     基于spec.kit理念实现的规范驱动技能系统
     """
     
@@ -384,7 +384,7 @@ class SkillRegistry:
 
 
 # 全局规范引擎实例
-engine = DSGSSpecEngine()
+engine = DNASPECSpecEngine()
 
 # 初始化时加载默认规范
 def initialize_engine():

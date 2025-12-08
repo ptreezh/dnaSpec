@@ -112,7 +112,7 @@ import json
 import sys
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-class DSGSMCPHandler(BaseHTTPRequestHandler):
+class DNASPECMCPHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         if self.path.startswith('/mcp'):
             content_length = int(self.headers['Content-Length'])
@@ -121,9 +121,9 @@ class DSGSMCPHandler(BaseHTTPRequestHandler):
             try:
                 request = json.loads(post_data.decode('utf-8'))
                 
-                # 模拟DSGS技能执行
+                # 模拟DNASPEC技能执行
                 response = {
-                    "result": f"DSGS技能执行: {request.get('tool', 'unknown')}",
+                    "result": f"DNASPEC技能执行: {request.get('tool', 'unknown')}",
                     "context": "技能执行结果上下文"
                 }
                 
@@ -142,7 +142,7 @@ def main():
     if len(sys.argv) > 1:
         port = int(sys.argv[1])
     
-    server = HTTPServer(('localhost', port), DSGSMCPHandler)
+    server = HTTPServer(('localhost', port), DNASPECMCPHandler)
     print(f"MCP服务器启动在端口 {port}")
     server.serve_forever()
 
@@ -154,10 +154,10 @@ if __name__ == "__main__":
     mcp_path = "mcp_servers"
     os.makedirs(mcp_path, exist_ok=True)
     
-    with open(os.path.join(mcp_path, "dsgs_mcp_server.py"), 'w', encoding='utf-8') as f:
+    with open(os.path.join(mcp_path, "dnaspec_mcp_server.py"), 'w', encoding='utf-8') as f:
         f.write(mcp_stub_content)
     
-    print("✓ 创建MCP服务器存根: mcp_servers/dsgs_mcp_server.py")
+    print("✓ 创建MCP服务器存根: mcp_servers/dnaspec_mcp_server.py")
     print("  (需要时可配置到Gemini CLI的settings.json中)")
 
 def create_integration_test_script():
@@ -291,8 +291,8 @@ def main():
         return 1
     
     print("\n=== 部署完成 ===")
-    print("✓ 所有DSGS Extensions已成功部署到Gemini CLI")
-    print("✓ MCP服务器存根已创建: mcp_servers/dsgs_mcp_server.py")
+    print("✓ 所有DNASPEC Extensions已成功部署到Gemini CLI")
+    print("✓ MCP服务器存根已创建: mcp_servers/dnaspec_mcp_server.py")
     print("✓ 集成测试脚本已创建: test_gemini_integration.py")
     print("\n下一步操作:")
     print("1. 确保Gemini CLI已安装并配置")

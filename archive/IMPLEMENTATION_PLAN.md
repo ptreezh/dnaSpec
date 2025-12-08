@@ -17,7 +17,7 @@
 **目标**: 建立规范引擎和平台抽象层
 
 #### 2.1.1 Week 1 - 基础架构 (P1-W1)
-- **Task 1.1.1**: 实现DSGSSpecEngine核心类
+- **Task 1.1.1**: 实现DNASPECSpecEngine核心类
   - [ ] 规范解析器 (SpecParser)
   - [ ] 技能编译器 (SkillCompiler) 
   - [ ] 技能注册表 (SkillRegistry)
@@ -39,7 +39,7 @@
   - [ ] 完成功能测试
 
 - **Task 1.2.2**: 实现基础CLI接口
-  - [ ] 创建dsgs命令组
+  - [ ] 创建dnaspec命令组
   - [ ] 实现analyze子命令
   - [ ] 实现基础参数处理
   - [ ] 完成CLI集成测试
@@ -92,7 +92,7 @@
 
 #### 2.3.2 Week 6 - Hook系统 (P3-W6)
 - **Task 3.2.1**: File System Hook System
-  - [ ] 实现DSGSHookSystem
+  - [ ] 实现DNASPECHookSystem
   - [ ] 集成文件监控 (watchdog)
   - [ ] 实现Hook配置解析器
   - [ ] 完成Hook系统测试
@@ -138,11 +138,11 @@
 
 ### 3.1 核心架构实现
 
-#### 3.1.1 DSGSSpecEngine Implementation
+#### 3.1.1 DNASPECSpecEngine Implementation
 ```python
-class DSGSSpecEngine:
+class DNASPECSpecEngine:
     """
-    DSGS规范引擎 - 核心抽象层
+    DNASPEC规范引擎 - 核心抽象层
     负责规范解析、技能编译和运行时管理
     """
     

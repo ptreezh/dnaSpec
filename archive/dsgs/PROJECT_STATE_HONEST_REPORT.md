@@ -29,7 +29,7 @@
 2. **TemplateReevaluator.test.ts** - API不匹配问题
 3. **ContextEngineeringIntegrationEnhanced.test.ts** - 大量API不兼容
 4. **ContextEngineeringIntegration.test.ts** - 配置不匹配
-5. **DSGSContractTest.ts** - 契约测试失败
+5. **DNASPECContractTest.ts** - 契约测试失败
 6. **TemplateReevaluatorProperty.test.ts** - 属性测试失败
 
 ### 关键问题:

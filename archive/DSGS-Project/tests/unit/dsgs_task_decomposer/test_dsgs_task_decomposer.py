@@ -27,8 +27,8 @@ def test_skill_basic_functionality():
     """测试技能基本功能"""
     # 测试技能可以被导入
     try:
-        from dsgs_task_decomposer import DSGSTaskDecomposer
-        skill = DSGSTaskDecomposer()
+        from dnaspec_task_decomposer import DNASPECTaskDecomposer
+        skill = DNASPECTaskDecomposer()
         assert skill is not None, "技能实例不应该为空"
         assert skill.name == "dnaspec-task-decomposer", "技能名称应该正确"
     except ImportError as e:
@@ -36,8 +36,8 @@ def test_skill_basic_functionality():
 
 def test_skill_capabilities():
     """测试技能能力"""
-    from dsgs_task_decomposer import DSGSTaskDecomposer
-    skill = DSGSTaskDecomposer()
+    from dnaspec_task_decomposer import DNASPECTaskDecomposer
+    skill = DNASPECTaskDecomposer()
     
     # 验证技能能力列表
     expected_capabilities = [
@@ -52,8 +52,8 @@ def test_skill_capabilities():
 
 def test_skill_processing():
     """测试技能处理功能"""
-    from dsgs_task_decomposer import DSGSTaskDecomposer
-    skill = DSGSTaskDecomposer()
+    from dnaspec_task_decomposer import DNASPECTaskDecomposer
+    skill = DNASPECTaskDecomposer()
     
     # 测试正常请求处理
     test_request = "Decompose tasks for developing a web application with API backend"
@@ -67,8 +67,8 @@ def test_skill_processing():
 
 def test_skill_error_handling():
     """测试技能错误处理"""
-    from dsgs_task_decomposer import DSGSTaskDecomposer
-    skill = DSGSTaskDecomposer()
+    from dnaspec_task_decomposer import DNASPECTaskDecomposer
+    skill = DNASPECTaskDecomposer()
     
     # 测试空输入处理
     empty_inputs = ["", "   ", "\n\t"]
@@ -82,8 +82,8 @@ def test_skill_error_handling():
 
 def test_key_points_extraction():
     """测试关键点提取功能"""
-    from dsgs_task_decomposer import DSGSTaskDecomposer
-    skill = DSGSTaskDecomposer()
+    from dnaspec_task_decomposer import DNASPECTaskDecomposer
+    skill = DNASPECTaskDecomposer()
     
     # 测试关键点提取
     test_cases = [
@@ -100,8 +100,8 @@ def test_key_points_extraction():
 
 def test_atomic_task_creation():
     """测试原子任务创建功能"""
-    from dsgs_task_decomposer import DSGSTaskDecomposer
-    skill = DSGSTaskDecomposer()
+    from dnaspec_task_decomposer import DNASPECTaskDecomposer
+    skill = DNASPECTaskDecomposer()
     
     # 测试原子任务创建
     key_points = ["web_development", "api_development"]

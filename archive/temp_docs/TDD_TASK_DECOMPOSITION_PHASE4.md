@@ -1,7 +1,7 @@
 # TDD驱动的任务分解 - 第四阶段：文档和发布
 
 ## 1. 任务概述
-完善项目文档，实现npm包发布流程，确保普通用户可以轻松安装和使用DSGS与spec.kit的集成工具。
+完善项目文档，实现npm包发布流程，确保普通用户可以轻松安装和使用DNASPEC与spec.kit的集成工具。
 
 ## 2. TDD测试驱动开发计划
 
@@ -782,9 +782,9 @@ settings:
 ```
 
 ### Environment Variables
-- `DSGS_CONFIG_PATH`: Path to configuration file
-- `DSGS_PYTHON_PATH`: Path to Python executable
-- `DSGS_VERBOSE`: Enable verbose logging
+- `DNASPEC_CONFIG_PATH`: Path to configuration file
+- `DNASPEC_PYTHON_PATH`: Path to Python executable
+- `DNASPEC_VERBOSE`: Enable verbose logging
 
 ## Examples
 
@@ -849,7 +849,7 @@ const yaml = require('js-yaml');
 
 function configExample() {
   // Load configuration
-  const configPath = process.env.DSGS_CONFIG_PATH || '~/.dnaspec/config.yaml';
+  const configPath = process.env.DNASPEC_CONFIG_PATH || '~/.dnaspec/config.yaml';
   const config = yaml.load(fs.readFileSync(configPath, 'utf8'));
   
   console.log('Current Configuration:', config);

@@ -8,20 +8,20 @@ def test_integration():
     try:
         import sys
         sys.path.insert(0, 'src')
-        sys.path.insert(0, 'src/dsgs_architect')
-        sys.path.insert(0, 'src/dsgs_task_decomposer')
+        sys.path.insert(0, 'src/dnaspec_architect')
+        sys.path.insert(0, 'src/dnaspec_task_decomposer')
         
         # 导入主技能
-        from dsgs_architect import DSGSArchitect
+        from dnaspec_architect import DNASPECArchitect
         print("✓ 成功导入主技能")
         
         # 导入任务分解器子技能
-        from dsgs_task_decomposer import DSGSTaskDecomposer
+        from dnaspec_task_decomposer import DNASPECTaskDecomposer
         print("✓ 成功导入任务分解器子技能")
         
         # 创建技能实例
-        main_skill = DSGSArchitect()
-        task_decomposer_skill = DSGSTaskDecomposer()
+        main_skill = DNASPECArchitect()
+        task_decomposer_skill = DNASPECTaskDecomposer()
         
         # 测试请求
         test_request = "Decompose tasks for developing a web application"

@@ -13,7 +13,7 @@
 - **标准化接口**: 统一接口设计，便于集成和扩展
 
 ### 1.3 架构风格
-- **Microkernel Architecture**: DSGS核心框架 + 可插拔技能模块
+- **Microkernel Architecture**: DNASPEC核心框架 + 可插拔技能模块
 - **API Gateway Pattern**: 统一入口点处理不同AI平台API差异
 - **Template Method Pattern**: 抽象技能基类定义执行模板
 
@@ -31,7 +31,7 @@
 │  │  └─────────────────────────────────────────────────────────┘  │   │
 │  └─────────────────────────────────────────────────────────────────────────┘
 │                                    │
-│                                    ▼ (通过DSGS接口)
+│                                    ▼ (通过DNASPEC接口)
 ┌─────────────────────────────────────────────────────────────────────────┐
 │              DNASPEC Context Engineering Skills System                 │
 │  ┌─────────────────────────────────────────────────────────────────┐   │
@@ -81,7 +81,7 @@
 ```python
 class DNASpecSkill(ABC):
     """
-    DSGS技能基类
+    DNASPEC技能基类
     定义统一的技能接口和执行模式
     """
     def process_request(self, request: str, context: Dict[str, Any] = None) -> SkillResult:
@@ -94,7 +94,7 @@ class DNASpecSkill(ABC):
 ```
 
 **依赖**: 无外部依赖
-**接口**: DSGSSkill基类
+**接口**: DNASPECSkill基类
 **职责**: 定义统一技能接口、错误处理、结果格式化
 
 #### 3.1.2 ContextAnalysisSkill (上下文分析 - src/dnaspec_context_engineering/skills/context_analysis.py)
@@ -109,7 +109,7 @@ class ContextAnalysisSkill(DNASpecSkill):
         pass
 ```
 
-**依赖**: DSGSSkill基类
+**依赖**: DNASPECSkill基类
 **接口**: execute_with_ai()
 **职责**: 执行上下文质量五维分析
 
@@ -125,7 +125,7 @@ class ContextOptimizationSkill(DNASpecSkill):
         pass
 ```
 
-**依赖**: DSGSSkill基类, ContextAnalysisSkill (for reference)
+**依赖**: DNASPECSkill基类, ContextAnalysisSkill (for reference)
 **接口**: execute_with_ai()
 **职责**: 执行多目标上下文优化
 
@@ -141,7 +141,7 @@ class CognitiveTemplateSkill(DNASpecSkill):
         pass
 ```
 
-**依赖**: DSGSSkill基类
+**依赖**: DNASPECSkill基类
 **接口**: execute_with_ai()
 **职责**: 应用五种认知模板到任务分析
 

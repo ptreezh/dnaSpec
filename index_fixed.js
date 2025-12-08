@@ -288,7 +288,7 @@ function installAndConfigure() {
             console.log('\n🎉 Installation and configuration completed successfully!');
 
             // Show post-installation guide
-            console.log('\nDSGS Context Engineering Skills - POST-INSTALLATION GUIDE');
+            console.log('\nDNASPEC Context Engineering Skills - POST-INSTALLATION GUIDE');
             console.log('='.repeat(80));
             console.log('');
             console.log('Thank you for installing DNASPEC (Dynamic Specification Growth System)!');

@@ -1,11 +1,11 @@
-# DSGS项目实现状态报告
+# DNASPEC项目实现状态报告
 
 ## 当前进度
 
 ### 已完成
 1. **dnaspec-architect主技能基础实现**
    - 完成了符合Claude Skills规范的SKILL.md元数据文件
-   - 实现了主技能类DSGSArchitect，包含基本的路由和处理功能
+   - 实现了主技能类DNASPECArchitect，包含基本的路由和处理功能
    - 创建了完整的单元测试套件，覆盖所有核心功能
 
 2. **测试验证**
@@ -13,9 +13,9 @@
    - 修复了路由逻辑问题，确保请求能正确路由到相应的子技能
    - 验证了技能的基本功能、路由、集成点和错误处理
 
-3. **第一个子技能dsgs-system-architect实现**
+3. **第一个子技能dna-system-architect实现**
    - 完成了符合Claude Skills规范的SKILL.md元数据文件
-   - 实现了系统架构师子技能类DSGSSystemArchitect
+   - 实现了系统架构师子技能类DNASPECSystemArchitect
    - 创建了完整的单元测试套件并全部通过
    - 实现了架构设计、技术栈选择、模块划分和接口定义等核心功能
 
@@ -23,7 +23,7 @@
 
 #### 主技能功能
 - 技能名称: dnaspec-architect
-- 描述: DSGS智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成
+- 描述: DNASPEC智能架构师主技能，用于复杂项目的分层架构设计、任务分解、智能体化和约束生成
 - 协调的子技能:
   - dnaspec-system-architect: 系统架构设计
   - dnaspec-task-decomposer: 任务分解
@@ -40,7 +40,7 @@
 
 #### 系统架构师子技能功能
 - 技能名称: dnaspec-system-architect
-- 描述: DSGS系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义
+- 描述: DNASPEC系统架构师子技能，用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义
 - 核心能力:
   - architecture_design: 架构设计
   - tech_stack_selection: 技术栈选择

@@ -33,7 +33,7 @@ DNASPEC (Dynamic Specification-Guided Skills System) Context Engineering Skills 
 │  │  └─────────────────────────────────────────────────────────┘  │   │
 │  └─────────────────────────────────────────────────────────────────────────┘
 │                                    │
-│                                    ▼ (通过DSGS指令接口)
+│                                    ▼ (通过DNASPEC指令接口)
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                 DNASPEC Context Engineering Skills                      │
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐      │
@@ -58,8 +58,8 @@ DNASPEC (Dynamic Specification-Guided Skills System) Context Engineering Skills 
 - ContextOptimizationSkill: 利用AI原生推理和生成能力进行优化
 - CognitiveTemplateSkill: 利用AI原生思维能力应用认知模板
 
-#### 3.2.2 DNASPEC Framework (DSGS框架集成)
-- 继承自DSGSSkill基类
+#### 3.2.2 DNASPEC Framework (DNASPEC框架集成)
+- 继承自DNASPECSkill基类
 - 实现统一的execute接口
 - 提供标准错误处理和结果格式
 
@@ -92,7 +92,7 @@ DNASPEC (Dynamic Specification-Guided Skills System) Context Engineering Skills 
 1. **零本地模型依赖**: 100%使用AI模型原生能力
 2. **指令驱动**: 通过高质量提示引导AI模型
 3. **结果结构化**: 将AI非结构化响应转为结构化结果
-4. **接口标准化**: 遵循DSGS统一接口规范
+4. **接口标准化**: 遵循DNASPEC统一接口规范
 
 ### 5.2 性能目标
 - 指令构造 < 50ms
@@ -111,7 +111,7 @@ DNASPEC (Dynamic Specification-Guided Skills System) Context Engineering Skills 
 ### 6.1 核心实现 (1.0) - 已完成
 - [x] AI原生架构设计实现
 - [x] 三大核心技能实现
-- [x] DSGS框架集成
+- [x] DNASPEC框架集成
 - [x] 统一接口实现
 - [x] 指令工程优化
 

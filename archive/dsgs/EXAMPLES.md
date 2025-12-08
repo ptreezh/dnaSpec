@@ -713,7 +713,7 @@ testGenerationExample();
 // ai-integration/mcp-server.js
 const { ContextEngineeringIntegration, createTCC } = require('../../src/index');
 
-class DSGSMCPServer {
+class DNASPECMCPServer {
   constructor() {
     this.dnaspec = new ContextEngineeringIntegration({
       cognitive: {
@@ -910,7 +910,7 @@ it('should satisfy: ${constraint.rule}', () => {
 
 // 使用示例
 async function mcpServerExample() {
-  const server = new DSGSMCPServer();
+  const server = new DNASPECMCPServer();
   
   // 模拟 MCP 请求
   const requests = [
@@ -1020,10 +1020,10 @@ node ai-integration/mcp-server.js
 ### 环境变量配置
 ```bash
 # .env 文件
-DSGS_LOG_LEVEL=debug
-DSGS_MAX_CONSTRAINTS=20
-DSGS_CONFIDENCE_THRESHOLD=0.7
-DSGS_ENABLE_REASONING=true
+DNASPEC_LOG_LEVEL=debug
+DNASPEC_MAX_CONSTRAINTS=20
+DNASPEC_CONFIDENCE_THRESHOLD=0.7
+DNASPEC_ENABLE_REASONING=true
 ```
 
 ### 配置文件
@@ -1031,13 +1031,13 @@ DSGS_ENABLE_REASONING=true
 // dnaspec.config.js
 module.exports = {
   cognitive: {
-    enableVerboseLogging: process.env.DSGS_LOG_LEVEL === 'debug',
-    confidenceThreshold: parseFloat(process.env.DSGS_CONFIDENCE_THRESHOLD) || 0.7,
+    enableVerboseLogging: process.env.DNASPEC_LOG_LEVEL === 'debug',
+    confidenceThreshold: parseFloat(process.env.DNASPEC_CONFIDENCE_THRESHOLD) || 0.7,
     maxExecutionTime: 30000
   },
   constraintGeneration: {
-    maxConstraints: parseInt(process.env.DSGS_MAX_CONSTRAINTS) || 10,
-    includeReasoning: process.env.DSGS_ENABLE_REASONING === 'true'
+    maxConstraints: parseInt(process.env.DNASPEC_MAX_CONSTRAINTS) || 10,
+    includeReasoning: process.env.DNASPEC_ENABLE_REASONING === 'true'
   }
 };
 ```

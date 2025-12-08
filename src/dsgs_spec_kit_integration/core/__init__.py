@@ -1,5 +1,5 @@
 """
-DSGS核心模块初始化文件
+DNASPEC核心模块初始化文件
 """
 from .command_parser import CommandParser
 from .skill_mapper import SkillMapper

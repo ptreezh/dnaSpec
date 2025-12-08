@@ -1,5 +1,5 @@
 """
-DSGS核心模块
+DNASPEC核心模块
 提供技能管理和集成功能
 """
 from typing import Dict, List, Optional, Any
@@ -48,7 +48,7 @@ class SkillResult:
 
 
 class DNASpecSkill:
-    """DSGS技能基类"""
+    """DNASPEC技能基类"""
     
     def __init__(self, name: str, description: str):
         self.name = name

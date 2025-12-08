@@ -19,15 +19,15 @@ def test_modulizer_keywords():
     # 创建Skills发现Hook
     hook = SkillsDiscoveryHook('skills')
     
-    # 找到dsgs-modulizer技能
-    dsgs_modulizer = None
+    # 找到dna-modulizer技能
+    dnaspec_modulizer = None
     for skill in hook.skills_registry:
         if skill.name == 'dnaspec-modulizer':
-            dsgs_modulizer = skill
+            dnaspec_modulizer = skill
             break
     
-    if dsgs_modulizer:
-        print(f"dnaspec-modulizer 关键词: {dsgs_modulizer.keywords}")
+    if dnaspec_modulizer:
+        print(f"dnaspec-modulizer 关键词: {dnaspec_modulizer.keywords}")
         print()
         
         # 测试新增的关键词
@@ -42,8 +42,8 @@ def test_modulizer_keywords():
         ]
         
         for msg in test_messages:
-            confidence = hook._calculate_match_confidence_improved(msg, dsgs_modulizer)
-            matched_keywords = [k for k in dsgs_modulizer.keywords if k in msg.lower()]
+            confidence = hook._calculate_match_confidence_improved(msg, dnaspec_modulizer)
+            matched_keywords = [k for k in dnaspec_modulizer.keywords if k in msg.lower()]
             print(f'消息: "{msg}"')
             print(f'  置信度: {confidence:.3f}')
             print(f'  匹配关键词: {matched_keywords}')

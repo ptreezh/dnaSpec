@@ -3,7 +3,7 @@
 ## 1. 主要目录结构
 
 ```
-DSGS_Context_Engineering/
+DNASPEC_Context_Engineering/
 ├── src/
 │   └── dnaspec_context_engineering/           # 核心技能实现
 │       ├── skills/                         # AI原生技能模块
@@ -13,7 +13,7 @@ DSGS_Context_Engineering/
 │       │   ├── cognitive_template.py       # 认知模板技能
 │       │   └── skills_manager.py           # 技能管理器
 │       ├── core/                           # 核心基类
-│       │   └── skill.py                    # DSGS技能基类
+│       │   └── skill.py                    # DNASPEC技能基类
 │       ├── adapters/                       # 平台适配器
 │       │   └── ai_platform.py              # AI平台适配器
 │       └── utils/                          # 工具函数
@@ -95,11 +95,11 @@ def execute(args: Dict[str, Any]) -> str:
 ## 6. 部署架构
 
 此系统设计为AI CLI平台的插件，通过以下方式工作：
-1. 用户调用DSGS技能（如 /dnaspec-analyze "上下文"）
-2. DSGS系统构造精确的AI指令
+1. 用户调用DNASPEC技能（如 /dnaspec-analyze "上下文"）
+2. DNASPEC系统构造精确的AI指令
 3. 指令发送至AI模型执行
 4. AI模型返回结果
-5. DSGS系统结构化结果并返回给用户
+5. DNASPEC系统结构化结果并返回给用户
 
 ## 7. 工程化价值
 
@@ -118,7 +118,7 @@ def execute(args: Dict[str, Any]) -> str:
 ## 8. 配置和使用
 
 ### 8.1 环境配置
-在AI CLI平台中配置DSGS Context Engineering Skills作为扩展技能集
+在AI CLI平台中配置DNASPEC Context Engineering Skills作为扩展技能集
 
 ### 8.2 使用示例
 ```

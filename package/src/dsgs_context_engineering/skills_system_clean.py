@@ -10,8 +10,8 @@ from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResul
 
 from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 
-class DSGSSkillBase(DNASpecSkill):
-    """DSGS技能基类"""
+class DNASPECSkillBase(DNASpecSkill):
+    """DNASPEC技能基类"""
     
     def __init__(self, name: str, description: str):
         super().__init__(name, description)
@@ -104,13 +104,13 @@ def simulate_ai_completion(instruction: str) -> str:
         }, ensure_ascii=False, indent=2)
 
 
-class ContextAnalysisSkill(DSGSSkillBase):
+class ContextAnalysisSkill(DNASPECSkillBase):
     """上下文分析技能 - 利用AI模型原生智能进行分析"""
     
     def __init__(self):
         super().__init__(
             name="dnaspec-context-analysis",
-            description="DSGS上下文分析技能 - 利用AI模型原生智能进行专业上下文质量分析"
+            description="DNASPEC上下文分析技能 - 利用AI模型原生智能进行专业上下文质量分析"
         )
     
     def execute_with_ai(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
@@ -152,13 +152,13 @@ class ContextAnalysisSkill(DSGSSkillBase):
             }
 
 
-class ContextOptimizationSkill(DSGSSkillBase):
+class ContextOptimizationSkill(DNASPECSkillBase):
     """上下文优化技能 - 利用AI模型原生智能进行优化"""
     
     def __init__(self):
         super().__init__(
             name="dnaspec-context-optimization",
-            description="DSGS上下文优化技能 - 利用AI模型原生智能优化上下文质量"
+            description="DNASPEC上下文优化技能 - 利用AI模型原生智能优化上下文质量"
         )
     
     def execute_with_ai(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
@@ -201,13 +201,13 @@ class ContextOptimizationSkill(DSGSSkillBase):
             }
 
 
-class CognitiveTemplateSkill(DSGSSkillBase):
+class CognitiveTemplateSkill(DNASPECSkillBase):
     """认知模板技能 - 利用AI模型原生智能应用认知模板"""
     
     def __init__(self):
         super().__init__(
             name="dnaspec-cognitive-template",
-            description="DSGS认知模板技能 - 利用AI模型原生智能应用认知模板结构化任务"
+            description="DNASPEC认知模板技能 - 利用AI模型原生智能应用认知模板结构化任务"
         )
     
     def execute_with_ai(self, context: str, params: Dict[str, Any] = None) -> Dict[str, Any]:

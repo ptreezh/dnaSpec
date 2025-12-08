@@ -172,7 +172,7 @@ def run_comprehensive_test():
 
 def main():
     """主函数"""
-    print("\\n🚀 开始DSGS Context Engineering Skills AI原生架构最终验证...")
+    print("\\n🚀 开始DNASPEC Context Engineering Skills AI原生架构最终验证...")
     
     success = run_comprehensive_test()
     

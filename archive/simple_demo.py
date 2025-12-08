@@ -102,7 +102,7 @@ def main():
     demo_all_features()
     usage_examples()
     
-    print("\n🎉 您的DSGS Context Engineering Skills系统现在可以使用了!")
+    print("\n🎉 您的DNASPEC Context Engineering Skills系统现在可以使用了!")
     print("   系统提供了完整的上下文工程能力，包括分析、优化和结构化功能")
 
 

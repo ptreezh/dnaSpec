@@ -2,7 +2,7 @@
 
 ## 📋 API概览
 
-DSGS系统提供RESTful API和MCP协议两种接口方式，支持IDE集成、CLI工具和Web界面等多种客户端。
+DNASPEC系统提供RESTful API和MCP协议两种接口方式，支持IDE集成、CLI工具和Web界面等多种客户端。
 
 ### 🎯 核心设计原则
 - **统一响应格式**：所有API返回统一的数据结构
@@ -403,6 +403,6 @@ enum ErrorCode {
 
 ---
 
-**文档维护**：DSGS架构团队  
+**文档维护**：DNASPEC架构团队  
 **最后更新**：2025-08-06  
 **版本**：2.0

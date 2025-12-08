@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS系统功能完整性验证脚本
+DNASPEC系统功能完整性验证脚本
 验证所有模块功能是否正确实现
 """
 import sys
@@ -166,7 +166,7 @@ def test_all_capabilities():
         return False
 
     print("\n" + "="*60)
-    print("🎉 所有功能验证通过！DSGS系统功能完整可用。")
+    print("🎉 所有功能验证通过！DNASPEC系统功能完整可用。")
     print("✅ 核心技能系统正常")
     print("✅ 高级专业功能可用") 
     print("✅ API接口兼容性良好")
@@ -183,7 +183,7 @@ def main():
         print("\n❌ 验证失败，请检查系统功能。")
         sys.exit(1)
     else:
-        print("\n✅ 验证成功！DSGS系统可正常使用。")
+        print("\n✅ 验证成功！DNASPEC系统可正常使用。")
 
 
 if __name__ == "__main__":

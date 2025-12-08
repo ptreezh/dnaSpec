@@ -55,7 +55,7 @@ def test_skill_interfaces():
             CognitiveTemplateSkill
         )
         
-        # 验证所有技能都继承自DSGSSkill
+        # 验证所有技能都继承自DNASPECSkill
         from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
         
         skills = [
@@ -65,7 +65,7 @@ def test_skill_interfaces():
         ]
         
         all_inherit_base = all(isinstance(skill, DNASpecSkill) for skill in skills)
-        print(f"   继承DSGSSkill基类: {all_inherit_base}")
+        print(f"   继承DNASPECSkill基类: {all_inherit_base}")
         
         # 验证接口方法
         required_methods = ['process_request', '_execute_skill_logic', '_calculate_confidence']
@@ -233,9 +233,9 @@ def test_git_integration():
     print("\\n✅ 验证7: Git集成")
     
     try:
-        from src.dnaspec_context_engineering.version_manager import DSGSVersionManager
+        from src.dnaspec_context_engineering.version_manager import DNASPECVersionManager
         
-        vm = DSGSVersionManager()
+        vm = DNASPECVersionManager()
         current_version = vm.get_current_version()
         
         print(f"   当前版本: {current_version}")

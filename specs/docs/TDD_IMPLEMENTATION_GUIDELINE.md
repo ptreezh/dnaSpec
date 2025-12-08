@@ -1,7 +1,7 @@
-# DSGS智能架构师项目TDD实施规范
+# DNASPEC智能架构师项目TDD实施规范
 
 ## 概述
-本规范定义了DSGS智能架构师项目基于测试驱动开发(TDD)的实施标准和流程。
+本规范定义了DNASPEC智能架构师项目基于测试驱动开发(TDD)的实施标准和流程。
 
 ## TDD核心原则
 
@@ -64,7 +64,7 @@ def test_skill_integration():
     user_request = "Design architecture for a web application"
     
     # 执行完整工作流
-    result = dsgs_architect.process_request(user_request)
+    result = dnaspec_architect.process_request(user_request)
     
     # 验证集成结果
     assert "system_design" in result
@@ -93,7 +93,7 @@ def test_complete_project_processing():
     }
     
     # 执行完整处理流程
-    final_result = dsgs_architect.process_project(complex_project)
+    final_result = dnaspec_architect.process_project(complex_project)
     
     # 验证最终结果
     assert final_result["status"] == "completed"

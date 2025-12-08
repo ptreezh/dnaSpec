@@ -22,7 +22,7 @@ def test_context_engineering_system():
     print(f"功能: {', '.join(info['features'][:3])}...")  # 只显示前3个功能
     print()
     
-    # 测试系统作为DSGS技能
+    # 测试系统作为DNASPEC技能
     system = ContextEngineeringSystem()
     
     # 测试项目上下文增强

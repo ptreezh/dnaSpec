@@ -18,7 +18,7 @@ class ContextEngineeringSkillsManager(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-engineering-manager",
-            description="DSGS上下文工程技能管理器 - 统一管理上下文工程技能的专家"
+            description="DNASPEC上下文工程技能管理器 - 统一管理上下文工程技能的专家"
         )
         self.context_analysis_skill = ContextAnalysisSkill()
         self.context_optimization_skill = ContextOptimizationSkill()

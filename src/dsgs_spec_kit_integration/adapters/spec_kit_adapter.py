@@ -65,7 +65,7 @@ class SpecKitAdapter(ABC):
         }
     
     def map_command_to_skill(self, command: str) -> Optional[str]:
-        """将命令映射到DSGS技能名称"""
+        """将命令映射到DNASPEC技能名称"""
         parsed = self.parse_command(command)
         if parsed:
             return parsed['skill_name']
@@ -89,7 +89,7 @@ class SpecKitAdapter(ABC):
     
     @abstractmethod
     def execute_skill(self, skill_name: str, params: Dict[str, Any]) -> Dict[str, Any]:
-        """执行映射的DSGS技能 - 子类必须实现"""
+        """执行映射的DNASPEC技能 - 子类必须实现"""
         pass
     
     def execute_command(self, command: str) -> Dict[str, Any]:

@@ -265,8 +265,8 @@ class SkillMapper {
     return this.skillMap[skillName] || null;
   }
   
-  register(customSkillName, dsgsSkillName) {
-    this.skillMap[customSkillName] = dsgsSkillName;
+  register(customSkillName, dnaspecSkillName) {
+    this.skillMap[customSkillName] = dnaspecSkillName;
   }
   
   getAvailableSkills() {
@@ -350,8 +350,8 @@ class SkillExecutor {
       }
       
       // 映射技能名称
-      const dsgsSkillName = this.skillMapper.map(skillName);
-      if (!dsgsSkillName) {
+      const dnaspecSkillName = this.skillMapper.map(skillName);
+      if (!dnaspecSkillName) {
         return {
           success: false,
           error: `Skill not found: ${skillName}`
@@ -359,7 +359,7 @@ class SkillExecutor {
       }
       
       // 执行技能
-      const result = await this.pythonBridge.executeSkill(dsgsSkillName, params);
+      const result = await this.pythonBridge.executeSkill(dnaspecSkillName, params);
       
       // 格式化输出
       return {

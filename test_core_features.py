@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-测试DSGS核心功能
+测试DNASPEC核心功能
 """
 import sys
 import os
@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 from src.dnaspec_context_engineering.skills_system_final import execute
 
-print("测试DSGS核心功能:")
+print("测试DNASPEC核心功能:")
 
 # 测试上下文分析功能
 print("\n1. 上下文分析功能测试:")

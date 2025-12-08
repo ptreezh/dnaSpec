@@ -7,8 +7,8 @@ from typing import Dict, Optional
 
 class SkillMapper:
     """
-    DSGS技能映射器
-    将命令中的技能名称映射到相应的DSGS技能实现
+    DNASPEC技能映射器
+    将命令中的技能名称映射到相应的DNASPEC技能实现
     """
     
     def __init__(self):
@@ -24,25 +24,25 @@ class SkillMapper:
     
     def map(self, skill_name: str) -> Optional[str]:
         """
-        将命令中的技能名称映射到DSGS技能名称
+        将命令中的技能名称映射到DNASPEC技能名称
         
         Args:
             skill_name: 命令中的技能名称（如 'architect'）
             
         Returns:
-            对应的DSGS技能名称，如果不存在则返回None
+            对应的DNASPEC技能名称，如果不存在则返回None
         """
         return self.skill_map.get(skill_name)
     
-    def register(self, custom_skill_name: str, dsgs_skill_name: str) -> None:
+    def register(self, custom_skill_name: str, dnaspec_skill_name: str) -> None:
         """
         注册自定义技能映射
         
         Args:
             custom_skill_name: 自定义的技能名称
-            dsgs_skill_name: 对应的DSGS技能名称
+            dnaspec_skill_name: 对应的DNASPEC技能名称
         """
-        self.skill_map[custom_skill_name] = dsgs_skill_name
+        self.skill_map[custom_skill_name] = dnaspec_skill_name
     
     def get_available_skills(self) -> list:
         """
@@ -53,12 +53,12 @@ class SkillMapper:
         """
         return list(self.skill_map.keys())
     
-    def get_available_dsgs_skills(self) -> list:
+    def get_available_dnaspec_skills(self) -> list:
         """
-        获取所有可用的DSGS技能名称列表
+        获取所有可用的DNASPEC技能名称列表
         
         Returns:
-            可用DSGS技能名称列表
+            可用DNASPEC技能名称列表
         """
         return list(self.skill_map.values())
     

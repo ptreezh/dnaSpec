@@ -111,4 +111,4 @@ python test_claude_integration.py
 - 内存使用率: <100MB
 - CPU使用率: <5%
 
-通过实施这些最佳实践，可以确保DSGS Skills在Claude Code中的高置信度集成和稳定运行。
+通过实施这些最佳实践，可以确保DNASPEC Skills在Claude Code中的高置信度集成和稳定运行。

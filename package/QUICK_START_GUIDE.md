@@ -2,11 +2,11 @@
 
 ## 概述
 
-本指南将帮助您快速开始使用DSGS (Dynamic Specification Growth System) Context Engineering Skills系统。该系统提供AI辅助开发技能、Git操作和安全的AI工作流管理，基于AI原生设计理念而非依赖外部的spec.kit系统。
+本指南将帮助您快速开始使用DNASPEC (Dynamic Specification Growth System) Context Engineering Skills系统。该系统提供AI辅助开发技能、Git操作和安全的AI工作流管理，基于AI原生设计理念而非依赖外部的spec.kit系统。
 
 ## 快速安装
 
-### 1. 克隆并安装DSGS项目
+### 1. 克隆并安装DNASPEC项目
 ```bash
 # 克隆项目
 git clone https://github.com/ptreezh/dnaSpec.git

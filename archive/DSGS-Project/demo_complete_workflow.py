@@ -1,4 +1,4 @@
-# DSGS系统完整工作流程演示
+# DNASPEC系统完整工作流程演示
 
 import sys
 import os
@@ -7,16 +7,16 @@ import os
 sys.path.insert(0, 'src')
 
 def demo_complete_workflow():
-    """演示DSGS系统的完整工作流程"""
-    print("=== DSGS系统完整工作流程演示 ===\n")
+    """演示DNASPEC系统的完整工作流程"""
+    print("=== DNASPEC系统完整工作流程演示 ===\n")
     
     # 导入所有技能
-    from dsgs_architect import DSGSArchitect
-    from dsgs_system_architect import DSGSSystemArchitect
-    from dsgs_task_decomposer import DSGSTaskDecomposer
-    from dsgs_agent_creator import DSGSAgentCreator
-    from dsgs_constraint_generator import DSGSConstraintGenerator
-    from dsgs_dapi_checker import DSGS_DAPI_Checker
+    from dnaspec_architect import DNASPECArchitect
+    from dnaspec_system_architect import DNASPECSystemArchitect
+    from dnaspec_task_decomposer import DNASPECTaskDecomposer
+    from dnaspec_agent_creator import DNASPECAgentCreator
+    from dnaspec_constraint_generator import DNASPECConstraintGenerator
+    from dnaspec_dapi_checker import DNASPEC_DAPI_Checker
     
     # 导入Hook系统
     from skills_hook_system import SkillInvoker
@@ -26,7 +26,7 @@ def demo_complete_workflow():
     print("\n" + "="*70 + "\n")
     
     # 创建技能实例
-    main_architect = DSGSArchitect()
+    main_architect = DNASPECArchitect()
     skill_invoker = SkillInvoker()
     
     # 模拟完整的项目开发流程
@@ -84,11 +84,11 @@ def demo_complete_workflow():
     print("=== 各技能独立调用演示 ===\n")
     
     skills_demos = [
-        ("系统架构师", DSGSSystemArchitect(), "设计一个用户管理系统架构"),
-        ("任务分解器", DSGSTaskDecomposer(), "分解移动应用开发任务"),
-        ("智能体创建器", DSGSAgentCreator(), "创建微服务开发团队智能体"),
-        ("约束生成器", DSGSConstraintGenerator(), "生成API安全约束"),
-        ("DAPI检查器", DSGS_DAPI_Checker(), "检查系统接口一致性")
+        ("系统架构师", DNASPECSystemArchitect(), "设计一个用户管理系统架构"),
+        ("任务分解器", DNASPECTaskDecomposer(), "分解移动应用开发任务"),
+        ("智能体创建器", DNASPECAgentCreator(), "创建微服务开发团队智能体"),
+        ("约束生成器", DNASPECConstraintGenerator(), "生成API安全约束"),
+        ("DAPI检查器", DNASPEC_DAPI_Checker(), "检查系统接口一致性")
     ]
     
     for skill_name, skill_instance, request in skills_demos:
@@ -116,7 +116,7 @@ def demo_complete_workflow():
         print()
     
     print("="*70)
-    print("DSGS系统完整功能验证")
+    print("DNASPEC系统完整功能验证")
     print("="*70)
     print("✓ 1个主技能 + 5个子技能完整实现")
     print("✓ 智能路由机制正常工作")

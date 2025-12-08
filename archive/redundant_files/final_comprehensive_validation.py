@@ -102,7 +102,7 @@ print("   ✓ 专业级上下文工程 - 专门化任务处理")
 
 print("\\n✅ 5. 平台集成验证")
 print("   ✓ CLI接口兼容")
-print("   ✓ DSGS框架集成")
+print("   ✓ DNASPEC框架集成")
 print("   ✓ 统一错误处理")
 print("   ✓ 标准化结果格式")
 

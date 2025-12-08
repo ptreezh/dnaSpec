@@ -1,6 +1,6 @@
 """
 Context Analysis Skill - 正确实现版本
-基于DSGS技能框架的上下文分析技能
+基于DNASPEC技能框架的上下文分析技能
 """
 from typing import Dict, Any
 import re
@@ -13,7 +13,7 @@ class ContextAnalysisSkill(DNASpecSkill):
     def __init__(self):
         super().__init__(
             name="dnaspec-context-analysis",
-            description="DSGS上下文分析技能 - 利用AI模型原生智能进行专业上下文质量分析"
+            description="DNASPEC上下文分析技能 - 利用AI模型原生智能进行专业上下文质量分析"
         )
     
     def _execute_skill_logic(self, request: str, context: Dict[str, Any]) -> Dict[str, Any]:

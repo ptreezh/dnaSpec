@@ -1,6 +1,6 @@
 """
 Final Verification of AI-Native Architecture
-验证DSGS Context Engineering Skills真正为AI原生实现
+验证DNASPEC Context Engineering Skills真正为AI原生实现
 """
 import sys
 import os

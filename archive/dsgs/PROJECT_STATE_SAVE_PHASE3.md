@@ -156,7 +156,7 @@ npm test -- test/unit/ContextEngineeringIntegrationProperty.test.ts
 npm run test:contract:advanced
 
 # 任务4.2.2: 修复契约测试问题
-npm test -- test/contract/DSGSContractTest.ts
+npm test -- test/contract/DNASPECContractTest.ts
 ```
 
 #### 4.3 验证Performance Testing

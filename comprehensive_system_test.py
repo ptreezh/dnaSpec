@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DSGS系统完整功能验证脚本
+DNASPEC系统完整功能验证脚本
 验证所有功能模块和AI CLI集成
 """
 import sys
@@ -156,7 +156,7 @@ def main():
     print("\n" + "="*60)
     if all_tests_passed:
         print("🎉 所有系统功能验证通过！")
-        print("DSGS系统完全正常运行。")
+        print("DNASPEC系统完全正常运行。")
         print("✓ 核心技能功能正常")
         print("✓ CLI检测器修复成功") 
         print("✓ AI CLI集成正常")

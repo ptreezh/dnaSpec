@@ -1,26 +1,26 @@
-# DSGS与spec.kit整合设计文档 (AI规范化版本)
+# DNASPEC与spec.kit整合设计文档 (AI规范化版本)
 
 ## 1. 项目上下文 (Context)
 
 ### 1.1 项目背景 (Project Background)
-本项目旨在将DSGS (Dynamic Specification Growth System) 技能系统与GitHub spec.kit工具包进行深度整合。DSGS是一个专业的AI技能系统，专注于架构设计、智能体创建等高级软件工程任务。spec.kit是一个通用的规格驱动开发工具包，支持多种AI编码代理。
+本项目旨在将DNASPEC (Dynamic Specification Growth System) 技能系统与GitHub spec.kit工具包进行深度整合。DNASPEC是一个专业的AI技能系统，专注于架构设计、智能体创建等高级软件工程任务。spec.kit是一个通用的规格驱动开发工具包，支持多种AI编码代理。
 
 ### 1.2 核心问题 (Core Problem)
-当前DSGS系统缺乏跨平台兼容性，仅支持特定的AI CLI工具。同时，spec.kit虽然具有良好的跨平台支持，但缺乏专业领域的深度技能。需要创建一个既具备专业技能又支持多平台的AI辅助开发系统。
+当前DNASPEC系统缺乏跨平台兼容性，仅支持特定的AI CLI工具。同时，spec.kit虽然具有良好的跨平台支持，但缺乏专业领域的深度技能。需要创建一个既具备专业技能又支持多平台的AI辅助开发系统。
 
 ### 1.3 解决方案 (Solution)
-通过依赖集成方式，将spec.kit作为DSGS项目的依赖进行集成，保持两个项目的独立性和专业性，同时实现功能互补。
+通过依赖集成方式，将spec.kit作为DNASPEC项目的依赖进行集成，保持两个项目的独立性和专业性，同时实现功能互补。
 
 ## 2. 设计目标 (Design Goals)
 
 ### 2.1 功能目标 (Functional Goals)
-- [目标1] 实现DSGS技能与spec.kit命令系统的无缝映射
-- [目标2] 保持DSGS智能匹配和Hook系统的独特优势
+- [目标1] 实现DNASPEC技能与spec.kit命令系统的无缝映射
+- [目标2] 保持DNASPEC智能匹配和Hook系统的独特优势
 - [目标3] 支持Claude CLI、Gemini CLI、Qwen CLI等多种AI工具
 - [目标4] 提供统一的斜杠命令接口(/speckit.dnaspec.*)
 
 ### 2.2 非功能目标 (Non-Functional Goals)
-- [目标5] 确保向后兼容性，不影响现有DSGS功能
+- [目标5] 确保向后兼容性，不影响现有DNASPEC功能
 - [目标6] 实现原子化任务设计，每个任务上下文明晰无歧义
 - [目标7] 达成TDD驱动开发，测试覆盖率达到95%以上
 - [目标8] 保持代码可维护性，模块化设计清晰
@@ -31,7 +31,7 @@
 ```
 整合架构上下文:
 DNASPEC-spec.kit整合架构
-├── DSGS核心层 (DNASPEC Core Layer)
+├── DNASPEC核心层 (DNASPEC Core Layer)
 │   ├── 技能管理器 (SkillManager) - 负责技能注册、管理和调用
 │   ├── 智能匹配引擎 (IntelligentMatcher) - 实现用户意图自动检测
 │   ├── Hook系统 (HookSystem) - 拦截用户请求并自动调用技能
@@ -56,7 +56,7 @@ DNASPEC-spec.kit整合架构
 数据流上下文:
 用户请求处理流程:
 1. 用户输入 → Hook系统检测 → 智能匹配 → 技能执行
-2. 斜杠命令 → spec.kit适配器 → DSGS技能调用 → 结果返回
+2. 斜杠命令 → spec.kit适配器 → DNASPEC技能调用 → 结果返回
 3. 配置管理 → 统一配置系统 → 各平台适配器 → 平台特定配置
 ```
 
@@ -68,7 +68,7 @@ DNASPEC-spec.kit整合架构
 组件上下文:
 SpecKitAdapter组件负责与spec.kit工具包的集成，提供以下功能:
 1. 命令解析: 解析spec.kit格式的斜杠命令
-2. 技能映射: 将spec.kit命令映射到DSGS技能
+2. 技能映射: 将spec.kit命令映射到DNASPEC技能
 3. 依赖检查: 检查系统依赖和AI工具可用性
 4. 结果处理: 处理技能执行结果并格式化输出
 """
@@ -82,11 +82,11 @@ class SpecKitAdapter:
         pass
     
     def map_command_to_skill(self, command: str) -> str:
-        """将命令映射到DSGS技能名称"""
+        """将命令映射到DNASPEC技能名称"""
         pass
     
     def execute_skill(self, skill_name: str, params: dict) -> dict:
-        """执行映射的DSGS技能"""
+        """执行映射的DNASPEC技能"""
         pass
 ```
 
@@ -117,7 +117,7 @@ class IntelligentMatcher:
 ```python
 """
 组件上下文:
-平台适配器负责将DSGS技能适配到不同的AI CLI工具:
+平台适配器负责将DNASPEC技能适配到不同的AI CLI工具:
 1. Claude CLI适配器: 生成SKILL.md文件和Claude特定配置
 2. Gemini CLI适配器: 实现MCP协议通信和服务器适配
 3. Qwen CLI适配器: 实现Qwen MCP协议支持和命令映射
@@ -164,11 +164,11 @@ dnaspec-task-decomposer "分解用户管理模块开发任务"
 ### 6.1 统一配置文件 (Unified Configuration)
 ```yaml
 配置上下文:
-# dsgs_spec_kit_config.yaml
+# dnaspec_spec_kit_config.yaml
 project:
   name: "DNASPEC-spec.kit整合项目"
   version: "1.0.0"
-  description: "DSGS与spec.kit整合的AI技能系统"
+  description: "DNASPEC与spec.kit整合的AI技能系统"
 
 integration:
   spec_kit:

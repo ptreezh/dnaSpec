@@ -80,9 +80,9 @@ class IntelligentSkillMatcher:
             if skill_info.name.lower() in request_lower:
                 score += 0.4
             
-            # DSGS技能特殊处理 - 基于技能描述的关键短语匹配
+            # DNASPEC技能特殊处理 - 基于技能描述的关键短语匹配
             if "dnaspec" in skill_info.name.lower():
-                # 为每个DSGS技能定义关键短语
+                # 为每个DNASPEC技能定义关键短语
                 skill_phrases = {
                     'dnaspec-architect': ['架构设计', '系统设计', 'architecture', 'design system'],
                     'dnaspec-agent-creator': ['创建智能体', '智能体角色', 'agent creation', 'multi-agent'],

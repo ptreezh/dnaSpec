@@ -2,7 +2,7 @@
 
 ## 📋 模块概览
 
-服务监控模块负责DSGS系统的健康检查、性能指标收集、自动恢复和告警通知。确保系统的高可用性和可观测性。
+服务监控模块负责DNASPEC系统的健康检查、性能指标收集、自动恢复和告警通知。确保系统的高可用性和可观测性。
 
 ### 🎯 核心功能
 - **实时健康检查**：监控所有核心组件的健康状态
@@ -784,7 +784,7 @@ const alertRules: AlertRule[] = [
         "type": "stat",
         "targets": [
           {
-            "expr": "dsgs_system_health_status",
+            "expr": "dnaspec_system_health_status",
             "legendFormat": "{{status}}"
           }
         ]
@@ -935,6 +935,6 @@ describe('Monitoring Integration', () => {
 
 ---
 
-**模块维护**：DSGS监控团队  
+**模块维护**：DNASPEC监控团队  
 **最后更新**：2025-08-06  
 **版本**：2.0
