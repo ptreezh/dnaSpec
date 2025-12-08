@@ -29,10 +29,10 @@ def main():
         print('Available AI CLI Platforms:')
         # 检测AI工具
         try:
-            from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
+            from src.dna_spec_kit_integration.core.cli_detector import CliDetector
             detector = CliDetector()
             results = detector.detect_all()
-            
+
             for platform_name, result in results.items():
                 status = "✅" if result.get('installed', False) else "❌"
                 print(f"  {status} {platform_name}: {result.get('version', 'Not installed')}")
@@ -43,7 +43,7 @@ def main():
     else:
         print('Deploying DSGS skills to all detected AI CLI platforms...')
         try:
-            from src.dsgs_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
+            from src.dna_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
             deployer = RealSkillDeployer()
             results = deployer.install_skills_to_all_platforms()
             
@@ -55,7 +55,7 @@ def main():
             
             # 提供修复建议
             print("\\n💡 Suggested fix: Check module installation with:")
-            print("   python -c \"import src.dsgs_spec_kit_integration.core.cli_detector\"")
+            print("   python -c \"import src.dna_spec_kit_integration.core.cli_detector\"")
             print("   If this fails, reinstall with: pip install -e .")
 
 if __name__ == "__main__":
