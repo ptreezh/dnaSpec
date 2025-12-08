@@ -64,7 +64,17 @@ function determineCommand() {
 function installAndConfigure() {
     const command = determineCommand();
 
-    // 根据命令决定执行的Python脚本
+    // 获取当前工作目录（在获取命令后立即获取）
+    const initialDir = process.cwd();
+
+    // 检查当前目录是否是项目目录（通过检查关键文件）
+    const isProjectDir = fs.existsSync('src') &&
+                         fs.existsSync('pyproject.toml') &&
+                         fs.existsSync('package.json');
+
+    let projectDir = initialDir;
+
+    // 根据命令决定执行的Python脚本（现在projectDir已定义）
     let pythonScript;
     let description;
 
@@ -75,11 +85,11 @@ function installAndConfigure() {
             description = '安装和配置';
             break;
         case 'deploy':
-            pythonScript = path.join(projectDir, 'deploy_cli.py');
+            pythonScript = 'deploy_cli.py';
             description = '部署技能';
             break;
         case 'integrate':
-            pythonScript = path.join(projectDir, 'src/dsgs_spec_kit_integration/cli.py');
+            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
             description = '集成验证';
             break;
         case 'list':
@@ -87,11 +97,11 @@ function installAndConfigure() {
         case '--list':
         case '--version':
         case 'help':
-            pythonScript = path.join(projectDir, 'standalone_cli.py');
+            pythonScript = 'standalone_cli.py';
             description = '执行命令';
             break;
         default:
-            pythonScript = path.join(projectDir, 'run_auto_config.py');
+            pythonScript = 'run_auto_config.py';
             description = '安装和配置';
     }
 
@@ -215,7 +225,41 @@ function installAndConfigure() {
     // 运行相应脚本
     console.log(`⚙️  运行${description}...`);
 
-    // 确定Python脚本的完整路径
+    // 在非项目目录中克隆项目
+    if (!isProjectDir) {
+        // 如果不在项目目录，创建临时目录并克隆项目
+        const tempDir = 'dsgs-install-tmp';
+
+        // 创建并进入临时目录
+        if (!fs.existsSync(tempDir)) {
+            fs.mkdirSync(tempDir);
+        }
+        process.chdir(tempDir);
+
+        // 克隆项目
+        const repoDir = 'dnaspec-repo';
+        if (fs.existsSync(repoDir) && fs.lstatSync(repoDir).isDirectory()) {
+            console.log('🔄 更新现有项目...');
+            process.chdir(repoDir);
+        } else {
+            console.log('📦 克隆项目...');
+            const repoUrl = 'https://github.com/ptreezh/dnaSpec.git';
+            if (!runCommand(`git clone ${repoUrl} .`, '克隆项目')) {
+                process.chdir(initialDir);
+                const cleanupDir = path.join(initialDir, tempDir);
+                if (fs.existsSync(cleanupDir)) {
+                    fs.rmSync(cleanupDir, { recursive: true, force: true });
+                }
+                process.exit(1);
+            }
+        }
+
+        projectDir = process.cwd(); // 更新项目目录为克隆的目录
+    } else {
+        console.log('📋 检测到已在项目目录中...');
+    }
+
+    // 确保使用正确的脚本路径（在可能更新了projectDir后）
     const scriptPath = path.join(projectDir, pythonScript);
 
     // 构建Python命令参数
