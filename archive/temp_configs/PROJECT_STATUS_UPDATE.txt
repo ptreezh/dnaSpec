@@ -15,9 +15,9 @@ SUMMARY OF ACCOMPLISHMENTS:
 8. Fully operational system with all components importing correctly
 
 KEY COMPONENTS:
-- Core DSGS Spec Kit Integration (src/dsgs_spec_kit_integration/)
+- Core DSGS Spec Kit Integration (src/dna_spec_kit_integration/)
 - Context Engineering Skills (src/context_engineering_skills/)
-- DSGS Context Engineering System (src/dsgs_context_engineering/)
+- DSGS Context Engineering System (src/dna_context_engineering/)
 - Specification Engine (specs/ directory)
 - Context Engineering Course Materials (specs/Context-Engineering/)
 

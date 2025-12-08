@@ -11,7 +11,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
-from src.dsgs_spec_kit_integration.core.auto_configurator import AutoConfigurator
+from src.dna_spec_kit_integration.core.auto_configurator import AutoConfigurator
 
 
 def main():
