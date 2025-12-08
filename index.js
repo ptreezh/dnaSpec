@@ -5,7 +5,7 @@
  * 提供基于npm的一键安装和自动配置功能
  */
 
-const { execSync, spawn } = require('child_process');
+const { execSync, spawn, spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
@@ -75,11 +75,11 @@ function installAndConfigure() {
             description = '安装和配置';
             break;
         case 'deploy':
-            pythonScript = 'deploy_cli.py';
+            pythonScript = path.join(projectDir, 'deploy_cli.py');
             description = '部署技能';
             break;
         case 'integrate':
-            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+            pythonScript = path.join(projectDir, 'src/dsgs_spec_kit_integration/cli.py');
             description = '集成验证';
             break;
         case 'list':
@@ -87,11 +87,11 @@ function installAndConfigure() {
         case '--list':
         case '--version':
         case 'help':
-            pythonScript = 'standalone_cli.py';
+            pythonScript = path.join(projectDir, 'standalone_cli.py');
             description = '执行命令';
             break;
         default:
-            pythonScript = 'run_auto_config.py';
+            pythonScript = path.join(projectDir, 'run_auto_config.py');
             description = '安装和配置';
     }
 
@@ -122,17 +122,70 @@ function installAndConfigure() {
         }
         process.chdir(tempDir);
 
-        // 克隆项目
+        // 克隆项目 - 增加多源支持和重试机制
         const repoDir = 'dsgs-context-engineering';
         if (fs.existsSync(repoDir) && fs.lstatSync(repoDir).isDirectory()) {
             console.log('🔄 更新现有项目...');
             process.chdir(repoDir);
         } else {
             console.log('📦 克隆项目...');
-            if (!runCommand('git clone https://github.com/ptreezh/dnaSpec.git .', '克隆项目')) {
+
+            // 尝试多个源和备用源
+            const gitUrls = [
+                'https://github.com/ptreezh/dnaSpec.git',
+                'https://gitclone.com/github.com/ptreezh/dnaSpec.git',  // 备用镜像
+                'https://hub.fastgit.xyz/ptreezh/dnaSpec.git'          // 备用镜像
+            ];
+
+            let cloneSuccess = false;
+
+            for (let i = 0; i < gitUrls.length; i++) {
+                const url = gitUrls[i];
+                console.log(`尝试源 ${i+1}/${gitUrls.length}: ${url}`);
+
+                try {
+                    // 确保当前在临时目录中
+                    process.chdir(path.join(initialDir, tempDir));
+
+                    if (i > 0) {
+                        // 如果第一次失败，清空当前目录以便尝试下一个源
+                        if (fs.readdirSync('.').length > 0) {
+                            fs.rmSync('.', { recursive: true, force: true });
+                        }
+                    }
+
+                    // 重新创建并进入repo目录
+                    if (!fs.existsSync('.')) {
+                        fs.mkdirSync('.');
+                    }
+
+                    const result = spawnSync('git', ['clone', url, '.'], {
+                        stdio: 'inherit',
+                        encoding: 'utf-8',
+                        timeout: 120000  // 2分钟超时
+                    });
+
+                    if (result.status === 0) {
+                        cloneSuccess = true;
+                        break;
+                    } else {
+                        console.log(`源 ${i+1} 克隆失败，尝试下一个...`);
+                    }
+                } catch (error) {
+                    console.log(`源 ${i+1} 克隆出错: ${error.message}，尝试下一个...`);
+                }
+            }
+
+            if (!cloneSuccess) {
+                console.error('❌ 所有源都无法克隆项目');
                 process.chdir(initialDir);
                 fs.rmSync(tempDir, { recursive: true, force: true });
                 process.exit(1);
+            }
+
+            // 确保已进入克隆的项目目录
+            if (!fs.existsSync('package.json') || !fs.existsSync('src')) {
+                process.chdir(path.join(initialDir, tempDir, 'dnaSpec'));
             }
         }
 
