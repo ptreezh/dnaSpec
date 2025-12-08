@@ -1,6 +1,6 @@
 """
-CLI检测器模块
-负责检测系统中安装的AI CLI工具
+CLI Detection Module
+Responsible for detecting installed AI CLI tools in the system
 """
 import subprocess
 import os
@@ -11,10 +11,10 @@ import platform
 
 class CliDetector:
     """
-    AI CLI工具检测器
-    检测系统中安装的各种AI CLI工具
+    AI CLI Tool Detector
+    Detects various AI CLI tools installed in the system
     """
-    
+
     def __init__(self):
         self.detectors = {
             'claude': self.detect_claude,
@@ -23,27 +23,27 @@ class CliDetector:
             'copilot': self.detect_copilot,
             'cursor': self.detect_cursor
         }
-    
+
     def detect_claude(self) -> Dict[str, Any]:
         """
-        检测Claude CLI是否安装
+        Detect if Claude CLI is installed
 
         Returns:
-            检测结果字典
+            Detection result dictionary
         """
         try:
-            # 使用命令名称直接执行，这样可以在Windows上正确处理.cmd脚本
+            # Run command name directly, this handles .cmd scripts on Windows properly
             result = subprocess.run(
                 ['claude', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=15,  # 增加超时时间以防万一
-                shell=(platform.system() == 'Windows')  # Windows上使用shell执行脚本
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                # 如果成功执行，再用shutil.which获取安装路径
+                # If execution succeeds, get installation path with shutil.which
                 install_path = shutil.which('claude')
 
                 return {
@@ -67,27 +67,27 @@ class CliDetector:
                 'installed': False,
                 'error': str(e)
             }
-    
+
     def detect_gemini(self) -> Dict[str, Any]:
         """
-        检测Gemini CLI是否安装
+        Detect if Gemini CLI is installed
 
         Returns:
-            检测结果字典
+            Detection result dictionary
         """
         try:
-            # 使用命令名称直接执行，这样可以在Windows上正确处理.cmd脚本
+            # Run command name directly, this handles .cmd scripts on Windows properly
             result = subprocess.run(
                 ['gemini', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=15,  # 增加超时时间以防万一
-                shell=(platform.system() == 'Windows')  # Windows上使用shell执行脚本
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                # 如果成功执行，再用shutil.which获取安装路径
+                # If execution succeeds, get installation path with shutil.which
                 install_path = shutil.which('gemini')
 
                 return {
@@ -111,27 +111,27 @@ class CliDetector:
                 'installed': False,
                 'error': str(e)
             }
-    
+
     def detect_qwen(self) -> Dict[str, Any]:
         """
-        检测Qwen CLI是否安装
+        Detect if Qwen CLI is installed
 
         Returns:
-            检测结果字典
+            Detection result dictionary
         """
         try:
-            # 使用命令名称直接执行，这样可以在Windows上正确处理.cmd脚本
+            # Run command name directly, this handles .cmd scripts on Windows properly
             result = subprocess.run(
                 ['qwen', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=15,  # 增加超时时间以防万一
-                shell=(platform.system() == 'Windows')  # Windows上使用shell执行脚本
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                # 如果成功执行，再用shutil.which获取安装路径
+                # If execution succeeds, get installation path with shutil.which
                 install_path = shutil.which('qwen')
 
                 return {
@@ -155,27 +155,27 @@ class CliDetector:
                 'installed': False,
                 'error': str(e)
             }
-    
+
     def detect_copilot(self) -> Dict[str, Any]:
         """
-        检测Copilot CLI是否安装
+        Detect if Copilot CLI is installed
 
         Returns:
-            检测结果字典
+            Detection result dictionary
         """
         try:
-            # 使用命令名称直接执行，这样可以在Windows上正确处理.cmd脚本
+            # GitHub Copilot runs as an extension to GitHub CLI (gh)
             result = subprocess.run(
                 ['gh', 'copilot', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=15,  # 增加超时时间以防万一
-                shell=(platform.system() == 'Windows')  # Windows上使用shell执行脚本
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                # 如果成功执行，再用shutil.which获取安装路径
+                # If execution succeeds, get installation path with shutil.which
                 install_path = shutil.which('gh')
 
                 return {
@@ -185,28 +185,24 @@ class CliDetector:
                     'configPath': self._get_copilot_config_path()
                 }
             else:
-                # 检查copilot扩展是否已安装
-                check_result = subprocess.run(
-                    ['gh', 'extension', 'list'],
+                # Check if GitHub CLI is installed but Copilot extension isn't
+                gh_result = subprocess.run(
+                    ['gh', '--version'],
                     capture_output=True,
                     text=True,
                     timeout=10,
                     shell=(platform.system() == 'Windows')
                 )
-
-                if 'copilot' in check_result.stdout.lower():
-                    # copilot扩展已安装但版本命令可能不工作
-                    install_path = shutil.which('gh')  # 获取gh的路径
+                
+                if gh_result.returncode == 0:
                     return {
-                        'installed': True,
-                        'version': 'copilot extension detected',
-                        'installPath': install_path,
-                        'configPath': self._get_copilot_config_path()
+                        'installed': False,
+                        'error': 'GitHub CLI installed but Copilot extension not found'
                     }
                 else:
                     return {
                         'installed': False,
-                        'error': 'Copilot extension not installed for GitHub CLI'
+                        'error': 'GitHub CLI with Copilot extension not found'
                     }
         except (subprocess.TimeoutExpired, FileNotFoundError):
             return {
@@ -218,28 +214,26 @@ class CliDetector:
                 'installed': False,
                 'error': str(e)
             }
-    
+
     def detect_cursor(self) -> Dict[str, Any]:
         """
-        检测Cursor CLI是否安装
+        Detect if Cursor is installed
 
         Returns:
-            检测结果字典
+            Detection result dictionary
         """
         try:
-            # 使用命令名称直接执行，这样可以在Windows上正确处理.cmd脚本
-            # 首先尝试主要命令
+            # Cursor may not have command line version, check if related commands exist
             result = subprocess.run(
                 ['cursor', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=15,  # 增加超时时间以防万一
-                shell=(platform.system() == 'Windows')  # Windows上使用shell执行脚本
+                timeout=15,  # Increase timeout to avoid timeout issues
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle scripts
             )
 
             if result.returncode == 0:
                 version = result.stdout.strip()
-                # 如果成功执行，再用shutil.which获取安装路径
                 install_path = shutil.which('cursor')
 
                 return {
@@ -249,38 +243,31 @@ class CliDetector:
                     'configPath': self._get_cursor_config_path()
                 }
             else:
-                # 尝试--help命令作为备选
-                help_result = subprocess.run(
-                    ['cursor', '--help'],
-                    capture_output=True,
-                    text=True,
-                    timeout=10,
-                    shell=(platform.system() == 'Windows')
-                )
-                if help_result.returncode == 0:
-                    install_path = shutil.which('cursor')
-                    return {
-                        'installed': True,
-                        'version': 'available (version check failed)',
-                        'installPath': install_path,
-                        'configPath': self._get_cursor_config_path()
-                    }
-                else:
-                    # 检查是否存在cursor命令
-                    cursor_path = shutil.which('cursor')
-                    if cursor_path:
-                        return {
-                            'installed': True,  # 可执行文件存在，但版本命令可能不支持
-                            'version': 'executable found but no version info',
-                            'installPath': cursor_path,
-                            'configPath': self._get_cursor_config_path(),
-                            'note': 'Cursor executable exists but may not support --version flag'
-                        }
-                    else:
-                        return {
-                            'installed': False,
-                            'error': 'Cursor CLI not found in system PATH'
-                        }
+                # Try other possible commands
+                for cmd in ['cursor', 'cursor-cli']:
+                    try:
+                        result = subprocess.run(
+                            [cmd, '--help'],
+                            capture_output=True,
+                            text=True,
+                            timeout=5,
+                            shell=(platform.system() == 'Windows')
+                        )
+                        if result.returncode == 0:
+                            install_path = shutil.which(cmd)
+                            return {
+                                'installed': True,
+                                'version': 'Unknown',
+                                'installPath': install_path,
+                                'configPath': self._get_cursor_config_path()
+                            }
+                    except FileNotFoundError:
+                        continue
+
+                return {
+                    'installed': False,
+                    'error': result.stderr.strip() if result.stderr else 'Unknown error'
+                }
         except (subprocess.TimeoutExpired, FileNotFoundError):
             return {
                 'installed': False,
@@ -291,16 +278,16 @@ class CliDetector:
                 'installed': False,
                 'error': str(e)
             }
-    
+
     def detect_all(self) -> Dict[str, Any]:
         """
-        检测所有支持的CLI工具
-        
+        Detect all supported CLI tools
+
         Returns:
-            所有检测结果字典
+            All detection results dictionary
         """
         results = {}
-        
+
         for name, detector in self.detectors.items():
             try:
                 results[name] = detector()
@@ -309,90 +296,91 @@ class CliDetector:
                     'installed': False,
                     'error': str(e)
                 }
-        
+
         return results
-    
+
     def _get_install_path(self, cli_name: str) -> Optional[str]:
         """
-        获取CLI工具的安装路径
-        
+        Get installation path of CLI tool
+
         Args:
-            cli_name: CLI工具名称
-            
+            cli_name: Name of CLI tool
+
         Returns:
-            安装路径或None
+            Installation path or None
         """
         try:
             result = subprocess.run(
-                ['where' if platform.system() == 'Windows' else 'which', cli_name], 
-                capture_output=True, 
-                text=True, 
-                timeout=5
+                ['where' if platform.system() == 'Windows' else 'which', cli_name],
+                capture_output=True,
+                text=True,
+                timeout=5,
+                shell=(platform.system() == 'Windows')  # Use shell on Windows to handle 'where' command
             )
             if result.returncode == 0:
-                return result.stdout.strip().split('\n')[0]  # 取第一个路径
+                return result.stdout.strip().split('\n')[0]  # Take first path
             return None
         except:
             return None
-    
+
     def _get_claude_config_path(self) -> str:
         """
-        获取Claude配置路径
-        
+        Get Claude configuration path
+
         Returns:
-            配置路径字符串
+            Configuration path string
         """
         home = os.path.expanduser("~")
         if platform.system() == "Windows":
             return os.path.join(home, ".config", "claude", "skills")
         else:
             return os.path.join(home, ".config", "claude", "skills")
-    
+
     def _get_gemini_config_path(self) -> str:
         """
-        获取Gemini配置路径
-        
+        Get Gemini configuration path
+
         Returns:
-            配置路径字符串
+            Configuration path string
         """
         home = os.path.expanduser("~")
         if platform.system() == "Windows":
             return os.path.join(home, ".local", "share", "gemini", "extensions")
         else:
             return os.path.join(home, ".local", "share", "gemini", "extensions")
-    
+
     def _get_qwen_config_path(self) -> str:
         """
-        获取Qwen配置路径
-        
+        Get Qwen configuration path
+
         Returns:
-            配置路径字符串
+            Configuration path string
         """
         home = os.path.expanduser("~")
         if platform.system() == "Windows":
             return os.path.join(home, ".qwen", "plugins")
         else:
             return os.path.join(home, ".qwen", "plugins")
-    
+
     def _get_copilot_config_path(self) -> str:
         """
-        获取Copilot配置路径
-        
+        Get Copilot configuration path
+
         Returns:
-            配置路径字符串
+            Configuration path string
         """
         home = os.path.expanduser("~")
         if platform.system() == "Windows":
             return os.path.join(home, ".config", "gh-copilot")
         else:
             return os.path.join(home, ".config", "gh-copilot")
-    
+
     def _get_cursor_config_path(self) -> str:
         """
-        获取Cursor配置路径
-        
+        Get Cursor configuration path
+
         Returns:
-            配置路径字符串
+            Configuration path string
         """
         home = os.path.expanduser("~")
         if platform.system() == "Windows":
