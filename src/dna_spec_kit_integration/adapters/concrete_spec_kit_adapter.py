@@ -2,9 +2,9 @@
 spec.kit适配器具体实现
 集成DNASPEC Context Engineering Skills
 """
-from src.dnaspec_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
+from src.dna_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
 from typing import Dict, Any
-from src.dnaspec_context_engineering.skills_system_final import (
+from src.dna_context_engineering.skills_system_final import (
     ContextAnalysisSkill,
     ContextOptimizationSkill,
     CognitiveTemplateSkill
