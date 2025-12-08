@@ -75,7 +75,7 @@ function installAndConfigure() {
             description = '安装和配置';
             break;
         case 'deploy':
-            pythonScript = 'src/dsgs_spec_kit_integration/cli.py';
+            pythonScript = 'deploy_cli.py';
             description = '部署技能';
             break;
         case 'integrate':
