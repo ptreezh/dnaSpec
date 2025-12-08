@@ -74,7 +74,7 @@ function installAndConfigure() {
 
     let projectDir = initialDir;
 
-    // 根据命令决定执行的Python脚本（现在projectDir已定义）
+    // 根据命令决定执行的Python脚本
     let pythonScript;
     let description;
 
