@@ -45,9 +45,9 @@ def main():
         try:
             from src.dna_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
             deployer = RealSkillDeployer()
-            results = deployer.install_skills_to_all_platforms()
+            results = deployer.deploy_skills_to_all_platforms()
             
-            print(f"Deployment completed: {results['installed_count']}/{results['target_count']} platforms")
+            print(f"Deployment completed: {results['successful_deployments']}/{results['total_installed_platforms']} platforms")
             
         except ImportError as e:
             print(f"❌ Deployment system import failed: {e}")
