@@ -5,7 +5,7 @@ DNASPEC Context Engineering Skills - 英文版实现
 import json
 import re
 from typing import Dict, Any
-from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
+from src.dna_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 
 
 def simulate_ai_completion(instruction: str) -> str:
@@ -344,7 +344,7 @@ def execute(args: Dict[str, Any]) -> str:
     Execute function - Interface integrated with AI CLI platforms
     """
     import json
-    from src.dnaspec_spec_kit_integration.core.skill import SkillResult, SkillStatus
+    from src.dna_spec_kit_integration.core.skill import SkillResult, SkillStatus
     
     skill_name = args.get('skill', 'context-analysis')
     context_input = args.get('context', '') or args.get('request', '')
