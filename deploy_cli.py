@@ -1,81 +1,62 @@
-#!/usr/bin/env python3
 """
-DNASPEC技能部署器 - 独立的部署接口
-用于在AI CLI工具中部署技能
+DSGS Context Engineering Skills - 部署CLI工具
+为AI CLI环境提供独立的部署功能
 """
 import sys
 import os
-import argparse
+import platform
 from typing import Dict, Any
 
-# 添加项目路径
+# 确保模块路径正确
 script_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.dirname(script_dir)
+project_root = os.path.dirname(os.path.dirname(script_dir))
 sys.path.insert(0, project_root)
 
-# 导入DNASPEC技能部署器
-from src.dnaspec_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
-
-
 def main():
-    """主函数 - 部署器入口"""
-    print("🚀 DNASPEC Skills Deployment System - 独立部署接口")
+    print("🚀 DSGS Skills Deployment System - 独立部署接口")
     print("=" * 60)
     
+    # 确保在正确的环境中
+    import argparse
     parser = argparse.ArgumentParser(description='DNASPEC Skills Deployment System')
     parser.add_argument('--list', action='store_true', help='List available platforms')
-    parser.add_argument('--platform', help='Specific platform to deploy to')
+    parser.add_argument('--platform', help='Target platform for deployment')
     parser.add_argument('--force', action='store_true', help='Force redeployment')
-
+    
     args = parser.parse_args()
 
-    try:
-        deployer = RealSkillDeployer()
-        
-        if args.list:
-            print('Available AI CLI Platforms:')
-            for platform_name, path in deployer.extension_paths.items():
-                exists = '✅' if os.path.exists(path) else '❌'
-                print(f'  {exists} {platform_name}: {path}')
-                
-        elif args.platform:
-            print(f'Integrating DNASPEC skills to {args.platform}...')
-            from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
+    if args.list:
+        print('Available AI CLI Platforms:')
+        # 检测AI工具
+        try:
+            from src.dsgs_spec_kit_integration.core.cli_detector import CliDetector
             detector = CliDetector()
-            detected_tools = detector.detect_all()
-            tool_info = detected_tools.get(args.platform, {})
+            results = detector.detect_all()
             
-            result = deployer.deploy_skills_to_platform(args.platform, tool_info)
-            if result['success']:
-                print(f'✅ Successfully deployed to {args.platform}')
-                print(f'Message: {result.get("message", "Deployment completed")}')
-                if result.get('deployed_skills'):
-                    print(f'Deployed: {result["deployed_skills"]}')
-            else:
-                print(f'❌ Failed to deploy to {args.platform}')
-                print(f'Error: {result.get("error", "Unknown error")}')
+            for platform_name, result in results.items():
+                status = "✅" if result.get('installed', False) else "❌"
+                print(f"  {status} {platform_name}: {result.get('version', 'Not installed')}")
                 
-        else:
-            print('Deploying DNASPEC skills to all detected AI CLI platforms...')
-            results = deployer.deploy_skills_to_all_platforms()
-            print(f'✅ Deployment completed!')
-            print(f'Successfully deployed to {results["successful_deployments"]}/{results["total_installed_platforms"]} platforms')
-            for platform_name, result in results['deployment_results'].items():
-                status = '✅' if result.get('success', False) else '❌'  
-                message = result.get('message', result.get('error', 'Unknown'))
-                print(f'  {status} {platform_name}: {message[:50]}...')
-
-    except ImportError as e:
-        print(f'❌ Failed to import deployment module: {e}')
-        print('Deployment module not found in current environment')
-        print('This may happen if the package is not properly installed')
-        sys.exit(1)
-    except Exception as e:
-        print(f'❌ Deployment failed: {e}')
-        import traceback
-        traceback.print_exc()
-        sys.exit(1)
-
+        except ImportError as e:
+            print(f"❌ CLI Detector import failed: {e}")
+            print("Available platforms: [Unable to detect - please check installation]")
+    else:
+        print('Deploying DSGS skills to all detected AI CLI platforms...')
+        try:
+            from src.dsgs_spec_kit_integration.core.real_skill_deployer import RealSkillDeployer
+            deployer = RealSkillDeployer()
+            results = deployer.install_skills_to_all_platforms()
+            
+            print(f"Deployment completed: {results['installed_count']}/{results['target_count']} platforms")
+            
+        except ImportError as e:
+            print(f"❌ Deployment system import failed: {e}")
+            print("This may be due to incorrect installation or module paths.")
+            
+            # 提供修复建议
+            print("\\n💡 Suggested fix: Check module installation with:")
+            print("   python -c \"import src.dsgs_spec_kit_integration.core.cli_detector\"")
+            print("   If this fails, reinstall with: pip install -e .")
 
 if __name__ == "__main__":
     main()
