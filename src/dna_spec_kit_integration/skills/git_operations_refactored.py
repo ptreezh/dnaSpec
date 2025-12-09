@@ -28,12 +28,14 @@ class GitOperationsSkill(BaseSkill):
         remote = options.get("remote", "origin")
         files = options.get("files", ".")
         
+        # 如果没有指定操作，返回错误信息
         if not operation:
             return {
                 "success": False,
                 "error": "未指定Git操作",
                 "operation": operation,
-                "repository_path": repository_path
+                "repository_path": repository_path,
+                "result": "错误: 未指定Git操作"
             }
         
         try:
@@ -101,6 +103,7 @@ class GitOperationsSkill(BaseSkill):
             os.chdir(original_dir)
             
             return {
+                "success": True,
                 "operation": operation,
                 "repository_path": repository_path,
                 "result": result,
@@ -110,6 +113,7 @@ class GitOperationsSkill(BaseSkill):
         except Exception as e:
             os.chdir(original_dir)
             return {
+                "success": False,
                 "operation": operation,
                 "repository_path": repository_path,
                 "result": f"Git操作失败: {str(e)}",
@@ -137,7 +141,7 @@ class GitOperationsSkill(BaseSkill):
             detailed_info = {
                 "command_executed": result_data.get("command_executed", ""),
                 "execution_details": {
-                    "has_error": "error" in result_data,
+                    "success": result_data.get("success", True),
                     "error_message": result_data.get("error", "")
                 }
             }
