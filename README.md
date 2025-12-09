@@ -210,11 +210,11 @@ python run_auto_config.py
 
 ### Python API使用
 ```python
-from src.dnaspec_context_engineering.skills_system_clean import ContextAnalysisSkill
+from src.dna_context_engineering.skills_system_final import ContextAnalysisSkill
 
 # 使用上下文分析技能
 skill = ContextAnalysisSkill()
-result = skill.execute_with_ai("设计一个用户认证系统", {})
+result = skill.process_request("设计一个用户认证系统", {})
 print(result)
 ```
 

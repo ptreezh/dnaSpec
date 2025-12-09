@@ -7,17 +7,17 @@ import tempfile
 import os
 from pathlib import Path
 
-from src.dnaspec_spec_kit_integration.core.command_parser import CommandParser
-from src.dnaspec_spec_kit_integration.core.skill_mapper import SkillMapper
-from src.dnaspec_spec_kit_integration.core.python_bridge import PythonBridge
-from src.dnaspec_spec_kit_integration.core.skill_executor import SkillExecutor
-from src.dnaspec_spec_kit_integration.core.command_handler import CommandHandler
-from src.dnaspec_spec_kit_integration.core.interactive_shell import InteractiveShell
-from src.dnaspec_spec_kit_integration.core.cli_detector import CliDetector
-from src.dnaspec_spec_kit_integration.core.config_generator import ConfigGenerator
-from src.dnaspec_spec_kit_integration.core.integration_validator import IntegrationValidator
-from src.dnaspec_spec_kit_integration.core.auto_configurator import AutoConfigurator
-from src.dnaspec_spec_kit_integration.core.platform_utils import PlatformUtils
+from src.dna_spec_kit_integration.core.command_parser import CommandParser
+from src.dna_spec_kit_integration.core.skill_mapper import SkillMapper
+from src.dna_spec_kit_integration.core.python_bridge import PythonBridge
+from src.dna_spec_kit_integration.core.skill_executor import SkillExecutor
+from src.dna_spec_kit_integration.core.command_handler import CommandHandler
+from src.dna_spec_kit_integration.core.interactive_shell import InteractiveShell
+from src.dna_spec_kit_integration.core.cli_detector import CliDetector
+from src.dna_spec_kit_integration.core.config_generator import ConfigGenerator
+from src.dna_spec_kit_integration.core.integration_validator import IntegrationValidator
+from src.dna_spec_kit_integration.core.auto_configurator import AutoConfigurator
+from src.dna_spec_kit_integration.core.platform_utils import PlatformUtils
 
 
 class TestDNASPECIntegration(unittest.TestCase):

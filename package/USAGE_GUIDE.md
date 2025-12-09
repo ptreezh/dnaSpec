@@ -64,7 +64,7 @@ python run_auto_config.py
 您也可以在Python代码中直接使用这些技能：
 
 ```python
-from src.dnaspec_context_engineering.skills_system_clean import (
+from src.dna_context_engineering.skills_system_final import (
     ContextAnalysisSkill, 
     ContextOptimizationSkill, 
     CognitiveTemplateSkill
@@ -72,12 +72,12 @@ from src.dnaspec_context_engineering.skills_system_clean import (
 
 # 上下文分析
 skill = ContextAnalysisSkill()
-result = skill.execute_with_ai("设计一个用户认证系统", {})
+result = skill.process_request("设计一个用户认证系统", {})
 print(result)
 
 # 上下文优化
 optimizer = ContextOptimizationSkill()
-result = optimizer.execute_with_ai("优化这个需求描述", {
+result = optimizer.process_request("优化这个需求描述", {
     "optimization_goals": ["clarity", "completeness"]
 })
 print(result)

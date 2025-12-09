@@ -4,9 +4,7 @@ System Components for DNASPEC Context Engineering Skills
 """
 from typing import Dict, Any, List
 from .core_skill import ContextEngineeringSkill, SkillResult, SkillsManager
-from .skills.context_analysis import ContextAnalysisSkill
-from .skills.context_optimization import ContextOptimizationSkill  
-from .skills.cognitive_template import CognitiveTemplateSkill
+from .skills_system_final import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
 from .ai_client import AIModelClient, create_ai_client
 from .instruction_template import TemplateRegistry
 

@@ -285,19 +285,19 @@ class DNASPECContextSkillsUpdater:
         """检查单个组件"""
         try:
             if component_name == "Context Analysis Skill":
-                from src.dnaspec_context_engineering.skills_system_real import ContextAnalysisSkill
+                from src.dna_context_engineering.skills_system_final import ContextAnalysisSkill
                 skill = ContextAnalysisSkill()
-                result = skill.execute_with_ai("test context", {})
+                result = skill.process_request("test context", {})
                 return "healthy" if result['success'] else "unhealthy"
             elif component_name == "Context Optimization Skill":
-                from src.dnaspec_context_engineering.skills_system_real import ContextOptimizationSkill
+                from src.dna_context_engineering.skills_system_final import ContextOptimizationSkill
                 skill = ContextOptimizationSkill()
-                result = skill.execute_with_ai("test", {})
+                result = skill.process_request("test", {})
                 return "healthy" if result['success'] else "unhealthy"
             elif component_name == "Cognitive Template Skill":
-                from src.dnaspec_context_engineering.skills_system_real import CognitiveTemplateSkill
+                from src.dna_context_engineering.skills_system_final import CognitiveTemplateSkill
                 skill = CognitiveTemplateSkill()
-                result = skill.execute_with_ai("test", {})
+                result = skill.process_request("test", {})
                 return "healthy" if result['success'] else "unhealthy"
             else:
                 return "unknown"

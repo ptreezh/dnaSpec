@@ -21,7 +21,7 @@ class PythonBridge:
         Args:
             skills_base_path: 技能模块的基础路径
         """
-        self.skills_base_path = skills_base_path or "src.dnaspec_spec_kit_integration.skills"
+        self.skills_base_path = skills_base_path or "src.dna_spec_kit_integration.skills"
         self._imported_modules = {}
     
     def execute_skill(self, skill_name: str, params: str) -> Dict[str, Any]:

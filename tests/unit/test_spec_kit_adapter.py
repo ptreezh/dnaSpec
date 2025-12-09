@@ -9,7 +9,7 @@ from unittest.mock import Mock, patch
 # 添加项目根目录到Python路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
-from src.dnaspec_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
+from src.dna_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
 
 
 # 定义测试用的SpecKitAdapter实现

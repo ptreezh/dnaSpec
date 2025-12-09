@@ -11,6 +11,10 @@ from . import examples
 from .context_analysis import execute as context_analysis_execute
 from .context_optimization import execute as context_optimization_execute
 from .cognitive_template import execute as cognitive_template_execute
+from .git_operations import execute as git_operations_execute
+from .temp_workspace import execute as temp_workspace_execute
+from .system_architect import execute as system_architect_execute
+from .progressive_disclosure import execute as progressive_disclosure_execute
 
 __all__ = [
     'architect',
@@ -19,7 +23,11 @@ __all__ = [
     # 上下文工程技能函数接口
     'context_analysis_execute',
     'context_optimization_execute',
-    'cognitive_template_execute'
+    'cognitive_template_execute',
+    'git_operations_execute',
+    'temp_workspace_execute',
+    'system_architect_execute',
+    'progressive_disclosure_execute'
 ]
 
 # 为CLI命令提供统一访问接口
@@ -28,7 +36,11 @@ SKILL_FUNCTIONS = {
     'liveness': liveness.execute,
     'context-analysis': context_analysis_execute,
     'context-optimization': context_optimization_execute,
-    'cognitive-template': cognitive_template_execute
+    'cognitive-template': cognitive_template_execute,
+    'git-operations': git_operations_execute,
+    'temp-workspace': temp_workspace_execute,
+    'system-architect': system_architect_execute,
+    'progressive-disclosure': progressive_disclosure_execute
 }
 
 

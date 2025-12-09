@@ -1,12 +1,12 @@
 # tests/test_cognitive_template_skill.py
 import pytest
-from src.dnaspec_spec_kit_integration.core.skill import SkillStatus
+from src.dna_spec_kit_integration.core.skill import SkillStatus
 
 
 def test_cognitive_template_skill_inheritance():
     """RED: Test CognitiveTemplateSkill inherits from DNASpecSkill"""
-    from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
-    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
+    from src.dna_context_engineering.skills_system_final import CognitiveTemplateSkill
+    from src.dna_spec_kit_integration.core.skill import DNASpecSkill
     
     skill = CognitiveTemplateSkill()
     assert isinstance(skill, DNASpecSkill)
@@ -14,7 +14,7 @@ def test_cognitive_template_skill_inheritance():
 
 def test_cognitive_template_basic_functionality():
     """RED: Test basic template functionality"""
-    from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
+    from src.dna_context_engineering.skills_system_final import CognitiveTemplateSkill
     
     skill = CognitiveTemplateSkill()
     context = "How to improve system performance?"
@@ -22,13 +22,13 @@ def test_cognitive_template_basic_functionality():
     
     assert result.status == SkillStatus.COMPLETED
     assert 'enhanced_context' in result.result
-    assert 'structure' in result.result
+    assert 'template_structure' in result.result
     assert result.result['success'] is True
 
 
 def test_cognitive_template_chain_of_thought():
     """RED: Test chain of thought template"""
-    from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
+    from src.dna_context_engineering.skills_system_final import CognitiveTemplateSkill
     
     skill = CognitiveTemplateSkill()
     context = "Solve this problem."
@@ -41,7 +41,7 @@ def test_cognitive_template_chain_of_thought():
 
 def test_cognitive_template_few_shot():
     """RED: Test few shot template"""
-    from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
+    from src.dna_context_engineering.skills_system_final import CognitiveTemplateSkill
     
     skill = CognitiveTemplateSkill()
     context = "Classify this."
@@ -54,7 +54,7 @@ def test_cognitive_template_few_shot():
 
 def test_cognitive_template_verification():
     """RED: Test verification template"""
-    from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
+    from src.dna_context_engineering.skills_system_final import CognitiveTemplateSkill
     
     skill = CognitiveTemplateSkill()
     context = "Validate this claim."
@@ -67,7 +67,7 @@ def test_cognitive_template_verification():
 
 def test_cognitive_template_unknown_template():
     """RED: Test unknown template handling"""
-    from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
+    from src.dna_context_engineering.skills_system_final import CognitiveTemplateSkill
     
     skill = CognitiveTemplateSkill()
     context = "Test context"
@@ -80,7 +80,7 @@ def test_cognitive_template_unknown_template():
 
 def test_cognitive_template_empty_context():
     """RED: Test template with empty context"""
-    from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
+    from src.dna_context_engineering.skills_system_final import CognitiveTemplateSkill
     
     skill = CognitiveTemplateSkill()
     result = skill.process_request("", {'template': 'chain_of_thought'})

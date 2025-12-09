@@ -1,12 +1,12 @@
 # tests/test_context_optimization_skill.py
 import pytest
-from src.dnaspec_spec_kit_integration.core.skill import SkillStatus
+from src.dna_spec_kit_integration.core.skill import SkillStatus
 
 
 def test_context_optimization_skill_inheritance():
     """RED: Test ContextOptimizationSkill inherits from DNASpecSkill"""
-    from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
-    from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill
+    from src.dna_context_engineering.skills_system_final import ContextOptimizationSkill
+    from src.dna_spec_kit_integration.core.skill import DNASpecSkill
     
     skill = ContextOptimizationSkill()
     assert isinstance(skill, DNASpecSkill)
@@ -14,7 +14,7 @@ def test_context_optimization_skill_inheritance():
 
 def test_context_optimization_basic_functionality():
     """RED: Test basic optimization functionality"""
-    from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
+    from src.dna_context_engineering.skills_system_final import ContextOptimizationSkill
     
     skill = ContextOptimizationSkill()
     context = "Design a system. Maybe it should work well."
@@ -29,7 +29,7 @@ def test_context_optimization_basic_functionality():
 
 def test_context_optimization_clarity_goal():
     """RED: Test optimization with clarity goal"""
-    from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
+    from src.dna_context_engineering.skills_system_final import ContextOptimizationSkill
     
     skill = ContextOptimizationSkill()
     context = "Needs to do things in a way that might work."
@@ -41,7 +41,7 @@ def test_context_optimization_clarity_goal():
 
 def test_context_optimization_completeness_goal():
     """RED: Test optimization with completeness goal"""
-    from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
+    from src.dna_context_engineering.skills_system_final import ContextOptimizationSkill
     
     skill = ContextOptimizationSkill()
     context = "System required."
@@ -53,7 +53,7 @@ def test_context_optimization_completeness_goal():
 
 def test_context_optimization_multiple_goals():
     """RED: Test optimization with multiple goals"""
-    from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
+    from src.dna_context_engineering.skills_system_final import ContextOptimizationSkill
     
     skill = ContextOptimizationSkill()
     context = "System."
@@ -66,7 +66,7 @@ def test_context_optimization_multiple_goals():
 
 def test_context_optimization_empty_context():
     """RED: Test optimization with empty context"""
-    from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
+    from src.dna_context_engineering.skills_system_final import ContextOptimizationSkill
     
     skill = ContextOptimizationSkill()
     result = skill.process_request("", {})

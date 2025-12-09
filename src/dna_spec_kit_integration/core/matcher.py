@@ -21,7 +21,7 @@ class IntelligentMatcher:
     """智能匹配器"""
     
     def __init__(self):
-        self.match_threshold = 0.2  # 降低阈值以便测试
+        self.match_threshold = 0.3  # 匹配阈值
         self._skill_keywords = {}   # 技能关键词映射
         self._command_patterns = {} # 命令模式映射
     

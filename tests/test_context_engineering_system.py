@@ -3,7 +3,7 @@
 System-level integration tests for the Context Engineering Skills System
 """
 import pytest
-from src.dnaspec_spec_kit_integration.core.skill import SkillStatus
+from src.dna_spec_kit_integration.core.skill import SkillStatus
 from tests.conftest import (
     context_analysis_skill, context_optimization_skill, 
     cognitive_template_skill, context_engineering_system, skills_manager
@@ -52,7 +52,7 @@ def test_system_overall_integration(
 def test_skills_manager_integration(skills_manager):
     """Test Skills Manager can coordinate different skills"""
     # The manager itself would coordinate skills, for now just test instantiation
-    from src.context_engineering_skills.skills_manager import ContextEngineeringSkillsManager
+    from src.dna_context_engineering.skills_manager import ContextEngineeringSkillsManager
     assert isinstance(skills_manager, ContextEngineeringSkillsManager)
 
 

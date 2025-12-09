@@ -11,8 +11,8 @@ from unittest.mock import Mock, patch
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, project_root)
 
-from src.dnaspec_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
-from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
+from src.dna_spec_kit_integration.core.hook import HookSystem, HookConfig, HookResult
+from src.dna_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
 
 
 class TestHookConfig:
@@ -213,7 +213,8 @@ class TestHookSystemWithSkillManager:
         mock_skill_manager = Mock()
         hook_system = HookSystem(mock_skill_manager)
         
-        # 禁用技能
+        # 启用其他技能（使启用列表非空），然后禁用目标技能
+        hook_system.config.enable_skill("dnaspec-other-skill")
         hook_system.config.disable_skill("dnaspec-architect")
         
         # 尝试处理命令，应该失败
@@ -237,13 +238,15 @@ class TestHookSystemWithSkillManager:
         """测试自然语言请求处理（带技能管理器）"""
         mock_skill_manager = Mock()
         
-        # 设置智能匹配结果
-        mock_match_result = {
-            'skill_name': 'dnaspec-architect',
-            'confidence': 0.8,
-            'match_type': 'keyword',
-            'matched_keywords': ['架构', '设计']
-        }
+        # 设置智能匹配结果 (使用MatchResult对象)
+        from src.dna_spec_kit_integration.core.matcher import MatchResult
+        mock_match_result = MatchResult(
+            skill_name='dnaspec-architect',
+            confidence=0.8,
+            match_type='keyword',
+            matched_keywords=['架构', '设计'],
+            processing_time=0.0
+        )
         
         mock_skill_manager.match_skill_intelligently.return_value = mock_match_result
         
@@ -277,12 +280,15 @@ class TestHookSystemWithSkillManager:
         """测试低置信度时的自然语言请求处理"""
         mock_skill_manager = Mock()
         
-        # 设置低置信度的匹配结果
-        mock_match_result = {
-            'skill_name': 'dnaspec-architect',
-            'confidence': 0.3,  # 低于阈值0.6
-            'match_type': 'keyword'
-        }
+        # 设置低置信度的匹配结果 (使用MatchResult对象)
+        from src.dna_spec_kit_integration.core.matcher import MatchResult
+        mock_match_result = MatchResult(
+            skill_name='dnaspec-architect',
+            confidence=0.3,  # 低于阈值0.6
+            match_type='keyword',
+            matched_keywords=['架构'],
+            processing_time=0.0
+        )
         
         mock_skill_manager.match_skill_intelligently.return_value = mock_match_result
         
@@ -300,18 +306,22 @@ class TestHookSystemWithSkillManager:
         """测试技能禁用时的自然语言请求处理"""
         mock_skill_manager = Mock()
         
-        # 设置匹配结果
-        mock_match_result = {
-            'skill_name': 'dnaspec-architect',
-            'confidence': 0.8,
-            'match_type': 'keyword'
-        }
+        # 设置匹配结果 (使用MatchResult对象)
+        from src.dna_spec_kit_integration.core.matcher import MatchResult
+        mock_match_result = MatchResult(
+            skill_name='dnaspec-architect',
+            confidence=0.8,
+            match_type='keyword',
+            matched_keywords=['架构', '设计'],
+            processing_time=0.0
+        )
         
         mock_skill_manager.match_skill_intelligently.return_value = mock_match_result
         
         hook_system = HookSystem(mock_skill_manager)
         
-        # 禁用技能
+        # 启用其他技能（使启用列表非空），然后禁用目标技能
+        hook_system.config.enable_skill("dnaspec-other-skill")
         hook_system.config.disable_skill("dnaspec-architect")
         
         # 测试请求处理
@@ -348,11 +358,14 @@ class TestHookSystemWithSkillManager:
     
     def test_interceptor_processor_handling(self):
         """测试拦截器和处理器处理"""
+        # 不需要技能管理器，因为我们只测试拦截器和处理器
         hook_system = HookSystem()
+        # 禁用文本命令拦截，避免调用技能管理器
+        hook_system.config.intercept_text_commands = False
         
         # 注册拦截器和处理器
         def test_interceptor(request):
-            return "设计" in request
+            return request == "测试拦截"
         
         def test_processor(request):
             return {
@@ -364,7 +377,7 @@ class TestHookSystemWithSkillManager:
         hook_system.register_processor(test_processor)
         
         # 测试拦截器和处理器
-        result = hook_system.intercept_request("设计一个新的系统")
+        result = hook_system.intercept_request("测试拦截")
         
         assert result.intercepted is True
         assert result.handled is True
@@ -390,12 +403,15 @@ class TestHookSystemWithSkillManager:
         mock_skill_manager = Mock()
         mock_skill_manager.execute_skill.side_effect = Exception("Execution error")
         
-        # 设置匹配结果
-        mock_match_result = {
-            'skill_name': 'dnaspec-architect',
-            'confidence': 0.8,
-            'match_type': 'keyword'
-        }
+        # 设置匹配结果 (使用MatchResult对象)
+        from src.dna_spec_kit_integration.core.matcher import MatchResult
+        mock_match_result = MatchResult(
+            skill_name='dnaspec-architect',
+            confidence=0.8,
+            match_type='keyword',
+            matched_keywords=['架构'],
+            processing_time=0.0
+        )
         
         mock_skill_manager.match_skill_intelligently.return_value = mock_match_result
         

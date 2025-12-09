@@ -6,9 +6,7 @@ from .core_skill import ContextEngineeringSkill, SkillResult, SkillsManager
 from .ai_client import AIModelClient, create_ai_client
 from .instruction_template import TemplateRegistry
 from .system import ContextEngineeringSystem
-from .skills.context_analysis import ContextAnalysisSkill, execute as context_analysis_execute
-from .skills.context_optimization import ContextOptimizationSkill, execute as context_optimization_execute  
-from .skills.cognitive_template import CognitiveTemplateSkill, execute as cognitive_template_execute
+from .skills_system_final import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill, execute as context_analysis_execute, execute as context_optimization_execute, execute as cognitive_template_execute
 
 
 __version__ = "1.0.0"

@@ -3,12 +3,9 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
-from src.context_engineering_skills.context_analysis import ContextAnalysisSkill
-from src.context_engineering_skills.context_optimization import ContextOptimizationSkill
-from src.context_engineering_skills.cognitive_template import CognitiveTemplateSkill
-from src.context_engineering_skills.system import ContextEngineeringSystem
-from src.context_engineering_skills.skills_manager import ContextEngineeringSkillsManager
+from src.dna_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
+from src.dna_context_engineering.skills_system_final import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
+from src.dna_context_engineering.skills_manager import ContextEngineeringSkillsManager
 
 
 @pytest.fixture

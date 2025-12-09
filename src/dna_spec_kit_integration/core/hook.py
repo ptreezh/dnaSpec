@@ -48,7 +48,11 @@ class HookConfig:
     
     def is_skill_enabled(self, skill_name: str) -> bool:
         """检查技能是否启用"""
-        return not self.enabled_skills or skill_name in self.enabled_skills
+        # 如果启用技能列表为空，则所有技能都启用
+        if not self.enabled_skills:
+            return True
+        # 如果技能在启用列表中，则启用
+        return skill_name in self.enabled_skills
     
     def is_pattern_disabled(self, text: str) -> bool:
         """检查模式是否被禁用"""
@@ -218,34 +222,38 @@ class HookSystem:
             )
         
         # 检查置信度和技能启用状态
-        if match_result['confidence'] < self.config.auto_invoke_threshold:
+        if match_result.confidence < self.config.auto_invoke_threshold:
             return HookResult(
                 intercepted=True,
                 handled=False,
-                error_message=f"Confidence too low: {match_result['confidence']:.2f}"
+                error_message=f"Confidence too low: {match_result.confidence:.2f}"
             )
         
-        if not self.config.is_skill_enabled(match_result['skill_name']):
+        if not self.config.is_skill_enabled(match_result.skill_name):
             return HookResult(
                 intercepted=True,
                 handled=False,
-                error_message=f"Skill {match_result['skill_name']} is disabled"
+                error_message=f"Skill {match_result.skill_name} is disabled"
             )
         
         # 自动执行匹配的技能
         try:
             skill_result = self.skill_manager.execute_skill(
-                match_result['skill_name'], 
+                match_result.skill_name, 
                 request
             )
             
             return HookResult(
                 intercepted=True,
                 handled=True,
-                skill_name=match_result['skill_name'],
+                skill_name=match_result.skill_name,
                 skill_result={
                     'skill_result': skill_result,
-                    'match_info': match_result
+                    'match_info': {
+                        'skill_name': match_result.skill_name,
+                        'confidence': match_result.confidence,
+                        'match_type': match_result.match_type
+                    }
                 }
             )
         except Exception as e:
