@@ -1,0 +1,40 @@
+{
+  "openSource": true,
+  "repository": "https://github.com/ptreezh/dnaSpec",
+  "license": "MIT",
+  "author": {
+    "name": "pTree Dr.Zhang",
+    "organization": "AI Persona Lab 2025",
+    "website": "https://AgentPsy.com",
+    "contact": "3061176@qq.com"
+  },
+  "versions": {
+    "current": "1.0.2",
+    "released": "2025-01-07"
+  },
+  "compatibility": [
+    "Claude CLI",
+    "Qwen CLI", 
+    "Gemini CLI",
+    "Other AI CLI Platforms"
+  ],
+  "features": [
+    "Unified Skill Architecture",
+    "AI Safety Workflow",
+    "Flat Directory Structure", 
+    "Multilingual Support",
+    "Git Integration",
+    "Context Engineering"
+  ],
+  "tags": [
+    "ai",
+    "context-engineering",
+    "skills",
+    "open-source",
+    "claude",
+    "qwen", 
+    "gemini",
+    "development",
+    "assistant"
+  ]
+}

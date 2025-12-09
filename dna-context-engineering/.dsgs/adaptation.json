@@ -1,0 +1,61 @@
+{
+  "version": "1.0.0",
+  "supported_agents": [
+    "claude",
+    "gemini",
+    "qwen",
+    "copilot",
+    "cursor",
+    "windsurf",
+    "opencode",
+    "codex"
+  ],
+  "local_tools": {
+    "uv": false,
+    "specify": false,
+    "git": true
+  },
+  "deployment_targets": {
+    "local": true,
+    "pypi": false,
+    "docker": false
+  },
+  "system_status": {
+    "uv": {
+      "installed": true,
+      "version": "uv 0.9.3 (83635a6c4 2025-10-15)",
+      "path": "C:\\Users\\Zhang\\.local\\bin\\uv.EXE",
+      "can_install": false
+    },
+    "specify": {
+      "installed": false,
+      "version": null,
+      "path": null,
+      "can_install": false
+    },
+    "git": {
+      "installed": true,
+      "version": "git version 2.47.1.windows.2",
+      "path": "E:\\PortableGit\\bin\\git.EXE",
+      "repository": true,
+      "configured": true
+    },
+    "python": {
+      "version": "3.12.0rc3 (tags/v3.12.0rc3:b973ab3, Sep 19 2023, 09:39:54) [MSC v.1935 64 bit (AMD64)]",
+      "version_info": {
+        "major": 3,
+        "minor": 12,
+        "micro": 0
+      },
+      "path": "E:\\Python312\\python.exe",
+      "virtual_env": false,
+      "requirements_installed": true
+    }
+  },
+  "last_check": {
+    "total_checks": 3,
+    "passed_checks": 3,
+    "pass_rate": 100.0,
+    "adaptation_ready": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "image": "node:18",
+  "stages": [
+    "test",
+    "deploy"
+  ],
+  "cache": {
+    "paths": [
+      "node_modules/"
+    ]
+  },
+  "before_script": [
+    "npm ci"
+  ],
+  "contract-management": {
+    "stage": "test",
+    "script": [
+      "npm run contract:generate",
+      "npm run contract:validate",
+      "npm run contract:docs"
+    ],
+    "artifacts": {
+      "paths": [
+        "dist/contract.yaml",
+        "docs/contract/"
+      ]
+    }
+  }
+}
