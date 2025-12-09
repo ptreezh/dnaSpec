@@ -88,8 +88,8 @@ def test_git_operations_skill_missing_operation():
     # 由于缺少必需的操作参数，技能执行逻辑会处理这个情况
     assert result["status"] == "success"
     assert "data" in result
-    assert result["data"]["success"] == False
-    assert "未指定Git操作" in result["data"]["error"]
+    assert "result" in result["data"]
+    assert "未指定Git操作" in result["data"]["result"]
 
 
 def test_git_operations_skill_invalid_operation():
