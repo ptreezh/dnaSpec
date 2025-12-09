@@ -85,7 +85,8 @@ def test_git_operations_skill_missing_operation():
     
     result = skill.execute(args)
     
-    assert result["status"] == "success"  # 技能执行成功，但返回错误信息
+    # 由于缺少必需的操作参数，技能执行逻辑会处理这个情况
+    assert result["status"] == "success"
     assert "data" in result
     assert result["data"]["success"] == False
     assert "未指定Git操作" in result["data"]["error"]
