@@ -64,7 +64,7 @@ def _get_version() -> str:
     """
     获取版本信息
     """
-    return "DNASPEC Context Engineering Skills v1.0.4 - Dynamic Specification Growth System"
+    return "DNASPEC Context Engineering Skills v1.0.4 - DNA SPEC Context System"
 
 def _get_help() -> str:
     """

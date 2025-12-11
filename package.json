@@ -1,7 +1,7 @@
 {
   "name": "dnaspec",
   "version": "1.0.35",
-  "description": "Dynamic Specification Growth System - Context Engineering Skills for AI-assisted development",
+  "description": "DNA SPEC Context System - Context Engineering Skills for AI-assisted development",
   "homepage": "https://github.com/ptreezh/dnaSpec",
   "author": "pTree Dr.Zhang (AI Persona Lab 2025)",
   "maintainers": [
@@ -32,7 +32,7 @@
     "assistant",
     "installer",
     "dnaspec",
-    "dynamic-specification"
+    "dna-spec"
   ],
   "bin": {
     "dnaspec": "index.js",
@@ -63,5 +63,8 @@
     "src/**/*",
     "pyproject.toml",
     "*.md"
-  ]
+  ],
+  "dependencies": {
+    "stigmergy": "^1.1.6"
+  }
 }

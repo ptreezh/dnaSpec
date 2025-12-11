@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Dynamic Specification Growth System (dnaspec) - npm installation entry point
+ * DNA SPEC Context System (dnaspec) - npm installation entry point
  * Provides one-click installation and auto configuration functionality based on npm
  */
 
@@ -53,7 +53,7 @@ function checkDependencies() {
 }
 
 function installAndConfigure() {
-    console.log('🚀 Starting Dynamic Specification Growth System (dnaspec) installation and configuration...\n');
+    console.log('🚀 Starting DNA SPEC Context System (dnaspec) installation and configuration...\n');
 
     // Check dependencies
     if (!checkDependencies()) {

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Dynamic Specification Growth System (dnaspec) - npm安装入口点
+ * DNA SPEC Context System (dnaspec) - npm安装入口点
  * 提供基于npm的一键安装和自动配置功能
  */
 
@@ -183,7 +183,7 @@ function installAndConfigure() {
             description = 'Installation and Configuration';
     }
 
-    console.log(`🚀 Starting Dynamic Specification Growth System (dnaspec) ${description}...\n`);
+    console.log(`🚀 Starting DNA SPEC Context System (dnaspec) ${description}...\n`);
 
     // 检查依赖
     if (!checkDependencies()) {
@@ -305,7 +305,7 @@ function installAndConfigure() {
             console.log('\nDNASPEC Context Engineering Skills - POST-INSTALLATION GUIDE');
             console.log('='.repeat(80));
             console.log('');
-            console.log('Thank you for installing DNASPEC (Dynamic Specification Growth System)!');
+            console.log('Thank you for installing DNASPEC (DNA SPEC Context System)!');
             console.log('');
             console.log('DNASPEC is a professional context engineering toolkit that enhances your AI-assisted');
             console.log('development experience by providing advanced context analysis, optimization,');

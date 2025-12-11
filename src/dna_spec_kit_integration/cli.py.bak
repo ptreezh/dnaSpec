@@ -31,13 +31,13 @@ def main():
     CLI主函数
     """
     parser = argparse.ArgumentParser(
-        description='DNA SPEC Context System (dnaspec) - Context Engineering Skills',
+        description='Dynamic Specification Growth System (dnaspec) - Context Engineering Skills',
         prog='dnaspec'
     )
     parser.add_argument(
         '--version',
         action='version',
-        version='DNA SPEC Context System (dnaspec) 1.0.2'
+        version='Dynamic Specification Growth System (dnaspec) 1.0.2'
     )
     
     subparsers = parser.add_subparsers(dest='command', help='Available commands')

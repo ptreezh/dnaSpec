@@ -1,7 +1,7 @@
 [project]
 name = "dnaspec-context-engineering-skills"
 version = "1.0.2"
-description = "DNA SPEC Context System (dnaspec) - Context Engineering Enhancement Toolkit for AI CLI Platforms"
+description = "Dynamic Specification Growth System (dnaspec) - Context Engineering Enhancement Toolkit for AI CLI Platforms"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}

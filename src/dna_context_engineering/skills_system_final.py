@@ -518,6 +518,137 @@ def get_available_skills() -> Dict[str, str]:
     }
 
 
+def execute_context_analysis(context_input: str, params: Dict[str, Any] = None) -> str:
+    """
+    Execute context analysis skill independently
+    """
+    if params is None:
+        params = {}
+    
+    try:
+        skill = ContextAnalysisSkill()
+        result = skill.process_request(context_input, params)
+        
+        if result.status.name == 'COMPLETED':
+            analysis = result.result
+            if 'result' in analysis:
+                analysis_data = analysis['result']
+            else:
+                analysis_data = analysis
+            
+            output_lines = []
+            output_lines.append("Context Quality Analysis Results:")
+            output_lines.append(f"Length: {analysis_data['context_length']} characters")
+            output_lines.append(f"Token Estimate: {analysis_data['token_count_estimate']}")
+            output_lines.append("")
+            
+            output_lines.append("Five-Dimensional Quality Metrics (0.0-1.0):")
+            metric_names = {
+                'clarity': 'Clarity', 'relevance': 'Relevance', 'completeness': 'Completeness',
+                'consistency': 'Consistency', 'efficiency': 'Efficiency'
+            }
+            
+            for metric, score in analysis_data['metrics'].items():
+                indicator = "🟢" if score >= 0.7 else "🟡" if score >= 0.4 else "🔴"
+                output_lines.append(f"  {indicator} {metric_names.get(metric, metric)}: {score:.2f}")
+            
+            if analysis_data.get('suggestions'):
+                output_lines.append("\nOptimization Suggestions:")
+                for s in analysis_data['suggestions'][:3]:  # Show top 3 suggestions
+                    output_lines.append(f"  • {s}")
+            
+            if analysis_data.get('issues'):
+                output_lines.append("\nIdentified Issues:")
+                for i in analysis_data['issues']:
+                    output_lines.append(f"  • {i}")
+            
+            return "\n".join(output_lines)
+        else:
+            return f"Error: {result.error_message}"
+    except Exception as e:
+        return f"Error: Execution exception occurred - {str(e)}"
+
+
+def execute_context_optimization(context_input: str, params: Dict[str, Any] = None) -> str:
+    """
+    Execute context optimization skill independently
+    """
+    if params is None:
+        params = {}
+    
+    try:
+        skill = ContextOptimizationSkill()
+        result = skill.process_request(context_input, params)
+        
+        if result.status.name == 'COMPLETED':
+            optimization = result.result
+            if 'result' in optimization:
+                optimization_data = optimization['result']
+            else:
+                optimization_data = optimization
+            
+            output_lines = []
+            output_lines.append("Context Optimization Results:")
+            output_lines.append(f"Original Length: {len(optimization_data['original_context'])} characters")
+            output_lines.append(f"Optimized Length: {len(optimization_data['optimized_context'])} characters")
+            output_lines.append("")
+            
+            output_lines.append("Applied Optimizations:")
+            for opt in optimization_data['applied_optimizations']:
+                output_lines.append(f"  • {opt}")
+            
+            output_lines.append("\nImprovement Metrics:")
+            for metric, change in optimization_data['improvement_metrics'].items():
+                if change != 0:  # Only show metrics with changes
+                    direction = "↗️" if change > 0 else "↘️" if change < 0 else "➡️"
+                    output_lines.append(f"  {direction} {metric}: {change:+.2f}")
+            
+            output_lines.append("\nOptimized Context:")
+            output_lines.append(optimization_data['optimized_context'])
+            
+            return "\n".join(output_lines)
+        else:
+            return f"Error: {result.error_message}"
+    except Exception as e:
+        return f"Error: Execution exception occurred - {str(e)}"
+
+
+def execute_cognitive_template(context_input: str, params: Dict[str, Any] = None) -> str:
+    """
+    Execute cognitive template skill independently
+    """
+    if params is None:
+        params = {}
+    
+    try:
+        skill = CognitiveTemplateSkill()
+        result = skill.process_request(context_input, params)
+        
+        if result.status.name == 'COMPLETED' and result.result['result']['success']:
+            template_result = result.result['result']
+            output_lines = []
+            output_lines.append(f"Cognitive Template Application: {template_result['template_type']} ({template_result['template_description']})")
+            output_lines.append("="*60)
+            output_lines.append("")
+            output_lines.append("Structured Output:")
+            output_lines.append(template_result['enhanced_context'])
+            
+            return "\n".join(output_lines)
+        else:
+            error_msg = result.result['result'].get('error', 'Template application failed') if result.status.name == 'COMPLETED' else result.error_message
+            return f"Error: {error_msg}"
+    except Exception as e:
+        return f"Error: Execution exception occurred - {str(e)}"
+
+
+def execute_architect(context_input: str, params: Dict[str, Any] = None) -> str:
+    """
+    Execute architect skill independently
+    """
+    # 简单实现，返回模拟结果
+    return f"Architecture design for: {context_input}\n\n[System would generate detailed architecture diagram and specifications here]"
+
+
 # Additional advanced functionality
 
 def create_agent_for_context_analysis(goals: str, constraints: str) -> str:
