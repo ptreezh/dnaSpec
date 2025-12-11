@@ -1,6 +1,6 @@
 [project]
 name = "dnaspec-context-engineering-skills"
-version = "1.0.2"
+version = "1.0.3"
 description = "DNA SPEC Context System (dnaspec) - Context Engineering Enhancement Toolkit for AI CLI Platforms"
 readme = "README.md"
 requires-python = ">=3.8"
