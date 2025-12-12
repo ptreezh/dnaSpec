@@ -11,6 +11,8 @@ try:
     from .context_analysis_independent import execute_context_analysis
     from .simple_architect_independent import execute_simple_architect
     from .system_architect_independent import execute_system_architect
+    from .agent_creator_independent import execute_agent_creator
+    from .modulizer_independent import execute_modulizer
 except ImportError as e:
     print(f"Warning: Could not import some independent skills: {e}")
 
@@ -37,6 +39,10 @@ class DNASPECSkillExecutor:
             # 系统设计技能
             'architect': execute_system_architect,
             'simple-architect': execute_simple_architect,
+
+            # 专业技能
+            'agent-creator': execute_agent_creator,
+            'modulizer': execute_modulizer,
 
             # 使用命令映射器（Git和Workspace）
             'git': lambda args: command_mapper.execute_command(f"git {args.get('command', 'status')}"),
@@ -121,6 +127,8 @@ class DNASPECSkillExecutor:
             'architect': 'Design system architecture and components',
             'simple-architect': 'Simple architecture design for basic projects',
             'system-architect': 'Advanced system architecture with detailed design',
+            'agent-creator': 'Create specialized AI agents with defined capabilities',
+            'modulizer': 'Break down complex systems into modular components',
             'git': 'Execute Git workflow operations safely',
             'workspace': 'Manage AI-generated files in secure workspace'
         }
@@ -193,6 +201,30 @@ Examples:
   /dnaspec.git status
   /dnaspec.git commit "Fix authentication bug"
   /dnaspec.git branch feature/new-feature
+""",
+            'agent-creator': """
+Agent Creator (/dnaspec.agent-creator):
+Usage: /dnaspec.agent-creator "智能体需求描述"
+
+Description:
+  创建专业AI智能体，根据描述自动推断智能体类型、能力、工具和特性
+
+Examples:
+  /dnaspec.agent-creator "创建一个数据分析专家，负责销售数据的分析和报告"
+  /dnaspec.agent-creator "React前端开发工程师，专注于组件开发和性能优化"
+  /dnaspec.agent-creator "AI研究助理，协助机器学习项目的实施"
+""",
+            'modulizer': """
+System Modulizer (/dnaspec.modulizer):
+Usage: /dnaspec.modulizer "系统架构"
+
+Description:
+  将系统架构分解为可重用模块，自动识别组件、设计模块结构、定义接口和依赖关系
+
+Examples:
+  /dnaspec.modulizer "电商平台，包含用户管理、商品目录、订单处理和支付系统"
+  /dnaspec.modulizer "微服务架构的银行系统"
+  /dnaspec.modulizer "内容管理系统(CMS)，支持多用户和权限管理"
 """,
             'workspace': """
 Workspace Management (/dnaspec.workspace):

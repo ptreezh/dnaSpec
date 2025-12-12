@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * DNA SPEC Context System (dnaspec) - npm安装入口点
- * 提供基于npm的一键安装和自动配置功能
+ * DNA SPEC Context System (dnaspec) - npm installation entry point
+ * Provides one-click installation and auto-configuration based on npm
  */
 
 const { execSync, spawn, spawnSync } = require('child_process');
@@ -10,69 +10,78 @@ const fs = require('fs');
 const path = require('path');
 
 function runCommand(cmd, description) {
-    console.log(`🔧 ${description}...`);
+    console.log(`[SETUP] ${description}...`);
     try {
         const result = execSync(cmd, { encoding: 'utf-8', stdio: 'inherit' });
-        console.log(`✅ ${description}成功\n`);
+        console.log(`[SUCCESS] ${description} completed\n`);
         return true;
     } catch (error) {
-        console.error(`❌ ${description}失败:`);
+        console.error(`[ERROR] ${description} failed:`);
         console.error(error.message);
         return false;
     }
 }
 
 function checkDependencies() {
-    console.log('🔍 检查依赖...');
+    console.log('[CHECK] Checking dependencies...');
 
-    // 检查Python
+    // Check Python
     try {
         execSync('python --version', { stdio: 'pipe' });
-        console.log('✅ 检测到Python');
+        console.log('[OK] Python detected');
     } catch (error) {
         try {
             execSync('python3 --version', { stdio: 'pipe' });
-            console.log('✅ 检测到Python3');
+            console.log('[OK] Python3 detected');
         } catch (error2) {
-            console.error('❌ 未找到Python或Python3，请先安装Python 3.8+');
+            console.error('[ERROR] Python or Python3 not found, please install Python 3.8+');
             return false;
         }
     }
 
-    // 检查Git
+    // Check Git
     try {
         execSync('git --version', { stdio: 'pipe' });
-        console.log('✅ 检测到Git');
+        console.log('[OK] Git detected');
     } catch (error) {
-        console.error('❌ 未找到Git，请先安装Git');
+        console.error('[ERROR] Git not found, please install Git');
         return false;
     }
 
-    console.log('✅ 依赖检查通过\n');
+    console.log('[SUCCESS] All dependencies passed\n');
     return true;
 }
 
 function runQueryCommand(command, pythonScript, description) {
-    // 对于查询型命令，直接运行已安装的Python包
-    console.log(`🔍 Processing ${command} command...`);
-    
-    // 检查依赖
+    // For query commands, run installed Python packages directly
+    console.log(`[QUERY] Processing ${command} command...`);
+
+    // Check dependencies
     if (!checkDependencies()) {
         process.exit(1);
     }
 
-    // 直接运行Python脚本，使用已安装的模块
-    // 使用已安装的包入口点，而不是src目录
+    // Run Python script directly using installed modules
     const commandProcess = spawn('python', ['-c', `
 import subprocess
 import sys
 import os
 
-# 使用已安装的包入口点运行查询命令
+# Use correct module path with working directory setup
 command_result = subprocess.run([
     sys.executable,
-    '-m', 'dnaspec_spec_kit_integration.cli',
-    '${command}'
+    '-c',
+    '''
+import sys
+import os
+# Add current directory and src to Python path
+sys.path.insert(0, ".")
+sys.path.insert(0, os.path.join(os.getcwd(), "src"))
+# Import and run the correct module
+from dna_spec_kit_integration.cli import main
+sys.argv = ["dnaspec", "${command}"]
+main()
+'''
 ], capture_output=False, text=True, env=os.environ.copy())
 
 sys.exit(command_result.returncode)
@@ -87,22 +96,23 @@ sys.exit(command_result.returncode)
 
     commandProcess.on('close', (code) => {
         if (code === 0) {
-            console.log(`✅ ${command} command executed successfully!`);
+            console.log(`[SUCCESS] ${command} command executed successfully!`);
         } else {
-            // 如果直接调用失败，尝试使用standalone_cli
-            console.log(`⚠️  Trying fallback method for ${command}...`);
-            
+            // If direct call fails, try using standalone_cli
+            console.log(`[FALLBACK] Trying alternative method for ${command}...`);
+
             const fallbackProcess = spawn('python', ['-c', `
 import sys
-sys.path.insert(0, '.')
-from src.dnaspec_spec_kit_integration.cli import main
-import sys as pysys
-pysys.argv = ['dnaspec', '${command}']
+import os
+sys.path.insert(0, ".")
+sys.path.insert(0, os.path.join(os.getcwd(), "src"))
+from dna_spec_kit_integration.cli import main
+sys.argv = ["dnaspec", "${command}"]
 try:
     main()
 except SystemExit:
     pass
-            `], {
+          `], {
                 stdio: 'inherit',
                 env: {
                     ...process.env,
@@ -113,9 +123,9 @@ except SystemExit:
 
             fallbackProcess.on('close', (fallbackCode) => {
                 if (fallbackCode === 0) {
-                    console.log(`✅ ${command} command executed successfully!`);
+                    console.log(`[SUCCESS] ${command} command executed successfully!`);
                 } else {
-                    console.error(`❌ ${command} command execution failed, exit code: ${fallbackCode}`);
+                    console.error(`[ERROR] ${command} command execution failed, exit code: ${fallbackCode}`);
                     process.exit(fallbackCode);
                 }
             });
@@ -123,23 +133,23 @@ except SystemExit:
     });
 
     commandProcess.on('error', (err) => {
-        console.error(`❌ Error running ${command} command: ${err.message}`);
+        console.error(`[ERROR] Error running ${command} command: ${err.message}`);
         process.exit(1);
     });
 }
 
 function installAndConfigure() {
     const command = determineCommand();
-    
-    // 获取当前工作目录（只声明一次）
+
+    // Get current working directory (declare once)
     const initialDir = process.cwd();
 
-    // 检查当前目录是否是项目目录（通过检查关键文件）
+    // Check if current directory is project directory (by checking key files)
     const isProjectDir = fs.existsSync('src') &&
                          fs.existsSync('pyproject.toml') &&
                          fs.existsSync('package.json');
 
-    // 对于查询型命令（不需要安装），直接使用已安装的模块
+    // For query commands (no installation needed), use installed modules directly
     const queryCommands = ['list', 'validate', '--list', '--version', 'help'];
     const shouldRunFullInstall = !queryCommands.includes(command);
 
@@ -147,207 +157,131 @@ function installAndConfigure() {
     let pythonScript;
     let description;
 
-    switch(command) {
+    switch (command) {
+        // Ensure init command runs complete initialization with secure workflow
         case 'init':
-        case 'install':
-            // 确保初始化命令执行完整安装流程
-            pythonScript = 'run_auto_config.py';
-            description = 'Installation and Configuration';
+            description = 'Complete DNASPEC Initialization with Secure Workflow';
+            pythonScript = 'init_dnaspec_complete.py';
             break;
+
         case 'deploy':
-            // 部署命令也需要完整安装
+            // Deploy command also needs full installation
+            description = 'Deployment and Integration';
             pythonScript = 'deploy_cli.py';
-            description = 'Deployment';
             break;
+
         case 'integrate':
-            // 集成命令也需要完整安装
-            pythonScript = 'src/dnaspec_spec_kit_integration/cli.py';
-            description = 'Integration';
+            // Integration command also needs full installation
+            description = 'Platform Integration';
+            pythonScript = 'run_auto_config.py';
             break;
+
         case 'list':
         case 'validate':
-        case '--list':
+            // Query commands: use installed packages
+            description = `Query: ${command}`;
+            console.log(`[QUERY] Processing ${command} command...`);
+            return runQueryCommand(command, 'auto_configurator.py', description);
+
         case '--version':
-        case 'help':
-            // 查询命令：使用已安装的包
-            console.log(`🔍 Processing ${command} command...`);
-            pythonScript = 'src/dnaspec_spec_kit_integration/cli.py';
-            description = 'Query';
-            
-            // 直接运行已安装的模块，不安装
-            runQueryCommand(command, pythonScript, description);
-            return;
+            // Run installed modules directly, no installation
+            description = 'Version Check';
+            console.log('[QUERY] Processing version command...');
+            return runQueryCommand(command, 'auto_configurator.py', description);
+
         default:
-            // 其他命令：执行完整安装流程
+            // Other commands: execute full installation process
+            description = 'Configuration';
             pythonScript = 'run_auto_config.py';
-            description = 'Installation and Configuration';
+            break;
     }
 
-    console.log(`🚀 Starting DNA SPEC Context System (dnaspec) ${description}...\n`);
-
-    // 检查依赖
+    // Check dependencies
     if (!checkDependencies()) {
+        console.error('[ERROR] Required dependencies not found');
         process.exit(1);
     }
 
-
-    if (!isProjectDir) {
-        // 如果不在项目目录，创建临时目录并克隆项目
+    // If not in project directory, create temp directory and clone project
+    if (!isProjectDir && shouldRunFullInstall) {
+        // Create and enter temp directory
         const tempDir = 'dnaspec-install-tmp';
-
-        // 创建并进入临时目录
-        if (!fs.existsSync(tempDir)) {
-            fs.mkdirSync(tempDir);
+        if (fs.existsSync(tempDir)) {
+            fs.rmSync(tempDir, { recursive: true, force: true });
         }
+        fs.mkdirSync(tempDir);
         process.chdir(tempDir);
 
-        // 克隆项目 - 增加多源支持和重试机制
-        const repoDir = 'dnaSpec';
-        if (fs.existsSync(repoDir) && fs.lstatSync(repoDir).isDirectory()) {
-            console.log('🔄 更新现有项目...');
-            process.chdir(repoDir);
-        } else {
-            console.log('📦 克隆项目...');
+        // Clone project - add multiple sources and retry mechanism
+        console.log('[SETUP] Cloning project...');
+        const gitUrls = [
+            'https://github.com/ptreezh/dnaSpec.git',
+            'https://gitclone.com/github.com/ptreezh/dnaSpec.git',
+            'https://hub.fastgit.xyz/ptreezh/dnaSpec.git'
+        ];
 
-            // 尝试多个源和备用源
-            const gitUrls = [
-                'https://github.com/ptreezh/dnaSpec.git',
-                'https://gitclone.com/github.com/ptreezh/dnaSpec.git',  // 备用镜像
-                'https://hub.fastgit.xyz/ptreezh/dnaSpec.git'          // 备用镜像
-            ];
+        let cloned = false;
+        for (let i = 0; i < gitUrls.length; i++) {
+            const url = gitUrls[i];
+            console.log(`[ATTEMPT] Trying source ${i+1}/${gitUrls.length}: ${url}`);
 
-            let cloneSuccess = false;
-
-            for (let i = 0; i < gitUrls.length; i++) {
-                const url = gitUrls[i];
-                console.log(`尝试源 ${i+1}/${gitUrls.length}: ${url}`);
-
-                try {
-                    const result = spawnSync('git', ['clone', url, '.'], {
-                        stdio: 'inherit',
-                        encoding: 'utf-8',
-                        timeout: 120000  // 2分钟超时
-                    });
-
-                    if (result.status === 0) {
-                        cloneSuccess = true;
-                        break;
-                    } else {
-                        console.log(`源 ${i+1} 克隆失败，尝试下一个...`);
-                    }
-                } catch (error) {
-                    console.log(`源 ${i+1} 克隆出错: ${error.message}，尝试下一个...`);
+            try {
+                execSync(`git clone --depth 1 ${url}`, {
+                    stdio: 'pipe',
+                    timeout: 120000
+                });
+                console.log(`[SUCCESS] Source ${i+1} cloned successfully`);
+                cloned = true;
+                break;
+            } catch (error) {
+                console.log(`[FAILED] Source ${i+1} clone failed, trying next...`);
+                if (i === gitUrls.length - 1) {
+                    console.log(`[ERROR] Source ${i+1} clone error: ${error.message}, trying next...`);
                 }
-            }
-
-            if (!cloneSuccess) {
-                console.error('❌ 所有源都无法克隆项目');
-                process.chdir(initialDir);
-                const cleanupDir = path.join(initialDir, tempDir);
-                if (fs.existsSync(cleanupDir)) {
-                    fs.rmSync(cleanupDir, { recursive: true, force: true });
-                }
-                process.exit(1);
             }
         }
 
-        projectDir = process.cwd(); // 更新项目目录为克隆的目录
-    } else {
-        console.log('📋 检测到已在项目目录中...');
+        if (!cloned) {
+            console.error('[ERROR] All sources failed to clone project');
+            process.exit(1);
+        }
+
+        process.chdir('dnaSpec');
+        projectDir = process.cwd(); // Update project directory to cloned directory
+    } else if (isProjectDir) {
+        console.log('[SETUP] Detected already in project directory...');
     }
 
-    // 安装Python包
+    // Install Python package
     if (!runCommand('pip install -e .', 'Install DNASPEC package')) {
-        console.error('❌ Failed to install DNASPEC package');
+        console.error('[ERROR] Failed to install DNASPEC package');
         if (!isProjectDir) {
-            process.chdir(initialDir);
             const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
-            if (fs.existsSync(tempDir)) {
-                fs.rmSync(tempDir, { recursive: true, force: true });
-            }
+            process.chdir(initialDir);
+            fs.rmSync(tempDir, { recursive: true, force: true });
         }
         process.exit(1);
     }
-    
-    console.log('✅ DNASPEC package installed successfully\n');
 
-    // 确保使用正确的脚本路径（在可能更新了projectDir后）
-    const scriptPath = path.join(projectDir, pythonScript);
-    
-    console.log(`⚙️  Running ${description}...`);
-    console.log(`   Executing: python ${scriptPath}`);
+    console.log('[SUCCESS] DNASPEC package installed successfully\n');
 
-    const commandProcess = spawn('python', [scriptPath], {
-        stdio: 'inherit',
-        cwd: projectDir, // 确保在项目目录中运行
-        env: {
-            ...process.env,
-            PYTHONIOENCODING: 'utf-8',  // 设置Python编码为UTF-8以避免GBK错误
-            LANG: 'en_US.UTF-8'         // 设置语言环境
-        }
-    });
+    // Run configuration script
+    if (pythonScript) {
+        console.log(`[CONFIG] Running ${description}...`);
+        console.log(`[EXEC] Executing: python ${pythonScript}`);
 
-    commandProcess.on('close', (code) => {
-        if (!isProjectDir) {
-            // 如果不是原始项目目录，清理临时目录
-            process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
-            if (fs.existsSync(tempDir)) {
-                fs.rmSync(tempDir, { recursive: true, force: true });
+        const scriptPath = path.join(projectDir, pythonScript);
+        const configProcess = spawn('python', [scriptPath], {
+            stdio: 'inherit',
+            env: {
+                ...process.env,
+                PYTHONIOENCODING: 'utf-8',
+                LANG: 'en_US.UTF-8'
             }
-        }
+        });
 
-        if (code === 0) {
-            // 显示英文ANSI兼容的输出
-            console.log('\n🎉 Installation and configuration completed successfully!');
-
-            // Show post-installation guide
-            console.log('\nDNASPEC Context Engineering Skills - POST-INSTALLATION GUIDE');
-            console.log('='.repeat(80));
-            console.log('');
-            console.log('Thank you for installing DNASPEC (DNA SPEC Context System)!');
-            console.log('');
-            console.log('DNASPEC is a professional context engineering toolkit that enhances your AI-assisted');
-            console.log('development experience by providing advanced context analysis, optimization,');
-            console.log('and cognitive template application capabilities.');
-            console.log('');
-            console.log('KEY FEATURES:');
-            console.log('  ✓ Context Quality Analysis: 5-dimensional assessment (clarity, relevance,');
-            console.log('                               completeness, consistency, efficiency)');
-            console.log('  ✓ Context Optimization: AI-driven improvements based on specific goals');
-            console.log('  ✓ Cognitive Templates: Professional thinking frameworks (CoT, Verification, etc.)');
-            console.log('  ✓ Agentic Design: System architecture and task decomposition skills');
-            console.log('  ✓ Safety Workflows: Secure AI interaction with temporary workspaces');
-            console.log('  ✓ Multi-Platform Support: Claude, Qwen, Gemini, Cursor, Copilot');
-            console.log('');
-            console.log('GETTING STARTED - Next Steps:');
-            console.log('');
-            console.log('  1. Run automatic validation:');
-            console.log('     dnaspec validate');
-            console.log('');
-            console.log('  2. Deploy skills to AI platforms (if you have AI CLI tools installed):');
-            console.log('     dnaspec deploy');
-            console.log('');
-            console.log('  3. View all available commands:');
-            console.log('     dnaspec list');
-            console.log('');
-            console.log('USAGE EXAMPLES in AI CLI Tools:');
-            console.log('  /speckit.dnaspec.context-analysis "Analyze this requirement: ..."');
-            console.log('  /speckit.dnaspec.context-optimization "Optimize this context: ..."');
-            console.log('  /speckit.dnaspec.cognitive-template "Apply template to: ..." template=verification');
-            console.log('  /speckit.dnaspec.architect "Design system for: ..."');
-            console.log('');
-            console.log('COMMAND REFERENCE:');
-            console.log('  dnaspec deploy            - Deploy skills to AI platforms');
-            console.log('  dnaspec deploy --list     - List detected AI platforms');
-            console.log('  dnaspec validate          - Check integration status');
-            console.log('  dnaspec list              - Show all available skills');
-            console.log('  dnaspec help              - Show help information');
-            console.log('');
-            console.log('For support, visit: https://github.com/ptreezh/dnaSpec');
-            console.log('Report issues at: https://github.com/ptreezh/dnaSpec/issues');
-        } else {
-            console.error(`\n❌ ${description} process failed, exit code: ${code}`);
+        configProcess.on('close', (code) => {
+            // If not original project directory, clean temp directory
             if (!isProjectDir) {
                 process.chdir(initialDir);
                 const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
@@ -355,33 +289,93 @@ function installAndConfigure() {
                     fs.rmSync(tempDir, { recursive: true, force: true });
                 }
             }
-            process.exit(1);
-        }
-    });
 
-    commandProcess.on('error', (err) => {
-        if (!isProjectDir) {
-            // 如果不是原始项目目录，清理临时目录
-            process.chdir(initialDir);
-            const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
-            if (fs.existsSync(tempDir)) {
-                fs.rmSync(tempDir, { recursive: true, force: true });
+            if (code === 0) {
+                // Display English ANSI compatible output
+                console.log('\n[COMPLETE] Installation and configuration completed successfully!');
+
+                // Show post-installation guide
+                console.log('\nDNASPEC Context Engineering Skills - POST-INSTALLATION GUIDE');
+                console.log('='.repeat(80));
+                console.log('');
+                console.log('Thank you for installing DNASPEC (DNA SPEC Context System)!');
+                console.log('');
+                console.log('DNASPEC is a professional context engineering toolkit that enhances your AI-assisted');
+                console.log('development experience by providing advanced context analysis, optimization,');
+                console.log('and cognitive template application capabilities.');
+                console.log('');
+                console.log('KEY FEATURES:');
+                console.log('  * Context Quality Analysis: 5-dimensional assessment (clarity, relevance,');
+                console.log('                               completeness, consistency, efficiency)');
+                console.log('  * Context Optimization: AI-driven improvements based on specific goals');
+                console.log('  * Cognitive Templates: Professional thinking frameworks (CoT, Verification, etc.)');
+                console.log('  * Agentic Design: System architecture and task decomposition skills');
+                console.log('  * Safety Workflows: Secure AI interaction with temporary workspaces');
+                console.log('  * Multi-Platform Support: Claude, Qwen, Gemini, Cursor, Copilot');
+                console.log('');
+                console.log('GETTING STARTED - Next Steps:');
+                console.log('');
+                console.log('  1. Run automatic validation:');
+                console.log('     dnaspec validate');
+                console.log('');
+                console.log('  2. Deploy skills to AI platforms (if you have AI CLI tools installed):');
+                console.log('     dnaspec deploy');
+                console.log('');
+                console.log('  3. View all available commands:');
+                console.log('     dnaspec list');
+                console.log('');
+                console.log('USAGE EXAMPLES in AI CLI Tools:');
+                console.log('  /speckit.dnaspec.context-analysis "Analyze this requirement: ..."');
+                console.log('  /speckit.dnaspec.context-optimization "Optimize this context: ..."');
+                console.log('  /speckit.dnaspec.cognitive-template "Apply template to: ..." template=verification');
+                console.log('  /speckit.dnaspec.architect "Design system for: ..."');
+                console.log('');
+                console.log('COMMAND REFERENCE:');
+                console.log('  dnaspec deploy            - Deploy skills to AI platforms');
+                console.log('  dnaspec deploy --list     - List detected AI platforms');
+                console.log('  dnaspec validate          - Check integration status');
+                console.log('  dnaspec list              - Show all available skills');
+                console.log('  dnaspec help              - Show help information');
+                console.log('');
+                console.log('For support, visit: https://github.com/ptreezh/dnaSpec');
+                console.log('Report issues at: https://github.com/ptreezh/dnaSpec/issues');
+            } else {
+                console.error(`\n[ERROR] ${description} process failed, exit code: ${code}`);
+                if (!isProjectDir) {
+                    process.chdir(initialDir);
+                    const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
+                    if (fs.existsSync(tempDir)) {
+                        fs.rmSync(tempDir, { recursive: true, force: true });
+                    }
+                }
+                process.exit(1);
             }
-        }
+        });
 
-        console.error(`\n❌ Error running ${description}: ${err.message}`);
-        process.exit(1);
-    });
+        configProcess.on('error', (err) => {
+            if (!isProjectDir) {
+                // If not original project directory, clean temp directory
+                process.chdir(initialDir);
+                const tempDir = path.join(initialDir, 'dnaspec-install-tmp');
+                if (fs.existsSync(tempDir)) {
+                    fs.rmSync(tempDir, { recursive: true, force: true });
+                }
+            }
+
+            console.error(`\n[ERROR] Error running ${description}: ${err.message}`);
+            process.exit(1);
+        });
+    }
 }
 
 function determineCommand() {
-    // 分析命令行参数
+    // Analyze command line arguments
     const args = process.argv.slice(2);
     if (args.length > 0) {
         return args[0].toLowerCase();
     }
-    return 'init'; // 默认命令
+    return 'init'; // Default command
 }
 
-// 运行安装和配置
+// Run installation and configuration
 installAndConfigure();

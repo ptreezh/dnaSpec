@@ -1,0 +1,126 @@
+{
+  "timestamp": "2025-12-11T13:09:45.187Z",
+  "mode": "dry-run",
+  "wouldRemoveItems": [
+    {
+      "type": "python-package",
+      "name": "dnaspec-context-engineering-skills",
+      "version": "1.0.2\r",
+      "location": "E:\\Python312\\Lib\\site-packages\r",
+      "python": "python",
+      "command": "python -m pip uninstall -y dnaspec-context-engineering-skills"
+    },
+    {
+      "type": "python-package",
+      "name": "dna-context-engineering-skills",
+      "version": "1.0.2\r",
+      "location": "D:\\DAIP\\dnaSpec\\src\r",
+      "python": "python",
+      "command": "python -m pip uninstall -y dna-context-engineering-skills"
+    },
+    {
+      "type": "python-package",
+      "name": "dna-spec-kit-integration",
+      "version": "0.1.0\r",
+      "location": "D:\\DAIP\\dnaSpec\\src\r",
+      "python": "python",
+      "command": "python -m pip uninstall -y dna-spec-kit-integration"
+    },
+    {
+      "type": "python-package",
+      "name": "dnaspec-context-engineering-skills",
+      "version": "1.0.2\r",
+      "location": "E:\\Python312\\Lib\\site-packages\r",
+      "python": "pip",
+      "command": "pip uninstall -y dnaspec-context-engineering-skills"
+    },
+    {
+      "type": "python-package",
+      "name": "dna-context-engineering-skills",
+      "version": "1.0.2\r",
+      "location": "D:\\DAIP\\dnaSpec\\src\r",
+      "python": "pip",
+      "command": "pip uninstall -y dna-context-engineering-skills"
+    },
+    {
+      "type": "python-package",
+      "name": "dna-spec-kit-integration",
+      "version": "0.1.0\r",
+      "location": "D:\\DAIP\\dnaSpec\\src\r",
+      "python": "pip",
+      "command": "pip uninstall -y dna-spec-kit-integration"
+    },
+    {
+      "type": "python-package",
+      "name": "dnaspec-context-engineering-skills",
+      "version": "1.0.2\r",
+      "location": "E:\\Python312\\Lib\\site-packages\r",
+      "python": "py",
+      "command": "py -m pip uninstall -y dnaspec-context-engineering-skills"
+    },
+    {
+      "type": "python-package",
+      "name": "dna-context-engineering-skills",
+      "version": "1.0.2\r",
+      "location": "D:\\DAIP\\dnaSpec\\src\r",
+      "python": "py",
+      "command": "py -m pip uninstall -y dna-context-engineering-skills"
+    },
+    {
+      "type": "python-package",
+      "name": "dna-spec-kit-integration",
+      "version": "0.1.0\r",
+      "location": "D:\\DAIP\\dnaSpec\\src\r",
+      "python": "py",
+      "command": "py -m pip uninstall -y dna-spec-kit-integration"
+    },
+    {
+      "type": "python-package",
+      "name": "dnaspec-context-engineering-skills",
+      "version": "1.0.2\r",
+      "location": "E:\\Python312\\Lib\\site-packages\r",
+      "python": "pip",
+      "command": "pip uninstall -y dnaspec-context-engineering-skills"
+    },
+    {
+      "type": "python-package",
+      "name": "dna-context-engineering-skills",
+      "version": "1.0.2\r",
+      "location": "D:\\DAIP\\dnaSpec\\src\r",
+      "python": "pip",
+      "command": "pip uninstall -y dna-context-engineering-skills"
+    },
+    {
+      "type": "python-package",
+      "name": "dna-spec-kit-integration",
+      "version": "0.1.0\r",
+      "location": "D:\\DAIP\\dnaSpec\\src\r",
+      "python": "pip",
+      "command": "pip uninstall -y dna-spec-kit-integration"
+    },
+    {
+      "type": "npm-local-package",
+      "name": "stigmergy",
+      "version": "1.2.0",
+      "command": "npm uninstall stigmergy"
+    }
+  ],
+  "notFoundItems": [
+    "临时目录: dnaspec-install-tmp",
+    "Python 包: dnaspec-spec-kit-integration",
+    "Python 包: dnaspec-spec-kit-integration",
+    "全局 NPM 包: dnaspec",
+    "本地 NPM 包: dnaspec",
+    "全局 NPM 包: stigmergy",
+    "qodercli 平台目录: .qodercli/",
+    "项目配置文件: .dnaspec-config.json",
+    "项目配置文件: .dnaspec-status.json",
+    "项目配置文件: .dna-spec-integration.json",
+    "项目配置文件: dnaspec-integration-report.json",
+    "NPM 配置中的 DNASPEC 设置"
+  ],
+  "statistics": {
+    "totalFound": 13,
+    "totalNotFound": 12
+  }
+}

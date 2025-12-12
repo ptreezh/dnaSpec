@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm whoami:*)",
+      "Bash(npm publish:*)",
+      "Bash(npm config get:*)",
+      "Bash(npm logout:*)",
+      "Bash(npm owner ls:*)",
+      "Bash(echo:*)",
+      "Bash(npm config list:*)",
+      "Bash(npm config delete:*)",
+      "Bash(del:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(node uninstall.js:*)",
+      "Bash(npm outdated:*)",
+      "Bash(npm audit:*)",
+      "Bash(npm update:*)",
+      "Bash(npm run clean:*)",
+      "Bash(npm run dry-run:*)",
+      "Bash(node:*)",
+      "Bash(stigmergy:*)",
+      "Bash(dnaspec validate:*)",
+      "Bash(python:*)",
+      "Bash(npm run postinstall:*)",
+      "Bash(pip install:*)",
+      "Bash(dnaspec-spec-kit:*)",
+      "Bash(pip uninstall:*)",
+      "Bash(dnaspec deploy:*)",
+      "Bash(pip show:*)",
+      "Bash(\".dnaspec\\slash_commands\\architect\\architect.cmd\" \"Design a simple todo app\")",
+      "Bash(dnaspec-handler:*)",
+      "WebSearch",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

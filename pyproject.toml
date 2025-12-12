@@ -1,6 +1,6 @@
 [project]
 name = "dnaspec-context-engineering-skills"
-version = "1.0.3"
+version = "1.0.4"
 description = "DNA SPEC Context System (dnaspec) - Context Engineering Enhancement Toolkit for AI CLI Platforms"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -28,7 +28,6 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["dnaspec_spec_kit_integration", "dnaspec_spec_kit_integration.*", "dnaspec_context_engineering", "dnaspec_context_engineering.*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -53,7 +52,10 @@ omit = [
 ]
 
 [project.scripts]
-dnaspec-spec-kit = "dnaspec_spec_kit_integration.cli:main"
+dnaspec-spec-kit = "dna_spec_kit_integration.cli:main"
+dnaspec-deploy = "dna_spec_kit_integration.core.deployment_manager:main"
+dnaspec-deploy-extensions = "dna_spec_kit_integration.core.cli_extension_deployer:main"
+dnaspec-handler = "dna_spec_kit_integration.cli_extension_handler:main"
 
 [tool.coverage.report]
 exclude_lines = [
