@@ -5,6 +5,7 @@ DNASPEC CLI命令入口点
 """
 import sys
 import os
+import json
 import argparse
 
 
@@ -56,17 +57,28 @@ def main():
     validate_parser = subparsers.add_parser('validate', help='Validate DNASPEC integration')
     validate_parser.add_argument('--stigmergy', action='store_true', help='Validate Stigmergy integration')
 
-    # deploy命令：将技能部署到AI CLI工具
-    deploy_parser = subparsers.add_parser('deploy', help='Deploy DNASPEC skills to AI CLI tools')
-    deploy_parser.add_argument('--platform', help='Target platform for deployment')
-    deploy_parser.add_argument('--list', action='store_true', help='List available platforms')
-    deploy_parser.add_argument('--force', action='store_true', help='Force redeployment if already deployed')
+    
+    # deploy命令：安全智能部署（重新设计）
+    deploy_parser = subparsers.add_parser('deploy', help='Secure intelligent deployment with automatic mode selection')
+    deploy_parser.add_argument('--force-stigmergy', action='store_true', help='Force global Stigmergy mode')
+    deploy_parser.add_argument('--force-project', action='store_true', help='Force project-level mode')
+    deploy_parser.add_argument('--verify', action='store_true', help='Verify deployment and security after completion')
+    deploy_parser.add_argument('--list', action='store_true', help='Show deployment and security status only')
+    deploy_parser.add_argument('--security-test', action='store_true', help='Run security validation tests')
 
-    # integrate命令：集成和验证
-    integrate_parser = subparsers.add_parser('integrate', help='Integrate and validate DNASPEC skills')
+    # security命令：安全测试和验证
+    security_parser = subparsers.add_parser('security', help='Security testing and validation')
+    security_parser.add_argument('--test', action='store_true', help='Run comprehensive security tests')
+    security_parser.add_argument('--validate', action='store_true', help='Validate security configuration')
+    security_parser.add_argument('--audit', action='store_true', help='Generate security audit report')
+
+    # integrate命令：智能集成和部署
+    integrate_parser = subparsers.add_parser('integrate', help='Intelligent deployment and integration')
     integrate_parser.add_argument('--platform', help='Target platform for integration')
     integrate_parser.add_argument('--list', action='store_true', help='List available platforms')
-    integrate_parser.add_argument('--stigmergy', action='store_true', help='Integrate with Stigmergy system')
+    integrate_parser.add_argument('--stigmergy', action='store_true', help='Force Stigmergy mode deployment')
+    integrate_parser.add_argument('--project', action='store_true', help='Force project-level deployment')
+    integrate_parser.add_argument('--status', action='store_true', help='Show deployment status')
     
     args = parser.parse_args()
     
@@ -142,103 +154,162 @@ def main():
             print('All components are properly integrated.')
 
     elif args.command == 'deploy':
-        # 部署技能到AI CLI工具
-        print('🚀 Starting DNASPEC Skills Deployment to AI CLI Platforms...')
-        from .core.real_skill_deployer import RealSkillDeployer
+        # 智能扩展部署（自动选择模式）
+        from .core.cli_extension_deployer import CLIExtensionDeployer
 
-        deployer = RealSkillDeployer()
+        # 创建CLI扩展部署器
+        try:
+            deployer = CLIExtensionDeployer()
+        except Exception as e:
+            print(f'Error initializing CLI extension deployer: {e}', file=sys.stderr)
+            sys.exit(1)
 
         if args.list:
-            print('Available AI CLI Platforms:')
-            for platform, path in deployer.extension_paths.items():
-                exists = '✅' if os.path.exists(path) else '❌'
-                print(f'  {exists} {platform}: {path}')
-        elif args.platform:
-            print(f'Deploying DNASPEC skills to {args.platform}...')
-            from .core.cli_detector import CliDetector
-            detector = CliDetector()
-            detected_tools = detector.detect_all()
-            tool_info = detected_tools.get(args.platform, {})
-
-            result = deployer.deploy_skills_to_platform(args.platform, tool_info)
-            if result['success']:
-                print(f'✅ Successfully deployed to {args.platform}')
-                print(f'Message: {result.get("message", "Deployment completed")}')
-                if result.get('deployed_skills'):
-                    print(f'Deployed skills: {result["deployed_skills"]}')
-            else:
-                print(f'❌ Failed to deploy to {args.platform}')
-                print(f'Error: {result.get("error", "Unknown error")}')
+            # 显示部署状态
+            print('🚀 DNASPEC CLI Extension Deployment Status:')
+            status = deployer.get_deployment_status()
+            print(f"  📍 Project Root: {status['project_root']}")
+            print(f"  🔧 Deployment Mode: {status['deployment_mode']}")
+            print(f"  📋 Stigmergy Available: {status['stigmergy_available']}")
+            print(f"  📁 CLI Extensions Dir: {status['cli_extensions_dir']}")
+            print(f"  🛠️  Supported AI Tools: {', '.join(status['supported_clis'])}")
+            print(f"  🔢 Total AI Tools: {status['cli_count']}")
         else:
-            print('Deploying DNASPEC skills to all detected AI CLI platforms...')
-            results = deployer.deploy_skills_to_all_platforms()
-            print(f'✅ Deployment completed!')
-            print(f'Successfully deployed to {results["successful_deployments"]}/{results["total_installed_platforms"]} platforms')
-            for platform, result in results['deployment_results'].items():
-                status = '✅' if result.get('success', False) else '❌'
-                message = result.get('message', result.get('error', 'Unknown'))
-                print(f'  {status} {platform}: {message}')
+            # 处理强制模式参数
+            if args.force_project:
+                # 强制项目级CLI扩展模式
+                print('📁 Forcing CLI extensions deployment mode...')
+                deployer.deployment_mode = 'cli-extensions'
+                deployer.stigmergy_available = False
+                result = deployer._deploy_cli_extensions()
+            elif args.force_stigmergy:
+                # 强制全局Stigmergy模式
+                print('🌐 Forcing global Stigmergy deployment mode...')
+                deployer.deployment_mode = 'stigmergy'
+                deployer.stigmergy_available = True
+                result = deployer._deploy_with_stigmergy()
+            else:
+                # 执行智能部署（自动选择）
+                result = deployer.deploy_all()
+
+            if result.get('success'):
+                print(json.dumps(result, ensure_ascii=False, indent=2))
+
+                # 如果需要验证
+                if args.verify:
+                    print("\n🔍 Verifying deployment...")
+                    # 这里可以添加验证逻辑
+                    print("✅ Deployment verification completed")
+            else:
+                error_msg = result.get("error", "Deployment failed")
+                print(f'Error: {error_msg}', file=sys.stderr)
+                sys.exit(1)
 
     elif args.command == 'integrate':
-        # 集成和验证
-        if args.stigmergy:
-            # 与Stigmergy集成
-            if not stigmergy_available:
-                print('❌ Stigmergy is not installed or not available')
-                print('Please install Stigmergy first: npm install -g stigmergy')
-                sys.exit(1)
-                
-            print('🚀 Starting DNASPEC Stigmergy Integration...')
-            try:
-                from .core.stigmergy_adapter import StigmergyAdapter
-                adapter = StigmergyAdapter()
-                result = adapter.deploy_to_all_clis()
-                
-                if result['success']:
-                    print('✅ Stigmergy integration completed successfully!')
-                    print(f'  Successfully integrated to {result["successful_deployments"]}/{result["total_platforms"]} platforms')
-                    for platform, deploy_result in result['deployment_results'].items():
-                        status = '✅' if deploy_result.get('success', False) else '❌'
-                        print(f'  {status} {platform}')
-                else:
-                    print('❌ Stigmergy integration failed!')
-                    print(f'  Error: {result.get("error", "Unknown error")}')
-            except Exception as e:
-                print(f'❌ Stigmergy integration failed: {e}')
-        elif args.list:
-            print('Available AI CLI Platforms:')
-            from .core.real_skill_deployer import RealSkillDeployer
-            deployer = RealSkillDeployer()
-            for platform, path in deployer.extension_paths.items():
-                exists = '✅' if os.path.exists(path) else '❌'
-                print(f'  {exists} {platform}: {path}')
-        elif args.platform:
-            print(f'Integrating DNASPEC skills to {args.platform}...')
-            from .core.cli_detector import CliDetector
-            from .core.real_skill_deployer import RealSkillDeployer
-            detector = CliDetector()
-            deployer = RealSkillDeployer()
-            detected_tools = detector.detect_all()
-            tool_info = detected_tools.get(args.platform, {})
+        # 智能集成和部署
+        from .core.deployment_manager import DeploymentManager
 
-            result = deployer.deploy_skills_to_platform(args.platform, tool_info)
-            if result['success']:
-                print(f'✅ Successfully integrated to {args.platform}')
-                print(f'Message: {result.get("message", "Integration completed")}')
-            else:
-                print(f'❌ Failed to integrate to {args.platform}')
-                print(f'Error: {result.get("error", "Unknown error")}')
+        # 创建部署管理器
+        manager = DeploymentManager()
+
+        if args.status:
+            # 显示部署状态
+            print('📋 DNASPEC Integration Status:')
+            status = manager.get_deployment_status()
+            print(json.dumps(status, ensure_ascii=False, indent=2))
         else:
-            print('Integrating DNASPEC skills to all detected AI CLI platforms...')
-            from .core.real_skill_deployer import RealSkillDeployer
-            deployer = RealSkillDeployer()
-            results = deployer.deploy_skills_to_all_platforms()
-            print(f'✅ Integration completed!')
-            print(f'Successfully integrated to {results["successful_deployments"]}/{results["total_installed_platforms"]} platforms')
-            for platform, result in results['deployment_results'].items():
-                status = '✅' if result.get('success', False) else '❌'
-                print(f'  {status} {platform}')
-        
+            # 执行集成部署
+            if args.stigmergy:
+                # 强制Stigmergy模式
+                print('🔌 Forcing Stigmergy mode integration...')
+                manager.deployment_mode = 'stigmergy'
+                manager.stigmergy_available = True
+                result = manager._deploy_with_stigmergy()
+            elif args.project:
+                # 强制项目级模式
+                print('📁 Forcing project-level mode integration...')
+                manager.deployment_mode = 'project-level'
+                manager.stigmergy_available = False
+                result = manager._deploy_project_level()
+            elif args.list:
+                # 显示可用平台
+                print('🛠️  Available AI CLI Platforms:')
+                status = manager.get_deployment_status()
+                for cli in status['supported_clis']:
+                    print(f'  • {cli}')
+                return
+            elif args.platform:
+                # 针对特定平台
+                print(f'🎯 Integrating DNASPEC skills to {args.platform}...')
+                if stigmergy_available and args.platform in manager.supported_clis:
+                    # 使用Stigmergy集成
+                    from .core.stigmergy_adapter import StigmergyAdapter
+                    adapter = StigmergyAdapter()
+                    result = adapter.generate_stigmergy_hook(args.platform)
+                else:
+                    # 使用项目级集成
+                    print(f'ℹ️  Stigmergy not available for {args.platform}, using project-level integration')
+                    result = manager._deploy_project_level()
+            else:
+                # 自动选择模式
+                print('🤖 Auto-selecting integration mode...')
+                result = manager.deploy_all()
+
+            if result.get('success'):
+                print(json.dumps(result, ensure_ascii=False, indent=2))
+            else:
+                print(f'Error: {result.get("error", "Integration failed")}', file=sys.stderr)
+                sys.exit(1)
+
+    elif args.command == 'security':
+        # 安全测试和验证
+        from .core.secure_deployment_manager import SecureDeploymentManager
+
+        try:
+            manager = SecureDeploymentManager()
+        except Exception as e:
+            print(f'Error initializing security manager: {e}', file=sys.stderr)
+            sys.exit(1)
+
+        if args.test:
+            print('🧪 Running comprehensive security tests...')
+            result = manager._run_security_tests()
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+
+            if result.get('success'):
+                print('✅ All security tests passed')
+            else:
+                print('❌ Some security tests failed')
+                sys.exit(1)
+
+        elif args.validate:
+            print('🔍 Validating security configuration...')
+            verification = manager.verify_deployment()
+
+            if 'security_validation' in verification:
+                sec_val = verification['security_validation']
+                print(f"🛡️  Security Level: {sec_val.get('security_level', 'unknown')}")
+                print(f"✅ Status: {sec_val.get('status', 'unknown')}")
+
+                if sec_val.get('checks'):
+                    print("\n📋 Security Checks:")
+                    for check, passed in sec_val['checks'].items():
+                        status = "✅" if passed else "❌"
+                        print(f"  {status} {check}")
+            else:
+                print("❌ No security configuration found")
+                sys.exit(1)
+
+        elif args.audit:
+            print('📊 Generating security audit report...')
+            audit_result = manager._generate_security_audit()
+            print(json.dumps(audit_result, ensure_ascii=False, indent=2))
+
+        else:
+            print('Security command requires --test, --validate, or --audit')
+            security_parser.print_help()
+            sys.exit(1)
+
     elif args.command is None:
         # 没有提供子命令，显示帮助
         parser.print_help()

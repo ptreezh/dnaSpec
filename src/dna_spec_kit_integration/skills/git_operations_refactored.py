@@ -9,13 +9,13 @@ import tempfile
 from src.dna_spec_kit_integration.core.skill_base import BaseSkill, DetailLevel
 
 
-class GitOperationsSkill(BaseSkill):
-    """Git操作技能 - 提供完整的Git操作支持"""
-    
+class GitSkill(BaseSkill):
+    """Git操作技能 - 提供简化的Git操作支持"""
+
     def __init__(self):
         super().__init__(
-            name="git-operations",
-            description="提供完整的Git操作支持，包括分支管理、worktree、并发提交和CI/CD相关功能"
+            name="git",
+            description="提供简化的Git操作支持，包括状态检查、提交、分支管理等基础功能"
         )
     
     def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel, 

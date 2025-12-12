@@ -33,9 +33,9 @@ class RealSkillDeployer:
     def _get_claude_skills_path(self) -> str:
         """获取Claude技能路径"""
         if self.os_type == 'windows':
-            return str(self.home_dir / '.config' / 'claude' / 'skills')
+            return str(self.home_dir / '.claude' / 'skills')
         else:
-            return str(self.home_dir / '.config' / 'claude' / 'skills')
+            return str(self.home_dir / '.claude' / 'skills')
 
     def _get_gemini_extensions_path(self) -> str:
         """获取Gemini扩展路径"""
@@ -136,20 +136,24 @@ class RealSkillDeployer:
             for skill_name, skill_def in skill_defs.items():
                 skill_file = skills_dir / f"{skill_name}.json"
                 
+                # 生成Claude技能Python文件
+                python_code = self._generate_claude_skill_python(skill_name, skill_def)
+                skill_py_file = skills_dir / f"{skill_name}.py"
+
+                with open(skill_py_file, 'w', encoding='utf-8') as f:
+                    f.write(python_code)
+
                 # Claude技能规范格式
                 claude_spec = {
                     "name": skill_def["name"],
                     "description": skill_def["description"],
                     "version": skill_def["version"],
+                    "entry_point": f"{skill_name}.py:handle_command",
                     "specification": {
                         "type": "claude_custom_skill",
                         "version": "2024-10-01",
                         "category": "development-tools",
                         "commands": skill_def["commands"],
-                        "implementation": {
-                            "module": skill_def["module"],
-                            "function": skill_def["function"]
-                        },
                         "permissions": [
                             {
                                 "type": "read-conversation-context",
@@ -160,7 +164,7 @@ class RealSkillDeployer:
                     "metadata": {
                         "author": "DNASPEC Team",
                         "license": "MIT",
-                        "tags": ["context-analysis", "optimization", "cognitive-templates"]
+                        "tags": ["context-analysis", "optimization", "cognitive-templates", "ai-development"]
                     }
                 }
                 
@@ -288,8 +292,8 @@ class RealSkillDeployer:
                 'description': 'Analyze context quality across 5 dimensions: clarity, relevance, completeness, consistency, efficiency',
                 'version': '1.0.4',
                 'commands': [{
-                    'name': '/dnaspec-analyze',
-                    'description': 'Analyze quality of provided context',
+                    'name': '/speckit.dnaspec.context-analysis',
+                    'description': 'Analyze context quality across 5 dimensions (clarity, relevance, completeness, consistency, efficiency)',
                     'handler': 'context_analysis_handler'
                 }],
                 'module': 'dnaspec_context_engineering.skills_system_final',
@@ -300,8 +304,8 @@ class RealSkillDeployer:
                 'description': 'Optimize context with specific goals like clarity, completeness, relevance',
                 'version': '1.0.4',
                 'commands': [{
-                    'name': '/dnaspec-optimize',
-                    'description': 'Optimize provided context',
+                    'name': '/speckit.dnaspec.context-optimization',
+                    'description': 'Optimize context with specific goals (clarity, completeness, relevance)',
                     'handler': 'context_optimization_handler'
                 }],
                 'module': 'dnaspec_context_engineering.skills_system_final',
@@ -312,8 +316,8 @@ class RealSkillDeployer:
                 'description': 'Apply cognitive templates like chain-of-thought, verification, few-shot learning',
                 'version': '1.0.4',
                 'commands': [{
-                    'name': '/dnaspec-template',
-                    'description': 'Apply cognitive templates to task',
+                    'name': '/speckit.dnaspec.cognitive-template',
+                    'description': 'Apply cognitive templates (chain-of-thought, verification, few-shot learning)',
                     'handler': 'cognitive_template_handler'
                 }],
                 'module': 'dnaspec_context_engineering.skills_system_final',
@@ -324,14 +328,133 @@ class RealSkillDeployer:
                 'description': 'System architecture design expert',
                 'version': '1.0.4',
                 'commands': [{
-                    'name': '/dnaspec-architect',
-                    'description': 'Design system architecture',
+                    'name': '/speckit.dnaspec.architect',
+                    'description': 'Design system architecture and technical specifications',
                     'handler': 'architect_handler'
                 }],
                 'module': 'dnaspec_context_engineering.skills_system_final',
                 'function': 'execute_architect'
             }
         }
+
+    def _generate_claude_skill_python(self, skill_name: str, skill_def: Dict[str, Any]) -> str:
+        """生成Claude技能的Python代码"""
+        # 根据技能名称选择对应的函数
+        function_map = {
+            'dnaspec-context-analysis': 'execute_context_analysis',
+            'dnaspec-context-optimization': 'execute_context_optimization',
+            'dnaspec-cognitive-template': 'execute_cognitive_template',
+            'dnaspec-architect': 'execute_architect'
+        }
+
+        function_name = function_map.get(skill_name, 'execute_context_analysis')
+
+        return f'''#!/usr/bin/env python3
+"""
+DNASPEC Claude Skill: {skill_def["name"]}
+{skill_def["description"]}
+"""
+
+import sys
+import os
+import json
+import traceback
+from typing import Dict, Any
+
+# Add project root to Python path
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
+sys.path.insert(0, os.path.join(project_root, "src"))
+
+def handle_command(command: str, context: Dict[str, Any]) -> str:
+    """
+    处理Claude命令调用
+
+    Args:
+        command: 命令参数
+        context: 上下文信息
+
+    Returns:
+        处理结果
+    """
+    try:
+        # 导入DNASPEC技能模块
+        from dna_context_engineering.skills_system_final import {function_name}
+
+        # 提取上下文内容
+        context_input = ""
+        if 'message' in context:
+            context_input = context['message']
+        elif 'text' in context:
+            context_input = context['text']
+        else:
+            context_input = command
+
+        # 设置参数
+        params = context.get('parameters', {{}})
+
+        # 执行DNASPEC技能
+        result = {function_name}(context_input, params)
+
+        # 格式化输出
+        if isinstance(result, str):
+            try:
+                parsed_result = json.loads(result)
+                return _format_analysis_result(parsed_result)
+            except:
+                return result
+        else:
+            return _format_analysis_result(result)
+
+    except Exception as e:
+        return f"❌ Error executing {{skill_name}}: {{str(e)\\n\\nTraceback:\\n{{traceback.format_exc()}}"
+
+def _format_analysis_result(result: Dict[str, Any]) -> str:
+    """格式化分析结果"""
+    if result.get('metrics'):
+        metrics = result['metrics']
+        output = [
+            "📊 **DNASPEC Context Analysis Result**\\n",
+            "─" * 40,
+            f"📏 **Context Length**: {{result.get('context_length', 'N/A')}} characters",
+            f"🎯 **Token Estimate**: {{result.get('token_count_estimate', 'N/A')}} tokens",
+            "",
+            "### 📈 Five-Dimensional Quality Metrics (0.0-1.0):",
+            ""
+        ]
+
+        for metric, score in metrics.items():
+            emoji = "🟢" if score >= 0.7 else "🟡" if score >= 0.5 else "🔴"
+            metric_name = metric.replace('_', ' ').title()
+            output.append(f"  {{emoji}} **{{metric_name}}**: {{score:.2f}}")
+
+        if result.get('suggestions'):
+            output.extend([
+                "",
+                "### 💡 Improvement Suggestions:",
+                ""
+            ])
+            for suggestion in result['suggestions']:
+                output.append(f"• {{suggestion}}")
+
+        if result.get('issues'):
+            output.extend([
+                "",
+                "⚠️ **Issues Identified:**",
+                ""
+            ])
+            for issue in result['issues']:
+                output.append(f"• {{issue}}")
+
+        return "\\n".join(output)
+    else:
+        return f"✅ **{{skill_name}}** completed:\\n{{json.dumps(result, indent=2, ensure_ascii=False)}}"
+
+if __name__ == "__main__":
+    # 测试运行
+    test_context = {{'message': 'Build a web application with user authentication'}}
+    print(handle_command('test', test_context))
+'''
 
     def _get_qwen_plugin_definitions(self) -> Dict[str, Any]:
         """获取Qwen插件定义"""

@@ -21,7 +21,10 @@ class CliDetector:
             'gemini': self.detect_gemini,
             'qwen': self.detect_qwen,
             'copilot': self.detect_copilot,
-            'cursor': self.detect_cursor
+            'cursor': self.detect_cursor,
+            'iflow': self.detect_iflow,
+            'qodercli': self.detect_qodercli,
+            'codebuddy': self.detect_codebuddy
         }
 
     def detect_claude(self) -> Dict[str, Any]:
@@ -387,3 +390,174 @@ class CliDetector:
             return os.path.join(home, ".cursor")
         else:
             return os.path.join(home, ".cursor")
+
+    def detect_iflow(self) -> Dict[str, Any]:
+        """
+        Detect if IFlow CLI is installed
+
+        Returns:
+            Detection result dictionary
+        """
+        try:
+            # Run command name directly, this handles .cmd scripts on Windows properly
+            result = subprocess.run(
+                ['iflow', '--version'],
+                capture_output=True,
+                text=True,
+                timeout=15,
+                shell=(platform.system() == 'Windows')
+            )
+
+            if result.returncode == 0:
+                version = result.stdout.strip()
+                # If execution succeeds, get installation path with shutil.which
+                install_path = shutil.which('iflow')
+
+                return {
+                    'installed': True,
+                    'version': version,
+                    'installPath': install_path,
+                    'configPath': self._get_iflow_config_path()
+                }
+            else:
+                return {
+                    'installed': False,
+                    'error': result.stderr.strip() if result.stderr else 'Unknown error'
+                }
+        except (subprocess.TimeoutExpired, FileNotFoundError):
+            return {
+                'installed': False,
+                'error': 'IFlow CLI not found in system PATH'
+            }
+        except Exception as e:
+            return {
+                'installed': False,
+                'error': str(e)
+            }
+
+    def detect_qodercli(self) -> Dict[str, Any]:
+        """
+        Detect if QoderCLI is installed
+
+        Returns:
+            Detection result dictionary
+        """
+        try:
+            # Run command name directly, this handles .cmd scripts on Windows properly
+            result = subprocess.run(
+                ['qodercli', '--version'],
+                capture_output=True,
+                text=True,
+                timeout=15,
+                shell=(platform.system() == 'Windows')
+            )
+
+            if result.returncode == 0:
+                version = result.stdout.strip()
+                # If execution succeeds, get installation path with shutil.which
+                install_path = shutil.which('qodercli')
+
+                return {
+                    'installed': True,
+                    'version': version,
+                    'installPath': install_path,
+                    'configPath': self._get_qodercli_config_path()
+                }
+            else:
+                return {
+                    'installed': False,
+                    'error': result.stderr.strip() if result.stderr else 'Unknown error'
+                }
+        except (subprocess.TimeoutExpired, FileNotFoundError):
+            return {
+                'installed': False,
+                'error': 'QoderCLI not found in system PATH'
+            }
+        except Exception as e:
+            return {
+                'installed': False,
+                'error': str(e)
+            }
+
+    def detect_codebuddy(self) -> Dict[str, Any]:
+        """
+        Detect if CodeBuddy CLI is installed
+
+        Returns:
+            Detection result dictionary
+        """
+        try:
+            # Run command name directly, this handles .cmd scripts on Windows properly
+            result = subprocess.run(
+                ['codebuddy', '--version'],
+                capture_output=True,
+                text=True,
+                timeout=15,
+                shell=(platform.system() == 'Windows')
+            )
+
+            if result.returncode == 0:
+                version = result.stdout.strip()
+                # If execution succeeds, get installation path with shutil.which
+                install_path = shutil.which('codebuddy')
+
+                return {
+                    'installed': True,
+                    'version': version,
+                    'installPath': install_path,
+                    'configPath': self._get_codebuddy_config_path()
+                }
+            else:
+                return {
+                    'installed': False,
+                    'error': result.stderr.strip() if result.stderr else 'Unknown error'
+                }
+        except (subprocess.TimeoutExpired, FileNotFoundError):
+            return {
+                'installed': False,
+                'error': 'CodeBuddy not found in system PATH'
+            }
+        except Exception as e:
+            return {
+                'installed': False,
+                'error': str(e)
+            }
+
+    def _get_iflow_config_path(self) -> str:
+        """
+        Get IFlow configuration path
+
+        Returns:
+            Configuration path string
+        """
+        home = os.path.expanduser("~")
+        if platform.system() == "Windows":
+            return os.path.join(home, ".iflow", "commands")
+        else:
+            return os.path.join(home, ".iflow", "commands")
+
+    def _get_qodercli_config_path(self) -> str:
+        """
+        Get QoderCLI configuration path
+
+        Returns:
+            Configuration path string
+        """
+        home = os.path.expanduser("~")
+        if platform.system() == "Windows":
+            return os.path.join(home, ".qodercli", "extensions")
+        else:
+            return os.path.join(home, ".qodercli", "extensions")
+
+    def _get_codebuddy_config_path(self) -> str:
+        """
+        Get CodeBuddy configuration path
+
+        Returns:
+            Configuration path string
+        """
+        home = os.path.expanduser("~")
+        if platform.system() == "Windows":
+            return os.path.join(home, ".codebuddy", "skills")
+        else:
+            return os.path.join(home, ".codebuddy", "skills")

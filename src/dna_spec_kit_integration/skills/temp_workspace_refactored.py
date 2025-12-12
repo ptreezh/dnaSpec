@@ -11,13 +11,13 @@ import subprocess
 from src.dna_spec_kit_integration.core.skill_base import BaseSkill, DetailLevel
 
 
-class TempWorkspaceSkill(BaseSkill):
-    """临时工作区技能 - 用于管理AI生成的临时文件，避免项目混乱"""
-    
+class WorkspaceSkill(BaseSkill):
+    """工作区管理技能 - 用于管理AI生成的文件，提供安全的工作流"""
+
     def __init__(self):
         super().__init__(
-            name="temp-workspace",
-            description="用于管理AI生成的临时文件，避免项目混乱"
+            name="workspace",
+            description="管理AI生成的文件，提供安全的工作流和隔离机制"
         )
         # 全局变量存储当前工作会话
         self.current_temp_workspace = None
