@@ -206,7 +206,7 @@ class DNASPECSystemArchitect:
         
         # Add interfaces for frontend
         frontend_module.add_interface(
-            name="API Interface",
+            interface_name="API Interface",
             interface_type="REST API",
             input_format="JSON",
             output_format="JSON"
@@ -230,15 +230,15 @@ class DNASPECSystemArchitect:
         
         # Add interfaces for backend
         backend_module.add_interface(
-            name="Database Interface",
+            interface_name="Database Interface",
             interface_type="SQL/NoSQL",
             input_format="Query/Command",
             output_format="Data/Result"
         )
-        
+
         if arch_type == SystemArchitectureType.EVENT_DRIVEN:
             backend_module.add_interface(
-                name="Message Interface",
+                interface_name="Message Interface",
                 interface_type="Message Queue",
                 input_format="Message",
                 output_format="Acknowledgment"

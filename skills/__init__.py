@@ -1,15 +1,15 @@
 """
-DNASPEC技能包
-提供标准化的技能接口和渐进式信息披露支持
+DNASPEC Skill Package
+Provides standardized skill interface and progressive disclosure support
 """
 
-# 导出基类
+# Export base classes
 from .skill_base import BaseSkill, DetailLevel
 
-# 导出技能管理器
+# Export skill manager
 from .skill_manager import SkillManager
 
-# 导出所有技能
+# Export all skills
 from .basic.liveness import LivenessSkill
 from .basic.simple_architect import SimpleArchitectSkill
 from .intermediate.context_analysis import ContextAnalysisSkill

@@ -1,245 +1,245 @@
 """
-认知模板技能 - 重构版本
-符合DNASPEC标准化技能接口规范
+Cognitive Template Skill - Refactored Version
+Compliant with DNASPEC Standardized Skill Interface Specification
 """
 from typing import Dict, Any
 from ..skill_base import BaseSkill, DetailLevel
 
 
 class CognitiveTemplateSkill(BaseSkill):
-    """认知模板技能 - 使用AI模型原生智能应用认知模板"""
-    
+    """Cognitive Template Skill - Uses AI model's native intelligence to apply cognitive templates"""
+
     def __init__(self):
         super().__init__(
             name="cognitive-template",
-            description="使用AI模型原生智能应用认知模板来结构化复杂任务"
+            description="Uses AI model's native intelligence to apply cognitive templates to structure complex tasks"
         )
-        
+
         self.templates = {
-            'chain_of_thought': '思维链推理模板',
-            'few_shot': '少样本学习模板',
-            'verification': '验证检查模板',
-            'role_playing': '角色扮演模板',
-            'understanding': '深度理解模板'
+            'chain_of_thought': 'Chain of Thought Template',
+            'few_shot': 'Few-shot Learning Template',
+            'verification': 'Verification Check Template',
+            'role_playing': 'Role-playing Template',
+            'understanding': 'Deep Understanding Template'
         }
     
-    def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel, 
+    def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel,
                           options: Dict[str, Any], context: Dict[str, Any]) -> Dict[str, Any]:
-        """执行认知模板应用逻辑"""
+        """Execute cognitive template application logic"""
         if not input_text.strip():
             return {
                 'success': False,
-                'error': '上下文不能为空',
+                'error': 'Context cannot be empty',
                 'original_context': input_text
             }
-        
+
         template_type = options.get('template', 'chain_of_thought')
-        role = options.get('role', '专家')
-        
+        role = options.get('role', 'Expert')
+
         if template_type not in self.templates:
             return {
                 'success': False,
-                'error': f'未知模板: {template_type}',
+                'error': f'Unknown template: {template_type}',
                 'available_templates': list(self.templates.keys()),
                 'original_context': input_text
             }
-        
+
         template_desc = self.templates[template_type]
-        
+
         if template_type == 'chain_of_thought':
-            # 构造思维链模板应用结果
+            # Construct chain of thought template application result
             enhanced_content = f"""
-### 思维链认知模板应用
+### Chain of Thought Cognitive Template Application
 
-**原始任务**: {input_text}
+**Original Task**: {input_text}
 
-请按以下思维链步骤详细分析此任务：
+Please analyze this task in detail following these chain of thought steps:
 
-1. **问题理解**: 
-   - 明确任务的核心需求
-   - 识别关键约束和限制
-   - 确定成功标准
+1. **Problem Understanding**:
+   - Clarify the core requirements of the task
+   - Identify key constraints and limitations
+   - Determine success criteria
 
-2. **步骤分解**: 
-   - 将任务分解为可执行的子步骤
-   - 确定步骤间的依赖关系
-   - 评估每步的时间和资源需求
+2. **Step Decomposition**:
+   - Break the task into executable sub-steps
+   - Determine dependencies between steps
+   - Assess time and resource requirements for each step
 
-3. **中间推理**: 
-   - 针对每个子步骤进行详细推理
-   - 考虑不同的实现方案
-   - 评估各方案的优劣
+3. **Intermediate Reasoning**:
+   - Perform detailed reasoning for each sub-step
+   - Consider different implementation approaches
+   - Evaluate pros and cons of each approach
 
-4. **验证检查**: 
-   - 检查推理过程的逻辑一致性
-   - 验证方案的可行性
-   - 识别潜在风险和挑战
+4. **Verification Check**:
+   - Check logical consistency of the reasoning process
+   - Verify feasibility of the approach
+   - Identify potential risks and challenges
 
-5. **最终答案**: 
-   - 综合所有分析给出最终解决方案
-   - 提供明确的执行建议
-   - 确定优先级和里程碑
+5. **Final Answer**:
+   - Provide the final solution integrating all analysis
+   - Offer clear implementation recommendations
+   - Determine priorities and milestones
 
-请返回完整的分析过程和最终结论。
+Please return the complete analysis process and final conclusion.
 """
             template_structure = [
-                "应用认知框架",
-                "结构化输出",
-                "验证结果"
+                "Apply cognitive framework",
+                "Structured output",
+                "Verify results"
             ]
         
         elif template_type == 'few_shot':
             enhanced_content = f"""
-### 少样本学习模板应用
+### Few-shot Learning Template Application
 
-**任务**: {input_text}
+**Task**: {input_text}
 
-以下是处理类似任务的示例对，用于指导模型行为：
+The following are example pairs for handling similar tasks, used to guide model behavior:
 
-**示例1**:
-输入: 分析电商平台架构需求
-输出: 
-- 识别核心组件: 用户管理、商品管理、订单管理、支付系统
-- 分析技术栈: 前端、后端、数据库、缓存
-- 确定交互模式: REST API、消息队列、事件驱动
-- 验证安全要求: 认证、授权、数据加密
+**Example 1**:
+Input: Analyze e-commerce platform architecture requirements
+Output:
+- Identify core components: user management, product management, order management, payment system
+- Analyze technology stack: frontend, backend, database, cache
+- Determine interaction patterns: REST API, message queue, event-driven
+- Verify security requirements: authentication, authorization, data encryption
 
-**示例2**:
-输入: 设计API接口规范
-输出:
-- 定义数据模型: 实体结构、关系、约束
-- 规范接口定义: 端点、参数、响应格式
-- 配置错误处理: 错误代码、消息、恢复策略
-- 优化性能考虑: 分页、缓存、限流
+**Example 2**:
+Input: Design API interface specification
+Output:
+- Define data model: entity structure, relationships, constraints
+- Standardize interface definition: endpoints, parameters, response format
+- Configure error handling: error codes, messages, recovery strategies
+- Optimize performance considerations: pagination, caching, throttling
 
-请参考以上示例模式，处理您的任务：{input_text}
+Please refer to the above example patterns to handle your task: {input_text}
 
-请详细说明分析过程、决策依据和最终方案。
+Please provide detailed analysis process, decision basis, and final solution.
 """
             template_structure = [
-                "提供示例对",
-                "模式识别",
-                "应用示例"
+                "Provide example pairs",
+                "Pattern recognition",
+                "Apply examples"
             ]
-        
+
         elif template_type == 'verification':
             enhanced_content = f"""
-### 验证检查模板应用
+### Verification Check Template Application
 
-**待验证内容**: {input_text}
+**Content to Verify**: {input_text}
 
-请执行以下验证步骤以确保质量：
+Please execute the following verification steps to ensure quality:
 
-1. **初步答案**:
-   基于待验证内容，给出初步判断或方案：[暂空]
+1. **Initial Answer**:
+   Give an initial judgment or approach based on the content to verify: [Empty]
 
-2. **逻辑一致性检查**:
-   - 验证内容内部的逻辑一致性和连贯性
-   - 检查是否存在矛盾或冲突信息
-   - 确认因果关系的合理性
+2. **Logical Consistency Check**:
+   - Verify internal logical consistency and coherence of content
+   - Check if there are contradictory or conflicting information
+   - Confirm reasonableness of causal relationships
 
-3. **事实准确性检查**:
-   - 核实陈述的事实准确性
-   - 验证技术要求的可行性
-   - 检查约束条件的合理性
+3. **Factual Accuracy Check**:
+   - Verify accuracy of stated facts
+   - Validate feasibility of technical requirements
+   - Check reasonableness of constraints
 
-4. **完整性检查**:
-   - 评估是否包含所有必要信息
-   - 确认关键要素是否齐全
-   - 检查边缘案例的覆盖
+4. **Completeness Check**:
+   - Assess if all necessary information is included
+   - Confirm if key elements are complete
+   - Check coverage of edge cases
 
-5. **最终确认**:
-   基于以上检查，给出最终验证结论：[暂空]
+5. **Final Confirmation**:
+   Based on the above checks, provide final verification conclusion: [Empty]
 
-请返回每个验证步骤的详细结果和最终确认。
+Please return detailed results for each verification step and final confirmation.
 """
             template_structure = [
-                "初步验证",
-                "多维度检查",
-                "最终确认"
+                "Initial verification",
+                "Multi-dimensional check",
+                "Final confirmation"
             ]
-        
+
         elif template_type == 'role_playing':
             enhanced_content = f"""
-### {role}角色扮演分析
+### {role} Role-playing Analysis
 
-**任务**: {input_text}
+**Task**: {input_text}
 
-请以{role}的专业身份和视角分析此任务：
+Please analyze this task from the professional identity and perspective of {role}:
 
-1. **角色专业能力识别**:
-   作为{role}，我具备以下专业能力：
-   - [专业技能1]
-   - [专业技能2]
-   - [专业技能3]
+1. **Role Professional Capability Identification**:
+   As {role}, I possess the following professional capabilities:
+   - [Professional skill 1]
+   - [Professional skill 2]
+   - [Professional skill 3]
 
-2. **专业视角分析**:
-   从{role}的专业角度分析任务的关键要素：
-   - 核心关注点
-   - 潜在挑战
-   - 最佳实践方法
+2. **Professional Perspective Analysis**:
+   Analyze key elements of the task from {role}'s professional perspective:
+   - Core focus points
+   - Potential challenges
+   - Best practice methods
 
-3. **专业建议制定**:
-   基于{role}的专业知识，提供具体可行的建议：
-   - [建议1: 具体操作]
-   - [建议2: 注意事项]
-   - [建议3: 成功要点]
+3. **Professional Recommendation Formulation**:
+   Provide specific and feasible recommendations based on {role}'s professional knowledge:
+   - [Recommendation 1: Specific operation]
+   - [Recommendation 2: Considerations]
+   - [Recommendation 3: Success points]
 
-4. **专业决策推荐**:
-   从{role}的专业视角做出最优决策推荐，并说明理由。
+4. **Professional Decision Recommendation**:
+   Make optimal decision recommendations from {role}'s professional perspective and explain the reasoning.
 
-请返回{role}视角的专业分析、建议和决策。
+Please return professional analysis, recommendations, and decisions from {role}'s perspective.
 """
             template_structure = [
-                "角色能力识别",
-                "专业视角分析",
-                "建议制定",
-                "决策推荐"
+                "Role capability identification",
+                "Professional perspective analysis",
+                "Recommendation formulation",
+                "Decision recommendation"
             ]
-        
+
         elif template_type == 'understanding':
             enhanced_content = f"""
-### 深度理解框架
+### Deep Understanding Framework
 
-**待理解内容**: {input_text}
+**Content to Understand**: {input_text}
 
-请从以下维度进行深入理解：
+Please perform deep understanding from the following dimensions:
 
-1. **核心目标**:
-   - 此内容的首要目标是什么？
-   - 预期达成什么成果？
-   - 成功的标准如何定义？
+1. **Core Objective**:
+   - What is the primary objective of this content?
+   - What results are expected to be achieved?
+   - How is success defined?
 
-2. **关键要素**:
-   - 包含哪些重要组成部分？
-   - 涉及哪些关键技术/概念？
-   - 有哪些主要参与者？
+2. **Key Elements**:
+   - What important components does it contain?
+   - What key technologies/concepts are involved?
+   - Who are the main participants?
 
-3. **约束条件**:
-   - 有哪些限制和约束？
-   - 前提假设是什么？
-   - 资源和时间限制？
+3. **Constraint Conditions**:
+   - What limitations and constraints exist?
+   - What are the prerequisites and assumptions?
+   - What are the resource and time constraints?
 
-4. **成功标准**:
-   - 如何判断任务完成得好？
-   - 质量衡量指标是什么？
-   - 用户满意度标准？
+4. **Success Criteria**:
+   - How to judge if the task is completed well?
+   - What are the quality measurement indicators?
+   - What are the user satisfaction standards?
 
-5. **潜在风险**:
-   - 可能面临哪些挑战？
-   - 存在什么风险因素？
-   - 如何预防和缓解？
+5. **Potential Risks**:
+   - What challenges may be faced?
+   - What risk factors exist?
+   - How to prevent and mitigate?
 
-请返回深度理解结果和相关建议。
+Please return deep understanding results and related recommendations.
 """
             template_structure = [
-                "目标理解",
-                "要素分析",
-                "约束识别",
-                "标准定义",
-                "风险评估"
+                "Objective understanding",
+                "Element analysis",
+                "Constraint identification",
+                "Standard definition",
+                "Risk assessment"
             ]
-        
+
         return {
             'success': True,
             'original_context': input_text,
@@ -248,11 +248,11 @@ class CognitiveTemplateSkill(BaseSkill):
             'template_description': template_desc,
             'template_structure': template_structure
         }
-    
+
     def _format_output(self, result_data: Dict[str, Any], detail_level: DetailLevel) -> Dict[str, Any]:
-        """根据详细程度格式化输出结果"""
+        """Format output result based on detail level"""
         if detail_level == DetailLevel.BASIC:
-            # 基础级别只返回核心信息
+            # Basic level returns only core information
             if result_data.get('success', False):
                 return {
                     'template_type': result_data['template_type'],
@@ -261,10 +261,10 @@ class CognitiveTemplateSkill(BaseSkill):
             else:
                 return result_data
         elif detail_level == DetailLevel.STANDARD:
-            # 标准级别返回标准信息
+            # Standard level returns standard information
             return result_data
         else:  # DETAILED
-            # 详细级别返回完整信息
+            # Detailed level returns complete information
             if result_data.get('success', False):
                 detailed_info = {
                     'processing_details': {

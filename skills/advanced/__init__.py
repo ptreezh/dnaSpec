@@ -1,6 +1,6 @@
 """
-高级技能包
-包含复杂系统级技能实现
+Advanced Skills Package
+Contains complex system-level skill implementations
 """
 
 from .system_architect import SystemArchitectSkill

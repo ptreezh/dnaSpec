@@ -1,6 +1,6 @@
 """
-Git操作技能 - 重构版本
-符合DNASPEC标准化技能接口规范
+Git Operations Skill - Refactored Version
+Compliant with DNASPEC Standardized Skill Interface Specification
 """
 from typing import Dict, Any
 import subprocess
@@ -10,41 +10,41 @@ from ..skill_base import BaseSkill, DetailLevel
 
 
 class GitOperationsSkill(BaseSkill):
-    """Git操作技能 - 提供完整的Git操作支持"""
-    
+    """Git Operations Skill - Provides comprehensive Git operations support"""
+
     def __init__(self):
         super().__init__(
             name="git-operations",
-            description="提供完整的Git操作支持，包括分支管理、worktree、并发提交和CI/CD相关功能"
+            description="Provides comprehensive Git operations support, including branch management, worktree, concurrent commits and CI/CD related functions"
         )
     
-    def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel, 
+    def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel,
                           options: Dict[str, Any], context: Dict[str, Any]) -> Dict[str, Any]:
-        """执行Git操作技能逻辑"""
+        """Execute Git operations skill logic"""
         operation = options.get("operation", "")
         repository_path = options.get("repository_path", ".")
         branch_name = options.get("branch", "main")
         message = options.get("message", "Auto-commit by AI")
         remote = options.get("remote", "origin")
         files = options.get("files", ".")
-        
-        # 如果没有指定操作，返回错误信息
+
+        # If no operation is specified, return error message
         if not operation:
             return {
                 "success": False,
-                "error": "未指定Git操作",
+                "error": "No Git operation specified",
                 "operation": operation,
                 "repository_path": repository_path,
-                "result": "错误: 未指定Git操作"
+                "result": "Error: No Git operation specified"
             }
-        
+
         try:
-            # 改变到指定目录
+            # Change to specified directory
             original_dir = os.getcwd()
             os.chdir(repository_path)
-            
+
             command_executed = ""
-            
+
             if operation == "status":
                 result = self._git_status()
                 command_executed = "git status"
@@ -97,11 +97,11 @@ class GitOperationsSkill(BaseSkill):
                 result = self._git_reset(commit)
                 command_executed = f"git reset --hard {commit}"
             else:
-                result = f"未知的Git操作: {operation}"
+                result = f"Unknown Git operation: {operation}"
                 command_executed = f"unknown git operation: {operation}"
-            
+
             os.chdir(original_dir)
-            
+
             return {
                 "success": True,
                 "operation": operation,
@@ -109,35 +109,35 @@ class GitOperationsSkill(BaseSkill):
                 "result": result,
                 "command_executed": command_executed
             }
-            
+
         except Exception as e:
             os.chdir(original_dir)
             return {
                 "success": False,
                 "operation": operation,
                 "repository_path": repository_path,
-                "result": f"Git操作失败: {str(e)}",
+                "result": f"Git operation failed: {str(e)}",
                 "command_executed": f"git {operation}",
                 "error": str(e)
             }
     
     def _format_output(self, result_data: Dict[str, Any], detail_level: DetailLevel) -> Dict[str, Any]:
-        """根据详细程度格式化输出结果"""
+        """Format output result based on detail level"""
         if detail_level == DetailLevel.BASIC:
-            # 基础级别只返回核心信息
+            # Basic level returns only core information
             return {
                 "operation": result_data["operation"],
                 "result": result_data["result"][:200] + "..." if len(result_data["result"]) > 200 else result_data["result"]
             }
         elif detail_level == DetailLevel.STANDARD:
-            # 标准级别返回标准信息
+            # Standard level returns standard information
             return {
                 "operation": result_data["operation"],
                 "repository_path": result_data["repository_path"],
                 "result": result_data["result"]
             }
         else:  # DETAILED
-            # 详细级别返回完整信息
+            # Detailed level returns complete information
             detailed_info = {
                 "command_executed": result_data.get("command_executed", ""),
                 "execution_details": {
@@ -150,106 +150,106 @@ class GitOperationsSkill(BaseSkill):
     
     def _run_git_command(self, cmd: str) -> str:
         """
-        执行Git命令
+        Execute Git command
         """
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
         if result.returncode == 0:
             return result.stdout
         else:
-            return f"错误: {result.stderr}"
-    
+            return f"Error: {result.stderr}"
+
     def _git_status(self) -> str:
         """
-        获取Git状态
+        Get Git status
         """
         return self._run_git_command("git status")
-    
+
     def _git_commit(self, message: str, files: str) -> str:
         """
-        提交文件
+        Commit files
         """
         add_cmd = f"git add {files}"
         commit_cmd = f'git commit -m "{message}"'
         return self._run_git_command(f"{add_cmd} && {commit_cmd}")
-    
+
     def _git_push(self, remote: str, branch: str) -> str:
         """
-        推送到远程仓库
+        Push to remote repository
         """
         return self._run_git_command(f"git push {remote} {branch}")
-    
+
     def _git_pull(self, remote: str, branch: str) -> str:
         """
-        从远程仓库拉取
+        Pull from remote repository
         """
         return self._run_git_command(f"git pull {remote} {branch}")
-    
+
     def _git_create_branch(self, branch_name: str) -> str:
         """
-        创建分支
+        Create branch
         """
         return self._run_git_command(f"git checkout -b {branch_name}")
-    
+
     def _git_switch_branch(self, branch_name: str) -> str:
         """
-        切换分支
+        Switch branch
         """
         return self._run_git_command(f"git checkout {branch_name}")
-    
+
     def _git_worktree_add(self, path: str, branch: str) -> str:
         """
-        添加工作树
+        Add worktree
         """
         if not path:
             path = tempfile.mkdtemp(prefix="git-worktree-")
         return self._run_git_command(f"git worktree add {path} {branch}")
-    
+
     def _git_worktree_list(self) -> str:
         """
-        列出工作树
+        List worktrees
         """
         return self._run_git_command("git worktree list")
-    
+
     def _git_worktree_remove(self, path: str) -> str:
         """
-        移除工作树
+        Remove worktree
         """
         return self._run_git_command(f"git worktree remove {path}")
-    
+
     def _git_merge(self, source_branch: str, target_branch: str) -> str:
         """
-        合并分支
+        Merge branches
         """
         switch_cmd = f"git checkout {target_branch}"
         merge_cmd = f"git merge {source_branch}"
         return self._run_git_command(f"{switch_cmd} && {merge_cmd}")
-    
+
     def _git_stash(self) -> str:
         """
-        暂存更改
+        Stash changes
         """
         return self._run_git_command("git stash")
-    
+
     def _git_stash_pop(self) -> str:
         """
-        恢复暂存
+        Pop stash
         """
         return self._run_git_command("git stash pop")
-    
+
     def _git_diff(self) -> str:
         """
-        显示差异
+        Show differences
         """
         return self._run_git_command("git diff")
-    
+
     def _git_log(self, count: int) -> str:
         """
-        显示提交历史
+        Show commit history
         """
         return self._run_git_command(f"git log --oneline -{count}")
-    
+
     def _git_reset(self, commit: str) -> str:
         """
-        重置到指定提交
+        Reset to specified commit
         """
         return self._run_git_command(f"git reset --hard {commit}")

@@ -307,7 +307,7 @@ class TestCLIExtensionDeployer:
                 assert status['cli_count'] == 12
 
 
-  def test_generate_commands_dir_extensions(self):
+    def test_generate_commands_dir_extensions(self):
         """测试：生成基于commands目录的扩展"""
         with tempfile.TemporaryDirectory() as temp_dir:
             project_root = Path(temp_dir)
@@ -342,7 +342,7 @@ class TestCLIExtensionDeployer:
                 assert "Generated for gemini CLI" in content
                 assert project_root.name in content
 
-  def test_generate_slash_command_content(self):
+    def test_generate_slash_command_content(self):
         """测试：生成斜杠命令内容"""
         with tempfile.TemporaryDirectory() as temp_dir:
             project_root = Path(temp_dir)

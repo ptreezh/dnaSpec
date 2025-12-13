@@ -1,6 +1,6 @@
 """
-中级技能包
-包含需要一定复杂度的技能实现
+Intermediate Skills Package
+Contains skill implementations that require certain complexity
 """
 
 from .context_analysis import ContextAnalysisSkill

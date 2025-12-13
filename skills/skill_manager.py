@@ -63,7 +63,7 @@ class SkillManager:
                 "status": "error",
                 "error": {
                     "type": "SKILL_NOT_FOUND",
-                    "message": f"技能 '{skill_name}' 未找到",
+                    "message": f"Skill '{skill_name}' not found",
                     "code": "SKILL_NOT_FOUND"
                 }
             }

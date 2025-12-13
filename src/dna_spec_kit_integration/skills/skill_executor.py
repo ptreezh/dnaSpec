@@ -13,6 +13,7 @@ try:
     from .system_architect_independent import execute_system_architect
     from .agent_creator_independent import execute_agent_creator
     from .modulizer_independent import execute_modulizer
+    from .constitutional_modulizer_independent import execute_constitutional_module_formation
 except ImportError as e:
     print(f"Warning: Could not import some independent skills: {e}")
 
@@ -43,6 +44,7 @@ class DNASPECSkillExecutor:
             # 专业技能
             'agent-creator': execute_agent_creator,
             'modulizer': execute_modulizer,
+            'constitutional-module-formation': execute_constitutional_module_formation,
 
             # 使用命令映射器（Git和Workspace）
             'git': lambda args: command_mapper.execute_command(f"git {args.get('command', 'status')}"),
@@ -129,6 +131,7 @@ class DNASPECSkillExecutor:
             'system-architect': 'Advanced system architecture with detailed design',
             'agent-creator': 'Create specialized AI agents with defined capabilities',
             'modulizer': 'Break down complex systems into modular components',
+            'constitutional-module-formation': 'Constitutional skill for bottom-up module formation from mature components',
             'git': 'Execute Git workflow operations safely',
             'workspace': 'Manage AI-generated files in secure workspace'
         }
@@ -243,6 +246,27 @@ Examples:
   /dnaspec.workspace create
   /dnaspec.workspace add "auth.py" "import hashlib..."
   /dnaspec.workspace stage "auth.py"
+""",
+            'constitutional-module-formation': """
+Constitutional Module Formation (/dnaspec.constitutional-module-formation):
+Usage: /dnaspec.constitutional-module-formation operation=register_component component_name="name" component_description="description" component_category="category"
+
+Description:
+  Constitutional skill for gradual bottom-up module formation from mature components.
+  Implements the constitutional requirement of encapsulating mature components into modules as complexity grows.
+
+Operations:
+  - register_component: Register a new component for tracking
+  - update_component_status: Update component maturity status
+  - add_component_dependency: Establish dependency relationship
+  - get_ready_modules: Retrieve formed modules
+  - evaluate_module_formation: Trigger module formation evaluation
+  - get_formulation_insights: Get process metrics
+
+Examples:
+  /dnaspec.constitutional-module-formation operation=register_component component_name="user_auth" component_category="security"
+  /dnaspec.constitutional-module-formation operation=update_component_status component_id="123abc" status="MATURE" maturity_boost=0.3
+  /dnaspec.constitutional-module-formation operation=evaluate_module_formation
 """
         }
 
@@ -295,3 +319,7 @@ def execute_dapi_checker(args: Dict[str, Any]) -> str:
 def execute_modulizer(args: Dict[str, Any]) -> str:
     """向后兼容的模块化执行函数"""
     return execute_skill('modulizer', args)
+
+def execute_constitutional_module_formation(args: Dict[str, Any]) -> str:
+    """向后兼容的宪法模块形成执行函数"""
+    return execute_skill('constitutional-module-formation', args)

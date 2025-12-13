@@ -1,6 +1,6 @@
 """
-基础技能包
-包含最简单的技能实现
+Basic Skills Package
+Contains the simplest skill implementations
 """
 
 from .liveness import LivenessSkill

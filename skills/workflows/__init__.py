@@ -1,6 +1,6 @@
 """
-工作流技能包
-包含组合多个技能的工作流实现
+Workflow Skills Package
+Contains workflow implementations that combine multiple skills
 """
 
 from .context_engineering import ContextEngineeringWorkflow

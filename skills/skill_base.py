@@ -1,6 +1,6 @@
 """
-DNASPEC技能基类
-提供标准化的技能接口和渐进式信息披露支持
+DNASPEC Skill Base Class
+Provides standardized skill interface and progressive disclosure support
 """
 from typing import Dict, Any, Optional
 from abc import ABC, abstractmethod
@@ -9,19 +9,19 @@ from enum import Enum
 
 
 class DetailLevel(Enum):
-    """详细程度枚举"""
+    """Detail Level Enumeration"""
     BASIC = "basic"
     STANDARD = "standard"
     DETAILED = "detailed"
 
 
 class ValidationError(Exception):
-    """验证错误异常"""
+    """Validation Error Exception"""
     pass
 
 
 class BaseSkill(ABC):
-    """DNASPEC技能基类"""
+    """DNASPEC Skill Base Class"""
     
     def __init__(self, name: str, description: str):
         self.name = name
@@ -30,40 +30,40 @@ class BaseSkill(ABC):
     
     def execute(self, args: Dict[str, Any]) -> Dict[str, Any]:
         """
-        执行技能 - 标准化入口点
-        
+        Execute Skill - Standardized Entry Point
+
         Args:
-            args: 标准化输入参数
-                - input: 主要输入内容
-                - detail_level: 详细程度 ("basic", "standard", "detailed")
-                - options: 可选配置参数
-                - context: 上下文信息
-                
+            args: Standardized input parameters
+                - input: Main input content
+                - detail_level: Detail level ("basic", "standard", "detailed")
+                - options: Optional configuration parameters
+                - context: Context information
+
         Returns:
-            标准化输出响应
+            Standardized output response
         """
         start_time = time.time()
-        
+
         try:
-            # 验证输入参数
+            # Validate input parameters
             validated_args = self._validate_input(args)
             input_text = validated_args["input"]
             detail_level = validated_args["detail_level"]
             options = validated_args["options"]
             context = validated_args["context"]
-            
-            # 执行技能逻辑
+
+            # Execute skill logic
             result_data = self._execute_skill_logic(
                 input_text, detail_level, options, context
             )
-            
-            # 格式化输出结果
+
+            # Format output result
             formatted_result = self._format_output(
                 result_data, detail_level
             )
-            
+
             execution_time = time.time() - start_time
-            
+
             return {
                 "status": "success",
                 "data": formatted_result,
@@ -74,7 +74,7 @@ class BaseSkill(ABC):
                     "detail_level": detail_level.value if isinstance(detail_level, DetailLevel) else detail_level
                 }
             }
-            
+
         except ValidationError as e:
             execution_time = time.time() - start_time
             return {
@@ -106,42 +106,42 @@ class BaseSkill(ABC):
     
     def _validate_input(self, args: Dict[str, Any]) -> Dict[str, Any]:
         """
-        验证输入参数
-        
+        Validate Input Parameters
+
         Args:
-            args: 输入参数字典
-            
+            args: Input parameter dictionary
+
         Returns:
-            验证后的参数字典
-            
+            Validated parameter dictionary
+
         Raises:
-            ValidationError: 当输入参数无效时
+            ValidationError: When input parameters are invalid
         """
-        # 验证必需参数
+        # Validate required parameters
         input_text = args.get("input", "")
         if not isinstance(input_text, str):
             raise ValidationError("Input must be a string")
-        
+
         if not input_text.strip():
             raise ValidationError("Input cannot be empty")
-        
-        # 处理详细程度参数
+
+        # Process detail level parameter
         detail_level_str = args.get("detail_level", "standard")
         try:
             detail_level = DetailLevel(detail_level_str)
         except ValueError:
-            # 如果不是有效的DetailLevel，使用默认值
+            # If not a valid DetailLevel, use default value
             detail_level = DetailLevel.STANDARD
-        
-        # 处理可选参数
+
+        # Process optional parameters
         options = args.get("options", {})
         if not isinstance(options, dict):
             options = {}
-        
+
         context = args.get("context", {})
         if not isinstance(context, dict):
             context = {}
-        
+
         return {
             "input": input_text,
             "detail_level": detail_level,
@@ -150,48 +150,48 @@ class BaseSkill(ABC):
         }
     
     @abstractmethod
-    def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel, 
+    def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel,
                            options: Dict[str, Any], context: Dict[str, Any]) -> Any:
         """
-        执行具体的技能逻辑 - 子类必须实现
-        
+        Execute Specific Skill Logic - Subclasses Must Implement
+
         Args:
-            input_text: 输入文本
-            detail_level: 详细程度
-            options: 可选配置参数
-            context: 上下文信息
-            
+            input_text: Input text
+            detail_level: Detail level
+            options: Optional configuration parameters
+            context: Context information
+
         Returns:
-            技能执行结果
+            Skill execution result
         """
         pass
     
     def _format_output(self, result_data: Any, detail_level: DetailLevel) -> Any:
         """
-        根据详细程度格式化输出结果
-        
+        Format Output Result Based on Detail Level
+
         Args:
-            result_data: 技能执行结果
-            detail_level: 详细程度
-            
+            result_data: Skill execution result
+            detail_level: Detail level
+
         Returns:
-            格式化后的结果
+            Formatted result
         """
-        # 默认实现直接返回结果数据
-        # 子类可以根据需要重写此方法以支持渐进式信息披露
+        # Default implementation directly returns result data
+        # Subclasses can override this method to support progressive disclosure
         return result_data
     
     def _calculate_confidence(self, input_text: str) -> float:
         """
-        计算结果置信度
-        
+        Calculate Result Confidence
+
         Args:
-            input_text: 输入文本
-            
+            input_text: Input text
+
         Returns:
-            置信度分数 (0.0-1.0)
+            Confidence score (0.0-1.0)
         """
-        # 默认实现基于输入长度计算置信度
+        # Default implementation calculates confidence based on input length
         if len(input_text) < 10:
             return 0.3
         elif len(input_text) < 50:

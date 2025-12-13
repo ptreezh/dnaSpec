@@ -985,8 +985,7 @@ Security Level: Project-Isolated
             'security_level': 'project-isolated' if self.deployment_mode == 'project-level' else 'global-dynamic'
         }
 
-
-def _run_security_tests(self) -> Dict[str, Any]:
+    def _run_security_tests(self) -> Dict[str, Any]:
         """
         运行安全测试套件
 
@@ -1017,7 +1016,7 @@ def _run_security_tests(self) -> Dict[str, Any]:
 
         return test_results
 
-        def _test_security_context_validation(self) -> Dict[str, Any]:
+    def _test_security_context_validation(self) -> Dict[str, Any]:
         """测试安全上下文验证"""
         test_result = {
             'test_name': 'security_context_validation',

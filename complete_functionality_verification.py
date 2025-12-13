@@ -126,6 +126,7 @@ def test_available_skills():
         print(f"      Available skills: {list(skills.keys())}")
         
         # 2. 测试每个可用技能
+        from src.dna_context_engineering.skills_system_final import execute  # Make sure execute is imported in this scope
         for skill_name, desc in skills.items():
             print(f"   Testing {skill_name}...")
             try:
@@ -157,9 +158,7 @@ def test_module_imports():
         'src.dna_spec_kit_integration.core.command_handler',
         'src.dna_context_engineering',
         'src.dna_context_engineering.skills_system_final',
-        'src.dna_context_engineering.skills.context_analysis',
-        'src.dna_context_engineering.skills.context_optimization',
-        'src.dna_context_engineering.skills.cognitive_template'
+        # Removed non-existent modules - skills are in skills_system_final.py
     ]
     
     for module in modules_to_test:
@@ -179,11 +178,11 @@ def test_adapter_integration():
     
     errors = []
     
-    # 1. 测试适配器
-    print("\\n1. Testing SpecKit Adapter:") 
+    # 1. 测试适配器 - Use the concrete implementation instead of abstract class
+    print("\\n1. Testing SpecKit Adapter:")
     try:
-        from src.dna_spec_kit_integration.adapters.spec_kit_adapter import SpecKitAdapter
-        adapter = SpecKitAdapter()
+        from src.dna_spec_kit_integration.adapters.concrete_spec_kit_adapter import ConcreteSpecKitAdapter
+        adapter = ConcreteSpecKitAdapter()
         print(f"   ✅ SpecKit Adapter: Created successfully")
         print(f"      Registered skills: {len(adapter.get_registered_skills())}")
     except Exception as e:

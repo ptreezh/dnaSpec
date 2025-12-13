@@ -1,6 +1,6 @@
 """
-系统架构师技能 - 重构版本
-符合DNASPEC标准化技能接口规范
+System Architect Skill - Refactored Version
+Compliant with DNASPEC Standardized Skill Interface Specification
 """
 import re
 from typing import Dict, Any, List
@@ -69,50 +69,50 @@ class SystemComponent:
 
 
 class SystemArchitectSkill(BaseSkill):
-    """系统架构师技能 - 用于系统架构设计、技术栈选择、模块划分和接口定义"""
-    
+    """System Architect Skill - Used for system architecture design, technology stack selection, module division and interface definition"""
+
     def __init__(self):
         super().__init__(
             name="system-architect",
-            description="用于复杂项目的系统架构设计、技术栈选择、模块划分和接口定义"
+            description="Used for complex project system architecture design, technology stack selection, module division and interface definition"
         )
-        
-        # 架构指示器
+
+        # Architecture indicators
         self.microservice_indicators = [
-            'microservice', '服务拆分', '独立部署', '服务治理', '分布式',
-            'service mesh', 'kubernetes', 'docker', '容器化'
+            'microservice', 'service splitting', 'independent deployment', 'service governance', 'distributed',
+            'service mesh', 'kubernetes', 'docker', 'containerization'
         ]
-        
+
         self.event_driven_indicators = [
-            'event', '事件驱动', '消息队列', '异步处理', '实时处理',
-            'kafka', 'rabbitmq', 'pub/sub', '发布订阅'
+            'event', 'event-driven', 'message queue', 'asynchronous processing', 'real-time processing',
+            'kafka', 'rabbitmq', 'pub/sub', 'publish-subscribe'
         ]
-        
+
         self.high_availability_indicators = [
-            'high availability', '高可用', '容错', '故障转移', '冗余',
-            '99.9%', '负载均衡', '灾备', 'failover'
+            'high availability', 'high availability', 'fault tolerance', 'failover', 'redundancy',
+            '99.9%', 'load balancing', 'disaster recovery', 'failover'
         ]
-        
+
         self.performance_indicators = [
             'low latency', 'high throughput', 'performance', 'fast', 'optimized',
             'real-time', 'millisecond', 'speed'
         ]
-        
+
         self.data_indicators = [
-            'big data', 'analytics', 'pb', 'processing', 'data lake', 
+            'big data', 'analytics', 'pb', 'processing', 'data lake',
             'data warehouse', 'hadoop', 'spark'
         ]
-        
+
         self.mobile_indicators = [
             'mobile', 'app', 'offline', 'push', 'native', 'hybrid'
         ]
-        
+
         self.cloud_native_indicators = [
             'cloud native', 'container', 'kubernetes', 'saas', 'multi-tenant',
             'elastic', 'scalable'
         ]
-        
-        # 技术推荐
+
+        # Technology recommendations
         self.tech_stacks = {
             TechnologyStack.FULL_STACK: {
                 "frontend": ["React", "Vue.js", "Angular"],
@@ -146,20 +146,20 @@ class SystemArchitectSkill(BaseSkill):
             }
         }
 
-    def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel, 
+    def _execute_skill_logic(self, input_text: str, detail_level: DetailLevel,
                           options: Dict[str, Any], context: Dict[str, Any]) -> Dict[str, Any]:
-        """执行系统架构师技能逻辑"""
+        """Execute system architect skill logic"""
         arch_type = self.identify_architecture_type(input_text)
         tech_stack = self.recommend_tech_stack(input_text, arch_type)
         modules = self.identify_modules(input_text, arch_type)
         interfaces = self.define_interfaces(modules, arch_type)
-        
-        # 生成架构建议
+
+        # Generate architecture recommendations
         architecture_recommendations = self.generate_architecture_recommendations(input_text, arch_type)
-        
-        # 识别潜在问题
+
+        # Identify potential issues
         potential_issues = self.identify_potential_issues(input_text, arch_type)
-        
+
         design = {
             "input_requirements": input_text[:100] + "..." if len(input_text) > 100 else input_text,
             "architecture_type": arch_type.value,
@@ -171,13 +171,13 @@ class SystemArchitectSkill(BaseSkill):
             "implementation_guidance": self.generate_implementation_guidance(arch_type),
             "module_division_rationale": f"Using {arch_type.value} architecture based on system requirements"
         }
-        
+
         return design
 
     def _format_output(self, result_data: Dict[str, Any], detail_level: DetailLevel) -> Dict[str, Any]:
-        """根据详细程度格式化输出结果"""
+        """Format output result based on detail level"""
         if detail_level == DetailLevel.BASIC:
-            # 基础级别只返回核心信息
+            # Basic level returns only core information
             return {
                 "architecture_type": result_data["architecture_type"],
                 "recommended_tech_stack": result_data["recommended_tech_stack"],
@@ -185,23 +185,23 @@ class SystemArchitectSkill(BaseSkill):
                 "main_recommendations": result_data["architecture_recommendations"][:3]
             }
         elif detail_level == DetailLevel.STANDARD:
-            # 标准级别返回标准信息
+            # Standard level returns standard information
             return {
                 "architecture_type": result_data["architecture_type"],
                 "recommended_tech_stack": result_data["recommended_tech_stack"],
                 "identified_modules": result_data["identified_modules"],
-                "defined_interfaces": result_data["defined_interfaces"][:5],  # 只返回前5个接口
+                "defined_interfaces": result_data["defined_interfaces"][:5],  # Return only first 5 interfaces
                 "architecture_recommendations": result_data["architecture_recommendations"][:5],
                 "potential_issues": result_data["potential_issues"][:3]
             }
         else:  # DETAILED
-            # 详细级别返回完整信息
+            # Detailed level returns complete information
             return result_data
 
     def identify_architecture_type(self, requirements: str) -> SystemArchitectureType:
-        """根据需求识别合适的架构类型"""
+        """Identify appropriate architecture type based on requirements"""
         req_lower = requirements.lower()
-        
+
         if any(indicator in req_lower for indicator in self.microservice_indicators):
             return SystemArchitectureType.MICROSERVICES
         elif any(indicator in req_lower for indicator in self.event_driven_indicators):
@@ -214,9 +214,9 @@ class SystemArchitectSkill(BaseSkill):
             return SystemArchitectureType.LAYERED
 
     def recommend_tech_stack(self, requirements: str, arch_type: SystemArchitectureType) -> TechnologyStack:
-        """根据需求和架构类型推荐合适的技术栈"""
+        """Recommend appropriate technology stack based on requirements and architecture type"""
         req_lower = requirements.lower()
-        
+
         if any(indicator in req_lower for indicator in self.data_indicators):
             return TechnologyStack.PYTHON_WEB
         elif any(indicator in req_lower for indicator in self.mobile_indicators):
@@ -231,27 +231,27 @@ class SystemArchitectSkill(BaseSkill):
             return TechnologyStack.FULL_STACK
 
     def identify_modules(self, requirements: str, arch_type: SystemArchitectureType) -> List[SystemComponent]:
-        """根据需求识别系统模块"""
+        """Identify system modules based on requirements"""
         modules = []
-        
+
         # Identify core modules based on requirements
         req_lower = requirements.lower()
-        
+
         # Frontend module
         frontend_tech = self.tech_stacks[self.recommend_tech_stack(requirements, arch_type)].get("frontend", ["React"])[0]
         frontend_responsibilities = ["User interface", "User interaction", "Data presentation"]
-        
+
         if any(indicator in req_lower for indicator in self.mobile_indicators):
             frontend_responsibilities.append("Mobile compatibility")
             frontend_responsibilities.append("Offline support")
-        
+
         frontend_module = SystemComponent(
             name="Frontend Module",
             module_type=ModuleType.FRONTEND,
             technologies=[frontend_tech],
             responsibilities=frontend_responsibilities
         )
-        
+
         # Add interfaces for frontend
         frontend_module.add_interface(
             name="API Interface",
@@ -259,23 +259,23 @@ class SystemArchitectSkill(BaseSkill):
             input_format="JSON",
             output_format="JSON"
         )
-        
+
         modules.append(frontend_module)
-        
+
         # Backend module
         backend_tech = self.tech_stacks[self.recommend_tech_stack(requirements, arch_type)].get("backend", ["Node.js"])[0]
         backend_responsibilities = ["Business logic", "API endpoints", "Data processing"]
-        
+
         if arch_type == SystemArchitectureType.MICROSERVICES:
             backend_responsibilities = ["Service orchestration", "API gateway", "Service communication"]
-        
+
         backend_module = SystemComponent(
             name="Backend Module",
             module_type=ModuleType.BACKEND,
             technologies=[backend_tech],
             responsibilities=backend_responsibilities
         )
-        
+
         # Add interfaces for backend
         backend_module.add_interface(
             name="Database Interface",
@@ -283,7 +283,7 @@ class SystemArchitectSkill(BaseSkill):
             input_format="Query/Command",
             output_format="Data/Result"
         )
-        
+
         if arch_type == SystemArchitectureType.EVENT_DRIVEN:
             backend_module.add_interface(
                 name="Message Interface",
@@ -291,53 +291,53 @@ class SystemArchitectSkill(BaseSkill):
                 input_format="Message",
                 output_format="Acknowledgment"
             )
-        
+
         modules.append(backend_module)
-        
+
         # Database module
         db_tech = self.tech_stacks[self.recommend_tech_stack(requirements, arch_type)].get("database", ["PostgreSQL"])[0]
-        
+
         if any(indicator in req_lower for indicator in self.data_indicators):
             db_tech = "Apache Kafka, Hadoop, Spark"  # For big data
-        
+
         db_responsibilities = ["Data storage", "Data retrieval", "Data consistency"]
-        
+
         if arch_type == SystemArchitectureType.MICROSERVICES:
             db_responsibilities = ["Per-service data storage", "Data synchronization", "Distributed data management"]
-        
+
         db_module = SystemComponent(
             name="Database Module",
             module_type=ModuleType.DATABASE,
             technologies=[db_tech],
             responsibilities=db_responsibilities
         )
-        
+
         modules.append(db_module)
-        
+
         # Add infrastructure module if needed
         if arch_type in [SystemArchitectureType.MICROSERVICES, SystemArchitectureType.SERVERLESS]:
             infra_tech = self.tech_stacks[self.recommend_tech_stack(requirements, arch_type)].get("infrastructure", ["AWS"])[0]
-            
+
             infra_responsibilities = ["Deployment", "Scaling", "Monitoring"]
             if arch_type == SystemArchitectureType.MICROSERVICES:
                 infra_responsibilities.append("Service discovery")
                 infra_responsibilities.append("Load balancing")
-            
+
             infra_module = SystemComponent(
                 name="Infrastructure Module",
                 module_type=ModuleType.INFRASTRUCTURE,
                 technologies=[infra_tech],
                 responsibilities=infra_responsibilities
             )
-            
+
             modules.append(infra_module)
-        
+
         return modules
 
     def define_interfaces(self, modules: List[SystemComponent], arch_type: SystemArchitectureType) -> List[Dict[str, Any]]:
-        """定义模块间接口"""
+        """Define module interfaces"""
         interfaces = []
-        
+
         # Define standard interfaces based on architecture type
         if arch_type == SystemArchitectureType.MICROSERVICES:
             for i, module in enumerate(modules):
@@ -374,13 +374,13 @@ class SystemArchitectSkill(BaseSkill):
                         "description": "Data access layer"
                     }
                     interfaces.append(interface)
-        
+
         return interfaces
 
     def generate_architecture_recommendations(self, requirements: str, arch_type: SystemArchitectureType) -> List[str]:
-        """生成具体的架构建议"""
+        """Generate specific architecture recommendations"""
         recommendations = []
-        
+
         if arch_type == SystemArchitectureType.MICROSERVICES:
             recommendations.extend([
                 "Implement API gateway for service routing",
@@ -409,7 +409,7 @@ class SystemArchitectSkill(BaseSkill):
                 "Use dependency injection for loose coupling",
                 "Consider caching strategies for performance"
             ])
-        
+
         req_lower = requirements.lower()
         if any(indicator in req_lower for indicator in self.high_availability_indicators):
             recommendations.extend([
@@ -418,7 +418,7 @@ class SystemArchitectSkill(BaseSkill):
                 "Plan for disaster recovery",
                 "Implement health checks and monitoring"
             ])
-        
+
         if any(indicator in req_lower for indicator in self.performance_indicators):
             recommendations.extend([
                 "Optimize database queries and indexing",
@@ -426,13 +426,13 @@ class SystemArchitectSkill(BaseSkill):
                 "Use CDNs for static content delivery",
                 "Monitor and optimize response times"
             ])
-        
+
         return recommendations
 
     def identify_potential_issues(self, requirements: str, arch_type: SystemArchitectureType) -> List[str]:
-        """识别潜在的架构问题"""
+        """Identify potential architecture issues"""
         issues = []
-        
+
         if arch_type == SystemArchitectureType.MICROSERVICES:
             issues.extend([
                 "Increased complexity in development and deployment",
@@ -454,13 +454,13 @@ class SystemArchitectSkill(BaseSkill):
                 "Vendor dependency concerns",
                 "Debugging and testing challenges"
             ])
-        
+
         return issues
 
     def generate_implementation_guidance(self, arch_type: SystemArchitectureType) -> List[str]:
-        """生成实施指导"""
+        """Generate implementation guidance"""
         guidance = []
-        
+
         if arch_type == SystemArchitectureType.MICROSERVICES:
             guidance.extend([
                 "Start with a monolith and gradually decompose",
@@ -482,5 +482,5 @@ class SystemArchitectSkill(BaseSkill):
                 "Use continuous integration and deployment",
                 "Document interfaces and dependencies clearly"
             ])
-        
+
         return guidance

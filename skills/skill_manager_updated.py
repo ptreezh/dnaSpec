@@ -81,11 +81,8 @@ class SkillManager:
         """Execute specified skill"""
         skill = self.get_skill(skill_name)
         if not skill:
-            if self.language == "en":
-                error_msg = f"Skill '{skill_name}' not found"
-            else:
-                error_msg = f"技能 '{skill_name}' 未找到"
-            
+            error_msg = f"Skill '{skill_name}' not found"
+
             return {
                 "status": "error",
                 "error": {
@@ -94,7 +91,7 @@ class SkillManager:
                     "code": "SKILL_NOT_FOUND"
                 }
             }
-        
+
         return skill.execute(args)
     
     def set_language(self, language: str):

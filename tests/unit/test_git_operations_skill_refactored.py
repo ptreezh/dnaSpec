@@ -2,12 +2,12 @@
 Git操作技能重构测试
 """
 import pytest
-from src.dna_spec_kit_integration.skills.git_operations_refactored import GitOperationsSkill
+from src.dna_spec_kit_integration.skills.git_operations_refactored import GitSkill
 
 
 def test_git_operations_skill_basic_status():
     """测试Git操作技能 - 基础级别状态查询"""
-    skill = GitOperationsSkill()
+    skill = GitSkill()
     args = {
         "input": "查询当前仓库状态",
         "options": {
@@ -28,7 +28,7 @@ def test_git_operations_skill_basic_status():
 
 def test_git_operations_skill_standard_commit():
     """测试Git操作技能 - 标准级别提交操作"""
-    skill = GitOperationsSkill()
+    skill = GitSkill()
     args = {
         "input": "提交所有更改",
         "options": {
