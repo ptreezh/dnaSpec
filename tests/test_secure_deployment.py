@@ -105,23 +105,39 @@ class TestSecurityContext:
         """测试：获取允许范围内的绝对路径"""
         with tempfile.TemporaryDirectory() as temp_dir:
             allowed_root = Path(temp_dir)
-            target_file = allowed_root / "project" / "file.txt"
+            work_dir = allowed_root / "project"
+            work_dir.mkdir()
+            target_file = work_dir / "file.txt"
 
-            security_context = SecurityContext(allowed_root)
-            safe_path = security_context.get_safe_path(str(target_file))
+            original_cwd = os.getcwd()
+            os.chdir(work_dir)
 
-            assert safe_path == target_file.resolve()
+            try:
+                security_context = SecurityContext(allowed_root)
+                safe_path = security_context.get_safe_path(str(target_file))
+
+                assert safe_path == target_file.resolve()
+            finally:
+                os.chdir(original_cwd)
 
     def test_get_safe_path_absolute_violation(self):
         """测试：获取范围外的绝对路径（安全违规）"""
         with tempfile.TemporaryDirectory() as temp_dir1, tempfile.TemporaryDirectory() as temp_dir2:
             allowed_root = Path(temp_dir1)
+            work_dir = allowed_root / "project"
+            work_dir.mkdir()
             violation_file = Path(temp_dir2) / "file.txt"
 
-            security_context = SecurityContext(allowed_root)
+            original_cwd = os.getcwd()
+            os.chdir(work_dir)
 
-            with pytest.raises(SecurityError, match="Access denied"):
-                security_context.get_safe_path(str(violation_file))
+            try:
+                security_context = SecurityContext(allowed_root)
+
+                with pytest.raises(SecurityError, match="Access denied"):
+                    security_context.get_safe_path(str(violation_file))
+            finally:
+                os.chdir(original_cwd)
 
     def test_get_safe_path_directory_traversal_attempt(self):
         """测试：目录遍历攻击尝试"""
@@ -153,15 +169,23 @@ class TestSecureDeploymentManager:
         """测试：项目级模式初始化"""
         with tempfile.TemporaryDirectory() as temp_dir:
             project_root = Path(temp_dir)
+            work_dir = project_root / "subdir"
+            work_dir.mkdir()
 
-            # 模拟无Stigmergy环境
-            with patch('dna_spec_kit_integration.core.secure_deployment_manager.SecureDeploymentManager._check_stigmergy_availability', return_value=False):
-                manager = SecureDeploymentManager(project_root)
+            original_cwd = os.getcwd()
+            os.chdir(work_dir)
 
-                assert manager.deployment_mode == 'project-level'
-                assert not manager.stigmergy_available
-                assert manager.project_root == project_root
-                assert isinstance(manager.security_context, SecurityContext)
+            try:
+                # 模拟无Stigmergy环境
+                with patch('dna_spec_kit_integration.core.secure_deployment_manager.SecureDeploymentManager._check_stigmergy_availability', return_value=False):
+                    manager = SecureDeploymentManager(project_root)
+
+                    assert manager.deployment_mode == 'project-level'
+                    assert not manager.stigmergy_available
+                    assert manager.project_root == project_root
+                    assert isinstance(manager.security_context, SecurityContext)
+            finally:
+                os.chdir(original_cwd)
 
     def test_stigmergy_mode_initialization(self):
         """测试：Stigmergy模式初始化"""
@@ -193,36 +217,48 @@ class TestSecureDeploymentManager:
         """测试：生成安全项目级技能文件"""
         with tempfile.TemporaryDirectory() as temp_dir:
             project_root = Path(temp_dir)
-            manager = SecureDeploymentManager(project_root)
+            work_dir = project_root / "subdir"
+            work_dir.mkdir()
 
-            skill = {
-                'name': 'test-skill',
-                'description': 'Test skill for unit testing',
-                'function': 'execute_test_skill'
-            }
+            original_cwd = os.getcwd()
+            os.chdir(work_dir)
 
-            # 模拟无Stigmergy环境
-            with patch.object(manager, 'stigmergy_available', False):
-                generated_files = manager._generate_secure_project_skill_files(skill)
+            try:
+                manager = SecureDeploymentManager(project_root)
 
-                # 验证生成的文件
-                assert len(generated_files) == 4  # executor.py, .cmd, .sh, config.json
+                # 手动创建项目斜杠目录，因为测试是直接调用生成方法
+                manager.project_slash_dir.mkdir(parents=True, exist_ok=True)
 
-                # 检查文件是否存在
-                skill_dir = manager.project_slash_dir / 'test-skill'
-                assert skill_dir.exists()
+                skill = {
+                    'name': 'test-skill',
+                    'description': 'Test skill for unit testing',
+                    'function': 'execute_test_skill'
+                }
 
-                executor_file = skill_dir / 'test-skill_executor.py'
-                assert executor_file.exists()
+                # 模拟无Stigmergy环境
+                with patch.object(manager, 'stigmergy_available', False):
+                    generated_files = manager._generate_secure_project_skill_files(skill)
 
-                wrapper_file = skill_dir / 'test-skill.cmd'
-                assert wrapper_file.exists()
+                    # 验证生成的文件
+                    assert len(generated_files) == 4  # executor.py, .cmd, .sh, config.json
 
-                bash_file = skill_dir / 'test-skill.sh'
-                assert bash_file.exists()
+                    # 检查文件是否存在
+                    skill_dir = manager.project_slash_dir / 'test-skill'
+                    assert skill_dir.exists()
 
-                config_file = skill_dir / 'config.json'
-                assert config_file.exists()
+                    executor_file = skill_dir / 'test-skill_executor.py'
+                    assert executor_file.exists()
+
+                    wrapper_file = skill_dir / 'test-skill.cmd'
+                    assert wrapper_file.exists()
+
+                    bash_file = skill_dir / 'test-skill.sh'
+                    assert bash_file.exists()
+
+                    config_file = skill_dir / 'config.json'
+                    assert config_file.exists()
+            finally:
+                os.chdir(original_cwd)
 
     def test_secure_skill_executor_code_generation(self):
         """测试：安全技能执行器代码生成"""
@@ -305,25 +341,34 @@ class TestSecureDeploymentManager:
         """测试：生成安全集成指南"""
         with tempfile.TemporaryDirectory() as temp_dir:
             project_root = Path(temp_dir)
-            manager = SecureDeploymentManager(project_root)
+            work_dir = project_root / "subdir"
+            work_dir.mkdir()
 
-            # 创建slash_commands目录
-            manager.project_slash_dir.mkdir(parents=True)
+            original_cwd = os.getcwd()
+            os.chdir(work_dir)
 
-            manager._generate_secure_integration_guide()
+            try:
+                manager = SecureDeploymentManager(project_root)
 
-            guide_file = manager.project_slash_dir / 'SECURITY_INTEGRATION_GUIDE.md'
-            assert guide_file.exists()
+                # 创建slash_commands目录
+                manager.project_slash_dir.mkdir(parents=True)
 
-            with open(guide_file, 'r') as f:
-                content = f.read()
+                manager._generate_secure_integration_guide()
 
-            # 验证安全相关内容
-            assert 'Security Overview' in content
-            assert 'project-isolated' in content
-            assert 'Directory Isolation' in content
-            assert 'Security Guarantees' in content
-            assert str(project_root) in content
+                guide_file = manager.project_slash_dir / 'SECURITY_INTEGRATION_GUIDE.md'
+                assert guide_file.exists()
+
+                with open(guide_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+
+                # 验证安全相关内容
+                assert 'Security Overview' in content
+                assert 'project-isolated' in content
+                assert 'Directory Isolation' in content
+                assert 'Security Guarantees' in content
+                assert str(project_root) in content
+            finally:
+                os.chdir(original_cwd)
 
     def test_generate_secure_ai_tool_configs(self):
         """测试：生成安全AI工具配置"""
@@ -421,7 +466,7 @@ class TestIntegrationScenarios:
                         executor_file = skill_dir / f'{skill["name"]}_executor.py'
                         assert executor_file.exists()
 
-                        with open(executor_file, 'r') as f:
+                        with open(executor_file, 'r', encoding='utf-8') as f:
                             code = f.read()
                         assert 'validate_security' in code
 
@@ -433,19 +478,27 @@ class TestIntegrationScenarios:
         with tempfile.TemporaryDirectory() as temp_dir1, tempfile.TemporaryDirectory() as temp_dir2:
             project_root = Path(temp_dir1)
             outside_dir = Path(temp_dir2)
+            work_dir = project_root / "project"
+            work_dir.mkdir()
 
-            # 在项目内创建安全上下文
-            security_context = SecurityContext(project_root)
+            original_cwd = os.getcwd()
+            os.chdir(work_dir)
 
-            # 测试允许范围内的路径
-            allowed_file = project_root / "project" / "file.txt"
-            safe_path = security_context.get_safe_path(str(allowed_file))
-            assert safe_path == allowed_file.resolve()
+            try:
+                # 在项目内创建安全上下文
+                security_context = SecurityContext(project_root)
 
-            # 测试范围外的路径（应该抛出异常）
-            violation_file = outside_dir / "file.txt"
-            with pytest.raises(SecurityError):
-                security_context.get_safe_path(str(violation_file))
+                # 测试允许范围内的路径
+                allowed_file = project_root / "project" / "file.txt"
+                safe_path = security_context.get_safe_path(str(allowed_file))
+                assert safe_path == allowed_file.resolve()
+
+                # 测试范围外的路径（应该抛出异常）
+                violation_file = outside_dir / "file.txt"
+                with pytest.raises(SecurityError):
+                    security_context.get_safe_path(str(violation_file))
+            finally:
+                os.chdir(original_cwd)
 
     def test_stigmergy_global_deployment_simulation(self):
         """测试：Stigmergy全局部署模拟"""
@@ -454,7 +507,7 @@ class TestIntegrationScenarios:
 
             # 模拟有Stigmergy环境
             with patch('dna_spec_kit_integration.core.secure_deployment_manager.SecureDeploymentManager._check_stigmergy_availability', return_value=True):
-                with patch('dna_spec_kit_integration.core.secure_deployment_manager.StigmergyAdapter') as mock_adapter_class:
+                with patch('dna_spec_kit_integration.core.stigmergy_adapter.StigmergyAdapter') as mock_adapter_class:
                     # 模拟Stigmergy适配器
                     mock_adapter = Mock()
                     mock_adapter.deploy_to_all_clis.return_value = {
