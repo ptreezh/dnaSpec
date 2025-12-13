@@ -25,7 +25,7 @@ def cognitive_template_skill():
 
 @pytest.fixture
 def context_engineering_system():
-    return ContextEngineeringSystem()
+    return ContextEngineeringSystemSkill()
 
 
 @pytest.fixture

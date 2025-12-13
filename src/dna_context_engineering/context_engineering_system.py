@@ -7,10 +7,8 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from typing import Dict, Any, List
-from src.dnaspec_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
-from .context_analysis import ContextAnalysisSkill
-from .context_optimization import ContextOptimizationSkill
-from .cognitive_template import CognitiveTemplateSkill
+from src.dna_spec_kit_integration.core.skill import DNASpecSkill, SkillResult, SkillStatus
+from .skills_system_final import ContextAnalysisSkill, ContextOptimizationSkill, CognitiveTemplateSkill
 
 
 class ContextEngineeringSystemSkill(DNASpecSkill):

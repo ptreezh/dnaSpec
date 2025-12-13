@@ -43,7 +43,7 @@ class TestInstallationProcedures:
             auto_config = AutoConfigurator()
             
             # Mock the detector methods to avoid system dependency
-            with patch.object(auto_config.detector, 'detect_all') as mock_detect:
+            with patch.object(auto_config.cli_detector, 'detect_all') as mock_detect:
                 mock_detect.return_value = {
                     'claude': {'installed': True, 'version': 'mock'},
                     'gemini': {'installed': False, 'version': None},
@@ -56,8 +56,8 @@ class TestInstallationProcedures:
                 # Verify result structure
                 assert isinstance(result, dict)
                 assert 'success' in result
-                assert 'config_path' in result
-                assert 'detected_tools' in result
+                assert 'configPath' in result
+                assert 'config' in result
 
     def test_cli_tool_detection_after_installation(self):
         """Test that CLI tools are properly detected after installation"""
@@ -91,7 +91,7 @@ class TestInstallationProcedures:
                 auto_config = AutoConfigurator()
                 
                 # Mock detection results
-                with patch.object(auto_config.detector, 'detect_all') as mock_detect:
+                with patch.object(auto_config.cli_detector, 'detect_all') as mock_detect:
                     mock_detect.return_value = {
                         'claude': {'installed': True, 'version': '2.0.0'},
                         'gemini': {'installed': True, 'version': '0.1.0'},
@@ -102,9 +102,9 @@ class TestInstallationProcedures:
                     
                     # Verify that configuration was created successfully
                     assert result['success'] == True
-                    assert 'config_path' in result
-                    if result['config_path']:  # If path is provided
-                        config_path = Path(result['config_path'])
+                    assert 'configPath' in result
+                    if result['configPath']:  # If path is provided
+                        config_path = Path(result['configPath'])
                         assert config_path.exists()
             
             finally:
@@ -314,7 +314,7 @@ class TestPostInstallationVerification:
         auto_config = AutoConfigurator()
         
         # Mock the detection to avoid system dependencies
-        with patch.object(auto_config.detector, 'detect_all') as mock_detect:
+        with patch.object(auto_config.cli_detector, 'detect_all') as mock_detect:
             mock_detect.return_value = {
                 'claude': {'installed': True, 'version': 'mock'},
                 'gemini': {'installed': False, 'version': None},
