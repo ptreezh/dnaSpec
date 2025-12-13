@@ -48,17 +48,21 @@ class TestShellCommandExecution:
             script_path = Path(temp_dir) / "test_script.py"
             
             # Create a test script that executes a DNASPEC skill
-            script_content = '''
+            import os
+            project_root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+            script_content = f'''
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+# Add project root to Python path so imports work
+project_root = r"{project_root_path}"
+sys.path.insert(0, project_root)
 
 from src.dna_context_engineering.skills_system_final import execute
 
-result = execute({
+result = execute({{
     'skill': 'context-analysis',
     'context': 'Test context for subprocess execution'
-})
+}})
 
 print("SUBPROCESS_RESULT:")
 print(result)
@@ -66,11 +70,11 @@ print(result)
             
             with open(script_path, 'w') as f:
                 f.write(script_content)
-            
+
             # Run the script in a subprocess
-            result = subprocess.run([sys.executable, str(script_path)], 
-                                  capture_output=True, text=True)
-            
+            result = subprocess.run([sys.executable, str(script_path)],
+                                  capture_output=True, text=True, encoding='utf-8')
+
             assert result.returncode == 0
             assert 'SUBPROCESS_RESULT:' in result.stdout
 
@@ -125,18 +129,20 @@ class TestSubprocessIntegration:
     def test_subprocess_timeout_handling(self):
         """Test timeout handling in subprocess calls"""
         # Create a script that potentially takes a while
-        script_content = '''
+        import os
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        script_content = f'''
 import sys
 import time
-sys.path.insert(0, "''' + os.path.join(os.path.dirname(__file__), 'src') + '''")
+sys.path.insert(0, r"{project_root}")
 
 from src.dna_context_engineering.skills_system_final import execute
 
 # Execute a simple skill
-result = execute({
+result = execute({{
     'skill': 'context-analysis',
     'context': 'Test context for timeout'
-})
+}})
 
 print("TIMEOUT_TEST_RESULT")
 '''
@@ -177,9 +183,11 @@ print("TIMEOUT_TEST_RESULT")
         - Caching layer with Redis
         """
         
+        import os
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
         script_content = f'''
 import sys
-sys.path.insert(0, "''' + os.path.join(os.path.dirname(__file__), 'src') + '''")
+sys.path.insert(0, r"{project_root}")
 
 from src.dna_context_engineering.skills_system_final import execute
 
@@ -197,24 +205,26 @@ print("COMPLEX_INPUT_TEST")
             with open(script_path, 'w') as f:
                 f.write(script_content)
             
-            result = subprocess.run([sys.executable, str(script_path)], 
-                                  capture_output=True, text=True)
-            
+            result = subprocess.run([sys.executable, str(script_path)],
+                                  capture_output=True, text=True, encoding='utf-8')
+
             assert result.returncode == 0
             assert 'COMPLEX_INPUT_TEST' in result.stdout
 
     def test_subprocess_output_redirection(self):
         """Test subprocess output redirection and capture"""
-        script_content = '''
+        import os
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        script_content = f'''
 import sys
-sys.path.insert(0, "''' + os.path.join(os.path.dirname(__file__), 'src') + '''")
+sys.path.insert(0, r"{project_root}")
 
 from src.dna_context_engineering.skills_system_final import execute
 
-result = execute({
+result = execute({{
     'skill': 'context-optimization',
     'context': 'Optimize simple context'
-})
+}})
 
 # Print both stdout and stderr to test redirection
 print("STDOUT_CONTENT: " + str(len(result) if result else 0))
@@ -226,31 +236,33 @@ print("SUCCESS", file=sys.stderr)
             
             with open(script_path, 'w') as f:
                 f.write(script_content)
-            
-            result = subprocess.run([sys.executable, str(script_path)], 
-                                  capture_output=True, text=True)
-            
+
+            result = subprocess.run([sys.executable, str(script_path)],
+                                  capture_output=True, text=True, encoding='utf-8')
+
             assert result.returncode == 0
             assert 'STDOUT_CONTENT:' in result.stdout
             # stderr is captured separately but would be in result.stderr if we checked
 
     def test_subprocess_environment_isolation(self):
         """Test that subprocess maintains environment isolation"""
-        script_content = '''
+        import os
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        script_content = f'''
 import sys
 import os
 
 # Add path to import modules
-sys.path.insert(0, "''' + os.path.join(os.path.dirname(__file__), 'src') + '''")
+sys.path.insert(0, r"{project_root}")
 
 # Import and use DNASPEC functionality
 from src.dna_context_engineering.skills_system_final import execute
 
-result = execute({
+result = execute({{
     'skill': 'cognitive-template',
     'context': 'Test environment isolation',
-    'params': {'template': 'verification'}
-})
+    'params': {{'template': 'verification'}}
+}})
 
 print("ENVIRONMENT_ISOLATION_TEST")
 '''
@@ -265,8 +277,8 @@ print("ENVIRONMENT_ISOLATION_TEST")
             env = os.environ.copy()
             env['CUSTOM_VAR'] = 'test_value'
             
-            result = subprocess.run([sys.executable, str(script_path)], 
-                                  capture_output=True, text=True, env=env)
+            result = subprocess.run([sys.executable, str(script_path)],
+                                  capture_output=True, text=True, env=env, encoding='utf-8')
             
             assert result.returncode == 0
             assert 'ENVIRONMENT_ISOLATION_TEST' in result.stdout
@@ -309,17 +321,19 @@ print(f"CROSS_PLATFORM_TEST: {{platform.system()}}")
             # Create a test script in the temp directory
             script_path = Path(temp_dir) / "path_test.py"
             
+            import os
+            project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
             script_content = f'''
 import sys
 import os
 from pathlib import Path
 
-# Add src to path
-src_path = Path("''' + os.path.join(os.path.dirname(__file__), 'src') + '''").resolve()
-sys.path.insert(0, str(src_path))
+# Add project root to path
+project_root_path = Path(r"{project_root}").resolve()
+sys.path.insert(0, str(project_root_path))
 
 # Verify path is accessible
-assert src_path.exists(), f"Source path does not exist: {{src_path}}"
+assert project_root_path.exists(), f"Source path does not exist: {{project_root_path}}"
 
 from src.dna_context_engineering.skills_system_final import execute
 
@@ -335,9 +349,9 @@ print(f"PATH_HANDLING_TEST: {{len(result) if result else 0}}")
                 f.write(script_content)
             
             # Execute the script as subprocess
-            result = subprocess.run([sys.executable, str(script_path)], 
-                                  capture_output=True, text=True)
-            
+            result = subprocess.run([sys.executable, str(script_path)],
+                                  capture_output=True, text=True, encoding='utf-8')
+
             assert result.returncode == 0
             assert 'PATH_HANDLING_TEST:' in result.stdout
 
@@ -345,10 +359,12 @@ print(f"PATH_HANDLING_TEST: {{len(result) if result else 0}}")
         """Test character encoding handling in subprocess"""
         unicode_context = "测试中文字符 Test with unicode: ñáéíóú 🚀"
         
+        import os
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
         script_content = f'''
 import sys
 import os
-sys.path.insert(0, "''' + os.path.join(os.path.dirname(__file__), 'src') + '''")
+sys.path.insert(0, r"{project_root}")
 
 from src.dna_context_engineering.skills_system_final import execute
 
@@ -380,16 +396,18 @@ class TestShellExecutionEdgeCases:
 
     def test_empty_context_handling(self):
         """Test subprocess execution with empty context"""
-        script_content = '''
+        import os
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        script_content = f'''
 import sys
-sys.path.insert(0, "''' + os.path.join(os.path.dirname(__file__), 'src') + '''")
+sys.path.insert(0, r"{project_root}")
 
 from src.dna_context_engineering.skills_system_final import execute
 
-result = execute({
-    "skill": "context-analysis", 
+result = execute({{
+    "skill": "context-analysis",
     "context": ""
-})
+}})
 
 print("EMPTY_CONTEXT_TEST")
 '''
@@ -400,9 +418,9 @@ print("EMPTY_CONTEXT_TEST")
             with open(script_path, 'w') as f:
                 f.write(script_content)
             
-            result = subprocess.run([sys.executable, str(script_path)], 
-                                  capture_output=True, text=True)
-            
+            result = subprocess.run([sys.executable, str(script_path)],
+                                  capture_output=True, text=True, encoding='utf-8')
+
             # Should handle empty context gracefully
             assert result.returncode == 0 or result.returncode == 1
             assert 'EMPTY_CONTEXT_TEST' in result.stdout
@@ -493,18 +511,21 @@ print("MULTI_CALL_TEST")
         # cannot be executed through the skill interface
         
         potentially_malicious_context = '"; ls -la; echo "malicious command" #'
-        
-        script_content = f'''
-import sys
-sys.path.insert(0, "''' + os.path.join(os.path.dirname(__file__), 'src') + '''")
+
+        import os
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        # Create the script content with proper escaping
+        script_content = '''import sys
+sys.path.insert(0, r"''' + project_root + '''")
 
 from src.dna_context_engineering.skills_system_final import execute
 
 # This should NOT execute any malicious commands
-result = execute({{
-    "skill": "context-analysis", 
-    "context": "{potentially_malicious_context}"
-}})
+context = "; ls -la; echo \\"malicious command\\" #"
+result = execute({
+    "skill": "context-analysis",
+    "context": context
+})
 
 print("INJECTION_PROTECTION_TEST")
 '''
@@ -515,9 +536,9 @@ print("INJECTION_PROTECTION_TEST")
             with open(script_path, 'w') as f:
                 f.write(script_content)
             
-            result = subprocess.run([sys.executable, str(script_path)], 
-                                  capture_output=True, text=True)
-            
+            result = subprocess.run([sys.executable, str(script_path)],
+                                  capture_output=True, text=True, encoding='utf-8')
+
             # Should handle the potentially malicious input safely
             assert result.returncode == 0 or result.returncode == 1
             assert 'INJECTION_PROTECTION_TEST' in result.stdout or 'Error:' in result.stdout

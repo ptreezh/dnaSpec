@@ -349,7 +349,7 @@ class CLIExtensionDeployer:
         """
         generated_files = []
         cli_dir = self.cli_extensions_dir / cli_name
-        cli_dir.mkdir(exist_ok=True)
+        cli_dir.mkdir(parents=True, exist_ok=True)
 
         # 根据CLI类型生成相应的扩展文件
         if cli_name == 'claude':
