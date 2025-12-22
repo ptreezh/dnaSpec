@@ -38,7 +38,7 @@ def main():
     parser.add_argument(
         '--version',
         action='version',
-        version='DNA SPEC Context System (dnaspec) 1.0.2'
+        version='DNA SPEC Context System (dnaspec) 2.0.0'
     )
     
     subparsers = parser.add_subparsers(dest='command', help='Available commands')
@@ -80,6 +80,11 @@ def main():
     integrate_parser.add_argument('--project', action='store_true', help='Force project-level deployment')
     integrate_parser.add_argument('--status', action='store_true', help='Show deployment status')
     
+    # slash命令：Slash命令模式（动态技能调用）
+    slash_parser = subparsers.add_parser('slash', help='Slash command mode - dynamic skill invocation')
+    slash_parser.add_argument('skill_command', nargs='?', help='Skill command to execute')
+    slash_parser.add_argument('--help-all', action='store_true', help='Show help for all available skills')
+    
     args = parser.parse_args()
     
     # 检查Stigmergy可用性
@@ -119,6 +124,40 @@ def main():
         print('Available DNASPEC Skills:')
         for cmd in commands:
             print(f'  {cmd}')
+            
+    elif args.command == 'slash':
+        # Slash 命令模式 - 动态技能调用
+        from .core.slash_command_handler import SlashCommandHandler
+        
+        # 使用项目根目录下的 skills 目录
+        skills_root = Path(__file__).parent.parent.parent / "skills"
+        if not skills_root.exists():
+            print(f'Error: Skills directory not found: {skills_root}')
+            sys.exit(1)
+        
+        slash_handler = SlashCommandHandler(skills_root)
+        parser = slash_handler.create_parser()
+        
+        # 重新解析参数（跳过 'slash' 命令）
+        if len(sys.argv) > 2:
+            slash_args = sys.argv[2:]  # 移除 'dnaspec' 和 'slash'
+            try:
+                parsed_args = parser.parse_args(slash_args)
+                result = slash_handler.handle_command(parsed_args)
+                
+                if result.get('success'):
+                    if 'output' in result:
+                        print(result['output'])
+                    else:
+                        print(json.dumps(result, ensure_ascii=False, indent=2))
+                else:
+                    print(f'Error: {result.get("error", "Unknown error")}', file=sys.stderr)
+                    sys.exit(1)
+            except SystemExit:
+                # argparse 的帮助或错误处理
+                pass
+        else:
+            parser.print_help()
             
     elif args.command == 'validate':
         # 验证集成

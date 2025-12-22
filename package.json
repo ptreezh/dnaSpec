@@ -1,79 +1,49 @@
 {
   "name": "dnaspec",
-  "version": "1.0.38",
-  "description": "DNA Specification Context System - Context Engineering Skills for AI-assisted development",
-  "homepage": "https://github.com/ptreezh/dnaSpec",
-  "author": "pTree Dr.Zhang (AI Persona Lab 2025)",
-  "maintainers": [
-    {
-      "name": "pTree",
-      "email": "3061176@qq.com",
-      "url": "https://AgentPsy.com"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ptreezh/dnaSpec.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ptreezh/dnaSpec/issues"
-  },
-  "license": "MIT",
-  "keywords": [
-    "ai",
-    "context-engineering",
-    "specification",
-    "skills",
-    "claude",
-    "qwen",
-    "gemini",
-    "spec-kit",
-    "development",
-    "assistant",
-    "installer",
-    "dnaspec",
-    "dna-spec"
-  ],
+  "version": "2.0.0",
+  "description": "DNASPEC Context Engineering Skills - Constitutional Validation & Coordination Contracts for AI CLI Platforms",
+  "main": "index.js",
   "bin": {
-    "dnaspec": "index.js",
-    "dnaspec-guide": "post_install_guide.js",
-    "dnaspec-quick": "post_install_guide_simple.js",
-    "dnaspec-uninstall": "uninstall.js"
+    "dnaspec": "./bin/dnaspec-cli.js",
+    "dnaspec-init": "./bin/dnaspec-init.js"
   },
   "scripts": {
-    "install": "node index.js",
-    "setup": "node index.js",
-    "dnaspec": "node index.js",
-    "verify": "node post_install_guide.js",
-    "guide": "node post_install_guide.js",
-    "uninstall": "node uninstall.js",
-    "preuninstall": "node uninstall.js",
-    "cleanup": "node uninstall.js",
-    "postinstall": "node post_install_guide_simple.js",
-    "clean": "node cleanup-cache.js",
-    "dry-run": "node uninstall-dry-run.js"
+    "install-cli": "node ./bin/dnaspec-init.js",
+    "init": "node ./bin/dnaspec-init.js",
+    "test": "echo \"Testing DNASPEC skills...\" && node ./test/skill_tests.js",
+    "build": "echo \"Building DNASPEC distribution...\"",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ai",
+    "cli",
+    "skills",
+    "context-engineering",
+    "constitutional-ai",
+    "coordination-contracts",
+    "cognitive-optimization",
+    "dna-spec",
+    "spec-knit"
+  ],
+  "author": "DNASPEC Team",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.0.0",
+    "inquirer": "^9.0.0",
+    "execa": "^7.0.0",
+    "commander": "^10.0.0",
+    "glob": "^8.0.0",
+    "path": "^0.12.7"
   },
   "engines": {
-    "node": ">=14.0.0",
-    "python": ">=3.8",
-    "git": ">=2.0.0"
+    "node": ">=14.0.0"
   },
-  "preferGlobal": true,
-  "files": [
-    "index.js",
-    "uninstall.js",
-    "package.json",
-    "README.md",
-    "launch_dnaspec.bat",
-    "launch_dnaspec.sh",
-    "run_auto_config.py",
-    "deploy_cli.py",
-    "standalone_cli.py",
-    "src/**/*",
-    "pyproject.toml",
-    "*.md"
-  ],
-  "dependencies": {
-    "stigmergy": "^1.1.6"
-  }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dnaspec/dnaspec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dnaspec/dnaspec/issues"
+  },
+  "homepage": "https://github.com/dnaspec/dnaspec#readme"
 }
