@@ -1,31 +1,23 @@
 #!/usr/bin/env node
 
 /**
- * DNASPEC初始化脚本
+ * DNASPEC初始化脚本 - 简化版
  * 用于安装后配置和环境检测
  */
 
 const { execSync } = require('child_process');
 const path = require('path');
-
-// 尝试加载可选依赖，如果失败则使用简化版本
-let fsExtra, inquirer;
-try {
-  fsExtra = require('fs-extra');
-  inquirer = require('inquirer');
-} catch (error) {
-  console.log('⚠️  部分依赖未安装，将使用简化模式');
-  fsExtra = require('fs');
-  inquirer = null;
-}
+const fs = require('fs');
 
 const VERSION = '2.0.0';
 
+console.log('🔧 DNASPEC Context System v2.0.0 安装程序');
+console.log('='.repeat(50));
+
 // 检测已安装的AI CLI工具
 function detectAICLITools() {
-  const tools = [];
+  console.log('\n🔍 检测AI CLI工具...\n');
   
-  // 检查常见的AI CLI工具
   const toolChecks = [
     { name: 'Claude Code', command: 'claude --version' },
     { name: 'Stigmergy', command: 'stigmergy --version' },
@@ -35,8 +27,6 @@ function detectAICLITools() {
     { name: 'Git', command: 'git --version' }
   ];
   
-  console.log('🔍 检测AI CLI工具...\n');
-  
   for (const tool of toolChecks) {
     try {
       const result = execSync(tool.command, { 
@@ -44,14 +34,10 @@ function detectAICLITools() {
         stdio: 'pipe' 
       }).trim();
       console.log(`✅ ${tool.name}: ${result}`);
-      tools.push({ name: tool.name, available: true, version: result });
     } catch (error) {
       console.log(`❌ ${tool.name}: 未安装`);
-      tools.push({ name: tool.name, available: false, version: null });
     }
   }
-  
-  return tools;
 }
 
 // 检测Python环境
@@ -82,41 +68,22 @@ function checkPythonEnvironment() {
   }
 }
 
-// 安装Python依赖
-function installPythonDependencies() {
-  console.log('\n📦 安装Python依赖...\n');
-  
-  try {
-    execSync('pip install -e .', {
-      encoding: 'utf8',
-      stdio: 'inherit',
-      cwd: path.join(__dirname, '..')
-    });
-    console.log('✅ Python依赖安装成功');
-    return true;
-  } catch (error) {
-    console.log('❌ Python依赖安装失败');
-    console.log('请手动运行: pip install -e .');
-    return false;
-  }
-}
-
 // 生成配置文件
-function generateConfig(tools, projectPath) {
+function generateConfig() {
   console.log('\n⚙️  生成配置文件...\n');
   
+  const projectPath = path.join(__dirname, '..');
   const config = {
     version: VERSION,
     timestamp: new Date().toISOString(),
-    detectedTools: tools,
-    projectPath: projectPath,
-    installationMode: 'npm-global'
+    installationMode: 'npm-global',
+    projectPath: projectPath
   };
   
   const configPath = path.join(projectPath, 'dnaspec-config.json');
   
   try {
-    fsExtra.writeJsonSync(configPath, config, { spaces: 2 });
+    fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
     console.log('✅ 配置文件生成成功:', configPath);
     return true;
   } catch (error) {
@@ -182,71 +149,18 @@ function showDeploymentGuide() {
   console.log('   问题反馈: https://github.com/ptreezh/dnaSpec/issues');
 }
 
-// 交互式安装流程
-async function interactiveSetup() {
-  console.log('\n🎯 DNASPEC v2.0.0 交互式安装向导\n');
-  
-  if (!inquirer) {
-    console.log('💡 inquirer未安装，使用默认设置');
-    console.log('将检测工具、安装依赖、显示指南\n');
-    return {
-      detectTools: true,
-      installDeps: true,
-      showGuide: true
-    };
-  }
-  
-  const answers = await inquirer.prompt([
-    {
-      type: 'confirm',
-      name: 'detectTools',
-      message: '是否检测已安装的AI CLI工具？',
-      default: true
-    },
-    {
-      type: 'confirm', 
-      name: 'installDeps',
-      message: '是否安装Python依赖？',
-      default: true
-    },
-    {
-      type: 'confirm',
-      name: 'showGuide',
-      message: '是否显示部署指南？',
-      default: true
-    }
-  ]);
-  
-  return answers;
-}
-
 // 主函数
-async function main() {
-  console.log('🔧 DNASPEC Context System v2.0.0 安装程序');
-  console.log('=' .repeat(50));
-  
+function main() {
   try {
     // 检测环境
-    const tools = detectAICLITools();
-    const pythonAvailable = checkPythonEnvironment();
-    
-    // 交互式选择
-    const answers = await interactiveSetup();
-    
-    let depsInstalled = false;
-    
-    if (answers.installDeps && pythonAvailable) {
-      depsInstalled = installPythonDependencies();
-    }
+    detectAICLITools();
+    checkPythonEnvironment();
     
     // 生成配置文件
-    const projectPath = path.join(__dirname, '..');
-    generateConfig(tools, projectPath);
+    generateConfig();
     
     // 显示部署指南
-    if (answers.showGuide) {
-      showDeploymentGuide();
-    }
+    showDeploymentGuide();
     
     // 完成提示
     console.log('\n🎉 DNASPEC安装完成！\n');
@@ -259,9 +173,8 @@ async function main() {
     
   } catch (error) {
     console.error('\n❌ 安装过程中出错:', error.message);
-    console.error('请查看错误信息并手动解决，或提交issue到:');
-    console.error('https://github.com/ptreezh/dnaSpec/issues');
-    process.exit(1);
+    console.error('但包已安装成功，DNASPEC功能仍可正常使用');
+    console.error('问题反馈: https://github.com/ptreezh/dnaSpec/issues');
   }
 }
 

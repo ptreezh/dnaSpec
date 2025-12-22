@@ -7,6 +7,7 @@ import sys
 import os
 import json
 import argparse
+from pathlib import Path
 
 
 def is_stigmergy_available():
@@ -91,11 +92,11 @@ def main():
     stigmergy_available = is_stigmergy_available()
     
     # 延迟导入以避免循环依赖
-    from .core.command_handler import CommandHandler
-    from .core.interactive_shell import InteractiveShell
-    from .core.skill_executor import SkillExecutor
-    from .core.python_bridge import PythonBridge
-    from .core.skill_mapper import SkillMapper
+    from dna_spec_kit_integration.core.command_handler import CommandHandler
+    from dna_spec_kit_integration.core.interactive_shell import InteractiveShell
+    from dna_spec_kit_integration.core.skill_executor import SkillExecutor
+    from dna_spec_kit_integration.core.python_bridge import PythonBridge
+    from dna_spec_kit_integration.core.skill_mapper import SkillMapper
     
     # 创建组件
     python_bridge = PythonBridge()
@@ -127,7 +128,7 @@ def main():
             
     elif args.command == 'slash':
         # Slash 命令模式 - 动态技能调用
-        from .core.slash_command_handler import SlashCommandHandler
+        from dna_spec_kit_integration.core.slash_command_handler import SlashCommandHandler
         
         # 使用项目根目录下的 skills 目录
         skills_root = Path(__file__).parent.parent.parent / "skills"
@@ -170,7 +171,7 @@ def main():
                 
             print('Validating DNASPEC Stigmergy integration...')
             try:
-                from .core.stigmergy_adapter import StigmergyAdapter
+                from dna_spec_kit_integration.core.stigmergy_adapter import StigmergyAdapter
                 adapter = StigmergyAdapter()
                 result = adapter.verify_deployment()
                 
@@ -194,7 +195,7 @@ def main():
 
     elif args.command == 'deploy':
         # 智能扩展部署（自动选择模式）
-        from .core.cli_extension_deployer import CLIExtensionDeployer
+        from dna_spec_kit_integration.core.cli_extension_deployer import CLIExtensionDeployer
 
         # 创建CLI扩展部署器
         try:
@@ -246,7 +247,7 @@ def main():
 
     elif args.command == 'integrate':
         # 智能集成和部署
-        from .core.deployment_manager import DeploymentManager
+        from dna_spec_kit_integration.core.deployment_manager import DeploymentManager
 
         # 创建部署管理器
         manager = DeploymentManager()
@@ -282,7 +283,7 @@ def main():
                 print(f'🎯 Integrating DNASPEC skills to {args.platform}...')
                 if stigmergy_available and args.platform in manager.supported_clis:
                     # 使用Stigmergy集成
-                    from .core.stigmergy_adapter import StigmergyAdapter
+                    from dna_spec_kit_integration.core.stigmergy_adapter import StigmergyAdapter
                     adapter = StigmergyAdapter()
                     result = adapter.generate_stigmergy_hook(args.platform)
                 else:
@@ -302,7 +303,7 @@ def main():
 
     elif args.command == 'security':
         # 安全测试和验证
-        from .core.secure_deployment_manager import SecureDeploymentManager
+        from dna_spec_kit_integration.core.secure_deployment_manager import SecureDeploymentManager
 
         try:
             manager = SecureDeploymentManager()
@@ -365,3 +366,7 @@ def main():
         # 未知命令
         parser.print_help()
         sys.exit(1)
+
+# 如果直接运行此脚本
+if __name__ == '__main__':
+    main()
