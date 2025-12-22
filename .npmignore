@@ -1,0 +1,166 @@
+# 不需要包含在npm包中的文件和目录
+
+# 归档和临时目录
+archive/
+archive_uncertain/
+node_modules/
+tests/
+tests_new/
+test_projects/
+skill_test_project/
+test/
+
+# 开发文件和测试
+*.tgz
+.coverage
+.pytest_cache/
+__pycache__/
+
+# 演示和演示文档
+*.html
+comprehensive_homepage.html
+integrated_hall_*.html
+agentic_system_vision.html
+example_demo.html
+api_documentation_page.html
+main_portal.html
+project_vision.html
+context_corruption.html
+reality_check.html
+issue_analysis.html
+
+# 数据清理配置
+data_cleaning_agent_*.json
+
+# 开发文档和报告
+*.md
+*_REPORT.md
+*_SUMMARY.md
+*_STATUS.md
+*_GUIDE.md
+*_NOTES.md
+*_DOCUMENTATION.md
+*_IMPLEMENTATION.md
+*_VALIDATION.md
+*_ANALYSIS.md
+*_COMPLETION.md
+*_PREPARATION.md
+*_ANNOUNCEMENT.md
+*_TEST_REPORT.md
+*_VERIFICATION.md
+
+# 开发和测试文件
+*.py
+*.js
+test_*.py
+check_*.py
+compare_*.py
+debug_*.py
+archive_*.py
+batch_*.py
+detailed_*.py
+final_*.py
+comprehensive_*.py
+constitutional_*.py
+integrated_*.py
+standalone_*.py
+validate_*.py
+
+# 配置和项目文件
+pyproject.toml
+pyproject_en.toml
+CONFIG.yaml
+CONTRACT.yaml
+setup.py
+setup.cfg
+Makefile
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# IDE和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# 日志和临时文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# 覆盖率报告
+coverage/
+.nyc_output
+
+# 构建输出
+build/
+dist/
+out/
+
+# 环境变量
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 包管理
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Git
+.git/
+.gitignore
+.github/
+
+# 其他工具
+.stigmergy-project/
+.dnaspec/
+openskills/
+spec-kit/
+tdd_plans/
+tools/
+analysis/
+
+# Node.js
+*.tgz
+.npm
+
+# Python
+*.egg-info/
+*.egg
+MANIFEST
+
+# 大文件（字体、文档等）
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+*.svg
+
+# 备份文件
+*.bak
+*.backup
+*~
+
+# 临时文件
+*.tmp
+*.temp
+nul
+
+# CI/CD
+.travis.yml
+.circleci/
+.github/workflows/
+
+# 其他不需要的文件
+README_REALISTIC.md
+README_MINIMAL.md
+README_EN.md
