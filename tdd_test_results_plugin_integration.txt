@@ -1,0 +1,1 @@
+✓ MyOpenCodePlugin 集成概念验证通过

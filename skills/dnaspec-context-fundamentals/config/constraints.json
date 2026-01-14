@@ -1,0 +1,157 @@
+{
+  "skill_name": "dnaspec-context-fundamentals",
+  "version": "1.0.0",
+  "category": "foundational",
+  "description": "作为所有DNASPEC技能的基础，教授上下文工程的核心概念",
+  "is_prerequisite": true,
+
+  "constraints": {
+    "max_skill_md_lines": 500,
+    "max_prompt_level_00_tokens": 500,
+    "max_prompt_level_01_tokens": 1000,
+    "max_prompt_level_02_tokens": 2000,
+    "max_prompt_level_03_tokens": 3000,
+
+    "required_sections": [
+      "When to Activate",
+      "Core Concepts",
+      "Practical Guidance",
+      "Examples",
+      "Guidelines",
+      "Integration",
+      "Key Achievements"
+    ],
+
+    "required_scripts": [
+      "validator.py",
+      "calculator.py",
+      "analyzer.py",
+      "executor.py"
+    ],
+
+    "required_directories": [
+      "prompts/",
+      "scripts/",
+      "config/",
+      "references/"
+    ],
+
+    "required_prompt_levels": [
+      "00_context.md",
+      "01_basic.md",
+      "02_intermediate.md",
+      "03_advanced.md"
+    ]
+  },
+
+  "quality_standards": {
+    "validator_coverage": [
+      "empty_request",
+      "request_length",
+      "request_language",
+      "meaningful_content",
+      "context_size",
+      "context_poisoning",
+      "context_distraction",
+      "multi_question",
+      "other_skill_request"
+    ],
+
+    "calculator_metrics": [
+      "token_count",
+      "character_count",
+      "word_count",
+      "complexity_score",
+      "information_density",
+      "structure_quality",
+      "relevance_score",
+      "keyword_overlap",
+      "completeness_score",
+      "consistency_score",
+      "freshness_score"
+    ],
+
+    "analyzer_capabilities": [
+      "lost_in_the_middle_detection",
+      "poisoning_detection",
+      "distaction_detection",
+      "clash_detection",
+      "overflow_detection",
+      "fragmentation_detection",
+      "pattern_recognition",
+      "quality_scoring",
+      "optimization_recommendations",
+      "strategy_recommendations"
+    ],
+
+    "executor_intelligence": {
+      "automatic_level_selection": true,
+      "validation_before_processing": true,
+      "metric_calculation": true,
+      "context_analysis": true,
+      "recommendation_generation": true
+    }
+  },
+
+  "coordination_contracts": {
+    "provides_to_others": {
+      "knowledge": "上下文工程基础概念",
+      "terminology": "标准术语和定义",
+      "best_practices": "上下文管理最佳实践",
+      "failure_modes": "常见失效模式识别",
+      "optimization_techniques": "上下文优化技术"
+    },
+
+    "requires_from_others": {
+      "context-analysis": "深入分析上下文质量",
+      "context-optimization": "优化上下文结构和内容",
+      "task-decomposer": "分解复杂上下文任务"
+    },
+
+    "integration_points": [
+      {
+        "target_skill": "所有DNASPEC技能",
+        "integration_type": "前置知识",
+        "description": "提供上下文工程的基础理论"
+      }
+    ]
+  },
+
+  "testing_requirements": {
+    "unit_tests": [
+      "validator/test_empty_request",
+      "validator/test_request_length",
+      "calculator/test_token_estimation",
+      "calculator/test_complexity_scoring",
+      "analyzer/test_failure_detection",
+      "executor/test_level_selection"
+    ],
+
+    "integration_tests": [
+      "test_full_pipeline",
+      "test_prompt_level_selection",
+      "test_error_handling"
+    ],
+
+    "end_to_end_tests": [
+      "test_simple_request",
+      "test_complex_request",
+      "test_large_context"
+    ]
+  },
+
+  "documentation_requirements": {
+    "skill_readme": true,
+    "api_documentation": true,
+    "example_usage": true,
+    "troubleshooting_guide": false
+  },
+
+  "compliance": {
+    "follows_dnaspec_architecture": true,
+    "follows_gestalt_principles": true,
+    "follows_progressive_disclosure": true,
+    "follows_qualitative_quantitative_separation": true,
+    "compatible_with_contract_v3": true
+  }
+}

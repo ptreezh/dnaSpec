@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNASPEC - 每个系统都是综合集成研讨厅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            color: #ecf0f1;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            font-style: italic;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0.4rem 0.9rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        main {
+            min-height: calc(100vh - 300px);
+        }
+
+        .section {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 1.8rem;
+        }
+
+        .section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 6px;
+            background: linear-gradient(to right, #f1c40f, #e74c3c, #9b59b6);
+            border-radius: 4px;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            font-size: 1.3rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .synthesis-concept {
+            background-color: #ecf0f1;
+        }
+
+        .hall-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .hall-principle-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 6px solid #9b59b6;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hall-principle-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .hall-principle-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+        }
+
+        .hall-principle-card h3 {
+            color: #8e44ad;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        .hall-principle-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .integration-model {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .qualitative-side {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            text-align: center;
+        }
+
+        .quantitative-side {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.3);
+            text-align: center;
+        }
+
+        .integration-center {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(67, 233, 123, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .integration-center h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .integration-center p {
+            font-size: 1rem;
+        }
+
+        .skills-application {
+            background: white;
+        }
+
+        .skills-application-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.8rem;
+            margin-top: 3rem;
+        }
+
+        .skill-application-card {
+            background: #f8f9fa;
+            padding: 2.8rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            border-left: 5px solid #f39c12;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-application-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-application-card h3 {
+            color: #d35400;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-application-card ul {
+            margin-left: 1.8rem;
+        }
+
+        .skill-application-card li {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .lifecycle-section {
+            background: #f5f7fa;
+        }
+
+        .lifecycle-stages {
+            display: flex;
+            flex-direction: column;
+            gap: 2.8rem;
+        }
+
+        .lifecycle-stage {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border-left: 6px solid #e74c3c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lifecycle-stage:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .lifecycle-stage h3 {
+            color: #c0392b;
+            margin-bottom: 1.8rem;
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .lifecycle-stage h3:before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #e74c3c;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .lifecycle-stage p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .lifecycle-stage ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lifecycle-stage li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .example-box {
+            background: #e8f4fd;
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin: 1.8rem 0;
+            border-left: 5px solid #3498db;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 0.8rem;
+        }
+
+        .example-code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin: 0.8rem 0;
+        }
+
+        .agentic-section {
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .agentic-section h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .agentic-section p {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .principles-section {
+            background: white;
+        }
+
+        .core-principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .core-principle-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            text-align: center;
+            border-top: 5px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .core-principle-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .core-principle-card h3 {
+            color: #2980b9;
+            margin-bottom: 1.2rem;
+        }
+
+        .core-principle-card p {
+            color: #7f8c8d;
+            line-height: 1.7;
+        }
+
+        .future-vision {
+            background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .future-vision h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .future-vision p {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .vision-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .vision-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .vision-card h3 {
+            color: #f1c40f;
+            margin-bottom: 1.2rem;
+        }
+
+        .vision-card p {
+            color: #ecf0f1;
+            line-height: 1.7;
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, #e74c3c 0%, #e67e22 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .summary-section h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .summary-section p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .page-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .page-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(241, 196, 15, 0.3);
+        }
+
+        .page-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(241, 196, 15, 0.5);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .integration-model {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 0.3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-content">
+            <h1>未来系统架构：每个系统都是综合集成研讨厅</h1>
+            <p>定性定量融合的AI原生开发平台，遵循格式塔认知原则和设计原则的智能化自动增长系统</p>
+            <p class="subtitle">KISS、YAGNI、SOLID原则指导下的综合智能体社会架构</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#concept">核心概念</a></li>
+            <li><a href="#model">集成模型</a></li>
+            <li><a href="#skills">技能应用</a></li>
+            <li><a href="#lifecycle">生命周期</a></li>
+            <li><a href="#agentic">Agentic架构</a></li>
+            <li><a href="#principles">核心原则</a></li>
+            <li><a href="#vision">未来愿景</a></li>
+            <li><a href="#summary">总结</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- 核心概念 -->
+        <section id="concept" class="section concept">
+            <div class="container">
+                <h2>综合集成研讨厅核心概念</h2>
+                <div class="intro">
+                    <p>未来每个系统都将是综合集成研讨厅，这是AI原生时代的基础架构范式。系统将融合定性定量两种处理方式，定性部分以思维链和提示词优化为主，以置信度审核和多源多维度思考的共识计算为判断准则；定量部分则通过明确的、可固化的逻辑和算法，以代码方式实现。</p>
+                    <p>这种架构实现了确定性与不确定性的平衡，将系统演进过程中确定性逻辑固化为代码，将不确定性分析通过智能体处理，将需要用户决策的模糊问题以最直观的决策问答形式呈现给用户界面，确保系统具备智能化增长能力。</p>
+                </div>
+
+                <div class="hall-principles">
+                    <div class="hall-principle-card">
+                        <h3>格式塔认知完整性</h3>
+                        <p>遵循接近性、相似性、连续性、闭合性等格式塔认知原则，确保系统各部分形成统一、连贯的整体。用户在与系统交互时感受到统一一致的智能体体验。</p>
+                        <p>系统设计确保各部分具有认知连贯性，防止因模块化导致的用户体验碎片化。</p>
+                    </div>
+
+                    <div class="hall-principle-card">
+                        <h3>定性定量融合</h3>
+                        <p>定性部分处理不确定性、创造性、用户意图理解等复杂问题，应用认知框架和思维链进行推理；定量部分处理确定性计算、逻辑验证、性能优化等明确任务。</p>
+                        <p>两部分通过智能接口层协同工作，形成统一的系统智能体体验，既保持智能性又确保可预测性。</p>
+                    </div>
+
+                    <div class="hall-principle-card">
+                        <h3>局部智能体架构</h3>
+                        <p>创建具有局部上下文的智能体，处理特定领域任务，避免整个系统上下文膨胀。每个智能体专注特定职责，通过标准化接口与其他组件协作。</p>
+                        <p>实现智能体社会的协调工作，确保系统扩展而不失控，保持高效和可管理。</p>
+                    </div>
+
+                    <div class="hall-principle-card">
+                        <h3>渐进式增长</h3>
+                        <p>系统从简单Idea出发，通过有结构的步骤逐步发展为复杂智能体系统。每一步增长都建立在前一步的坚实基础上，确保平稳演进。</p>
+                        <p>通过设计原则（KISS、YAGNI、SOLID）指导增长路径，防止系统无序膨胀和失控。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 集成模型 -->
+        <section id="model" class="section integration-model-section">
+            <div class="container">
+                <h2>定性定量综合集成模型</h2>
+                <div class="intro">
+                    <p>综合集成研讨厅采用三层架构模型，确保定性定量处理方式的深度融合与高效协同，实现真正的智能化自动增长。</p>
+                </div>
+
+                <div class="integration-model">
+                    <div class="qualitative-side">
+                        <h4>定性引擎</h4>
+                        <p>思维链推理</p>
+                        <p>提示词优化</p>
+                        <p>置信度审核</p>
+                        <p>共识计算</p>
+                        <p>用户意图理解</p>
+                        <p>创造性分析</p>
+                        <p>智能决策支持</p>
+                    </div>
+
+                    <div class="integration-center">
+                        <h4>智能接口层</h4>
+                        <p>定性定量协同</p>
+                        <p>任务分配与路由</p>
+                        <p>智能决策融合</p>
+                        <p>用户意图解析</p>
+                        <p>不确定性评估</p>
+                        <p>结果反馈机制</p>
+                        <p>上下文管理</p>
+                    </div>
+
+                    <div class="quantitative-side">
+                        <h4>定量引擎</h4>
+                        <p>算法模块</p>
+                        <p>数据处理</p>
+                        <p>逻辑验证</p>
+                        <p>性能计算</p>
+                        <p>确定性逻辑</p>
+                        <p>代码执行</p>
+                        <p>标准化接口</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">综合集成示例:</div>
+                    <p>当用户请求"设计一个电商平台的推荐系统"时：</p>
+                    <p><strong>定性引擎</strong>分析用户意图，理解推荐系统需考虑的复杂因素（用户偏好、购买历史、季节性趋势、个性化程度等），应用链式思维分析实现路径</p>
+                    <p><strong>定量引擎</strong>执行具体的算法计算（协同过滤、矩阵分解、神经网络等），处理数据验证和性能指标计算</p>
+                    <p><strong>智能接口层</strong>协调两部分工作，将定性分析结果传给定量部分执行算法，将定量结果反馈给定性部分做决策优化，并将不确定性问题呈现给用户决策</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能应用 -->
+        <section id="skills" class="section skills-application">
+            <div class="container">
+                <h2>DNASPEC技能在综合集成研讨厅中的应用</h2>
+                <p class="intro">每个技能都围绕综合集成研讨厅理念设计，在系统演进的各个阶段发挥关键作用。技能实现遵循KISS、YAGNI、SOLID原则，确保系统从简单到复杂的平稳增长。</p>
+
+                <div class="skills-application-grid">
+                    <div class="skill-application-card">
+                        <h3>任务分解技能 (/dnaspec.task-decomposer)</h3>
+                        <p>基于设计原则将复杂任务分解为原子任务，并创建独立工作区防止上下文爆炸。</p>
+                        <ul>
+                            <li>应用KISS原则确保任务分解保持简单</li>
+                            <li>遵循YAGNI原则只分解当前需要的功能</li>
+                            <li>实现SOLID原则确保任务职责单一</li>
+                            <li>创建独立上下文空间防止整体系统污染</li>
+                        </ul>
+                        <p class="example-title">示例:</p>
+                        <div class="example-code">/dnaspec.task-decomposer "设计电商平台推荐系统" --max-depth 2 --principles kiss,yagni,solid</div>
+                    </div>
+
+                    <div class="skill-application-card">
+                        <h3>约束生成技能 (/dnaspec.constraint-generator)</h3>
+                        <p>基于宪法需求生成动态约束，实现需求版本管理和时间点恢复机制。</p>
+                        <ul>
+                            <li>锁定初始需求为系统宪法版本</li>
+                            <li>建立需求变更追踪和对齐检查</li>
+                            <li>实现时间点快照和恢复能力</li>
+                            <li>确保系统演进不偏离初心</li>
+                        </ul>
+                        <p class="example-title">示例:</p>
+                        <div class="example-code">/dnaspec.constraint-generator "用户认证系统核心需求" --lock-constitution</div>
+                    </div>
+
+                    <div class="skill-application-card">
+                        <h3>API检查技能 (/dnaspec.api-checker)</h3>
+                        <p>实现模块级、子系统级、系统级的分级审核，验证多层级间调用对齐。</p>
+                        <ul>
+                            <li>验证模块间接口一致性</li>
+                            <li>确保子系统调用符合规范</li>
+                            <li>检查系统级架构整合</li>
+                            <li>管理全局到局部的作用域边界</li>
+                        </ul>
+                        <p class="example-title">示例:</p>
+                        <div class="example-code">/dnaspec.api-checker "验证用户服务与推荐服务接口对齐" --level module --mode comprehensive</div>
+                    </div>
+
+                    <div class="skill-application-card">
+                        <h3>上下文分析技能 (/dnaspec.context-analysis)</h3>
+                        <p>五维度分析上下文质量，确保定性定量处理的一致性和清晰度。</p>
+                        <ul>
+                            <li>分析概念清晰度和相关性</li>
+                            <li>评估需求完整性和一致性</li>
+                            <li>监控系统效率</li>
+                            <li>防止上下文腐化和膨胀</li>
+                        </ul>
+                        <p class="example-title">示例:</p>
+                        <div class="example-code">/dnaspec.context-analysis "推荐系统设计文档" --detail_level detailed</div>
+                    </div>
+
+                    <div class="skill-application-card">
+                        <h3>认知模板技能 (/dnaspec.cognitive-template)</h3>
+                        <p>应用认知框架结构化复杂任务，遵循格式塔认知原则。</p>
+                        <ul>
+                            <li>链式思维推理：逐步分解复杂问题</li>
+                            <li>验证模板：双重确认结果准确性</li>
+                            <li>角色扮演：模拟特定专业视角</li>
+                            <li>少样本学习：从示例中学习执行模式</li>
+                        </ul>
+                        <p class="example-title">示例:</p>
+                        <div class="example-code">/dnaspec.cognitive-template "如何优化推荐算法性能" --template chain_of_thought</div>
+                    </div>
+
+                    <div class="skill-application-card">
+                        <h3>系统架构师技能 (/dnaspec.architect)</h3>
+                        <p>设计支持定性定量融合的系统架构，确保架构可扩展和可维护。</p>
+                        <ul>
+                            <li>规划定性定量处理模块架构</li>
+                            <li>设计智能体社会协调架构</li>
+                            <li>确保模块化和接口标准化</li>
+                            <li>支持渐进式系统增长</li>
+                        </ul>
+                        <p class="example-title">示例:</p>
+                        <div class="example-code">/dnaspec.architect "推荐系统架构设计" --style microservices --constraints scalability,security</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 全生命周期 -->
+        <section id="lifecycle" class="section lifecycle-section">
+            <div class="container">
+                <h2>从Idea到Agentic系统的全生命周期</h2>
+                <p class="intro">综合集成研讨厅支持系统从简单概念到复杂智能体社会的完整演进，每个阶段都应用相应的技能确保质量和一致。</p>
+
+                <div class="lifecycle-stages">
+                    <div class="lifecycle-stage">
+                        <h3>阶段1: Idea孵化与宪法确立</h3>
+                        <p><strong>核心任务:</strong> 将模糊想法转化为宪法级需求定义，确立系统核心目标和约束。应用格式塔认知原则整合零散信息为完整概念框架。</p>
+
+                        <p><strong>面临的挑战:</strong></p>
+                        <ul>
+                            <li>概念模糊，难以转化具体实现</li>
+                            <li>缺乏明确的系统边界</li>
+                            <li>需求容易膨胀和扩散</li>
+                        </ul>
+
+                        <p><strong>DNASPEC技能应用:</strong></p>
+                        <ul>
+                            <li><strong>/dnaspec.context-analysis:</strong> 分析Idea的清晰度和完整性，应用KISS原则精简概念</li>
+                            <li><strong>/dnaspec.constraint-generator:</strong> 锁定初始需求宪法，确保系统发展方向</li>
+                            <li><strong>/dnaspec.cognitive-template:</strong> 使用链式思维结构化模糊概念</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <div class="example-title">示例场景:</div>
+                            <p>用户提出"我需要一个能帮我推荐内容的系统"，通过技能分析识别核心需求"个性化推荐"，并将其锁定为宪法需求，为后续发展提供基准。</p>
+                        </div>
+                    </div>
+
+                    <div class="lifecycle-stage">
+                        <h3>阶段2: 需求规范化与架构设计</h3>
+                        <p><strong>核心任务:</strong> 将宪法需求转化为规范化的功能需求，设计可扩展的系统架构，确保架构遵循SOLID原则支持演进。</p>
+
+                        <p><strong>面临的挑战:</strong></p>
+                        <ul>
+                            <li>需求分解不一致，可能遗漏关键功能</li>
+                            <li>架构设计未考虑扩展性</li>
+                            <li>模块边界模糊，职责不清</li>
+                        </ul>
+
+                        <p><strong>DNASPEC技能应用:</strong></p>
+                        <ul>
+                            <li><strong>/dnaspec.task-decomposer:</strong> 将需求分解为遵循设计原则的原子任务</li>
+                            <li><strong>/dnaspec.architect:</strong> 设计可扩展架构，应用SOLID原则</li>
+                            <li><strong>/dnaspec.cognitive-template:</strong> 使用验证模板确认架构设计</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <div class="example-title">示例场景:</div>
+                            <p>将宪法需求"个性化推荐系统"分解为用户画像构建、算法实现、接口设计等子任务，设计微服务架构支持后续功能扩展。</p>
+                        </div>
+                    </div>
+
+                    <div class="lifecycle-stage">
+                        <h3>阶段3: 功能细化与模块化实现</h3>
+                        <p><strong>核心任务:</strong> 逐步实现和细化功能，通过模块化确保各部分独立发展，防止架构失控和上下文膨胀。</p>
+
+                        <p><strong>面临的挑战:</strong></p>
+                        <ul>
+                            <li>功能实现时上下文膨胀</li>
+                            <li>模块间依赖混乱</li>
+                            <li>接口定义不一致</li>
+                        </ul>
+
+                        <p><strong>DNASPEC技能应用:</strong></p>
+                        <ul>
+                            <li><strong>/dnaspec.modulizer:</strong> 将系统分解为可重用模块，确保接口清晰</li>
+                            <li><strong>/dnaspec.api-checker:</strong> 验证模块间接口一致性，实现分级审核</li>
+                            <li><strong>/dnaspec.workspace:</strong> 管理各模块独立开发工作区</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <div class="example-title">示例场景:</div>
+                            <p>将推荐系统分解为用户模块、算法模块、数据模块等，每个模块在独立工作区开发，通过API检查技能确保模块间接口对齐。</p>
+                        </div>
+                    </div>
+
+                    <div class="lifecycle-stage">
+                        <h3>阶段4: 智能化与Agentic升级</h3>
+                        <p><strong>核心任务:</strong> 引入智能体提升系统智能化水平，实现定性定量深度融合的Agentic架构，保持上下文隔离。</p>
+
+                        <p><strong>面临的挑战:</strong></p>
+                        <ul>
+                            <li>智能体职责不清，导致冲突</li>
+                            <li>上下文共享不当，造成膨胀</li>
+                            <li>智能体间协调困难</li>
+                        </ul>
+
+                        <p><strong>DNASPEC技能应用:</strong></p>
+                        <ul>
+                            <li><strong>/dnaspec.agent-creator:</strong> 创建专业智能体处理特定领域任务</li>
+                            <li><strong>/dnaspec.constraint-generator:</strong> 确保智能体行为符合宪法约束</li>
+                            <li><strong>/dnaspec.api-checker:</strong> 验证智能体间通信接口一致性</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <div class="example-title">示例场景:</div>
+                            <p>创建"用户偏好分析Agent"、"推荐算法优化Agent"、"性能监控Agent"等，每个Agent处理特定任务，通过明确接口协同，避免全局上下文膨胀。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agentic架构 -->
+        <section id="agentic" class="agentic-section">
+            <div class="container">
+                <h2>Agentic架构：局部智能体社会的实现</h2>
+                <p>综合集成研讨厅的最高目标是实现真正的Agentic系统，其中智能体社会架构是关键。每个智能体具有局部上下文，仅关注自己的任务域，通过标准化接口协同工作，既保持系统智能化又避免上下文膨胀。</p>
+                
+                <p>局部智能体架构将确定性逻辑通过代码固化，将不确定性分析通过智能体处理，将需要用户决策的问题以最直观的方式呈现。这种设计既符合格式塔认知完整性原则，也实现了真正的AI原生系统架构。</p>
+                
+                <div class="intro">
+                    <p>未来系统架构将遵循以下Agentic原则：</p>
+                    <ul>
+                        <li><strong>局部上下文管理:</strong> 每个智能体只关注自己的任务上下文，避免全局膨胀</li>
+                        <li><strong>专业化分工:</strong> 按领域和功能创建专业智能体，提高处理效率</li>
+                        <li><strong>标准化接口:</strong> 智能体间通过标准化接口通信，确保兼容性</li>
+                        <li><strong>共识决策机制:</strong> 通过多智能体共识计算处理复杂决策</li>
+                        <li><strong>宪法约束对齐:</strong> 所有智能体行为与系统宪法保持一致</li>
+                        <li><strong>渐进式集成:</strong> 智能体逐步引入，维护系统稳定性</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心原则 -->
+        <section id="principles" class="section principles-section">
+            <div class="container">
+                <h2>支撑综合集成研讨厅的核心设计原则</h2>
+                <p>这些原则确保系统在从简单到复杂的发展过程中保持一致性、可扩展性和智能化水平。</p>
+
+                <div class="core-principles-grid">
+                    <div class="core-principle-card">
+                        <h3>KISS原则</h3>
+                        <p>保持系统各组件简单清晰，即使在引入复杂AI功能时也要确保简洁性。每个智能体、每个模块、每个功能都应该尽可能简单明了。</p>
+                    </div>
+
+                    <div class="core-principle-card">
+                        <h3>YAGNI原则</h3>
+                        <p>只实现当前需要的功能，避免为未来可能的需求过度设计。在智能体创建和功能扩展时特别需要注意这一点，防止系统功能爆炸。</p>
+                    </div>
+
+                    <div class="core-principle-card">
+                        <h3>SOLID原则</h3>
+                        <p>确保代码结构清晰，遵循单一职责、开闭原则、里氏替换、接口隔离、依赖倒置原则，为复杂AI系统的扩展提供坚实基础。</p>
+                    </div>
+
+                    <div class="core-principle-card">
+                        <h3>格式塔认知完整性</h3>
+                        <p>系统各部分应形成统一、连贯的整体，遵循接近性、相似性、连续性、闭合性等认知原则，确保用户在交互时感知一致性体验。</p>
+                    </div>
+
+                    <div class="core-principle-card">
+                        <h3>上下文隔离</h3>
+                        <p>通过智能体和社会化架构实现上下文隔离，避免单一上下文无限膨胀，保持各部分的独立性和高效性，防止系统复杂度失控。</p>
+                    </div>
+
+                    <div class="core-principle-card">
+                        <h3>渐进式增长</h3>
+                        <p>系统应能从简单到复杂平稳增长，每一步增长都建立在前一步的坚实基础上，遵循演化的自然规律，避免跳跃式复杂化。</p>
+                    </div>
+
+                    <div class="core-principle-card">
+                        <h3>定性定量平衡</h3>
+                        <p>在系统智能化和可预测性之间保持平衡，确定性逻辑用代码实现，不确定性分析通过智能体处理，确保系统既有智能性又有可靠性。</p>
+                    </div>
+
+                    <div class="core-principle-card">
+                        <h3>分级审核机制</h3>
+                        <p>实现模块级、子系统级、系统级的多层级审核架构，确保不同层级间的接口对齐和作用域管理，防止架构失控和功能混乱。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 未来愿景 -->
+    <section id="vision" class="future-vision">
+        <div class="container">
+            <h2>未来愿景：综合集成研讨厅时代的到来</h2>
+            <p>未来，每个系统都将是一个综合集成研讨厅，融合定性定量处理方式，实现智能化与自动化的平衡。系统将基于宪法需求自动增长，通过局部智能体处理不确定性，通过模块化架构保持可扩展性，通过格式塔认知原则确保用户体验的一致性。</p>
+            <p>这种系统架构将支持从简单概念到复杂智能体社会的平稳演进，通过分层智能化策略实现：确定性逻辑固化为代码，不确定性分析通过智能体处理，需要用户决策的模糊问题以最直观的决策问答形式呈现，真正实现KISS、YAGNI、SOLID原则指导下的智能化自动增长。</p>
+
+            <div class="vision-cards-grid">
+                <div class="vision-card">
+                    <h3>定性定量融合</h3>
+                    <p>智能处理不确定性，算法处理确定性，实现真正的智能化自动增长</p>
+                </div>
+
+                <div class="vision-card">
+                    <h3>智能体社会架构</h3>
+                    <p>多专业智能体协作，分工明确，协调高效</p>
+                </div>
+
+                <div class="vision-card">
+                    <h3>宪法约束管理</h3>
+                    <p>基于初始宪法的动态约束和时间点恢复机制</p>
+                </div>
+
+                <div class="vision-card">
+                    <h3>格式塔认知完整性</h3>
+                    <p>确保系统整体的统一连贯用户体验</p>
+                </div>
+
+                <div class="vision-card">
+                    <h3>渐进式智能化</h3>
+                    <p>从简单到复杂的平稳智能化增长路径</p>
+                </div>
+
+                <div class="vision-card">
+                    <h3>多层级对齐</h3>
+                    <p>模块、子系统、系统级的接口一致性保障</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 总结 -->
+    <section class="summary-section">
+        <div class="container">
+            <h2>总结：迈向综合集成研讨厅未来</h2>
+            <p>DNASPEC通过其完整的技能框架，实现了"每个系统都是综合集成研讨厅"的理念，将定性定量处理方式有机结合。我们专注于构建遵循格式塔认知原则的统一智能体体验，将确定性逻辑固化为代码和算法，将不确定性分析通过智能体处理，将模糊决策以最直观的形式呈现给用户界面。</p>
+            <p>通过局部智能体架构、宪法需求版本管理、模块化分解和分级审核机制，我们有效避免了上下文爆炸、需求偏离、架构失控等AI开发中的常见陷阱。最终，我们实现了真正的Agentic系统，支持每个系统成为智能化的综合集成研讨厅，实现从简单Idea到复杂智能体组织的平稳演进。</p>
+
+            <div class="page-links">
+                <a href="#concept" class="page-link">核心概念</a>
+                <a href="#model" class="page-link">集成模型</a>
+                <a href="#skills" class="page-link">技能应用</a>
+                <a href="#lifecycle" class="page-link">全生命周期</a>
+                <a href="#agentic" class="page-link">Agentic架构</a>
+                <a href="#principles" class="page-link">设计原则</a>
+                <a href="#vision" class="page-link">未来愿景</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 DNASPEC项目 - 综合集成研讨厅架构</p>
+                <p>以格式塔认知原则为指导，构建定性定量融合的AI原生开发平台</p>
+                <p>实现从简单Idea到复杂智能体系统的智能化自动增长</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

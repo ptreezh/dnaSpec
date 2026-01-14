@@ -1,0 +1,62 @@
+{
+  "total": 13,
+  "passed": 6,
+  "failed": 7,
+  "success_rate": 46.15384615384615,
+  "details": [
+    [
+      "CLI Version Command",
+      true
+    ],
+    [
+      "List Available Skills",
+      true
+    ],
+    [
+      "Deployment Status",
+      true
+    ],
+    [
+      "Validation Command",
+      true
+    ],
+    [
+      "Security Validation",
+      true
+    ],
+    [
+      "Handler Skills Access",
+      true
+    ],
+    [
+      "Context Analysis",
+      false
+    ],
+    [
+      "Context Optimization",
+      false
+    ],
+    [
+      "Cognitive Template",
+      false
+    ],
+    [
+      "System Architect",
+      false
+    ],
+    [
+      "Agent Creator",
+      false
+    ],
+    [
+      "Task Decomposer",
+      false
+    ],
+    [
+      "Constraint Generator",
+      false
+    ]
+  ],
+  "timestamp": 1765859937.7641976,
+  "validation_type": "Detailed Skill-by-Skill CLI Validation"
+}

@@ -1,0 +1,66 @@
+{
+  "canvas_id": "json-export-005",
+  "timestamp": "2025-12-25T11:33:31.914687",
+  "completeness_score": 0.0,
+  "consistency_score": 70,
+  "overall_score": 50.5,
+  "issues": [
+    "AnalysisIssue(block_name='value_propositions', severity='info', message='价值主张 可以更详细', suggestion='建议补充更多细节，超过50字符')",
+    "AnalysisIssue(block_name='customer_segments', severity='warning', message='客户细分 内容太少（6 字符）', suggestion='建议至少补充到 10 字符以上')",
+    "AnalysisIssue(block_name='channels', severity='warning', message='渠道通路 内容太少（7 字符）', suggestion='建议至少补充到 10 字符以上')",
+    "AnalysisIssue(block_name='customer_relationships', severity='warning', message='客户关系 内容太少（6 字符）', suggestion='建议至少补充到 10 字符以上')",
+    "AnalysisIssue(block_name='revenue_streams', severity='warning', message='收入来源 内容太少（5 字符）', suggestion='建议至少补充到 10 字符以上')",
+    "AnalysisIssue(block_name='key_resources', severity='warning', message='核心资源 内容太少（6 字符）', suggestion='建议至少补充到 10 字符以上')",
+    "AnalysisIssue(block_name='key_activities', severity='warning', message='关键业务 内容太少（4 字符）', suggestion='建议至少补充到 10 字符以上')",
+    "AnalysisIssue(block_name='key_partners', severity='warning', message='重要合作 内容太少（4 字符）', suggestion='建议至少补充到 10 字符以上')",
+    "AnalysisIssue(block_name='cost_structure', severity='warning', message='成本结构 内容太少（4 字符）', suggestion='建议至少补充到 10 字符以上')",
+    "AnalysisIssue(block_name='consistency', severity='error', message='价值主张与客户细分匹配度很低', suggestion='确保价值主张明确指出为客户解决的具体问题')",
+    "AnalysisIssue(block_name='consistency', severity='warning', message='渠道可能无法有效触达目标客户', suggestion='验证所选渠道是否能有效触达定义的客户群体')"
+  ],
+  "recommendations": [
+    "Recommendation(category='completeness', priority=5, title='补充 consistency', description='价值主张与客户细分匹配度很低', action_items=['确保价值主张明确指出为客户解决的具体问题'])",
+    "Recommendation(category='strategy', priority=4, title='验证核心假设', description='在投入大量资源前，验证商业模式的关键假设', action_items=['识别最重要的3-5个假设', '设计MVP进行快速验证', '收集真实用户反馈'])",
+    "Recommendation(category='strategy', priority=3, title='建立竞争壁垒', description='识别并强化你的竞争优势', action_items=['分析竞争对手的弱点', '找到差异化定位', '构建网络效应或规模优势'])",
+    "Recommendation(category='consistency', priority=3, title='优化商业模式循环', description='确保各模块相互强化，形成正向循环', action_items=['检查价值主张是否真正解决客户痛点', '验证渠道是否有效触达目标客户', '确保收入模式可持续'])"
+  ],
+  "strategic_insights": [
+    "**待改进**: 商业模式尚需完善，建议优先补充核心模块",
+    "**价值主张**: 建议更具体地描述为客户创造的独特价值",
+    "**客户特征**: 面向企业客户，建议重点关注关系维护和价值证明"
+  ],
+  "summary": "# 商业画布分析报告\n\n**完整性得分**: 0.0/100 (0/9 模块已填写)\n\n**一致性得分**: 70/100\n\n**发现问题**: 11 个\n\n**优化建议**: 4 条\n\n\n## 关键洞察\n\n- **待改进**: 商业模式尚需完善，建议优先补充核心模块\n- **价值主张**: 建议更具体地描述为客户创造的独特价值\n- **客户特征**: 面向企业客户，建议重点关注关系维护和价值证明",
+  "detailed_analysis": {
+    "completeness": {
+      "score": 0.0,
+      "filled_blocks": 0,
+      "total_blocks": 9,
+      "total_chars": 58
+    },
+    "consistency": {
+      "score": 70,
+      "issues": [
+        {
+          "type": "value_customer_mismatch",
+          "severity": "error",
+          "message": "价值主张与客户细分匹配度很低",
+          "score": 0.0
+        },
+        {
+          "type": "channel_customer_mismatch",
+          "severity": "warning",
+          "message": "渠道可能无法有效触达目标客户"
+        }
+      ],
+      "checks_performed": 3
+    },
+    "ai_insights": {
+      "insights": [
+        "**待改进**: 商业模式尚需完善，建议优先补充核心模块",
+        "**价值主张**: 建议更具体地描述为客户创造的独特价值",
+        "**客户特征**: 面向企业客户，建议重点关注关系维护和价值证明"
+      ],
+      "confidence": 0.75,
+      "analysis_depth": "basic"
+    }
+  }
+}

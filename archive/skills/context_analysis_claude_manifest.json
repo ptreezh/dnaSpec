@@ -1,0 +1,26 @@
+{
+    "name": "context-analysis-skill",
+    "version": "1.0.0",
+    "description": "上下文质量分析专家，评估上下文的清晰度、相关性、完整性、一致性、效率",
+    "author": "DNASPEC Team",
+    "license": "MIT",
+    "main": "context_analysis_claude.py",
+    "api_version": "v1",
+    "endpoints": {
+        "execute": "/execute"
+    },
+    "parameters": [
+        {
+            "name": "context",
+            "type": "string",
+            "description": "待分析的上下文",
+            "required": true
+        }
+    ],
+    "events": [
+        {
+            "name": "analysis_requested",
+            "description": "分析请求事件"
+        }
+    ]
+}

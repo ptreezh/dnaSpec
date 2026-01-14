@@ -1,0 +1,34 @@
+{
+    "version": "2.0",
+    "runtime": "python3.10", 
+    "handler": "main.lambda_handler",
+    "environment": {
+        "PYTHONPATH": "/opt/python",
+        "SKILL_MANIFEST_PATH": "/opt/skill_manifest.json",
+        "REQUEST_VALIDATION_ENABLED": "true",
+        "RESPONSE_COMPRESSION_ENABLED": "true"
+    },
+    "permissions": [
+        "lambda:InvokeFunction",
+        "logs:CreateLogGroup", 
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+    ],
+    "resources": {
+        "memory_size": 512,
+        "timeout": 30,
+        "ephemeral_storage": {
+            "size": 512
+        }
+    },
+    "telemetry": {
+        "enable_tracing": true,
+        "enable_logging": true,
+        "log_level": "INFO"
+    },
+    "api": {
+        "cors_enabled": true,
+        "binary_media_types": ["application/json"],
+        "minimum_compression_size": 1024
+    }
+}

@@ -1,0 +1,551 @@
+"""
+Stigmergy适配器
+将DNASPEC技能集成到Stigmergy跨CLI协作系统中
+"""
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+from typing import Dict, Any, Optional
+
+
+class StigmergyAdapter:
+    """
+    Stigmergy适配器
+    为DNASPEC技能提供Stigmergy钩子集成支持
+    """
+    
+    def __init__(self):
+        """初始化Stigmergy适配器"""
+        # 延迟导入以避免循环依赖
+        from .skill_executor import SkillExecutor
+        from .python_bridge import PythonBridge
+        from .skill_mapper import SkillMapper
+        
+        # 创建DNASPEC技能执行器
+        self.python_bridge = PythonBridge()
+        self.skill_mapper = SkillMapper()
+        self.skill_executor = SkillExecutor(self.python_bridge, self.skill_mapper)
+        
+        # Stigmergy钩子目录
+        self.stigmergy_hooks_dir = Path.home() / '.stigmergy' / 'hooks'
+        
+        # 支持的CLI工具
+        self.supported_clis = [
+            'claude', 'gemini', 'qwen', 'iflow', 'qodercli', 
+            'codebuddy', 'copilot', 'codex'
+        ]
+    
+    def generate_stigmergy_hook(self, cli_name: str) -> Dict[str, Any]:
+        """
+        为指定CLI工具生成Stigmergy钩子，支持DNASPEC斜杠命令
+
+        Args:
+            cli_name: CLI工具名称
+
+        Returns:
+            钩子配置字典
+        """
+        if cli_name not in self.supported_clis:
+            raise ValueError(f"Unsupported CLI: {cli_name}")
+        
+        # 创建钩子目录
+        hook_dir = self.stigmergy_hooks_dir / cli_name
+        hook_dir.mkdir(parents=True, exist_ok=True)
+        
+        # 生成钩子脚本
+        hook_script = self._generate_hook_script(cli_name)
+        hook_script_path = hook_dir / f'dnaspec_{cli_name}_hook.js'
+        
+        with open(hook_script_path, 'w', encoding='utf-8') as f:
+            f.write(hook_script)
+        
+        # 生成配置文件
+        config = {
+            "cli": cli_name,
+            "hookPath": str(hook_script_path),
+            "deploymentTime": self._get_timestamp(),
+            "version": "1.0.0-dnaspec"
+        }
+        
+        config_path = hook_dir / 'dnaspec_config.json'
+        with open(config_path, 'w', encoding='utf-8') as f:
+            json.dump(config, f, ensure_ascii=False, indent=2)
+        
+        # 设置脚本可执行权限（仅在Unix系统上）
+        if os.name != 'nt':
+            os.chmod(hook_script_path, 0o755)
+        
+        return {
+            'success': True,
+            'hook_script': str(hook_script_path),
+            'config_file': str(config_path),
+            'message': f'Successfully generated Stigmergy hook for {cli_name}'
+        }
+
+    def _generate_hook_script(self, cli_name: str) -> str:
+        """
+        生成Stigmergy钩子脚本，支持DNASPEC斜杠命令
+
+        Args:
+            cli_name: CLI工具名称
+
+        Returns:
+            钩子脚本内容
+        """
+        return f'''#!/usr/bin/env node
+
+/**
+ * DNASPEC Stigmergy Hook for {cli_name}
+ * 拦截并处理 /speckit.dnaspec.* 斜杠命令
+ */
+
+const {{ spawn }} = require('child_process');
+const path = require('path');
+
+const DNASPEC_COMMANDS = [
+    '/speckit.dnaspec.context-analysis',
+    '/speckit.dnaspec.context-optimization',
+    '/speckit.dnaspec.cognitive-template',
+    '/speckit.dnaspec.architect'
+];
+
+function handleDNASPECCommand(command, args, context) {{
+    // 处理DNASPEC斜杠命令
+    const commandMatch = command.match(/^\\/(speckit\\.dnaspec\\.(.+)$/);
+    const match = commandMatch ? commandMatch[1] : null;
+
+    if (!match) {{
+        return command; // 不是DNASPEC命令，原样返回
+    }}
+
+    const skillMap = {{
+        'context-analysis': 'context_analysis',
+        'context-optimization': 'context_optimization',
+        'cognitive-template': 'cognitive_template',
+        'architect': 'architect'
+    }};
+
+    const skillName = skillMap[match] || 'context_analysis';
+    const skillArgs = args.join(' ');
+
+    // 调用DNASPEC技能
+    return executeDNASPECSkill(skillName, skillArgs, context);
+}}
+
+function executeDNASPECSkill(skillName, args, context) {{
+    // 获取项目路径
+    const projectRoot = path.join(__dirname, '..', '..');
+
+    // 构建执行命令
+    const pythonCode = `
+import sys
+import os
+import subprocess
+import json
+
+# 获取项目根目录
+projectRoot = r"${{projectRoot}}"
+
+# 添加路径
+sys.path.insert(0, projectRoot)
+sys.path.insert(0, os.path.join(projectRoot, "src"))
+
+# 调用DNASPEC CLI
+command = [sys.executable, "-m", "dna_spec_kit_integration.cli", "exec", "${{skillName}}", "${{args if args else "Build a web application"}}"]
+
+try:
+    result = subprocess.run(command, capture_output=True, text=True, cwd=projectRoot)
+    if result.returncode == 0:
+        print(result.stdout)
+    else:
+        print(f"Error: ${{result.stderr}}")
+except Exception as e:
+    print(f"Execution error: ${{str(e)}}")
+`;
+
+    return new Promise((resolve, reject) => {{
+        const process = spawn('python', ['-c', pythonCode], {{
+            cwd: projectRoot,
+            env: {{...process.env, PYTHONIOENCODING: 'utf-8', LANG: 'en_US.UTF-8'}},
+            stdio: ['pipe', 'pipe', 'pipe']
+        }});
+
+        let output = '';
+        let error = '';
+
+        process.stdout.on('data', (data) => {{
+            output += data.toString();
+        }});
+
+        process.stderr.on('data', (data) => {{
+            error += data.toString();
+        }});
+
+        process.on('close', (code) => {{
+            if (code === 0) {{
+                resolve(output.trim());
+            }} else {{
+                reject(new Error(`DNASPEC execution failed: ${{error}}`));
+            }}
+        }});
+    }});
+}}
+
+// 拦截命令行参数
+const originalArgs = process.argv.slice(2);
+if (originalArgs.length > 0) {{
+    const fullCommand = originalArgs.join(' ');
+    handleDNASPECCommand(fullCommand, originalArgs.slice(1), {{}})
+        .then(result => {{
+            console.log(result);
+            process.exit(0);
+        }})
+        .catch(error => {{
+            console.error('Error:', error.message);
+            process.exit(1);
+        }});
+}} else {{
+    // 没有参数，显示帮助
+    console.log('DNASPEC Stigmergy Hook for {cli_name}');
+    console.log('');
+    console.log('Supported commands:');
+    DNASPEC_COMMANDS.forEach(cmd => {{
+        console.log(`  ${{cmd}}`);
+    }});
+    console.log('');
+    console.log('Usage:');
+    console.log(`  ${{cli_name}} "/speckit.dnaspec.context-analyze this is my context"`);
+}}
+}}
+ * DNASPEC Stigmergy Hook for {cli_name.upper()}
+ * Auto-generated by DNASPEC Stigmergy Adapter
+ */
+
+const fs = require('fs');
+const path = require('path');
+const {{ spawn }} = require('child_process');
+
+class DNASPECHook {{
+  constructor() {{
+    this.cliName = '{cli_name}';
+    this.hookDir = __dirname;
+    this.logFile = path.join(this.hookDir, 'dnaspec_hook.log');
+  }}
+
+  async onUserPrompt(prompt, context) {{
+    this.log('INFO', `User prompt received: ${{prompt}}`);
+    
+    // 检测DNASPEC技能请求
+    const dnaspecRequest = this.detectDNASPECRequest(prompt);
+    if (dnaspecRequest) {{
+      return await this.handleDNASPECRequest(dnaspecRequest, context);
+    }}
+    
+    // 默认处理
+    return null;
+  }}
+
+  async onToolUse(toolName, toolArgs, context) {{
+    this.log('INFO', `Tool use detected: ${{toolName}}`);
+    return null;
+  }}
+
+  async onResponseGenerated(response, context) {{
+    this.log('INFO', 'Response generated');
+    return null;
+  }}
+
+  detectDNASPECRequest(prompt) {{
+    // 增强的模式匹配用于DNASPEC技能请求
+    const patterns = [
+      /(?:use|call|ask|invoke)\\s+dnaspec\\s+(\\w[\\w-]*)\\s*(?:to|for)?\\s*(.+)$/i,
+      /(?:please\\s+)?(?:use|call|ask|invoke)\\s+dnaspec\\s+(\\w[\\w-]*)\\s*(.+)$/i,
+      /dnaspec[,\\s]+(\\w[\\w-]*)[,\\s]+(?:please\\s+)?(?:help\\s+me\\s+)?(.+)$/i,
+      /(?:can\\s+you\\s+)?(?:use|call|ask|invoke)\\s+dnaspec\\s+(\\w[\\w-]*)\\s+(.+)$/i
+    ];
+    
+    for (const pattern of patterns) {{
+      const match = prompt.match(pattern);
+      if (match && match.length >= 3) {{
+        const skillName = match[1].toLowerCase();
+        const task = match[2];
+        
+        // 验证技能名称是否有效
+        const validSkills = [
+          'context-analysis', 'context-optimization', 'cognitive-template',
+          'architect', 'system-architect', 'simple-architect',
+          'git-operations', 'temp-workspace'
+        ];
+        
+        if (validSkills.includes(skillName)) {{
+          return {{
+            skillName: skillName,
+            task: task,
+            source: this.cliName
+          }};
+        }}
+      }}
+    }}
+    
+    return null;
+  }}
+
+  async handleDNASPECRequest(request, context) {{
+    this.log('INFO', `DNASPEC request detected: ${{JSON.stringify(request)}}`);
+    
+    // 验证请求
+    if (!request.skillName || !request.task) {{
+      this.log('ERROR', 'Invalid DNASPEC request: missing skillName or task');
+      return `[DNASPEC] Invalid request: missing skillName or task`;
+    }}
+    
+    try {{
+      // 调用DNASPEC技能执行器
+      const result = await this.executeDNASPECSkill(
+        request.skillName,
+        request.task,
+        context
+      );
+      
+      if (result.success) {{
+        return `[DNASPEC] ${{result.output}}`;
+      }} else {{
+        return `[DNASPEC] Error: ${{result.error}}`;
+      }}
+    }} catch (error) {{
+      this.log('ERROR', `Failed to handle DNASPEC request: ${{error.message}}`);
+      return `[DNASPEC] Failed to execute skill: ${{error.message}}`;
+    }}
+  }}
+
+  async executeDNASPECSkill(skillName, task, context) {{
+    return new Promise((resolve, reject) => {{
+      this.log('INFO', `Executing DNASPEC skill: ${{skillName}} with task: ${{task}}`);
+      
+      // 通过子进程调用DNASPEC CLI
+      const dnaspecProcess = spawn('dnaspec', ['exec', `${{skillName}} "${{task}}"`], {{
+        shell: true,
+        stdio: ['pipe', 'pipe', 'pipe']
+      }});
+      
+      let stdout = '';
+      let stderr = '';
+      
+      dnaspecProcess.stdout.on('data', (data) => {{
+        stdout += data.toString();
+      }});
+      
+      dnaspecProcess.stderr.on('data', (data) => {{
+        stderr += data.toString();
+      }});
+      
+      dnaspecProcess.on('close', (code) => {{
+        if (code === 0) {{
+          resolve({{
+            success: true,
+            output: stdout.trim(),
+            skill: skillName
+          }});
+        }} else {{
+          resolve({{
+            success: false,
+            error: stderr.trim() || `DNASPEC skill execution failed with exit code: ${{code}}`,
+            skill: skillName
+          }});
+        }}
+      }});
+      
+      dnaspecProcess.on('error', (error) => {{
+        reject(error);
+      }});
+    }});
+  }}
+
+  log(level, message) {{
+    const timestamp = new Date().toISOString();
+    const logEntry = `[${{timestamp}}] [${{level}}] [DNASPEC-${{this.cliName.toUpperCase()}}] ${{message}}\\n`;
+    
+    try {{
+      fs.appendFileSync(this.logFile, logEntry);
+    }} catch (error) {{
+      console.error('Failed to write to log file:', error);
+    }}
+  }}
+}}
+
+// 导出钩子类
+module.exports = DNASPECHook;
+
+// 如果直接运行，初始化并测试
+if (require.main === module) {{
+  const hook = new DNASPECHook();
+  console.log('DNASPEC Stigmergy Hook for {cli_name.upper()} initialized');
+}}
+'''
+    
+    def deploy_to_all_clis(self) -> Dict[str, Any]:
+        """
+        部署DNASPEC技能到所有支持的CLI工具
+        
+        Returns:
+            部署结果字典
+        """
+        results = {}
+        successful_deployments = 0
+        
+        for cli_name in self.supported_clis:
+            try:
+                result = self.generate_stigmergy_hook(cli_name)
+                results[cli_name] = result
+                if result.get('success'):
+                    successful_deployments += 1
+            except Exception as e:
+                results[cli_name] = {
+                    'success': False,
+                    'error': str(e)
+                }
+        
+        return {
+            'success': True,
+            'deployment_results': results,
+            'successful_deployments': successful_deployments,
+            'total_platforms': len(self.supported_clis)
+        }
+    
+    def verify_deployment(self, cli_name: Optional[str] = None) -> Dict[str, Any]:
+        """
+        验证Stigmergy部署状态
+        
+        Args:
+            cli_name: 特定CLI工具名称，如果为None则检查所有
+            
+        Returns:
+            验证结果字典
+        """
+        if cli_name:
+            # 验证特定CLI工具
+            hook_dir = self.stigmergy_hooks_dir / cli_name
+            if not hook_dir.exists():
+                return {
+                    'success': False,
+                    'error': f'Hook directory does not exist for {cli_name}'
+                }
+            
+            hook_script = hook_dir / f'dnaspec_{cli_name}_hook.js'
+            config_file = hook_dir / 'dnaspec_config.json'
+            
+            return {
+                'success': hook_script.exists() and config_file.exists(),
+                'cli': cli_name,
+                'hook_script_exists': hook_script.exists(),
+                'config_file_exists': config_file.exists(),
+                'hook_directory': str(hook_dir)
+            }
+        else:
+            # 验证所有CLI工具
+            results = {}
+            deployed_clis = []
+            missing_clis = []
+            
+            for cli in self.supported_clis:
+                verification = self.verify_deployment(cli)
+                results[cli] = verification
+                if verification.get('success'):
+                    deployed_clis.append(cli)
+                else:
+                    missing_clis.append(cli)
+            
+            return {
+                'success': len(deployed_clis) > 0,
+                'results': results,
+                'deployed_clis': deployed_clis,
+                'missing_clis': missing_clis,
+                'total_deployed': len(deployed_clis),
+                'total_expected': len(self.supported_clis)
+            }
+    
+    def remove_deployment(self, cli_name: str) -> Dict[str, Any]:
+        """
+        移除指定CLI工具的Stigmergy部署
+        
+        Args:
+            cli_name: CLI工具名称
+            
+        Returns:
+            移除结果字典
+        """
+        try:
+            hook_dir = self.stigmergy_hooks_dir / cli_name
+            if hook_dir.exists():
+                import shutil
+                shutil.rmtree(hook_dir)
+            
+            return {
+                'success': True,
+                'message': f'Successfully removed DNASPEC deployment for {cli_name}'
+            }
+        except Exception as e:
+            return {
+                'success': False,
+                'error': str(e)
+            }
+    
+    def _get_timestamp(self) -> str:
+        """获取当前时间戳"""
+        from datetime import datetime
+        return datetime.now().isoformat()
+    
+    def get_available_skills(self) -> list:
+        """
+        获取可用的DNASPEC技能列表
+        
+        Returns:
+            技能名称列表
+        """
+        return self.skill_executor.get_available_skills()
+
+
+def main():
+    """主函数 - Stigmergy适配器命令行接口"""
+    import argparse
+    import sys
+    
+    parser = argparse.ArgumentParser(description='DNASPEC Stigmergy Adapter')
+    parser.add_argument('--action', choices=['deploy', 'deploy-all', 'verify', 'remove'], 
+                       required=True, help='Action to perform')
+    parser.add_argument('--cli', help='CLI tool name for deploy/remove/verify actions')
+    
+    args = parser.parse_args()
+    
+    # 创建适配器实例
+    adapter = StigmergyAdapter()
+    
+    if args.action == 'deploy':
+        if not args.cli:
+            print("Error: --cli is required for deploy action")
+            sys.exit(1)
+        
+        result = adapter.generate_stigmergy_hook(args.cli)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        
+    elif args.action == 'deploy-all':
+        result = adapter.deploy_to_all_clis()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        
+    elif args.action == 'verify':
+        result = adapter.verify_deployment(args.cli)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        
+    elif args.action == 'remove':
+        if not args.cli:
+            print("Error: --cli is required for remove action")
+            sys.exit(1)
+        
+        result = adapter.remove_deployment(args.cli)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNASPEC - 技能框架文档</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ecf0f1;
+        }
+
+        .content {
+            background: white;
+            padding: 4rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .skill-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .skill-section:last-child {
+            border-bottom: none;
+        }
+
+        .skill-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .skill-intro {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #3498db;
+        }
+
+        .skill-card h3 {
+            color: #2980b9;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card p {
+            color: #666;
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-card ul {
+            margin-left: 1.5rem;
+        }
+
+        .skill-card li {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+
+        .api-reference {
+            background: #2c3e50;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .api-reference h3 {
+            color: #f1c40f;
+            margin-bottom: 1.5rem;
+        }
+
+        .command {
+            background: #34495e;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .command-name {
+            color: #f1c40f;
+            font-weight: bold;
+        }
+
+        .command-usage {
+            color: #3498db;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 2rem;
+            }
+
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>DNASPEC 技能框架文档</h1>
+            <p>完整的技能集功能说明、接口规范和使用指南</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <div class="skill-intro">
+                <p>DNASPEC提供了一套完整的技能框架，支持AI辅助开发的全生命周期。每个技能都遵循格式塔认知原则，实现定性定量综合处理方式，确保系统从简单到复杂的平稳演进。</p>
+            </div>
+
+            <div class="skill-section">
+                <h2>核心技能集</h2>
+                <div class="skill-grid">
+                    <div class="skill-card">
+                        <h3>上下文分析技能 (<span class="command-name">/dnaspec.context-analysis</span>)</h3>
+                        <p>分析输入上下文的质量，从清晰度、相关性、完整性、一致性、效率五个维度进行评估，是确保系统演进过程中质量一致的核心技能。</p>
+                        <ul>
+                            <li>五维度评估：清晰度、相关性、完整性、一致性、效率</li>
+                            <li>支持基础模式和增强模式</li>
+                            <li>防止上下文爆炸/腐化问题</li>
+                            <li>支持宪法需求对齐检查</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>上下文优化技能 (<span class="command-name">/dnaspec.context-optimization</span>)</h3>
+                        <p>使用AI驱动的改进来优化上下文质量，避免上下文膨胀和概念模糊，确保上下文保持在适当复杂度。</p>
+                        <ul>
+                            <li>AI驱动的上下文质量提升</li>
+                            <li>支持多种优化目标（清晰度、相关性、完整性、一致性）</li>
+                            <li>防止概念过度复杂化</li>
+                            <li>遵循KISS原则保持简洁性</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>认知模板技能 (<span class="command-name">/dnaspec.cognitive-template</span>)</h3>
+                        <p>应用认知框架（链式思维、少样本学习、验证、角色扮演）来结构化复杂任务，遵循格式塔认知原则。</p>
+                        <ul>
+                            <li>链式思维（Chain of Thought）：逐步推理分析</li>
+                            <li>少样本学习（Few Shot）：从示例中学习模式</li>
+                            <li>验证（Verification）：双重检查结果准确性</li>
+                            <li>角色扮演（Role Playing）：模拟特定专业视角</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>系统架构师技能 (<span class="command-name">/dnaspec.architect</span>)</h3>
+                        <p>设计可扩展的系统架构，支持微服务、单体、事件驱动等多种架构风格，防止架构失控。</p>
+                        <ul>
+                            <li>多种架构风格支持</li>
+                            <li>模块化设计原则应用</li>
+                            <li>接口和依赖关系规划</li>
+                            <li>支持智能体集成架构</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>任务分解技能 (<span class="command-name">/dnaspec.task-decomposer</span>)</h3>
+                        <p>基于KISS、YAGNI、SOLID原则将复杂项目分解为原子任务，创建独立工作区防止上下文爆炸。</p>
+                        <ul>
+                            <li>设计原则导向的任务分解</li>
+                            <li>独立工作区创建和管理</li>
+                            <li>上下文隔离，防止全局污染</li>
+                            <li>任务依赖关系分析</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>约束生成技能 (<span class="command-name">/dnaspec.constraint-generator</span>)</h3>
+                        <p>基于宪法级初始需求生成动态约束，实现需求版本管理和时间点恢复机制。</p>
+                        <ul>
+                            <li>宪法需求锁定和管理</li>
+                            <li>动态约束生成和对齐检查</li>
+                            <li>时间点快照和恢复功能</li>
+                            <li>需求变更追踪和追溯</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>API检查技能 (<span class="command-name">/dnaspec.api-checker</span>)</h3>
+                        <p>实现分级审核和多层级调用对齐检查，确保模块级、子系统级、系统级的接口一致性。</p>
+                        <ul>
+                            <li>多层级API一致性验证</li>
+                            <li>分级审核机制</li>
+                            <li>接口对齐检查</li>
+                            <li>作用域边界管理</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>智能体创建技能 (<span class="command-name">/dnaspec.agent-creator</span>)</h3>
+                        <p>根据局部上下文创建专门的智能体，执行特定任务，避免整个系统上下文膨胀。</p>
+                        <ul>
+                            <li>局部智能体创建和管理</li>
+                            <li>上下文隔离和专业化分工</li>
+                            <li>智能体间协作协议定义</li>
+                            <li>职责边界明确</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>模块化技能 (<span class="command-name">/dnaspec.modulizer</span>)</h3>
+                        <p>将系统分解为可重用模块，实现自底向上模块化，避免系统过于庞杂，确保模块间边界清晰。</p>
+                        <ul>
+                            <li>模块识别和设计</li>
+                            <li>接口定义和标准化</li>
+                            <li>依赖关系管理</li>
+                            <li>模块独立性保证</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-section">
+                <h2>API接口参考</h2>
+                <div class="api-reference">
+                    <h3>基本使用格式</h3>
+                    <p><span class="command-name">/dnaspec.&lt;skill&gt; [input]</span> [options]</p>
+
+                    <h3>常用命令示例</h3>
+                    <div class="command">
+                        <span class="command-name">/dnaspec.context-analysis</span> "系统需求" --mode enhanced
+                    </div>
+                    <div class="command">
+                        <span class="command-name">/dnaspec.task-decomposer</span> "复杂项目需求" --max-depth 2
+                    </div>
+                    <div class="command">
+                        <span class="command-name">/dnaspec.constraint-generator</span> "初始需求" --lock-constitution
+                    </div>
+                    <div class="command">
+                        <span class="command-name">/dnaspec.api-checker</span> "API文档" --level module --mode detailed
+                    </div>
+                    <div class="command">
+                        <span class="command-name">/dnaspec.agent-creator</span> "数据分析师智能体，负责销售数据报告"
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-section">
+                <h2>设计原则与理念</h2>
+                <p>所有技能遵循综合集成研讨厅理念，融合定性定量处理方式：</p>
+                <ul>
+                    <li><strong>格式塔认知原则:</strong> 确保系统各部分形成统一连贯的整体</li>
+                    <li><strong>KISS原则:</strong> 保持系统各组件简单清晰</li>
+                    <li><strong>YAGNI原则:</strong> 只实现当前需要的功能</li>
+                    <li><strong>SOLID原则:</strong> 确保代码结构遵循设计原则</li>
+                    <li><strong>上下文隔离:</strong> 通过独立工作区和智能体实现上下文隔离</li>
+                    <li><strong>渐进式增长:</strong> 系统从简单到复杂平稳演进</li>
+                    <li><strong>智能与确定性平衡:</strong> 确定性逻辑用代码，不确定性用智能体处理</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DNASPEC项目 - 综合集成研讨厅技能框架文档</p>
+            <p>实现从简单Idea到复杂智能系统的智能化自动增长</p>
+        </div>
+    </footer>
+</body>
+</html>

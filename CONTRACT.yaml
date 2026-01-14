@@ -1,0 +1,840 @@
+"""
+DNASPEC项目宪法 v3.0
+融合Agent-Skills优秀组织形式 + DNASPEC核心优势
+"""
+version: "3.0.0"
+created: "2025-12-26T11:00:00Z"
+last_updated: "2025-12-26T11:00:00Z"
+enforcement_level: "mandatory"
+
+project_philosophy:
+  title: "DNASPEC核心设计哲学"
+
+  # 核心优势（来自DNASPEC）
+  our_core_advantages:
+    four_layer_progressive_prompts:
+      description: "4层渐进式提示词系统"
+      value: "细粒度的上下文控制，最大化AI效率"
+      structure:
+        - "00_context.md: 核心概念（< 500 tokens）"
+        - "01_basic.md: 基础应用（< 1,000 tokens）"
+        - "02_intermediate.md: 中级场景（< 2,000 tokens）"
+        - "03_advanced.md: 高级应用（< 3,000 tokens）"
+      selection_strategy: "智能自动选择，根据复杂度和token数"
+
+    production_grade_scripts:
+      description: "生产级确定性逻辑脚本"
+      value: "高性能、可重复、可独立测试"
+      components:
+        - "validator.py: 输入验证（确定性逻辑）"
+        - "calculator.py: 指标计算（确定性算法）"
+        - "analyzer.py: 依赖分析（图算法）"
+        - "executor.py: 智能协调器（定性+定量结合）"
+
+    intelligent_coordination:
+      description: "智能调用策略"
+      value: "根据定量指标自动选择合适的定性提示词"
+      execution_flow:
+        - "1. 定量验证（validator.py）"
+        - "2. 定量计算（calculator.py）"
+        - "3. 智能选择提示词层次"
+        - "4. 加载合适的提示词"
+        - "5. AI定性分析（使用提示词）"
+        - "6. 合并定量和定性结果"
+
+  # 借鉴的优秀组织形式（来自Agent-Skills）
+  borrowed_organizational_forms:
+    skill_classification_system:
+      description: "清晰的技能分类体系"
+      categories:
+        foundational:
+          description: "基础概念和原则"
+          skills:
+            - dnaspec-context-fundamentals
+          purpose: "所有其他技能的前置知识"
+
+        core_decomposition:
+          description: "任务分解和结构化"
+          skills:
+            - dnaspec-task-decomposer
+            - dnaspec-modulizer
+          purpose: "将复杂任务分解为可管理的部分"
+
+        quality_assurance:
+          description: "质量和约束管理"
+          skills:
+            - dnaspec-constraint-generator
+            - dnaspec-dapi-checker
+          purpose: "确保质量和一致性"
+
+        optimization:
+          description: "上下文和认知优化"
+          skills:
+            - dnaspec-context-analysis
+            - dnaspec-context-optimization
+            - dnaspec-cognitive-template
+          purpose: "持续优化和改进"
+
+        coordination:
+          description: "架构和协调"
+          skills:
+            - dnaspec-architect
+            - dnaspec-system-architect
+          purpose: "多层级调用对齐和协调"
+
+        agent_systems:
+          description: "智能体创建和管理"
+          skills:
+            - dnaspec-agent-creator
+          purpose: "创建局部智能体"
+
+        infrastructure:
+          description: "基础设施和工作区管理"
+          skills:
+            - dnaspec-workspace
+            - dnaspec-git
+          purpose: "工作区隔离和版本管理"
+
+    skill_organization_standards:
+      description: "每个技能的标准组织形式"
+      structure:
+        skill_name/
+          SKILL.md: "技能描述文档（< 500行）⭐"
+          prompts/: "4层渐进式提示词（定性分析）⭐"
+            - 00_context.md
+            - 01_basic.md
+            - 02_intermediate.md
+            - 03_advanced.md
+          scripts/: "生产级脚本（定量计算）⭐"
+            - validator.py
+            - calculator.py
+            - analyzer.py
+            - executor.py
+          config/: "配置文件"
+            - parameters.yaml
+            - constraints.json
+          references/: "详细参考资料（可选）"
+            - detailed_guidance.md
+            - examples.md
+
+      skill_md_requirements:
+        max_length: 500行  # ⭐ 借鉴的长度限制
+        required_sections:
+          - "name: 技能名称（YAML frontmatter）"
+          - "description: 技能描述（YAML frontmatter）"
+          - "When to Activate: 明确的使用时机⭐"
+          - "Core Concepts: 核心概念"
+          - "Full Lifecycle Applications: 全生命周期应用"
+          - "Practical Guidance: 实践指导⭐"
+          - "Examples: 使用示例"
+          - "Guidelines: 指导原则（可检查）"
+          - "Integration: 技能协作⭐"
+          - "Key Achievements: 关键成就"
+        optional_sections:
+          - "References: 参考资料"
+
+skill_architecture_principles:
+  title: "技能架构原则"
+
+  # 原则1：定性与定量完美分离⭐⭐⭐⭐⭐
+  separation_of_concerns:
+    qualitative_analysis:
+      domain: "概念理解、推理、判断、评估"
+      implementation: "4层渐进式提示词文件"
+      execution: "AI模型 + 提示词"
+      characteristics:
+        - "创造性、灵活性"
+        - "难以确定性计算"
+        - "需要领域知识"
+
+    quantitative_calculation:
+      domain: "验证、计算、分析、检测"
+      implementation: "Python脚本（validator/calculator/analyzer）"
+      execution: "确定性逻辑"
+      characteristics:
+        - "精确性、可重复性"
+        - "高性能（比AI快10-100倍）"
+        - "结果可预测"
+
+    coordination_strategy:
+      domain: "智能选择和合并"
+      implementation: "executor.py"
+      execution: "根据定量指标选择定性层次"
+      characteristics:
+        - "智能决策"
+        - "自动化流程"
+        - "结果合并"
+
+  # 原则2：渐进式信息披露⭐⭐⭐⭐⭐
+  progressive_information_disclosure:
+    principle: "从简单到复杂，最小化认知负荷"
+
+    four_layer_design:
+      layer_00_context:
+        target_tokens: "< 500"
+        content: "核心概念、定义、快速开始"
+        use_case: "最简单的任务或快速参考"
+
+      layer_01_basic:
+        target_tokens: "< 1,000"
+        content: "基础应用、常见模式、基本流程"
+        use_case: "日常任务的常规执行"
+
+      layer_02_intermediate:
+        target_tokens: "< 2,000"
+        content: "中级场景、复杂分解、依赖管理"
+        use_case: "复杂任务的详细执行"
+
+      layer_03_advanced:
+        target_tokens: "< 3,000"
+        content: "高级应用、大规模重构、多智能体协作"
+        use_case: "最复杂场景的深度处理"
+
+    self_containment:
+      principle: "每一层都自我闭包完备，无歧义"
+      requirement: "不依赖其他层，可独立使用"
+      benefit: "AI可以快速获取必要信息，无需加载无关内容"
+
+  # 原则3：格式塔认知原则⭐⭐⭐⭐⭐
+  gestalt_cognitive_principles:
+    wholeness:
+      principle: "整体大于部分之和"
+      application: "每个任务都是一个完整的整体"
+
+    simplicity_to_complexity:
+      principle: "从简单到复杂演化"
+      application: "先建立最简整体，再逐步增加复杂度"
+      constraint: "每一步都必须是完整的整体"
+
+    continuous_improvement:
+      principle: "持续改进循环"
+      application: "context-analysis → context-optimization → context-analysis"
+
+    context_explosion_prevention:
+      principle: "防止上下文爆炸"
+      strategies:
+        - "独立工作区（每个任务独立context.md）"
+        - "局部智能体（独立上下文，非全局）"
+        - "任务原子化（KISS、YAGNI、SOLID）"
+        - "信息分层（核心/详细/归档）"
+
+  # 原则4：生产级代码质量⭐⭐⭐⭐
+  production_code_standards:
+    determinism:
+      requirement: "所有确定性逻辑必须用Python脚本实现"
+      benefit: "可重复、可测试、高性能"
+
+    testability:
+      requirement: "每个脚本必须有独立的测试用例"
+      coverage_target: "> 80%"
+
+    documentation:
+      requirement: "每个函数必须有清晰的docstring"
+      format: "Google风格或NumPy风格"
+
+    error_handling:
+      requirement: "明确的异常处理和错误传播"
+      principle: "Fail-fast with clear error messages"
+
+skill_development_standards:
+  title: "技能开发标准"
+
+  # 新技能开发流程
+  development_workflow:
+    phase1_design:
+      description: "设计阶段"
+      tasks:
+        - task: "定义技能的核心概念和价值"
+          output: "技能概念文档"
+        - task: "确定技能分类和协作关系"
+          output: "技能定位图"
+        - task: "设计4层提示词大纲"
+          output: "提示词结构设计"
+        - task: "识别定量计算需求"
+          output: "脚本需求分析"
+
+    phase2_implementation:
+      description: "实现阶段"
+      tasks:
+        - task: "创建SKILL.md（< 500行）"
+          sections:
+            - "YAML frontmatter（name, description）"
+            - "When to Activate"
+            - "Core Concepts"
+            - "Full Lifecycle Applications"
+            - "Practical Guidance"
+            - "Examples"
+            - "Guidelines"
+            - "Integration"
+          output: "SKILL.md"
+
+        - task: "创建4层提示词文件"
+          files:
+            - "prompts/00_context.md"
+            - "prompts/01_basic.md"
+            - "prompts/02_intermediate.md"
+            - "prompts/03_advanced.md"
+          requirements:
+            - "每层自我闭包完备"
+            - "符合渐进式披露原则"
+            - "降低AI认知负荷"
+          output: "4个提示词文件"
+
+        - task: "实现定量脚本"
+          files:
+            - "scripts/validator.py"
+            - "scripts/calculator.py"
+            - "scripts/analyzer.py"
+            - "scripts/executor.py"
+            - "scripts/__init__.py"
+          requirements:
+            - "生产级代码质量"
+            - "明确的docstring"
+            - "错误处理"
+            - "类型注解"
+          output: "脚本文件"
+
+        - task: "创建配置文件"
+          files:
+            - "config/parameters.yaml"
+            - "config/constraints.json"
+          output: "配置文件"
+
+    phase3_testing:
+      description: "测试阶段"
+      tasks:
+        - task: "端到端测试"
+          test_cases:
+            - "提示词文件加载测试"
+            - "输入验证测试"
+            - "指标计算测试"
+            - "依赖分析测试"
+            - "完整执行流程测试"
+          output: "测试报告"
+
+        - task: "性能测试"
+          metrics:
+            - "响应时间 < 5秒"
+            - "内存使用 < 1GB"
+            - "正确率 > 95%"
+          output: "性能报告"
+
+    phase4_documentation:
+      description: "文档阶段"
+      tasks:
+        - task: "创建使用示例"
+          output: "examples/目录"
+        - task: "编写API文档"
+          output: "docs/api.md"
+        - task: "更新README"
+          output: "README.md"
+
+  # 质量检查清单
+  quality_checklist:
+    skill_md_quality:
+      - [ ] "长度 < 500行"
+      - [ ] "包含所有必需章节"
+      - [ ] "YAML frontmatter正确"
+      - [ ] "描述清晰准确"
+      - [ ] "无歧义表达"
+
+    prompts_quality:
+      - [ ] "4层文件都存在"
+      - [ ] "每层自我闭包完备"
+      - [ ] "符合渐进式披露原则"
+      - [ ] "token数在限制范围内"
+      - [ ] "章节结构清晰"
+      - [ ] "示例准确有效"
+
+    scripts_quality:
+      - [ ] "所有脚本都有docstring"
+      - [ ] "包含类型注解"
+      - [ ] "错误处理完善"
+      - [ ] "有独立的测试用例"
+      - [ ] "代码符合PEP8规范"
+
+    integration_quality:
+      - [ ] "技能分类正确"
+      - [ ] "协作技能关系明确"
+      - [ ] "依赖关系清晰"
+      - [ ] "集成测试通过"
+
+mandatory_coordination_contracts:
+  title: "强制性协同契约"
+
+  # 契约1：技能架构强制执行⭐⭐⭐⭐⭐
+  skill_architecture_contract:
+    name: "技能架构契约"
+    level: "HARD_BLOCK"
+    description: "所有技能必须遵循的标准架构"
+    trigger_events:
+      - "skill_creation"
+      - "skill_update"
+      - "skill_validation"
+    skills: ["all_skills"]
+
+    enforcement_rules:
+      # 必须有4层提示词
+      four_layer_prompts:
+        requirement: "MUST have prompts/ directory with 4 layers"
+        validation:
+          - "prompts/00_context.md exists"
+          - "prompts/01_basic.md exists"
+          - "prompts/02_intermediate.md exists"
+          - "prompts/03_advanced.md exists"
+        violation_action: "BLOCK skill deployment"
+
+      # 必须有生产级脚本
+      production_scripts:
+        requirement: "MUST have scripts/ directory with executable Python code"
+        validation:
+          - "scripts/validator.py exists and is executable"
+          - "scripts/calculator.py exists and is executable"
+          - "scripts/analyzer.py exists and is executable"
+          - "scripts/executor.py exists and is executable"
+        violation_action: "BLOCK skill deployment"
+
+      # SKILL.md长度限制
+      skill_md_length:
+        requirement: "SKILL.md MUST be under 500 lines"
+        validation:
+          - "count lines in SKILL.md"
+          - "verify line_count <= 500"
+        violation_action: "WARN and suggest moving content to references/"
+
+      # 必需章节
+      required_sections:
+        requirement: "SKILL.md MUST contain all required sections"
+        validation:
+          - "check for 'When to Activate' section"
+          - "check for 'Core Concepts' section"
+          - "check for 'Integration' section"
+        violation_action: "WARN and provide template"
+
+  # 契约2：定性与定量分离强制执行⭐⭐⭐⭐⭐
+  qualitative_quantitative_separation_contract:
+    name: "定性与定量分离契约"
+    level: "HARD_BLOCK"
+    description: "确保定性分析和定量计算正确分离"
+    trigger_events:
+      - "skill_execution"
+      - "script_execution"
+      - "ai_interaction"
+    skills: ["all_skills"]
+
+    enforcement_rules:
+      # 定性分析必须使用提示词
+      qualitative_must_use_prompts:
+        requirement: "All qualitative analysis MUST use prompts/"
+        validation:
+          - "verify AI calls include prompt content"
+          - "verify prompt is loaded from prompts/ directory"
+          - "verify prompt level is appropriate for task complexity"
+        violation_action: "BLOCK execution"
+
+      # 定量计算必须使用脚本
+      quantitative_must_use_scripts:
+        requirement: "All quantitative calculations MUST use scripts/"
+        validation:
+          - "verify calculation is done in Python scripts"
+          - "verify no AI calls for deterministic logic"
+          - "verify scripts are tested and validated"
+        violation_action: "WARN and suggest correction"
+
+      # 智能协调必须使用executor
+      coordination_must_use_executor:
+        requirement: "Coordination MUST go through executor.py"
+        validation:
+          - "verify executor.py is the entry point"
+          - "verify executor calls validator → calculator → prompt → AI"
+          - "verify results are properly merged"
+        violation_action: "BLOCK execution"
+
+  # 契约3：渐进式信息披露强制执行⭐⭐⭐⭐⭐
+  progressive_disclosure_contract:
+    name: "渐进式信息披露契约"
+    level: "HARD_BLOCK"
+    description: "确保信息按需披露，最小化认知负荷"
+    trigger_events:
+      - "prompt_loading"
+      - "ai_interaction"
+      - "context_building"
+    skills: ["all_skills"]
+
+    enforcement_rules:
+      # 必须选择合适的提示词层次
+      appropriate_prompt_level:
+        requirement: "MUST select appropriate prompt level based on task complexity"
+        selection_criteria:
+          minimal:
+            max_complexity: 0.3
+            max_tokens: 500
+            use_case: "最简单任务"
+
+          basic:
+            max_complexity: 0.5
+            max_tokens: 2000
+            use_case: "日常任务"
+
+          intermediate:
+            max_complexity: 0.7
+            max_tokens: 5000
+            use_case: "复杂任务"
+
+          advanced:
+            fallback: true
+            use_case: "最复杂任务"
+
+        validation:
+          - "verify complexity score is calculated"
+          - "verify token count is estimated"
+          - "verify prompt level matches selection criteria"
+        violation_action: "WARN and suggest correct level"
+
+      # 每层必须自我闭包
+      self_containment:
+        requirement: "Each prompt layer MUST be self-contained"
+        validation:
+          - "verify layer can be used independently"
+          - "verify layer has no external dependencies"
+          - "verify layer has clear scope"
+        violation_action: "BLOCK prompt usage"
+
+  # 契约4：格式塔原则强制执行⭐⭐⭐⭐⭐
+  gestalt_principles_contract:
+    name: "格式塔认知原则契约"
+    level: "HARD_BLOCK"
+    description: "确保所有技能都遵循格式塔认知原则"
+    trigger_events:
+      - "task_decomposition"
+      - "agent_creation"
+      - "context_optimization"
+      - "skill_design"
+    skills: ["all_skills"]
+
+    enforcement_rules:
+      # 从简单到复杂
+      simplicity_to_complexity:
+        requirement: "MUST evolve from simple to complex"
+        validation:
+          - "verify task starts with MVP (simple but complete)"
+          - "verify evolution is step-by-step"
+          - "verify each step is a complete whole"
+        violation_action: "BLOCK and request redesign"
+
+      # 整体性
+      wholeness:
+        requirement: "Each task MUST be a complete whole"
+        validation:
+          - "verify task has clear goal"
+          - "verify task has clear start and end"
+          - "verify task produces meaningful output"
+        violation_action: "WARN and suggest improvement"
+
+      # 防止上下文爆炸
+      context_explosion_prevention:
+        requirement: "MUST prevent context explosion"
+        validation:
+          - "verify independent workspaces for each task"
+          - "verify local contexts for agents"
+          - "verify atomic tasks (KISS, YAGNI, SOLID)"
+          - "verify context size < 5000 tokens per task"
+        violation_action: "BLOCK and require redesign"
+
+  # 契约5：技能分类和协作⭐⭐⭐⭐
+  skill_classification_contract:
+    name: "技能分类契约"
+    level: "SOFT_BLOCK"
+    description: "确保技能正确分类和协作"
+    trigger_events:
+      - "skill_creation"
+      - "skill_update"
+      - "integration_validation"
+    skills: ["all_skills"]
+
+    enforcement_rules:
+      # 必须明确分类
+      clear_classification:
+        requirement: "Each skill MUST belong to one category"
+        categories:
+          - foundational: "基础概念"
+          - core_decomposition: "任务分解"
+          - quality_assurance: "质量保证"
+          - optimization: "优化"
+          - coordination: "协调"
+          - agent_systems: "智能体系统"
+          - infrastructure: "基础设施"
+        validation:
+          - "verify skill is in appropriate category"
+          - "verify skill description matches category purpose"
+        violation_action: "WARN and suggest reclassification"
+
+      # 必须明确协作技能
+      clear_integration:
+        requirement: "Each skill MUST list related skills"
+        validation:
+          - "verify 'Integration' section exists"
+          - "verify related skills are accurate"
+          - "verify collaboration patterns are clear"
+        violation_action: "WARN and provide template"
+
+implementation_roadmap:
+  title: "实施路线图"
+
+  phase1_immediate_actions:
+    priority: "CRITICAL"
+    timeline: "立即执行（今天）"
+    tasks:
+      - task: "添加context-fundamentals技能"
+        category: "foundational"
+        purpose: "作为所有其他技能的前置知识"
+        action: "创建完整的4层提示词和脚本"
+
+      - task: "精简所有SKILL.md到500行"
+        target: "当前12个技能"
+        action: "移除详细内容到references/目录"
+
+      - task: "优化SKILL.md章节结构"
+        target: "当前12个技能"
+        action: "添加When to Activate、Practical Guidance等章节"
+
+      - task: "更新CONTRACT.yaml到v3.0"
+        action: "融合Agent-Skills优秀组织形式"
+
+  phase2_short_term_actions:
+    priority: "HIGH"
+    timeline: "本周内"
+    tasks:
+      - task: "整合context-degradation到context-analysis"
+        source: "Agent-Skills项目"
+        target: "dnaspec-context-analysis"
+        benefit: "增强上下文失败模式检测"
+
+      - task: "整合memory-systems到agent-creator"
+        source: "Agent-Skills项目"
+        target: "dnaspec-agent-creator"
+        benefit: "增强智能体记忆设计"
+
+      - task: "创建examples目录"
+        purpose: "提供完整的使用示例"
+        examples:
+          - "multi-agent-coordination: 展示多技能协作"
+          - "context-optimization-lifecycle: 展示持续优化"
+
+  phase3_medium_term_actions:
+    priority: "MEDIUM"
+    timeline: "本月内"
+    tasks:
+      - task: "完成剩余11个技能的4层架构重构"
+        template: "task-decomposer作为参考"
+        target_skills:
+          - dnaspec-constraint-generator
+          - dnaspec-dapi-checker
+          - dnaspec-agent-creator
+          - dnaspec-context-optimization
+          - dnaspec-cognitive-template
+          - dnaspec-context-analysis
+          - dnaspec-architect
+          - dnaspec-modulizer
+          - dnaspec-system-architect
+          - dnaspec-workspace
+          - dnaspec-git
+
+      - task: "建立技能评估体系"
+        source: "借鉴evaluation技能"
+        purpose: "评估技能质量和协作效果"
+
+      - task: "创建技能示例库"
+        purpose: "展示技能最佳实践"
+        content:
+          - "每个技能的完整使用示例"
+          - "多技能协作示例"
+          - "常见问题解决示例"
+
+compliance_monitoring:
+  title: "合规性监控"
+
+  active_monitoring:
+    architecture_compliance:
+      metric: "技能架构合规率"
+      target: "100%"
+      frequency: "每个技能"
+      checks:
+        - "4层提示词完整性"
+        - "脚本文件完整性"
+        - "SKILL.md长度 < 500行"
+        - "必需章节完整性"
+
+    quality_compliance:
+      metric: "代码质量分数"
+      target: "> 90%"
+      frequency: "每次提交"
+      checks:
+        - "测试覆盖率 > 80%"
+        - "docstring完整性"
+        - "错误处理覆盖率"
+        - "类型注解覆盖率"
+
+    integration_compliance:
+      metric: "技能协作合规率"
+      target: "100%"
+      frequency: "每次更新"
+      checks:
+        - "分类正确性"
+        - "协作关系准确性"
+        - "依赖关系清晰性"
+
+  violation_tracking:
+    hard_block_violations:
+      action: "阻止操作"
+      logging: "记录到违规日志"
+      notification: "立即通知开发者"
+      resolution: "修复后重新执行"
+
+    soft_block_violations:
+      action: "警告但允许继续"
+      logging: "记录到警告日志"
+      notification: "汇总通知"
+      resolution: "计划修复"
+
+    warn_violations:
+      action: "记录但允许继续"
+      logging: "记录到信息日志"
+      notification: "定期汇总"
+      resolution: "持续改进"
+
+success_metrics:
+  title: "成功指标"
+
+  technical_metrics:
+    skill_quality_score:
+      target: "> 95%"
+      components:
+        architecture_compliance: "100%"
+        code_quality: "> 90%"
+        documentation_completeness: "> 90%"
+        test_coverage: "> 80%"
+
+    performance_metrics:
+      average_response_time:
+        target: "< 3秒"
+        measurement: "从请求到响应的时间"
+
+    context_efficiency:
+      token_reduction:
+        target: "50% reduction"
+        measurement: "使用4层提示词后的token减少"
+
+      cognitive_load:
+        target: "< 1000 tokens for routine tasks"
+        measurement: "AI需要处理的平均token数"
+
+  integration_metrics:
+    skill_utilization:
+      target: "所有技能都被使用"
+      frequency: "每月审查"
+
+    collaboration_effectiveness:
+      target: "技能协作成功率 > 95%"
+      measurement: "多技能任务的成功率"
+
+    user_satisfaction:
+      target: "用户满意度 > 4.5/5"
+      measurement: "定期用户调研"
+
+# 附录：技能开发模板
+skill_development_template:
+  title: "技能开发模板"
+
+  skill_md_template: |
+    ---
+    name: skill-name
+    description: Clear, concise description of when to use this skill
+    ---
+
+    # Skill Name
+
+    ## When to Activate
+
+    Describe specific situations where this skill should be activated.
+
+    ## Core Concepts
+
+    Explain the fundamental concepts.
+
+    ## Full Lifecycle Applications
+
+    ### Idea Phase
+    ### Requirement Phase
+    ### Refinement Phase
+    ### Intelligence Phase
+
+    ## Practical Guidance
+
+    Provide actionable guidance.
+
+    ## Examples
+
+    **Example: [Title]**
+    ```
+    Input: [describe input]
+    Output: [show expected output]
+    ```
+
+    ## Guidelines
+
+    1. Guideline one
+    2. Guideline two
+    3. Continue as needed
+
+    ## Integration
+
+    - skill-name-one - Brief description
+    - skill-name-two - Brief description
+
+    ## Key Achievements
+
+    1. ✅ Achievement one
+    2. ✅ Achievement two
+    3. ✅ Achievement three
+
+  prompt_template:
+    # 第0层：核心概念
+    title: "Core Concepts"
+    max_tokens: 500
+    content:
+      - "你是谁（1-2句话）"
+      - "核心概念（3-5个要点）"
+      - "快速开始（最简单示例）"
+
+    # 第1层：基础应用
+    title: "Basic Applications"
+    max_tokens: 1000
+    content:
+      - 继承第0层
+      - 常见模式（3-5个）
+      - 基本流程
+      - 简单示例
+
+    # 第2层：中级场景
+    title: "Intermediate Scenarios"
+    max_tokens: 2000
+    content:
+      - 继承第0、1层
+      - 复杂分解
+      - 依赖管理
+      - 详细示例
+
+    # 第3层：高级应用
+    title: "Advanced Applications"
+    max_tokens: 3000
+    content:
+      - 继承第0、1、2层
+      - 大规模场景
+      - 多智能体协作
+      - 完整案例
+
+---
+*宪法版本：3.0*
+*融合来源：DNASPEC核心优势 + Agent-Skills优秀组织形式*
+*最后更新：2025-12-26*

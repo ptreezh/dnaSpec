@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNASPEC - AI驱动的多层次Agentic系统架构</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        main {
+            min-height: calc(100vh - 150px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%233498db" opacity="0.1"/><circle cx="20" cy="20" r="2" fill="%239b59b6" opacity="0.5"/><circle cx="50" cy="50" r="3" fill="%233498db" opacity="0.3"/><circle cx="80" cy="80" r="1.5" fill="%239b59b6" opacity="0.4"/></svg>');
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #ecf0f1;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        .section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+            border-radius: 2px;
+        }
+
+        .intro {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .intro h2 {
+            color: #2c3e50;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .agentic-architecture {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .hierarchy-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .hierarchy-level {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: white;
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .hierarchy-level:hover {
+            transform: scale(1.02);
+        }
+
+        .hierarchy-level.system-level {
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+        }
+
+        .hierarchy-level.subsystem-level {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+        }
+
+        .hierarchy-level.module-level {
+            background: linear-gradient(135deg, #2ecc71, #f39c12);
+        }
+
+        .hierarchy-level.task-level {
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+        }
+
+        .hierarchy-level h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hierarchy-level p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0.5rem 0;
+        }
+
+        .level-connection {
+            width: 2px;
+            height: 2rem;
+            background: linear-gradient(to bottom, #3498db, #9b59b6);
+            margin: -1rem auto;
+        }
+
+        .agents-society {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .society-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .agent-type-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .agent-type-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .agent-type-card p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .skills-framework {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .skill-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #3498db;
+        }
+
+        .skill-card h3 {
+            color: #2980b9;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h4 {
+            color: #e74c3c;
+            margin: 1.2rem 0 0.5rem 0;
+        }
+
+        .skill-card ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .decision-framework {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .framework-card {
+            background: #e8f4fd;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .framework-card h3 {
+            color: #2980b9;
+            margin-bottom: 1rem;
+        }
+
+        .soc-collaboration {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .collaboration-architecture {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .collaboration-layer {
+            background: linear-gradient(135deg, #9b59b6, #3498db);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 25px;
+            width: 80%;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .collaboration-layer.software-algorithm {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+        }
+
+        .collaboration-layer.consensus-algorithm {
+            background: linear-gradient(135deg, #2ecc71, #f1c40f);
+        }
+
+        .collaboration-layer.agent-society {
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+        }
+
+        .visualization {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .system-diagram {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .diagram-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #3498db;
+        }
+
+        .diagram-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .diagram-component {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .diagram-component h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .summary {
+            background: linear-gradient(135deg, #2980b9, #8e44ad);
+            color: white;
+            text-align: center;
+        }
+
+        .summary h2 {
+            color: white;
+        }
+
+        .summary-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .summary p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .future-vision {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .vision-card {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .vision-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .example-box {
+            background: #eaf2f8;
+            border-left: 4px solid #3498db;
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-label {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.2);
+            color: #2980b9;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hierarchy-diagram {
+                gap: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .diagram-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>DNASPEC</h1>
+                <p>AI驱动的多层次Agentic系统架构</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#intro">项目使命</a></li>
+                <li><a href="#hierarchy">Agentic架构</a></li>
+                <li><a href="#society">智能体社会</a></li>
+                <li><a href="#skills">技能框架</a></li>
+                <li><a href="#decision">决策框架</a></li>
+                <li><a href="#collaboration">协作编排</a></li>
+                <li><a href="#visualization">系统可视化</a></li>
+                <li><a href="#future">未来愿景</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 引言 -->
+        <section id="intro" class="section intro">
+            <div class="container">
+                <h2>AI驱动的多层次Agentic系统：未来数字系统架构</h2>
+                <p>未来所有的数字系统都将是AI驱动的多层次Agentic系统，其中不同层次具有不同粒度、专注于当下任务上下文的智能体，形成类似智能体社会的组织结构。通过软件和算法规范智能体的分工和流程，将确定性流程硬编码和算法化，柔性部分由AI基于上下文智能分析决策，需要用户决策的不确定性问题以最直观的方式呈现给用户。这是一种基于程序和共识算法协同编排的智能体社会组织。</p>
+                
+                <div class="key-concepts">
+                    <h3>核心理念</h3>
+                    <ul>
+                        <li><strong>多层次Agentic架构</strong>：不同粒度的智能体分层协作</li>
+                        <li><strong>上下文专注</strong>：每个智能体专注于当前任务上下文</li>
+                        <li><strong>智能体社会</strong>：仿照社会组织结构的智能体协作</li>
+                        <li><strong>确定性与柔性分离</strong>：硬编码确定流程，AI处理柔性逻辑</li>
+                        <li><strong>用户决策界面</strong>：直观呈现需用户决策的问题</li>
+                        <li><strong>共识算法编排</strong>：智能体间基于共识算法协同工作</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agentic架构分层 -->
+        <section id="hierarchy" class="section agentic-architecture">
+            <div class="container">
+                <h2>多层次Agentic系统架构</h2>
+                <p>系统采用分层架构，每一层都有特定粒度的智能体，专注于该层的任务上下文。层级间通过标准化接口进行通信和协调。</p>
+                
+                <div class="hierarchy-diagram">
+                    <div class="hierarchy-level system-level">
+                        <h3>系统级智能体 (System-Level Agent)</h3>
+                        <p>负责整个系统的战略规划和资源分配</p>
+                        <p><strong>主要职责:</strong> 系统整体架构、长期规划、资源协调</p>
+                        <p><strong>上下文粒度:</strong> 全局系统上下文</p>
+                    </div>
+                    
+                    <div class="level-connection"></div>
+                    
+                    <div class="hierarchy-level subsystem-level">
+                        <h3>子系统级智能体 (Subsystem-Level Agent)</h3>
+                        <p>管理特定功能域的子系统，实现系统级规划的目标分解</p>
+                        <p><strong>主要职责:</strong> 功能域管理、中期规划、跨模块协调</p>
+                        <p><strong>上下文粒度:</strong> 特定功能域上下文</p>
+                    </div>
+                    
+                    <div class="level-connection"></div>
+                    
+                    <div class="hierarchy-level module-level">
+                        <h3>模块级智能体 (Module-Level Agent)</h3>
+                        <p>负责具体模块的开发和维护，实现子系统的功能细化</p>
+                        <p><strong>主要职责:</strong> 模块开发、短期任务、错误处理</p>
+                        <p><strong>上下文粒度:</strong> 特定模块上下文</p>
+                    </div>
+                    
+                    <div class="level-connection"></div>
+                    
+                    <div class="hierarchy-level task-level">
+                        <h3>任务级智能体 (Task-Level Agent)</h3>
+                        <p>执行具体的原子任务，专注于当前上下文的精确执行</p>
+                        <p><strong>主要职责:</strong> 任务执行、上下文隔离、结果报告</p>
+                        <p><strong>上下文粒度:</strong> 任务特定上下文</p>
+                    </div>
+                </div>
+                
+                <div class="hierarchy-principles">
+                    <h3>分层设计原则</h3>
+                    <ul>
+                        <li><strong>职责分离</strong>：每一层智能体有明确的职责边界</li>
+                        <li><strong>上下文隔离</strong>：各层智能体专注于各自的任务上下文</li>
+                        <li><strong>接口标准化</strong>：层间通信采用标准化接口和协议</li>
+                        <li><strong>自底向上验证</strong>：底层智能体为上层提供可靠的服务保证</li>
+                        <li><strong>自顶向下控制</strong>：上层智能体指导和协调下层工作</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 智能体社会结构 -->
+        <section id="society" class="section agents-society">
+            <div class="container">
+                <h2>智能体社会：仿社会组织的协作模式</h2>
+                <p>智能体形成类似人类社会的组织结构，有明确的分工、角色、层级和协作机制。通过软件和算法规范智能体的行为和交互。</p>
+                
+                <div class="society-structure">
+                    <div class="agent-type-card">
+                        <h3>专家智能体</h3>
+                        <p>专注于特定领域的深度专业知识</p>
+                        <p>如：安全专家、性能分析师、架构设计师</p>
+                        <p>提供专业领域的智能决策支持</p>
+                    </div>
+                    
+                    <div class="agent-type-card">
+                        <h3>协调智能体</h3>
+                        <p>负责多个智能体间的协调和通信</p>
+                        <p>管理资源分配、任务调度、冲突解决</p>
+                        <p>确保整体协作效率和一致性</p>
+                    </div>
+                    
+                    <div class="agent-type-card">
+                        <h3>决策智能体</h3>
+                        <p>基于多源信息进行智能决策</p>
+                        <p>评估选项、权衡利弊、选择最优方案</p>
+                        <p>处理不确定性并提供决策建议</p>
+                    </div>
+                    
+                    <div class="agent-type-card">
+                        <h3>执行智能体</h3>
+                        <p>专注于具体任务的精确执行</p>
+                        <p>代码生成、文档编写、测试执行</p>
+                        <p>确保任务按要求高质量完成</p>
+                    </div>
+                </div>
+                
+                <div class="social-organization">
+                    <h3>智能体社会组织特征</h3>
+                    <ul>
+                        <li><strong>角色专业化</strong>：每个智能体有明确的角色和专业领域</li>
+                        <li><strong>层级管理</strong>：形成管理层和执行层的层级结构</li>
+                        <li><strong>规则治理</strong>：通过协议和规范管理智能体行为</li>
+                        <li><strong>协作文化</strong>：建立智能体间的协作和信任机制</li>
+                        <li><strong>动态调整</strong>：根据任务需求动态调配智能体资源</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能框架 -->
+        <section id="skills" class="section skills-framework">
+            <div class="container">
+                <h2>DNASPEC技能框架：支持Agentic系统构建</h2>
+                <p>DNASPEC提供一系列技能，支持构建多层次Agentic系统，确保智能体间的协调和系统的稳定性。</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>任务分解与隔离 (/dnaspec.task-decomposer)</h3>
+                        <p>将复杂任务分解为原子任务，为每个任务创建隔离的工作区，确保智能体专注于当前任务上下文，防止上下文膨胀。</p>
+                        
+                        <h4>分层应用示例:</h4>
+                        <div class="phase-label">系统级</div> 分解战略规划为战略、战术、操作三级任务
+                        <div class="phase-label">子系统级</div> 分解功能域为子功能、模块、组件三级任务
+                        <div class="phase-label">模块级</div> 分解模块为功能、子功能、方法三级任务
+                        <div class="phase-label">任务级</div> 分解任务为步骤、子步骤、操作三级任务
+                        
+                        <h4>隔离机制:</h4>
+                        <ul>
+                            <li>为每个分解任务创建独立工作区</li>
+                            <li>确保任务间上下文无干扰</li>
+                            <li>跟踪任务依赖关系和影响</li>
+                            <li>验证任务完成质量</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>约束生成与对齐 (/dnaspec.constraint-generator)</h3>
+                        <p>基于宪法需求生成动态约束，确保各层智能体的行为与系统整体目标对齐，防止偏离初心，并支持时间点恢复机制。</p>
+                        
+                        <h4>分层对齐机制:</h4>
+                        <div class="phase-label">宪法级</div> 锁定初始系统核心目标和原则
+                        <div class="phase-label">系统级</div> 生成系统级约束和架构约束
+                        <div class="phase-label">子系统级</div> 生成功能域约束和接口约束
+                        <div class="phase-label">模块级</div> 生成模块边界约束和责任约束
+                        
+                        <h4>对齐验证:</h4>
+                        <ul>
+                            <li>实时监控智能体行为与宪法的一致性</li>
+                            <li>检测和报告偏离系统目标的行为</li>
+                            <li>触发对齐修正机制</li>
+                            <li>记录决策轨迹和恢复点</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>API分级检查 (/dnaspec.dapi-checker)</h3>
+                        <p>实现模块级、子系统级、系统级的分级审核，验证不同层级间的调用对齐和作用域管理，确保各层级智能体的接口一致性。</p>
+                        
+                        <h4>分级审核架构:</h4>
+                        <div class="phase-label">模块级</div> 检查模块内部接口的一致性
+                        <div class="phase-label">子系统级</div> 检查子系统间接口的兼容性
+                        <div class="phase-label">系统级</div> 检查系统级接口的整体对齐
+                        <div class="phase-label">跨系统级</div> 检查与其他系统接口的互操作性
+                        
+                        <h4>对齐验证:</h4>
+                        <ul>
+                            <li>验证层级间调用的正确性</li>
+                            <li>检查接口协议的一致性</li>
+                            <li>确保数据格式的匹配性</li>
+                            <li>管理作用域边界的清晰性</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>上下文分析与优化 (/dnaspec.context-analysis & /dnaspec.context-optimization)</h3>
+                        <p>对不同层级智能体的上下文进行质量分析和优化，确保上下文简洁、相关、完整、一致、高效。</p>
+                        
+                        <h4>分层上下文管理:</h4>
+                        <div class="phase-label">全局上下文</div> 系统级智能体的宏观上下文
+                        <div class="phase-label">功能上下文</div> 子系统级智能体的功能上下文
+                        <div class="phase-label">模块上下文</div> 模块级智能体的组件上下文
+                        <div class="phase-label">任务上下文</div> 任务级智能体的局部上下文
+                        
+                        <h4>优化策略:</h4>
+                        <ul>
+                            <li>分析上下文质量的五个维度</li>
+                            <li>优化上下文表达的清晰度</li>
+                            <li>保持上下文与目标的相关性</li>
+                            <li>确保上下文的完整性和一致性</li>
+                            <li>提升上下文使用的效率</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>智能体创建与管理 (/dnaspec.agent-creator & /dnaspec.agent-manager)</h3>
+                        <p>根据任务需求创建专业化智能体，管理智能体的生命周期，确保智能体具备适当的职责和能力。</p>
+                        
+                        <h4>智能体创建策略:</h4>
+                        <div class="phase-label">需求分析</div> 分析任务需求，确定智能体类型
+                        <div class="phase-label">角色定义</div> 定义智能体角色、能力和约束
+                        <div class="phase-label">能力配置</div> 配置智能体所需的工具和知识
+                        <div class="phase-label">部署管理</div> 部署智能体并管理其生命周期
+                        
+                        <h4>管理机制:</h4>
+                        <ul>
+                            <li>智能体身份和权限管理</li>
+                            <li>任务分配和负载均衡</li>
+                            <li>性能监控和优化</li>
+                            <li>动态伸缩和资源管理</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>模块化与隔离 (/dnaspec.modulizer & /dnaspec.isolater)</h3>
+                        <p>将系统分解为可隔离的模块，确保每个智能体在独立的上下文中工作，实现真正的模块化和隔离。</p>
+                        
+                        <h4>模块化策略:</h4>
+                        <div class="phase-label">组件识别</div> 识别可独立的系统组件
+                        <div class="phase-label">接口定义</div> 定义清晰的组件接口
+                        <div class="phase-label">依赖管理</div> 管理组件间的依赖关系
+                        <div class="phase-label">隔离实现</div> 实现组件的独立运行环境
+                        
+                        <h4>隔离机制:</h4>
+                        <ul>
+                            <li>创建独立的运行时环境</li>
+                            <li>确保数据和状态的隔离</li>
+                            <li>控制组件间的通信方式</li>
+                            <li>管理资源的独占和共享</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 决策框架 -->
+        <section id="decision" class="section decision-framework">
+            <div class="container">
+                <h2>决策框架：确定性与柔性、用户与AI的平衡</h2>
+                <p>系统实现了确定性逻辑与柔性分析的分离，以及AI处理与用户决策的平衡，确保系统既有可预测性又有智能性。</p>
+                
+                <div class="framework-grid">
+                    <div class="framework-card">
+                        <h3>确定性流程硬编码</h3>
+                        <p>将可固化的逻辑和算法通过代码实现，确保处理的一致性和可预测性。</p>
+                        
+                        <div class="example-box">
+                            <div class="example-title">示例：</div>
+                            <p>数据校验、认证授权、事务处理、错误恢复等逻辑用代码固化，保证100%的确定性执行结果。</p>
+                        </div>
+                        
+                        <ul>
+                            <li>SOLID原则指导的清洁代码实现</li>
+                            <li>严格的单元测试和验证</li>
+                            <li>性能优化的算法实现</li>
+                            <li>安全加固的标准实现</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="framework-card">
+                        <h3>柔性分析AI驱动</h3>
+                        <p>涉及用户意图、情境分析、创新解决方案等柔性部分，由AI智能体基于上下文进行分析决策。</p>
+                        
+                        <div class="example-box">
+                            <div class="example-title">示例：</div>
+                            <p>需求分析、架构设计、UI设计、用户体验优化等需要智能判断的部分，由智能体基于上下文进行分析。</p>
+                        </div>
+                        
+                        <ul>
+                            <li>基于上下文的智能分析</li>
+                            <li>多维度考量的权衡决策</li>
+                            <li>创新性解决方案生成</li>
+                            <li>情境感知的适应性调整</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="framework-card">
+                        <h3>用户决策直观呈现</h3>
+                        <p>所有需要用户最终决策的不确定性问题，以最自然、直观的方式呈现给用户，供用户分析判断决策。</p>
+                        
+                        <div class="example-box">
+                            <div class="example-title">示例：</div>
+                            <p>架构选择、技术选型、业务规则、设计方向等影响系统方向的决策，以结构化问答形式呈现给用户选择。</p>
+                        </div>
+                        
+                        <ul>
+                            <li>清晰的选项和后果说明</li>
+                            <li>多维度比较分析</li>
+                            <li>风险和收益评估</li>
+                            <li>直观的决策界面</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="framework-card">
+                        <h3>置信度审核与共识计算</h3>
+                        <p>采用置信度审核机制和多源多维度思考的共识计算作为判断准则，确保AI决策的可靠性和一致性。</p>
+                        
+                        <div class="example-box">
+                            <div class="example-title">示例：</div>
+                            <p>多个智能体对同一问题独立分析，通过共识算法确定最终结果；对不确定性的分析返回置信度分数供参考。</p>
+                        </div>
+                        
+                        <ul>
+                            <li>多智能体独立分析</li>
+                            <li>共识算法确定结果</li>
+                            <li>置信度分数表示</li>
+                            <li>不一致时人工介入</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 协作编排方式 -->
+        <section id="collaboration" class="section soc-collaboration">
+            <div class="container">
+                <h2>协同编排：程序与共识算法驱动的智能体社会</h2>
+                <p>智能体社会通过程序化规则和共识算法协同工作，形成高效、可靠的协作机制。</p>
+                
+                <div class="collaboration-architecture">
+                    <div class="collaboration-layer agent-society">
+                        <h3>智能体社会层 (Agent Society Layer)</h3>
+                        <p>智能体之间基于社会规则协作，形成组织结构和分工体系</p>
+                    </div>
+                    
+                    <div class="collaboration-layer consensus-algorithm">
+                        <h3>共识算法层 (Consensus Algorithm Layer)</h3>
+                        <p>通过共识算法协调智能体间的决策，确保行动的一致性</p>
+                    </div>
+                    
+                    <div class="collaboration-layer software-algorithm">
+                        <h3>软件与算法层 (Software & Algorithm Layer)</h3>
+                        <p>通过程序化规则规范智能体行为，确保系统的稳定性</p>
+                    </div>
+                </div>
+                
+                <div class="collaboration-mechanisms">
+                    <h3>协作机制</h3>
+                    <ul>
+                        <li><strong>任务分配算法</strong>：根据智能体能力和当前负载智能分配任务</li>
+                        <li><strong>资源协调协议</strong>：智能体间协商资源共享和使用</li>
+                        <li><strong>冲突解决机制</strong>：当智能体间出现矛盾时的解决流程</li>
+                        <li><strong>绩效评估体系</strong>：评估智能体执行效果并进行优化</li>
+                        <li><strong>知识共享平台</strong>：智能体间共享学习经验和最佳实践</li>
+                        <li><strong>动态重组能力</strong>：根据任务需求动态调整智能体配置</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 系统架构可视化 -->
+        <section id="visualization" class="section visualization">
+            <div class="container">
+                <h2>系统架构可视化</h2>
+                <p>多层次Agentic系统的整体架构图示，展示各部分的协同关系和数据流向。</p>
+                
+                <div class="system-diagram">
+                    <div class="diagram-title">AI驱动的多层次Agentic系统架构</div>
+                    
+                    <div class="diagram-content">
+                        <div class="diagram-component">
+                            <h4>用户层</h4>
+                            <p>终端用户交互界面</p>
+                            <p>直观决策问答</p>
+                            <p>需求输入和反馈</p>
+                        </div>
+                        
+                        <div class="diagram-component">
+                            <h4>智能体管理层</h4>
+                            <p>智能体创建与部署</p>
+                            <p>任务分配与调度</p>
+                            <p>性能监控与优化</p>
+                        </div>
+                        
+                        <div class="diagram-component">
+                            <h4>协作编排层</h4>
+                            <p>共识算法</p>
+                            <p>通信协议</p>
+                            <p>决策协调</p>
+                        </div>
+                    </div>
+                    
+                    <div class="diagram-content">
+                        <div class="diagram-component">
+                            <h4>系统级智能体</h4>
+                            <p>全局规划</p>
+                            <p>资源分配</p>
+                            <p>架构决策</p>
+                        </div>
+                        
+                        <div class="diagram-component">
+                            <h4>子系统级智能体</h4>
+                            <p>功能域管理</p>
+                            <p>模块协调</p>
+                            <p>接口管理</p>
+                        </div>
+                        
+                        <div class="diagram-component">
+                            <h4>模块级智能体</h4>
+                            <p>具体实现</p>
+                            <p>错误处理</p>
+                            <p>性能优化</p>
+                        </div>
+                    </div>
+                    
+                    <div class="diagram-content">
+                        <div class="diagram-component">
+                            <h4>技能层</h4>
+                            <p>DNASPEC技能系统</p>
+                            <p>上下文工程</p>
+                            <p>约束生成</p>
+                        </div>
+                        
+                        <div class="diagram-component">
+                            <h4>确定性逻辑层</h4>
+                            <p>固化算法</p>
+                            <p>标准流程</p>
+                            <p>安全机制</p>
+                        </div>
+                        
+                        <div class="diagram-component">
+                            <h4>数据与存储层</h4>
+                            <p>宪法需求存储</p>
+                            <p>时间点快照</p>
+                            <p>状态管理</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 未来愿景 -->
+        <section id="future" class="section future-vision">
+            <div class="container">
+                <h2>未来：综合集成研讨厅时代的数字系统</h2>
+                <p>每个数字系统都将成为一个综合集成研讨厅，定性定量处理方式有机结合，实现真正智能化的人机协作。</p>
+                
+                <div class="vision-grid">
+                    <div class="vision-card">
+                        <h3>定性处理层</h3>
+                        <p>思维链推理</p>
+                        <p>提示词优化</p>
+                        <p>创意生成</p>
+                        <p>意图理解</p>
+                    </div>
+                    
+                    <div class="vision-card">
+                        <h3>定量处理层</h3>
+                        <p>算法计算</p>
+                        <p>数据处理</p>
+                        <p>逻辑验证</p>
+                        <p>性能优化</p>
+                    </div>
+                    
+                    <div class="vision-card">
+                        <h3>智能接口层</h3>
+                        <p>AI驱动决策</p>
+                        <p>上下文管理</p>
+                        <p>人机协作</p>
+                        <p>质量保障</p>
+                    </div>
+                    
+                    <div class="vision-card">
+                        <h3>社会协作层</h3>
+                        <p>智能体协同</p>
+                        <p>共识算法</p>
+                        <p>分工合作</p>
+                        <p>动态组织</p>
+                    </div>
+                </div>
+                
+                <div class="future-characteristics">
+                    <h3>未来系统的特征</h3>
+                    <ul>
+                        <li><strong>自组织能力</strong>：系统能够根据需求动态组织智能体网络</li>
+                        <li><strong>自适应性</strong>：根据运行环境和用户需求自动调整</li>
+                        <li><strong>智能决策</strong>：在复杂情况下做出最优决策</li>
+                        <li><strong>人机协作</strong>：AI与人类用户无缝协作</li>
+                        <li><strong>持续演进</strong>：从简单到复杂的平滑增长</li>
+                        <li><strong>质量保障</strong>：内置质量验证和保障机制</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 项目总结 -->
+    <section class="summary">
+        <div class="container">
+            <h2>总结：迈向AI驱动的智能体社会时代</h2>
+            <div class="summary-content">
+                <p>DNASPEC作为AI驱动的多层次Agentic系统架构平台，实现了从传统软件系统到智能体社会的转变。通过明确的分层架构、智能体社会模式、确定性与柔性分离、以及共识算法驱动的协作，我们的系统能够：</p>
+                
+                <ul>
+                    <li>高效处理复杂系统任务，每层智能体专注于适当粒度的上下文</li>
+                    <li>保持系统与初始宪法需求的一致性，防止偏离初心</li>
+                    <li>平衡自动化处理和人工决策，将确定性逻辑固化，柔性部分智能处理</li>
+                    <li>通过直观界面呈现需要用户决策的问题，优化人机协作</li>
+                    <li>实现智能体间的协调协作，形成高效的社会组织结构</li>
+                    <li>支持系统的持续演进，从简单功能到复杂智能化的平滑过渡</li>
+                </ul>
+                
+                <p>未来，每一个数字系统都将是一个综合集成研讨厅，融合定性定量处理方式，通过智能体社会的协作模式，实现真正智能化的自动增长和优化。这标志着软件开发进入了一个新纪元，其中AI不仅是工具，更是合作伙伴和系统的核心组成部分。</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DNASPEC项目 - AI驱动的多层次Agentic系统架构. 构建未来智能体社会时代的数字系统基础架构.</p>
+        </div>
+    </footer>
+</body>
+</html>

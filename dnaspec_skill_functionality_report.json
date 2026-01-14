@@ -1,0 +1,101 @@
+{
+  "total": 21,
+  "passed": 14,
+  "failed": 7,
+  "success_rate": 66.66666666666666,
+  "details": [
+    [
+      "Context Analysis Function",
+      true
+    ],
+    [
+      "Context Optimization Function",
+      true
+    ],
+    [
+      "Cognitive Template Function",
+      true
+    ],
+    [
+      "Agent Creator Skill",
+      true
+    ],
+    [
+      "Task Decomposer Skill",
+      true
+    ],
+    [
+      "Constraint Generator Skill",
+      true
+    ],
+    [
+      "Constitutional Base Skill Import",
+      true
+    ],
+    [
+      "Constitutional Enforcer Import",
+      false
+    ],
+    [
+      "Coordination Contract Enforcer Import",
+      true
+    ],
+    [
+      "Coordination Contract Checker Import",
+      true
+    ],
+    [
+      "Check for CONTRACT files",
+      false
+    ],
+    [
+      "Check for CONTRACT YAML files",
+      true
+    ],
+    [
+      "List available skills",
+      true
+    ],
+    [
+      "Get available skills via handler",
+      false
+    ],
+    [
+      "Skills Manager Context Analysis",
+      false
+    ],
+    [
+      "Skills Manager Context Optimization",
+      false
+    ],
+    [
+      "Skills Manager Cognitive Template",
+      false
+    ],
+    [
+      "Coordination Contract Hooks",
+      true
+    ],
+    [
+      "Cognitive Coordination Center",
+      true
+    ],
+    [
+      "Look for contract YAML files",
+      true
+    ],
+    [
+      "Look for coordination YAML files",
+      false
+    ]
+  ],
+  "timestamp": 1765859608.5714781,
+  "categories": {
+    "context_skills": "Core Context Engineering Skills",
+    "agent_skills": "Agentic System Skills",
+    "constitutional": "Constitutional and Contractual Systems",
+    "cli_integration": "CLI Integration",
+    "specific_commands": "Specific Skill Commands",
+    "coordination_contracts": "Coordination Contract Systems"
+  }
+}

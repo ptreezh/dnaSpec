@@ -1,0 +1,798 @@
+{
+  "decision_tree": {
+    "root_condition": {
+      "condition": "data_input_validation",
+      "description": "验证输入数据的基本要求",
+      "branches": {
+        "valid_input": "data_profiling_branch",
+        "invalid_input": "error_handling_branch"
+      }
+    },
+    "data_profiling_branch": {
+      "condition": "data_quality_assessment",
+      "description": "评估数据质量并确定清洗策略",
+      "branches": {
+        "high_quality": "minimal_cleaning_branch",
+        "medium_quality": "standard_cleaning_branch",
+        "low_quality": "intensive_cleaning_branch"
+      }
+    },
+    "minimal_cleaning_branch": {
+      "condition": "basic_validation_only",
+      "description": "仅执行基本验证和格式标准化",
+      "actions": [
+        "format_standardization",
+        "basic_validation"
+      ],
+      "next": "quality_assurance_branch"
+    },
+    "standard_cleaning_branch": {
+      "condition": "comprehensive_cleaning",
+      "description": "执行全面的数据清洗流程",
+      "actions": [
+        "duplicate_detection",
+        "missing_value_handling",
+        "outlier_detection",
+        "format_standardization"
+      ],
+      "next": "quality_assurance_branch"
+    },
+    "intensive_cleaning_branch": {
+      "condition": "deep_cleaning_required",
+      "description": "执行深度数据清洗和修复",
+      "actions": [
+        "advanced_duplicate_detection",
+        "sophisticated_missing_value_imputation",
+        "statistical_outlier_removal",
+        "data_reconstruction",
+        "format_standardization"
+      ],
+      "next": "quality_assurance_branch"
+    },
+    "quality_assurance_branch": {
+      "condition": "post_cleaning_validation",
+      "description": "验证清洗结果质量",
+      "branches": {
+        "quality_improved": "report_generation_branch",
+        "quality_degraded": "rollback_branch",
+        "quality_unchanged": "alternative_strategy_branch"
+      }
+    },
+    "report_generation_branch": {
+      "condition": "generate_reports",
+      "description": "生成清洗报告和质量指标",
+      "actions": [
+        "quality_report",
+        "improvement_metrics",
+        "recommendations"
+      ],
+      "next": "completion"
+    },
+    "error_handling_branch": {
+      "condition": "handle_input_errors",
+      "description": "处理输入数据错误",
+      "actions": [
+        "error_logging",
+        "user_notification",
+        "error_recovery"
+      ],
+      "next": "completion"
+    },
+    "rollback_branch": {
+      "condition": "rollback_changes",
+      "description": "回滚清洗操作",
+      "actions": [
+        "restore_original_data",
+        "log_rollback",
+        "notify_user"
+      ],
+      "next": "alternative_strategy_branch"
+    },
+    "alternative_strategy_branch": {
+      "condition": "try_alternative_approach",
+      "description": "尝试替代清洗策略",
+      "actions": [
+        "strategy_adjustment",
+        "parameter_tuning",
+        "retry_cleaning"
+      ],
+      "next": "quality_assurance_branch"
+    },
+    "confidence_threshold": 0.75,
+    "max_depth": 5,
+    "pruning_enabled": true
+  },
+  "rule_system": {
+    "input_validation_rules": {
+      "file_format_rules": [
+        {
+          "rule_id": "FR001",
+          "name": "supported_format_check",
+          "condition": "file_extension in ['csv', 'xlsx', 'json', 'xml', 'parquet']",
+          "action": "allow_processing",
+          "priority": "high",
+          "error_message": "不支持的文件格式"
+        },
+        {
+          "rule_id": "FR002",
+          "name": "file_size_limit",
+          "condition": "file_size <= 10GB",
+          "action": "allow_processing",
+          "priority": "medium",
+          "error_message": "文件大小超过10GB限制"
+        }
+      ],
+      "data_structure_rules": [
+        {
+          "rule_id": "DS001",
+          "name": "minimum_columns_check",
+          "condition": "column_count >= 1",
+          "action": "allow_processing",
+          "priority": "high",
+          "error_message": "数据表至少需要一列"
+        },
+        {
+          "rule_id": "DS002",
+          "name": "maximum_columns_check",
+          "condition": "column_count <= 10000",
+          "action": "allow_processing",
+          "priority": "medium",
+          "error_message": "列数超过10000限制"
+        }
+      ]
+    },
+    "data_quality_rules": {
+      "completeness_rules": [
+        {
+          "rule_id": "CQ001",
+          "name": "missing_value_threshold",
+          "condition": "missing_value_ratio <= 0.5",
+          "action": "standard_cleaning",
+          "priority": "high",
+          "alternative_action": "intensive_cleaning"
+        },
+        {
+          "rule_id": "CQ002",
+          "name": "record_completeness",
+          "condition": "complete_record_ratio >= 0.7",
+          "action": "proceed_with_cleaning",
+          "priority": "medium",
+          "alternative_action": "flag_for_review"
+        }
+      ],
+      "accuracy_rules": [
+        {
+          "rule_id": "AQ001",
+          "name": "format_compliance",
+          "condition": "format_compliance_rate >= 0.8",
+          "action": "standard_validation",
+          "priority": "medium",
+          "alternative_action": "format_correction"
+        },
+        {
+          "rule_id": "AQ002",
+          "name": "value_range_validation",
+          "condition": "outlier_ratio <= 0.1",
+          "action": "standard_outlier_handling",
+          "priority": "medium",
+          "alternative_action": "advanced_outlier_detection"
+        }
+      ]
+    },
+    "cleaning_strategy_rules": {
+      "duplicate_handling_rules": [
+        {
+          "rule_id": "DH001",
+          "name": "exact_duplicate_strategy",
+          "condition": "duplicate_ratio <= 0.05",
+          "action": "remove_exact_duplicates",
+          "priority": "medium",
+          "parameters": {
+            "keep": "first"
+          }
+        },
+        {
+          "rule_id": "DH002",
+          "name": "fuzzy_duplicate_strategy",
+          "condition": "fuzzy_duplicate_ratio > 0.05",
+          "action": "fuzzy_duplicate_detection",
+          "priority": "low",
+          "parameters": {
+            "similarity_threshold": 0.9
+          }
+        }
+      ],
+      "missing_value_rules": [
+        {
+          "rule_id": "MV001",
+          "name": "mcmar_strategy",
+          "condition": "missing_type == 'MCAR' and missing_ratio <= 0.1",
+          "action": "mean_median_imputation",
+          "priority": "medium"
+        },
+        {
+          "rule_id": "MV002",
+          "name": "mar_strategy",
+          "condition": "missing_type == 'MAR' and missing_ratio <= 0.3",
+          "action": "regression_imputation",
+          "priority": "medium"
+        }
+      ]
+    },
+    "safety_rules": [
+      {
+        "rule_id": "SF001",
+        "name": "data_integrity_check",
+        "condition": "always",
+        "action": "verify_data_integrity",
+        "priority": "critical"
+      },
+      {
+        "rule_id": "SF002",
+        "name": "backup_before_cleaning",
+        "condition": "data_volume > 10000",
+        "action": "create_backup",
+        "priority": "high"
+      },
+      {
+        "rule_id": "SF003",
+        "name": "rollback_capability",
+        "condition": "always",
+        "action": "enable_rollback",
+        "priority": "high"
+      }
+    ],
+    "performance_rules": [
+      {
+        "rule_id": "PF001",
+        "name": "memory_usage_limit",
+        "condition": "memory_usage > 0.8",
+        "action": "switch_to_chunked_processing",
+        "priority": "medium"
+      },
+      {
+        "rule_id": "PF002",
+        "name": "processing_timeout",
+        "condition": "processing_time > timeout_limit",
+        "action": "escalate_to_manual_review",
+        "priority": "medium"
+      }
+    ]
+  },
+  "ml_models": {
+    "anomaly_detection_models": {
+      "isolation_forest": {
+        "use_case": "numeric_outlier_detection",
+        "parameters": {
+          "contamination": 0.1,
+          "n_estimators": 100,
+          "random_state": 42
+        },
+        "confidence_threshold": 0.8,
+        "fallback": "statistical_methods"
+      },
+      "local_outlier_factor": {
+        "use_case": "multivariate_outlier_detection",
+        "parameters": {
+          "n_neighbors": 20,
+          "contamination": 0.1,
+          "novelty": false
+        },
+        "confidence_threshold": 0.75,
+        "fallback": "z_score_method"
+      },
+      "autoencoder": {
+        "use_case": "complex_pattern_anomaly",
+        "parameters": {
+          "encoding_dim": 32,
+          "epochs": 100,
+          "batch_size": 256
+        },
+        "confidence_threshold": 0.85,
+        "fallback": "statistical_methods"
+      }
+    },
+    "missing_value_imputation_models": {
+      "knn_imputer": {
+        "use_case": "numerical_missing_values",
+        "parameters": {
+          "n_neighbors": 5,
+          "weights": "uniform"
+        },
+        "confidence_threshold": 0.7,
+        "fallback": "mean_imputation"
+      },
+      "iterative_imputer": {
+        "use_case": "complex_missing_patterns",
+        "parameters": {
+          "estimator": "bayesian_ridge",
+          "max_iter": 10,
+          "random_state": 42
+        },
+        "confidence_threshold": 0.8,
+        "fallback": "regression_imputation"
+      }
+    },
+    "data_type_classification_models": {
+      "random_forest_classifier": {
+        "use_case": "column_type_detection",
+        "parameters": {
+          "n_estimators": 100,
+          "max_depth": 10,
+          "random_state": 42
+        },
+        "confidence_threshold": 0.9,
+        "fallback": "pattern_matching"
+      }
+    },
+    "model_selection_strategy": {
+      "primary_criteria": "accuracy",
+      "secondary_criteria": "processing_speed",
+      "tertiary_criteria": "memory_efficiency",
+      "auto_selection": true,
+      "cross_validation": "5_fold",
+      "hyperparameter_tuning": "grid_search"
+    }
+  },
+  "fallback_mechanisms": {
+    "input_validation_fallbacks": {
+      "file_format_unsupported": {
+        "primary_action": "reject_file",
+        "fallback_action": "suggest_format_conversion",
+        "user_notification": "unsupported_format_error",
+        "recovery_options": [
+          "convert_format",
+          "use_different_file"
+        ]
+      },
+      "file_too_large": {
+        "primary_action": "reject_file",
+        "fallback_action": "suggest_chunking",
+        "user_notification": "file_size_limit_error",
+        "recovery_options": [
+          "split_file",
+          "use_streaming",
+          "reduce_data"
+        ]
+      }
+    },
+    "cleaning_fallbacks": {
+      "ml_model_failure": {
+        "primary_action": "retry_with_different_parameters",
+        "fallback_action": "switch_to_statistical_methods",
+        "user_notification": "ml_model_warning",
+        "recovery_options": [
+          "adjust_parameters",
+          "use_alternative_model",
+          "fallback_to_rules"
+        ]
+      },
+      "memory_exhaustion": {
+        "primary_action": "enable_chunked_processing",
+        "fallback_action": "reduce_chunk_size",
+        "user_notification": "memory_warning",
+        "recovery_options": [
+          "increase_memory",
+          "use_disk_processing",
+          "reduce_data_size"
+        ]
+      },
+      "quality_degradation": {
+        "primary_action": "rollback_changes",
+        "fallback_action": "try_conervative_strategy",
+        "user_notification": "quality_degradation_warning",
+        "recovery_options": [
+          "manual_review",
+          "alternative_strategy",
+          "partial_cleaning"
+        ]
+      }
+    },
+    "system_fallbacks": {
+      "database_connection_failure": {
+        "primary_action": "retry_connection",
+        "fallback_action": "use_backup_connection",
+        "user_notification": "connection_error",
+        "recovery_options": [
+          "retry_later",
+          "use_alternative_db",
+          "offline_mode"
+        ]
+      },
+      "api_service_unavailable": {
+        "primary_action": "retry_with_backoff",
+        "fallback_action": "use_cached_data",
+        "user_notification": "service_unavailable",
+        "recovery_options": [
+          "wait_and_retry",
+          "use_alternative_service",
+          "skip_operation"
+        ]
+      }
+    },
+    "escalation_triggers": {
+      "critical_errors": [
+        "data_corruption_detected",
+        "security_breach_detected",
+        "system_failure"
+      ],
+      "performance_issues": [
+        "processing_timeout",
+        "memory_exhaustion_persistent",
+        "continuous_failures"
+      ],
+      "quality_issues": [
+        "quality_score_below_threshold",
+        "data_loss_detected",
+        "unexpected_data_transformation"
+      ]
+    }
+  },
+  "interaction_patterns": {
+    "data_cleaning_workflow": {
+      "approach": "systematic_processing",
+      "communication": "progressive_updates",
+      "decision_style": "automated_with_human_oversight",
+      "steps": [
+        {
+          "step": 1,
+          "name": "data_ingestion",
+          "user_interaction": "file_upload_and_confirmation",
+          "feedback_required": true
+        },
+        {
+          "step": 2,
+          "name": "data_profiling",
+          "user_interaction": "quality_summary_review",
+          "feedback_required": true
+        },
+        {
+          "step": 3,
+          "name": "cleaning_execution",
+          "user_interaction": "progress_monitoring",
+          "feedback_required": false
+        },
+        {
+          "step": 4,
+          "name": "quality_assurance",
+          "user_interaction": "results_review",
+          "feedback_required": true
+        },
+        {
+          "step": 5,
+          "name": "report_generation",
+          "user_interaction": "final_approval",
+          "feedback_required": true
+        }
+      ]
+    },
+    "error_handling_style": {
+      "approach": "transparent_error_reporting",
+      "communication": "clear_error_messages",
+      "decision_style": "error_recovery_guidance",
+      "error_types": {
+        "validation_errors": {
+          "severity": "high",
+          "user_notification": "immediate",
+          "auto_recovery": false,
+          "manual_intervention": true
+        },
+        "processing_errors": {
+          "severity": "medium",
+          "user_notification": "batched",
+          "auto_recovery": true,
+          "manual_intervention": false
+        },
+        "performance_warnings": {
+          "severity": "low",
+          "user_notification": "periodic",
+          "auto_recovery": true,
+          "manual_intervention": false
+        }
+      }
+    },
+    "progress_reporting": {
+      "frequency": "adaptive",
+      "detail_level": "configurable",
+      "channels": [
+        "dashboard",
+        "notifications",
+        "logs"
+      ],
+      "metrics": [
+        "processing_progress",
+        "quality_improvement",
+        "error_count",
+        "performance_metrics"
+      ]
+    }
+  },
+  "response_patterns": {
+    "data_profiling_responses": [
+      {
+        "scenario": "high_quality_data",
+        "response": {
+          "message": "数据质量良好，建议进行基础清洗",
+          "recommendations": [
+            "格式标准化",
+            "基本验证"
+          ],
+          "confidence": 0.9,
+          "next_actions": [
+            "minimal_cleaning"
+          ]
+        }
+      },
+      {
+        "scenario": "medium_quality_data",
+        "response": {
+          "message": "数据质量中等，建议进行全面清洗",
+          "recommendations": [
+            "重复数据处理",
+            "缺失值处理",
+            "异常值检测"
+          ],
+          "confidence": 0.8,
+          "next_actions": [
+            "standard_cleaning"
+          ]
+        }
+      },
+      {
+        "scenario": "low_quality_data",
+        "response": {
+          "message": "数据质量较低，需要深度清洗",
+          "recommendations": [
+            "高级重复检测",
+            "智能缺失值插补",
+            "统计异常值处理"
+          ],
+          "confidence": 0.7,
+          "next_actions": [
+            "intensive_cleaning",
+            "manual_review"
+          ]
+        }
+      }
+    ],
+    "cleaning_execution_responses": [
+      {
+        "scenario": "cleaning_successful",
+        "response": {
+          "message": "数据清洗成功完成",
+          "metrics": {
+            "records_processed": "count",
+            "duplicates_removed": "count",
+            "missing_values_handled": "count",
+            "outliers_detected": "count",
+            "quality_improvement": "percentage"
+          },
+          "next_actions": [
+            "quality_assurance",
+            "report_generation"
+          ]
+        }
+      },
+      {
+        "scenario": "cleaning_partial_success",
+        "response": {
+          "message": "数据清洗部分完成，存在一些问题",
+          "issues": [
+            "specific_issues"
+          ],
+          "recommendations": [
+            "issue_specific_recommendations"
+          ],
+          "next_actions": [
+            "error_analysis",
+            "alternative_strategy"
+          ]
+        }
+      },
+      {
+        "scenario": "cleaning_failed",
+        "response": {
+          "message": "数据清洗失败，需要人工介入",
+          "error_details": "detailed_error_information",
+          "recovery_options": [
+            "rollback",
+            "alternative_approach",
+            "manual_intervention"
+          ],
+          "next_actions": [
+            "escalation",
+            "user_notification"
+          ]
+        }
+      }
+    ],
+    "quality_assessment_responses": [
+      {
+        "scenario": "quality_improved",
+        "response": {
+          "message": "数据质量显著改善",
+          "improvement_metrics": {
+            "completeness_improvement": "percentage",
+            "accuracy_improvement": "percentage",
+            "consistency_improvement": "percentage"
+          },
+          "recommendations": [
+            "proceed_to_output",
+            "generate_report"
+          ]
+        }
+      },
+      {
+        "scenario": "quality_maintained",
+        "response": {
+          "message": "数据质量保持稳定",
+          "analysis": "quality_stability_analysis",
+          "recommendations": [
+            "review_cleaning_strategy",
+            "consider_alternative_approach"
+          ]
+        }
+      },
+      {
+        "scenario": "quality_degraded",
+        "response": {
+          "message": "数据质量有所下降，建议回滚",
+          "degradation_details": "specific_degradation_areas",
+          "recommendations": [
+            "rollback_changes",
+            "try_conservative_approach"
+          ]
+        }
+      }
+    ]
+  },
+  "learning_patterns": {
+    "feedback_learning": {
+      "user_feedback_types": [
+        "cleaning_strategy_approval",
+        "quality_assessment_rating",
+        "error_correction_suggestions",
+        "preference_adjustments"
+      ],
+      "learning_mechanisms": {
+        "reinforcement_learning": {
+          "reward_function": "data_quality_improvement",
+          "penalty_function": "quality_degradation_or_errors",
+          "exploration_rate": 0.1,
+          "learning_rate": 0.01
+        },
+        "supervised_learning": {
+          "training_data": "user_labeled_cleaning_examples",
+          "model_types": [
+            "random_forest",
+            "gradient_boosting"
+          ],
+          "validation_method": "cross_validation"
+        }
+      }
+    },
+    "pattern_learning": {
+      "data_pattern_detection": {
+        "recurring_patterns": [
+          "missing_value_patterns",
+          "error_patterns",
+          "quality_issue_patterns",
+          "user_preference_patterns"
+        ],
+        "pattern_application": "automatic_strategy_adjustment"
+      },
+      "domain_knowledge_acquisition": {
+        "sources": [
+          "user_documentation",
+          "business_rule_updates",
+          "industry_standards",
+          "best_practices"
+        ],
+        "integration_method": "knowledge_graph_construction"
+      }
+    },
+    "performance_learning": {
+      "optimization_targets": [
+        "processing_speed",
+        "memory_efficiency",
+        "accuracy_improvement",
+        "user_satisfaction"
+      ],
+      "adaptation_strategies": {
+        "parameter_tuning": "automatic_hyperparameter_optimization",
+        "algorithm_selection": "performance_based_algorithm_switching",
+        "resource_allocation": "dynamic_resource_management"
+      }
+    }
+  },
+  "adaptation_patterns": {
+    "context_adaptation": {
+      "data_characteristics_adaptation": {
+        "volume_adaptation": {
+          "small_data": "<1MB",
+          "medium_data": "1MB-100MB",
+          "large_data": "100MB-1GB",
+          "big_data": ">1GB",
+          "adaptation_strategy": "processing_method_selection"
+        },
+        "complexity_adaptation": {
+          "simple_data": "structured_single_table",
+          "medium_complexity": "multi_table_relations",
+          "high_complexity": "nested_structures",
+          "adaptation_strategy": "algorithm_complexity_adjustment"
+        }
+      },
+      "domain_adaptation": {
+        "financial_data": {
+          "specific_rules": [
+            "sox_compliance",
+            "financial_validation"
+          ],
+          "quality_standards": "high_precision_required"
+        },
+        "healthcare_data": {
+          "specific_rules": [
+            "hipaa_compliance",
+            "patient_data_protection"
+          ],
+          "quality_standards": "high_accuracy_required"
+        },
+        "retail_data": {
+          "specific_rules": [
+            "product_validation",
+            "customer_data_privacy"
+          ],
+          "quality_standards": "medium_precision_acceptable"
+        }
+      }
+    },
+    "user_adaptation": {
+      "preference_learning": {
+        "cleaning_aggressiveness": [
+          "conservative",
+          "moderate",
+          "aggressive"
+        ],
+        "notification_frequency": [
+          "minimal",
+          "periodic",
+          "detailed"
+        ],
+        "automation_level": [
+          "manual",
+          "semi_automatic",
+          "fully_automatic"
+        ]
+      },
+      "expertise_level_adaptation": {
+        "beginner": {
+          "interface": "guided_workflow",
+          "explanations": "detailed",
+          "default_strategies": "conservative"
+        },
+        "intermediate": {
+          "interface": "standard_workflow",
+          "explanations": "moderate",
+          "default_strategies": "balanced"
+        },
+        "expert": {
+          "interface": "advanced_workflow",
+          "explanations": "minimal",
+          "default_strategies": "aggressive"
+        }
+      }
+    },
+    "system_adaptation": {
+      "resource_adaptation": {
+        "cpu_adaptation": "parallel_processing_adjustment",
+        "memory_adaptation": "chunking_strategy_adjustment",
+        "storage_adaptation": "temp_storage_optimization"
+      },
+      "performance_adaptation": {
+        "speed_vs_quality": "dynamic_balance_adjustment",
+        "accuracy_vs_efficiency": "trade_off_optimization",
+        "automation_vs_control": "user_control_adjustment"
+      }
+    }
+  }
+}

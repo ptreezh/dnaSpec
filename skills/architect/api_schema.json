@@ -1,0 +1,58 @@
+{
+  "tools": [
+    {
+      "name": "context_analyzer",
+      "description": "Analyzes context quality across 5 dimensions (clarity, relevance, completeness, consistency, efficiency)",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "The context or requirements to analyze"
+          }
+        },
+        "required": ["input"]
+      }
+    },
+    {
+      "name": "context_optimizer", 
+      "description": "Optimizes context based on specified goals",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "The context to optimize"
+          },
+          "optimization_goals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Goals to optimize for (e.g., clarity, completeness, conciseness)"
+          }
+        },
+        "required": ["input"]
+      }
+    },
+    {
+      "name": "cognitive_template_applier",
+      "description": "Applies cognitive templates (chain-of-thought, verification, few-shot learning) to enhance reasoning",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "The input to apply cognitive template to"
+          },
+          "template_type": {
+            "type": "string",
+            "enum": ["chain_of_thought", "verification", "few_shot", "role_playing", "understanding"],
+            "description": "Type of cognitive template to apply"
+          }
+        },
+        "required": ["input", "template_type"]
+      }
+    }
+  ]
+}

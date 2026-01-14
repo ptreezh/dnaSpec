@@ -1,0 +1,26 @@
+{
+  "agent_name": "Test Agent",
+  "agent_role": "测试智能体",
+  "capabilities": [
+    "功能1",
+    "功能2",
+    "功能3"
+  ],
+  "workspace_id": "test-agent-20251226153549",
+  "created_at": "2025-12-26T15:35:49.828327",
+  "isolation": {
+    "enabled": true,
+    "type": "workspace",
+    "context_limit": 5000
+  },
+  "memory": {
+    "enabled": false,
+    "short_term_size": 10,
+    "long_term_storage": "D:\\DAIP\\dnaSpec\\workspaces\\agents\\test-agent-20251226153549\\memory"
+  },
+  "context_file": "D:\\DAIP\\dnaSpec\\workspaces\\agents\\test-agent-20251226153549\\context\\context.md",
+  "input_dir": "D:\\DAIP\\dnaSpec\\workspaces\\agents\\test-agent-20251226153549\\input",
+  "output_dir": "D:\\DAIP\\dnaSpec\\workspaces\\agents\\test-agent-20251226153549\\output",
+  "workspace_dir": "D:\\DAIP\\dnaSpec\\workspaces\\agents\\test-agent-20251226153549\\workspace",
+  "logs_dir": "D:\\DAIP\\dnaSpec\\workspaces\\agents\\test-agent-20251226153549\\logs"
+}

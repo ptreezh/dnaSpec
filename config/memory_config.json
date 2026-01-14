@@ -1,0 +1,38 @@
+{
+  "global_settings": {
+    "memory_enabled": true,
+    "auto_cleanup": true,
+    "backup_enabled": true,
+    "backup_interval_hours": 24
+  },
+  "skills": {
+    "task-decomposer": {
+      "enabled": true,
+      "max_short_term": 50,
+      "max_long_term": 200,
+      "auto_cleanup": true
+    },
+    "architect": {
+      "enabled": true,
+      "max_short_term": 100,
+      "max_long_term": 300,
+      "auto_cleanup": true
+    },
+    "modulizer": {
+      "enabled": false,
+      "note": "根据需要启用"
+    },
+    "constraint-generator": {
+      "enabled": false,
+      "note": "根据需要启用"
+    }
+  },
+  "storage": {
+    "path": "./memory_storage",
+    "backup_path": "./memory_backups"
+  },
+  "performance": {
+    "cleanup_threshold": 0.8,
+    "max_memory_size_mb": 500
+  }
+}

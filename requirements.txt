@@ -1,0 +1,15 @@
+# DNASPEC Context Engineering System - Python Dependencies
+# Core dependencies
+pyyaml>=6.0
+click>=8.0.0
+rich>=13.0.0
+
+# Optional dependencies for enhanced features
+tomli>=2.0.0; python_version < "3.11"
+
+# Development dependencies (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# MCP support (optional)
+mcp>=0.1.0

@@ -1,0 +1,11 @@
+{
+  "evaluations": [
+    {
+      "timestamp": "2025-12-26T15:04:17.529025",
+      "json_file": "D:\\DAIP\\dnaSpec\\reports\\history\\evaluation_20251226_150417.json",
+      "md_file": "D:\\DAIP\\dnaSpec\\reports\\history\\evaluation_20251226_150417.md",
+      "average_quality_score": 0.9251282051282051,
+      "health_status": "healthy"
+    }
+  ]
+}

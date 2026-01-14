@@ -1,0 +1,108 @@
+# System Architect Configuration
+# 系统架构设计器配置参数
+
+# 验证参数
+validation:
+  min_request_length: 10
+  max_request_length: 10000
+  max_context_size: 50000
+
+# 架构类型检测
+architecture_types:
+  monolith:
+    keywords:
+      - 单体
+      - monolith
+      - 单体应用
+    recommended_for: "小型应用、快速原型"
+
+  microservice:
+    keywords:
+      - 微服务
+      - microservice
+      - 服务拆分
+    recommended_for: "大型系统、团队协作"
+
+  serverless:
+    keywords:
+      - 无服务器
+      - serverless
+      - 函数计算
+    recommended_for: "事件驱动、低频场景"
+
+  distributed:
+    keywords:
+      - 分布式
+      - distributed
+      - 集群
+    recommended_for: "高可用、高性能"
+
+# 技术栈推荐
+tech_stacks:
+  web:
+    frontend:
+      - React
+      - Vue
+      - Angular
+    backend:
+      - Node.js
+      - Python
+      - Java
+      - Go
+    database:
+      - PostgreSQL
+      - MySQL
+      - MongoDB
+
+  mobile:
+    ios:
+      - Swift
+      - React Native
+      - Flutter
+    android:
+      - Kotlin
+      - React Native
+      - Flutter
+
+# 架构模式
+architecture_patterns:
+  layered:
+    description: "分层架构"
+    layers: ["表现层", "业务层", "数据层"]
+
+  mvc:
+    description: "MVC架构"
+    components: ["Model", "View", "Controller"]
+
+  hexagonal:
+    description: "六边形架构"
+    concept: "端口和适配器"
+
+# 质量评分参数
+quality_scoring:
+  clarity:
+    base_score: 0.5
+    tech_bonus: 0.2
+    specific_bonus: 0.2
+    max_score: 1.0
+
+  completeness:
+    base_score: 0.5
+    length_bonus: 0.2
+    aspects_bonus: 0.2
+    max_score: 1.0
+
+# 层次选择参数
+level_selection:
+  level_00:
+    complexity: 0.3
+    tokens: 1000
+  level_01:
+    complexity: 0.5
+    tokens: 3000
+  level_02:
+    complexity: 0.7
+    tokens: 5000
+  level_03:
+    complexity: 1.0
+    tokens: 10000

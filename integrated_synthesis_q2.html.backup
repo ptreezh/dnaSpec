@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNASPEC - 定性定量融合的综合集成研讨厅系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.8rem;
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            color: #ecf0f1;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0.4rem 0.9rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        main {
+            min-height: calc(100vh - 200px);
+        }
+
+        .section {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 1.8rem;
+        }
+
+        .section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 6px;
+            background: linear-gradient(to right, #f1c40f, #e67e22, #e74c3c, #9b59b6);
+            border-radius: 4px;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            font-size: 1.3rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .qualitative-quantitative {
+            background: #f5f7fa;
+        }
+
+        .q2-model {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .qualitative-side {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .quantitative-side {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+        }
+
+        .integration-center {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(67, 233, 123, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .integration-center h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .integration-center p {
+            font-size: 1rem;
+        }
+
+        .conceptual-approach {
+            background-color: white;
+        }
+
+        .approach-stages {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .approach-stage {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            border-left: 7px solid #3498db;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .approach-stage:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .approach-stage h3 {
+            color: #2980b9;
+            margin-bottom: 1.8rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .approach-stage h3:before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #3498db;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .approach-stage p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .approach-stage ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-stage li {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        .skills-application {
+            background: #ecf0f1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 6px solid #9b59b6;
+            transition: transform 0.4s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card h3 {
+            color: #8e44ad;
+            margin-bottom: 1.5rem;
+            font-size: 1.7rem;
+        }
+
+        .skill-card h4 {
+            color: #e74c3c;
+            margin: 1.8rem 0 0.8rem 0;
+        }
+
+        .skill-card p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .skill-card ul {
+            margin-left: 1.8rem;
+        }
+
+        .skill-card li {
+            margin-bottom: 0.8rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .workflow-section {
+            background-color: white;
+        }
+
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 4rem 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-left: 5px solid #f39c12;
+        }
+
+        .step.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin: 0 2rem;
+        }
+
+        .step-content {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .step-content h4 {
+            color: #d35400;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .integration-patterns {
+            background: #f5f7fa;
+        }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pattern-card {
+            background: white;
+            padding: 2.8rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            text-align: center;
+            border-top: 5px solid #2ecc71;
+            transition: transform 0.3s ease;
+        }
+
+        .pattern-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .pattern-card h3 {
+            color: #27ae60;
+            margin-bottom: 1.5rem;
+        }
+
+        .pattern-card p {
+            color: #7f8c8d;
+            line-height: 1.7;
+        }
+
+        .future-vision {
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .future-vision h2 {
+            color: white;
+            margin-bottom: 2.5rem;
+        }
+
+        .future-vision p {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .vision-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .vision-card h3 {
+            color: #f1c40f;
+            margin-bottom: 1.2rem;
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .summary-section h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .summary-section p {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .page-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-top: 3rem;
+        }
+
+        .page-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(241, 196, 15, 0.3);
+        }
+
+        .page-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(241, 196, 15, 0.5);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 3.5rem 0;
+        }
+
+        .footer-content p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .example-box {
+            background-color: #e8f4fd;
+            padding: 1.8rem;
+            border-radius: 10px;
+            margin: 1.8rem 0;
+            border-left: 5px solid #3498db;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 0.8rem;
+        }
+
+        .phase-label {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            margin: 0.5rem 0.8rem 0.8rem 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .section h2 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 0.4rem 0;
+            }
+
+            .q2-model {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 auto 1.5rem;
+            }
+
+            .step-content {
+                text-align: center;
+            }
+
+            .page-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-content">
+            <h1>DNASPEC综合集成研讨厅</h1>
+            <p>定性定量融合的AI原生系统架构 - 从简单Idea到复杂智能系统的智能化自动增长平台</p>
+            <p class="subtitle">以格式塔认知原则为指导，实现智能与确定性的平衡</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#intro">理念概述</a></li>
+            <li><a href="#q2-model">定性定量模型</a></li>
+            <li><a href="#approach">概念性方法</a></li>
+            <li><a href="#skills">技能应用</a></li>
+            <li><a href="#workflow">工作流整合</a></li>
+            <li><a href="#patterns">集成模式</a></li>
+            <li><a href="#vision">未来愿景</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- 理念概述 -->
+        <section id="intro" class="section">
+            <div class="container">
+                <h2>定性定量综合集成研讨厅核心理念</h2>
+                <div class="intro">
+                    <p>在AI原生时代，每个系统都将是综合集成研讨厅 - 一种融合定性定量两种处理方式的智能系统。这种架构以生物DNA为灵感，将确定性逻辑通过代码固化，将不确定性分析通过智能体处理，将模糊决策以最直观的形式呈现给用户界面，实现真正的智能化自动增长。</p>
+                    <p>本系统遵循认知过程的格式塔原则，通过局部智能体架构避免全局上下文膨胀，通过宪法需求管理确保系统一致性，通过分级审核机制实现多层级对齐，确保系统从简单Idea到复杂智能体的平稳演进。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 定性定量模型 -->
+        <section id="q2-model" class="section qualitative-quantitative">
+            <div class="container">
+                <h2>定性定量融合模型</h2>
+                <p class="intro">综合集成研讨厅采用定性定量分层处理，二者通过智能接口协同工作，形成统一连贯的智能体体验</p>
+
+                <div class="q2-model">
+                    <div class="qualitative-side">
+                        <h4>定性处理层</h4>
+                        <p>思维链推理 (Chain of Thought)</p>
+                        <p>提示词优化</p>
+                        <p>置信度审核</p>
+                        <p>多源多维度思考</p>
+                        <p>共识计算</p>
+                        <p>用户意图理解</p>
+                        <p>创造性分析</p>
+                        <p>智能决策支持</p>
+                    </div>
+
+                    <div class="integration-center">
+                        <h4>智能接口层</h4>
+                        <p>定性定量协同</p>
+                        <p>任务分配与路由</p>
+                        <p>智能决策融合</p>
+                        <p>用户意图解析</p>
+                        <p>不确定性评估</p>
+                        <p>结果反馈机制</p>
+                        <p>上下文管理</p>
+                    </div>
+
+                    <div class="quantitative-side">
+                        <h4>定量处理层</h4>
+                        <p>算法模块</p>
+                        <p>数据处理</p>
+                        <p>逻辑验证</p>
+                        <p>性能计算</p>
+                        <p>确定性逻辑</p>
+                        <p>代码执行</p>
+                        <p>标准化接口</p>
+                        <p>可预测行为</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">定性定量融合示例:</div>
+                    <p>当用户提出"创建一个智能推荐系统"的需求时：</p>
+                    <p><strong>定性部分:</strong> 分析用户意图，理解推荐需求的多样性，应用链式思维分解推荐逻辑，生成认知框架</p>
+                    <p><strong>定量部分:</strong> 实现具体的推荐算法，执行确定性计算，管理数据结构和性能优化</p>
+                    <p><strong>接口层:</strong> 协调定性分析结果与定量计算实现，处理推荐逻辑中不确定的部分，反馈给用户界面进行确认</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 概念性方法 -->
+        <section id="approach" class="section conceptual-approach">
+            <div class="container">
+                <h2>概念性方法：从简单到复杂的渐进式增长</h2>
+                <div class="approach-stages">
+                    <div class="approach-stage">
+                        <h3>阶段1：Idea初始阶段 - 意图理解与澄清</h3>
+                        <p>系统接收用户的原始想法和概念。此阶段的重点是通过定性处理理解用户意图，并使用定量处理验证概念的可行性。上下文分析技能确保输入清晰度，认知模板技能应用链式思维分解模糊概念。</p>
+                        
+                        <p><strong>定性处理:</strong></p>
+                        <ul>
+                            <li>理解用户模糊意图</li>
+                            <li>应用认知框架结构化概念</li>
+                            <li>探索概念的可能性空间</li>
+                            <li>生成初步的定性评估</li>
+                        </ul>
+                        
+                        <p><strong>定量处理:</strong></p>
+                        <ul>
+                            <li>验证概念的技术可行性</li>
+                            <li>评估资源需求</li>
+                            <li>生成量化指标</li>
+                            <li>确定实现的确定性部分</li>
+                        </ul>
+                        
+                        <p><strong>技能应用:</strong> <span class="phase-label">Idea阶段</span> /dnaspec.context-analysis, <span class="phase-label">Idea阶段</span> /dnaspec.cognitive-template</p>
+                    </div>
+
+                    <div class="approach-stage">
+                        <h3>阶段2：需求精细化阶段 - 宪法确立与约束生成</h3>
+                        <p>将概念转化为规范化的需求，并建立宪法版本管理。此阶段通过约束生成技能锁定初始需求宪法，确保后续发展不偏离初心。上下文优化技能精炼需求描述，架构师技能设计可扩展架构。</p>
+                        
+                        <p><strong>定性处理:</strong></p>
+                        <ul>
+                            <li>深化需求理解</li>
+                            <li>识别需求中的不确定性</li>
+                            <li>生成需求的定性模型</li>
+                            <li>确定用户界面交互模式</li>
+                        </ul>
+                        
+                        <p><strong>定量处理:</strong></p>
+                        <ul>
+                            <li>建立需求版本管理系统</li>
+                            <li>生成具体的约束定义</li>
+                            <li>设计系统架构的定量参数</li>
+                            <li>确定性能和安全指标</li>
+                        </ul>
+                        
+                        <p><strong>技能应用:</strong> <span class="phase-label">需求阶段</span> /dnaspec.constraint-generator, <span class="phase-label">需求阶段</span> /dnaspec.architect, <span class="phase-label">需求阶段</span> /dnaspec.context-optimization</p>
+                    </div>
+
+                    <div class="approach-stage">
+                        <h3>阶段3：功能细化与模块化阶段 - 任务分解与隔离</h3>
+                        <p>将需求分解为具体的可执行模块，实现模块化设计。通过任务分解技能基于设计原则分解任务，为每个任务创建独立工作区，实现上下文隔离，防止任务爆炸。</p>
+                        
+                        <p><strong>定性处理:</strong></p>
+                        <ul>
+                            <li>确定模块的职责边界</li>
+                            <li>分析模块间的交互模式</li>
+                            <li>设计模块的智能接口</li>
+                            <li>评估模块化的合理性</li>
+                        </ul>
+                        
+                        <p><strong>定量处理:</strong></p>
+                        <ul>
+                            <li>生成具体的模块分解方案</li>
+                            <li>确定模块间的接口协议</li>
+                            <li>测量模块复杂度和依赖关系</li>
+                            <li>验证模块化原则的实现</li>
+                        </ul>
+                        
+                        <p><strong>技能应用:</strong> <span class="phase-label">细化阶段</span> /dnaspec.task-decomposer, <span class="phase-label">细化阶段</span> /dnaspec.modulizer, <span class="phase-label">细化阶段</span> /dnaspec.workspace</p>
+                    </div>
+
+                    <div class="approach-stage">
+                        <h3>阶段4：智能体集成与协同阶段 - 局部智能与系统协调</h3>
+                        <p>创建局部智能体处理复杂任务，实现智能体社会架构。通过智能体创建技能创建专业智能体，API检查技能验证智能体接口一致性，工作流技能管理智能体协作。</p>
+                        
+                        <p><strong>定性处理:</strong></p>
+                        <ul>
+                            <li>设计智能体的职责分工</li>
+                            <li>创建智能体间的协作协议</li>
+                            <li>处理智能体间的冲突解决</li>
+                            <li>实现智能体的自主决策机制</li>
+                        </ul>
+                        
+                        <p><strong>定量处理:</strong></p>
+                        <ul>
+                            <li>实现智能体间的标准化接口</li>
+                            <li>测量智能体性能和协作效率</li>
+                            <li>验证智能体交互的安全性</li>
+                            <li>生成智能体行为的可预测性指标</li>
+                        </ul>
+                        
+                        <p><strong>技能应用:</strong> <span class="phase-label">智能阶段</span> /dnaspec.agent-creator, <span class="phase-label">智能阶段</span> /dnaspec.api-checker, <span class="phase-label">智能阶段</span> /dnaspec.git</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能应用 -->
+        <section id="skills" class="section skills-application">
+            <div class="container">
+                <h2>技能在定性定量融合中的应用</h2>
+                <p class="intro">每个技能都支持定性定量处理的有机结合，通过智能接口层实现任务的分解和整合</p>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>上下文分析技能 (/dnaspec.context-analysis)</h3>
+                        <p>定性处理：理解上下文中的模糊意图和不确定性，分析上下文的语义丰富度和完整性</p>
+                        <p>定量处理：测量上下文的清晰度、相关性、一致性等可量化指标</p>
+                        <h4>全生命周期应用:</h4>
+                        <ul>
+                            <li><strong>Idea阶段:</strong> 识别概念表达的模糊性和不完整性</li>
+                            <li><strong>需求阶段:</strong> 评估需求文档的规范性和一致性</li>
+                            <li><strong>细化阶段:</strong> 监控模块接口定义的准确性</li>
+                            <li><strong>智能阶段:</strong> 验证智能体交互协议的有效性</li>
+                        </ul>
+                        <p>通过五维度分析（清晰度、相关性、完整性、一致性、效率），系统在定性理解需求的同时产生定量指标，辅助决策。</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>认知模板技能 (/dnaspec.cognitive-template)</h3>
+                        <p>定性处理：应用认知框架（链式思维、少样本学习、验证、角色扮演）处理复杂任务</p>
+                        <p>定量处理：为认知框架提供可测量的效果评估和流程追踪</p>
+                        <h4>全生命周期应用:</h4>
+                        <ul>
+                            <li><strong>Idea阶段:</strong> 使用链式思维结构化模糊概念</li>
+                            <li><strong>需求阶段:</strong> 使用验证模板确认需求逻辑一致性</li>
+                            <li><strong>细化阶段:</strong> 使用分解模板细化复杂功能</li>
+                            <li><strong>智能阶段:</strong> 使用角色扮演设计智能体行为</li>
+                        </ul>
+                        <p>通过定性模板引导思维过程，同时量化认知效果，确保分析过程的完整性。</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>任务分解技能 (/dnaspec.task-decomposer)</h3>
+                        <p>定性处理：根据KISS/YAGNI/SOLID原则进行智能任务分解，创建上下文隔离的工作区</p>
+                        <p>定量处理：生成结构化任务列表、依赖关系图和资源分配方案</p>
+                        <h4>全生命周期应用:</h4>
+                        <ul>
+                            <li><strong>Idea阶段:</strong> 将模糊想法分解为具体可行性分析</li>
+                            <li><strong>需求阶段:</strong> 将功能需求分解为可执行开发任务</li>
+                            <li><strong>细化阶段:</strong> 创建独立任务工作区，防止上下文污染</li>
+                            <li><strong>智能阶段:</strong> 为智能体分配专门任务</li>
+                        </ul>
+                        <p>遵循格式塔认知原则，确保分解后的任务仍然保持原始目标的统一性。</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>约束生成技能 (/dnaspec.constraint-generator)</h3>
+                        <p>定性处理：理解需求中的隐含约束和宪法原则，识别逻辑冲突和对齐问题</p>
+                        <p>定量处理：生成可验证的约束定义、建立时间点快照、追踪需求变更</p>
+                        <h4>全生命周期应用:</h4>
+                        <ul>
+                            <li><strong>Idea阶段:</strong> 锁定初始宪法需求版本</li>
+                            <li><strong>需求阶段:</strong> 生成需求变更对齐检查机制</li>
+                            <li><strong>细化阶段:</strong> 验证功能实现与宪法的一致性</li>
+                            <li><strong>智能阶段:</strong> 确保智能体行为符合宪法约束</li>
+                        </ul>
+                        <p>实现需求的时空记忆和时间点恢复机制，防止需求偏离初心。</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>API检查技能 (/dnaspec.api-checker)</h3>
+                        <p>定性处理：理解API接口的设计意图和交互语义，识别不明确的接口规范</p>
+                        <p>定量处理：验证API接口的协议一致性、参数匹配和响应格式</p>
+                        <h4>全生命周期应用:</h4>
+                        <ul>
+                            <li><strong>Idea阶段:</strong> 定义API级别的初始结构</li>
+                            <li><strong>需求阶段:</strong> 验证功能模块间的接口对齐</li>
+                            <li><strong>细化阶段:</strong> 检查子系统级接口一致性</li>
+                            <li><strong>智能阶段:</strong> 确保智能体API符合多层级规范</li>
+                        </ul>
+                        <p>实现模块级、子系统级、系统级的分级审核，确保多层级间调用对齐和作用域管理。</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>模块化技能 (/dnaspec.modulizer)</h3>
+                        <p>定性处理：识别系统组件的职责边界，设计模块间的交互协议</p>
+                        <p>定量处理：生成模块结构、接口定义和依赖关系的量化分析</p>
+                        <h4>全生命周期应用:</h4>
+                        <ul>
+                            <li><strong>Idea阶段:</strong> 概念模块化设计，遵循单一职责</li>
+                            <li><strong>需求阶段:</strong> 功能模块化规划，确保架构清晰</li>
+                            <li><strong>细化阶段:</strong> 具体模块实现，保持接口一致</li>
+                            <li><strong>智能阶段:</strong> 智能体模块化集成，实现独立发展</li>
+                        </ul>
+                        <p>确保系统各部分保持高内聚、低耦合，支持独立开发和测试。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工作流整合 -->
+        <section id="workflow" class="section workflow-section">
+            <div class="container">
+                <h2>定性定量工作流整合</h2>
+                <p class="intro">在每个开发环节中，定性处理与定量处理有机结合，通过智能接口层协同工作，实现从概念到实现的顺畅转化</p>
+
+                <div class="workflow-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>需求输入与意图理解</h4>
+                            <p>用户输入需求或问题描述，定性处理层通过认知模板技能理解用户意图的不确定性和复杂性，定量处理层通过上下文分析技能生成可量化的需求质量指标。</p>
+                        </div>
+                    </div>
+
+                    <div class="step reverse">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>任务分解与上下文隔离</h4>
+                            <p>基于设计原则，任务分解技能将复杂需求分解为原子任务，为每个任务创建独立工作区。定性部分分析任务间的依赖关系和职责边界，定量部分生成任务分解结构和资源分配方案。</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>宪法确立与约束生成</h4>
+                            <p>通过约束生成技能锁定初始需求宪法，建立版本管理和变更追踪。定性部分理解宪法的长期意义，定量部分实现宪法的版本控制和对齐检查机制。</p>
+                        </div>
+                    </div>
+
+                    <div class="step reverse">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>模块化与架构设计</h4>
+                            <p>使用模块化技能将系统分解为可重用模块，通过架构师技能设计系统架构。定性部分设计模块间的协作协议，定量部分验证模块接口和依赖关系。</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>智能体创建与集成</h4>
+                            <p>用智能体创建技能生成专业智能体，通过API检查技能验证智能体间接口。定性部分定义智能体职责和行为模式，定量部分实现智能体接口协议和性能指标。</p>
+                        </div>
+                    </div>
+
+                    <div class="step reverse">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>验证与优化</h4>
+                            <p>通过上下文分析和优化技能验证系统一致性，通过认知模板验证系统逻辑。定性部分评估用户体验和智能性，定量部分验证性能和准确性指标。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 集成模式 -->
+        <section id="patterns" class="section integration-patterns">
+            <div class="container">
+                <h2>定性定量集成模式</h2>
+                <p class="intro">系统采用多种集成模式，确保定性定量处理的无缝整合，遵循格式塔认知原则</p>
+
+                <div class="pattern-grid">
+                    <div class="pattern-card">
+                        <h3>链式思维模式 (Chain of Thought)</h3>
+                        <p>定性部分通过逐步推理分析复杂问题，定量部分验证每一步推理的逻辑性和准确性。在综合集成研讨厅中，这种模式用于需求细化和架构设计。</p>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h3>共识计算模式 (Consensus Computing)</h3>
+                        <p>多个定性智能体独立分析后，通过量化评估其分析结果的一致性。置信度审核机制结合多个来源的分析，形成综合判断。</p>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h3>验证反馈模式 (Verification & Feedback)</h3>
+                        <p>定性部分生成设计方案，定量部分进行验证和性能评估，将定量结果反馈到定性部分进行调整优化，形成闭环迭代。</p>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h3>模块化隔离模式 (Modular Isolation)</h3>
+                        <p>各模块独立进行定性定量处理，通过标准化接口实现模块间协同，防止上下文膨胀和责任混淆。</p>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h3>宪法对齐模式 (Constitutional Alignment)</h3>
+                        <p>所有定性推理都受到宪法约束的定量验证，确保智能决策与初始目标保持一致，防止系统偏离初心。</p>
+                    </div>
+
+                    <div class="pattern-card">
+                        <h3>智能体分层模式 (Agentic Layering)</h3>
+                        <p>不同层级的智能体处理不同粒度的定性任务，通过定量接口协议实现层级间协调，支持复杂的智能体社会架构。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 未来愿景 -->
+        <section id="vision" class="future-vision">
+            <div class="container">
+                <h2>未来愿景：综合集成研讨厅时代的到来</h2>
+                <p>未来的每个系统都将是一个综合集成研讨厅，定性定量处理方式完全融合，实现真正的智能化自动增长。系统将支持多源多维度思考的共识计算，基于置信度审核的智能决策，以及直观的用户界面反馈机制。</p>
+                <p>在这种架构下，确定性逻辑通过代码固化，不确定性分析通过智能体处理，需要用户决策的模糊问题以最直观的决策问答形式呈现。同时，系统将遵循格式塔认知完整性原则，确保用户感知到统一连贯的智能体体验，从简单Idea到复杂智能体社会的平稳演进。</p>
+
+                <div class="vision-grid">
+                    <div class="vision-card">
+                        <h3>智能与确定性平衡</h3>
+                        <p>通过定性定量融合实现智能与可预测性的平衡</p>
+                    </div>
+
+                    <div class="vision-card">
+                        <h3>上下文隔离管理</h3>
+                        <p>局部智能体架构实现上下文隔离，防止全局膨胀</p>
+                    </div>
+
+                    <div class="vision-card">
+                        <h3>宪法需求管理</h3>
+                        <p>基于初始宪法的动态约束和时间点恢复机制</p>
+                    </div>
+
+                    <div class="vision-card">
+                        <h3>格式塔认知完整性</h3>
+                        <p>确保系统整体的统一连贯用户体验</p>
+                    </div>
+
+                    <div class="vision-card">
+                        <h3>渐进式智能化</h3>
+                        <p>从简单到复杂的平稳智能化增长路径</p>
+                    </div>
+
+                    <div class="vision-card">
+                        <h3>协作式AI开发</h3>
+                        <p>AI与人类协作的新型系统开发模式</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 项目总结 -->
+    <section class="summary-section">
+        <div class="container">
+            <h2>总结：开启综合集成研讨厅新时代</h2>
+            <p>DNASPEC项目以定性定量融合为核心，构建了面向AI原生开发的综合集成研讨厅平台。通过任务分解、约束生成、API检查三大核心技能的有机结合，我们实现了从简单Idea到复杂智能系统的智能化自动增长。</p>
+            <p>系统遵循格式塔认知原则，确保用户在与AI协作开发时获得连贯、统一的智能体体验。通过局部智能体架构避免全局上下文膨胀，通过宪法需求管理确保系统一致性，通过分级审核机制实现多层级对齐。这种架构不仅解决了传统AI开发的常见陷阱，更开创了AI辅助开发的新时代。</p>
+
+            <div class="page-links">
+                <a href="#intro" class="page-link">理念概述</a>
+                <a href="#skills" class="page-link">技能应用</a>
+                <a href="#workflow" class="page-link">工作流整合</a>
+                <a href="#patterns" class="page-link">集成模式</a>
+                <a href="#vision" class="page-link">未来愿景</a>
+                <a href="agentic_demo.html" class="page-link">Agentic演示</a>
+                <a href="integrated_hall_philosophy.html" class="page-link">集成哲学</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 DNASPEC项目 - 综合集成研讨厅. 实现定性定量融合的AI原生开发平台</p>
+                <p>以格式塔认知原则为指导，构建从简单到复杂智能化系统的自动增长架构</p>
+                <p>让每个系统都成为高效协作的综合集成研讨厅</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

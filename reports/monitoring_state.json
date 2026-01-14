@@ -1,0 +1,14 @@
+{
+  "recovery-test": {
+    "context_id": "recovery-test",
+    "reports": [
+      {
+        "context_id": "recovery-test",
+        "scanned_at": "2025-12-26T15:24:04.961818",
+        "health_score": 0.39999999999999986,
+        "risk_level": "critical",
+        "signal_count": 5
+      }
+    ]
+  }
+}

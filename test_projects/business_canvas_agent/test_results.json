@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-12-25T12:46:00.028807",
+  "environment": {
+    "iflow_path": "C:\\Users\\Zhang\\AppData\\Roaming\\npm\\node_modules\\@iflow-ai\\iflow-cli\\bundle\\iflow.js",
+    "deployment_mode": "stigmergy",
+    "hook_location": "C:\\Users\\Zhang\\.stigmergy\\hooks\\iflow"
+  },
+  "test_cases": [
+    {
+      "name": "架构设计技能",
+      "skill": "architect",
+      "command": "/speckit.dnaspec.architect",
+      "prompt": "请为商业画布分析智能体设计系统架构。\n\n需求：\n1. 数据输入模块（9个商业画布模块）\n2. AI 分析引擎（评估完整性和一致性）\n3. 建议生成模块（战略优化建议）\n4. 技术栈使用 Python\n\n请提供：\n- 系统架构图\n- 模块划分\n- 数据流设计"
+    },
+    {
+      "name": "上下文分析技能",
+      "skill": "context-analysis",
+      "command": "/speckit.dnaspec.context-analysis",
+      "prompt": "请分析商业画布分析智能体的项目上下文：\n\n项目目标：创建AI智能体分析商业模式画布\n核心功能：完整性检查、一致性验证、AI分析、建议生成\n技术栈：Python, FastAPI, OpenAI API\n目标用户：创业者、产品经理、投资人"
+    },
+    {
+      "name": "认知模板技能",
+      "skill": "cognitive-template",
+      "command": "/speckit.dnaspec.cognitive-template",
+      "prompt": "请为商业画布分析创建认知模板：\n\n分析维度：\n1. 商业模式完整性\n2. 逻辑一致性\n3. 可行性评估\n4. 优化建议生成"
+    },
+    {
+      "name": "上下文优化技能",
+      "skill": "context-optimization",
+      "command": "/speckit.dnaspec.context-optimization",
+      "prompt": "请优化商业画布分析智能体的项目上下文：\n\n当前问题：\n- 分析深度不足\n- 建议缺乏针对性\n- 输出格式不够专业\n\n优化目标：\n- 提高分析质量\n- 增强建议实用性\n- 改进输出格式"
+    }
+  ],
+  "status": "manual_test_required",
+  "next_steps": [
+    "1. 启动 iflow",
+    "2. 按照 IFLOW_MANUAL_TEST_GUIDE.md 执行测试",
+    "3. 记录测试结果",
+    "4. 反馈问题和建议"
+  ]
+}

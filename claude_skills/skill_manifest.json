@@ -1,0 +1,181 @@
+{
+    "name": "dna-spec-context-engineering",
+    "version": "1.0.0",
+    "description": "DNA SPEC Context Engineering Suite - Advanced AI skills for context analysis, optimization and cognitive templating",
+    "api_version": "v1",
+    "contact_email": "3061176@qq.com",
+    "legal_info_url": "https://AgentPsy.com/legal",
+    "privacy_policy_url": "https://AgentPsy.com/privacy",
+    "oauth": {
+        "client_id": "dna-spec-context-eng-client",
+        "scopes": ["basic_access"]
+    },
+    "credentials_setup": {
+        "type": "env_vars",
+        "required_env_vars": [
+            "DNASPEC_API_KEY"
+        ]
+    },
+    "tools": [
+        {
+            "name": "architect",
+            "description": "System architecture design and analysis tool",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "Requirements or system description to architect"
+                    }
+                },
+                "required": ["input"]
+            }
+        },
+        {
+            "name": "context-analyzer",
+            "description": "Analyzes context quality across 5 dimensions (clarity, relevance, completeness, consistency, efficiency)",
+            "input_schema": {
+                "type": "object", 
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "Context or requirements to analyze"
+                    }
+                },
+                "required": ["input"]
+            }
+        },
+        {
+            "name": "context-optimizer",
+            "description": "Optimizes context based on specified goals",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string", 
+                        "description": "Context to optimize"
+                    },
+                    "optimization_goals": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Goals to optimize for (e.g., clarity, completeness, precision)"
+                    }
+                },
+                "required": ["input"]
+            }
+        },
+        {
+            "name": "cognitive-templater", 
+            "description": "Applies cognitive templates (chain-of-thought, verification, few-shot learning) to enhance reasoning",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "Input to apply cognitive template to"
+                    },
+                    "template_type": {
+                        "type": "string",
+                        "enum": ["chain_of_thought", "verification", "few_shot", "role_playing", "understanding"],
+                        "description": "Type of cognitive template to apply"
+                    }
+                },
+                "required": ["input", "template_type"] 
+            }
+        },
+        {
+            "name": "agent-creator",
+            "description": "Creates specialized AI agents based on provided specifications",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "agent_description": {
+                        "type": "string",
+                        "description": "Description of the agent to create"
+                    },
+                    "capabilities": {
+                        "type": "array", 
+                        "items": {"type": "string"},
+                        "description": "Specific capabilities for the agent"
+                    }
+                },
+                "required": ["agent_description"]
+            }
+        },
+        {
+            "name": "task-decomposer", 
+            "description": "Decomposes complex tasks into manageable subtasks with appropriate isolation",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "Complex task to decompose"
+                    },
+                    "max_depth": {
+                        "type": "integer",
+                        "description": "Maximum depth of decomposition (default: 3)"
+                    }
+                },
+                "required": ["input"]
+            }
+        },
+            {
+              "name": "constraint-generator",
+              "description": "Generates system constraints and validation rules based on requirements",
+              "input_schema": {
+                "type": "object",
+                "properties": {
+                  "requirements": {
+                    "type": "string",
+                    "description": "System requirements to generate constraints for"
+                  },
+                  "change_request": {
+                    "type": "string", 
+                    "description": "Any change request that modifies base requirements"
+                  }
+                },
+                "required": ["requirements"]
+              }
+            },
+            {
+              "name": "dnaspec-init",
+              "description": "DNASPEC coordination mechanism initialization and management tool",
+              "input_schema": {
+                "type": "object",
+                "properties": {
+                  "operation": {
+                    "type": "string",
+                    "enum": ["detect", "initialize", "reset", "get-config", "status"],
+                    "description": "Operation to perform: detect project status, initialize coordination, reset mechanism, get configuration, or check status"
+                  },
+                  "init_type": {
+                    "type": "string",
+                    "enum": ["project", "team", "enterprise", "solo", "auto"],
+                    "description": "Initialization type for the project"
+                  },
+                  "project_type": {
+                    "type": "string",
+                    "enum": ["web_application", "mobile_app", "api_service", "desktop_app", "library", "microservice", "data_science", "ml_project", "generic"],
+                    "description": "Type of project being initialized"
+                  },
+                  "features": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Features to enable: caching, git_hooks, ci_cd"
+                  },
+                  "force": {
+                    "type": "boolean",
+                    "description": "Force re-initialization even if already initialized"
+                  },
+                  "confirm": {
+                    "type": "boolean",
+                    "description": "Confirm reset operation"
+                  }
+                },
+                "required": ["operation"]
+              }
+            }    ]
+}

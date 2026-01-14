@@ -1,0 +1,26 @@
+# Modulizer Parameters
+
+prompt_levels:
+  "00":
+    name: "核心概念层"
+    max_tokens: 500
+  "01":
+    name: "基础应用层"
+    max_tokens: 1000
+  "02":
+    name: "中级场景层"
+    max_tokens: 2000
+  "03":
+    name: "高级应用层"
+    max_tokens: 3000
+
+module_principles:
+  - single_responsibility: "单一职责"
+  - open_closed: "开放封闭"
+  - dependency_inversion: "依赖倒置"
+  - interface_segregation: "接口隔离"
+
+quality_thresholds:
+  min_cohesion: 0.7
+  max_coupling: 0.3
+  min_test_coverage: 0.8

@@ -1,0 +1,1 @@
+✓ ToolManager 系统概念验证通过

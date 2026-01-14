@@ -56,3 +56,7 @@ node_modules/
 # Large files that should not be in Git
 claude_skills_repo/
 .dnaSpec
+
+# Stigmergylite (separate project)
+../stigmergylite/
+stigmergylite/

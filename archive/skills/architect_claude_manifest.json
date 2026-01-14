@@ -1,0 +1,26 @@
+{
+    "name": "architect-skill",
+    "version": "1.0.0",
+    "description": "系统架构设计专家，为给定需求生成系统架构图",
+    "author": "DNASPEC Team",
+    "license": "MIT",
+    "main": "architect_claude.py",
+    "api_version": "v1",
+    "endpoints": {
+        "execute": "/execute"
+    },
+    "parameters": [
+        {
+            "name": "requirements",
+            "type": "string",
+            "description": "系统需求描述",
+            "required": true
+        }
+    ],
+    "events": [
+        {
+            "name": "architecture_requested",
+            "description": "架构设计请求事件"
+        }
+    ]
+}

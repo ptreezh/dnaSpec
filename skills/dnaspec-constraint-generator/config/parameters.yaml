@@ -1,0 +1,180 @@
+# Constraint Generator Configuration
+# 约束生成器配置参数
+
+# 验证参数
+validation:
+  min_request_length: 10
+  max_request_length: 10000
+  max_context_size: 50000  # 字符
+
+# 复杂度计算参数
+complexity:
+  length_thresholds:
+    low: 500
+    medium: 1000
+    high: 2000
+
+  type_weights:
+    performance: 0.15
+    security: 0.15
+    functional: 0.15
+    technical: 0.15
+    compliance: 0.20
+
+  context_bonus: 0.2
+  number_bonus: 0.2
+
+# 层次选择参数
+level_selection:
+  thresholds:
+    level_00:
+      complexity: 0.3
+      tokens: 1000
+    level_01:
+      complexity: 0.5
+      tokens: 3000
+    level_02:
+      complexity: 0.7
+      tokens: 5000
+
+  conflict_boost: "03"  # 有冲突时提升到高级
+  multi_type_boost:
+    level_03: 3  # 3+种约束类型
+    level_02: 2  # 2种约束类型
+
+# 质量评分参数
+quality_scoring:
+  clarity:
+    base_score: 0.5
+    number_bonus: 0.2
+    unit_bonus: 0.2
+    terminology_bonus: 0.1
+    max_score: 1.0
+
+  completeness:
+    base_score: 0.5
+    length_bonus: 0.2
+    verification_bonus: 0.2
+    goal_bonus: 0.1
+    max_score: 1.0
+
+  verifiability:
+    base_score: 0.5
+    metric_bonus: 0.3
+    test_bonus: 0.2
+    max_score: 1.0
+
+  prioritization:
+    base_score: 0.5
+    priority_bonus: 0.3
+    time_bonus: 0.2
+    max_score: 1.0
+
+# 约束类型检测关键词
+constraint_keywords:
+  performance:
+    - 性能
+    - performance
+    - 响应时间
+    - response time
+    - 延迟
+    - latency
+    - 吞吐量
+    - throughput
+    - QPS
+    - TPS
+    - 并发
+    - concurrent
+
+  security:
+    - 安全
+    - security
+    - 认证
+    - authentication
+    - 授权
+    - authorization
+    - 加密
+    - encryption
+    - 密码
+    - password
+    - 权限
+    - permission
+
+  functional:
+    - 功能
+    - function
+    - 需求
+    - requirement
+    - 必须
+    - must
+    - 应该
+    - should
+    - 支持
+    - support
+
+  technical:
+    - 技术
+    - technical
+    - 架构
+    - architecture
+    - 框架
+    - framework
+    - 语言
+    - language
+    - 数据库
+    - database
+    - 平台
+    - platform
+
+  compliance:
+    - 合规
+    - compliance
+    - 标准
+    - standard
+    - 规范
+    - regulation
+    - 法律
+    - law
+
+# 冲突检测规则
+conflict_detection:
+  rules:
+    - trigger: ["快", "安全"]
+      message: "性能优化可能影响安全性（如加密开销）"
+      severity: "warning"
+
+    - trigger: ["低成本", "高质量"]
+      message: "成本约束可能与质量目标冲突"
+      severity: "warning"
+
+    - trigger: ["快速", "完整"]
+      message: "快速交付可能需要分阶段实现功能"
+      severity: "info"
+
+# 建议生成参数
+recommendations:
+  performance:
+    - "建议使用性能测试工具（JMeter, Locust）验证性能约束"
+    - "建议包含明确的性能指标（如P95响应时间）"
+
+  security:
+    - "建议参考OWASP安全标准和OWASP ZAP工具"
+    - "建议参考安全最佳实践（如OWASP Top 10）"
+
+  functional:
+    - "建议使用用户故事和验收标准（Given-When-Then）格式"
+    - "建议使用用户故事格式描述功能约束"
+
+  low_specificity:
+    - "建议使用SMART原则使约束更具体、可测量"
+    - "建议增加具体数值和单位，提高约束的具体性"
+
+  low_verifiability:
+    - "建议为每个约束明确验证方法和验收标准"
+    - "建议明确验证方法和验收标准"
+
+  conflicts:
+    - "检测到多个潜在冲突，建议优先级排序或分阶段实现"
+
+  high_complexity:
+    - "请求复杂度较高，建议分阶段处理约束"

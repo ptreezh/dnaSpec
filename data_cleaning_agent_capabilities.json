@@ -1,0 +1,490 @@
+{
+  "cognitive_capabilities": {
+    "understanding": {
+      "data_comprehension": {
+        "level": "advanced",
+        "capabilities": [
+          "schema_inference",
+          "data_type_detection",
+          "relationship_identification",
+          "pattern_recognition"
+        ],
+        "accuracy": 0.92,
+        "processing_speed": "medium"
+      },
+      "context_analysis": {
+        "level": "intermediate",
+        "capabilities": [
+          "domain_context_understanding",
+          "business_rule_interpretation",
+          "data_lineage_tracking",
+          "quality_requirement_analysis"
+        ],
+        "accuracy": 0.88,
+        "processing_speed": "medium"
+      }
+    },
+    "reasoning": {
+      "decision_making": {
+        "logic_type": "hybrid",
+        "strategies": [
+          "rule_based_reasoning",
+          "statistical_reasoning",
+          "ml_based_reasoning",
+          "hybrid_reasoning"
+        ],
+        "confidence_threshold": 0.85,
+        "fallback_mechanisms": [
+          "conservative_cleaning",
+          "manual_review",
+          "expert_system_consultation"
+        ]
+      },
+      "problem_solving": {
+        "approaches": [
+          "diagnostic_approach",
+          "systematic_approach",
+          "heuristic_approach",
+          "analytical_approach"
+        ],
+        "complexity_handling": "medium_to_high",
+        "adaptation_capability": "high"
+      }
+    },
+    "learning": {
+      "adaptive_learning": {
+        "learning_type": "reinforcement_learning",
+        "capabilities": [
+          "pattern_learning",
+          "error_correction_learning",
+          "user_preference_learning",
+          "domain_knowledge_acquisition"
+        ],
+        "learning_rate": 0.1,
+        "retention_period": "long_term"
+      },
+      "knowledge_update": {
+        "update_frequency": "continuous",
+        "validation_required": true,
+        "knowledge_sources": [
+          "user_feedback",
+          "performance_metrics",
+          "domain_experts",
+          "research_papers"
+        ]
+      }
+    }
+  },
+  "technical_capabilities": {
+    "data_processing": {
+      "input_handling": {
+        "supported_formats": [
+          "csv",
+          "excel",
+          "json",
+          "xml",
+          "parquet",
+          "avro",
+          "orc",
+          "txt",
+          "database_tables"
+        ],
+        "encoding_support": [
+          "utf-8",
+          "utf-16",
+          "ascii",
+          "latin1",
+          "gbk"
+        ],
+        "size_limits": {
+          "max_file_size": "10GB",
+          "max_rows": "100M",
+          "max_columns": "10K"
+        }
+      },
+      "processing_algorithms": {
+        "duplicate_detection": [
+          "exact_matching",
+          "fuzzy_matching",
+          "similarity_matching",
+          "semantic_matching"
+        ],
+        "missing_value_handling": [
+          "statistical_imputation",
+          "ml_based_imputation",
+          "pattern_based_imputation",
+          "domain_specific_imputation"
+        ],
+        "outlier_detection": [
+          "statistical_methods",
+          "machine_learning_methods",
+          "domain_rules",
+          "ensemble_methods"
+        ]
+      },
+      "transformation_capabilities": {
+        "data_type_conversion": {
+          "supported_conversions": [
+            "string_to_numeric",
+            "numeric_to_string",
+            "date_format_conversion",
+            "categorical_encoding"
+          ],
+          "accuracy": 0.95
+        },
+        "normalization": {
+          "methods": [
+            "min_max_scaling",
+            "standard_scaling",
+            "robust_scaling",
+            "unit_vector_scaling"
+          ]
+        }
+      }
+    },
+    "api_integration": {
+      "rest_apis": {
+        "authentication": [
+          "api_key",
+          "oauth2",
+          "jwt",
+          "basic_auth"
+        ],
+        "data_formats": [
+          "json",
+          "xml",
+          "csv"
+        ],
+        "rate_limiting": "automatic"
+      },
+      "database_connectors": {
+        "sql_databases": [
+          "postgresql",
+          "mysql",
+          "sql_server",
+          "oracle"
+        ],
+        "nosql_databases": [
+          "mongodb",
+          "cassandra",
+          "redis",
+          "elasticsearch"
+        ],
+        "connection_pooling": true,
+        "transaction_support": true
+      },
+      "cloud_integration": {
+        "providers": [
+          "aws",
+          "azure",
+          "gcp"
+        ],
+        "storage_services": [
+          "s3",
+          "blob_storage",
+          "cloud_storage"
+        ],
+        "security": "end_to_end_encryption"
+      }
+    },
+    "performance_optimization": {
+      "parallel_processing": {
+        "methods": [
+          "multiprocessing",
+          "threading",
+          "distributed"
+        ],
+        "scalability": "horizontal",
+        "resource_management": "automatic"
+      },
+      "memory_management": {
+        "strategies": [
+          "chunking",
+          "streaming",
+          "lazy_loading",
+          "memory_pooling"
+        ],
+        "optimization": "automatic"
+      },
+      "caching": {
+        "levels": [
+          "memory_cache",
+          "disk_cache",
+          "distributed_cache"
+        ],
+        "eviction_policies": [
+          "lru",
+          "lfu",
+          "ttl"
+        ],
+        "cache_size": "adaptive"
+      }
+    }
+  },
+  "domain_capabilities": {
+    "data_quality_expertise": {
+      "quality_dimensions": {
+        "completeness": {
+          "measurement_methods": [
+            "record_completeness",
+            "field_completeness",
+            "value_completeness"
+          ],
+          "thresholds": {
+            "excellent": ">95%",
+            "good": "85-95%",
+            "acceptable": "70-85%",
+            "poor": "<70%"
+          }
+        },
+        "accuracy": {
+          "measurement_methods": [
+            "validation_rules",
+            "reference_data_checking",
+            "consistency_checking"
+          ],
+          "validation_sources": [
+            "domain_rules",
+            "business_constraints",
+            "external_references"
+          ]
+        },
+        "consistency": {
+          "types": [
+            "internal_consistency",
+            "temporal_consistency",
+            "cross_dataset_consistency"
+          ],
+          "detection_methods": [
+            "rule_based_detection",
+            "statistical_detection",
+            "pattern_detection"
+          ]
+        }
+      },
+      "industry_standards": {
+        "financial_services": [
+          "sox_compliance",
+          "basel_iii_requirements",
+          "risk_data_standards"
+        ],
+        "healthcare": [
+          "hipaa_compliance",
+          "hl7_standards",
+          "clinical_data_quality"
+        ],
+        "retail": [
+          "product_data_standards",
+          "customer_data_quality",
+          "inventory_accuracy"
+        ]
+      }
+    },
+    "data_type_specialization": {
+      "structured_data": {
+        "expertise_level": "expert",
+        "capabilities": [
+          "schema_validation",
+          "referential_integrity",
+          "constraint_enforcement"
+        ]
+      },
+      "semi_structured_data": {
+        "expertise_level": "advanced",
+        "capabilities": [
+          "json_schema_validation",
+          "xml_structure_parsing",
+          "hierarchical_data_handling"
+        ]
+      },
+      "time_series_data": {
+        "expertise_level": "advanced",
+        "capabilities": [
+          "temporal_consistency",
+          "seasonality_detection",
+          "trend_analysis"
+        ]
+      }
+    }
+  },
+  "interaction_capabilities": {
+    "user_interface": {
+      "cli_interface": {
+        "command_types": [
+          "data_profiling",
+          "cleaning_operations",
+          "quality_assessment",
+          "report_generation"
+        ],
+        "output_formats": [
+          "table",
+          "json",
+          "csv",
+          "html"
+        ],
+        "interactive_mode": true
+      },
+      "web_interface": {
+        "features": [
+          "data_preview",
+          "quality_dashboard",
+          "cleaning_workflow",
+          "progress_monitoring"
+        ],
+        "visualization": [
+          "charts",
+          "graphs",
+          "heatmaps",
+          "statistics"
+        ]
+      },
+      "api_interface": {
+        "endpoints": [
+          "/data/upload",
+          "/data/profile",
+          "/data/clean",
+          "/quality/report"
+        ],
+        "authentication": "jwt",
+        "rate_limiting": "1000_requests/hour"
+      }
+    },
+    "communication": {
+      "notification_system": {
+        "channels": [
+          "email",
+          "slack",
+          "webhook",
+          "sms"
+        ],
+        "event_types": [
+          "cleaning_completed",
+          "quality_alerts",
+          "error_notifications",
+          "progress_updates"
+        ]
+      },
+      "reporting": {
+        "report_types": [
+          "executive_summary",
+          "detailed_analysis",
+          "technical_report",
+          "compliance_report"
+        ],
+        "formats": [
+          "pdf",
+          "html",
+          "excel",
+          "json"
+        ],
+        "scheduling": "automated"
+      }
+    }
+  },
+  "quality_capabilities": {
+    "quality_metrics": {
+      "data_quality_metrics": {
+        "completeness_metrics": [
+          "null_value_ratio",
+          "missing_value_pattern",
+          "record_completeness_score"
+        ],
+        "accuracy_metrics": [
+          "validation_error_rate",
+          "consistency_score",
+          "accuracy_percentage"
+        ],
+        "validity_metrics": [
+          "format_compliance",
+          "domain_violation_count",
+          "business_rule_violations"
+        ]
+      },
+      "performance_metrics": {
+        "processing_metrics": [
+          "throughput",
+          "latency",
+          "resource_utilization"
+        ],
+        "quality_metrics": [
+          "false_positive_rate",
+          "false_negative_rate",
+          "precision_score",
+          "recall_score"
+        ]
+      }
+    },
+    "validation_framework": {
+      "validation_layers": [
+        "syntax_validation",
+        "semantic_validation",
+        "business_validation",
+        "cross_validation"
+      ],
+      "validation_rules": {
+        "custom_rules": true,
+        "rule_templates": [
+          "email_validation",
+          "phone_validation",
+          "date_validation",
+          "numeric_range_validation"
+        ]
+      }
+    }
+  },
+  "performance_capabilities": {
+    "scalability": {
+      "horizontal_scaling": {
+        "supported": true,
+        "methods": [
+          "load_balancing",
+          "data_partitioning",
+          "distributed_processing"
+        ],
+        "max_nodes": 100
+      },
+      "vertical_scaling": {
+        "supported": true,
+        "resource_types": [
+          "cpu",
+          "memory",
+          "storage"
+        ],
+        "auto_scaling": true
+      }
+    },
+    "optimization": {
+      "algorithm_optimization": {
+        "parallel_algorithms": true,
+        "memory_efficient_algorithms": true,
+        "adaptive_algorithms": true
+      },
+      "resource_optimization": {
+        "memory_management": "automatic",
+        "cpu_optimization": "dynamic",
+        "io_optimization": "buffered"
+      }
+    },
+    "monitoring": {
+      "real_time_monitoring": {
+        "metrics": [
+          "cpu_usage",
+          "memory_usage",
+          "processing_speed",
+          "error_rate"
+        ],
+        "alerts": [
+          "performance_degradation",
+          "resource_exhaustion",
+          "error_threshold"
+        ],
+        "dashboard": true
+      },
+      "performance_tuning": {
+        "auto_tuning": true,
+        "recommendation_engine": true,
+        "historical_analysis": true
+      }
+    }
+  }
+}

@@ -163,7 +163,7 @@ AI生成内容遵循以下安全流程，防止项目被临时文件污染：
 - **联系邮箱**: 3061176@qq.com
 - **官方网站**: https://AgentPsy.com
 - **开源协议**: MIT License
-- **版本**: v2.0.0
+- **版本**: v2.0.5
 
 ## 安装要求
 
@@ -246,56 +246,6 @@ npm install -g ptreezh/dnaSpec
 dnaspec
 ```
 
-## 手动安装
-
-如果需要手动安装：
-
-### 方式一：完整安装
-
-```bash
-# 克隆项目
-git clone https://github.com/ptreezh/dnaSpec.git
-cd dnaSpec
-
-# 安装本项目
-pip install -e .
-
-# 运行自动配置
-python run_auto_config.py
-```
-
-### 方式二：短命令安装（推荐）
-
-```bash
-# 克隆项目
-git clone https://github.com/ptreezh/dnaSpec.git
-cd dnaSpec
-
-# 本地安装为全局命令（提供短命令 dnaspec）
-npm install -g .
-
-# 或运行安装脚本（自动完成所有步骤）
-./index.js
-# 或
-node index.js
-```
-
-使用方式二，您可以直接运行 `dnaspec` 命令来进行安装和配置。
-
-### 方式三：使用启动脚本（Windows用户）
-
-下载并使用启动脚本，可从任何位置运行：
-
-```bash
-# 下载启动脚本
-curl -O https://raw.githubusercontent.com/ptreezh/dnaSpec/main/launch_dnaspec.bat
-
-# 运行安装配置
-launch_dnaspec.bat
-```
-
-将 `launch_dnaspec.bat` 文件放在系统PATH中的目录中，即可从任何位置运行 `launch_dnaspec.bat` 命令。
-
 ## 使用方法
 
 ### 自动配置（推荐）
@@ -309,17 +259,17 @@ python run_auto_config.py
 
 ```bash
 # 使用斜杠命令调用技能
-/speckit.dnaspec.context-analysis "分析这段需求文档的质量"
-/speckit.dnaspec.context-optimization "优化这段需求的清晰度"
-/speckit.dnaspec.cognitive-template "如何提高性能 template=verification"
-/speckit.dnaspec.architect "设计电商系统架构"
-/speckit.dnaspec.agent-creator "创建AI智能体"
-/speckit.dnaspec.task-decomposer "分解复杂任务"
-/speckit.dnaspec.constraint-generator "生成系统约束"
-/speckit.dnaspec.dapi-checker "检查API接口"
-/speckit.dnaspec.modulizer "模块化系统设计"
-/speckit.dnaspec.git-skill "operation=status"
-/speckit.dnaspec.temp-workspace "operation=create-workspace"
+/dnaspec.context-analysis "分析这段需求文档的质量"
+/dnaspec.context-optimization "优化这段需求的清晰度"
+/dnaspec.cognitive-template "如何提高性能 template=verification"
+/dnaspec.architect "设计电商系统架构"
+/dnaspec.agent-creator "创建AI智能体"
+/dnaspec.task-decomposer "分解复杂任务"
+/dnaspec.constraint-generator "生成系统约束"
+/dnaspec.dapi-checker "检查API接口"
+/dnaspec.modulizer "模块化系统设计"
+/dnaspec.git-skill "operation=status"
+/dnaspec.temp-workspace "operation=create-workspace"
 ```
 
 ### Python API使用
@@ -384,7 +334,7 @@ result = git_execute({'operation': 'commit', 'message': '提交信息', 'files':
 
 # 创建工作树（隔离实验性开发）
 result = git_execute({
-    'operation': 'worktree-add', 
+    'operation': 'worktree-add',
     'branch': 'feature/new-feature'
 })
 ```
@@ -399,8 +349,8 @@ result = temp_workspace_execute({'operation': 'create-workspace'})
 
 # 添加AI生成的文件
 result = temp_workspace_execute({
-    'operation': 'add-file', 
-    'file_path': 'generated_code.py', 
+    'operation': 'add-file',
+    'file_path': 'generated_code.py',
     'file_content': '# 代码内容'
 })
 

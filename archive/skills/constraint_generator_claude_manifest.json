@@ -1,0 +1,32 @@
+{
+    "name": "constraint-generator-skill",
+    "version": "1.0.0",
+    "description": "约束生成专家，为系统设计生成约束和验证规则",
+    "author": "DNASPEC Team",
+    "license": "MIT",
+    "main": "constraint_generator_claude.py",
+    "api_version": "v1",
+    "endpoints": {
+        "execute": "/execute"
+    },
+    "parameters": [
+        {
+            "name": "requirements",
+            "type": "string",
+            "description": "系统需求描述",
+            "required": true
+        },
+        {
+            "name": "change_request",
+            "type": "string",
+            "description": "变更请求（可选）",
+            "required": false
+        }
+    ],
+    "events": [
+        {
+            "name": "constraint_generation_requested",
+            "description": "约束生成请求事件"
+        }
+    ]
+}

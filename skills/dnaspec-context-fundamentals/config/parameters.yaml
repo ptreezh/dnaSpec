@@ -1,0 +1,172 @@
+# Context Fundamentals Skill Parameters
+
+# 提示词层次配置
+prompt_levels:
+  "00":
+    name: "核心概念层"
+    description: "提供上下文工程的核心概念快速理解"
+    max_tokens: 500
+    use_case: "快速理解基础概念"
+
+  "01":
+    name: "基础应用层"
+    description: "覆盖常见场景下的上下文应用模式"
+    max_tokens: 1000
+    use_case: "理解常见应用场景"
+
+  "02":
+    name: "中级场景层"
+    description: "处理复杂任务中的上下文管理和优化"
+    max_tokens: 2000
+    use_case: "处理复杂任务"
+
+  "03":
+    name: "高级应用层"
+    description: "大规模系统上下文工程策略"
+    max_tokens: 3000
+    use_case: "设计大规模系统"
+
+# 验证参数
+validation:
+  min_request_length: 10
+  max_request_length: 10000
+  min_context_length: 0
+  max_context_length: 1000000
+
+# 计算参数
+calculation:
+  chars_per_token_en: 4.0  # 英文
+  chars_per_token_cn: 1.5  # 中文
+  chars_per_token_mixed: 2.5  # 混合
+
+  optimal_token_count: 10000
+  max_token_count: 50000
+  warning_token_count: 30000
+
+  # 复杂度权重
+  complexity_weights:
+    request_length: 0.2
+    question_count: 0.2
+    tech_terms: 0.2
+    context_presence: 0.2
+    abstraction_level: 0.2
+
+# 分析参数
+analysis:
+  # 失效模式检测阈值
+  failure_detection:
+    lost_in_middle:
+      min_length: 50000
+      long_list_threshold: 3
+
+    poisoning:
+      version_indicator_threshold: 2
+
+    distraction:
+      large_context_threshold: 100000
+      repetition_ratio: 0.7
+
+    overflow:
+      critical_tokens: 100000
+      high_tokens: 50000
+
+    fragmentation:
+      short_fragment_threshold: 20
+      min_short_fragments: 20
+
+  # 质量分数阈值
+  quality_thresholds:
+    excellent: 0.8
+    good: 0.6
+    fair: 0.4
+
+# 智能选择参数
+prompt_selection:
+  # 层次选择阈值
+  level_00:
+    max_complexity: 0.3
+    max_tokens: 5000
+
+  level_01:
+    max_complexity: 0.5
+    max_tokens: 10000
+
+  level_02:
+    max_complexity: 0.7
+    max_tokens: 20000
+
+  level_03:
+    # 默认兜底
+    max_complexity: 1.0
+    max_tokens: float('inf')
+
+# 失效模式解决方案
+failure_solutions:
+  lost_in_the_middle:
+    - "将关键信息放在开头或结尾"
+    - "使用分段处理"
+    - "应用渐进式信息披露"
+    - "明确指出关键信息位置"
+
+  poisoning:
+    - "明确版本控制"
+    - "移除过时信息"
+    - "使用明确的优先级标记"
+    - "验证信息一致性"
+
+  distraction:
+    - "过滤无关信息"
+    - "使用相关性评分筛选"
+    - "只保留核心内容"
+    - "使用references/存储详细信息"
+
+  clash:
+    - "明确信息优先级"
+    - "使用统一数据源"
+    - "解决冲突标记"
+    - "建立冲突解决协议"
+
+  overflow:
+    - "立即分解任务"
+    - "使用独立工作区"
+    - "应用原子化原则"
+    - "实施渐进式披露"
+
+  fragmentation:
+    - "重组上下文结构"
+    - "添加逻辑连接词"
+    - "使用层次化组织"
+    - "创建主题分组"
+
+# 优化建议模板
+optimization_templates:
+  low_completeness:
+    - "补充更多背景信息"
+    - "添加需求细节"
+    - "说明使用场景"
+
+  low_relevance:
+    - "移除无关信息"
+    - "提高上下文相关性"
+    - "聚焦核心问题"
+
+  low_organization:
+    - "使用清晰的结构"
+    - "添加标题和列表"
+    - "使用格式化突出重点"
+
+  low_clarity:
+    - "用明确的语言描述"
+    - "避免模糊表达"
+    - "提供具体示例"
+
+# 技能集成
+skill_integration:
+  prerequisites: []  # 本技能是基础，无前置依赖
+  compatible_with:
+    - "context-analysis"
+    - "context-optimization"
+    - "task-decomposer"
+    - "architect"
+  outputs_for:
+    - "所有其他技能"  # 作为基础知识

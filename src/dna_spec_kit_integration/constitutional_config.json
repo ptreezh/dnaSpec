@@ -1,0 +1,48 @@
+"""
+DNASPEC 宪法系统配置
+确保宪法原则成为系统的基本法
+"""
+{
+  "constitution": {
+    "name": "DNASPEC Constitution",
+    "version": "1.0.0",
+    "principles": [
+      {
+        "name": "progressive_disclosure",
+        "description": "所有生成内容必须支持渐进披露原则",
+        "enforcement_level": "mandatory",
+        "validation_required": true
+      },
+      {
+        "name": "cognitive_convenience",
+        "description": "最小化AI认知负荷，确保上下文清晰",
+        "enforcement_level": "mandatory", 
+        "validation_required": true
+      },
+      {
+        "name": "information_encapsulation",
+        "description": "子元素信息闭包，自包含",
+        "enforcement_level": "mandatory",
+        "validation_required": true
+      },
+      {
+        "name": "cognitive_gestalt",
+        "description": "认知格式塔完整性",
+        "enforcement_level": "mandatory",
+        "validation_required": true
+      }
+    ],
+    "enforcement_mechanisms": {
+      "pre_execution_hook": true,
+      "post_execution_hook": true, 
+      "input_validation": true,
+      "output_validation": true,
+      "global_interception": true
+    },
+    "system_integration": {
+      "skill_executor_enforced": true,
+      "base_class_required": true,
+      "direct_bypass_prevented": true
+    }
+  }
+}

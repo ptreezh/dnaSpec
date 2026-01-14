@@ -1,0 +1,93 @@
+# Task Decomposer Parameters
+# 任务分解器参数配置
+
+# 上下文大小限制
+context_limits:
+  atomic_task:
+    soft_limit: 2000      # 软限制（tokens）
+    hard_limit: 5000      # 硬限制（tokens）
+
+  ai_agent_task:
+    recommended: 1500     # 推荐值（tokens）
+    maximum: 3000         # 最大值（tokens）
+
+  coordinator:
+    maximum: 1000         # 最大值（tokens）
+
+# 任务分解参数
+decomposition:
+  max_tasks: 50           # 最大任务数
+  min_tasks: 2            # 最小任务数
+  default_hours_per_task: 4.0  # 默认每任务工时
+
+  # 复杂度阈值
+  complexity_thresholds:
+    simple: 0.3           # 简单任务阈值
+    medium: 0.6           # 中等任务阈值
+    complex: 0.8          # 复杂任务阈值
+
+# 提示词层次选择策略
+prompt_selection:
+  # 自动选择策略
+  auto:
+    minimal:
+      max_complexity: 0.3
+      max_tokens: 500
+
+    basic:
+      max_complexity: 0.5
+      max_tokens: 2000
+
+    intermediate:
+      max_complexity: 0.7
+      max_tokens: 5000
+
+    advanced:
+      # 超过intermediate的所有情况
+      fallback: true
+
+# 验证规则
+validation:
+  input:
+    min_length: 10        # 最小输入长度（字符）
+    max_length: 50000     # 最大输入长度（字符）
+    min_tokens: 50        # 最小token数
+    max_tokens: 100000    # 最大token数
+
+# 风险评估
+risk_assessment:
+  high_complexity: 0.8    # 高复杂度阈值
+  many_tasks: 15          # 任务数量过多阈值
+  large_context: 10000    # 上下文过大阈值（tokens）
+  huge_tokens: 30000      # token数过多阈值
+
+# 工作区配置
+workspace:
+  naming_pattern: "task-{id:03d}-{name}"
+  context_file: "context.md"
+  input_dir: "input/"
+  output_dir: "output/"
+  workspace_dir: "workspace/"
+
+# AI调用配置
+ai_config:
+  model: "claude-3.5-sonnet"
+  max_tokens: 4000
+  temperature: 0.3
+  timeout: 30  # 秒
+
+# 性能优化
+performance:
+  enable_caching: true
+  cache_ttl: 3600  # 缓存生存时间（秒）
+
+  # 并行处理
+  max_parallel_tasks: 5
+  parallel_analysis: true
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "task-decomposer.log"
+  max_size: "10MB"
+  backup_count: 5

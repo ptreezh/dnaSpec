@@ -1,6 +1,6 @@
 {
   "name": "dnaspec",
-  "version": "2.0.0",
+  "version": "2.0.5",
   "description": "DNASPEC Context Engineering Skills - Constitutional Validation & Coordination Contracts for AI CLI Platforms",
   "main": "index.js",
   "bin": {
@@ -32,13 +32,11 @@
   ],
   "author": "DNASPEC Team",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "optionalDependencies": {
     "fs-extra": "^11.0.0",
     "inquirer": "^9.0.0",
-    "execa": "^7.0.0",
-    "commander": "^10.0.0",
-    "glob": "^8.0.0",
-    "path": "^0.12.7"
+    "commander": "^10.0.0"
   },
   "engines": {
     "node": ">=14.0.0"

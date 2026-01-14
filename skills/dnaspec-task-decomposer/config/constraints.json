@@ -1,0 +1,54 @@
+{
+  "task_constraints": {
+    "max_depth": 5,
+    "max_dependencies_per_task": 10,
+    "max_estimated_hours_per_task": 40,
+    "min_estimated_hours_per_task": 0.5
+  },
+
+  "dependency_constraints": {
+    "allow_circular_dependencies": false,
+    "max_dependency_chain_length": 10,
+    "require_acyclic_graph": true
+  },
+
+  "workspace_constraints": {
+    "max_context_size": 5000,
+    "max_workspace_size_mb": 100,
+    "require_isolated_context": true,
+    "allow_shared_files": false
+  },
+
+  "quality_constraints": {
+    "min_test_coverage": 0.8,
+    "require_atomic_tasks": true,
+    "require_clear_boundaries": true,
+    "require_independent_testability": true
+  },
+
+  "naming_constraints": {
+    "task_id_pattern": "^\\d{3}$",
+    "task_name_pattern": "^[a-z][a-z0-9-]*$",
+    "workspace_name_pattern": "^task-\\d{3}-[a-z][a-z0-9-]*$",
+    "max_name_length": 50
+  },
+
+  "output_constraints": {
+    "max_tasks_in_output": 100,
+    "require_execution_plan": true,
+    "require_dependency_analysis": true,
+    "require_risk_assessment": true
+  },
+
+  "complexity_constraints": {
+    "max_complexity_score": 1.0,
+    "complexity_warning_threshold": 0.7,
+    "complexity_error_threshold": 0.9
+  },
+
+  "performance_constraints": {
+    "max_execution_time_seconds": 60,
+    "max_memory_usage_mb": 512,
+    "max_ai_calls_per_request": 3
+  }
+}

@@ -1,0 +1,67 @@
+{
+    "name": "architect-skill",
+    "version": "1.0.0",
+    "description": "System architecture design skill following Claude Skills specification",
+    "contact_email": "3061176@qq.com",
+    "legal_info_url": "https://AgentPsy.com/legal",
+    "privacy_policy_url": "https://AgentPsy.com/privacy",
+    "features": [
+        {
+            "type": "actions",
+            "actions": [
+                {
+                    "name": "analyze_context",
+                    "description": "Analyze context quality across 5 dimensions",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "input": {
+                                "type": "string",
+                                "description": "Input context to analyze"
+                            }
+                        },
+                        "required": ["input"]
+                    }
+                },
+                {
+                    "name": "optimize_context", 
+                    "description": "Optimize context for specific goals",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "input": {
+                                "type": "string",
+                                "description": "Input context to optimize"
+                            },
+                            "optimization_goals": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                                "description": "List of goals to optimize for"
+                            }
+                        },
+                        "required": ["input"]
+                    }
+                },
+                {
+                    "name": "apply_cognitive_template",
+                    "description": "Apply cognitive template to problem solving",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "input": {
+                                "type": "string",
+                                "description": "Input to apply template to"
+                            },
+                            "template_type": {
+                                "type": "string",
+                                "enum": ["chain_of_thought", "few_shot", "verification", "role_playing", "understanding"],
+                                "description": "Type of cognitive template to apply"
+                            }
+                        },
+                        "required": ["input", "template_type"]
+                    }
+                }
+            ]
+        }
+    ]
+}

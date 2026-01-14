@@ -1,0 +1,30 @@
+{
+  "skill_config": {
+    "name": "dnaspec-dapi-checker",
+    "version": "1.0.0",
+    "description": "分布式接口一致性检测器",
+    "llm_config": {
+      "provider": "ollama",
+      "model": "llama3:latest",
+      "temperature": 0.1,
+      "max_tokens": 4096
+    },
+    "resource_allocation": {
+      "cpu_limit": "1.0",
+      "memory_limit": "2GB",
+      "api_quota_per_hour": 200
+    }
+  },
+  "detection_config": {
+    "scan_levels": ["system", "module", "component", "function"],
+    "interface_types": ["external", "internal", "abstract"],
+    "consistency_checks": ["signature", "behavior", "contract", "documentation"],
+    "report_formats": ["json", "markdown", "html"]
+  },
+  "analysis_config": {
+    "depth": "detailed",
+    "cross_reference": true,
+    "historical_comparison": true,
+    "dependency_analysis": true
+  }
+}

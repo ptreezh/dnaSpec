@@ -10,12 +10,6 @@ test_projects/
 skill_test_project/
 test/
 
-# 开发文件和测试
-*.tgz
-.coverage
-.pytest_cache/
-__pycache__/
-
 # 演示和演示文档
 *.html
 comprehensive_homepage.html
@@ -49,9 +43,7 @@ data_cleaning_agent_*.json
 *_TEST_REPORT.md
 *_VERIFICATION.md
 
-# 开发和测试文件
-*.py
-*.js
+# 开发和测试文件 - 精确排除特定测试文件
 test_*.py
 check_*.py
 compare_*.py
@@ -61,10 +53,16 @@ batch_*.py
 detailed_*.py
 final_*.py
 comprehensive_*.py
-constitutional_*.py
 integrated_*.py
 standalone_*.py
 validate_*.py
+constitutional_*.py
+
+# 根目录下的特定文件
+root_test_*.py
+root_check_*.py
+root_debug_*.py
+constitutional_*.py
 
 # 配置和项目文件
 pyproject.toml

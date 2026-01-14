@@ -1,0 +1,32 @@
+{
+    "name": "task-decomposer-skill",
+    "version": "1.0.0",
+    "description": "任务分解专家，将复杂项目分解为可管理的任务",
+    "author": "DNASPEC Team",
+    "license": "MIT",
+    "main": "task_decomposer_claude.py",
+    "api_version": "v1",
+    "endpoints": {
+        "execute": "/execute"
+    },
+    "parameters": [
+        {
+            "name": "requirements",
+            "type": "string",
+            "description": "项目需求描述",
+            "required": true
+        },
+        {
+            "name": "max_depth",
+            "type": "integer",
+            "description": "最大分解深度",
+            "default": 3
+        }
+    ],
+    "events": [
+        {
+            "name": "decomposition_requested",
+            "description": "任务分解请求事件"
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-# QwenCode CLI Configuration
+﻿# QwenCode CLI Configuration
 
 ## Basic Information
 - **Name**: qwen

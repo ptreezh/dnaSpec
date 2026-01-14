@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNASPEC Integrated Demonstration Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+        }
+
+        nav {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0.3rem 0.8rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .nav-links a:hover:before {
+            left: 100%;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        main {
+            min-height: calc(100vh - 200px);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+            border-radius: 3px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #3498db 0%, #8e44ad 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro {
+            background-color: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .intro h2 {
+            text-align: left;
+            font-size: 2.2rem;
+            color: #2980b9;
+        }
+
+        .intro p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .overview {
+            background-color: #ecf0f1;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .overview-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-left: 5px solid #3498db;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .overview-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+        }
+
+        .overview-card h3 {
+            color: #2980b9;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .overview-card h3:before {
+            content: '•';
+            color: #9b59b6;
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        .overview-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .card-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .lifecycle {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .lifecycle-stages {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .lifecycle-stage {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #9b59b6;
+            position: relative;
+        }
+
+        .lifecycle-stage:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .lifecycle-stage h3 {
+            color: #8e44ad;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .lifecycle-stage h3:before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #9b59b6;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .lifecycle-stage p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .conceptual-framework {
+            background-color: #f8f9fa;
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .framework-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #667eea;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .framework-card h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .framework-card h3:before {
+            content: '•';
+            color: #764ba2;
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        .skills-framework {
+            background-color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #9b59b6;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .challenges {
+            background-color: #f8f5f5;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .challenge-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .challenge-card h3 {
+            color: #c0392b;
+            margin-bottom: 1rem;
+        }
+
+        .solutions {
+            background-color: #f0fff4;
+        }
+
+        .solution-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .solution-card {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #27ae60;
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .solution-card h3 {
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+
+        .integrated-system {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+        }
+
+        .system-architecture {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .agentic {
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .agentic h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .agentic p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .context-corruption {
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f0f0 100%);
+        }
+
+        .corruption-explanation {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.1);
+            margin: 2rem auto;
+            max-width: 1000px;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .corruption-explanation h2 {
+            color: #e74c3c;
+        }
+
+        .principles {
+            background-color: #f8f9fa;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .principle-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .principle-card h3 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+
+        .principle-card p {
+            color: #7f8c8d;
+        }
+
+        .qualitative-quantitative {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .architecture-diagram {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .qualitative-side {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .quantitative-side {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .integration-center {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .integration-center h4 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .integration-center p {
+            font-size: 0.9rem;
+        }
+
+        .skills-integration {
+            background-color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-integration-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #764ba2;
+        }
+
+        .skill-integration-card h3 {
+            color: #764ba2;
+            margin-bottom: 1.2rem;
+        }
+
+        .summary {
+            background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .summary h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .summary p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .page-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .page-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .example-box {
+            background-color: #e8f4fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-label {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0 0.5rem 0.5rem 0;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .framework-grid,
+            .overview-grid,
+            .comparison-grid,
+            .skills-grid,
+            .challenges-grid,
+            .solution-cards,
+            .principles-grid,
+            .architecture-diagram {
+                grid-template-columns: 1fr;
+            }
+
+            .architecture-diagram {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 0.3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .page-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DNASPEC Integrated Demonstration Center</h1>
+        <p>Dynamic Specification Growth System - Complete demonstration from concept to implementation</p>
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#intro">Project Mission</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#lifecycle">Full Lifecycle</a></li>
+            <li><a href="#integrated-hall">Integrated Seminar Hall</a></li>
+            <li><a href="#skills">Skill Framework</a></li>
+            <li><a href="#challenges">Development Challenges</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#context-corruption">Context Corruption</a></li>
+            <li><a href="#agentic">Agentic System</a></li>
+            <li><a href="#principles">Core Principles</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>DNASPEC - Dynamic Specification Growth System</h1>
+                <p>Inspired by biological DNA, supporting automated complexity growth of AI projects, achieving smooth evolution from simple concepts to complex intelligent systems</p>
+                <div class="page-links">
+                    <a href="#intro" class="page-link">Project Introduction</a>
+                    <a href="#lifecycle" class="page-link">Lifecycle</a>
+                    <a href="#integrated-hall" class="page-link">Integration Hall</a>
+                    <a href="#context-corruption" class="page-link">Context Corruption</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Mission -->
+        <section id="intro" class="section">
+            <div class="intro">
+                <h2>DNASPEC Project Mission</h2>
+                <p>DNASPEC (Dynamic Specification Growth System) is a platform inspired by biological DNA, focusing on the full lifecycle development of systems from simple ideas to complex intelligent systems.</p>
+                <p>Our core mission is to help users automatically build an intelligent, automatically growing standardization system in AI development processes through a series of carefully designed skills, following gestalt principles of cognitive processes and achieving general evolutionary development from simple to complex.</p>
+                <p>In the future, every system will be an integrated seminar hall, integrating qualitative and quantitative approaches. Qualitative parts primarily use chain of thought and prompt optimization, with confidence-based review and consensus computation from multi-source multi-dimensional thinking as judgment criteria; quantitative parts use definite, solidifiable logic and algorithms implemented as code.</p>
+            </div>
+        </section>
+
+        <!-- Overview -->
+        <section id="overview" class="section overview">
+            <div class="container">
+                <h2>Project Overview</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h3>Full System Lifecycle</h3>
+                        <p>From the idea initial stage to requirement standardization, then gradually refining functions, expanding functions step by step, and upgrading intelligence in all aspects.</p>
+                        <a href="#lifecycle" class="card-link">Learn More</a>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Integrated Seminar Hall</h3>
+                        <p>Future system architecture concept, integrating qualitative and quantitative approaches, achieving balance between intelligence and automation.</p>
+                        <a href="#integrated-hall" class="card-link">Learn More</a>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Context Corruption</h3>
+                        <p>Preventing degradation of context quality during system evolution, key concept for maintaining system health.</p>
+                        <a href="#context-corruption" class="card-link">Learn More</a>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Skill Framework</h3>
+                        <p>Series of skills provided by DNASPEC supporting intelligent automatic growth of systems.</p>
+                        <a href="#skills" class="card-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Full Lifecycle -->
+        <section id="lifecycle" class="section lifecycle">
+            <div class="container">
+                <h2>System Full Lifecycle Evolution</h2>
+                <div class="lifecycle-stages">
+                    <div class="lifecycle-stage">
+                        <h3>Stage 1: Idea Initial Stage</h3>
+                        <p><strong>Core Task:</strong> Transforming ambiguous concepts into clear requirements</p>
+                        <p>This stage handles users' most original ideas and concepts. The challenge is that ideas are often vague and incomplete, requiring gestalt principles of cognitive processes to integrate fragmented information into a complete conceptual framework.</p>
+                        <p><strong>Challenges:</strong> Conceptual ambiguity, lack of specific function definitions, unclear user requirements</p>
+                        <p><strong>DNASPEC Application:</strong> /dnaspec.context-analysis, /dnaspec.context-optimization, /dnaspec.cognitive-template</p>
+                    </div>
+                    
+                    <div class="lifecycle-stage">
+                        <h3>Stage 2: Requirement Standardization Stage</h3>
+                        <p><strong>Core Task:</strong> Transforming concepts into standardized functional requirements</p>
+                        <p>In this stage, fuzzy ideas are transformed into specific, executable requirement documents. Following top-down task decomposition principles, the overall concept is broken down into specific, manageable functional modules.</p>
+                        <p><strong>Challenges:</strong> Requirement decomposition may miss important functions, functional modules may have conflicts or redundancies</p>
+                        <p><strong>DNASPEC Application:</strong> /dnaspec.context-analysis, /dnaspec.cognitive-template, /dnaspec.architect</p>
+                    </div>
+                    
+                    <div class="lifecycle-stage">
+                        <h3>Stage 3: Function Refinement and Expansion Stage</h3>
+                        <p><strong>Core Task:</strong> Gradually refining and expanding system functions</p>
+                        <p>On the basis of requirement standardization, system functions are gradually refined and expanded. This stage requires careful avoidance of context bloat and context corruption to ensure that new functions remain consistent with existing architecture.</p>
+                        <p><strong>Challenges:</strong> Context bloat/corruption, rapid increase in system complexity, architectural chaos</p>
+                        <p><strong>DNASPEC Application:</strong> /dnaspec.modulizer, /dnaspec.architect, /dnaspec.context-analysis</p>
+                    </div>
+                    
+                    <div class="lifecycle-stage">
+                        <h3>Stage 4: Intelligence Upgrade Stage</h3>
+                        <p><strong>Core Task:</strong> Introducing intelligent agents (Agentic) to enhance system intelligence</p>
+                        <p>This stage uses local agents (Agent) to handle complex user intentions, avoiding overall system context bloat. Deterministic logic is solidified in code, while uncertain analysis is handled by agents.</p>
+                        <p><strong>Challenges:</strong> Complex comprehensive testing, difficulty in task alignment, logical inconsistency</p>
+                        <p><strong>DNASPEC Application:</strong> /dnaspec.agent-creator, /dnaspec.modulizer, /dnaspec.workspace</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrated Seminar Hall Concept -->
+        <section id="integrated-hall" class="section conceptual-framework">
+            <div class="container">
+                <h2>Integrated Seminar Hall Concept</h2>
+                <div class="framework-grid">
+                    <div class="framework-card">
+                        <h3>Qualitative Processing Mechanism</h3>
+                        <p>The qualitative part uses chain of thought and prompt optimization techniques to handle complex, fuzzy, or uncertain problems through multi-round reasoning and step-by-step analysis. The system combines confidence-based review mechanisms to verify and confirm reasoning processes, and improves judgment accuracy and reliability through consensus computation from multi-source multi-dimensional thinking.</p>
+                    </div>
+                    
+                    <div class="framework-card">
+                        <h3>Quantitative Processing Mechanism</h3>
+                        <p>The quantitative part uses traditional algorithms and logic to handle definite, solidifiable computational tasks. These tasks typically have deterministic input-output relationships that can be precisely implemented in code. By solidifying quantitative logic as code, the system can guarantee processing efficiency and consistency, providing a reliable foundation for qualitative reasoning.</p>
+                    </div>
+                    
+                    <div class="framework-card">
+                        <h3>Collaborative Working Mode</h3>
+                        <p>The qualitative and quantitative parts do not work independently but collaboratively through intelligent interfaces. The qualitative part can call quantitative modules for precise calculations, while the quantitative part can transfer complex decisions to the qualitative engine. This collaborative model enables the system to handle deterministic tasks while dealing with complex and uncertain scenarios, achieving true artificial intelligence levels.</p>
+                    </div>
+                    
+                    <div class="framework-card">
+                        <h3>System Architecture</h3>
+                        <p>
+                            <div class="architecture-diagram">
+                                <div class="qualitative-side">
+                                    <h4>Qualitative Engine</h4>
+                                    <p>Chain of Thought Reasoning</p>
+                                    <p>Prompt Optimization</p>
+                                </div>
+                                
+                                <div class="integration-center">
+                                    <h4>Intelligent Interface Layer</h4>
+                                    <p>Task Scheduling</p>
+                                    <p>Priority Management</p>
+                                </div>
+                                
+                                <div class="quantitative-side">
+                                    <h4>Quantitative Engine</h4>
+                                    <p>Algorithm Modules</p>
+                                    <p>Data Processing</p>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skill Framework -->
+        <section id="skills" class="section skills-framework">
+            <div class="container">
+                <h2>DNASPEC Skill Framework</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Context Analysis (/dnaspec.context-analysis)</h3>
+                        <p>Analyze input context quality across five dimensions: clarity, relevance, completeness, consistency, and efficiency, which is the core skill for ensuring quality consistency during system evolution.</p>
+                        <p><strong>Full Lifecycle Application:</strong> Idea stage assesses concept clarity, requirement stage verifies functional completeness, refinement stage monitors functional consistency, intelligence stage verifies agent integration degree</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Context Optimization (/dnaspec.context-optimization)</h3>
+                        <p>Use AI-driven improvements to optimize context quality, avoid context bloat and conceptual ambiguity.</p>
+                        <p><strong>Full Lifecycle Application:</strong> Idea stage optimizes initial concept expression, requirement stage refines functional requirement descriptions, refinement stage optimizes functional module interface definitions, intelligence stage optimizes agent interaction protocols</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Cognitive Template (/dnaspec.cognitive-template)</h3>
+                        <p>Apply cognitive frameworks (chain of thought, few-shot learning, verification, role playing) to structure complex tasks, following gestalt cognitive principles.</p>
+                        <p><strong>Full Lifecycle Application:</strong> Idea stage uses chain of thought to structure concepts, requirement stage uses verification template to confirm logical consistency, refinement stage uses decomposition templates to refine complex functions, intelligence stage uses role playing to design agents</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Agent Creator (/dnaspec.agent-creator)</h3>
+                        <p>Create specialized agents with local context to perform specific tasks, avoiding overall system context bloat.</p>
+                        <p><strong>Full Lifecycle Application:</strong> Intelligence stage creates task-specific agents, creates domain-specialized agents, creates decision-support agents, creates coordination agents</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Modulizer (/dnaspec.modulizer)</h3>
+                        <p>Decompose systems into reusable modules, implement bottom-up modularization, avoiding system complexity.</p>
+                        <p><strong>Full Lifecycle Application:</strong> Idea stage conceptual modular design, requirement stage functional modular planning, refinement stage specific module implementation, intelligence stage agent modular integration</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Challenges -->
+        <section id="challenges" class="section challenges">
+            <div class="container">
+                <h2>Core Challenges in System Development Process</h2>
+                <div class="challenges-grid">
+                    <div class="challenge-card">
+                        <h3>Context Bloat/Corruption</h3>
+                        <p>As system functions increase, the overall system context becomes too large or chaotic, causing decreased AI processing efficiency and slower system response. This is one of the main problems in system evolution from simple to complex.</p>
+                        <p><strong>Manifestations:</strong> Increased AI model processing time, slower system response, exponential increase in maintenance complexity</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <h3>System Complexity</h3>
+                        <p>Too many system functions, overly complex architecture, resulting in decreased development efficiency, increased maintenance costs, and difficult team collaboration.</p>
+                        <p><strong>Manifestations:</strong> Large codebase difficult to understand, extended function development cycles</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <h3>Architectural Chaos</h3>
+                        <p>As functions expand, the system architecture becomes chaotic, module boundaries become blurred, responsibilities are unclear, making the system difficult to maintain and extend.</p>
+                        <p><strong>Manifestations:</strong> High coupling between modules, changes affecting the entire system</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <h3>Task Misalignment</h3>
+                        <p>After task decomposition, various levels of tasks may have inconsistent goals or execution deviations, leading to ineffective achievement of overall system objectives.</p>
+                        <p><strong>Manifestations:</strong> Unaligned module development goals, suboptimal overall system performance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions -->
+        <section id="solutions" class="section solutions">
+            <div class="container">
+                <h2>DNASPEC Solutions</h2>
+                <div class="solution-cards">
+                    <div class="solution-card">
+                        <h3>Local Agent (Agentic) Architecture</h3>
+                        <p>Create specialized agents with local context through /dnaspec.agent-creator, avoiding overall system context bloat. Each agent focuses only on its task domain, improving system efficiency and maintainability.</p>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h3>Modular Decomposition Strategy</h3>
+                        <p>Implement system modularity through /dnaspec.modulizer, decomposing complex systems into independent, manageable modules. Each module has clear responsibilities and interfaces, supporting bottom-up development and testing.</p>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h3>Continuous Context Monitoring</h3>
+                        <p>Use /dnaspec.context-analysis to continuously monitor system context health, promptly identify context bloat and inconsistency issues, and optimize through /dnaspec.context-optimization.</p>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h3>Layered Intelligence Strategy</h3>
+                        <p>Solidify deterministic logic with code and algorithms, implement qualitative parts involving user intent with prompts, and return uncertainty analysis to the user interface to achieve intelligence in future systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Context Corruption Concept -->
+        <section id="context-corruption" class="section context-corruption">
+            <div class="container">
+                <div class="corruption-explanation">
+                    <h2>Context Corruption Concept Explanation</h2>
+                    <p><strong>Definition:</strong> Context corruption refers to the phenomenon where system context gradually becomes chaotic, inconsistent, or difficult to understand during system evolution, due to continuous function additions, complexified module dependency relationships, incomplete code refactoring, etc.</p>
+                    <p><strong>Distinction from Context Bloat:</strong> Context bloat refers to excessive context quantity, while context corruption refers to decreased context quality. Both may occur simultaneously but focus on different aspects.</p>
+                    <p><strong>Solutions:</strong> Continuously monitor context quality through /dnaspec.context-analysis, optimize corrupted context using /dnaspec.context-optimization, prevent corruption spread by applying /dnaspec.modulizer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agentic System -->
+        <section id="agentic" class="agentic">
+            <div class="container">
+                <h2>Agentic System: Future of Intelligent Evolution</h2>
+                <p>DNASPEC's highest goal is to achieve an Agentic system, capable of autonomously and intelligently completing complex tasks. This is reflected not only in supporting the development process but also in the intelligence of target systems.</p>
+                <p>Through skills like /dnaspec.agent-creator, we can create specialized agents in target systems to handle specific tasks. These agents have local context, focusing only on their responsibility domains, maintaining system intelligence while avoiding overall system context bloat.</p>
+                <p>In this Integrated Seminar Hall concept, qualitative and quantitative processing approaches are organically integrated. Qualitative parts mainly use chain of thought and prompt optimization, with confidence-based review and consensus computation from multi-source multi-dimensional thinking as judgment criteria; quantitative parts use definite, solidifiable logic and algorithms implemented as code.</p>
+            </div>
+        </section>
+
+        <!-- Core Principles -->
+        <section id="principles" class="section principles">
+            <div class="container">
+                <h2>Core Design Principles</h2>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h3>Gestalt Cognitive Principle</h3>
+                        <p>System components should form a unified, coherent whole, following proximity, similarity, continuity, closure and other gestalt principles to ensure consistency in user cognition.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h3>Top-Down Decomposition</h3>
+                        <p>Starting from the overall concept, gradually decompose into specific, executable functional modules, ensuring logical consistency in the decomposition process.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h3>Context Isolation</h3>
+                        <p>Achieve context isolation through agents and modularization, avoiding unlimited bloat/corruption of single context, maintaining system efficiency.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h3>Progressive Growth</h3>
+                        <p>The system should be able to grow smoothly from simple to complex, with each growth step built on the solid foundation of the previous step.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h3>Automated Verification</h3>
+                        <p>Continuously verify system consistency and completeness through automated tools, preventing task misalignment and logical inconsistency.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h3>Intelligence and Determinism Balance</h3>
+                        <p>Maintain balance between system intelligence and predictability, using code for deterministic logic and agents for uncertainty.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="summary">
+        <div class="container">
+            <h2>Summary</h2>
+            <p>DNASPEC supports the full lifecycle development of systems from simple ideas to complex intelligent systems through its skill framework.</p>
+            <p>We achieve balance between intelligence and automation through the Integrated Seminar Hall concept, integrating qualitative and quantitative processing approaches.</p>
+            <p>By correctly understanding the Context Corruption concept, we can better maintain system health.</p>
+            <p>The ultimate goal is to achieve an Agentic system supporting intelligent Integrated Seminar Halls for future systems.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DNASPEC Project - Dynamic Specification Growth System. Full lifecycle for systems, from simple ideas to complex intelligent systems' intelligent automatic growth platform.</p>
+        </div>
+    </footer>
+</body>
+</html>

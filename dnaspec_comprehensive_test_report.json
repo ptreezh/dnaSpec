@@ -1,0 +1,73 @@
+{
+  "total": 14,
+  "passed": 13,
+  "failed": 1,
+  "success_rate": 92.85714285714286,
+  "details": [
+    [
+      "Verify package is installed",
+      true
+    ],
+    [
+      "Test package importability",
+      true
+    ],
+    [
+      "Check uninstall command availability",
+      true
+    ],
+    [
+      "Check if Node.js is available (required for Stigmergy)",
+      true
+    ],
+    [
+      "Check if npm is available (required for Stigmergy)",
+      true
+    ],
+    [
+      "Check for globally installed Stigmergy",
+      true
+    ],
+    [
+      "Check current deployment status and Stigmergy availability",
+      true
+    ],
+    [
+      "test_stigmergy_scenarios execution",
+      false
+    ],
+    [
+      "Detect installed AI CLI tools",
+      true
+    ],
+    [
+      "List available DNASPEC skills",
+      true
+    ],
+    [
+      "Check available skills through handler",
+      true
+    ],
+    [
+      "Force project-level deployment",
+      true
+    ],
+    [
+      "Check for .dnaspec directory creation",
+      true
+    ],
+    [
+      "Check slash commands directory",
+      true
+    ]
+  ],
+  "timestamp": 1765859361.796814,
+  "test_categories": {
+    "installation": "Installation Methods",
+    "uninstallation": "Uninstallation Methods",
+    "stigmergy_detection": "Stigmergy Detection",
+    "stigmergy_scenarios": "Stigmergy Scenarios",
+    "cli_integration": "CLI Integration",
+    "project_deployment": "Project Deployment"
+  }
+}

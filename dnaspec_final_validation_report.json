@@ -1,0 +1,63 @@
+{
+  "total_tests": 13,
+  "passed_tests": 6,
+  "failed_tests": 7,
+  "success_rate": 46.15384615384615,
+  "results": [
+    [
+      "Architect Skill (/dnaspec.architect)",
+      true
+    ],
+    [
+      "Agent Creator Skill (/dnaspec.agent-creator)",
+      true
+    ],
+    [
+      "Task Decomposer Skill (/dnaspec.task-decomposer)",
+      true
+    ],
+    [
+      "Constraint Generator Skill (/dnaspec.constraint-generator)",
+      true
+    ],
+    [
+      "API Checker Skill (/dnaspec.dapi-checker)",
+      true
+    ],
+    [
+      "Modulizer Skill (/dnaspec.modulizer)",
+      true
+    ],
+    [
+      "Constitutional Validator (/dnaspec.constitutional-validator)",
+      false
+    ],
+    [
+      "Contract Checker (/dnaspec.contract-checker)",
+      false
+    ],
+    [
+      "Temp Workspace (/dnaspec.temp-workspace)",
+      false
+    ],
+    [
+      "Git Operations (/dnaspec.git-ops)",
+      false
+    ],
+    [
+      "Project Constitution (/dnaspec.project-constitution)",
+      false
+    ],
+    [
+      "Contract Enforcer (/dnaspec.contract-enforcer)",
+      false
+    ],
+    [
+      "Workspace Manager (/dnaspec.workspace-manager)",
+      false
+    ]
+  ],
+  "command_format": "/dnaspec.{skill_name} [parameters]",
+  "validation_time": 1765888518.0374222,
+  "validation_type": "Correct Command Format Verification"
+}

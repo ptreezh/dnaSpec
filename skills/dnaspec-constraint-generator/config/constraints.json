@@ -1,0 +1,242 @@
+{
+  "constraint_templates": {
+    "performance": {
+      "api_response_time": {
+        "name": "API响应时间约束",
+        "template": "P95响应时间 < {threshold}ms",
+        "variables": {
+          "threshold": {
+            "type": "number",
+            "range": [50, 500],
+            "default": 200
+          }
+        },
+        "verification_method": "使用JMeter或Locust进行压力测试",
+        "examples": [
+          "P95响应时间 < 100ms",
+          "P95响应时间 < 200ms",
+          "P95响应时间 < 500ms"
+        ]
+      },
+      "throughput": {
+        "name": "吞吐量约束",
+        "template": "系统支持 {metric} {value}",
+        "variables": {
+          "metric": {
+            "type": "enum",
+            "values": ["QPS", "TPS", "RPS"]
+          },
+          "value": {
+            "type": "number",
+            "range": [100, 100000]
+          }
+        },
+        "verification_method": "使用性能监控工具（如Prometheus）持续监控",
+        "examples": [
+          "系统支持 1000 QPS",
+          "系统支持 5000 TPS",
+          "系统支持 10000 RPS"
+        ]
+      }
+    },
+    "security": {
+      "authentication": {
+        "name": "认证约束",
+        "template": "所有API必须使用{method}进行认证",
+        "variables": {
+          "method": {
+            "type": "enum",
+            "values": ["OAuth 2.0", "JWT", "API Key", "mTLS"]
+          }
+        },
+        "verification_method": "自动化测试验证未认证请求被拒绝",
+        "examples": [
+          "所有API必须使用JWT进行认证",
+          "所有API必须使用OAuth 2.0进行认证"
+        ]
+      },
+      "encryption": {
+        "name": "加密约束",
+        "template": "敏感数据使用{algorithm}加密，密钥长度{key_size}",
+        "variables": {
+          "algorithm": {
+            "type": "enum",
+            "values": ["AES-256", "RSA-2048", "RSA-4096"]
+          },
+          "key_size": {
+            "type": "number",
+            "range": [128, 4096]
+          }
+        },
+        "verification_method": "安全扫描和代码审查验证加密实现",
+        "examples": [
+          "敏感数据使用AES-256加密",
+          "传输数据使用TLS 1.3加密"
+        ]
+      }
+    },
+    "availability": {
+      "uptime": {
+        "name": "可用性约束",
+        "template": "系统可用性 ≥ {availability}%",
+        "variables": {
+          "availability": {
+            "type": "number",
+            "range": [99, 99.999]
+          }
+        },
+        "verification_method": "使用监控工具（如Pingdom）持续监控",
+        "examples": [
+          "系统可用性 ≥ 99.9%",
+          "系统可用性 ≥ 99.99%"
+        ]
+      },
+      "recovery_time": {
+        "name": "恢复时间约束",
+        "template": "RTO（恢复时间目标）≤ {time}分钟，RPO（恢复点目标）≤ {data_loss}分钟",
+        "variables": {
+          "time": {
+            "type": "number",
+            "range": [1, 60]
+          },
+          "data_loss": {
+            "type": "number",
+            "range": [0, 60]
+          }
+        },
+        "verification_method": "定期进行灾难恢复演练",
+        "examples": [
+          "RTO ≤ 15分钟，RPO ≤ 5分钟",
+          "RTO ≤ 60分钟，RPO ≤ 15分钟"
+        ]
+      }
+    },
+    "functional": {
+      "user_story": {
+        "name": "用户故事约束",
+        "template": "作为{role}，我想要{action}，以便于{benefit}",
+        "variables": {
+          "role": {
+            "type": "string",
+            "description": "用户角色"
+          },
+          "action": {
+            "type": "string",
+            "description": "期望的动作"
+          },
+          "benefit": {
+            "type": "string",
+            "description": "获得的价值"
+          }
+        },
+        "verification_method": "使用Given-When-Then格式编写验收标准",
+        "examples": [
+          "作为用户，我想要通过邮箱登录，以便于访问我的账户",
+          "作为管理员，我想要管理用户权限，以便于控制系统访问"
+        ]
+      }
+    },
+    "technical": {
+      "technology_stack": {
+        "name": "技术栈约束",
+        "template": "系统使用{language} + {framework} + {database}",
+        "variables": {
+          "language": {
+            "type": "enum",
+            "values": ["Python", "JavaScript", "Java", "Go", "Rust"]
+          },
+          "framework": {
+            "type": "string",
+            "description": "框架名称"
+          },
+          "database": {
+            "type": "enum",
+            "values": ["PostgreSQL", "MySQL", "MongoDB", "Redis"]
+          }
+        },
+        "verification_method": "代码审查和架构文档验证",
+        "examples": [
+          "系统使用Python + FastAPI + PostgreSQL",
+          "系统使用Node.js + Express + MongoDB"
+        ]
+      }
+    }
+  },
+  "smart_principles": {
+    "description": "SMART原则用于确保约束的质量",
+    "principles": {
+      "specific": {
+        "name": "具体的",
+        "description": "约束应该明确、清晰，避免模糊表述",
+        "examples": {
+          "bad": "系统要快",
+          "good": "P95响应时间 < 200ms"
+        }
+      },
+      "measurable": {
+        "name": "可测量的",
+        "description": "约束应该能够量化，便于验证",
+        "examples": {
+          "bad": "系统要稳定",
+          "good": "系统可用性 ≥ 99.9%"
+        }
+      },
+      "achievable": {
+        "name": "可实现的",
+        "description": "约束应该在技术、时间和预算范围内可实现",
+        "examples": {
+          "bad": "响应时间 < 1ms（在没有特殊硬件的情况下）",
+          "good": "P95响应时间 < 200ms（基于架构分析）"
+        }
+      },
+      "relevant": {
+        "name": "相关的",
+        "description": "约束应该与业务目标和技术需求相关",
+        "examples": {
+          "bad": "代码必须使用单变量名",
+          "good": "代码必须符合PEP 8规范"
+        }
+      },
+      "time_bound": {
+        "name": "有时限的",
+        "description": "约束应该明确验证时间或达成时间",
+        "examples": {
+          "bad": "系统要支持高并发",
+          "good": "系统必须在Q4前支持1000 QPS"
+        }
+      }
+    }
+  },
+  "constraint_layers": {
+    "description": "约束在不同层次的应用",
+    "layers": {
+      "system_level": {
+        "name": "系统级约束",
+        "scope": "整个系统",
+        "examples": [
+          "系统可用性 ≥ 99.99%",
+          "支持100万并发用户",
+          "数据存储符合GDPR要求"
+        ]
+      },
+      "module_level": {
+        "name": "模块级约束",
+        "scope": "特定模块或服务",
+        "examples": [
+          "用户服务响应时间 < 100ms",
+          "支付服务必须支持PCI DSS合规",
+          "订单模块支持5000 TPS"
+        ]
+      },
+      "code_level": {
+        "name": "代码级约束",
+        "scope": "代码实现",
+        "examples": [
+          "函数圈复杂度 ≤ 10",
+          "测试覆盖率 ≥ 80%",
+          "代码必须通过linter检查"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[PASS] TC-HM-001: 注册Hook回调
+[PASS] TC-HM-002: 触发Hook
+[PASS] TC-HM-003: 多回调触发
+[PASS] TC-AG-001: Agent处理请求
+[PASS] TC-AG-002: AgentManager管理Agent
+[PASS] TC-TM-001: 执行Bash工具
+[PASS] TC-TM-002: 执行Glob工具
+[PASS] TC-MCP-001: 获取服务器能力
+[PASS] TC-MCP-002: 处理MCP请求
+[PASS] TC-INT-001: 完整插件生命周期

@@ -1,0 +1,44 @@
+{
+  "total": 9,
+  "passed": 9,
+  "failed": 0,
+  "success_rate": 100.0,
+  "details": [
+    [
+      "Import core modules",
+      true
+    ],
+    [
+      "DNASPEC CLI availability",
+      true
+    ],
+    [
+      "List available skills",
+      true
+    ],
+    [
+      "Create CLI detector",
+      true
+    ],
+    [
+      "Check deployment status",
+      true
+    ],
+    [
+      "Direct context analysis function",
+      true
+    ],
+    [
+      "Direct context optimization function",
+      true
+    ],
+    [
+      "Direct cognitive template function",
+      true
+    ],
+    [
+      "Check auto-config script availability",
+      true
+    ]
+  ]
+}

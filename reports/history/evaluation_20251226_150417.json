@@ -1,0 +1,287 @@
+{
+  "evaluated_at": "2025-12-26T15:04:17.529025",
+  "overall_metrics": {
+    "total_skills": 13,
+    "skills_passing_threshold": 13,
+    "average_quality_score": 0.9251282051282051,
+    "collaboration_score": 0.936875,
+    "usability_score": 0.555076923076923,
+    "health_status": "healthy"
+  },
+  "skill_evaluations": {
+    "dnaspec-agent-creator": {
+      "overall_score": 0.94,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_agent-creator.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 1.0,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.94,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-architect": {
+      "overall_score": 0.9337500000000001,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试执行异常: argument of type 'NoneType' is not iterable"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 0.9750000000000001,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.9337500000000001,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-cognitive-template": {
+      "overall_score": 0.9337500000000001,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_cognitive-template.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 0.9750000000000001,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.9337500000000001,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-constraint-generator": {
+      "overall_score": 0.9337500000000001,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_constraint-generator.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 0.9750000000000001,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.9337500000000001,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-context-analysis": {
+      "overall_score": 0.9337500000000001,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_context-analysis.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 0.9750000000000001,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.9337500000000001,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-context-fundamentals": {
+      "overall_score": 0.9337500000000001,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_context-fundamentals.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 0.9750000000000001,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.9337500000000001,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-context-optimization": {
+      "overall_score": 0.94,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_context-optimization.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 1.0,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.94,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-dapi-checker": {
+      "overall_score": 0.7904166666666667,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_dapi-checker.py"
+      ],
+      "recommendations": [
+        "📋 提示完整性不足，建议补充更多示例和说明",
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 0.925,
+        "completeness": 0.4766666666666666,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.7904166666666667,
+        "level": "good"
+      }
+    },
+    "dnaspec-git": {
+      "overall_score": 0.9337500000000001,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试执行异常: argument of type 'NoneType' is not iterable"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 0.9750000000000001,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.9337500000000001,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-modulizer": {
+      "overall_score": 0.94,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_modulizer.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 1.0,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.94,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-system-architect": {
+      "overall_score": 0.94,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_system-architect.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 1.0,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.94,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-task-decomposer": {
+      "overall_score": 0.94,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试文件不存在: D:\\DAIP\\dnaSpec\\test_task-decomposer.py"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 1.0,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.94,
+        "level": "excellent"
+      }
+    },
+    "dnaspec-workspace": {
+      "overall_score": 0.9337500000000001,
+      "test_success_rate": 0.0,
+      "tests_passed": 0,
+      "tests_total": 0,
+      "issues": [
+        "测试执行异常: argument of type 'NoneType' is not iterable"
+      ],
+      "recommendations": [
+        "🧪 测试通过率仅 0%，需要修复失败的测试"
+      ],
+      "quality_score": {
+        "clarity": 0.9750000000000001,
+        "completeness": 1.0,
+        "consistency": 1.0,
+        "efficiency": 0.8,
+        "relevance": 0.8,
+        "overall": 0.9337500000000001,
+        "level": "excellent"
+      }
+    }
+  }
+}

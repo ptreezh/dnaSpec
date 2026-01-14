@@ -1,0 +1,54 @@
+DNASPEC HTML文档目录结构
+==========================
+
+web/
+├── README.html                    # 导航索引页面
+├── index.html                     # 根目录入口页面
+├── homepage/                      # 主页和入口页面
+│   ├── index.html                 # 主页面
+│   ├── main_index.html            # 主索引页
+│   ├── main_portal.html           # 主门户页
+│   └── index_en.html              # 英文主页面
+├── demo/                          # 演示和介绍页面
+│   ├── agentic_demo.html          # 智能体演示
+│   ├── example_demo.html          # 示例演示
+│   └── comprehensive_homepage.html # 综合首页
+├── concepts/                      # 系统概念页面
+│   ├── agentic_system_vision.html # 智能体系统愿景
+│   ├── integrated_hall.html       # 集成大厅主页
+│   ├── integrated_hall_architecture.html
+│   ├── integrated_hall_concept.html
+│   ├── integrated_hall_ecosystem.html
+│   ├── integrated_hall_ecosystem_complete.html
+│   ├── integrated_hall_main_concept.html
+│   ├── integrated_hall_philosophy.html
+│   ├── integrated_hall_vision.html
+│   ├── integrated_synthesis.html  # 综合合成主页
+│   ├── integrated_synthesis_hall_main.html
+│   ├── integrated_synthesis_hall.html
+│   └── integrated_synthesis_q2.html
+├── docs/                          # 技术文档页面
+│   ├── api_documentation_page.html # API文档
+│   ├── skills_documentation.html  # 技能文档
+│   └── spec_kit_webpage.html      # Spec Kit网页
+└── guides/                        # 用户指南页面
+    ├── avoid_pitfalls_guide.html  # 避免陷阱指南
+    ├── project_vision.html        # 项目愿景
+    ├── issue_analysis.html        # 问题分析
+    ├── reality_check.html         # 现实检查
+    └── context_corruption.html    # 上下文污染
+
+统计信息：
+- 总计HTML文件：30个
+- 主页文件：4个
+- 演示文件：3个
+- 概念文件：13个
+- 文档文件：3个
+- 指南文件：5个
+
+使用方法：
+1. 打开 web/README.html 查看完整的导航页面
+2. 直接访问各分类目录中的HTML文件
+3. 使用 web/index.html 作为根入口页面
+
+最后整理时间：2025年12月22日

@@ -1,6 +1,6 @@
 # DNASPEC Integration Validation Report
 
-Generated at: 2025-12-13T19:50:11.772853
+Generated at: 2025-12-16T12:25:20.388867
 
 ## CLAUDE Integration
 ❌ Status: Invalid
@@ -17,7 +17,7 @@ Generated at: 2025-12-13T19:50:11.772853
 ## IFLOW Integration
 ✅ Status: Valid
 📁 Config Path: C:\Users\Zhang\.iflow\commands
-⚡ Test: Passed (Response time: 0.0ms)
+⚡ Test: Passed (Response time: 63.63ms)
 
 ## QODERCLI Integration
 ✅ Status: Valid
